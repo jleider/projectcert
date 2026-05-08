@@ -116,6 +116,38 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2015-04-30",
+      "title": "Indiana adopts Indiana Seal of Biliteracy",
+      "description": "Indiana enacted its Seal of Biliteracy program (HEA 1638), recognizing graduates proficient in English plus one or more additional languages. IDOE administers the credential at the district level; participation has expanded steadily since adoption.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/"
+      ]
+    },
+    {
+      "date": "2019-08-09",
+      "title": "IDOE issues EL Program Staffing memo defining 'EL Teacher of Record'",
+      "description": "IDOE clarified that every LEA serving ELs must designate at least one ENL-licensed (or ENL Emergency Permit) EL Teacher of Record. Non-ENL classroom teachers may serve ELs as Teachers of Service under ToR oversight. This memo is the operative staffing rule that replaces a generic SEI mandate in Indiana.",
+      "sourceUrls": [
+        "https://www.in.gov/doe/files/EL-Program-Staffing-Memo.pdf"
+      ]
+    },
+    {
+      "date": "2022-09-01",
+      "title": "EL ToR alternate qualification path closes",
+      "description": "The alternate-qualification rubric path that allowed non-ENL-licensed teachers to be qualified as EL Teacher of Record sunset on 2022-09-01. ENL licensure (or an ENL Emergency Permit) is now the sole pathway to ToR status, tightening the credential market for EL services.",
+      "sourceUrls": [
+        "https://www.in.gov/doe/files/Meeting-EL-ToR-Requirements.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-audit (history events captured)",
+      "description": "Re-audited against current IDOE sources. No coding changes; this pass added Seal of Biliteracy adoption, EL Program Staffing memo, and EL ToR alternate-path sunset to the history log per the §3a history-capture emphasis.",
+      "sourceUrls": [
+        "https://www.in.gov/doe/files/EL-ToR-FAQ.pdf"
+      ]
     }
   ]
 }
