@@ -7,6 +7,29 @@ import { FEEDBACK_FORM } from "@/config/feedback";
 import { SITE_URL, SITE_NAME } from "@/config/site";
 import { ROUTES, ANCHORS, sameAnchor, withAnchor } from "@/lib/routes";
 
+/**
+ * Google Scholar discovery metadata. Scholar's crawler builds its
+ * search index off `<meta name="citation_*">` tags, not OG or JSON-LD.
+ * Set on pages that constitute a citable artifact (state records,
+ * credential reports, the homepage dataset). Per Scholar's HTML inclusion
+ * guidelines: title, author, publication_date, and public_url are
+ * required; doi is recommended once minted; multiple `citation_author`
+ * tags are emitted when `authors` has >1 entry.
+ *
+ * https://scholar.google.com/intl/en/scholar/inclusion.html#indexing
+ */
+export interface CitationMeta {
+  title: string;
+  /** Defaults to ["projectcert"] (matches the existing CitationBlock convention). */
+  authors?: string[];
+  /** YYYY-MM-DD; Scholar accepts the dashed form. */
+  publicationDate: string;
+  /** Absolute URL of the citable page. Defaults to the canonical URL. */
+  publicUrl?: string;
+  /** Once the Zenodo DOI is minted, pass it here so it propagates into citation_doi too. */
+  doi?: string;
+}
+
 interface Props {
   title: string;
   description?: string;
@@ -20,6 +43,8 @@ interface Props {
   image?: string;
   /** Per-page JSON-LD (Dataset, Article, etc.). The site-level Organization + WebSite is always emitted. */
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /** Google Scholar discovery metadata. Omit on non-citable pages (404, embed). */
+  citation?: CitationMeta;
 }
 
 const {
@@ -30,6 +55,7 @@ const {
   publishedTime,
   image,
   jsonLd,
+  citation,
 } = Astro.props;
 
 const fullTitle = `${title} — ${SITE_NAME}`;
@@ -94,6 +120,18 @@ const siteJsonLd = [
     <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {citation && (
+      <>
+        <meta name="citation_title" content={citation.title} />
+        {(citation.authors ?? ["projectcert"]).map((a) => (
+          <meta name="citation_author" content={a} />
+        ))}
+        <meta name="citation_publication_date" content={citation.publicationDate} />
+        <meta name="citation_public_url" content={citation.publicUrl ?? canonicalUrl} />
+        {citation.doi && <meta name="citation_doi" content={citation.doi} />}
+      </>
+    )}
 
     <JsonLd data={siteJsonLd} />
     {jsonLd && <JsonLd data={jsonLd} />}

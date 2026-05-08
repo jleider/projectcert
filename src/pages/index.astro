@@ -6,7 +6,7 @@ import CitationBlock from "@/components/CitationBlock.astro";
 import StateLink from "@/components/StateLink.astro";
 import StateSeal from "@/components/StateSeal.astro";
 import { getChoroplethData, getAllStates, absoluteStateUrl, type Layer } from "@/lib/state-data";
-import { ROUTES, ANCHORS, sameAnchor } from "@/lib/routes";
+import { ROUTES, ANCHORS, sameAnchor, absoluteRoute } from "@/lib/routes";
 import { SITE_URL } from "@/config/site";
 
 const data = await getChoroplethData();
@@ -66,6 +66,11 @@ const homeJsonLd = {
   title="EL teacher certification across U.S. states"
   description="An atlas of every U.S. state education agency's teacher certification requirements for instructing classified English Learner students."
   jsonLd={homeJsonLd}
+  citation={{
+    title: "projectcert: a 51-state atlas of EL teacher certification",
+    publicationDate: latestVerified,
+    publicUrl: absoluteRoute(SITE_URL, ROUTES.home),
+  }}
 >
   <section class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="text-3xl sm:text-4xl font-bold text-ink max-w-3xl">

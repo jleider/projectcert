@@ -143,10 +143,17 @@ Make it trivial for both humans and AI systems to lift a citation:
       Zenodo DOI is minted, pass it as the `doi` prop on the citation-
       block call sites in `src/pages/states/[usps].astro` and
       `src/pages/index.astro`
-- [ ] Add `<meta name="citation_*">` tags for Google Scholar:
-      `citation_title`, `citation_author`, `citation_publication_date`,
-      `citation_doi`, `citation_public_url`. Scholar uses these to
-      build its search index
+- [x] ~~Add `<meta name="citation_*">` tags for Google Scholar~~
+      Done — `BaseLayout.astro` accepts a `citation` prop
+      (`{ title, authors?, publicationDate, publicUrl?, doi? }`) and
+      emits `citation_title`, `citation_author` (one tag per author;
+      defaults to `["projectcert"]`), `citation_publication_date`,
+      `citation_public_url`, and `citation_doi` (when present). Wired
+      on the home page and all 51 state pages; deliberately omitted on
+      non-citable pages (404, embed, methodology, glossary). Scholar
+      indexing usually shows up 4–8 weeks after Search Console crawls.
+      Once the Zenodo DOI is minted, pass it as `citation.doi` at the
+      two call sites in `[usps].astro` and `index.astro`.
 
 ## 7. Wikipedia (#2) — slow, durable, the highest LLM-citation lever
 

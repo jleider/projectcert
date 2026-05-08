@@ -80,6 +80,11 @@ const stateJsonLd = [
   type="article"
   modifiedTime={s.lastVerified}
   jsonLd={stateJsonLd}
+  citation={{
+    title: `${s.name} EL teacher certification`,
+    publicationDate: s.lastVerified,
+    publicUrl: stateUrl,
+  }}
 >
   <article class="max-w-4xl mx-auto px-4 py-8">
     <p class="text-sm text-ink-muted">
