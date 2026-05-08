@@ -1,8 +1,8 @@
 {
   "usps": "UT",
   "name": "Utah",
-  "elPercent": 7.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 8.3,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -10,12 +10,12 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
+        "coursework": true,
+        "practicum": true,
+        "test": false,
         "languageProficiency": true
       },
-      "notes": "Two pathways: state-approved program OR university courses + Utah Dual Language Institute."
+      "notes": "USBE Dual Language Immersion (DLI) Endorsement attaches to a Professional or Associate Educator License (Elementary or Secondary) and authorizes K-12 DLI and Bridge classroom assignment. Three named requirement areas: (1) Foundations of DLI — satisfied by a USBE-approved DLI prep program/minor at one of five Utah universities (BYU, Utah, USU, UVU, Weber State), a Foundations of DLI university course, or six competency-based microcredential modules; (2) DLI Clinical Experience — satisfied via the same approved program OR ≥1 year teaching in an approved DLI/Bridge program; (3) World Language Oral Proficiency — ACTFL OPI Advanced-Mid, ACTFL OPIc Advanced-Low, or a bachelor's degree from a foreign university taught in the target language. No Praxis content exam is required."
     },
     "eld": {
       "offered": true,
@@ -23,11 +23,12 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
+        "coursework": true,
         "practicum": null,
-        "test": null,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "USBE English as a Second Language Endorsement (ADA-Compliant application 7/10/2023) is an add-on to a current Educator License, anchored to TESOL Pre-K-12 Teacher Preparation Standards. Five requirement areas — Language, Culture, Assessment, Instruction, and Family & Community Engagement (Professionalism) — each satisfied by ONE of four interchangeable demonstrations of competency: (a) university course, (b) competency-based USBE-approved LEA program, (c) Master's degree with ESL major or minor (or out-of-state ESL license), or (d) Praxis II 5362 (English to Speakers of Other Languages, passing score 149). The application does not list a practicum requirement; the underlying R277 administrative rule was not retrieved in this verification pass, so practicum is logged as unknown rather than false."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -61,10 +62,40 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "USBE — English as a Second Language Endorsement application (ADA-Compliant 7/10/2023)",
+      "url": "https://www.schools.utah.gov/curr/licensing/endorsements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "USBE — Dual Language Immersion Endorsement application",
+      "url": "https://www.schools.utah.gov/curr/licensing/endorsements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "USBE — World Languages Endorsement specifications",
+      "url": "https://www.schools.utah.gov/curr/licensing/endorsements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "USBE — Utah Effective Teaching Standards (UETS), August 2023",
+      "url": "https://www.schools.utah.gov/educatoreffectiveness",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -73,6 +104,11 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-verified against current USBE sources",
+      "description": "Re-coded both EL credentials against current USBE endorsement applications. Bilingual (DLI) Endorsement: coursework null → true and practicum null → true (DLI Clinical Experience is a named requirement area; coursework pathway is explicit on the application); test null → false (no Praxis content exam — language proficiency is via ACTFL OPI/OPIc, captured under languageProficiency). ESL Endorsement: coursework null → true and test null → true (USBE application lists university course and Praxis II 5362 score 149 as two of four demonstrations of competency for each of five TESOL-aligned standard areas). UETS (Aug 2023) reviewed: only 'diverse' is referenced; cultural, linguistic, and EL booleans remain false. elPercent 7.1 → 8.3 (NCES fall 2021)."
     }
   ]
 }
