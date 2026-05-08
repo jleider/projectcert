@@ -44,16 +44,6 @@
     "consortium": "WIDA",
     "sourceUrl": "https://wida.wisc.edu/memberships/consortium/ok"
   },
-  "sealOfBiliteracy": {
-    "adopted": null,
-    "year": null,
-    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
-  },
-  "elpAssessment": {
-    "name": "ACCESS for ELLs",
-    "consortium": "WIDA",
-    "sourceUrl": "https://wida.wisc.edu/about/consortium"
-  },
   "sources": [
     {
       "label": "Oklahoma State Dept. of Education",
