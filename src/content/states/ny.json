@@ -1,35 +1,38 @@
 {
   "usps": "NY",
   "name": "New York",
-  "elPercent": 9.2,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 9.7,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
-        "practicum": false,
+        "practicum": true,
         "test": true,
-        "languageProficiency": false
-      }
+        "languageProficiency": true
+      },
+      "notes": "Bilingual Education Extension: add-on only, attached to a valid base certificate. Approved program requires coursework in six content areas, ≥50 clock hours of college-supervised field experience, and the Bilingual Education Assessment (BEA), which doubles as the language-proficiency instrument for the language other than English."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
-        "practicum": null,
+        "practicum": true,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "Branded ESOL in OTI certification listings and TESOL in higher-ed program names. Standalone classroom-teacher certificate (CST 116 ESOL) plus supplementary pathway for already-certified teachers. Programs (Fall 2024+) require ≥100 clock hours of field experience and ≥70 school days of student teaching with ELL students. 12 LOTE semester hours required as coursework precondition but not as a target-language proficiency demonstration."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No universal SEI/EL credential mandate. CR Part 154 requires general classroom teachers of ELLs to dedicate 15% of CTLE clock hours to language acquisition addressing the needs of ELLs — a continuing-education obligation, not a credential mandate."
     }
   },
   "professionalStandardsMentions": {
@@ -41,12 +44,12 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2013,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://www.nysed.gov/world-languages/new-york-state-seal-biliteracy-nyssb"
   },
   "elpAssessment": {
-    "name": "ACCESS for ELLs",
-    "consortium": "WIDA",
-    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+    "name": "NYSESLAT",
+    "consortium": null,
+    "sourceUrl": "https://www.nysed.gov/state-assessment/new-york-state-english-second-language-achievement-test-nyseslat"
   },
   "sources": [
     {
@@ -60,8 +63,62 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "NYSED — New York State English as a Second Language Achievement Test (NYSESLAT) program page",
+      "url": "https://www.nysed.gov/state-assessment/new-york-state-english-second-language-achievement-test-nyseslat",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NYSED — CR Part 154 ELL/Multilingual Learner Regulations and Compliance",
+      "url": "https://www.nysed.gov/bilingual-ed/english-language-learner-and-multilingual-learner-regulations-compliance",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NYSED Office of Teaching Initiatives — Extension (Bilingual)",
+      "url": "https://www.highered.nysed.gov/tcert/certificate/typesofcerts/extbil.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NYSED — General and Program-Specific Requirements: Bilingual Education",
+      "url": "https://www.nysed.gov/college-university-evaluation/general-and-program-specific-requirements-bilingual-education",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NYSED — General and Program-Specific Requirements: Teaching English to Speakers of Other Languages (ESOL/TESOL)",
+      "url": "https://www.nysed.gov/college-university-evaluation/general-and-program-specific-requirements-teaching-english-speakers",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NYSED Office of Bilingual Education — ELL and ML Educator Certification",
+      "url": "https://www.nysed.gov/bilingual-ed/ell-and-ml-educator-certification",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NYSED — New York State Seal of Biliteracy (NYSSB)",
+      "url": "https://www.nysed.gov/world-languages/new-york-state-seal-biliteracy-nyssb",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NY Board of Regents — New York State Teaching Standards (2011)",
+      "url": "https://www.highered.nysed.gov/tcert/pdf/teachingstandards9122011.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 (English learners in public schools, by state)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
