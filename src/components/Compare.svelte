@@ -25,11 +25,180 @@
     .map((u) => states.find((s) => s.usps === u))
     .filter((s): s is CompareState => Boolean(s));
 
-  function flag(v: boolean | null | undefined): string {
-    if (v === true) return "✓";
-    if (v === false) return "—";
-    return "?";
+  type Cell = { value: boolean | null | undefined; label: string };
+
+  /** Symbol + accessible description for a tri-state requirement flag. */
+  function cellFor(value: boolean | null | undefined, rowLabel: string): { symbol: string; tooltip: string; aria: string } {
+    if (value === true) return { symbol: "✓", tooltip: `Required — ${rowLabel}`, aria: `Required: ${rowLabel}` };
+    if (value === false) return { symbol: "—", tooltip: `Not required — ${rowLabel}`, aria: `Not required: ${rowLabel}` };
+    return { symbol: "?", tooltip: `Unknown — public sources do not specify whether this is required for ${rowLabel.toLowerCase()}`, aria: `Unknown: ${rowLabel}` };
   }
+
+  /** Symbol + accessible description for a plain yes/no boolean. */
+  function boolCellFor(value: boolean, rowLabel: string): { symbol: string; tooltip: string; aria: string } {
+    if (value) return { symbol: "✓", tooltip: `Yes — ${rowLabel}`, aria: `Yes: ${rowLabel}` };
+    return { symbol: "—", tooltip: `No — ${rowLabel}`, aria: `No: ${rowLabel}` };
+  }
+
+  interface SectionRow {
+    label: string;
+    explain: string;
+    /** Returns the raw value for a state — null/undefined => "?", boolean => ✓/— */
+    get: (s: CompareState) => boolean | null | undefined;
+    kind: "tri" | "bool";
+  }
+
+  interface Section {
+    title: string;
+    explain: string;
+    rows: SectionRow[];
+  }
+
+  const SECTIONS: Section[] = [
+    {
+      title: "Bilingual education credential",
+      explain:
+        "Authorizes a teacher to deliver content instruction in a language other than English (DBE, DLBE, TBE, dual language, heritage).",
+      rows: [
+        {
+          label: "Credential offered",
+          explain: "Does the state offer any pathway to a bilingual education credential?",
+          get: (s) => s.bilingual.offered,
+          kind: "bool",
+        },
+        {
+          label: "Standalone certification available",
+          explain: "Earned as a primary teaching license through its own preparation program.",
+          get: (s) => s.bilingual.standalone,
+          kind: "bool",
+        },
+        {
+          label: "Add-on endorsement available",
+          explain: "Earned as an add-on to an existing primary certification.",
+          get: (s) => s.bilingual.addOn,
+          kind: "bool",
+        },
+        {
+          label: "Requires completion of an approved program",
+          explain: "Completion of a state-approved preparation program is required.",
+          get: (s) => s.bilingual.requirements?.program,
+          kind: "tri",
+        },
+        {
+          label: "Requires coursework",
+          explain: "Specific coursework (independent of an approved program) is required.",
+          get: (s) => s.bilingual.requirements?.coursework,
+          kind: "tri",
+        },
+        {
+          label: "Requires supervised practicum",
+          explain: "Supervised field experience hours are required.",
+          get: (s) => s.bilingual.requirements?.practicum,
+          kind: "tri",
+        },
+        {
+          label: "Requires content/subject-matter test",
+          explain: "Passing a content test (Praxis or state-developed exam) is required.",
+          get: (s) => s.bilingual.requirements?.test,
+          kind: "tri",
+        },
+        {
+          label: "Requires non-English language proficiency",
+          explain: "Demonstrated proficiency in a language other than English is required.",
+          get: (s) => s.bilingual.requirements?.languageProficiency,
+          kind: "tri",
+        },
+      ],
+    },
+    {
+      title: "ELD (English Language Development) credential",
+      explain:
+        "Authorizes a teacher to deliver English-language instruction. Locally also called ESL, ENL, ESOL, TESOL, or CLD depending on the state.",
+      rows: [
+        {
+          label: "Standalone certification available",
+          explain: "Earned as a primary teaching license through its own preparation program.",
+          get: (s) => s.eld.standalone,
+          kind: "bool",
+        },
+        {
+          label: "Add-on endorsement available",
+          explain: "Earned as an add-on to an existing primary certification.",
+          get: (s) => s.eld.addOn,
+          kind: "bool",
+        },
+        {
+          label: "Requires completion of an approved program",
+          explain: "Completion of a state-approved preparation program is required.",
+          get: (s) => s.eld.requirements?.program,
+          kind: "tri",
+        },
+        {
+          label: "Requires coursework",
+          explain: "Specific coursework (independent of an approved program) is required.",
+          get: (s) => s.eld.requirements?.coursework,
+          kind: "tri",
+        },
+        {
+          label: "Requires supervised practicum",
+          explain: "Supervised field experience hours are required.",
+          get: (s) => s.eld.requirements?.practicum,
+          kind: "tri",
+        },
+        {
+          label: "Requires content/subject-matter test",
+          explain: "Passing a content test (Praxis or state-developed exam) is required.",
+          get: (s) => s.eld.requirements?.test,
+          kind: "tri",
+        },
+      ],
+    },
+    {
+      title: "SEI (Sheltered English Instruction) mandate",
+      explain:
+        "Whether the state requires all teachers — not just EL specialists — to complete SEI training as a condition of licensure.",
+      rows: [
+        {
+          label: "Mandated for all teachers",
+          explain:
+            "State requires SEI training of every classroom teacher, not only those with an EL specialty.",
+          get: (s) => s.seiMandated,
+          kind: "bool",
+        },
+      ],
+    },
+    {
+      title: "Professional teaching standards — EL references",
+      explain:
+        "Whether the state's professional teaching standards document explicitly references each category. Gives a sense of how mainstream-teacher accountability for EL learners is framed.",
+      rows: [
+        {
+          label: "References diverse / all students",
+          explain: "Standards document uses words like diverse, diversity, all, each, or every student.",
+          get: (s) => s.standards.diverse,
+          kind: "bool",
+        },
+        {
+          label: "References culture or cultural",
+          explain: "Standards document uses culture or cultural in an instructional sense.",
+          get: (s) => s.standards.cultural,
+          kind: "bool",
+        },
+        {
+          label: "References language or linguistic",
+          explain: "Standards document uses language or linguistic (excluding 'academic language').",
+          get: (s) => s.standards.linguistic,
+          kind: "bool",
+        },
+        {
+          label: "Explicitly references ELs / English language",
+          explain: "Standards document names ELs (or ELL/ESL/LEP) or English language explicitly.",
+          get: (s) => s.standards.el,
+          kind: "bool",
+        },
+      ],
+    },
+  ];
 </script>
 
 <div class="space-y-6">
@@ -37,17 +206,25 @@
     <legend class="text-sm font-semibold text-ink px-2">Pick 2–4 states</legend>
     <div class="flex flex-wrap gap-2 text-sm" role="group">
       {#each states as s}
+        {@const isSelected = selected.includes(s.usps)}
+        {@const isDisabled = !isSelected && selected.length >= 4}
         <button
           type="button"
-          class="px-2 py-1 rounded border text-ink-muted"
-          class:border-accent={selected.includes(s.usps)}
-          class:text-accent={selected.includes(s.usps)}
-          class:bg-accent={false}
-          class:border-ink-subtle={!selected.includes(s.usps)}
-          aria-pressed={selected.includes(s.usps)}
+          class="px-2.5 py-1 rounded border font-medium transition-colors
+                 {isSelected
+                   ? 'bg-accent text-white border-accent hover:bg-accent-hover hover:border-accent-hover'
+                   : isDisabled
+                     ? 'bg-surface text-ink-subtle border-ink-subtle/30 opacity-50 cursor-not-allowed'
+                     : 'bg-surface text-ink-muted border-ink-subtle/40 hover:border-accent hover:text-accent hover:bg-surface-raised'}"
+          aria-pressed={isSelected}
+          aria-label={`${s.name}${isSelected ? ' (selected)' : ''}`}
+          title={s.name}
           on:click={() => toggle(s.usps)}
-          disabled={!selected.includes(s.usps) && selected.length >= 4}
+          disabled={isDisabled}
         >
+          {#if isSelected}
+            <span aria-hidden="true">✓</span>
+          {/if}
           {s.usps}
         </button>
       {/each}
@@ -56,13 +233,18 @@
   </fieldset>
 
   {#if chosen.length >= 2}
+    <p class="text-sm text-ink-subtle">
+      Hover any row label or cell for an explanation. ✓ = required / yes,
+      — = not required / no, ? = unknown from public sources.
+    </p>
+
     <div class="overflow-x-auto">
-      <table class="min-w-full text-sm">
+      <table class="min-w-full text-sm border-collapse">
         <thead class="text-left bg-surface-raised">
           <tr>
-            <th class="px-3 py-2 font-semibold text-ink"></th>
+            <th scope="col" class="px-3 py-2 font-semibold text-ink min-w-[18rem]">Requirement</th>
             {#each chosen as s}
-              <th class="px-3 py-2 font-semibold text-ink">
+              <th scope="col" class="px-3 py-2 font-semibold text-ink">
                 <a class="text-accent hover:underline" href={`/states/${s.usps.toLowerCase()}/`}>{s.name}</a>
               </th>
             {/each}
@@ -70,33 +252,56 @@
         </thead>
         <tbody>
           <tr class="border-t border-ink-subtle/20">
-            <th class="px-3 py-2 text-left text-ink-muted font-medium">% classified ELs</th>
-            {#each chosen as s}<td class="px-3 py-2">{s.elPercent.toFixed(1)}%</td>{/each}
+            <th
+              scope="row"
+              class="px-3 py-2 text-left text-ink-muted font-medium cursor-help underline decoration-dotted decoration-ink-subtle/50 underline-offset-4"
+              title="Percentage of public-school students in the state classified as English Learners (2019 baseline)."
+            >
+              % classified ELs
+            </th>
+            {#each chosen as s}
+              <td class="px-3 py-2" title={`${s.name}: ${s.elPercent.toFixed(1)}% classified ELs`}>
+                {s.elPercent.toFixed(1)}%
+              </td>
+            {/each}
           </tr>
 
-          <tr class="border-t border-ink-subtle/20"><th colspan={chosen.length + 1} class="px-3 py-2 text-left text-ink font-semibold bg-surface-raised">Bilingual</th></tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Offered</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.offered)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Standalone</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.standalone)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Add-on</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.addOn)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Approved program</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.requirements?.program)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Practicum</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.requirements?.practicum)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Test</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.requirements?.test)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Language proficiency</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.bilingual.requirements?.languageProficiency)}</td>{/each}</tr>
-
-          <tr class="border-t border-ink-subtle/20"><th colspan={chosen.length + 1} class="px-3 py-2 text-left text-ink font-semibold bg-surface-raised">ELD</th></tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Standalone</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.eld.standalone)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Add-on</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.eld.addOn)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Approved program</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.eld.requirements?.program)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Test</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.eld.requirements?.test)}</td>{/each}</tr>
-
-          <tr class="border-t border-ink-subtle/20"><th colspan={chosen.length + 1} class="px-3 py-2 text-left text-ink font-semibold bg-surface-raised">SEI mandate</th></tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">All teachers</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.seiMandated)}</td>{/each}</tr>
-
-          <tr class="border-t border-ink-subtle/20"><th colspan={chosen.length + 1} class="px-3 py-2 text-left text-ink font-semibold bg-surface-raised">Standards mention</th></tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Diverse / all</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.standards.diverse)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Cultural</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.standards.cultural)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">Linguistic</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.standards.linguistic)}</td>{/each}</tr>
-          <tr class="border-t border-ink-subtle/20"><th class="px-3 py-2 text-left text-ink-muted font-medium">EL explicit</th>{#each chosen as s}<td class="px-3 py-2">{flag(s.standards.el)}</td>{/each}</tr>
+          {#each SECTIONS as section}
+            <tr class="border-t border-ink-subtle/20">
+              <th
+                scope="colgroup"
+                colspan={chosen.length + 1}
+                class="px-3 py-2 text-left text-ink font-semibold bg-surface-raised cursor-help"
+                title={section.explain}
+              >
+                {section.title}
+              </th>
+            </tr>
+            {#each section.rows as row}
+              <tr class="border-t border-ink-subtle/20 hover:bg-surface-raised/40">
+                <th
+                  scope="row"
+                  class="px-3 py-2 text-left text-ink-muted font-medium cursor-help underline decoration-dotted decoration-ink-subtle/50 underline-offset-4"
+                  title={row.explain}
+                >
+                  {row.label}
+                </th>
+                {#each chosen as s}
+                  {@const v = row.get(s)}
+                  {@const cell = row.kind === "tri" ? cellFor(v, row.label) : boolCellFor(Boolean(v), row.label)}
+                  <td class="px-3 py-2">
+                    <span
+                      class="cursor-help"
+                      title={`${s.name} — ${cell.tooltip}`}
+                      aria-label={`${s.name}, ${cell.aria}`}
+                    >
+                      {cell.symbol}
+                    </span>
+                  </td>
+                {/each}
+              </tr>
+            {/each}
+          {/each}
         </tbody>
       </table>
     </div>

@@ -1,0 +1,31 @@
+---
+/**
+ * Renders a link that opens in a new tab, with the proper rel attributes
+ * and an accessible "(opens in a new tab)" announcement for screen readers.
+ *
+ * Use for any URL that leaves projectcert. Internal links (/states/*,
+ * /credentials/*, etc.) should stay as plain <a> tags.
+ */
+
+interface Props {
+  href: string;
+  class?: string;
+  /** Hide the trailing ↗ icon when the link is decorative or icon-only. */
+  hideIcon?: boolean;
+}
+
+const { href, class: className = "", hideIcon = false } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={className}
+>
+  <slot />
+  {!hideIcon && (
+    <span aria-hidden="true" class="inline-block ml-0.5 text-xs">↗</span>
+  )}
+  <span class="sr-only"> (opens in a new tab)</span>
+</a>

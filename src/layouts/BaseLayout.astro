@@ -1,6 +1,7 @@
 ---
 import "@/styles/tokens.css";
 import PreLaunchBanner from "@/components/PreLaunchBanner.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -57,7 +58,7 @@ const totalCount = states.length;
     <footer class="mt-16 border-t border-ink-subtle/15 bg-surface-raised text-sm text-ink-muted">
       <div class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4 justify-between">
         <p>
-          Seed data: <a class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</a>.
+          Seed data: <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</ExternalLink>.
         </p>
         <p>
           <a class="text-accent hover:underline" href="/verification/">Verification status</a>

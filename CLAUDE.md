@@ -74,6 +74,46 @@ something) — and record that reason in the commit.
 Edit `src/content/states/<usps>.json` and run `npm run validate`. Use
 the `state-source-refresh` skill for the verification workflow.
 
+### External links open in new tabs
+
+Any link to a URL outside projectcert (SEA pages, the seed paper's DOI,
+external references) must use the `<ExternalLink>` component
+(`src/components/ExternalLink.astro`). It sets `target="_blank"`,
+`rel="noopener noreferrer"`, adds a small `↗` glyph, and announces
+"(opens in a new tab)" to screen readers. Internal links
+(`/states/...`, `/credentials/...`, etc.) stay as plain `<a>`.
+
+### Map layer palettes — one hue per encoded variable
+
+Each map layer uses its own distinct hue so switching the encoded
+variable produces an obvious recolor instead of an ambiguous shade
+swap. Tokens live in `src/styles/tokens.css`.
+
+| Layer | Hue | Tokens | Type |
+| --- | --- | --- | --- |
+| `% classified ELs` | Purple | `--bin-0` … `--bin-3` | Sequential, 4 bins, **only layer with hatched-pattern overlays** |
+| `Bilingual credential` | Green | `--bilingual-0` / `-2` / `-3` | Categorical (none / add-on / standalone) |
+| `ELD credential` | Amber | `--eld-0` / `-2` / `-3` | Categorical |
+| `SEI mandate` | Teal | `--sei-0` / `-3` | Binary |
+| `Standards mention ELs` | Rose | `--standards-0` / `-3` | Binary |
+
+Token naming follows `--{layer}-{level}` where level `0` = none/off,
+`2` = mid, `3` = full/on (matches `--bin-N` indexing).
+
+**Adding a new layer** is mechanical:
+
+1. Add tokens to `src/styles/tokens.css` with contrast-check comments.
+2. Add a `LEGENDS[layer]` entry in
+   `src/components/MapExplorer.svelte`.
+3. Add a branch to `fillFor()` and `describe()` in
+   `src/components/Choropleth.svelte`.
+4. Add the pairings to `scripts/check-contrast.ts` and re-run
+   `npm run check:contrast`.
+
+Do **not** reuse the `--bin-N` purple palette for non-`elPercent`
+layers — purple is reserved for the sequential bin layer with
+hatched-pattern affordance.
+
 ### EL data nuances to keep in mind
 
 - States vary wildly. Some have one EL endorsement, others tier them,

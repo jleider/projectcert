@@ -1,5 +1,6 @@
 ---
 import type { State } from "@/content/config";
+import ExternalLink from "@/components/ExternalLink.astro";
 
 interface Props {
   sources: State["sources"];
@@ -14,7 +15,7 @@ const { sources } = Astro.props;
     {sources.map((s, i) => (
       <li>
         <span class="text-ink-subtle">[{i + 1}]</span>{" "}
-        <a class="text-accent hover:underline" href={s.url}>{s.label}</a>
+        <ExternalLink class="text-accent hover:underline" href={s.url}>{s.label}</ExternalLink>
         <span class="text-ink-subtle">
           {" — retrieved "}{s.retrievedAt}
           {s.retrievedBy === "leider-2021" && " (via Leider et al. 2021)"}
