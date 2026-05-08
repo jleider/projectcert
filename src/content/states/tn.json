@@ -1,8 +1,8 @@
 {
   "usps": "TN",
   "name": "Tennessee",
-  "elPercent": 4.6,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 9.0,
+  "elPercentAsOf": "2024-05-30",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -15,14 +15,16 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
+        "coursework": true,
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ESL endorsement codes 488 (K-8), 489 (6-12), 490 (PreK-12). Praxis 5362 required (Professional Assessments Policy 5.105). Two pathways: traditional EPP-approved program, or TDOE's no-cost Additional Endorsement Program for already-licensed teachers (asynchronous coursework + Praxis), authorized under Educator Licensure Policy 5.502 (revised July 2021). Practicum coded null because the public TDOE pages don't enumerate clinical/practicum hours separately — set by EPPs against Specialty Area Standards Policy 5.505. 2024 update: TDOE moved EL assessment from WIDA/ACCESS to ELPA21 effective July 1, 2024 (first ELPA21 Summative Feb 5, 2025) and adopted ELPA21 ELD Standards in place of WIDA 2020. EL share rose from 4.6% (2019 baseline) to ~9% (2024 TDOE figure, 93,433 students). Held at in-progress: the SEA professional teaching standards source (Educator Licensure Policy 5.502 / Specialty Area Standards Policy 5.505 / TEAM rubric) was not retrieved this round — Teacher Code of Ethics (T.C.A. 49-5-1001) was retrieved and is not the standards document; professionalStandardsMentions booleans carry forward from baseline-2019 pending standards-doc verification."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Rule 0520-01-19-.03(8) requires annual ESL training only for teachers who provide Direct or Indirect ESL Services, not all teachers."
     }
   },
   "professionalStandardsMentions": {
@@ -53,8 +55,56 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "TDOE Licensure Resources — Endorsement Code Listings (PreK-12 ESL = 490; K-8 = 488; 6-12 = 489)",
+      "url": "https://www.tn.gov/education/educators/licensing/licensure-resources.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TDOE Additional Endorsement Programs (SPED, ESL, CS) — State Board presentation, 2023 (Praxis 5362; Policy 5.502 + 5.505 + 5.105 references)",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/Additional_Endorsement_Programs_-_SPED_ESL_CS_Programs_Update.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "State Board Rule 0520-01-19, English as a Second Language Programs (Sept 2024 Revised)",
+      "url": "https://publications.tnsosfiles.com/rules/0520/0520-01/0520-01-19.20240910.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TDOE English as a Second Language Manual (September 2023)",
+      "url": "https://www.tn.gov/content/dam/tn/education/esl/esl_manual.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TDOE English Learner (EL) Assessments — current page links to ELPA21",
+      "url": "https://www.tn.gov/education/districts/lea-operations/assessment/english-learner-assessments.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TDOE / SBE workshop — ESL ELPA21 Transition (May 30, 2024): WIDA→ELPA21 effective July 1, 2024; first ELPA21 Summative Feb 5, 2025; new TN ELD Standards (10)",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/2024-SBE-Meetings/may-30-2024-sbe-workshop/5-30-24%20IV%20A%20English%20as%20a%20Second%20Language%20ELPA21%20Transition%20Presentation.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TDOE Academic Standards — English Language Development",
+      "url": "https://www.tn.gov/education/districts/academic-standards/english-language-development.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Tennessee Teacher Code of Ethics (T.C.A. 49-5-1001 et seq.) — statutory ethics code, not the teaching standards document",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/policies/5000/5.504%20Teacher%20Code%20of%20Ethics%20Policy.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "in-progress"
 }
