@@ -134,6 +134,30 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2022-01-01",
+      "title": "Pennsylvania Seal of Biliteracy adopted",
+      "description": "Pennsylvania adopted a State Seal of Biliteracy in 2022, awarding the seal to graduating high school students demonstrating proficiency in English and one or more additional languages.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "title": "PDE CSPG #68 ESL Program Specialist policy revised",
+      "description": "PDE issued the current revision of Certification Staffing Policy Guideline #68 effective 2023-07-01, clarifying that to teach ESL in a PA public school an educator must hold a PA Instructional I or II certificate plus the ESL Program Specialist PK-12 add-on (or a comparable out-of-state ESL certificate earned via a full instructional program with student teaching).",
+      "sourceUrls": [
+        "https://www.pa.gov/agencies/education.html"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Phase 2 verification (verified-2026)",
+      "description": "Re-verified ESL Program Specialist as the only PDE-issued EL credential (no bilingual cert; bilingual-bicultural is a program model under 22 Pa. Code §4.26, not a credential). Filled previously-null requirements: coursework=true, practicum=true, test=false (per ESL FAQ). Flipped professionalStandardsMentions.linguistic and .el to true based on 22 Pa. Code §49.13(b)(4)(i) explicit EL pre-service requirement. WIDA/ACCESS confirmed. elPercent updated to 4.6 (NCES Fall 2021).",
+      "sourceUrls": [
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      ]
     }
   ]
 }
