@@ -4,6 +4,15 @@ import MapExplorer from "@/components/MapExplorer.svelte";
 import { getChoroplethData } from "@/lib/state-data";
 
 const data = await getChoroplethData();
+const tableRows = [...data].sort((a, b) => a.name.localeCompare(b.name));
+
+function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }): string {
+  if (!c.offered) return "—";
+  if (c.standalone && c.addOn) return "Standalone + add-on";
+  if (c.standalone) return "Standalone";
+  if (c.addOn) return "Add-on";
+  return "Offered";
+}
 ---
 
 <BaseLayout
@@ -27,5 +36,62 @@ const data = await getChoroplethData();
       Want to put this on your site?
       <a href="/embed/" class="text-accent hover:underline">Embed this map</a>.
     </p>
+
+    <section class="mt-12" aria-labelledby="data-table-heading">
+      <h2 id="data-table-heading" class="text-xl font-semibold text-ink">All data</h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Every variable encoded in the map above, in one sortable-by-eye table.
+        Click a state name for the full per-state record and source list.
+      </p>
+
+      <div class="mt-4 overflow-x-auto rounded border border-ink-subtle/20">
+        <table class="w-full text-sm">
+          <caption class="sr-only">
+            U.S. state EL teacher certification data: % classified ELs,
+            bilingual credential, ELD credential, SEI mandate, standards
+            mention of ELs, Seal of Biliteracy, and ELP assessment used.
+          </caption>
+          <thead class="bg-surface-raised text-ink text-left">
+            <tr>
+              <th scope="col" class="px-3 py-2 font-semibold">State</th>
+              <th scope="col" class="px-3 py-2 font-semibold text-right">% ELs</th>
+              <th scope="col" class="px-3 py-2 font-semibold">Bilingual</th>
+              <th scope="col" class="px-3 py-2 font-semibold">ELD</th>
+              <th scope="col" class="px-3 py-2 font-semibold">SEI mandate</th>
+              <th scope="col" class="px-3 py-2 font-semibold">Standards mention ELs</th>
+              <th scope="col" class="px-3 py-2 font-semibold">Seal of Biliteracy</th>
+              <th scope="col" class="px-3 py-2 font-semibold">ELP assessment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableRows.map((s) => (
+              <tr class="border-t border-ink-subtle/20 align-top">
+                <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap">
+                  <a href={`/states/${s.usps.toLowerCase()}/`} class="text-accent hover:underline">{s.name}</a>
+                </th>
+                <td class="px-3 py-2 text-right tabular-nums">{s.elPercent.toFixed(1)}%</td>
+                <td class="px-3 py-2">{credCell(s.bilingual)}</td>
+                <td class="px-3 py-2">{credCell(s.eld)}</td>
+                <td class="px-3 py-2">{s.seiMandated ? "Mandated" : "—"}</td>
+                <td class="px-3 py-2">{s.standardsMentionsEl ? "Yes" : "—"}</td>
+                <td class="px-3 py-2 whitespace-nowrap">
+                  {s.sealOfBiliteracy.adopted === true
+                    ? (s.sealOfBiliteracy.year ? `Adopted (${s.sealOfBiliteracy.year})` : "Adopted")
+                    : s.sealOfBiliteracy.adopted === false
+                      ? "Not adopted"
+                      : "—"}
+                </td>
+                <td class="px-3 py-2 whitespace-nowrap">
+                  {s.elpAssessment.name}
+                  {s.elpAssessment.consortium && (
+                    <span class="text-ink-subtle"> · {s.elpAssessment.consortium}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   </section>
 </BaseLayout>
