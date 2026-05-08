@@ -1,13 +1,21 @@
 {
   "usps": "HI",
   "name": "Hawaii",
-  "elPercent": 8.2,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 10.0,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
-      "offered": false,
-      "standalone": false,
-      "addOn": false
+      "offered": true,
+      "standalone": true,
+      "addOn": false,
+      "requirements": {
+        "program": null,
+        "coursework": null,
+        "practicum": null,
+        "test": null,
+        "languageProficiency": null
+      },
+      "notes": "HTSB issues standalone 'Kaiapuni Hawaiʻi / Hawaiian Language Immersion' and 'ʻŌlelo Hawaiʻi / Hawaiian Language' license fields, which roll up under the canonical 'bilingual' umbrella as heritage/medium-of-instruction credentials. These primarily serve Native Hawaiian / Hawaiian-medium students rather than classified ELs in the Spanish/Asian-language sense; requirements are null pending direct citation of HTSB rules (HAR 8-54 series), which were not reachable from this verification session."
     },
     "eld": {
       "offered": true,
@@ -19,7 +27,8 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "HTSB issues a standalone 'Teaching English to Speakers of Other Languages' (TESOL) license field at P-3, K-6, 6-8, 6-12, P-12, and K-12 grade bands. Coursework and a content test are required (Praxis ESOL); program and practicum requirements are null because HTSB's content-area-specific rules pages were not reachable from this 2026 refresh session."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -53,10 +62,40 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Hawaii Teacher Performance Standards (HTPS) — full 10-standard set used by HTSB for program approval and licensure.",
+      "url": "https://hawaiiteacherstandardsboard.org/content/hawaii-teacher-performance-standards/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "HTSB License Fields matrix — current list of license fields and grade-band configurations, including TESOL and Hawaiian Language Immersion.",
+      "url": "https://hawaiiteacherstandardsboard.org/content/license-fields/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 — English learners enrolled in public elementary and secondary schools, by state: Fall 2011 through Fall 2021. Hawaii Fall 2021 = 10.0%.",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium membership — Hawaii is a member; uses ACCESS for ELLs as the annual English language proficiency assessment.",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — Hawaii state profile; Seal adopted in 2015 (Act 224, SLH 2015 / SB 1394).",
+      "url": "https://sealofbiliteracy.org/state/hawaii/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -64,6 +103,32 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2015-07-14",
+      "title": "Hawaii adopts the State Seal of Biliteracy",
+      "description": "Act 224 (SLH 2015 / SB 1394) authorizes a State Seal of Biliteracy for graduating high-school students who demonstrate proficiency in English plus one or more additional languages, including ʻŌlelo Hawaiʻi. Hawaii is among the early-adopter states.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/hawaii/"
+      ]
+    },
+    {
+      "date": "2021-10-01",
+      "title": "NCES Fall 2021 EL count: 17,353 students (10.0%)",
+      "description": "Per NCES Digest Table 204.20, Hawaii's classified-EL share of public-school enrollment rose to 10.0% in Fall 2021, up from 9.5% in Fall 2020 and 7.0% at its 2016 trough. The state remains a WIDA Consortium member and administers ACCESS for ELLs annually.",
+      "sourceUrls": [
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified HTSB license fields (TESOL + Hawaiian-medium fields), Hawaii Teacher Performance Standards, and NCES EL counts. Re-coded bilingual.offered to true to reflect HTSB's standalone Hawaiian Language Immersion / ʻŌlelo Hawaiʻi fields, which roll up under the canonical bilingual umbrella as heritage/medium-of-instruction credentials. ELD requirements left partially null where HTSB's content-area rule pages were not reachable.",
+      "sourceUrls": [
+        "https://hawaiiteacherstandardsboard.org/content/license-fields/",
+        "https://hawaiiteacherstandardsboard.org/content/hawaii-teacher-performance-standards/",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
