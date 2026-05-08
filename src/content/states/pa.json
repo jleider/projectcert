@@ -1,13 +1,14 @@
 {
   "usps": "PA",
   "name": "Pennsylvania",
-  "elPercent": 3.6,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 4.6,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "PDE does not issue a bilingual or dual-language certification. State regulation 22 Pa. Code § 4.26 names 'bilingual-bicultural' as one program type a district may operate, but no credential is awarded for it."
     },
     "eld": {
       "offered": true,
@@ -15,21 +16,23 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
+        "coursework": true,
+        "practicum": true,
+        "test": false,
         "languageProficiency": false
-      }
+      },
+      "notes": "ESL Program Specialist PK-12. Add-on to a PA Instructional I or II certificate (CSPG #68, rev. 7/1/2023). State-approved preparation program with field experience/student teaching with ESL students. No state ESL test (per PDE ESL FAQ)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No SEI-style in-service mandate. However, 22 Pa. Code § 49.13(b)(4)(i) requires all teacher preparation programs to include at least 3 credits or 90 hours addressing the instructional needs of English language learners — a pre-service requirement, not the AZ/CA/MA SEI endorsement model."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": false,
-    "el": false
+    "linguistic": true,
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
@@ -53,8 +56,74 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "PDE — ESL Program Specialist (Current PA Educators)",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/current-pa-educators/esl-program-specialist.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PDE — CSPG #68: ESL Program Specialist PK-12 (Certification Staffing Policy Guidelines, rev. 7/1/2023)",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-68-english-as-a-second-language-esl-program-specialist-pk-12.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PDE — ESL Frequently Asked Questions",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/help/certification-faqs/english-as-a-second-language.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PDE — Basic Education Circular: Educating Students Who Are English Learners",
+      "url": "https://www.pa.gov/agencies/education/policy-funding/basic-education-circulars/purdons-statutes/educating-students-who-are-english-learners.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PDE — Educating English Learners (program overview)",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/educating-english-learners.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "22 Pa. Code Chapter 49 — Certification of Professional Personnel",
+      "url": "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/022/chapter49/chap49toc.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "22 Pa. Code Chapter 354 — Preparation of Professional Educators",
+      "url": "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/022/chapter354/chap354toc.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "22 Pa. Code Chapter 235 — Code of Professional Practice and Conduct for Educators",
+      "url": "https://www.pacodeandbulletin.gov/Display/pacode?file=/secure/pacode/data/022/chapter235/chap235toc.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — overview (member states)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA — Pennsylvania member page",
+      "url": "https://wida.wisc.edu/memberships/consortium/pa",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners in public elementary and secondary schools, by state, fall 2011–2021",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
