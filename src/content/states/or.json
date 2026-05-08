@@ -122,6 +122,39 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2016-04-14",
+      "title": "Oregon Seal of Biliteracy adopted",
+      "description": "Oregon adopted a State Seal of Biliteracy on 2016-04-14 (per sealofbiliteracy.org/state/or/). Awarded to graduating high school students who demonstrate proficiency in English plus one or more additional languages.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/or/"
+      ]
+    },
+    {
+      "date": "2023-11-01",
+      "title": "TSPC endorsement and specialization rules effective",
+      "description": "Teacher Standards and Practices Commission rules governing Adding Endorsements and Adding Specializations took effect 2023-11-01. ESOL remains a Program Completion Report endorsement; Bilingual Specialization continues as the broadest pathway requiring ACTFL OPI/OPIc Advanced Mid+ but no approved program; Dual Language Specialization requires an approved program.",
+      "sourceUrls": [
+        "https://www.oregon.gov/tspc/"
+      ]
+    },
+    {
+      "date": "2024-06-01",
+      "title": "Multiple Measures-ESOL endorsement testing option approved",
+      "description": "TSPC approved a Multiple Measures-ESOL Endorsement Testing Option Worksheet (Commission approval June 2024, rev. 9/13/2024) documenting equivalent competency pathways: at least 20 semester / 30 quarter hours aligned with ESOL standards plus practicum or completion of a TSPC-approved ESOL program.",
+      "sourceUrls": [
+        "https://www.oregon.gov/tspc/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Phase 2 verification (verified-2026)",
+      "description": "Re-verified Bilingual and Dual Language Specializations and the ESOL endorsement against current TSPC rules (effective 2023-11-01) and ORELA Test Guide (rev. 3/2025). Coded bilingual program/coursework/practicum/test=false for the broadest Bilingual Specialization pathway; ESOL coursework/practicum flipped null to true. ELPA21 confirmed. elPercent updated to 9.5 (NCES Fall 2021).",
+      "sourceUrls": [
+        "https://www.oregon.gov/ode/educator-resources/assessment/pages/english-language-proficiency.aspx",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      ]
     }
   ]
 }
