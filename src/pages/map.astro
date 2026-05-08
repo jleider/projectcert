@@ -66,7 +66,7 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
           <tbody>
             {tableRows.map((s) => (
               <tr class="border-t border-ink-subtle/20 align-top">
-                <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap">
+                <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap text-left">
                   <a href={`/states/${s.usps.toLowerCase()}/`} class="text-accent hover:underline">{s.name}</a>
                 </th>
                 <td class="px-3 py-2 text-right tabular-nums" data-col="elPercent">{s.elPercent.toFixed(1)}%</td>
