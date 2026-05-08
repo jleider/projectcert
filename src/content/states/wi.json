@@ -153,6 +153,14 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "1975-12-22",
+      "title": "Wisconsin Bilingual-Bicultural Education Act enacted (Ch. 395, Laws of 1975)",
+      "description": "Wisconsin enacted one of the strongest state bilingual mandates in the country, codified at Wis. Stat. §§ 115.95 to 115.996. Districts must operate a bilingual-bicultural education program at any school enrolling 10 or more EL students at the K-3 level, 20 or more at grades 4-8, or 20 or more at the high-school level — all of the same non-English language background. The 1975 act also established the bilingual-bicultural teacher license category that PI 34.078 (formerly PI 34.33(3)) administers today, and is the legal source of Wisconsin's status as a bilingual-program state rather than an SEI state. The statute's combination with WIDA (headquartered at UW-Madison) makes Wisconsin distinctive in the upper Midwest.",
+      "sourceUrls": [
+        "https://docs.legis.wisconsin.gov/statutes/statutes/115/v"
+      ]
+    },
+    {
       "date": "2015-10-01",
       "title": "Wisconsin Seal of Biliteracy initiated by DPI",
       "description": "DPI launched the Wisconsin Seal of Biliteracy in October 2015 to recognize graduating high-school students who demonstrate proficiency in English plus one or more additional languages. The program is administered by DPI rather than created by a standalone authorizing statute; districts opt in and award the seal locally.",
