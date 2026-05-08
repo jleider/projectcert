@@ -105,14 +105,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2015-06-09",
       "title": "Nevada Seal of Biliteracy enacted (AB 224, 2015)",
       "description": "Nevada Assembly Bill 224 (2015 session, signed 2015-06-09) created the State Seal of Biliteracy under NRS 388.5965, recognizing high school graduates proficient in English plus one or more additional languages.",
@@ -126,6 +118,14 @@
       "description": "The 2019 baseline reported a phase-in requiring all new early-childhood/elementary teachers (2020) and middle/secondary teachers (2021) to obtain an EL endorsement. As of 2026 NAC ch. 391 contains no general mandate that all teachers hold ELAD or any EL-related endorsement; the phased rule did not result in a universal credential requirement. Captured here so the 2019 expectation is searchable against the 2026 state of regulation.",
       "sourceUrls": [
         "https://www.leg.state.nv.us/nac/nac-391.html"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

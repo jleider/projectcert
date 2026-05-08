@@ -110,14 +110,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1973-08-21",
       "title": "Illinois Transitional Bilingual Education Act enacted (PA 78-727)",
       "description": "Public Act 78-727 created Article 14C of the Illinois School Code (105 ILCS 5/14C), one of the strongest state TBE mandates in the country. Article 14C requires any public school attendance center with 20 or more EL students of the same language background to operate a Transitional Bilingual Education program for at least three years per student, and any school with fewer than 20 to provide a Transitional Program of Instruction (TPI) — i.e., ESL-based services. The 1973 statute is the legal source of Illinois's bilingual-and-ESL endorsement structure and of the state's bilingual-teacher Type-29 credential lineage that 23 IAC Part 25 later modernized. Illinois followed Massachusetts (1971), New Mexico (1973), and Texas (1973) in mandating bilingual instruction by statute.",
@@ -134,11 +126,11 @@
       ]
     },
     {
-      "date": "2026-07-01",
-      "title": "23 IAC 24.140 supersedes 24.130 as Illinois Professional Teaching Standards",
-      "description": "ISBE's revised Illinois Professional Teaching Standards (23 IAC 24.140) take effect 2026-07-01, replacing 23 IAC 24.130. The new standards drop the explicit 'English language learners' phrasing that 24.130 carried, shifting EL-relevant competencies under broader 'diverse learners' language. Flag for re-coding `professionalStandardsMentions.el` after the transition.",
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
-        "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130"
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {
@@ -147,6 +139,14 @@
       "description": "Re-audited current sources and confirmed all coding still grounded. No substantive coding changes from the 2026-05-08 verification; this pass added missing history rows (Seal of Biliteracy authorization; IPTS 24.140 phase-in) per the §3a history-capture emphasis.",
       "sourceUrls": [
         "https://www.isbe.net/Pages/Subsequent-Teaching-Endorsements.aspx"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "title": "23 IAC 24.140 supersedes 24.130 as Illinois Professional Teaching Standards",
+      "description": "ISBE's revised Illinois Professional Teaching Standards (23 IAC 24.140) take effect 2026-07-01, replacing 23 IAC 24.130. The new standards drop the explicit 'English language learners' phrasing that 24.130 carried, shifting EL-relevant competencies under broader 'diverse learners' language. Flag for re-coding `professionalStandardsMentions.el` after the transition.",
+      "sourceUrls": [
+        "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130"
       ]
     }
   ]

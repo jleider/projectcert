@@ -123,14 +123,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1968-07-20",
       "title": "Act 409 creates CODOFIL and authorizes French-language public-school instruction",
       "description": "Act 409 of the 1968 Louisiana Legislature established the Council for the Development of French in Louisiana (CODOFIL) and directed BESE to take whatever steps are necessary to encourage the teaching of French in the public schools, formally reversing decades of post-1916 English-only state policy that had suppressed Cajun and Creole French. CODOFIL's reciprocal teacher-recruitment programs with France, Belgium, and Quebec became the operational model for Louisiana French immersion programs (now ~30+ schools statewide), and Act 409 is the legal predicate for the BESE-approved French-immersion bilingual programs that Louisiana operates alongside its newer Spanish-immersion strands. The 1974 Louisiana Constitution (Article XII §4) further commits the State to preserve, foster, and promote its linguistic origins.",
@@ -144,6 +136,14 @@
       "description": "Louisiana adopted the State Seal of Biliteracy on 2014-05-16, recognizing high-school graduates proficient in English plus one or more world languages. LDOE administers the program with district-level participation.",
       "sourceUrls": [
         "https://sealofbiliteracy.org/state/la/"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

@@ -110,19 +110,19 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2018-06-01",
       "title": "Arkansas Seal of Biliteracy adopted by State Board",
       "description": "Following a 2017-03 pilot launched by AFLTA and ARKTESOL, the Arkansas State Board of Education endorsed the Arkansas Seal of Biliteracy in June 2018, recognizing high school graduates who demonstrate proficiency in English plus one or more world languages.",
       "sourceUrls": [
         "https://dese.ade.arkansas.gov/Offices/learning-services/curriculum-support/arkansas-seal-of-biliteracy"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

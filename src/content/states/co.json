@@ -129,14 +129,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1981-06-01",
       "title": "Colorado English Language Proficiency Act enacted (HB 1166)",
       "description": "The Colorado English Language Proficiency Act (ELPA), codified at C.R.S. §§ 22-24-101 to -106, established state funding for districts to provide language-acquisition services to EL students. Unlike the bilingual mandates in Massachusetts (1971), New Mexico (1973), or Illinois (1973), Colorado's ELPA is permissive in program model — districts may operate transitional bilingual, dual-language, or English-as-a-second-language programs — but it commits state funds (administered by CDE) to support whichever model the district chooses. ELPA remains the funding backbone for Colorado EL services and underpins the modern CLDE office at CDE.",
@@ -166,6 +158,14 @@
       "description": "Governor signed SB17-123 establishing Colorado's High School Diploma Endorsement for Biliteracy (Seal of Biliteracy), recognizing graduates proficient in English and one or more world languages.",
       "sourceUrls": [
         "https://www.cde.state.co.us/cde_english/high-school-diploma-endorsement-for-biliteracy"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

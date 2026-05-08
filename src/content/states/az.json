@@ -123,14 +123,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1992-08-12",
       "title": "Flores v. Arizona filed (D. Ariz. CV-92-596-TUC-RCC)",
       "description": "Plaintiff parents in the Nogales Unified School District filed a class action alleging Arizona was violating the Equal Educational Opportunities Act of 1974 by underfunding programs for EL students. The case (later named Flores v. Arizona) drove the next two decades of EL policy in the state, leading to the 2000 district-court ruling that Arizona's per-pupil EL funding was \"arbitrary and capricious\" and forcing the legislature to act on EL teacher preparation and program funding. The case ultimately produced Horne v. Flores at the U.S. Supreme Court in 2009.",
@@ -177,6 +169,14 @@
       "description": "Spring 2019 legislation (HB 2435, signed July 2019) reduced the mandatory daily SEI English Language Development block from 4 hours to 2 hours and re-opened access to dual-language and bilingual program models. The teacher-of-EL endorsement mandate under R7-2-615(L) was not repealed.",
       "sourceUrls": [
         "https://www.azed.gov/oelas/sei-endorsement"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

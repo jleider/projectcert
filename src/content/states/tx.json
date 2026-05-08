@@ -111,14 +111,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1973-06-12",
       "title": "Texas Bilingual Education and Training Act enacted (SB 121, 63rd Legislature)",
       "description": "Texas became the third state (after Massachusetts 1971 and New Mexico 1973) to mandate bilingual education by statute. SB 121 required school districts with 20 or more EL students of the same language background in the same grade level (K-3) to provide bilingual instruction, and authorized the Texas Education Agency to certify bilingual teachers. The law was substantially expanded by SB 477 (1981) — passed in the wake of the U.S. v. Texas (Civ. Action 5281) federal-court order — to cover K-elementary and to require both bilingual and ESL programs depending on enrollment thresholds. The current 19 TAC Chapter 89 framework descends from this statutory backbone.",
@@ -132,6 +124,14 @@
       "description": "Arising out of the Raymondville, Texas ISD, the Fifth Circuit established the three-prong test that federal courts use to evaluate state and district compliance with the Equal Educational Opportunities Act of 1974: (1) the program must be based on sound educational theory; (2) it must be implemented effectively with adequate resources and personnel; and (3) the district must evaluate the program and modify it if it is not producing results. The Castañeda standard remains the controlling EEOA test for EL programs nationwide and is the doctrinal anchor cited in the 2011 DOJ settlement with Massachusetts and the Flores v. Arizona litigation.",
       "sourceUrls": [
         "https://law.justia.com/cases/federal/appellate-courts/F2/648/989/"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

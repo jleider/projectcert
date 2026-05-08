@@ -141,14 +141,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1973-04-05",
       "title": "New Mexico Bilingual Multicultural Education Act enacted (NM Laws 1973, ch. 137)",
       "description": "New Mexico became the second state (after Massachusetts in 1971) to mandate bilingual education by statute. The Bilingual Multicultural Education Act (BMEA), now codified at NMSA 1978 §§ 22-23-1 to 22-23-6, requires the State to fund Bilingual Multicultural Education Programs (BMEPs) for EL students and Native American students whose home language is not English. The BMEA is the legal foundation for NM's bilingual endorsement and the BMEP program structure that the 2018 Yazzie/Martinez ruling later found the State was inadequately funding. The act was significantly amended in 2003-2004 (HB 212 / SB 219) to broaden the definition of eligible students.",
@@ -170,6 +162,14 @@
       "description": "Consolidated Yazzie v. State and Martinez v. State litigation (filings 2014) culminated in the First Judicial District Court ruling that New Mexico is failing to provide a sufficient education to ELs, Native American students, and students with disabilities. The ruling has driven multi-year remedial-plan oversight that continues to shape NM's bilingual/TESOL teacher pipeline policy. Plaintiffs filed objections to the State's November 2025 Comprehensive Remedial Action Plan in February 2026.",
       "sourceUrls": [
         "https://web.ped.nm.gov/bureaus/languageandculture/bilingual-multicultural-education-programs-bmeps/bilingual-multicultural-education-programs-bmeps-frequently-asked-questions-faqs/"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

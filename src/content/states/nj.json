@@ -123,14 +123,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1975-01-06",
       "title": "New Jersey Bilingual Education Act enacted (P.L. 1974, c. 197)",
       "description": "P.L. 1974, c. 197, codified at N.J.S.A. 18A:35-15 to -26, required any school district enrolling 20 or more EL students of the same native language to operate a full bilingual education program in that language and English, plus an ESL component for any EL student regardless of language threshold. New Jersey was among the earliest states to mandate bilingual instruction by statute (after Massachusetts 1971, New Mexico 1973, Texas 1973, Illinois 1973). The 1975 statute remains the legal backbone of NJ's bilingual/bicultural and ESL endorsements (N.J.A.C. 6A:9B-11.5 and -11.6) and of the 20-student program-trigger threshold the State still enforces.",
@@ -144,6 +136,14 @@
       "description": "Governor signed P.L. 2015, c. 303 on January 19, 2016, creating the New Jersey State Seal of Biliteracy administered by NJDOE. First seals awarded in the 2016-17 school year.",
       "sourceUrls": [
         "https://www.nj.gov/education/standards/worldlang/SealofBiliteracy.shtml"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

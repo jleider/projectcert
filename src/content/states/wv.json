@@ -106,6 +106,14 @@
       ]
     },
     {
+      "date": "2021-03-18",
+      "title": "West Virginia adopts the Seal of Biliteracy",
+      "description": "Per the national Seal of Biliteracy state tracker, West Virginia adopted the Seal of Biliteracy on 2021-03-18, recognizing high school graduates who attain proficiency in English and one or more additional languages. Prior to this verification the record had `adopted: false` based on a now-stale Wikipedia table; the SoB national page confirms WV adoption.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/wv/"
+      ]
+    },
+    {
       "date": "2023-10-16",
       "title": "WVPTS reaffirmed in revised Policy 5310",
       "description": "WVBE Policy 5310 (Performance Evaluation of Professional Personnel and Athletic Coaches, 126CSR142) is amended; §13.1 continues to set the West Virginia Professional Teaching Standards as five summary elements that determine 80 percent of a teacher's summative rating. None of the five elements explicitly references diverse, cultural, linguistic, or English Learner content.",
@@ -119,14 +127,6 @@
       "description": "WVBE Policy 5100 (Approval of Educator Preparation Programs, 126CSR114) is amended. EPPs leading to the ESL Pre-k-Adult specialization must align to the National Standards for Teachers of English to Speakers of Other Languages (TESOL) and to the current state-approved content standards, with field-based and yearlong-residency clinical experiences required for all initial-licensure programs.",
       "sourceUrls": [
         "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=56943&Format=PDF"
-      ]
-    },
-    {
-      "date": "2021-03-18",
-      "title": "West Virginia adopts the Seal of Biliteracy",
-      "description": "Per the national Seal of Biliteracy state tracker, West Virginia adopted the Seal of Biliteracy on 2021-03-18, recognizing high school graduates who attain proficiency in English and one or more additional languages. Prior to this verification the record had `adopted: false` based on a now-stale Wikipedia table; the SoB national page confirms WV adoption.",
-      "sourceUrls": [
-        "https://sealofbiliteracy.org/state/wv/"
       ]
     },
     {

@@ -159,20 +159,20 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1979-05-23",
       "title": "Washington Transitional Bilingual Instruction Program established (Ch. 95, Laws of 1979)",
       "description": "The Washington Legislature enacted RCW 28A.180 (originally Chapter 95, Laws of 1979) creating the Transitional Bilingual Instruction Program (TBIP) and committing state funds to districts serving EL students. Unlike the bilingual mandates in MA/NM/TX/IL/NJ, Washington's statute permits districts to choose program model — bilingual where staffing allows, ESL/sheltered instruction otherwise — and ties state funding to enrollment of identified ELs. RCW 28A.180.020 still requires OSPI to report annually on the program. OSPI rebranded the umbrella as the Multilingual Education Program in recent guidance, but the underlying TBIP statute remains the legal backbone of WA's EL services.",
       "sourceUrls": [
         "https://app.leg.wa.gov/RCW/default.aspx?cite=28A.180",
         "https://ospi.k12.wa.us/student-success/access-opportunity-education/migrant-and-multilingual-education/multilingual-education-program/transitional-bilingual-instruction-program-guidance"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

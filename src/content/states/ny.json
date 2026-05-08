@@ -123,14 +123,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1974-08-29",
       "title": "Aspira v. Board of Education of the City of New York consent decree (S.D.N.Y.)",
       "description": "ASPIRA of New York and Puerto Rican parents settled their 1972 class action against the New York City Board of Education with a consent decree that became the country's first court-ordered bilingual-education program of any scale. The decree required NYC to identify Spanish-speaking ELs and provide a Transitional Bilingual Education program (Spanish-language content instruction plus intensive ESL) for any student whose ability to participate effectively in English was below grade level. Aspira's compliance regime was the operational model that NYSED later codified for the state in CR Part 154 and remains the doctrinal touchstone for NYC's bilingual-extension teacher demand.",
@@ -160,6 +152,14 @@
       "description": "Board of Regents adopted revised Commissioner's Regulations Part 154 (Sept. 2014, effective school year 2015-16) governing services for ELLs/MLs, including the requirement that general classroom teachers of ELLs dedicate 15% of CTLE clock hours to language acquisition. CR Part 154 (not a new credential) is the operative ELL service mandate; underpins the sei notes.",
       "sourceUrls": [
         "https://www.nysed.gov/bilingual-ed/english-language-learner-and-multilingual-learner-regulations-compliance"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

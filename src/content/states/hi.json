@@ -1,7 +1,7 @@
 {
   "usps": "HI",
   "name": "Hawaii",
-  "elPercent": 10.0,
+  "elPercent": 10,
   "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
@@ -98,14 +98,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1978-11-07",
       "title": "Hawaii Constitution amended — Hawaiian becomes co-official language with English",
       "description": "At the 1978 Constitutional Convention voters ratified Article XV § 4 of the Hawaii State Constitution, making Hawaiian (ʻŌlelo Hawaiʻi) an official language of the State alongside English — the only U.S. state to officially recognize a Native language at constitutional level. Article X § 4 simultaneously requires the State to promote \"the study of Hawaiian culture, history, and language.\" The 1978 amendments are the constitutional predicate for the Hawaiian-medium (Kaiapuni) public-school program, the HTSB Hawaiian Language Immersion teacher fields that this record codes under bilingual, and the State's bilingual approach to EL students whose home language is Hawaiian or a Pacific-Island language.",
@@ -127,6 +119,14 @@
       "description": "Act 224 (SLH 2015 / SB 1394) authorizes a State Seal of Biliteracy for graduating high-school students who demonstrate proficiency in English plus one or more additional languages, including ʻŌlelo Hawaiʻi. Hawaii is among the early-adopter states.",
       "sourceUrls": [
         "https://sealofbiliteracy.org/state/hawaii/"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

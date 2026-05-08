@@ -98,14 +98,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2015-01-13",
       "title": "Kansas adopts revised Professional Education Teacher Preparation Standards",
       "description": "KSBE adopted Kansas's current Professional Education Teacher Preparation Standards on 2015-01-13. Standard 2 (Learning Differences) embeds EL-relevant competencies (e.g., 2.1.5PS — strategies for making content accessible to English language learners) into the general preparation framework that binds all Kansas-prepared teachers.",
@@ -135,6 +127,14 @@
       "description": "Kansas adopted the standalone ESOL (K-6, 5-8, 6-12, PreK-12) Teacher Preparation Standards on 2017-05-09. These define the competency floor for the ESOL endorsement (the only EL credential offered in Kansas, as an add-on to a primary license).",
       "sourceUrls": [
         "https://www.ksde.gov/docs/default-source/licensure/english-for-speakers-of-other-languages-(esol)-grades-k-6-5-8-6-12-and-prek-12-teacher-preparation-standards.pdf"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

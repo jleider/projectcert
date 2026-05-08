@@ -145,14 +145,6 @@
       ]
     },
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2002-07-01",
       "title": "AB 1059 EL preparation embedded in every preliminary credential",
       "description": "Effective 2002-07-01 (AB 1059, 1999), every Multiple Subject and Single Subject preliminary teaching credential issued by California must embed EL preparation, making CA's universal EL-credentialing mandate functionally one-course-plus EL preparation required of every newly-credentialed classroom teacher.",
@@ -183,6 +175,14 @@
       "description": "Proposition 58 (the California Education for a Global Economy Initiative) repeals the English-only instruction restrictions of Proposition 227 (1998), restoring local authority to offer bilingual, dual-language, and structured English immersion programs and reinforcing demand for the Bilingual Authorization.",
       "sourceUrls": [
         "https://www.cde.ca.gov/ds/ad/cefelfacts.asp"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

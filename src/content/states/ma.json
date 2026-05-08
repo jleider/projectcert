@@ -113,14 +113,6 @@
       ]
     },
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2011-06-14",
       "title": "U.S. DOJ / MA DESE settlement triggers RETELL and the SEI endorsement framework",
       "description": "Following a federal investigation that found Massachusetts's pre-existing \"Category 1-4\" SEI training out of compliance with the Equal Educational Opportunities Act and the Castañeda v. Pickard standard, the U.S. Department of Justice and MA DESE entered a settlement agreement. DESE responded by launching RETELL (Rethinking Equity and Teaching for English Language Learners) in 2012 — a statewide initiative that promulgated 603 CMR 7.14(1), the Sheltered English Immersion endorsement, and required core-academic teachers and administrators of ELs to obtain it on a phased schedule. RETELL is the operational backbone the LOOK Act later codified.",
@@ -143,6 +135,14 @@
       "description": "The LOOK Act simultaneously authorized the Massachusetts State Seal of Biliteracy. DESE administers the credential for high-school graduates demonstrating proficiency in English plus one or more world languages.",
       "sourceUrls": [
         "https://sealofbiliteracy.org/"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

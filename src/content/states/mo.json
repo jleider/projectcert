@@ -102,14 +102,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2017-01-01",
       "title": "Missouri Seal of Biliteracy adopted",
       "description": "Missouri adopted the Seal of Biliteracy in 2017, administered by DESE. The DESE Seal of Biliteracy program now reports annual results back to 2020-21 across 127+ participating districts and includes a Distinguished Seal of Biliteracy tier.",
@@ -123,6 +115,14 @@
       "description": "DESE's ELL endorsement rule (5 CSR 20-400.570) took effect August 1, 2017, codifying the K-12 add-on certification: 18 hours of content coursework (linguistics, language and culture, second-language acquisition, methods, curriculum, assessment), 3 hours psychology of the exceptional child, 6 hours literacy, a 3-hour field/clinical experience, and a qualifying exit assessment. Together with 5 CSR 20-400.500 (general approved-program requirement) and 5 CSR 20-400.310 / .440 (assessments), this rule grounds the schema's `eld.requirements.{program,coursework,practicum,test}: true` codings.",
       "sourceUrls": [
         "https://www.sos.mo.gov/cmsimages/adrules/csr/current/5csr/5c20-400.pdf"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

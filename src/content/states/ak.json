@@ -122,14 +122,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1972-06-08",
       "title": "Alaska Bilingual-Bicultural Education Act enacted (Ch. 137, SLA 1972)",
       "description": "Alaska's Bilingual-Bicultural Education Act, codified at AS 14.30.400, requires every district enrolling 8 or more students of limited English proficiency from the same primary language background to operate a bilingual-bicultural education program — among the lowest enrollment thresholds of any state mandate. Originally enacted in 1972 in response to litigation over the State's failure to serve Alaska Native students in their heritage languages (notably the Tobeluk v. Lind / Molly Hootch consent decree pipeline that opened village high schools), the statute remains on the books and is the legal foundation for DEED's bilingual/bicultural credentialing pathways and the Alaska Native language immersion programs the State funds today.",
@@ -143,6 +135,14 @@
       "description": "Governor signed HB 216 (codified at AS 44.12.310) recognizing Iñupiaq, Siberian Yupik, Central Alaskan Yupʼik, Alutiiq, Unangax̂, Dena'ina, Deg Xinag, Holikachuk, Koyukon, Upper Kuskokwim, Gwichʼin, Lower Tanana, Upper Tanana, Tanacross, Hän, Ahtna, Eyak, Tlingit, Haida, and Tsimshian as official languages of Alaska alongside English. The act is symbolic — it does not require state government to publish in these languages — but it is the legal predicate for DEED's continued investment in Alaska Native language teacher endorsements and the 2024 Limited World Language Immersion certificate, and it is cited in subsequent Indigenous-language education-funding decisions.",
       "sourceUrls": [
         "https://www.akleg.gov/basis/statutes.asp#44.12.310"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

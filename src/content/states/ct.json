@@ -111,14 +111,6 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "1977-06-08",
       "title": "Connecticut Bilingual Education Act enacted (Public Act 77-588)",
       "description": "Public Act 77-588 (codified at C.G.S. § 10-17f et seq.) required Connecticut school districts with 20 or more EL students of the same dominant language at any one school to provide a bilingual education program. The 1977 act was substantially amended in 1999 (Public Act 99-211) to cap bilingual program participation at 30 months per student, and again in 2017 (Public Act 17-173) to extend the cap by an additional 30 months under specified conditions. The §10-17f trigger threshold is the current statutory backbone for CT's bilingual cross-endorsement framework.",
@@ -140,6 +132,14 @@
       "description": "CSDE released the 2017 edition of the Common Core of Teaching (CCT) Rubric for Effective Teaching, the foundational professional-standards document binding all CT teachers. Keyword scan: 'diverse', 'cultural', and 'English learner' present; 'linguistic' absent — driving professionalStandardsMentions.linguistic = false.",
       "sourceUrls": [
         "https://portal.ct.gov/-/media/SDE/Evaluation-and-Support/CCTRubricForEffectiveTeaching2017.pdf"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {
