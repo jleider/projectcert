@@ -164,6 +164,22 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2008-06-05",
+      "title": "NC Professional Teaching Standards adopted (still operative)",
+      "description": "The State Board of Education adopted the NC Professional Teaching Standards in 2007 (revised 2008) and they remain the operative standards document. Standard II (\"diverse population of students\"), Standard IV references to language proficiency, and pervasive cultural-diversity language ground the schema's `professionalStandardsMentions.{diverse, cultural, linguistic}: true`. The standards do not name \"English learner\" or \"EL\" explicitly, holding `el: false`.",
+      "sourceUrls": [
+        "https://www.dpi.nc.gov/educators/educator-preparation/educator-preparation-policies/professional-teaching-standards"
+      ]
+    },
+    {
+      "date": "2015-01-01",
+      "title": "North Carolina adopts Seal of Biliteracy (Global Languages Endorsement)",
+      "description": "NC adopted the Seal of Biliteracy in 2015, implemented as the Global Languages Endorsement on the high school diploma. Recognizes graduates who demonstrate proficiency in English and at least one other world language. Per the schema, this is a student-side credential and is recorded as context — the closest teacher-side analog (K-6 \"Second Language\" add-on) remains separate.",
+      "sourceUrls": [
+        "https://www.dpi.nc.gov/students-families/student-supports/global-languages-endorsement"
+      ]
     }
   ]
 }
