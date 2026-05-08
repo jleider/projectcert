@@ -128,6 +128,24 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2019-09-01",
+      "title": "North Dakota Seal of Biliteracy adopted",
+      "description": "NDDPI adopted the North Dakota State Seal of Biliteracy in 2019, recognizing high school graduates who demonstrate proficiency in English plus one or more additional languages. Operated by NDDPI; first awards issued the 2019-20 school year.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/north-dakota/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-verified against current ND ESPB and NDDPI sources",
+      "description": "Re-confirmed NDAC ch. 67.1-02-03 EL and Bilingual endorsement requirements (16 sem. hrs. + Praxis ESOL alternative), ND ESPB adoption of InTASC Model Core Teaching Standards (Aug. 2015 final), and NDDPI's continued WIDA membership using ACCESS for ELLs. elPercent set to 3.3 (NCES Table 204.20, fall 2021). No substantive credential changes from baseline.",
+      "sourceUrls": [
+        "https://www.nd.gov/espb/licensure/endorsement-information/english-learner-el-endorsement",
+        "https://ndlegis.gov/information/acdata/pdf/67.1-02-03.pdf",
+        "https://www.nd.gov/dpi/districtsschools/assessment/access-ells"
+      ]
     }
   ]
 }
