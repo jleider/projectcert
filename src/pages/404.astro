@@ -41,7 +41,7 @@ const stateIndex = states.map((s) => ({
     </nav>
   </article>
 
-  <script type="application/json" id="state-index" set:html={JSON.stringify(stateIndex)}></script>
+  <script is:inline type="application/json" id="state-index" set:html={JSON.stringify(stateIndex)}></script>
 
   <script is:inline>
     (() => {
