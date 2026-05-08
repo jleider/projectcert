@@ -1,8 +1,8 @@
 {
   "usps": "IA",
   "name": "Iowa",
-  "elPercent": 6.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 6.2,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -15,7 +15,7 @@
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": null,
         "test": null,
@@ -35,12 +35,12 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2018,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://educate.iowa.gov/pk-12/standards/instruction/biliteracy-seal"
   },
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+    "sourceUrl": "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners/elpa21"
   },
   "sources": [
     {
@@ -54,8 +54,68 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Iowa Department of Education — homepage (current canonical domain)",
+      "url": "https://educate.iowa.gov/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa DOE — endorsements list",
+      "url": "https://educate.iowa.gov/educator-licensure/endorsements-list",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa DOE — K-12 English Language Learners (Endorsement 104)",
+      "url": "https://educate.iowa.gov/educator-licensure/endorsements/k-12-english-language-learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa DOE — licenses and authorizations (Native Language Teaching Authorization)",
+      "url": "https://educate.iowa.gov/educator-licensure/licenses-authorizations",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa Admin. Code r. 282-13.28(20) — ESL endorsement minimum content",
+      "url": "https://www.law.cornell.edu/regulations/iowa/Iowa-Admin-Code-r-282-13-28",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa DOE — English Learners hub",
+      "url": "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa DOE — ELPA21 page",
+      "url": "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners/elpa21",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa DOE — Biliteracy Seal page",
+      "url": "https://educate.iowa.gov/pk-12/standards/instruction/biliteracy-seal",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Iowa Teaching Standards and Model Criteria (Iowa Code § 284.3)",
+      "url": "https://educate.iowa.gov/media/984/download?inline=",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 (fall 2021 EL share by state)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
