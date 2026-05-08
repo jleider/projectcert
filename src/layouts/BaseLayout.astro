@@ -1,13 +1,11 @@
 ---
 import "@/styles/tokens.css";
-import PreLaunchBanner from "@/components/PreLaunchBanner.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { FEEDBACK_FORM } from "@/config/feedback";
 import { SITE_URL, SITE_NAME } from "@/config/site";
 import { ROUTES, ANCHORS, sameAnchor, withAnchor } from "@/lib/routes";
-import { getCollection } from "astro:content";
 
 interface Props {
   title: string;
@@ -37,12 +35,6 @@ const {
 const fullTitle = `${title} — ${SITE_NAME}`;
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
 const ogImage = new URL(image ?? "/og-default.png", SITE_URL).toString();
-
-const states = await getCollection("states");
-const verifiedCount = states.filter(
-  (s) => s.data.verificationStatus === "verified-2026",
-).length;
-const totalCount = states.length;
 
 const siteJsonLd = [
   {
@@ -108,8 +100,6 @@ const siteJsonLd = [
   </head>
   <body class="min-h-screen flex flex-col">
     <a href={sameAnchor(ANCHORS.main)} class="skip-link">Skip to main content</a>
-
-    <PreLaunchBanner verified={verifiedCount} total={totalCount} />
 
     <header class="border-b border-ink-subtle/15 bg-surface">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
