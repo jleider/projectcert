@@ -1,44 +1,47 @@
 {
   "usps": "MS",
   "name": "Mississippi",
-  "elPercent": 2.7,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 3.1,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "MDE does not offer a bilingual education endorsement. Appendix A of the K-12 Educator Licensure Guidelines (Dec 2025) lists Praxis-route foreign-language endorsements (Spanish, French, etc.) but no bilingual-education credential."
     },
     "eld": {
       "offered": true,
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
+        "program": true,
+        "coursework": false,
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "177 — English as a Second Language (K-12) is added to a valid Mississippi license either by passing the Praxis Subject Assessment or by completing an MDE-approved program (Appendix A, K-12 Licensure Guidelines, Dec 2025). No standalone 18-hour coursework path exists for 177. The SEA does not impose a separate practicum on top of the approved-program route; practicum left null pending per-IHE program detail."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Mississippi does not require SEI training of all teachers. Only educators pursuing the 177 ESL endorsement are required to complete EL-specific preparation."
     }
   },
   "professionalStandardsMentions": {
     "diverse": false,
-    "cultural": true,
+    "cultural": false,
     "linguistic": false,
     "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2019,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://www.mdek12.org/OAE/OEAS/EnglishLearners"
   },
   "elpAssessment": {
-    "name": "LAS Links",
-    "consortium": null,
+    "name": "ELPA21",
+    "consortium": "ELPA21",
     "sourceUrl": "https://www.mdek12.org/OAE/OEAS/EnglishLearners"
   },
   "sources": [
@@ -53,8 +56,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "MDE — K-12 Educator Licensure Guidelines (Dec 2025), Appendix A",
+      "url": "https://www.mdek12.org/OEL/OEL",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — English Learner Services / EL services page",
+      "url": "https://www.mdek12.org/OAE/OEAS/EnglishLearners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — ELPT (English Language Proficiency Test) page (now references ELPA 21)",
+      "url": "https://www.mdek12.org/OSA/Operations/ELPT",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ELPA21 Insider Newsletter, Spring 2025 (names Mississippi as newest partner state)",
+      "url": "https://www.elpa21.org/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — PGS Teacher Growth Rubric (July 2018)",
+      "url": "https://www.mdek12.org/OEEM/PGS",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 (English Learners in Public Schools, fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
