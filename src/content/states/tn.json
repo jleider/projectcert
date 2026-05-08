@@ -20,7 +20,7 @@
         "test": true,
         "languageProficiency": false
       },
-      "notes": "ESL endorsement codes 488 (K-8), 489 (6-12), 490 (PreK-12). Praxis 5362 required (Professional Assessments Policy 5.105). Two pathways: traditional EPP-approved program, or TDOE's no-cost Additional Endorsement Program for already-licensed teachers (asynchronous coursework + Praxis), authorized under Educator Licensure Policy 5.502 (revised July 2021). Practicum coded null because the public TDOE pages don't enumerate clinical/practicum hours separately — set by EPPs against Specialty Area Standards Policy 5.505. 2024 update: TDOE moved EL assessment from WIDA/ACCESS to ELPA21 effective July 1, 2024 (first ELPA21 Summative Feb 5, 2025) and adopted ELPA21 ELD Standards in place of WIDA 2020. EL share rose from 4.6% (2019 baseline) to ~9% (2024 TDOE figure, 93,433 students). Held at in-progress: the SEA professional teaching standards source (Educator Licensure Policy 5.502 / Specialty Area Standards Policy 5.505 / TEAM rubric) was not retrieved this round — Teacher Code of Ethics (T.C.A. 49-5-1001) was retrieved and is not the standards document; professionalStandardsMentions booleans carry forward from baseline-2019 pending standards-doc verification."
+      "notes": "ESL endorsement codes 488 (K-8), 489 (6-12), 490 (PreK-12). Praxis 5362 required (Professional Assessments Policy 5.105). Two pathways: traditional EPP-approved program, or TDOE's no-cost Additional Endorsement Program for already-licensed teachers (asynchronous coursework + Praxis), authorized under Educator Licensure Policy 5.502 (revised Feb 2025). ESL programs minimum 18 hours, 6 hours of college-level world language, aligned to TESOL P-12 Standards (Policy 5.505 §English as a Second Language). Practicum coded null because Policy 5.505 does not enumerate clinical/practicum hours separately for ESL — set by EPPs. 2024 update: TDOE moved EL assessment from WIDA/ACCESS to ELPA21 effective July 1, 2024 (first ELPA21 Summative Feb 5, 2025) and adopted ELPA21 ELD Standards in place of WIDA 2020. EL share rose from 4.6% (2019 baseline) to ~9% (2024 TDOE figure, 93,433 students)."
     },
     "sei": {
       "mandatedForAllTeachers": false,
@@ -103,10 +103,22 @@
       "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/policies/5000/5.504%20Teacher%20Code%20of%20Ethics%20Policy.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TN SBE Policy 5.505 — Literacy and Specialty Area Standards for Educator Preparation (Adopted 02/08/2019; Revised 11/21/2025). Source for professionalStandardsMentions: explicit references to diverse, cultural, linguistic, and English Learners across literacy and specialty-area standards; ESL programs aligned to TESOL P-12 Standards.",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2025-sbe-meetings/november-21%2c-2025-sbe-meeting/11-21-25%20V%20D%20Literacy%20and%20Specialty%20Area%20Standards%20For%20Educator%20Preparation%20Policy%205.505%20Clean.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TN SBE Policy 5.502 — Educator Licensure (Revised 02/21/2025). Operative SEA licensure policy authorizing endorsement pathways including ESL.",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2025-sbe-meetings/february-21%2c-2025-sbe-meeting/2-21-25%20VII%20A%20Educator%20Licensure%20Policy%205.502%20Attachment.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
   "lastVerified": "2026-05-08",
-  "verificationStatus": "in-progress",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -114,6 +126,15 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Standards verified — promoted to verified-2026",
+      "description": "Retrieved current SBE Policy 5.505 'Literacy and Specialty Area Standards for Educator Preparation' (revised 11/21/2025) and Policy 5.502 'Educator Licensure' (revised 02/21/2025). Policy 5.505 explicitly references diverse instructional practices, students' cultural and linguistic experiences, language/linguistic diversity as a source of strength, culturally relevant and responsive instruction, and English Learners by name (e.g., 'all learners (e.g., English Learners, students with disabilities, and at-risk learners)') in general literacy and early-childhood standards applicable beyond the ESL endorsement. ESL programs are aligned to TESOL P-12 Standards and require instruction on the Tennessee EL Framework. All four professionalStandardsMentions booleans (diverse, cultural, linguistic, el) confirmed true against the current standards document.",
+      "sourceUrls": [
+        "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2025-sbe-meetings/november-21%2c-2025-sbe-meeting/11-21-25%20V%20D%20Literacy%20and%20Specialty%20Area%20Standards%20For%20Educator%20Preparation%20Policy%205.505%20Clean.pdf",
+        "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2025-sbe-meetings/february-21%2c-2025-sbe-meeting/2-21-25%20VII%20A%20Educator%20Licensure%20Policy%205.502%20Attachment.pdf"
       ]
     }
   ]
