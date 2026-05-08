@@ -39,6 +39,20 @@ const StandardsMentions = z.object({
   el: z.boolean(),
 });
 
+/**
+ * State Seal of Biliteracy adoption.
+ *
+ * Recognition awarded to graduating high-school students who demonstrate
+ * proficiency in English plus one or more other languages. Tangential
+ * to teacher credentialing but a useful signal of state-level bilingual
+ * policy. `adopted: null` means we couldn't confirm against current
+ * sealofbiliteracy.org / Wikipedia evidence — not "no."
+ */
+const SealOfBiliteracy = z.object({
+  adopted: z.boolean().nullable(),
+  year: z.number().int().min(2011).max(2030).nullable(),
+});
+
 export const StateSchema = z.object({
   usps: z.string().length(2).regex(/^[A-Z]{2}$/),
   name: z.string().min(2),
@@ -50,6 +64,7 @@ export const StateSchema = z.object({
     sei: SeiCredential,
   }),
   professionalStandardsMentions: StandardsMentions,
+  sealOfBiliteracy: SealOfBiliteracy,
   sources: z.array(Source).min(1, "Provenance is required"),
   lastVerified: isoDate,
   verificationStatus: z.enum([

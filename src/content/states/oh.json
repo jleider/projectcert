@@ -39,6 +39,10 @@
     "linguistic": true,
     "el": true
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2017
+  },
   "sources": [
     {
       "label": "Ohio Department of Education",

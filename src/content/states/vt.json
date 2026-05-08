@@ -38,6 +38,10 @@
     "linguistic": true,
     "el": false
   },
+  "sealOfBiliteracy": {
+    "adopted": null,
+    "year": null
+  },
   "sources": [
     {
       "label": "Vermont Agency of Education",

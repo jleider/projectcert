@@ -66,6 +66,10 @@
   --standards-0: #f5dde2;
   --standards-3: #821f37;
 
+  /* Seal of Biliteracy — indigo (binary + unverified-as-na) */
+  --seal-0: #dde3f5;
+  --seal-3: #1f2c80;
+
   /* Green accent for UI */
   --accent: #14803c;
   --accent-hover: #0f5e2c;

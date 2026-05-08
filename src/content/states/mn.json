@@ -38,6 +38,10 @@
     "linguistic": true,
     "el": true
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2014
+  },
   "sources": [
     {
       "label": "Minnesota Department of Education",

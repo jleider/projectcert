@@ -38,6 +38,10 @@
     "linguistic": true,
     "el": true
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2020
+  },
   "sources": [
     {
       "label": "Idaho State Department of Education",

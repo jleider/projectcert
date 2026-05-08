@@ -39,6 +39,10 @@
     "linguistic": true,
     "el": true
   },
+  "sealOfBiliteracy": {
+    "adopted": null,
+    "year": null
+  },
   "sources": [
     {
       "label": "Alaska DEED Teacher Certification",

@@ -31,6 +31,10 @@
     "linguistic": true,
     "el": true
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2016
+  },
   "sources": [
     {
       "label": "Kansas State Dept. of Education",

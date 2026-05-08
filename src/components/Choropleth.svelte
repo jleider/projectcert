@@ -19,6 +19,7 @@
     eld: { offered: boolean; standalone: boolean; addOn: boolean };
     seiMandated: boolean;
     standardsMentionsEl: boolean;
+    sealOfBiliteracy: { adopted: boolean | null; year: number | null };
   }
 
   type Layer =
@@ -26,7 +27,8 @@
     | "bilingual"
     | "eld"
     | "sei"
-    | "standardsMentionsEl";
+    | "standardsMentionsEl"
+    | "sealOfBiliteracy";
 
   /**
    * Encoded variable.
@@ -88,6 +90,11 @@
     if (l === "standardsMentionsEl") {
       return datum.standardsMentionsEl ? "var(--standards-3)" : "var(--standards-0)";
     }
+    if (l === "sealOfBiliteracy") {
+      if (datum.sealOfBiliteracy.adopted === true) return "var(--seal-3)";
+      if (datum.sealOfBiliteracy.adopted === false) return "var(--seal-0)";
+      return "var(--bin-na)";
+    }
     return "var(--bin-na)";
   }
 
@@ -115,6 +122,15 @@
       return datum.standardsMentionsEl
         ? "Professional teaching standards mention ELs"
         : "Professional teaching standards do not mention ELs";
+    if (l === "sealOfBiliteracy") {
+      const seal = datum.sealOfBiliteracy;
+      if (seal.adopted === true)
+        return seal.year
+          ? `Seal of Biliteracy adopted in ${seal.year}`
+          : "Seal of Biliteracy adopted";
+      if (seal.adopted === false) return "Seal of Biliteracy not adopted";
+      return "Seal of Biliteracy adoption status unverified";
+    }
     return "";
   }
 

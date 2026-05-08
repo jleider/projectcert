@@ -38,6 +38,10 @@
     "linguistic": true,
     "el": true
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2015
+  },
   "sources": [
     {
       "label": "Wisconsin Dept. of Public Instruction",

@@ -31,6 +31,10 @@
     "linguistic": true,
     "el": false
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2017
+  },
   "sources": [
     {
       "label": "Connecticut State Dept. of Education",

@@ -2,7 +2,13 @@
   import Choropleth from "./Choropleth.svelte";
   import { BINS } from "@/data/bins";
 
-  type Layer = "elPercent" | "bilingual" | "eld" | "sei" | "standardsMentionsEl";
+  type Layer =
+    | "elPercent"
+    | "bilingual"
+    | "eld"
+    | "sei"
+    | "standardsMentionsEl"
+    | "sealOfBiliteracy";
 
   export let states: Array<{
     usps: string;
@@ -12,6 +18,7 @@
     eld: { offered: boolean; standalone: boolean; addOn: boolean };
     seiMandated: boolean;
     standardsMentionsEl: boolean;
+    sealOfBiliteracy: { adopted: boolean | null; year: number | null };
   }>;
 
   let layer: Layer = "elPercent";
@@ -22,6 +29,7 @@
     { value: "eld", label: "ELD credential" },
     { value: "sei", label: "SEI mandate" },
     { value: "standardsMentionsEl", label: "Standards mention ELs" },
+    { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
   ];
 
   type LegendEntry = { color: string; label: string };
@@ -45,6 +53,11 @@
     standardsMentionsEl: [
       { color: "var(--standards-0)", label: "ELs not mentioned" },
       { color: "var(--standards-3)", label: "ELs mentioned" },
+    ],
+    sealOfBiliteracy: [
+      { color: "var(--seal-3)", label: "Adopted" },
+      { color: "var(--seal-0)", label: "Not adopted" },
+      { color: "var(--bin-na)", label: "Unverified" },
     ],
   };
 

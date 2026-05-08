@@ -110,6 +110,28 @@ const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boo
       </li>
     </ul>
 
+    <section class="mt-10" aria-labelledby="seal-heading">
+      <h2 id="seal-heading" class="text-xl font-semibold text-ink">State Seal of Biliteracy</h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Recognition awarded to graduating high-school students who demonstrate proficiency in English plus one or more other languages.
+      </p>
+      <p class="mt-3 text-sm">
+        {s.sealOfBiliteracy.adopted === true && (
+          <span class="text-accent">
+            <strong>Adopted</strong>{s.sealOfBiliteracy.year && <> in {s.sealOfBiliteracy.year}</>}.
+          </span>
+        )}
+        {s.sealOfBiliteracy.adopted === false && (
+          <span class="text-ink-subtle"><strong>Not adopted.</strong></span>
+        )}
+        {s.sealOfBiliteracy.adopted === null && (
+          <span class="text-ink-subtle italic">
+            Adoption status unverified against current sealofbiliteracy.org sources.
+          </span>
+        )}
+      </p>
+    </section>
+
     <SourceList sources={s.sources} />
 
     <ReportIssue

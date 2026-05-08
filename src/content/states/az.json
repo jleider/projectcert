@@ -39,6 +39,10 @@
     "linguistic": true,
     "el": false
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2016
+  },
   "sources": [
     {
       "label": "Arizona Department of Education",

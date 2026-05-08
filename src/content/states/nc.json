@@ -39,6 +39,10 @@
     "linguistic": true,
     "el": false
   },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2015
+  },
   "sources": [
     {
       "label": "North Carolina Public Schools",
