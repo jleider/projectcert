@@ -37,12 +37,34 @@
  */
 
 :root {
-  /* Choropleth bins (purple sequential) */
+  /* Choropleth bins (purple sequential — used for the % EL layer) */
   --bin-0: #f5e8ff;
   --bin-1: #c9a0ff;
   --bin-2: #7a3ed8;
   --bin-3: #3d1971;
   --bin-na: #e2e5ec; /* neutral for "no data" */
+
+  /* Per-layer choropleth palettes — distinct hues so switching the
+   * encoded variable produces an obvious recolor of the map.
+   * Naming mirrors --bin-N (0 = none/off, 2 = mid, 3 = full/on). */
+
+  /* Bilingual credential — green */
+  --bilingual-0: #e6f1e8;
+  --bilingual-2: #4f9c64;
+  --bilingual-3: #155026;
+
+  /* ELD credential — amber/orange */
+  --eld-0: #fbecd2;
+  --eld-2: #d68a26;
+  --eld-3: #6e3d10;
+
+  /* SEI mandate — teal */
+  --sei-0: #dbeef1;
+  --sei-3: #0e5a64;
+
+  /* Standards mention — rose */
+  --standards-0: #f5dde2;
+  --standards-3: #821f37;
 
   /* Green accent for UI */
   --accent: #14803c;

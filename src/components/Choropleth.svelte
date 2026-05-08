@@ -67,57 +67,51 @@
 
   $: stateById = new Map(states.map((s) => [s.usps, s]));
 
-  function fillFor(datum: StateDatum | undefined): string {
+  function fillFor(datum: StateDatum | undefined, l: Layer): string {
     if (!datum) return "var(--bin-na)";
-    if (layer === "elPercent") {
+    if (l === "elPercent") {
       return `var(${binFor(datum.elPercent).cssVar})`;
     }
-    if (layer === "bilingual") {
-      if (!datum.bilingual.offered) return "var(--bin-0)";
-      if (datum.bilingual.standalone) return "var(--bin-3)";
-      return "var(--bin-2)"; // add-on only
+    if (l === "bilingual") {
+      if (!datum.bilingual.offered) return "var(--bilingual-0)";
+      if (datum.bilingual.standalone) return "var(--bilingual-3)";
+      return "var(--bilingual-2)"; // add-on only
     }
-    if (layer === "eld") {
-      if (datum.eld.standalone) return "var(--bin-3)";
-      if (datum.eld.addOn) return "var(--bin-2)";
-      return "var(--bin-0)";
+    if (l === "eld") {
+      if (datum.eld.standalone) return "var(--eld-3)";
+      if (datum.eld.addOn) return "var(--eld-2)";
+      return "var(--eld-0)";
     }
-    if (layer === "sei") {
-      return datum.seiMandated ? "var(--bin-3)" : "var(--bin-0)";
+    if (l === "sei") {
+      return datum.seiMandated ? "var(--sei-3)" : "var(--sei-0)";
     }
-    if (layer === "standardsMentionsEl") {
-      return datum.standardsMentionsEl ? "var(--bin-3)" : "var(--bin-0)";
+    if (l === "standardsMentionsEl") {
+      return datum.standardsMentionsEl ? "var(--standards-3)" : "var(--standards-0)";
     }
     return "var(--bin-na)";
   }
 
-  function patternFor(datum: StateDatum | undefined): string | null {
-    if (!datum) return null;
-    if (layer === "elPercent") return binFor(datum.elPercent).patternId;
-    return null;
-  }
-
-  function describe(datum: StateDatum | undefined): string {
+  function describe(datum: StateDatum | undefined, l: Layer): string {
     if (!datum) return "no data";
-    if (layer === "elPercent")
+    if (l === "elPercent")
       return `${datum.elPercent.toFixed(1)}% classified ELs`;
-    if (layer === "bilingual")
+    if (l === "bilingual")
       return datum.bilingual.offered
         ? datum.bilingual.standalone
           ? "Bilingual standalone certification offered"
           : "Bilingual add-on endorsement only"
         : "No bilingual credential offered";
-    if (layer === "eld")
+    if (l === "eld")
       return datum.eld.standalone
         ? "ELD standalone certification offered"
         : datum.eld.addOn
           ? "ELD add-on endorsement only"
           : "No ELD credential offered";
-    if (layer === "sei")
+    if (l === "sei")
       return datum.seiMandated
         ? "SEI endorsement mandated for all teachers"
         : "SEI not mandated for all teachers";
-    if (layer === "standardsMentionsEl")
+    if (l === "standardsMentionsEl")
       return datum.standardsMentionsEl
         ? "Professional teaching standards mention ELs"
         : "Professional teaching standards do not mention ELs";
@@ -197,17 +191,17 @@
       {#if datum}
         <a
           href={`/states/${datum.usps.toLowerCase()}/`}
-          aria-label={`${datum.name}: ${describe(datum)}`}
+          aria-label={`${datum.name}: ${describe(datum, layer)}`}
           on:click|preventDefault={() => handleClick(datum)}
         >
           <path
             {d}
-            fill={fillFor(datum)}
+            fill={fillFor(datum, layer)}
             stroke="var(--map-border)"
             stroke-width="1"
             tabindex="0"
             role="button"
-            aria-label={`${datum.name}: ${describe(datum)}`}
+            aria-label={`${datum.name}: ${describe(datum, layer)}`}
             on:mousemove={(e) => handleMove(e, datum)}
             on:mouseleave={handleLeave}
             on:focus={() => handleFocus(datum)}
@@ -236,7 +230,7 @@
     >
       <strong>{tooltip.name}</strong>
       <br />
-      {describe(tooltip)}
+      {describe(tooltip, layer)}
     </div>
   {/if}
 </figure>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import Choropleth from "./Choropleth.svelte";
+  import { BINS } from "@/data/bins";
 
   type Layer = "elPercent" | "bilingual" | "eld" | "sei" | "standardsMentionsEl";
 
@@ -22,6 +23,32 @@
     { value: "sei", label: "SEI mandate" },
     { value: "standardsMentionsEl", label: "Standards mention ELs" },
   ];
+
+  type LegendEntry = { color: string; label: string };
+
+  const LEGENDS: Record<Layer, LegendEntry[]> = {
+    elPercent: BINS.map((b) => ({ color: `var(${b.cssVar})`, label: b.label })),
+    bilingual: [
+      { color: "var(--bilingual-0)", label: "Not offered" },
+      { color: "var(--bilingual-2)", label: "Add-on only" },
+      { color: "var(--bilingual-3)", label: "Standalone offered" },
+    ],
+    eld: [
+      { color: "var(--eld-0)", label: "Not offered" },
+      { color: "var(--eld-2)", label: "Add-on only" },
+      { color: "var(--eld-3)", label: "Standalone offered" },
+    ],
+    sei: [
+      { color: "var(--sei-0)", label: "Not mandated" },
+      { color: "var(--sei-3)", label: "Mandated for all teachers" },
+    ],
+    standardsMentionsEl: [
+      { color: "var(--standards-0)", label: "ELs not mentioned" },
+      { color: "var(--standards-3)", label: "ELs mentioned" },
+    ],
+  };
+
+  $: legendEntries = LEGENDS[layer];
 </script>
 
 <fieldset class="border border-ink-subtle/20 rounded p-3">
@@ -35,6 +62,23 @@
     {/each}
   </div>
 </fieldset>
+
+<div
+  class="mt-3 flex flex-wrap gap-x-4 gap-y-2 items-center text-sm"
+  role="group"
+  aria-label="Map legend"
+>
+  {#each legendEntries as entry}
+    <div class="flex items-center gap-2">
+      <span
+        class="inline-block w-5 h-5 border border-ink-subtle/40"
+        style={`background: ${entry.color};`}
+        aria-hidden="true"
+      ></span>
+      <span>{entry.label}</span>
+    </div>
+  {/each}
+</div>
 
 <div class="mt-4">
   <Choropleth {states} {layer} />
