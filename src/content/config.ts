@@ -73,6 +73,23 @@ const ElpAssessment = z.object({
   sourceUrl: z.string().url().nullable(),
 });
 
+/**
+ * Dated event in a state's licensure history.
+ *
+ * Used to surface the substantive policy moments behind the static
+ * snapshot (e.g., AZ's Prop 203 (2000) → HB 2064 (2006) → 2019 ELD-block
+ * reduction; NM's Yazzie/Martinez ruling and remediation milestones).
+ * `description` is short prose; `sourceUrls` is optional supporting links
+ * (each must already appear in the state's `sources[]` array if they're
+ * load-bearing — this field is for reader convenience, not provenance).
+ */
+const HistoryEvent = z.object({
+  date: isoDate,
+  title: z.string().min(3),
+  description: z.string().min(10),
+  sourceUrls: z.array(z.string().url()).optional(),
+});
+
 export const StateSchema = z.object({
   usps: z.string().length(2).regex(/^[A-Z]{2}$/),
   name: z.string().min(2),
@@ -87,6 +104,7 @@ export const StateSchema = z.object({
   sealOfBiliteracy: SealOfBiliteracy,
   elpAssessment: ElpAssessment,
   sources: z.array(Source).min(1, "Provenance is required"),
+  history: z.array(HistoryEvent).optional(),
   lastVerified: isoDate,
   verificationStatus: z.enum([
     "baseline-2019",

@@ -1,7 +1,7 @@
 {
   "usps": "VT",
   "name": "Vermont",
-  "elPercent": 2.0,
+  "elPercent": 2,
   "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
@@ -96,5 +96,15 @@
     }
   ],
   "lastVerified": "2026-05-08",
-  "verificationStatus": "verified-2026"
+  "verificationStatus": "verified-2026",
+  "history": [
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    }
+  ]
 }

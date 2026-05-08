@@ -6,6 +6,7 @@ import SourceList from "@/components/SourceList.astro";
 import VerificationBadge from "@/components/VerificationBadge.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
+import HistoryTimeline from "@/components/HistoryTimeline.astro";
 import { binFor } from "@/data/bins";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
 
@@ -161,6 +162,10 @@ const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boo
         )}
       </section>
     </div>
+
+    {s.history && s.history.length > 0 && (
+      <HistoryTimeline events={s.history} />
+    )}
 
     <SourceList sources={s.sources} />
 

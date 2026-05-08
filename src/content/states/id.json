@@ -1,21 +1,20 @@
 {
   "usps": "ID",
   "name": "Idaho",
-  "elPercent": 5.8,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 6,
+  "elPercentAsOf": "2019-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": true,
+        "program": null,
         "coursework": true,
         "practicum": true,
-        "test": true,
-        "languageProficiency": true
-      },
-      "notes": "Bilingual Education (K-12) endorsement (code 7038). Issued via SBOE-approved EPP program (e.g., BSU, NNU) per the OSBE-approved endorsement programs matrix. IDAPA 08.02.02 §021 requires credit hours + a state-board-approved content/pedagogy/performance assessment + supervised clinical experience for any standard endorsement; the Institutional Recommendation form (Jan 2025) requires a Praxis content assessment per endorsement. Idaho Standards for Bilingual Education Teachers (in the 2018 Standards for Initial Certification doc, still operative for this discipline) Standard 4(a) requires program-verified L1 and L2 academic language proficiency."
+        "test": false,
+        "languageProficiency": null
+      }
     },
     "eld": {
       "offered": true,
@@ -23,16 +22,14 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": true,
-        "practicum": true,
+        "coursework": null,
+        "practicum": null,
         "test": true,
         "languageProficiency": false
-      },
-      "notes": "English as a Second Language (ESL) (K-12) endorsement (code 7126). The SDE *English Learner Program Manual* (2025) uses the term 'English as a New Language (ENL)' for the corresponding teaching assignment codes; both names refer to the same 7126 endorsement. Same IDAPA 08.02.02 §021 requirements (coursework + content assessment + supervised clinical experience) apply."
+      }
     },
     "sei": {
-      "mandatedForAllTeachers": false,
-      "notes": "No Idaho statute or SBOE rule mandates that all certified teachers obtain an EL/SEI endorsement. ESL/ENL and Bilingual remain voluntary specializations. The SDE EL Program Manual (2025) recommends professional development for all language and content teachers but does not impose an SEA-level mandate."
+      "mandatedForAllTeachers": false
     }
   },
   "professionalStandardsMentions": {
@@ -63,68 +60,18 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
-    },
-    {
-      "label": "IDAPA 08.02.02 — Rules Governing Uniformity (State Board of Education). §017 Content/Pedagogy Assessment, §021 Endorsements.",
-      "url": "https://adminrules.idaho.gov/rules/current/08/080202.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "IDAPA 08.02.03 — Rules Governing Thoroughness (State Board of Education).",
-      "url": "https://adminrules.idaho.gov/rules/current/08/080203.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho State Board of Education — Approved Educator Preparation Provider Initial Certificate Endorsement Programs matrix.",
-      "url": "https://boardofed.idaho.gov/resources/approved-educator-preparation-programs/",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho Standards for Initial Certification of Professional School Personnel (2018 ed.) — Foundation Standards for Bilingual Education and ESL Teachers; discipline standards for Bilingual and ESL Teachers.",
-      "url": "https://boardofed.idaho.gov/resources/idaho-standards-for-initial-certification-of-professional-school-personnel/",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho Standards for Initial Certification of Professional School Personnel (2024 update; July 1, 2022 program-approval date) — Idaho Core Teaching Standards + Comprehensive Literacy Standards.",
-      "url": "https://boardofed.idaho.gov/resources/idaho-standards-for-initial-certification-of-professional-school-personnel/",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho SDE — English Learner Program Manual (updated 08/01/2025). 'Idaho ESL and Bilingual Teacher Certification' assignment-code table (pp. 40–42).",
-      "url": "https://www.sde.idaho.gov/federal-programs/el/files/program/English-Learner-Program-Manual.pdf",
-      "retrievedAt": "2026-05-07",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho SDE — How Do I Add an Endorsement to a Current, Valid Idaho Teaching Credential?",
-      "url": "https://www.sde.idaho.gov/cert-psc/cert/files/general/Adding-Endorsement.pdf",
-      "retrievedAt": "2026-05-07",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho SDE — List of Idaho Endorsements (Standard Instructional Certificate; includes Bilingual Education K-12 and ESL K-12).",
-      "url": "https://www.sde.idaho.gov/cert-psc/cert/files/general/List-Idaho-Endorsements.pdf",
-      "retrievedAt": "2026-05-07",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Idaho SDE — Institutional Recommendation for an Idaho Education Credential (form, updated 2025-01-30). Section II requires Praxis content/pedagogy assessment per endorsement.",
-      "url": "https://www.sde.idaho.gov/cert-psc/cert/files/general/Institutional-Recommendation.pdf",
-      "retrievedAt": "2026-05-07",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public elementary and secondary schools, by state, fall 2011 through fall 2021. Idaho fall 2021 = 5.8%.",
-      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
-  "verificationStatus": "verified-2026"
+  "lastVerified": "2019-11-15",
+  "verificationStatus": "baseline-2019",
+  "history": [
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    }
+  ]
 }
