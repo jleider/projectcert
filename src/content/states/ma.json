@@ -1,12 +1,12 @@
 {
   "usps": "MA",
   "name": "Massachusetts",
-  "elPercent": 10,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 10.5,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
         "program": null,
@@ -19,7 +19,7 @@
     "eld": {
       "offered": true,
       "standalone": true,
-      "addOn": true,
+      "addOn": false,
       "requirements": {
         "program": null,
         "coursework": null,
@@ -30,7 +30,7 @@
     },
     "sei": {
       "mandatedForAllTeachers": true,
-      "notes": "SEI endorsement required for all core-academic teachers (LOOK Act 2017)."
+      "notes": "SEI endorsement required for core academic teachers, administrators, and (since July 1, 2021) vocational educators. Statutory backbone: LOOK Act (2017); endorsement framework codified at 603 CMR 7.14(1)."
     }
   },
   "professionalStandardsMentions": {
@@ -51,8 +51,38 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "MA DESE — SEI Endorsement",
+      "url": "https://www.doe.mass.edu/licensure/endorsements/sei.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MA DESE — Bilingual Education Endorsement",
+      "url": "https://www.doe.mass.edu/licensure/endorsements/bilingual-ed.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MA DESE — Academic PreK-12 teacher field/grade levels (ESL license)",
+      "url": "https://www.doe.mass.edu/licensure/academic-prek12/teacher/field-grade-levels.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "603 CMR 7.00 — Educator Licensure (incl. 7.06, 7.08 Professional Standards for Teachers, 7.14 Endorsements)",
+      "url": "https://www.doe.mass.edu/lawsregs/603cmr7.html?section=all",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 (English Learners in Public Schools, fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-07",
+  "verificationStatus": "verified-2026"
 }
