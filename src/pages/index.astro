@@ -87,21 +87,41 @@ const homeJsonLd = {
     </div>
 
     <ul class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" aria-label="Key statistics">
-      <li class="rounded border border-ink-subtle/20 p-4">
-        <div class="text-2xl font-bold text-ink">{bilingualOffered}<span class="text-ink-subtle">/51</span></div>
-        <div class="text-sm text-ink-muted">states offer a bilingual education credential</div>
+      <li>
+        <a
+          href="/map/?layer=bilingual"
+          class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
+        >
+          <div class="text-2xl font-bold text-ink">{bilingualOffered}<span class="text-ink-subtle">/51</span></div>
+          <div class="text-sm text-ink-muted">states offer a bilingual education credential</div>
+        </a>
       </li>
-      <li class="rounded border border-ink-subtle/20 p-4">
-        <div class="text-2xl font-bold text-ink">{eldStandalone}<span class="text-ink-subtle">/51</span></div>
-        <div class="text-sm text-ink-muted">offer ELD as a standalone certification</div>
+      <li>
+        <a
+          href="/map/?layer=eld"
+          class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
+        >
+          <div class="text-2xl font-bold text-ink">{eldStandalone}<span class="text-ink-subtle">/51</span></div>
+          <div class="text-sm text-ink-muted">offer ELD as a standalone certification</div>
+        </a>
       </li>
-      <li class="rounded border border-ink-subtle/20 p-4">
-        <div class="text-2xl font-bold text-ink">{seiMandated}<span class="text-ink-subtle">/51</span></div>
-        <div class="text-sm text-ink-muted">mandate SEI training for all teachers</div>
+      <li>
+        <a
+          href="/map/?layer=sei"
+          class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
+        >
+          <div class="text-2xl font-bold text-ink">{seiMandated}<span class="text-ink-subtle">/51</span></div>
+          <div class="text-sm text-ink-muted">mandate SEI training for all teachers</div>
+        </a>
       </li>
-      <li class="rounded border border-ink-subtle/20 p-4">
-        <div class="text-2xl font-bold text-ink">{standardsMentionEl}<span class="text-ink-subtle">/51</span></div>
-        <div class="text-sm text-ink-muted">teaching standards explicitly reference ELs</div>
+      <li>
+        <a
+          href="/map/?layer=standardsMentionsEl"
+          class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
+        >
+          <div class="text-2xl font-bold text-ink">{standardsMentionEl}<span class="text-ink-subtle">/51</span></div>
+          <div class="text-sm text-ink-muted">teaching standards explicitly reference ELs</div>
+        </a>
       </li>
     </ul>
 
