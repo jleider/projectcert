@@ -1,8 +1,8 @@
 {
   "usps": "GA",
   "name": "Georgia",
-  "elPercent": 6.6,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 7.7,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -14,9 +14,9 @@
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
-        "practicum": null,
+        "program": true,
+        "coursework": true,
+        "practicum": true,
         "test": true,
         "languageProficiency": false
       }
@@ -28,13 +28,13 @@
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": false,
-    "linguistic": false,
+    "linguistic": true,
     "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2016,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://gadoe.org/grants-awards-diploma-seals/seal-of-biliteracy/"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,8 +53,56 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "GaPSC Rule 505-2-.166 — ESOL Endorsement Certification (eff. 2026-01-01)",
+      "url": "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "GaPSC Rule 505-2-.14 — Endorsements (general)",
+      "url": "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.14.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "GaPSC Rule 505-3-.89 — ESOL Educator Preparation Program Standards",
+      "url": "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-3-.89.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "GaPSC Rule 505-3-.03 — Elementary Education Program Standards",
+      "url": "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-3-.03.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "GaPSC Certificate Field Codes (revised January 2026)",
+      "url": "https://www.gapsc.com/Certification/Documents/Certificate%20Field%20Codes.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 (English Learners in Public Schools, fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "GADOE Seal of Biliteracy program page",
+      "url": "https://gadoe.org/grants-awards-diploma-seals/seal-of-biliteracy/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium membership page (Georgia is a member)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
