@@ -1,8 +1,8 @@
 {
   "usps": "NM",
   "name": "New Mexico",
-  "elPercent": 16.3,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 18.8,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -15,7 +15,7 @@
         "test": true,
         "languageProficiency": true
       },
-      "notes": "Includes Native American/Indigenous language endorsement pathway."
+      "notes": "Under 6.64.10 NMAC: initial Level 1 candidates complete 24-36 semester hours in bilingual education AND pass the bilingual education licensure exam (6.60.5 NMAC); existing license holders add 12 semester hours plus the licensure exam. Native-language proficiency is regulated separately at 6.64.10.9 NMAC: at least an eighth-grade level of oral and written proficiency in the target non-English language. NMPED-facing materials describe the Spanish-language route as Prueba (the Praxis Spanish proficiency exam). Native American / Indigenous language teachers may instead pursue the 520 Native American Language and Culture (NALC) certificate under 6.63.14 NMAC, which substitutes tribal verification of language and cultural competence for the standard licensure exam."
     },
     "eld": {
       "offered": true,
@@ -27,23 +27,30 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "TESOL endorsement under 6.64.11 NMAC. Initial Level 1: 24 semester hours plus PRAXIS English to Speakers of Other Languages (5362). Existing license: pass PRAXIS plus 12 semester hours, OR 24 hours alone. The English language proficiency examination is required only for international reciprocal license holders (6.64.11.8.D); domestic candidates have no language-proficiency exam gate."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "NM does not have a universal SEI / EL-instruction endorsement mandate. The bilingual and TESOL endorsements remain voluntary specializations under NMAC Title 6. A 2019 bill to require all new teachers to hold bilingual or TESOL did not become law. Context: the consolidated Yazzie/Martinez v. State of New Mexico litigation (2014 filing, 2018 ruling that NM is failing to provide sufficient education to ELs and Native American students) has driven a multi-year remedial action plan; plaintiffs filed objections to the State's November 2025 Comprehensive Remedial Action Plan in February 2026, citing inter alia the persistent shortage of bilingual-endorsed teachers. As of 2026-05-07 no statutory or regulatory universal EL-teaching mandate has been enacted."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": true,
-    "el": true
+    "linguistic": false,
+    "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2014
+    "year": 2014,
+    "sourceUrl": "https://web.ped.nm.gov/bureaus/languageandculture/state-seal-of-bilingualism-biliteracy/"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "New Mexico Public Education Department",
@@ -56,8 +63,80 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "NMPED Educator Licensure Bureau (current homepage; supersedes webnew.ped.state.nm.us)",
+      "url": "https://web.ped.nm.gov/bureaus/licensure/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NMPED — Bilingual Education endorsement (how to add to a license)",
+      "url": "https://web.ped.nm.gov/bureaus/licensure/endorsements-how-to-add-a-license/bilingual-education/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NMPED — TESOL endorsement (how to add to a license)",
+      "url": "https://web.ped.nm.gov/bureaus/licensure/endorsements-how-to-add-a-license/tesol/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NMPED — Endorsements (full index of 21 endorsement areas)",
+      "url": "https://web.ped.nm.gov/bureaus/licensure/endorsements-how-to-add-a-license/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "6.64.10 NMAC — Bilingual Education endorsement (coursework, licensure exam, native-language proficiency)",
+      "url": "https://www.srca.nm.gov/parts/title06/06.064.0010.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "6.64.11 NMAC — TESOL endorsement (coursework, PRAXIS 5362, ELP exam for international applicants)",
+      "url": "https://www.srca.nm.gov/parts/title06/06.064.0011.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "6.69.4 NMAC — Competencies for Entry-Level Teachers (Levels 1, 2, 3-A); the general professional teaching standards",
+      "url": "https://www.srca.nm.gov/parts/title06/06.069.0004.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "6.63.14 NMAC — Certification in Native American Language and Culture, Pre K-12 (NALC certificate; tribal verification)",
+      "url": "https://www.srca.nm.gov/parts/title06/06.063.0014.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NMPED — Native American Language and Culture certification page (520 NALC)",
+      "url": "https://web.ped.nm.gov/bureaus/indian-education/nm-native-american-language-and-culture/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NMPED — Bilingual Multicultural Education Programs (BMEPs) FAQs",
+      "url": "https://web.ped.nm.gov/bureaus/languageandculture/bilingual-multicultural-education-programs-bmeps/bilingual-multicultural-education-programs-bmeps-frequently-asked-questions-faqs/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NMPED — Seal of Bilingualism-Biliteracy (NM Laws 2014, ch. 46; first awarded class of 2016)",
+      "url": "https://web.ped.nm.gov/bureaus/languageandculture/state-seal-of-bilingualism-biliteracy/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English Learners enrolled in public schools by state, fall 2021",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-07",
+  "verificationStatus": "verified-2026"
 }
