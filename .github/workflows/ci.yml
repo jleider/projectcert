@@ -71,6 +71,7 @@ jobs:
           args: |
             --offline
             --no-progress
-            --base ./dist
+            --root-dir ${{ github.workspace }}/dist
+            --base ${{ github.workspace }}/dist
             ./dist/**/*.html
           fail: true
