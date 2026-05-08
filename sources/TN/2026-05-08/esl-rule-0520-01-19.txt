@@ -1,0 +1,546 @@
+                                                    RULES
+                                                     OF
+                                        THE STATE BOARD OF EDUCATION
+
+                                           CHAPTER 0520-01-19
+                               ENGLISH AS A SECOND LANGUAGE PROGRAMS
+
+                                                  TABLE OF CONTENTS
+
+0520-01-19-.01     Definitions                                  0520-01-19-.04   Parental Notification and Rights
+0520-01-19-.02     Anti-Discrimination Policies and             0520-01-19-.05   Staffing Ratios
+                   Practices                                    0520-01-19-.06   Exit Process
+0520-01-19-.03     Identification, Screening, and Service
+                   Delivery
+
+0520-01-19-.01 DEFINITIONS.
+
+       (1)   As used in this Chapter:
+
+             (a)     “Characteristics of Dyslexia” means reading challenges that are identified when a student
+                     is:
+
+                     1.      Identified by the composite score created by the universal reading screener and/or
+                             the Early Warning System (in grades 9-12 only); and
+
+                     2.      Demonstrates deficiencies in fifty percent (50%) or more of the grade appropriate
+                             subtests of skills which support the goal of reading proficiently as identified by the
+                             Department’s Minimum Universal Reading Screening Matrix.
+
+             (b)     “Co-Teaching Instruction” means the collaborative planning, organization, delivery, and
+                     assessment of instruction by a general education teacher and a teacher who holds an
+                     ESL endorsement that integrates content and language standards using an approved
+                     Direct ESL Service model to ensure ELs at all language proficiency levels have the
+                     opportunity to productively engage in grade level curriculum and develop both content
+                     and language skills.
+
+             (c)     “Direct ESL Services” means English as a Second Language (ESL) services designed
+                     for speakers of other languages and provided pursuant to an ILP by a teacher with an
+                     ESL endorsement to teach EL students.
+
+             (d)     “English Learner” or “EL” means an NELB Student who qualifies for ESL services via a
+                     Department of Education-adopted English Language Proficiency screener.
+
+             (e)     “Fluent English Proficient” (FEP) means an EL student who meets the proficiency
+                     requirements of the Department of Education-adopted English language proficiency
+                     screener upon initial enrollment or a student who initially qualified as an EL Student and
+                     has met the approved exit criteria for Direct or Indirect ESL Services.
+
+             (f)     “Home Language Survey” (HLS) means a survey delivered to parents or guardians within
+                     thirty (30) days of a student’s initial enrollment in public school to identify NELB Students
+                     who may be eligible for Direct or Indirect ESL Services.
+
+             (g)     “ILP Team” means a team at the LEA or school level that creates the ILP for an EL
+                     student. At a minimum, the ILP Team shall include an EL student’s current and/or former
+                     general education teacher and current and/or former ESL teacher. ILP Team members
+                     may also include parents or guardians, school counselors, and other staff best suited to
+                     assess the language goals and needs of each EL student.
+
+
+
+September, 2024 (Revised)                                   1
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                               CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.01, continued)
+
+            (h)   “Indirect ESL Services” means ESL services that provide linguistically and academically
+                  appropriate accommodations and scaffolding pursuant to an ILP that are:
+
+                  1.    Provided as a result of parent(s) or guardian(s) waiving Direct ESL Services;
+
+                  2.    Provided by a general education teacher in the general education classroom; and
+
+                  3.    Designed to ensure EL Students have access to daily grade level instruction in
+                        English.
+
+            (i)   “Individualized Learning Plan” or “ILP” means a document developed pursuant to this
+                  Chapter that prescribes the academic goals, supports, and/or accommodations that an
+                  EL student needs to access classroom instruction.
+
+            (j)   “Individualized Learning Plan - Dyslexia” or “ILP-D” means a document developed by the
+                  LEA for students with Characteristics of Dyslexia in accordance with T.C.A. § 49-1-229
+                  and the State Board Dyslexia Individualized Learning Plan Rule Chapter 0520-01-22,
+                  that prescribes the academic goals, supports, and/or accommodations that a student
+                  may need to access classroom instruction.
+
+            (k)   “LEA” means a Tennessee Local Education Agency and has the same meaning given in
+                  T.C.A. § 49-1-103(2).
+
+            (l)   “Long-Term English Learners” means English Learners in year seven (7) of the ESL
+                  program who have not met the program’s exit criteria pursuant to this Chapter.
+
+            (m)   “Minimum Universal Reading Screening Matrix” means a state-designed tool that
+                  identifies the subtests required at each grade level for all state-approved universal
+                  reading screeners and determines the grade appropriate subtests necessary for the
+                  screening process for Characteristics of Dyslexia.
+
+            (n)   “Non-English Language Background (NELB) Student” means a student whose parent(s)
+                  or guardian(s) list a language other than English in response to any question on the
+                  home language survey. An NELB Student may or may not qualify for ESL services.
+
+            (o)   "Pull-Out Instruction" means a teacher who holds an ESL endorsement delivers intensive
+                  language support to EL students in small groups or one-on-one settings outside of the
+                  general education classroom using an approved Direct ESL Service model.
+
+            (p)   “RAEL” means a Recently Arrived English Learner as defined in the state’s plan required
+                  by the Every Student Succeeds Act.
+
+            (q)   “Transitional EL” means an EL student who has met the exit criteria for Direct or Indirect
+                  ESL Services and is in the first four (4) years after exit.
+
+Authority: T.C.A. §§ 49-1-302, 49-3-104, and 49-3-105; 42 U.S.C. § 2000d; and 20 U.S.C. § 1703.
+Administrative History: New rule filed April 7, 2021; effective July 6, 2021. Amendments filed March 10,
+2023; effective June 8, 2023. Amendments filed June 12, 2024; effective September 10, 2024.
+
+0520-01-19-.02 ANTI-DISCRIMINATION POLICIES AND PRACTICES.
+
+      (1)   LEAs shall have anti-discriminatory policies that preclude denial of equal education
+            opportunities to individuals based on race, color, or national origin. In addition, LEAs shall
+            ensure that EL students can meaningfully participate in their educational programs and
+            services. LEA practices shall not result in the inappropriate placement of EL students in or the
+
+
+September, 2024 (Revised)                            2
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                                 CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.02, continued)
+           exclusion from special programs or activities based on English language proficiency or national
+           origin.
+
+      (2)   LEAs shall not deny enrollment to a student on the basis of the student’s or their parents’ or
+            guardians’ actual or perceived citizenship or immigration status.
+
+Authority: T.C.A. § 49-1-302; 42 U.S.C. § 2000d; and 20 U.S.C. § 1703. Administrative History: New
+rule filed April 7, 2021; effective July 6, 2021.
+
+0520-01-19-.03 IDENTIFICATION, SCREENING, AND SERVICE DELIVERY.
+
+      (1)   EL student identification is a two (2)-step process that must be completed in the sequence
+            detailed below within thirty (30) days of initial enrollment.
+
+      (2)   Step One (1): Each LEA and public charter school shall administer a Home Language Survey
+            (HLS) to identify NELB Students. An HLS should be completed only once in a student’s
+            educational career. If the student has previously attended another LEA, the receiving school
+            or LEA shall attempt to obtain the original HLS from the sending LEA. If the receiving LEA
+            cannot obtain the original HLS after reasonable attempts to do so, it may re-administer the
+            HLS, but shall mark it as a secondary HLS. If the original is found, it shall replace the secondary
+            HLS in the student’s file.
+
+            (a)   The HLS shall not require parents or guardians to answer questions about student
+                  immunization or student or familial immigration status.
+
+            (b)   The HLS shall include, but not be limited to, questions that require the parent(s) or
+                  guardian(s) to address the following three (3) topics:
+
+                  1.    The first language the student learned to speak;
+
+                  2.    The language the student speaks most often at home; and
+
+                  3.    The language that is most often spoken to the student at home.
+
+            (c)   If the parent(s) or guardian(s) list a language other than English for any question above,
+                  the student shall be classified as an NELB Student. Parents or guardians shall be
+                  interviewed to clarify any discrepancies in the HLS.
+
+      (3)   Step Two (2): LEAs shall screen all NELB Students with a Department of Education-adopted
+            English language proficiency screener identified in State Board Policy 3.207 to determine
+            whether the student qualifies for ESL Services, unless an NELB Student has documentation
+            from a previous state or LEA that he or she met the definition of Fluent English Proficient (FEP)
+            on the Department-adopted screener. The determination must be completed within thirty (30)
+            days of initial enrollment.
+
+            (a)   NELB students shall be screened utilizing the screener identified in State Board Policy
+                  3.207. The scores that identify a student as an EL student are further defined in State
+                  Board Policy 3.207.
+
+            (b)   NELB students with a disability and NELB students who cannot access the traditional
+                  screener due to a suspected disability shall be screened using the alternate screener
+                  identified in Policy 3.207. The Department shall develop guidance to support school
+                  personnel in determining when to administer the alternate screener to students.
+
+            (c)   Students identified as EL students shall receive Direct ESL Services as provided in this
+                  Rule unless a parent and/or guardian chooses to waive Direct ESL Services.
+
+
+September, 2024 (Revised)                             3
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                              CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.03, continued)
+
+     (4)   Each LEA and public charter school shall:
+
+           (a)   For every EL student who receives Direct ESL Services or Indirect ESL Services,
+                 develop and implement an ILP for each EL student that includes:
+
+                 1.    Assessment data from the Department-adopted English language proficiency
+                       assessment;
+
+                 2.    Relevant demographic data including but not limited to years of ESL service, Long
+                       Term English Learner status, and additional services the student receives such as
+                       special education or Response to Instruction and Intervention (RTI2);
+
+                 3.    Data from other assessments may be included as available such as achievement
+                       assessments, relevant benchmark data, universal screener data, and Tennessee
+                       comprehensive assessment program (TCAP) data.
+
+                 4.    For EL students in grades Kindergarten through three (K-3), Direct ESL Services
+                       and language focused supports will be defined in the ILP that provide access to
+                       classroom instruction aligned to grade-level academic standards;
+
+                 5.    For EL students in grades four through twelve (4-12), Direct ESL Services and
+                       language, academic, and career-readiness supports that provide access to
+                       classroom instruction aligned to grade-level academic standards;
+
+                 6.    Strategies, scaffolds, and accommodations used in the delivery of Indirect ESL
+                       Services, as decided appropriate by the student’s ILP Team, that provide access
+                       to instruction;
+
+                 7.    Short-term goals that help the student proceed to the next proficiency level in the
+                       four (4) domains of language: reading, writing, speaking, and listening;
+
+                 8.    Growth trajectories for English language proficiency based on individual student
+                       data, as available; and
+
+                 9.    For Transitional EL students, appropriate ILPs must outline services in accordance
+                       with Transitional EL status and needs. In addition, the ILP must include the
+                       required components listed in parts two (2) and three (3) of this subparagraph as
+                       well as short-term academic goals, career readiness for grades 4-12, and scaffolds
+                       for access to instruction for grade K-12.
+
+           (b)   Ensure that, at least annually, the student’s ILP Team reviews and revises, as necessary,
+                 each student’s ILP;
+
+           (c)   Comply with the parent and legal guardian participation and notification requirements of
+                 this Chapter and Title VI of the Civil Rights Act of 1964 (42 U.S.C. § 2000d et seq.); and
+
+           (d)   Adopt and implement an oversight plan that outlines the development, implementation,
+                 and monitoring of ILPs for EL students in accordance with this Chapter and the
+                 Tennessee Investment in Student Achievement (TISA) guide. At a minimum, ILP
+                 oversight plans shall include procedures regarding:
+
+                 1.    The development of ILPs for all ELs within the LEA or public charter school;
+
+                 2.    The monitoring of ILPs quarterly;
+
+
+
+
+September, 2024 (Revised)                          4
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                              CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.03, continued)
+                 3.    The provision of intensified support for ELs not meeting growth expectations
+                        identified in the ILP;
+
+                 4.    Annual review and revision of ILPs by the ILP Team;
+
+                 5.    Parental communication and involvement in the ILP process;
+
+                 6.    The seamless coordination of services and supports for ELs with disabilities and/or
+                       Characteristics of Dyslexia;
+
+                 7.    Training for teachers providing Direct or Indirect ESL Services regarding ILP
+                       requirements, development, and implementation; and
+
+                 8.    The sufficient staffing and resources required to support the development and
+                       implementation of all ILPs across the LEA or public charter school.
+
+     (5)   LEAs shall monitor authorized public charter schools to ensure compliance with this Chapter.
+
+     (6)   Teachers shall monitor the academic and English language proficiency growth of EL students
+           through benchmarking, progress-monitoring, formative assessments, and/or summative
+           assessments at least quarterly. If an EL student is not meeting the growth expectations
+           identified in his or her ILP, the student shall receive differentiated support so that he or she
+           may advance more rapidly toward English language proficiency. Supports shall be
+           implemented promptly after the ILP Team has determined the student is not on the expected
+           growth trajectory.
+
+     (7)   Provision of Direct ESL Services.
+
+           (a)   EL students in elementary school identified for ESL services via a Department of
+                 Education-adopted English language proficiency screener described in State Board
+                 Policy 3.207 shall receive a minimum of one (1) hour of Direct ESL Service per school
+                 day from a teacher who holds an ESL endorsement, until the student achieves a
+                 qualifying score for exit on the Department-adopted English language proficiency
+                 assessment listed in State Board Policy 3.207 to be exited from Direct ESL Service or
+                 achieves a sufficient score on the Department-adopted English language proficiency
+                 assessment pursuant to State Board Policy 3.207 to have Direct or Indirect ESL Services
+                 modified by the ILP Team pursuant to paragraph (9) of this Rule.
+
+           (b)   EL students in middle and high school identified for ESL services via a Department of
+                 Education-adopted English language proficiency screener described in State Board
+                 Policy 3.207 shall receive a minimum of one (1) hour of Direct ESL Service per school
+                 day or the equivalent of one (1) full-class period of at least 45 minutes in duration per
+                 school day, from a teacher who holds a license with an ESL endorsement, until the
+                 student achieves a qualifying score for exit on the Department-adopted English language
+                 proficiency assessment pursuant to State Board Policy 3.207 to be exited from Direct
+                 ESL Service or achieves a sufficient score on the Department-adopted English language
+                 proficiency assessment to have Direct or Indirect ESL Services modified by the ILP Team
+                 pursuant to paragraph nine (9) of this Rule.
+
+           (c)   Parents or guardians of EL students shall be annually informed of the right to waive
+                 placement of their child(ren) in ESL programs, and each LEA shall provide the parent(s)
+                 or guardian(s) the option to waive Direct ESL Services before services are provided, or
+                 at any time during the course of the school year.
+
+           (d)   If the parent(s) or guardian(s) waives Direct ESL Services for the student, the general
+                 education classroom teacher shall be responsible for providing Indirect ESL Services in
+
+
+
+September, 2024 (Revised)                           5
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                                  CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.03, continued)
+                 the form of linguistically appropriate scaffolding and accommodations within the general
+                 education setting as described in the student’s ILP.
+
+      (8)   LEAs shall ensure that all teachers who provide Direct or Indirect ESL Services are annually
+            trained in delivering ESL instruction. At a minimum, this training shall include, but not be limited
+            to:
+
+            (a)   The Tennessee English language development (ELD) standards;
+
+            (b)   Appropriate ESL instructional methods to use with grade-level academic content
+                  standards in English language arts, mathematics, science and social studies;
+
+            (c)   English language acquisition training for general education teachers to understand the
+                  process of acquiring a second or subsequent language;
+
+            (d)   Strategies for collaboration between teachers serving EL students so that ILPs are
+                  developed and implemented by all educators; and
+
+            (e)   The requirements regarding ILP development and implementation.
+
+      (9)   EL students shall be assessed annually using the Department-adopted English language
+            proficiency assessment identified in State Board Policy 3.207 to determine if the Direct ESL
+            Services provided may be modified by the ILP Team.
+
+            (a)   If applicable, LEAs may tailor the services provided to students, including providing less
+                  than one (1) hour of Direct Service per day or less than the equivalent of one (1) full-
+                  class period of at least 45 minutes in duration per school day pursuant to paragraph (7)
+                  of this Rule and requirements specified in State Board Policy 3.207.
+
+      (10) An ESL Program may be provided through various service models. These service models shall
+           be delivered through scheduled ELD-aligned course instruction, pull-out instruction, or co-
+           teaching instruction and may be provided in ESL classrooms, general education classrooms,
+           in newcomer centers or programs for recently arrived ELs (RAELs), or virtual classrooms.
+           Direct ESL Services shall be provided utilizing one (1) or more of the following Department-
+           approved service models:
+
+            (a)   Sheltered English Instruction;
+
+            (b)   Structured English Immersion;
+
+            (c)   Specially Designed Academic Instruction in English (SDAIE);
+
+            (d)   Content-Based Instruction (CBI);
+
+            (e)   Heritage Language Instruction;
+
+            (f)   Another model approved by the Department.
+
+      (11) All service models shall:
+
+            (a)   Be evidence-based and effective;
+
+            (b)   Provide effective language instruction educational programs that meet the needs of ELs
+                  and demonstrate success in increasing English language proficiency and student
+                  academic achievement; and
+
+
+
+
+September, 2024 (Revised)                             6
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                                CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.03, continued)
+           (c)   Be aligned to the Tennessee ELD standards.
+
+      (12) LEAs shall ensure that all EL students suspected of having a disability are located, identified,
+           and evaluated for special education and related services in a timely manner, in accordance
+           with the Individuals with Disabilities Education Act, Section 504 of the Rehabilitation Act of
+           1973, and T.C.A. §§ 49-10-101, et seq.
+
+            (a)   When conducting special education and/or Section 504 evaluations, LEAs shall consider
+                  the English language proficiency of EL students in determining the appropriate
+                  assessments and other evaluation materials to be used. EL students shall not be
+                  identified as students with disabilities solely because of their limited English language
+                  proficiency.
+
+            (b)   LEAs shall provide EL students with disabilities with both the language assistance and
+                  disability-related services to which they are entitled under state and federal law.
+
+            (c)   Neither Response to Instruction and Intervention (RTI2) nor special education services
+                  shall be used in place of Direct ESL Services.
+
+      (13) LEAs shall ensure that EL students suspected of having Characteristics of Dyslexia are
+           screened and served in accordance with T.C.A. § 49-1-229 and the State Board Dyslexia
+           Individualized Learning Plan Rule Chapter 0520-01-22.
+
+            (a)   When conducting screenings for Characteristics of Dyslexia, LEAs shall consider the
+                  English language proficiency of EL students in determining the appropriate assessments
+                  and other evaluation materials to be used. EL students shall not be identified as having
+                  Characteristics of Dyslexia solely because of their limited English language proficiency.
+
+            (b)   In addition to an ILP developed pursuant to this Chapter, an LEA shall provide to an EL
+                  student identified as having Characteristics of Dyslexia an Individualized Learning Plan
+                  - Dyslexia (ILP-D) in accordance with State Board Dyslexia Individualized Learning Plan
+                  Rules Chapter 0520-01-22. The EL’s ILP and ILP-D shall be coordinated to ensure the
+                  seamless provision of coherent and complete services and supports.
+
+      (14) Two (2) high school ESL courses shall be counted toward the four (4) English credits required
+           for graduation. At least one (1) of the ESL courses counted toward graduation credit shall be
+           counted toward credit in an English course with an end-of-course assessment. Additional high
+           school ESL courses shall be counted as elective humanities credits.
+
+Authority: T.C.A. §§ 49-1-302, 49-3-104, and 49-3-105; Chapter 966 of the Public Acts of 2022; 42 U.S.C.
+§ 2000d; and 20 U.S.C. § 1703. Administrative History: New rule filed April 7, 2021; effective July 6,
+2021. Amendments filed December 14, 2021; effective March 14, 2022. Amendments filed March 10, 2023;
+effective June 8, 2023. Amendments filed June 12, 2024; effective September 10, 2024.
+
+0520-01-19-.04    PARENTAL NOTIFICATION AND RIGHTS.
+
+      (1)   LEAs shall communicate information related to identification, screening, and service delivery
+            to the parent(s) or guardian(s) of EL students in the language and method that the parent(s) or
+            guardian(s) can understand, to the extent practicable. Parent(s) or guardian(s) shall be
+            informed of the ESL program type to be used, length of time expected for completion of ESL
+            services, how the EL student was assessed for entrance to services, and options related to
+            program types, if available.
+
+      (2)   Notification to parents or guardians of EL students shall include:
+
+            (a)   Their right to waive placement of their student in ESL programs;
+
+
+
+September, 2024 (Revised)                            7
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                                CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.04, continued)
+
+            (b)   Their right to waive Direct ESL Service at any time; and
+
+            (c)   The scaffolding and accommodations to be provided in the general education setting via
+                  Indirect ESL Services if the parent(s) or guardian(s) waive Direct ESL Services.
+
+Authority: T.C.A. § 49-1-302; 42 U.S.C. § 2000d; and 20 U.S.C. § 1703. Administrative History: New
+rule filed April 7, 2021; effective July 6, 2021. Amendments filed June 12, 2024; effective September 10,
+2024.
+
+0520-01-19-.05    STAFFING RATIOS.
+
+      (1)   LEAs shall:
+
+            (a)   Provide adequate ESL staff to implement the chosen service model effectively, as
+                  documented by the progress in English language proficiency and academic content of
+                  their EL students.
+
+            (b)   Adequately staff their ESL programs to meet state and federal requirements. This
+                  includes, but is not limited to, having sufficient staff to ensure meaningful communication
+                  to parents or guardians of EL students with limited English proficiency, to identify EL
+                  students, and to monitor transitional EL students.
+
+      (2)   To meet the two (2) criteria of effective and compliant ESL programs, LEAs shall implement
+            ESL programs based on the following staffing ratio standards:
+
+            (a)   ESL class sizes shall not exceed state-mandated grade-level class size requirements;
+                  and
+
+            (b)   The LEA-wide ESL program staffing ratio shall be based on an average of no more than
+                  thirty-five (35) identified EL students per full-time equivalent ESL teacher unless an
+                  alternate staffing ratio is approved by the Department of Education.
+
+      (3)   An alternative staffing ratio may only be approved when the LEA can show adequate academic
+            growth and proficiency with the EL student population and can prove that EL students are
+            receiving the required hours of service. LEAs seeking approval for a waiver for an alternate
+            LEA-wide staffing ratio shall provide the following information upon application and, if
+            approved, annually to the Department of Education:
+
+            (a)   The number of EL students served;
+
+            (b)   The proficiency levels of EL students;
+
+            (c)   The academic growth of EL students;
+
+            (d)   Evidence that no school in the LEA is an Additional Targeted Support and Intervention
+                  (ATSI) school based on the EL student accountability subgroup;
+
+            (e)   The most recent analysis for the EL student subgroup for achievement assessments in
+                  reading/language arts, mathematics, and science;
+
+            (f)   The proposed staffing ratio that will be used in place of the recommended thirty-five (35)
+                  to one (1) ratio; and
+
+            (g)   The justification for the alternate staffing ratio.
+
+
+
+
+September, 2024 (Revised)                              8
+ENGLISH AS A SECOND LANGUAGE PROGRAMS                                                 CHAPTER 0520-01-19
+
+(Rule 0520-01-19-.05, continued)
+Authority: T.C.A. §§ 49-1-104 and 49-1-302; 42 U.S.C. § 2000d; and 20 U.S.C. § 1703. Administrative
+History: New rule filed April 7, 2021; effective July 6, 2021. Amendments filed June 12, 2024; effective
+September 10, 2024.
+
+0520-01-19-.06    EXIT PROCESS.
+
+      (1)   EL students who attain the qualifying score for exit on the Department-adopted English
+            language proficiency assessment identified in State Board Policy 3.207 shall be exited from
+            Direct or Indirect ESL Services. Students who exit Direct or Indirect ESL Services shall be
+            considered Transitional EL students for four (4) school years.
+
+      (2)   Exited EL students in the first (1st) and second (2nd) years of transition are referred to as T1
+            and T2 respectively. Exited EL students in the third (3rd) and fourth (4th) years of transition are
+            referred to as T3 and T4 respectively. However, T3 and T4 students shall be included in the
+            LEA’s EL student subgroup with T1 and T2 students for accountability purposes.
+
+      (3)   Transitional EL students shall be served in the general education classroom. T1 and T2
+            students shall be monitored for two (2) years.
+
+            (a)   If a Transitional EL student demonstrates difficulty in the general education classroom or
+                  fails to meet ILP benchmarks, academic interventions should be provided by a general
+                  classroom teacher or a teacher with an ESL endorsement.
+
+      (4)   Each LEA shall have a written reclassification procedure to be used for exited EL Students who
+            require reentry into the ESL program that includes parent consent. The LEA shall apply its
+            reclassification procedure if academic or non-academic interventions are unsuccessful.
+
+      (5)   EL students who take alternate assessments for TCAP, as determined by their individualized
+            education program (IEP) team, shall be considered for exit from ESL services through the
+            criteria listed for the alternate English language proficiency assessment identified in State
+            Board Policy 3.207.
+
+      (6)   If a student was exited from ESL services by another state, the exit shall stand as valid.
+
+Authority: T.C.A. § 49-1-302; 42 U.S.C. § 2000d; and 20 U.S.C. § 1703. Administrative History: New
+rule filed April 7, 2021; effective July 6, 2021. Amendments filed March 10, 2023; effective June 8, 2023.
+Amendments filed June 12, 2024; effective September 10, 2024.
+
+
+
+
+September, 2024 (Revised)                             9
+

@@ -1,0 +1,634 @@
+Introduction to Standards
+  for the Preparation of
+  Teachers of Bilingual
+        Education
+
+
+
+  Approved by the Michigan State Board of Education
+                 February 14, 2017
+
+
+
+
+                           1
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+  Conceptual Framework for the Preparation of Teachers in Michigan
+
+  A teacher preparation program is comprised of multiple interdependent components
+  that prepare candidates for certification to demonstrate proficiencies defined in
+  several aligned sets of standards.
+
+        The Michigan Interstate Teacher Assessment and Support Consortium (MI-
+         InTASC) Model Core Teaching Standards, adopted by the SBE in 2013, define
+         the theoretical and practical knowledge, skills, and dispositions that all entry
+         level teachers should possess upon completion of an approved teacher
+         preparation program.
+
+        The Michigan Certification Standards for the Preparation of All Elementary
+         and Secondary Teachers in Reading Instruction specify the expected
+         knowledge and skills in the areas of reading that all teachers at the
+         elementary and secondary levels should possess upon entry to the
+         profession, regardless of content area specialization.
+
+        Michigan-specific content standards define the central concepts, tools of
+         inquiry, and structures of the specific discipline(s) in which teacher
+         candidates seek endorsement, as well as pedagogical applications of that
+         disciplinary knowledge.
+
+  A recommendation for teacher certification is an assurance on the part of
+  the teacher preparation program that a candidate demonstrates the
+  appropriate proficiencies specified in each of these sets of standards.
+
+  Standards for the Preparation of Teachers of Bilingual Education
+
+  Purpose
+  The purpose of the Standards for the Preparation of Teachers of Bilingual Education
+  is to establish a shared vision for the knowledge and skills that entry level teachers
+  of bilingual education in Michigan should possess and be able to demonstrate in
+  their teaching, regardless of whether they follow a traditional or alternate route into
+  the profession. This document provides standards across six domains of
+  professional preparation to provide instruction for bilingual and multilingual
+  learners. These standards establish outcomes for graduates of teacher preparation
+  programs in bilingual education, and should be used to inform program
+  development and continuous improvement efforts at Michigan’s institutions of
+  higher education and alternate route providers. They exemplify the following
+  “Beliefs for Supporting Linguistically and Culturally Diverse Learners in
+  English/Multilingual Teaching,” developed and adopted by the MDE’s OFS’ English
+  Learner Advisory Committee (ELAC) in its strategic planning process and revised in
+  November 2016.
+
+         We are committed to providing intensive, intentional, and appropriate
+         instructional opportunities that meet the unique needs of English Learners,
+         and ensuring their academic success by building on the prior knowledge,
+         cultural and linguistic assets students bring to their learning communities.
+
+
+
+
+                                             2
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+           We are committed to teacher preparation and ongoing professional learning
+           that leads to effective teaching so that all students are able to make
+           contributions to economic, social, civic, technological and cultural
+           advancements.
+
+           We are committed to advocating for educational equity and excellence for
+           linguistically and culturally diverse learners which includes fostering climates
+           that welcome, honor and respect diversity, multilingualism, multiliteracy, and
+           students’ cultural contributions in a global society.
+
+  These standards are rooted in the belief that the primary role of a Bilingual
+  Education (Y_) endorsed teacher is to promote educational equity by making
+  content curriculum accessible to students whose home language(s) are not English.
+  The Bilingual Education (Y_) endorsed teacher serves this role by delivering content
+  area instruction in the students’ home language(s) and supporting the maintenance
+  and development of literacy in students’ home language(s), while simultaneously
+  providing direct instruction in English language and literacy. This role is distinct
+  from that of the World Language (F_) endorsed teacher, whose primary role is to
+  increase students’ global competence by delivering instruction in how to speak,
+  read, write and listen in a target world language that is not their home language, as
+  well as by supporting students’ understanding of the world cultures associated with
+  the target language. It is also distinct from that of the English as a Second
+  Language (NS) endorsed teacher, whose primary role is to promote educational
+  equity and the academic achievement of students whose home language(s) are not
+  English by delivering instruction in how to speak, read, write, listen and
+  communicate in English and by supporting their acquisition of content knowledge
+  and academic language while they learn English.
+
+  Development of the Proposal
+  The ELAC, led by the MDE’s OFS and composed of representatives from Michigan’s
+  local education agencies, intermediate school districts, and public and independent
+  teacher preparation programs in bilingual education and ESL, began discussions
+  about updating Michigan’s teacher preparation standards in November 2014. This
+  action was motivated by recognition of a critical shortage of appropriately prepared
+  teachers to meet the needs of Michigan’s growing population of students eligible for
+  English as a second language (ESL) or bilingual education services. For example, in
+  the 2015-2016 school year, 90,121 students were identified as English Learners1
+  and eligible for ESL or bilingual education programs yet only 733 full-time
+  equivalent instructional positions (FTEs) were devoted to serving this population by
+  teachers holding NS or Y_ endorsements, according to the Registry of Educational
+  Personnel for End of Year 2016. Further impetus for updating the standards came
+  after the November 2015 SBE adoption of updated standards for world language
+  teacher preparation. At its March 17, 2016, meeting, the consensus of the ELAC
+  was to commission a targeted revision of the Bilingual Education (Y_) standards,
+  and members of the ELAC were surveyed for their interest to serve on a workgroup
+  engage in this work and bring an updated set of standards for ELAC approval before
+  its fall 2016 meeting. The Bilingual Education Standards Workgroup met at the MDE
+  on May 10, 2016, and reviewed the Standards for the Preparation of Teachers of
+
+  1
+      Source: MI School Data, 2015-2016 Student Count
+
+
+
+
+                                               3
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+  Bilingual Education (Y_) adopted by the SBE at its July 7, 2004, meeting. It
+  identified 20 standards for revision and drafted new language for the identified
+  standards. The workgroup met again at the ELAC’s June 2, 2016, meeting to
+  consider additional recommendations for revision made by the English as a Second
+  Language Standards Workgroup, and for a third time at the MDE on August 2,
+  2016, to review the standards holistically, discuss the purpose of the Bilingual
+  Education (Y_) endorsement, and consider both preparation program requirements
+  and endorsement authorizations, discussed later in this document.
+
+  These standards were submitted for the SBE review at its November 15, 2016,
+  meeting. This presentation was followed by a period of public comment through
+  January 17, 2017. Eight comments explicitly addressing the proposed Y_ standards
+  were submitted. Five commenters expressed strong support for the updated
+  standards. A sixth commenter expressed confusion about the distinctions in
+  purpose and role between the NS-endorsed and Y_-endorsed teacher, as described
+  in this introduction and the introduction to the NS standards. Although there is
+  great overlap in the pedagogical training received by ESL and bilingual teachers and
+  the instructional settings in which each is prepared to teach, the core distinction
+  between the two credentials is that the Y_ requires demonstration of a level of
+  proficiency in a language other than English in order to facilitate the delivery of
+  content in the home language of students whose first language is not English.
+
+  Two commenters were critical of the realignment of the language proficiency
+  requirements for bilingual educators, as described on the next page of this
+  document. The commenters expressed concern that setting a minimum proficiency
+  level of Advanced Low would not be sufficient for teachers to provide content area
+  instruction in students’ home language. The Bilingual Standards Workgroup
+  reviewed these concerns, but affirmed the level of Advanced Low, based upon the
+  full description of individuals’ performance established by the American Council of
+  Teachers of Foreign Languages (ACTFL) in its 2012 Proficiency Guidelines (see p.
+  6). The Workgroup believes the Advanced Low level to be a sufficiently rigorous,
+  yet achievable, expectation for bilingual teacher language proficiency to help
+  alleviate the undersupply of teachers with Y_ endorsements in Michigan without
+  significantly compromising on teacher quality.
+
+  One commenter on both the Y_ and NS standards recommended that references to
+  “academic vocabulary” and “language acquisition” throughout both sets of
+  standards and introductory remarks be changed to “academic language” (to
+  acknowledge that achieving proficiency in academic disciplines involves more than
+  the mastery of discrete words) and “language development” (to acknowledge that
+  language is not a commodity to be acquired, but rather a social resource that
+  develops in interaction with others), respectively, to be more in line with current
+  research and teaching in the field. This same commenter also recommended the
+  addition of a standard “to acknowledge current research on language in different
+  disciplinary and content areas that is showing how teachers can benefit from
+  understanding the different discourse expectations for language in different
+  subjects.” Another commenter, representing the collective feedback of the faculty
+  from a Michigan educator preparation institution, recommended slight rewordings of
+  selected standards (specifically, 1.4, 1.5, 2.2, 2.3 and 2.4 in both NS and Y_
+  standards) for clarity. The Bilingual Standards Workgroup reviewed these
+
+
+
+
+                                           4
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+  recommendations and endorsed updating the standards accordingly.
+
+  These standards have strong continuity with the previous Michigan standards in
+  terms of the core competencies that teachers in bilingual education programs
+  should be able to demonstrate, with most of the targeted revisions consisting of
+  subtle updates in language that increase the currency of the standards and provide
+  stronger distinctions between expected competencies for bilingual, ESL and world
+  language teachers. Standards related to teachers’ understanding of the role that
+  culture plays in language development and ability to apply their understanding of
+  different cultural perspectives in instruction with multilingual learners (Standards
+  2.1 – 2.5) are unchanged from the 2004 standards. Outdated language referring to
+  “limited-English proficient” learners was updated throughout to reference bilingual
+  or multilingual learners in order to emphasize the additive value that maintenance
+  and development of students’ home languages contributes to their mastery of the
+  content area curriculum as well as their developing proficiency in English (e.g., 3.4,
+  6.2). Standards relating to assessment (5.1 – 5.6) were updated to more clearly
+  emphasize that teachers of bilingual education must be able to demonstrate
+  assessment literacy not only in general, but also in the unique context of working
+  with multilingual students. New standards (4.7 and 5.6) were added to further
+  emphasize the need for teachers of bilingual education to be able to implement a
+  variety of accommodations in both instruction and assessment that are appropriate
+  to the needs of multilingual learners. A new standard (1.5) was added to support
+  bilingual teachers’ ability to distinguish patterns of behavior and performance in the
+  second language development process that may resemble patterns of behaviors
+  exhibited by children with learning disabilities from manifestations of true learning
+  disabilities.
+
+  The most significant change in the updated standards is the level of language
+  proficiency in English and the language of the bilingual endorsement that teacher
+  candidates are expected to demonstrate (1.1). The 2004 standards specified a level
+  of “Superior,” and teacher preparation institutions were expected to assess
+  language proficiency “using a variety of testing protocols.” The new standards
+  specify a level of “Advanced Low” in both English and the language of bilingual
+  endorsement, the latter of which must be demonstrated using the ACTFL Oral
+  Proficiency Interview (OPI), a rigorous, internationally recognized, valid and reliable
+  assessment administered by Language Testing International. This performance
+  standard aligns with the highest level of language proficiency required in the 2015
+  Michigan Standards for the Preparation of Teachers of World Languages (F_), and
+  like those standards, specifies the assessment instrument to be used to verify
+  candidates’ proficiency. The consensus view of the Bilingual Standards Workgroup is
+  that a significant contributing factor to the critical shortage of teachers with
+  Bilingual Education (Y_) endorsements in Michigan schools (see above) is the 2004
+  standards’ expectation of “Superior” proficiency in both English and the language of
+  bilingual endorsement. The Workgroup recommends this re-alignment of the
+  language proficiency standard, coupled with the specification of a rigorous
+  assessment of oral proficiency in the language of bilingual endorsement, as a
+  means to increase the supply of bilingual educators who are both native speakers of
+  English and native speakers of languages other than English. It recognizes that
+  while candidates may be able to achieve “Superior” proficiency in their native
+  language (whether English or not), achievement of “Advanced Low” on the OPI in
+
+
+
+
+                                            5
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+  the language of bilingual endorsement indicates that candidates are able to
+  communicate “with sufficient accuracy, clarity, and precision to convey their
+  intended message without misrepresentation or confusion” to the extent that
+  “[t]heir speech can be understood by native speakers unaccustomed to dealing with
+  non-natives, even though this may require some repetition or restatement” (ACTFL
+  Proficiency Guidelines 2012, p. 6), and that this level is adequate for supporting
+  students’ mastery of the content area curriculum in their home languages while
+  they develop proficiency in English.
+
+  Program Requirements
+  Educator preparation institutions wishing to recommend candidates for
+  endorsements in bilingual education must ensure that candidates have completed a
+  program of study that includes:
+
+        a K-12 program of study of at least 20 semester hours connected with a
+         program of study of at least 30 semester hours in Elementary Education,
+         Language Arts, Social Studies, Science or Mathematics for initial
+         endorsement on an elementary or secondary teaching certificate. For
+         programs leading to an additional endorsement on an existing teacher
+         certificate containing an endorsement in one of the above content areas,
+         at least 20 semester hours for a K-12 endorsement;
+
+        demonstrated proficiency in English and the endorsed language as
+         described in Standard 1.1;
+
+        structured field experiences with a gradual release of responsibility
+         (inclusive of student teaching) in three areas: elementary, middle school,
+         and high school;
+
+        course work in growth and development for early childhood and
+         adolescent learners;
+
+        preparation in instructional methods with specific strategies of instruction
+         for English Learners and multilingual learners appropriate to all levels of
+         certification;
+
+        prerequisite/co-requisite: language coursework beyond the first four
+         semesters of language instruction in commonly taught languages
+         (inclusive of Categories I and II of the Foreign Service Institute (FSI)
+         scale), as necessary to ensure achievement of proficiency standards. Any
+         credits earned in language coursework may not count toward completion
+         of the 20 credit minimum; and
+
+        for initial certification, a separate professional education program of at
+         least 20 semester hours appropriate to grade level of the endorsement
+         sought that prepares the candidate to the appropriate learning
+         progression of the Michigan Interstate Teacher Assessment and Support
+         Consortium (MI-InTASC) Model Core Teaching Standards and the
+         appropriate Michigan Certification Standards for the Preparation of All
+         Elementary and Secondary Teachers in Reading Instruction.
+
+
+
+
+                                             6
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+  Endorsement Authorizations
+  Michigan offers Bilingual Education (Y_) endorsements in the following languages:
+
+         Bilingual French (YA)
+         Bilingual German (YB)
+         Bilingual Greek (YC)
+         Bilingual Russian (YE)
+         Bilingual Spanish (YF)
+         Bilingual Italian (YH)
+         Bilingual Polish (YI)
+         Bilingual Hebrew (YJ)
+         Bilingual Arabic (YK)
+         Bilingual Other (YL)
+         Bilingual Vietnamese (YM)
+         Bilingual Korean (YN)
+         Bilingual Serbo/Croatian (YO)
+         Bilingual Chaldean (YP)
+         Bilingual Chinese (YR)
+         Bilingual Filipino (YS)
+         Bilingual Japanese (YT)
+
+  Teachers possessing both a Bilingual Education (Y_) endorsement and an
+  endorsement in an academic subject area may provide instruction in the subject(s)
+  for which they hold specific content endorsement(s) at the level of certification,
+  taught in English and the language of the bilingual endorsement. They may provide
+  sheltered instruction2 in all subjects according to certificate grade level and
+  Michigan Merit Curriculum (MMC) credit in core subject areas in which they are
+  endorsed (e.g., a teacher with Bilingual Spanish (YF) and Social Studies (RX)
+  endorsements may serve as the instructor of record for a course granting MMC
+  credit in social studies offered only to students who qualify for bilingual education
+  services).
+
+  Teachers possessing a Bilingual Education (Y_) endorsement may also provide
+  support for students who qualify for bilingual education services through co-
+  teaching with teachers possessing appropriate certification in any subject area and
+  grade level. They may also provide instruction in English as a second language and
+  native language literacy, as well as lead a resource room for students who qualify
+  for bilingual education services. They may serve as instructor of record for courses
+  granting elective credit under the MMC without possessing additional subject area
+  endorsements.
+
+
+
+
+  2
+    Sheltered instruction is defined as a classroom setting in which teachers use specific
+  strategies to teach a specific content area (e.g., social studies or math) in ways
+  comprehensible to students whose home language is not English while promoting their
+  English language development.
+
+
+
+
+                                                7
+Introduction to Standards for the Preparation of Teachers of Bilingual Education
+
+                       Participants in Standards Development
+
+  Mayda Bahamonde-Gunnell, Ed.D.              Rui Niu-Cooper, Ph.D.
+  Executive Director for Leadership           Associate Professor of Education
+  Middle Schools/ELL/Equity and               Aquinas College
+  Inclusion
+  Grand Rapids Public Schools                 Marcie Pyper, Ph.D.
+                                              Professor of Spanish
+  Virginia David, Ph.D.                       Calvin College
+  Assistant Professor, TESOL
+  Western Michigan University                 Sara Rainwater
+                                              ESL Coordinator
+  Christina DeNicolo, Ph.D.                   Genesee Intermediate School District
+  Assistant Professor,
+  Bilingual/Bicultural Education              Maura Sedgeman
+  Wayne State University                      Language & Literacy/SIOP Trainer
+                                              Dearborn Public Schools
+  Sandra Gonzales, Ed.D.
+  Assistant Professor,                        Maria Elena Silva
+  Bilingual Bicultural Education              English Learner Consultant
+  Wayne State University                      Michigan Department of Education
+
+  Casey L. Gordon                             Kay Smith
+  Special Populations Consultant              ELL Coordinator
+  Kent Intermediate School District           Grand Rapids Public Schools
+
+  Norma Hernandez                             Shereen Tabrizi, Ph.D.
+  Director, Office of English Language        Manager, Special Populations Unit
+  Learners                                    Michigan Department of Education
+  Detroit Public Schools
+                                              Michelle Williams
+  Sean Kottke, Ph.D.                          Migrant Education Consultant
+  Education Consultant                        Michigan Department of Education
+  Michigan Department of Education
+
+  Sarah-Kate LaVan, Ph.D.
+  Manager, Professional Preparation and
+  Learning Unit
+  Michigan Department of Education
+
+  Kristina Martinez-Precious
+  Principal, Marquette Elementary
+  School
+  Muskegon Public Schools
+
+  Lena Montgomery
+  Manager
+  Wayne Regional Education Service
+  Agency
+
+
+
+
+                                          8
+        Bilingual Education (Y_) Content Standards
+
+
+
+
+Bilingual Education (Y_) Content
+            Standards
+
+
+
+
+                            9
+                                Bilingual Education (Y_) Content Standards
+
+
+No.   Guideline/Standard
+
+      Language, Linguistics, Comparisons
+1.0
+      Candidates for endorsement in Bilingual Education will demonstrate:
+
+      At least an Advanced Low level of speaking, listening, reading, and writing proficiency in at least two
+      languages, English and the target non-English language, using a variety of testing protocols, including
+1.1
+      assessments of interpersonal, interpretive, and presentational communication, and the ACTFL Oral
+      Proficiency Interview (OPI) in the target language.
+
+      Knowledge of the linguistic elements (such as phonology, morphology, syntax, semantics, pragmatics, and
+1.2
+      discourse) of English and the target non-English language and their varieties.
+
+      An understanding of language as a dynamic system and competency in helping students acquire and use
+1.3   English and the target non-English language in listening, speaking, reading, and writing for social and
+      academic purposes.
+
+1.4   Knowledge of the similarities and differences between the English and the target non-English language.
+
+      An ability to distinguish between learning challenges and behaviors associated with language acquisition
+1.5
+      and those associated with learning disabilities.
+
+      An understanding of the ways language varies across subject areas and familiarity with the discursive and
+1.6
+      grammatical challenges of language use in different subjects.
+
+      Cultures, Literatures, Cross-Disciplinary Concepts
+2.0
+      Candidates for endorsement in Bilingual Education will demonstrate:
+
+      Knowledge, understanding, and use of the major concepts, principles, theories, and research related to the
+2.1   nature and role of culture in language development and academic achievement that support student
+      learning.
+
+
+
+
+                                                       10
+                                Bilingual Education (Y_) Content Standards
+
+
+      Application of knowledge and understanding of how valuing cultural groups and students’ cultural identities
+2.2
+      affect language learning and school achievement.
+
+      An understanding of the value and role of literary and cultural texts that reflect students’ heritage and
+2.3   cultures and the ability to use them to interpret and reflect upon a variety of cultural perspectives over
+      time.
+
+      An understanding of similarities and differences between English-speaking and heritage cultures, and
+2.4   knowledge of how to make thoughtful comparisons between them that indicate the valuing of learners’
+      home cultures while enabling them to adapt to the new culture.
+
+      An ability to identify distinctive cultural viewpoints in multiple content areas through English and the target
+2.5
+      non-English language.
+
+      Second Language Development Theories and Instructional Practices
+3.0
+      Candidates for endorsement in Bilingual Education will demonstrate:
+
+      An understanding of second language development theories and research, inclusive of error analysis,
+3.1
+      performance analysis, and interlanguage analysis.
+
+      An ability to use language development knowledge to create a supportive classroom-learning environment
+3.2   that includes opportunities for interaction and negotiation of meaning in English and the target non-English
+      language.
+
+      A variety of instructional practices that produce language outcomes through articulated program models
+3.3
+      that address the needs of linguistically and culturally diverse learners.
+
+      Knowledge and utilization of a variety of strategies for instructional management that facilitate language
+3.4
+      development and student achievement for multilingual learners.
+
+3.5   An ability to teach multiple content areas through English and the target non-English language.
+
+
+
+
+                                                        11
+                                 Bilingual Education (Y_) Content Standards
+
+
+      Knowledge of individual learner variables (e.g., linguistic, cognitive, affective, social) in the second
+3.6
+      language development process.
+
+      Knowledge of second language teaching methodologies and their applicability in developing instructional
+3.7
+      practices and resources to meet the needs of individual multilingual learners.
+
+      Knowledge and use of a wide range of materials, resources, and technologies in effective content teaching
+3.8
+      for multilingual learners.
+
+      Integration of Standards Into Curriculum and Instruction
+4.0
+      Candidates for endorsement in Bilingual Education will demonstrate:
+
+      An understanding of the standards and benchmarks currently approved in Michigan for K-12 content and
+4.1
+      English language proficiency in curricular planning.
+
+      An ability to integrate the standards and benchmarks currently approved in Michigan for K-12 content and
+4.2   English language proficiency into instruction with appropriate strategies and techniques that support
+      students in accessing the core curriculum as they learn both language and academic content.
+
+      An ability to use standards and benchmarks to evaluate, select, design, and adapt instructional resources
+4.3
+      by connecting curriculum to students’ experiences and skills of home and community.
+
+      An ability to serve as effective models of English and the target non-English language for developing
+4.4
+      bilingual listening, speaking, reading, and writing skills.
+
+      An ability to plan for and teach in multi-level classrooms with learners from linguistically and culturally
+4.5
+      diverse backgrounds, using standards-based content curriculum.
+
+      Familiarity with and adaptive use of a wide range of standards-based materials, resources, and
+4.6
+      technologies in the delivery of effective content curriculum for multilingual learners.
+
+      Knowledge and use of differentiated instruction and appropriate and timely accommodations based on the
+4.7
+      needs of multilingual learners.
+
+
+
+                                                         12
+                                Bilingual Education (Y_) Content Standards
+
+
+      Assessment
+5.0
+      Candidates for endorsement in Bilingual Education will demonstrate:
+
+      Knowledge of the nature of assessment and multiple ways to assess that are age, level, and language
+5.1
+      appropriate.
+
+      Effective and timely assessment practices including: analysis of formative, interim and summative
+5.2   assessment results, and use of outcome data to inform instruction and to interpret and communicate
+      student achievement results to all stakeholders.
+
+      Knowledge of various assessment issues affecting multilingual learners (e.g., cultural and linguistic bias,
+5.3
+      political, social, linguistic and psychological factors).
+
+      Knowledge of the value of assessment data for identification, placement, and demonstration of language
+5.4
+      proficiency and academic achievement of multilingual learners.
+
+      Knowledge of a broad variety of assessment tools in English and the target non-English language (for
+5.5   example, standards-based proficiency instruments, performance-based assessment tools, and
+      standardized achievement tests of overall mastery) and how they affect multilingual learners.
+
+      Knowledge and use of a variety of assessment accommodations appropriate to the needs of multilingual
+5.6
+      learners.
+
+      Professionalism
+6.0
+      Candidates for endorsement in Bilingual Education will demonstrate:
+
+6.1   Knowledge of culturally and linguistically responsive teaching practices.
+
+      Knowledge of the additive value that multilingualism brings to the overall success of all students and an
+6.2   understanding of the teacher’s role as an advocate with students, colleagues, and members of the
+      community in promoting and developing multilingualism.
+
+
+
+
+                                                        13
+                                Bilingual Education (Y_) Content Standards
+
+
+      An ability to identify, analyze, and reflect upon professional knowledge and language proficiency, and seek
+6.3
+      resources for improvement.
+
+      Knowledge of legislative impact on teaching in programs for world languages, English Learners, and
+6.4
+      bilingual education.
+
+6.5   Knowledge of the teacher’s role as a professional within a discipline.
+
+      Knowledge of the history and current state of teaching world languages, English Learners, and bilingual
+6.6
+      students as it affects public policy and advocacy issues.
+
+      An ability to serve as a professional resource, advocate for students, and build partnerships with students’
+6.7
+      families and communities.
+
+
+
+
+                                                        14
+

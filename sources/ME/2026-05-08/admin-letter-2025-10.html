@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://mainedoenews.net/xmlrpc.php">
+
+<title>ADMINISTRATIVE LETTER: Legal Requirements to Provide English Language Acquisition Services to Students Who Are Multilingual Learners (Revised October 9, 2025) &#8211; Maine DOE Newsroom</title>
+<meta name='robots' content='max-image-preview:large' />
+
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.parentNode.removeChild( dom_node ); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[ i ].parentNode.removeChild( dom_nodes[ i ] );
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '/remote-login.php?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+					+ '//' + window.location.hostname
+					+ '&postid=251215'
+					+ '&is_singular=1';
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly9tYWluZWRvZW5ld3MubmV0"
+		+ "&wpcomid=21507034"
+		+ "&time=" + Math.floor( Date.now() / 1000 );
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts-api.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="Maine DOE Newsroom &raquo; Feed" href="https://mainedoenews.net/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Maine DOE Newsroom &raquo; Comments Feed" href="https://mainedoenews.net/comments/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<link crossorigin='anonymous' rel='stylesheet' id='all-css-0-1' href='/_static/??-eJxtzN0KQEAQQOEXssaKcCHPsq1Jy+xPZjavL1JKLr86HTiSsjEIBgGfVaK8uMCwoiRjt8fAOYCPcyZk2JGM4KxSZPmotMwF/B/Jbfh+b1355EfdddWg26av1xMpeTR5&cssminify=yes' type='text/css' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-color]){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/common.min.css */
+</style>
+<style id="wp-block-group-inline-css">
+.wp-block-group{box-sizing:border-box}:where(.wp-block-group.wp-block-group-is-layout-constrained){position:relative}
+/*# sourceURL=https://s0.wp.com/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/group/style.min.css */
+</style>
+<style id="wp-block-categories-inline-css">
+.wp-block-categories{box-sizing:border-box}.wp-block-categories.alignleft{margin-right:2em}.wp-block-categories.alignright{margin-left:2em}.wp-block-categories.wp-block-categories-dropdown.aligncenter{text-align:center}.wp-block-categories .wp-block-categories__label:not(.screen-reader-text){display:block;width:100%}
+/*# sourceURL=https://s0.wp.com/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/categories/style.min.css */
+</style>
+<style id="wp-block-heading-inline-css">
+h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-background,h3:where(.wp-block-heading).has-background,h4:where(.wp-block-heading).has-background,h5:where(.wp-block-heading).has-background,h6:where(.wp-block-heading).has-background{padding:1.25em 2.375em}h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h1.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h2.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h2.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h3.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h3.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h4.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h4.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h5.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h5.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]),h6.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]),h6.has-text-align-right[style*=writing-mode]:where([style*=vertical-rl]){rotate:180deg}
+/*# sourceURL=https://s0.wp.com/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/heading/style.min.css */
+</style>
+<style id="wp-block-image-inline-css">
+.wp-block-image>a,.wp-block-image>figure>a{display:inline-block}.wp-block-image img{box-sizing:border-box;height:auto;max-width:100%;vertical-align:bottom}@media not (prefers-reduced-motion){.wp-block-image img.hide{visibility:hidden}.wp-block-image img.show{animation:show-content-image .4s}}.wp-block-image[style*=border-radius] img,.wp-block-image[style*=border-radius]>a{border-radius:inherit}.wp-block-image.has-custom-border img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull>a,.wp-block-image.alignwide>a{width:100%}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image .aligncenter,.wp-block-image .alignleft,.wp-block-image .alignright,.wp-block-image.aligncenter,.wp-block-image.alignleft,.wp-block-image.alignright{display:table}.wp-block-image .aligncenter>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image .alignright>figcaption,.wp-block-image.aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image.alignright>figcaption{caption-side:bottom;display:table-caption}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image :where(figcaption){margin-bottom:1em;margin-top:.5em}.wp-block-image.is-style-circle-mask img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{border-radius:0;-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain}}:root :where(.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img){border-radius:9999px}.wp-block-image figure{margin:0}.wp-lightbox-container{display:flex;flex-direction:column;position:relative}.wp-lightbox-container img{cursor:zoom-in}.wp-lightbox-container img:hover+button{opacity:1}.wp-lightbox-container button{align-items:center;backdrop-filter:blur(16px) saturate(180%);background-color:#5a5a5a40;border:none;border-radius:4px;cursor:zoom-in;display:flex;height:20px;justify-content:center;opacity:0;padding:0;position:absolute;right:16px;text-align:center;top:16px;width:20px;z-index:100}@media not (prefers-reduced-motion){.wp-lightbox-container button{transition:opacity .2s ease}}.wp-lightbox-container button:focus-visible{outline:3px auto #5a5a5a40;outline:3px auto -webkit-focus-ring-color;outline-offset:3px}.wp-lightbox-container button:hover{cursor:pointer;opacity:1}.wp-lightbox-container button:focus{opacity:1}.wp-lightbox-container button:focus,.wp-lightbox-container button:hover,.wp-lightbox-container button:not(:hover):not(:active):not(.has-background){background-color:#5a5a5a40;border:none}.wp-lightbox-overlay{box-sizing:border-box;cursor:zoom-out;height:100vh;left:0;overflow:hidden;position:fixed;top:0;visibility:hidden;width:100%;z-index:100000}.wp-lightbox-overlay .wp-lightbox-close-button{align-items:center;cursor:pointer;display:flex;font-family:inherit;gap:8px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 4px;position:absolute;right:calc(env(safe-area-inset-right) + 16px);top:calc(env(safe-area-inset-top) + 16px);z-index:5000000}.wp-lightbox-overlay .wp-lightbox-close-button:focus,.wp-lightbox-overlay .wp-lightbox-close-button:hover,.wp-lightbox-overlay .wp-lightbox-close-button:not(:hover):not(:active):not(.has-background){background:none;border:none}.wp-lightbox-overlay .wp-lightbox-close-button:has(.wp-lightbox-close-text:not([hidden])) .wp-lightbox-close-icon svg{height:1em;width:1em}.wp-lightbox-overlay .wp-lightbox-close-icon svg{display:block}.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{align-items:center;bottom:16px;cursor:pointer;display:flex;font-family:inherit;gap:4px;justify-content:center;line-height:1;min-height:40px;min-width:40px;padding:0 8px;position:absolute;z-index:2000002}.wp-lightbox-overlay .wp-lightbox-navigation-button-next[hidden],.wp-lightbox-overlay .wp-lightbox-navigation-button-prev[hidden]{display:none}@media (min-width:960px){.wp-lightbox-overlay .wp-lightbox-navigation-button-next,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{bottom:50%;transform:translateY(-50%)}}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-next:not(:hover):not(:active):not(.has-background),.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:focus,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:hover,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:not(:hover):not(:active):not(.has-background){background:none;border:none;padding:0 8px}.wp-lightbox-overlay .wp-lightbox-navigation-button-next:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg,.wp-lightbox-overlay .wp-lightbox-navigation-button-prev:has(.wp-lightbox-navigation-text:not([hidden])) .wp-lightbox-navigation-icon svg{display:block;height:1.5em;width:1.5em}.wp-lightbox-overlay .wp-lightbox-navigation-button-prev{left:calc(env(safe-area-inset-left) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-button-next{right:calc(env(safe-area-inset-right) + 16px)}.wp-lightbox-overlay .wp-lightbox-navigation-icon svg{vertical-align:middle}.wp-lightbox-overlay .lightbox-image-container{height:var(--wp--lightbox-container-height);left:50%;overflow:hidden;position:absolute;top:50%;transform:translate(-50%,-50%);transform-origin:top left;width:var(--wp--lightbox-container-width);z-index:2000001}.wp-lightbox-overlay .wp-block-image{align-items:center;box-sizing:border-box;display:flex;height:100%;justify-content:center;margin:0;position:relative;transform-origin:0 0;width:100%;z-index:3000000}.wp-lightbox-overlay .wp-block-image img{height:var(--wp--lightbox-image-height);min-height:var(--wp--lightbox-image-height);min-width:var(--wp--lightbox-image-width);width:var(--wp--lightbox-image-width)}.wp-lightbox-overlay .wp-block-image figcaption{display:none}.wp-lightbox-overlay button{background:none;border:none}.wp-lightbox-overlay .scrim{background-color:#fff;height:100%;opacity:.9;position:absolute;width:100%;z-index:2000000}.wp-lightbox-overlay.active{visibility:visible}@media not (prefers-reduced-motion){.wp-lightbox-overlay.active{animation:turn-on-visibility .25s both}.wp-lightbox-overlay.active img{animation:turn-on-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active){animation:turn-off-visibility .35s both}.wp-lightbox-overlay.show-closing-animation:not(.active) img{animation:turn-off-visibility .25s both}.wp-lightbox-overlay.zoom.active{animation:none;opacity:1;visibility:visible}.wp-lightbox-overlay.zoom.active .lightbox-image-container{animation:lightbox-zoom-in .4s}.wp-lightbox-overlay.zoom.active .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.active .scrim{animation:turn-on-visibility .4s forwards}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active){animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container{animation:lightbox-zoom-out .4s}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .lightbox-image-container img{animation:none}.wp-lightbox-overlay.zoom.show-closing-animation:not(.active) .scrim{animation:turn-off-visibility .4s forwards}}@keyframes show-content-image{0%{visibility:hidden}99%{visibility:hidden}to{visibility:visible}}@keyframes turn-on-visibility{0%{opacity:0}to{opacity:1}}@keyframes turn-off-visibility{0%{opacity:1;visibility:visible}99%{opacity:0;visibility:visible}to{opacity:0;visibility:hidden}}@keyframes lightbox-zoom-in{0%{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale))}to{transform:translate(-50%,-50%) scale(1)}}@keyframes lightbox-zoom-out{0%{transform:translate(-50%,-50%) scale(1);visibility:visible}99%{visibility:visible}to{transform:translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)),calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));visibility:hidden}}
+/*# sourceURL=https://s0.wp.com/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/image/style.min.css */
+</style>
+<style id="wp-block-list-inline-css">
+ol,ul{box-sizing:border-box}:root :where(.wp-block-list.has-background){padding:1.25em 2.375em}
+/*# sourceURL=https://s0.wp.com/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/list/style.min.css */
+</style>
+<style id="wp-block-paragraph-inline-css">
+.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;font-style:normal;font-weight:100;line-height:.68;margin:.05em .1em 0 0;text-transform:uppercase}body.rtl .has-drop-cap:not(:focus):first-letter{float:none;margin-left:.1em}p.has-drop-cap.has-background{overflow:hidden}:root :where(p.has-background){padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}p.has-text-align-left[style*="writing-mode:vertical-lr"],p.has-text-align-right[style*="writing-mode:vertical-rl"]{rotate:180deg}
+/*# sourceURL=https://s0.wp.com/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/paragraph/style.min.css */
+</style>
+<style id="wp-block-library-inline-css-extra">
+.has-text-align-justify {
+	text-align:justify;
+}
+.has-text-align-justify{text-align:justify;}
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+
+<style id="classic-theme-styles-inline-css">
+.wp-block-button__link{background-color:#32373c;border-radius:9999px;box-shadow:none;color:#fff;font-size:1.125em;padding:calc(.667em + 2px) calc(1.333em + 2px);text-decoration:none}.wp-block-file__button{background:#32373c;color:#fff}.wp-block-accordion-heading{margin:0}.wp-block-accordion-heading__toggle{background-color:inherit!important;color:inherit!important}.wp-block-accordion-heading__toggle:not(:focus-visible){outline:none}.wp-block-accordion-heading__toggle:focus,.wp-block-accordion-heading__toggle:hover{background-color:inherit!important;border:none;box-shadow:none;color:inherit;padding:var(--wp--preset--spacing--20,1em) 0;text-decoration:none}.wp-block-accordion-heading__toggle:focus-visible{outline:auto;outline-offset:0}
+/*# sourceURL=/wp-content/plugins/gutenberg-core/v23.0.1/build/styles/block-library/classic.min.css */
+</style>
+
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-8-1' href='/_static/??-eJx9jUsOwjAMRC+EY6UgCAvEWZrEKoG4jWq3hduTLvisurFG1nszuBQIQ6/UK5Y8dakXDIPPQ3gINsY6Y0ESl0ww0mwOGJPolwDRVyYTRHb4V8QT/LpGqn8ura4EU0wtZeKKbWlLih1p1eWTQem5rZQ6A96XkUSgXk4Tg97qlqzelS/26KzbN835dH8DjlpbIA==&cssminify=yes' type='text/css' media='all' />
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--albert-sans: 'Albert Sans', sans-serif;--wp--preset--font-family--alegreya: Alegreya, serif;--wp--preset--font-family--arvo: Arvo, serif;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda', serif;--wp--preset--font-family--bricolage-grotesque: 'Bricolage Grotesque', sans-serif;--wp--preset--font-family--cabin: Cabin, sans-serif;--wp--preset--font-family--chivo: Chivo, sans-serif;--wp--preset--font-family--commissioner: Commissioner, sans-serif;--wp--preset--font-family--cormorant: Cormorant, serif;--wp--preset--font-family--courier-prime: 'Courier Prime', monospace;--wp--preset--font-family--crimson-pro: 'Crimson Pro', serif;--wp--preset--font-family--dm-mono: 'DM Mono', monospace;--wp--preset--font-family--dm-sans: 'DM Sans', sans-serif;--wp--preset--font-family--dm-serif-display: 'DM Serif Display', serif;--wp--preset--font-family--domine: Domine, serif;--wp--preset--font-family--eb-garamond: 'EB Garamond', serif;--wp--preset--font-family--epilogue: Epilogue, sans-serif;--wp--preset--font-family--fahkwang: Fahkwang, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--fira-sans: 'Fira Sans', sans-serif;--wp--preset--font-family--fjalla-one: 'Fjalla One', sans-serif;--wp--preset--font-family--fraunces: Fraunces, serif;--wp--preset--font-family--gabarito: Gabarito, system-ui;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono', monospace;--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans', sans-serif;--wp--preset--font-family--ibarra-real-nova: 'Ibarra Real Nova', serif;--wp--preset--font-family--instrument-serif: 'Instrument Serif', serif;--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--josefin-sans: 'Josefin Sans', sans-serif;--wp--preset--font-family--jost: Jost, sans-serif;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville', serif;--wp--preset--font-family--libre-franklin: 'Libre Franklin', sans-serif;--wp--preset--font-family--literata: Literata, serif;--wp--preset--font-family--lora: Lora, serif;--wp--preset--font-family--merriweather: Merriweather, serif;--wp--preset--font-family--montserrat: Montserrat, sans-serif;--wp--preset--font-family--newsreader: Newsreader, serif;--wp--preset--font-family--noto-sans-mono: 'Noto Sans Mono', sans-serif;--wp--preset--font-family--nunito: Nunito, sans-serif;--wp--preset--font-family--open-sans: 'Open Sans', sans-serif;--wp--preset--font-family--overpass: Overpass, sans-serif;--wp--preset--font-family--pt-serif: 'PT Serif', serif;--wp--preset--font-family--petrona: Petrona, serif;--wp--preset--font-family--piazzolla: Piazzolla, serif;--wp--preset--font-family--playfair-display: 'Playfair Display', serif;--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;--wp--preset--font-family--poppins: Poppins, sans-serif;--wp--preset--font-family--raleway: Raleway, sans-serif;--wp--preset--font-family--roboto: Roboto, sans-serif;--wp--preset--font-family--roboto-slab: 'Roboto Slab', serif;--wp--preset--font-family--rubik: Rubik, sans-serif;--wp--preset--font-family--rufina: Rufina, serif;--wp--preset--font-family--sora: Sora, sans-serif;--wp--preset--font-family--source-sans-3: 'Source Sans 3', sans-serif;--wp--preset--font-family--source-serif-4: 'Source Serif 4', serif;--wp--preset--font-family--space-mono: 'Space Mono', monospace;--wp--preset--font-family--syne: Syne, sans-serif;--wp--preset--font-family--texturina: Texturina, serif;--wp--preset--font-family--urbanist: Urbanist, sans-serif;--wp--preset--font-family--work-sans: 'Work Sans', sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-albert-sans-font-family{font-family: var(--wp--preset--font-family--albert-sans) !important;}.has-alegreya-font-family{font-family: var(--wp--preset--font-family--alegreya) !important;}.has-arvo-font-family{font-family: var(--wp--preset--font-family--arvo) !important;}.has-bodoni-moda-font-family{font-family: var(--wp--preset--font-family--bodoni-moda) !important;}.has-bricolage-grotesque-font-family{font-family: var(--wp--preset--font-family--bricolage-grotesque) !important;}.has-cabin-font-family{font-family: var(--wp--preset--font-family--cabin) !important;}.has-chivo-font-family{font-family: var(--wp--preset--font-family--chivo) !important;}.has-commissioner-font-family{font-family: var(--wp--preset--font-family--commissioner) !important;}.has-cormorant-font-family{font-family: var(--wp--preset--font-family--cormorant) !important;}.has-courier-prime-font-family{font-family: var(--wp--preset--font-family--courier-prime) !important;}.has-crimson-pro-font-family{font-family: var(--wp--preset--font-family--crimson-pro) !important;}.has-dm-mono-font-family{font-family: var(--wp--preset--font-family--dm-mono) !important;}.has-dm-sans-font-family{font-family: var(--wp--preset--font-family--dm-sans) !important;}.has-dm-serif-display-font-family{font-family: var(--wp--preset--font-family--dm-serif-display) !important;}.has-domine-font-family{font-family: var(--wp--preset--font-family--domine) !important;}.has-eb-garamond-font-family{font-family: var(--wp--preset--font-family--eb-garamond) !important;}.has-epilogue-font-family{font-family: var(--wp--preset--font-family--epilogue) !important;}.has-fahkwang-font-family{font-family: var(--wp--preset--font-family--fahkwang) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-fira-sans-font-family{font-family: var(--wp--preset--font-family--fira-sans) !important;}.has-fjalla-one-font-family{font-family: var(--wp--preset--font-family--fjalla-one) !important;}.has-fraunces-font-family{font-family: var(--wp--preset--font-family--fraunces) !important;}.has-gabarito-font-family{font-family: var(--wp--preset--font-family--gabarito) !important;}.has-ibm-plex-mono-font-family{font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;}.has-ibm-plex-sans-font-family{font-family: var(--wp--preset--font-family--ibm-plex-sans) !important;}.has-ibarra-real-nova-font-family{font-family: var(--wp--preset--font-family--ibarra-real-nova) !important;}.has-instrument-serif-font-family{font-family: var(--wp--preset--font-family--instrument-serif) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-josefin-sans-font-family{font-family: var(--wp--preset--font-family--josefin-sans) !important;}.has-jost-font-family{font-family: var(--wp--preset--font-family--jost) !important;}.has-libre-baskerville-font-family{font-family: var(--wp--preset--font-family--libre-baskerville) !important;}.has-libre-franklin-font-family{font-family: var(--wp--preset--font-family--libre-franklin) !important;}.has-literata-font-family{font-family: var(--wp--preset--font-family--literata) !important;}.has-lora-font-family{font-family: var(--wp--preset--font-family--lora) !important;}.has-merriweather-font-family{font-family: var(--wp--preset--font-family--merriweather) !important;}.has-montserrat-font-family{font-family: var(--wp--preset--font-family--montserrat) !important;}.has-newsreader-font-family{font-family: var(--wp--preset--font-family--newsreader) !important;}.has-noto-sans-mono-font-family{font-family: var(--wp--preset--font-family--noto-sans-mono) !important;}.has-nunito-font-family{font-family: var(--wp--preset--font-family--nunito) !important;}.has-open-sans-font-family{font-family: var(--wp--preset--font-family--open-sans) !important;}.has-overpass-font-family{font-family: var(--wp--preset--font-family--overpass) !important;}.has-pt-serif-font-family{font-family: var(--wp--preset--font-family--pt-serif) !important;}.has-petrona-font-family{font-family: var(--wp--preset--font-family--petrona) !important;}.has-piazzolla-font-family{font-family: var(--wp--preset--font-family--piazzolla) !important;}.has-playfair-display-font-family{font-family: var(--wp--preset--font-family--playfair-display) !important;}.has-plus-jakarta-sans-font-family{font-family: var(--wp--preset--font-family--plus-jakarta-sans) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-raleway-font-family{font-family: var(--wp--preset--font-family--raleway) !important;}.has-roboto-font-family{font-family: var(--wp--preset--font-family--roboto) !important;}.has-roboto-slab-font-family{font-family: var(--wp--preset--font-family--roboto-slab) !important;}.has-rubik-font-family{font-family: var(--wp--preset--font-family--rubik) !important;}.has-rufina-font-family{font-family: var(--wp--preset--font-family--rufina) !important;}.has-sora-font-family{font-family: var(--wp--preset--font-family--sora) !important;}.has-source-sans-3-font-family{font-family: var(--wp--preset--font-family--source-sans-3) !important;}.has-source-serif-4-font-family{font-family: var(--wp--preset--font-family--source-serif-4) !important;}.has-space-mono-font-family{font-family: var(--wp--preset--font-family--space-mono) !important;}.has-syne-font-family{font-family: var(--wp--preset--font-family--syne) !important;}.has-texturina-font-family{font-family: var(--wp--preset--font-family--texturina) !important;}.has-urbanist-font-family{font-family: var(--wp--preset--font-family--urbanist) !important;}.has-work-sans-font-family{font-family: var(--wp--preset--font-family--work-sans) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-10-1' href='/wp-content/mu-plugins/jetpack-plugin/sun/_inc/genericons/genericons/genericons.css?m=1771607505i&cssminify=yes' type='text/css' media='all' />
+<link rel='stylesheet' id='colinear-open-sans-lora-css' href='https://fonts-api.wp.com/css?family=Open+Sans%3A400%2C700%2C400italic%2C700italic%7CLora%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=7.0-RC2-62280' media='all' />
+<link rel='stylesheet' id='colinear-inconsolata-css' href='https://fonts-api.wp.com/css?family=Inconsolata%3A400%2C+700&#038;subset=latin%2Clatin-ext&#038;ver=7.0-RC2-62280' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-14-1' href='/_static/??/wp-content/themes/pub/colinear/style.css,/wp-content/themes/pub/colinear/inc/style-wpcom.css?m=1741693326j&cssminify=yes' type='text/css' media='all' />
+<style id="jetpack_facebook_likebox-inline-css">
+.widget_facebook_likebox {
+	overflow: hidden;
+}
+
+/*# sourceURL=/wp-content/mu-plugins/jetpack-plugin/sun/modules/widgets/facebook-likebox/style.css */
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-16-1' href='/_static/??-eJzTLy/QTc7PK0nNK9HPLdUtyClNz8wr1i9KTcrJTwcy0/WTi5G5ekCujj52Temp+bo5+cmJJZn5eSgc3bScxMwikFb7XFtDE1NLExMLc0OTLACohS2q&cssminify=yes' type='text/css' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='print-css-17-1' href='/wp-content/mu-plugins/global-print/global-print.css?m=1465851035i&cssminify=yes' type='text/css' media='print' />
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+/*# sourceURL=jetpack-global-styles-frontend-style-inline-css */
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-20-1' href='/_static/??-eJyNjcsKAjEMRX/IGgaqgwvxU6TTlDZjmhTTIv69D9yIG3f3wOUcuDUXVXqSDnW4xiOTGKyptxAvHwYbAlVxcDKwEq4JA+L9PUnyNppt4G/RmSTCMogRTCMFdqxZ7Qt+lL2k+owXD5l1Cfw6nOpxmme/837aH9YHfvpKpw==&cssminify=yes' type='text/css' media='all' />
+<script id="jetpack_related-posts-js-extra">
+var related_posts_js_options = {"post_heading":"h4"};
+//# sourceURL=jetpack_related-posts-js-extra
+</script>
+<script id="wpcom-actionbar-placeholder-js-extra">
+var actionbardata = {"siteID":"21507034","postID":"251215","siteURL":"https://mainedoenews.net","xhrURL":"https://mainedoenews.net/wp-admin/admin-ajax.php","nonce":"84beabecc0","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https://s0.wp.com/wp-content/js/wpcom-proxy-request.js?m=1513050504i&amp;ver=20211021","shortlink":"https://wp.me/p1seXE-13lR","i18n":{"followedText":"New posts from this site will now appear in your \u003Ca href=\"https://wordpress.com/reader\"\u003EReader\u003C/a\u003E","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","shortLinkCopied":"Shortlink copied to clipboard."}};
+//# sourceURL=wpcom-actionbar-placeholder-js-extra
+</script>
+<script id="jetpack-mu-wpcom-settings-js-before">
+var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"https://s0.wp.com/wp-content/mu-plugins/jetpack-mu-wpcom-plugin/sun/jetpack_vendor/automattic/jetpack-mu-wpcom/src/build/"};
+//# sourceURL=jetpack-mu-wpcom-settings-js-before
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/_static/??-eJx1jcEOwiAQRH9IunJo2ovxU0yFTQPCguyS2r8XE0zqwdNkMi9vYMvKJBIkgVhVDnV1xOBR8mIevQNXgpsjA/fqgoWCYRG0KicW/m1DdDR4PsHB6xsTROWSXvt3a7JQLfJn9M+KZe9xFPyFVHRraacdvsaLnsbxrPU0z/4NC+ROAA=='></script>
+<script id="rlt-proxy-js-after">
+	rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+//# sourceURL=rlt-proxy-js-after
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mainedoenews.wordpress.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress.com" />
+<link rel="canonical" href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/" />
+<link rel='shortlink' href='https://wp.me/p1seXE-13lR' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fmainedoenews.net%2F2025%2F10%2F10%2Fadministrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fmainedoenews.net%2F2025%2F10%2F10%2Fadministrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ADMINISTRATIVE LETTER: Legal Requirements to Provide English Language Acquisition Services to Students Who Are Multilingual Learners (Revised October 9, 2025)" />
+<meta property="og:url" content="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/" />
+<meta property="og:description" content="Administrative Letter: #2Policy Code: IHBEATO: Public School AdministratorsDATE: August 22, 2019, Revised September 15, 2021, Revised June 21, 2023, Revised October 9, 2025SUBJECT: The legal requir…" />
+<meta property="article:published_time" content="2025-10-10T11:57:48+00:00" />
+<meta property="article:modified_time" content="2025-10-10T11:58:12+00:00" />
+<meta property="og:site_name" content="Maine DOE Newsroom" />
+<meta property="og:image" content="https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvc2VjdXJlLmdyYXZhdGFyLmNvbVwvYmxhdmF0YXJcLzRhY2JjMWUwYWUxNmZkOTdkOGE1YjM2ODllZDQ4NDNkNzMwZTlhZWM3MTQ2MjE0Y2QxODcyM2IyNjdiNTIwMzU_cz0yMDAmdHM9MTc3ODIyMzMyMCIsInR4dCI6Ik1haW5lIERPRSBOZXdzcm9vbSIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoyMTUwNzAzNH0.SbAnuVNb6HcL05XLMgDt3Fk-quM6gtEAADhyiJd3dEgMQ" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+<meta name="twitter:creator" content="@mdoenews" />
+<meta name="twitter:site" content="@mdoenews" />
+<meta name="twitter:text:title" content="ADMINISTRATIVE LETTER: Legal Requirements to Provide English Language Acquisition Services to Students Who Are Multilingual Learners (Revised October 9,&nbsp;2025)" />
+<meta name="twitter:image" content="https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=240" />
+<meta name="twitter:card" content="summary" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=32" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=32" sizes="16x16" />
+<link rel="apple-touch-icon" href="https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=114" />
+<link rel='openid.server' href='https://mainedoenews.net/?openidserver=1' />
+<link rel='openid.delegate' href='https://mainedoenews.net/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://mainedoenews.net/osd.xml" title="Maine DOE Newsroom" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="theme-color" content="#162c40" />
+<script type="text/javascript" id="webfont-output">
+  
+  WebFontConfig = {"typekit":{"id":"ysh3pug"}};
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+	})();
+</script>		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="description" content="Administrative Letter: #2Policy Code: IHBEATO: Public School AdministratorsDATE: August 22, 2019, Revised September 15, 2021, Revised June 21, 2023, Revised October 9, 2025SUBJECT: The legal requirements for providing English for Speakers of Other Languages (ESOL) services to students who are multilingual learnersPlease note that “multilingual learners” is used with reference to students who were previously known as “English learners (ELs).” Federal language&hellip;" />
+	<style type="text/css">
+			.site-title,
+		.site-description {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+		</style>
+	<style id="custom-background-css">
+body.custom-background { background-color: #162c40; }
+</style>
+<style type="text/css" id="custom-colors-css">	#comments #respond p.form-submit input#comment-submit {
+		background: #222 !important;
+	}
+	#comments #respond .form-submit input#comment-submit:active,
+	#comments #respond .form-submit input#comment-submit:focus,
+	#comments #respond .form-submit input#comment-submit:hover {
+		background: #777 !important;
+	}
+body { background-color: #162c40;}
+button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"],
+		.main-navigation ul,
+		.menu-toggle.toggled,
+		.dropdown-toggle,
+		.widget_akismet_widget .a-stats a,
+		.main-navigation a:active,
+		.main-navigation a:focus,
+		.main-navigation a:hover,
+		.main-navigation li:hover > a,
+		.main-navigation ul ul,
+		.main-navigation .current_page_item > a,
+		.main-navigation .current-menu-item > a,
+		.main-navigation .current_page_ancestor > a { background-color: #1E1E1E;}
+.main-navigation { border-bottom-color: #1E1E1E;}
+.comment-meta { border-left-color: #1E1E1E;}
+.rtl .comment-meta { border-right-color: #1E1E1E;}
+.site-main .post-navigation,
+		.widget,
+		.sticky,
+		.page-header,
+		.comment-reply-title,
+		.comments-title,
+		.no-comments,
+		.hentry div#jp-relatedposts.entry-related { border-top-color: #1E1E1E;}
+body,
+		input,
+		textarea,
+		cite,
+		input[type="text"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"],
+		textarea,
+		a:hover,
+		a:focus,
+		a:active,
+		.post-navigation .post-title,
+		.page-links > span,
+		.comment-author a,
+		#infinite-footer .blog-info,
+		#infinite-footer .blog-info a,
+		#infinite-handle span button:active,
+		#infinite-handle span button:focus,
+		#infinite-handle span button:hover,
+		.hentry div#jp-relatedposts.entry-related h3.jp-relatedposts-headline,
+		.hentry div#jp-relatedposts.entry-related div.jp-relatedposts-items p,
+		.hentry div#jp-relatedposts.entry-related div.jp-relatedposts-items-visual h4.jp-relatedposts-post-title,
+		.widget_goodreads div[class^="gr_custom_title"] a:active,
+		.widget_goodreads div[class^="gr_custom_title"] a:focus,
+		.widget_goodreads div[class^="gr_custom_title"] a:hover,
+		#comments #respond .comment-form-fields p.comment-form-posting-as,
+		#comments #respond .comment-form-fields p.comment-form-log-out,
+		#comments #respond #comment-form-identity #comment-form-nascar p,
+		#comments #respond #comment-form-load-service p,
+		#comments #respond #comment-form-comment textarea,
+		#comments #comment-form-share-text-padder textarea,
+		#comments #respond .comment-form-fields label,
+		#comments #respond .comment-form-fields label span.required,
+		#comments #respond .comment-form-fields label span.nopublish,
+		#comments #respond .comment-form-fields div.comment-form-input input,
+		#comments #respond .comment-form-service a:active,
+		#comments #respond .comment-form-service a:focus,
+		#comments #respond .comment-form-service a:hover,
+		.widget_flickr #flickr_badge_uber_wrapper td a:last-child:active,
+		.widget_flickr #flickr_badge_uber_wrapper td a:last-child:focus,
+		.widget_flickr #flickr_badge_uber_wrapper td a:last-child:hover { color: #1E1E1E;}
+::input-placeholder { color: #1E1E1E;}
+::-webkit-input-placeholder { color: #1E1E1E;}
+:-moz-placeholder { color: #1E1E1E;}
+::-moz-placeholder { color: #1E1E1E;}
+:-ms-input-placeholder { color: #1E1E1E;}
+.dropdown-toggle { border-color: #515151;}
+.main-navigation li,
+		.main-navigation ul ul li { border-bottom-color: #515151;}
+.main-navigation ul ul { border-top-color: #515151;}
+.main-navigation a:active,
+		.main-navigation a:focus,
+		.main-navigation a:hover,
+		.main-navigation .current_page_item > a,
+		.main-navigation .current-menu-item > a,
+		.dropdown-toggle:active,
+		.dropdown-toggle:focus,
+		.dropdown-toggle:hover,
+		.main-navigation ul ul a:active,
+		.main-navigation ul ul a:focus,
+		.main-navigation ul ul a:hover,
+		.main-navigation ul ul .current_page_item > a,
+		.main-navigation ul ul .current-menu-item > a,
+		.main-navigation ul ul .current_page_ancestor > a { background-color: #303030;}
+.main-navigation a:hover,
+		.dropdown-toggle:hover { color: #6D6D6D;}
+mark,
+		ins,
+		button:active,
+		input[type="button"]:active,
+		input[type="reset"]:active,
+		input[type="submit"]:active,
+		button:hover,
+		button:focus,
+		input[type="button"]:focus,
+		input[type="reset"]:focus,
+		input[type="submit"]:focus,
+		input[type="button"]:hover,
+		input[type="reset"]:hover,
+		input[type="submit"]:hover,
+		.toggled .menu-toggle:active,
+		.toggled .menu-toggle:focus,
+		.toggled .menu-toggle:hover,
+		.widget_calendar tbody a,
+		.widget_akismet_widget .a-stats a:active,
+		.widget_akismet_widget .a-stats a:focus,
+		.widget_akismet_widget .a-stats a:hover,
+		.milestone-widget .milestone-header { background-color: #0074D9;}
+input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="password"]:focus,
+		input[type="search"]:focus,
+		textarea:focus,
+		#comments #respond #comment-form-comment.active,
+		#comments #respond .comment-form-fields div.comment-form-input.active { border-color: #0074D9;}
+.bypostauthor .comment-meta { border-left-color: #0074D9;}
+.rtl .bypostauthor .comment-meta { border-right-color: #0074D9;}
+a,
+		.post-navigation a:active .post-title,
+		.post-navigation a:focus .post-title,
+		.post-navigation a:hover .post-title,
+		.site-title a:active,
+		.site-title a:focus,
+		.site-title a:hover,
+		.site-footer a:active,
+		.site-footer a:active,
+		.site-footer a:hover,
+		.entry-title a:active,
+		.entry-title a:focus,
+		.entry-title a:hover,
+		.page-title a:active,
+		.page-title a:focus,
+		.page-title a:hover,
+		.entry-footer a:active,
+		.entry-footer a:focus,
+		.entry-footer a:hover,
+		.entry-author a:active,
+		.entry-author a:focus,
+		.entry-author a:hover,
+		.comment-metadata a:active,
+		.comment-metadata a:focus,
+		.comment-metadata a:hover,
+		.comment-author a:active,
+		.comment-author a:focus,
+		.comment-author a:hover,
+		#infinite-footer .blog-credits a:active,
+		#infinite-footer .blog-credits a:focus,
+		#infinite-footer .blog-credits a:hover,
+		#infinite-footer .blog-info a:active,
+		#infinite-footer .blog-info a:focus,
+		#infinite-footer .blog-info a:hover,
+		#infinite-handle span button,
+		#infinite-handle span button:focus,
+		#infinite-handle span button:hover,
+		.widget_goodreads div[class^="gr_custom_title"] a,
+		.widget_goodreads div[class^="gr_custom_container"] div[class^="gr_custom_author"] a:active,
+		.widget_goodreads div[class^="gr_custom_container"] div[class^="gr_custom_author"] a:focus,
+		.widget_goodreads div[class^="gr_custom_container"] div[class^="gr_custom_author"] a:hover,
+		#comments #respond .comment-form-service a,
+		.widget_flickr #flickr_badge_uber_wrapper td a:last-child { color: #0074D9;}
+input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="password"]:focus,
+		input[type="search"]:focus,
+		textarea:focus,
+		.site,
+		.page-links a,
+		#comments .comment #respond #comment-form-comment,
+		#comments .comment #comment-form-share-text-padder,
+		#comments .comment #respond .comment-form-fields div.comment-form-input,
+		#comments #respond #comment-form-comment.active,
+		#comments #respond .comment-form-fields div.comment-form-input.active { background-color: #ffffff;}
+mark,
+		ins,
+		button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"],
+		.main-navigation a,
+		.main-navigation ul ul,
+		.menu-toggle.toggled,
+		.dropdown-toggle,
+		.dropdown-toggle:active,
+		.dropdown-toggle:focus,
+		.dropdown-toggle:hover,
+		.widget_calendar tbody a,
+		.main-navigation a:active,
+		.main-navigation a:focus,
+		.main-navigation a:hover,
+		.main-navigation li:hover > a,
+		.main-navigation ul ul a,
+		.main-navigation .current_page_item > a,
+		.main-navigation .current-menu-item > a,
+		.main-navigation .current_page_ancestor > a,
+		#comments #respond p.form-submit input#comment-submit,
+		#comments #respond .form-submit input#comment-submit:active,
+		#comments #respond .form-submit input#comment-submit:focus,
+		#comments #respond .form-submit input#comment-submit:hover,
+		.widget_akismet_widget .a-stats a { color: #ffffff;}
+hr,
+		.entry-footer:before,
+		.entry-author:before,
+		.page-links:before,
+		.sd-block:before,
+		.hentry div#jp-relatedposts:not(.entry-related):before { background-color: #D1D1D1;}
+input[type="text"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"],
+		textarea,
+		.page-links a,
+		.page-links > span,
+		.site .widget_wpcom_social_media_icons_widget a,
+		#comments #respond #comment-form-comment,
+		#comments #comment-form-share-text-padder,
+		#comments #respond .comment-form-fields div.comment-form-input { border-color: #D1D1D1;}
+.post-navigation .nav-next,
+		.post-navigation .nav-previous,
+		.widget-title,
+		.widget_calendar caption,
+		.hentry,
+		.page-header,
+		.comment-reply-title,
+		.comments-title,
+		.no-comments,
+		.wp-caption,
+		.hentry div#jp-relatedposts.entry-related h3.jp-relatedposts-headline,
+		.sticky,
+		.hentry .wpcom-reblog-snapshot .reblogger-note { border-bottom-color: #D1D1D1;}
+.site-footer,
+		.main-navigation { border-top-color: #D1D1D1;}
+code,
+		kbd,
+		pre,
+		tt,
+		var,
+		input[type="text"],
+		input[type="email"],
+		input[type="url"],
+		input[type="password"],
+		input[type="search"],
+		textarea,
+		.sticky,
+		.page-links a,
+		.page-links > span,
+		.page-links a:active,
+		.page-links a:focus,
+		.page-links a:hover,
+		#infinite-footer,
+		.site .widget_wpcom_social_media_icons_widget a:active,
+		.site .widget_wpcom_social_media_icons_widget a:focus,
+		.site .widget_wpcom_social_media_icons_widget a:hover,
+		#comments #respond #comment-form-comment,
+		#comments #comment-form-share-text-padder,
+		#comments #respond .comment-form-fields div.comment-form-input { background-color: #EAEAEA;}
+table,
+		.gallery,
+		.widget.top_rated .pd_top_rated_holder_posts > p,
+		.widget.top_rated ul { border-color: #EFEFEF;}
+td,
+		th,
+		.widget_authors ul ul,
+		.widget_recent_comments tr,
+		.widget_recent_comments td { border-bottom-color: #EFEFEF;}
+td,
+		th,
+		.comment-metadata .edit-link { border-left-color: #EFEFEF;}
+.rtl td,
+		.rtl th,
+		.rtl .comment-metadata .edit-link { border-right-color: #EFEFEF;}
+.site-main .comment-navigation,
+		.site-main .posts-navigation,
+		.comment-list .comment,
+		.comment-list .pingback,
+		.comment-list .trackback,
+		#infinite-handle,
+		.infinite-loader,
+		.widget_goodreads div[class^="gr_custom_each_container"],
+		.widget_authors ul ul { border-top-color: #EFEFEF;}
+.widget_calendar tbody a:active,
+		.widget_calendar tbody a:focus,
+		.widget_calendar tbody a:hover { background-color: #6D6D6D;}
+blockquote,
+		.post-navigation .meta-nav,
+		.widget_recent_entries .post-date,
+		.widget_rss cite,
+		.widget_rss .rss-date,
+		.site-description,
+		.site-footer,
+		.entry-footer,
+		.entry-author,
+		.page-links > .page-links-title,
+		.comment-metadata,
+		.wp-caption-text,
+		#infinite-footer .blog-credits,
+		.site-content .jetpack-recipe .jetpack-recipe-meta,
+		.hentry div.sharedaddy h3.sd-title,
+		.rating-msg,
+		.hentry div#jp-relatedposts h3.jp-relatedposts-headline,
+		.hentry div#jp-relatedposts div.jp-relatedposts-items p,
+		.hentry div#jp-relatedposts div.jp-relatedposts-items-visual h4.jp-relatedposts-post-title,
+		.hentry div#jp-relatedposts.entry-related div.jp-relatedposts-items .jp-relatedposts-post-context,
+		.widget_goodreads div[class^="gr_custom_author"],
+		.widget.top_rated #top_posts { color: #6D6D6D;}
+</style>
+<style id="jetpack-block-instagram-gallery-inline-css">
+.wp-block-jetpack-instagram-gallery__grid{align-content:stretch;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.wp-block-jetpack-instagram-gallery__grid .wp-block-jetpack-instagram-gallery__grid-post{box-sizing:border-box;display:block;line-height:0;position:relative}.wp-block-jetpack-instagram-gallery__grid img{height:auto;width:100%}.wp-block-jetpack-instagram-gallery__grid-columns-1 .wp-block-jetpack-instagram-gallery__grid-post{width:100%}.wp-block-jetpack-instagram-gallery__grid-columns-2 .wp-block-jetpack-instagram-gallery__grid-post{width:50%}.wp-block-jetpack-instagram-gallery__grid-columns-3 .wp-block-jetpack-instagram-gallery__grid-post{width:33.33333%}.wp-block-jetpack-instagram-gallery__grid-columns-4 .wp-block-jetpack-instagram-gallery__grid-post{width:25%}.wp-block-jetpack-instagram-gallery__grid-columns-5 .wp-block-jetpack-instagram-gallery__grid-post{width:20%}.wp-block-jetpack-instagram-gallery__grid-columns-6 .wp-block-jetpack-instagram-gallery__grid-post{width:16.66667%}@media(max-width:600px){.wp-block-jetpack-instagram-gallery__grid.is-stacked-on-mobile .wp-block-jetpack-instagram-gallery__grid-post{width:100%}}@supports(display:grid){.wp-block-jetpack-instagram-gallery__grid{display:grid;gap:10px;grid-auto-columns:1fr}@media(max-width:600px){.wp-block-jetpack-instagram-gallery__grid.is-stacked-on-mobile{display:block}.wp-block-jetpack-instagram-gallery__grid.is-stacked-on-mobile .wp-block-jetpack-instagram-gallery__grid-post{padding:var(--latest-instagram-posts-spacing)}}.wp-block-jetpack-instagram-gallery__grid .wp-block-jetpack-instagram-gallery__grid-post{width:auto}.wp-block-jetpack-instagram-gallery__grid .wp-block-jetpack-instagram-gallery__grid-post img{height:100%;object-fit:cover}.wp-block-jetpack-instagram-gallery__grid-columns-1{grid-template-columns:repeat(1,1fr)}.wp-block-jetpack-instagram-gallery__grid-columns-2{grid-template-columns:repeat(2,1fr)}.wp-block-jetpack-instagram-gallery__grid-columns-3{grid-template-columns:repeat(3,1fr)}.wp-block-jetpack-instagram-gallery__grid-columns-4{grid-template-columns:repeat(4,1fr)}.wp-block-jetpack-instagram-gallery__grid-columns-5{grid-template-columns:repeat(5,1fr)}.wp-block-jetpack-instagram-gallery__grid-columns-6{grid-template-columns:repeat(6,1fr)}}@supports(object-fit:cover){.wp-block-jetpack-instagram-gallery__grid-post img{height:100%;object-fit:cover}}
+/*# sourceURL=/wp-content/mu-plugins/jetpack-plugin/sun/_inc/blocks/instagram-gallery/view.css?minify=false */
+</style>
+
+</head>
+
+<body class="wp-singular post-template-default single single-post postid-251215 single-format-standard custom-background wp-theme-pubcolinear customizer-styles-applied has-menu has-double-sidebar has-right-left-sidebar jetpack-reblog-enabled custom-colors">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<a href="https://mainedoenews.net/" class="site-logo-link" rel="home" itemprop="url"></a>
+								<p class="site-title"><a href="https://mainedoenews.net/" rel="home">Maine DOE Newsroom</a></p>
+									<p class="site-description">From the Maine Department of Education</p>
+						</div><!-- .site-branding -->
+
+				<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text">Primary Menu</span></button>
+			<div class="menu-primary-menu-container"><ul id="primary-menu" class="menu"><li id="menu-item-30399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30399"><a href="https://mainedoenews.net/category/news-views/">News</a>
+<ul class="sub-menu">
+	<li id="menu-item-249750" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-249750"><a href="https://mainedoenews.net/category/news-views/newsroom-articles/">Newsroom Articles</a></li>
+	<li id="menu-item-249749" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-249749"><a href="https://mainedoenews.net/category/news-views/media-releases/">Media Releases</a></li>
+	<li id="menu-item-374" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-374"><a href="https://mainedoenews.net/category/news-views/administrative-letters/">Administrative Letters</a></li>
+</ul>
+</li>
+<li id="menu-item-240603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240603"><a href="http://www.maine.gov/doe/calendar/">Event Calendar</a></li>
+<li id="menu-item-223062" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-223062"><a href="https://mainedoenews.net/category/maine-doe-update/">Maine DOE Update</a></li>
+<li id="menu-item-223066" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-223066"><a href="https://www.maine.gov/doe/webform/contact_us/">Contact Us</a></li>
+<li id="menu-item-240599" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-240599"><a href="http://maine.gov/doe/">DOE Website</a></li>
+</ul></div>		</nav><!-- #site-navigation -->
+		
+				<div class="header-image">
+			<a href="https://mainedoenews.net/" rel="home">
+				<img src="https://mainedoenews.net/wp-content/uploads/2025/03/cropped-newsroom-header.png" width="1188" height="239" alt="">
+			</a>
+		</div><!-- .header-image -->
+			</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-251215" class="post-251215 post type-post status-publish format-standard hentry category-administrative-letters category-multilingual-learning category-news-views category-special-education">
+	<header class="entry-header">
+		<h1 class="entry-title">ADMINISTRATIVE LETTER: Legal Requirements to Provide English Language Acquisition Services to Students Who Are Multilingual Learners (Revised October 9,&nbsp;2025)</h1>
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p class="wp-block-paragraph"><strong>Administrative Letter: </strong>#2<br><strong>Policy Code:</strong> IHBEA<br><strong>TO:</strong> Public School Administrators<br><strong>DATE:</strong> August 22, 2019, Revised September 15, 2021, Revised June 21, 2023,<strong> Revised October 9, 2025</strong><br><br><strong>SUBJECT:</strong> The legal requirements for providing English for Speakers of Other Languages (ESOL) services to students who are multilingual learners<br><br><em>Please note that “multilingual learners” is used with reference to students who were previously known as “English learners (ELs).” Federal language still uses “English learners (ELs)” to refer to “multilingual learners.”</em><br><br>Topics included in this letter:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Identification of Students Who Are Multilingual Learners</li>
+
+
+
+<li>Exit Criteria from ESOL Services</li>
+
+
+
+<li>Monitoring and Reentry into Multilingual Learner Status</li>
+
+
+
+<li>Delivery of ESOL services</li>
+
+
+
+<li>Administration of WIDA ACCESS and WIDA Alternate ACCESS (if applicable)</li>
+
+
+
+<li>Enrollment of Immigrants and International Students</li>
+
+
+
+<li>Rights of Students Who Are Multilingual Learners to Education</li>
+
+
+
+<li>Students Who Are Multilingual Learners and Special Education</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Identification of Students Who Are Multilingual Learners</strong><br>It is a federal requirement that all students who are multilingual learners be identified within 30 days of enrollment from the beginning of the school year. For students enrolling at the start of the school year, parents/guardians must be notified of their child’s English learner status within the same 30-day period. After the start of the school year, school administrative units (SAUs) must notify parents/guardians within two weeks of their child’s identification.</p>
+
+
+
+<p class="wp-block-paragraph">Each SAU must provide the Maine Department of Education’s (DOE)<a href="https://www.maine.gov/doe/schools/enrollment/resources" target="_blank" rel="noreferrer noopener">&nbsp;Language Use Survey</a>&nbsp;to the parent/guardian of every student, pre-kindergarten through grade 12, enrolling in the SAU for the first time. The&nbsp;Language Use Survey&nbsp;must be included in the SAU’s enrollment packet or online enrollment system. If a student changes schools within an SAU, a new Language Use Survey is not required.</p>
+
+
+
+<p class="wp-block-paragraph">The Language Use Survey is available for download in English and 29 of Maine’s most commonly spoken languages. Parents/guardians are entitled to complete the Language Use Survey in their preferred language. SAUs must provide translation/interpretation services upon request.</p>
+
+
+
+<p class="wp-block-paragraph">The purpose of the Language Use Survey is to identify students who might be multilingual learners. The Language Use Survey&nbsp;<a href="https://www.maine.gov/doe/sites/maine.gov.doe/files/inline-files/LUS%20Decision%20Tree%20revised%206-13-23.pdf">decision tree</a>&nbsp;provides guidance on its use. If any question is answered with a language other than English, the student should be administered an English language proficiency screener. (Please note that Sign Language is not a qualifying language for multilingual learner status; however, if a student uses Sign Language and an additional language other than English, the student may be eligible for multilingual learner status.) See&nbsp;<a href="https://www.maine.gov/doe/learning/multilinguallearner/identification">Multilingual Learner Identification</a>&nbsp;for information about the required screeners and identification thresholds, by grade level.</p>
+
+
+
+<p class="wp-block-paragraph">Students who were screened for multilingual learner status but who did not initially qualify may be re-screened at any time if a potential need for ESOL support becomes apparent.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Exit Criteria from ESOL Services</strong><br>A multilingual learner who demonstrates proficiency on the state’s annual English language proficiency assessment is eligible for exit from ESOL services. In Maine, the annual English language proficiency assessment is the WIDA ACCESS or, for multilingual learners with the most significant cognitive disabilities eligible for alternate assessments, the WIDA Alternate ACCESS. Information about both of these assessments can be found on Maine DOE’s English language proficiency assessment page, located here:&nbsp;<a href="https://www.maine.gov/doe/Testing_Accountability/MECAS/materials/access">English Language Proficiency Assessments | Maine Department of Education</a>.</p>
+
+
+
+<p class="wp-block-paragraph">In Maine, an overall Composite Proficiency Level (CPL) of 4.5 on WIDA ACCESS qualifies multilingual learners for exit from ESOL services. Multilingual learners with the most significant cognitive disabilities, eligible for participation in alternate assessments, can be exited from ESOL services with an overall CPL of 4.0 on the WIDA Alternate ACCESS.</p>
+
+
+
+<p class="wp-block-paragraph">In rare instances, multilingual learners qualify for a domain exemption on the WIDA ACCESS or WIDA Alternate ACCESS based on a disability as documented in the student’s Individualized Education Plan (IEP). In these instances, the SAU must submit a Less Than Four Domains request to the Maine DOE. The Maine DOE will ensure the correct Do Not Score code is entered for the student domain(s) in&nbsp;<a>WIDA Assessment Management System. The student’s state ID will also be submitted to WIDA/Data Recognition Corporation</a>&nbsp;for calculation of an overall CPL and the development of an Individual Student Report. The Less Than Four Domains request can be located on the English language proficiency assessment webpage:&nbsp;<a href="https://www.maine.gov/doe/Testing_Accountability/MECAS/materials/access">English Language Proficiency Assessments | Maine Department of Education</a>&nbsp;&gt; Special Forms Request.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Monitoring and Reentry into Multilingual Learner Status</strong><br>Per&nbsp;<a href="https://www.maine.gov/doe/sites/maine.gov.doe/files/inline-files/Multilingual%20Learning%20-%20US%20DOE%20English%20Learner%20Toolkit%20-%209.26.2025.pdf">federal guidance</a>, SAUs must monitor the performance of former students who are multilingual learners for at least two years after exiting. If, during the two years of monitoring, or at any time thereafter, a former student who is a multilingual learner shows a potential need for continued ESOL support, that student must be rescreened with the WIDA Screener Online to determine multilingual learner status. If a student scores below the state-defined identification threshold, the student must be reentered into multilingual learner status, must receive ESOL services, and must take WIDA ACCESS or WIDA Alternate ACCESS, if applicable, until exiting.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Delivery of ESOL Services</strong><br>An SAU is required to determine the components of an effective English language acquisition program tailored to the needs of each student, which may include, but is not limited to, tutoring, additional classroom support, materials, sheltered instruction, professional development for content area teachers, or other strategies per the&nbsp;<a href="https://www.ed.gov/about/offices/list/ocr/docs/lau1990_and_1985">Office for Civil Rights December 1985 Title VI policy memorandum,&nbsp;Title VI Language Minority Compliance Procedures</a>.</p>
+
+
+
+<p class="wp-block-paragraph">The Maine DOE requires the&nbsp;<a href="https://www.maine.gov/doe/learning/multilinguallearner/services">English Language Acquisition Service Provision</a>&nbsp;for a student who is a multilingual learner to be provided or overseen by a 660 ESOL-endorsed teacher. (See 34 Code of Federal Regulations C.F.R. Section 100.3 (b)(ii)). All students who are multilingual learners must be provided with English language support services that enable them to meaningfully access the curriculum to meet grade-level standards. English language development and content area knowledge are to be acquired simultaneously rather than consecutively. In other words, English language proficiency is not a prerequisite to participate in grade-level, content classes. If students who are multilingual learners receive services that remove them from content area classes (such as a newcomer program or pull-out services), any academic deficits that result must be remedied so that the student remains on track with their non-multilingual learner peers academically.</p>
+
+
+
+<p class="wp-block-paragraph">English language support services are to be provided in a way that minimizes the isolation of students who are multilingual learners from the general student population and encourages students who are multilingual learners to participate in all aspects of the school program, including advanced coursework, career and technical education, gifted and talented programs, and extracurricular activities. Students who are multilingual learners are entitled to ESOL services until exiting by demonstrating English language proficiency on WIDA ACCESS or WIDA Alternate ACCESS, if applicable.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Administration of WIDA ACCESS and WIDA Alternate ACCESS</strong><br>The annual English language proficiency assessment for all students identified as multilingual learners in kindergarten through grade 12 is required by federal law under the Every Student Succeeds Act (ESSA) of 2015.&nbsp;Participation in state assessments is also required under state statute; it is part of annual ESEA application assurances for Title funds. Participation is also included in the school approval process for public schools, including charter schools, and private schools with 60% or more publicly funded students.</p>
+
+
+
+<p class="wp-block-paragraph">In Maine, the required English language proficiency assessment is WIDA ACCESS. A small percentage of multilingual learners with the most significant cognitive disabilities, found eligible for participation in alternate assessment through the IEP team process using state guidance resources, participate in WIDA Alternate ACCESS.&nbsp;The Maine DOE defines English language proficiency as a composite proficiency level of 4.5 on WIDA ACCESS and 4.0 on WIDA Alternate ACCESS.</p>
+
+
+
+<p class="wp-block-paragraph">The&nbsp;<a href="https://wida.wisc.edu/sites/default/files/id-placement/ME-ID-Placement-Guidance.pdf">Maine Multilingual Learner Identification and Placement Guidance Document</a>, updated annually, outlines all training requirements for test administrators of WIDA ACCESS and WIDA Alternate ACCESS. Federal peer review requirements outline specific standards for test administration training across state assessments, and, therefore, these training requirements for test administrators of English language proficiency assessments are mandatory. It is not required that test administrators be an ESOL-endorsed teacher; however, only an ESOL-endorsed teacher is qualified to design, oversee, and implement an English language support program, which includes the interpretation of WIDA ACCESS and WIDA Alternate ACCESS results.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Enrollment of Immigrants and International Students</strong><br>Title VI of the Civil Rights Act of 1964 prohibits discrimination based on race, color, or national origin, among other factors, by public schools. SAUs are required to enroll children regardless of citizenship or immigration status per&nbsp;<a href="https://www.uscourts.gov/educational-resources/educational-activities/access-education-rule-law"><em>Plyler&nbsp;v.&nbsp;Doe</em></a>.&nbsp;This applies equally to students who are immigrants and international students attending a Maine public school as an exchange student or tuition-paying student.</p>
+
+
+
+<p class="wp-block-paragraph">All students, including those who are immigrants and international students, must be screened for multilingual learner status. Any student who is identified as a multilingual learner, regardless of citizenship or immigration status, is entitled to ESOL services and must be administered WIDA ACCESS or WIDA Alternate ACCESS, if applicable, annually. International/exchange students are not exempt from Title&nbsp;I required state academic assessments. In Maine, recently arrived multilingual learners who have been enrolled in a U.S. school for fewer than 12 months are exempt from one administration of the state’s English language arts assessment only. See the&nbsp;<a href="https://www.maine.gov/doe/Testing_Accountability/MECAS">Maine Comprehensive Assessment System</a>&nbsp;website for further questions and information.</p>
+
+
+
+<p class="wp-block-paragraph">SAUs are not permitted to discourage the enrollment of children who are undocumented immigrants by asking about their immigration status, denying enrollment to those with international birth certificates, or denying enrollment to children whose parents decline to provide their social security numbers or race and ethnicity information.&nbsp;Federal regulations allow schools to ask for children’s social security numbers to be used as student identifiers; however, they should inform parents of the purpose and that disclosure of such numbers is voluntary. Schools may not deny enrollment if parents refuse to provide a child’s social security number. SAUs may require proof that a child lives within SAU boundaries, which may include lease agreements, utility bills, or other documents; however, schools may not ask parents about a child’s immigration status to establish residency. SAUs may require proof of a child’s age, but they may not bar enrollment because a child has an international birth certificate or no birth certificate.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Rights of Students Who Are Multilingual Learners to Education</strong><br>The Civil Rights Act of 1964 remains the foundation of the legal rights of a student who is a multilingual learner.&nbsp;<a href="https://www.justice.gov/archives/opa/blog/celebrating-50th-anniversary-lau-v-nichols"><em>Lau&nbsp;v.&nbsp;Nichols</em></a>confirms that all students who are multilingual learners are entitled to meaningful access to the curriculum. &nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Although the&nbsp;<a href="https://www.ed.gov/media/document/dear-colleague-letter-english-learner-students-and-limited-proficient-parents-2015-35111.pdf">2015 U.S. Department of Education &#8216;Dear Colleague&#8217; guidance on English learners</a>&nbsp;has been rescinded, the civil rights protections underlying that guidance remain fully in effect. Under both federal law (Title VI of the Civil Rights Act of 1964 and the Equal Educational Opportunities Act of 1974) and the Maine Human Rights Act, SAUs&nbsp;have an obligation to ensure that multilingual learners have meaningful access to the SAU’s educational programs and services. Failing to provide appropriate language assistance services or to remove barriers to program participation may constitute discrimination on the basis of national origin and language, which is prohibited under the Maine Human Rights Act. SAUs are accountable for implementing policies, practices, and supports that guarantee equitable access to instruction, comparable participation in academic and extracurricular programs, and timely communication with families in languages they can understand.</p>
+
+
+
+<p class="wp-block-paragraph">If a parent refuses ESOL services, this must be documented, but parental refusal does not release the school or SAU from its responsibility to provide meaningful education to students who are multilingual learners. If a student who is a multilingual learner cannot make academic progress without ESOL services, the student has a right to ESOL services, even if a parent refuses. Parental consent is not required to administer an English language proficiency screener or WIDA ACCESS or WIDA Alternate ACCESS, if applicable. Under state law, SAUs are responsible for administering WIDA ACCESS to all students who are multilingual learners, regardless of parental consent (20-A M.R.S. §6209 (1-A)).</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Students Who Are Multilingual Learners and Special Education</strong><br>Students may qualify for, and have legal entitlement to, both ESOL and special education services. There are specific guidelines for both ESOL and special education that are to determine students’ eligibility for each type of service. Depending on a student’s disability and IEP, universal testing&nbsp;tools or accommodations may be needed to measure English language proficiency. When evaluating a student who is a multilingual learner for disabilities, screening must be linguistically and culturally appropriate. It is advisable to measure a student’s skills in the student’s primary language to clarify whether challenges are due to a learning disability or English language development.</p>
+
+
+
+<p class="wp-block-paragraph">Students who are multilingual learners should not be placed in a special education program unless their IEP determines this placement is appropriate to access specially designed instruction. Multilingual learner status is not a disability and is not covered by the Individuals with Disabilities Education Act (IDEA)&nbsp;or&nbsp;<a href="https://www.maine.gov/doe/sites/maine.gov.doe/files/inline-files/Special%20Services%20-%20MUSER%20-%208-21-2024.pdf">Maine Unified Special Education Regulation</a>&nbsp;(MUSER). The Maine DOE&nbsp;<a href="https://www.maine.gov/doe/learning/multilinguallearner">ESOL Team</a>&nbsp;and&nbsp;<a href="https://www.maine.gov/doe/learning/specialed">Office of Special Services and Inclusive Education</a>&nbsp;have collaborated to develop a policy and resource guide on&nbsp;<a href="https://www.maine.gov/doe/sites/maine.gov.doe/files/inline-files/Multilingual%20Learning%20-%20Identifying%20%26%20Serving%20Students%20Who%20are%20Multilingual%20with%20Disabilities%20Policy%20%26%20Resource%20Guide%20-%204.14.2025.pdf">Identifying and Serving Students Who Are Multilingual Learners with Disabilities</a>.&nbsp;This resource can be used by school teams when making determinations about a student&#8217;s status and program of services.</p>
+
+
+
+<p class="wp-block-paragraph">For students who are multilingual learners with IEP teams, the U.S. Department of Education has provided the&nbsp;<a href="https://www.maine.gov/doe/sites/maine.gov.doe/files/inline-files/Multilingual%20Learning%20-%20US%20DOE%20English%20Learner%20Toolkit%20-%209.26.2025.pdf" target="_blank" rel="noreferrer noopener">following guidance</a>:</p>
+
+
+
+<p class="wp-block-paragraph">“When an EL student is determined to be a child with a disability—as defined in IDEA, or an individual with a disability under the broader definition of disability in Section 504—the student’s EL and disability-related educational needs must be met. For EL students, in addition to the required IEP team participants under IDEA, it is essential that the IEP team include participants who have knowledge of the student’s language needs. It is also important that the IEP team include professionals with training, and preferably expertise, in second language acquisition and how to differentiate between the student’s needs stemming from a disability or lack of ELP.”</p>
+
+
+
+<p class="wp-block-paragraph">Students who are multilingual learners with learning disabilities are eligible for exit from ESOL services when they demonstrate English language proficiency by achieving an overall composite proficiency level of 4.5 on WIDA ACCESS or an overall composite proficiency level of 4.0 on WIDA Alternate ACCESS, if applicable.</p>
+
+
+
+<p class="wp-block-paragraph">If you have questions or would like further information about serving students who are multilingual learners, contact Jane Armstrong, Maine DOE ESOL State Specialist, at&nbsp;<a href="mailto:Jane.Armstrong@maine.gov">Jane.Armstrong@maine.gov</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you have questions regarding WIDA’s English language proficiency assessments, contact Mechelle Ganglfinger, Alternate and English Language Proficiency Assessments Coordinator, at&nbsp;<a href="mailto:Mechelle.Ganglfinger@maine.gov">Mechelle.Ganglfinger@maine.gov</a>.</p>
+
+
+
+<p class="wp-block-paragraph">If you have questions regarding students who are multilingual learners and eligible for special education, contact Erin Frazier, Director of the Maine DOE Office of Special Services and Inclusive Education, at&nbsp;<a href="mailto:Erin.Frazier@maine.gov">Erin.Frazier@maine.gov</a>.</p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share:</h3><div class="sd-content"><ul><li class="share-email"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-email-251215"
+				class="share-email sd-button share-icon"
+				href="mailto:?subject=%5BShared%20Post%5D%20ADMINISTRATIVE%20LETTER%3A%20Legal%20Requirements%20to%20Provide%20English%20Language%20Acquisition%20Services%20to%20Students%20Who%20Are%20Multilingual%20Learners%20%28Revised%20October%209%2C%202025%29&#038;body=https%3A%2F%2Fmainedoenews.net%2F2025%2F10%2F10%2Fadministrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025%2F&#038;share=email"
+				target="_blank"
+				aria-labelledby="sharing-email-251215"
+				data-email-share-error-title="Do you have email set up?" data-email-share-error-text="If you&#039;re having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-nonce="01a39d26f7" data-email-share-track-url="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/?share=email">
+				<span id="sharing-email-251215" hidden>Email a link to a friend (Opens in new window)</span>
+				<span>Email</span>
+			</a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-facebook-251215"
+				class="share-facebook sd-button share-icon"
+				href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/?share=facebook"
+				target="_blank"
+				aria-labelledby="sharing-facebook-251215"
+				>
+				<span id="sharing-facebook-251215" hidden>Share on Facebook (Opens in new window)</span>
+				<span>Facebook</span>
+			</a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-twitter-251215"
+				class="share-twitter sd-button share-icon"
+				href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/?share=twitter"
+				target="_blank"
+				aria-labelledby="sharing-twitter-251215"
+				>
+				<span id="sharing-twitter-251215" hidden>Share on X (Opens in new window)</span>
+				<span>X</span>
+			</a></li><li class="share-linkedin"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-linkedin-251215"
+				class="share-linkedin sd-button share-icon"
+				href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/?share=linkedin"
+				target="_blank"
+				aria-labelledby="sharing-linkedin-251215"
+				>
+				<span id="sharing-linkedin-251215" hidden>Share on LinkedIn (Opens in new window)</span>
+				<span>LinkedIn</span>
+			</a></li><li class="share-tumblr"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-tumblr-251215"
+				class="share-tumblr sd-button share-icon"
+				href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/?share=tumblr"
+				target="_blank"
+				aria-labelledby="sharing-tumblr-251215"
+				>
+				<span id="sharing-tumblr-251215" hidden>Share on Tumblr (Opens in new window)</span>
+				<span>Tumblr</span>
+			</a></li><li class="share-print"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-print-251215"
+				class="share-print sd-button share-icon"
+				href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/#print?share=print"
+				target="_blank"
+				aria-labelledby="sharing-print-251215"
+				>
+				<span id="sharing-print-251215" hidden>Print (Opens in new window)</span>
+				<span>Print</span>
+			</a></li><li class="share-end"></li></ul></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-21507034-251215-69fd88d85a7e3' data-src='//widgets.wp.com/likes/index.html?ver=20260508#blog_id=21507034&amp;post_id=251215&amp;origin=mainedoenews.wordpress.com&amp;obj_id=21507034-251215-69fd88d85a7e3&amp;domain=mainedoenews.net' data-name='like-post-frame-21507034-251215-69fd88d85a7e3' data-title='Like or Reblog'><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>Like</span></span> <span class='loading'>Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div></div>			</div><!-- .entry-content -->
+
+	
+	<footer class="entry-footer">
+		<span class="date-author"><span class="posted-on">Posted on <a href="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/" rel="bookmark"><time class="entry-date published" datetime="2025-10-10T07:57:48-04:00">October 10, 2025</time><time class="updated" datetime="2025-10-10T07:58:12-04:00">October 10, 2025</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://mainedoenews.net/author/mdoecomm1/">Maine Department of Education</a></span></span></span><span class="cat-links">Posted in <a href="https://mainedoenews.net/category/news-views/administrative-letters/" rel="category tag">Administrative Letters</a>, <a href="https://mainedoenews.net/category/multilingual-learning/" rel="category tag">Multilingual Learning</a>, <a href="https://mainedoenews.net/category/news-views/" rel="category tag">News &amp; Views</a>, <a href="https://mainedoenews.net/category/special-education/" rel="category tag">Special Education</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+			
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://mainedoenews.net/2025/10/10/informational-session-on-the-maine-school-bus-purchasing-program/" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">Informational Session on the Maine School Bus Purchasing&nbsp;Program</span></a></div><div class="nav-next"><a href="https://mainedoenews.net/2025/10/10/maine-celebrates-national-school-lunch-week-and-farm-to-cacfp-week-with-apple-crunch-day-slated-for-october-15/" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Maine Celebrates National School Lunch Week and Farm to CACFP Week, with Apple Crunch Day Slated for October&nbsp;15</span></a></div></div>
+	</nav>
+			
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+
+<div id="secondary" class="widget-area" role="complementary">
+
+	
+	
+		<div class="left-sidebar">
+		<aside id="block-10" class="widget widget_block">
+<h5 class="wp-block-heading"><strong>WELCOME</strong></h5>
+</aside><aside id="block-14" class="widget widget_block widget_text">
+<p class="wp-block-paragraph"><strong>The Maine Department of Education (DOE) promotes the best learning opportunities for all Maine students by:</strong><br><br>Inspiring trust in our schools; focusing on a whole student approach; encouraging innovation; respecting educators; providing information, guidance, professional learning and support to schools and educators; and providing adequate and equitable school funding and resources.<br><br>The Maine DOE Newsroom highlights the work of Maine schools and the Maine DOE.</p>
+</aside><aside id="block-15" class="widget widget_block widget_media_image">
+<figure class="wp-block-image size-large"><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=q6g_QX0gYkubzeoajy-GTiGF60qzFrBElcy-PhPoPLtUNUUwREtITjg0UURURjdNWURJWjNRUTNKUC4u"><img loading="lazy" width="274" height="274" src="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/share-school-success.png?w=274" alt="" class="wp-image-241485" srcset="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/share-school-success.png 274w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/share-school-success.png?w=150 150w" sizes="(max-width: 274px) 100vw, 274px" /></a></figure>
+</aside><aside id="rss-7" class="widget widget_rss"><h2 class="widget-title"><a class="rsswidget" href="https://mainedoenews.net/category/success/feed/" title="Syndicate this content"><img style="background: orange; color: white; border: none;" width="14" height="14" src="https://s.wordpress.com/wp-includes/images/rss.png?m=1354137473i" alt="RSS" /></a> <a class="rsswidget" href="https://mainedoenews.net" title="From the Maine Department of Education">Good News from Maine Schools</a></h2><ul><li><a class='rsswidget' href='https://mainedoenews.net/2026/05/01/student-leadership-on-display-during-oxford-hills-comprehensive-high-schools-respect-day/' title='Pictured: Back row, left to right—Lilah (grade 10), Della (grade 10), Dayna (grade 12), Maisy (grade 9), Kali (grade 9), Emma (grade 12), Cedar (grade 12), Ronan (grade 12), Grady (grade 11), Asher (grade 11). Front row, left to right—Charlotte (grade 10), Elja (grade 10), Emma (grade 12), Rae (grade 12), Tristan (grade 11). Oxford … Continue reading Student [&hellip;]'>Student Leadership on Display During Oxford Hills Comprehensive High School’s ‘Respect Day’</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/04/29/alternative-education-association-of-maine-hosts-spring-conference-in-waterville/' title='The Alternative Education Association (AEA) of Maine successfully hosted its 2026 Spring Conference on Friday, March 27, 2026, at Colby College in Waterville. The conference theme, “Building Resilience for All,”brought together alternative education teachers, administrators, superintendents, and school staff from across the state for a day of learning, colla [&hellip;]'>Alternative Education Association of Maine Hosts Spring Conference in Waterville</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/04/29/mount-abram-high-school-students-experience-the-arts-in-new-york-city/' title='Thanks to a generous grant from the Carrabassett Valley School Committee, Mount Abram High School students (MSAD 58) have had the opportunity over the past two years to experience immersive, real-world learning through arts-focused trips to New York City. These experiences have brought classroom lessons to life in one of the world’s most vibrant cultural … C [&hellip;]'>Mount Abram High School Students Experience the Arts in New York City</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/04/22/excel-a-relationship-centered-alternative-education-program-at-msad-15/' title='MSAD 15 ExCEL students and teacher Laura Fralich support their local community through trail work. As students at MSAD 15’s Gray-New Gloucester High School settle into their seats for English class, a calm, authentic energy fills the room. Laura Fralich, Expanding Choices for Each Learner (ExCEL) Alternative Education teacher, prepares to begin, having arran [&hellip;]'>ExCEL: A Relationship-Centered Alternative Education Program at MSAD 15</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/04/16/mount-abram-alternative-education-program-reengages-students-through-hands-on-learning/' title='Students and teachers from the Mount Abram Alternative Education Program stacked emergency wood this past winter for the United Methodist Economic Ministry to support the community. At Mount Abram High School (MSAD 58), a new approach to learning is helping students reconnect with school through experiential, student-centered practices. Funding from the Carr [&hellip;]'>Mount Abram Alternative Education Program Reengages Students Through Hands-On Learning</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/04/13/under-the-hood-and-ahead-of-the-curve-sanford-student-turns-auto-shop-experience-into-academic-credit/' title='At 8 a.m. on a Tuesday morning, just as first period is starting at Sanford High School (SHS), senior Lucas Barrow is already under the hood of a car at Black Bear Automotive in Springvale. He’ll work until 10:30 a.m., drive to Sanford Regional Technical Center (SRTC) for class, and then head back to the … Continue reading Under the Hood and Ahead of the Cur [&hellip;]'>Under the Hood and Ahead of the Curve: Sanford Student Turns Auto Shop Experience into Academic Credit</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/04/06/building-confidence-and-community-oceanside-middle-schools-alternative-education-program/' title='(Pictured: Oceanside Middle School students explore the river during their visit to Camden to observe a dam removal project.) At Oceanside Middle School in RSU 13, a small alternative education program is helping students rediscover their potential by reconnecting them to learning and their community. Serving the communities of Owls Head, Cushing, Rockland, [&hellip;]'>Building Confidence and Community: Oceanside Middle School’s Alternative Education Program</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/03/27/growing-tradition-maine-ffa-celebrates-national-ffa-week/' title='By: Jillian McLaughlin, Maine FFA State Reporter Throughout FFA history, various celebrations have emerged to provide additional support to the organization. Of those traditions, one of the most widely celebrated is National FFA Week, which occurs during the last week of February and is focused on sharing FFA’s message with the community and partner organiza [&hellip;]'>Growing Tradition: Maine FFA Celebrates National FFA Week</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/03/24/barr-spotlight-dirigo-middle-school-builds-stronger-connections-and-school-culture-through-the-barr-model/' title='At T.W. Kelly Dirigo Middle School in Dixfield, relationships have always been a strength. As part of a small, rural school serving about 170 students in grades 6-8 from Canton, Carthage, Dixfield, and Peru, staff have long prided themselves on knowing their students well. As student needs have become increasingly complex in recent years, however, … Continue [&hellip;]'>BARR Spotlight: Dirigo Middle School Builds Stronger Connections and School Culture Through the BARR Model</a></li><li><a class='rsswidget' href='https://mainedoenews.net/2026/03/24/bonny-eagle-builds-community-through-shared-reading-experience/' title='This February, schools across MSAD 6 (Bonny Eagle School District) took a creative, community-centered approach to the Maine Department of Education’s (DOE) Read to ME Challenge through a districtwide initiative called “BE Reads Together.” Designed as a shared reading celebration, BE Reads Together connected students and staff across all schools and departme [&hellip;]'>Bonny Eagle Builds Community Through Shared Reading Experience</a></li></ul></aside><aside id="rss-8" class="widget widget_rss"><h2 class="widget-title"><a class="rsswidget" href="https://mainedoenews.net/category/news-views/press-releases/feed/" title="Syndicate this content"><img style="background: orange; color: white; border: none;" width="14" height="14" src="https://s.wordpress.com/wp-includes/images/rss.png?m=1354137473i" alt="RSS" /></a> <a class="rsswidget" href="https://mainedoenews.net" title="From the Maine Department of Education">Press Releases</a></h2><ul><li>An error has occurred; the feed is probably down. Try again later.</li></ul></aside><aside id="block-9" class="widget widget_block">
+<div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained"><ul class="wp-block-categories-list wp-block-categories-taxonomy-category wp-block-categories">	<li class="cat-item cat-item-545220"><a href="https://mainedoenews.net/category/21st-century/">21st Century</a>
+</li>
+	<li class="cat-item cat-item-53809752"><a href="https://mainedoenews.net/category/news-views/administrative-letters/">Administrative Letters</a>
+</li>
+	<li class="cat-item cat-item-85295"><a href="https://mainedoenews.net/category/adult-education/">Adult Education</a>
+</li>
+	<li class="cat-item cat-item-141047"><a href="https://mainedoenews.net/category/alternative-education/">Alternative Education</a>
+</li>
+	<li class="cat-item cat-item-19439"><a href="https://mainedoenews.net/category/assessment/">Assessment</a>
+</li>
+	<li class="cat-item cat-item-52505"><a href="https://mainedoenews.net/category/attendance/">attendance</a>
+</li>
+	<li class="cat-item cat-item-638636"><a href="https://mainedoenews.net/category/awards-and-honors/">Awards and Honors</a>
+</li>
+	<li class="cat-item cat-item-1041019"><a href="https://mainedoenews.net/category/barr/">BARR</a>
+</li>
+	<li class="cat-item cat-item-16302375"><a href="https://mainedoenews.net/category/career-technical/">Career &amp; Technical</a>
+</li>
+	<li class="cat-item cat-item-20720"><a href="https://mainedoenews.net/category/career-development/">Career Exploration</a>
+</li>
+	<li class="cat-item cat-item-30810987"><a href="https://mainedoenews.net/category/child-development-services/">Child Development Services</a>
+</li>
+	<li class="cat-item cat-item-111424"><a href="https://mainedoenews.net/category/civics/">Civics</a>
+</li>
+	<li class="cat-item cat-item-770585"><a href="https://mainedoenews.net/category/climate-education/">Climate Education</a>
+</li>
+	<li class="cat-item cat-item-779005954"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/college-and-career-success-coordinators/">College and Career Success Coordinators</a>
+</li>
+	<li class="cat-item cat-item-3201239"><a href="https://mainedoenews.net/category/community-schools/">Community Schools</a>
+</li>
+	<li class="cat-item cat-item-5043"><a href="https://mainedoenews.net/category/computer-science/">Computer Science</a>
+</li>
+	<li class="cat-item cat-item-69804"><a href="https://mainedoenews.net/category/data-management/">Data Management</a>
+</li>
+	<li class="cat-item cat-item-47458"><a href="https://mainedoenews.net/category/diversity/">Diversity, Equity, and Inclusion</a>
+</li>
+	<li class="cat-item cat-item-100766"><a href="https://mainedoenews.net/category/early-childhood/">Early Childhood</a>
+</li>
+	<li class="cat-item cat-item-779005932"><a href="https://mainedoenews.net/category/education-in-unorganized-territories-eut/">Education in Unorganized Territories (EUT)</a>
+</li>
+	<li class="cat-item cat-item-7915"><a href="https://mainedoenews.net/category/employment/">Employment</a>
+</li>
+	<li class="cat-item cat-item-224248269"><a href="https://mainedoenews.net/category/english-language-artsliteracy/">English Language Arts/Literacy</a>
+</li>
+	<li class="cat-item cat-item-21933922"><a href="https://mainedoenews.net/category/equity-and-inclusion/">Equity and Inclusion</a>
+</li>
+	<li class="cat-item cat-item-122726612"><a href="https://mainedoenews.net/category/extended-learning-opportunities/">Extended Learning Opportunities (ELO)</a>
+</li>
+	<li class="cat-item cat-item-15437"><a href="https://mainedoenews.net/category/facilities/">Facilities</a>
+</li>
+	<li class="cat-item cat-item-779005933"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/">Federal Emergency Relief Funding</a>
+</li>
+	<li class="cat-item cat-item-442969"><a href="https://mainedoenews.net/category/federal-funding/">Federal Funding</a>
+</li>
+	<li class="cat-item cat-item-779005934"><a href="https://mainedoenews.net/category/federal-title-programs/">Federal Title Programs</a>
+</li>
+	<li class="cat-item cat-item-363020"><a href="https://mainedoenews.net/category/ffa/">FFA</a>
+</li>
+	<li class="cat-item cat-item-20250"><a href="https://mainedoenews.net/category/funding/">Funding</a>
+</li>
+	<li class="cat-item cat-item-4668"><a href="https://mainedoenews.net/category/success/">Good News from Schools</a>
+</li>
+	<li class="cat-item cat-item-132853"><a href="https://mainedoenews.net/category/grants/">Grants</a>
+</li>
+	<li class="cat-item cat-item-2210884"><a href="https://mainedoenews.net/category/green-schools/">Green Schools</a>
+</li>
+	<li class="cat-item cat-item-55677611"><a href="https://mainedoenews.net/category/health-physical-ed/">Health &amp; Physical Ed</a>
+</li>
+	<li class="cat-item cat-item-33371"><a href="https://mainedoenews.net/category/health-and-safety/">Health and Safety</a>
+</li>
+	<li class="cat-item cat-item-27798"><a href="https://mainedoenews.net/category/higher-ed/">Higher Ed</a>
+</li>
+	<li class="cat-item cat-item-400"><a href="https://mainedoenews.net/category/home/">Home</a>
+</li>
+	<li class="cat-item cat-item-21635"><a href="https://mainedoenews.net/category/instruction/">Instruction</a>
+</li>
+	<li class="cat-item cat-item-63055621"><a href="https://mainedoenews.net/category/learning-through-technology/">Learning Through Technology</a>
+</li>
+	<li class="cat-item cat-item-779005937"><a href="https://mainedoenews.net/category/legislation-policy-rulemaking/">Legislation/Policy/Rulemaking</a>
+</li>
+	<li class="cat-item cat-item-25633"><a href="https://mainedoenews.net/category/literacy/">Literacy</a>
+</li>
+	<li class="cat-item cat-item-27687366"><a href="https://mainedoenews.net/category/maine-doe/">Maine DOE</a>
+</li>
+	<li class="cat-item cat-item-169947769"><a href="https://mainedoenews.net/category/maine-doe-monthly/">Maine DOE Monthly</a>
+</li>
+	<li class="cat-item cat-item-502970074"><a href="https://mainedoenews.net/category/maine-doe-update/">Maine DOE Update</a>
+</li>
+	<li class="cat-item cat-item-779005938"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/maine-educator-summit/">Maine Educator Summit</a>
+</li>
+	<li class="cat-item cat-item-779005939"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/maine-jobs-and-recovery-plan/">Maine Jobs and Recovery Plan</a>
+</li>
+	<li class="cat-item cat-item-779005941"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/maine-online-open-source-education/">Maine Online Open Source Education</a>
+</li>
+	<li class="cat-item cat-item-779005942"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/maine-outdoor-learning-initiative/">Maine Outdoor Learning Initiative</a>
+</li>
+	<li class="cat-item cat-item-779005943"><a href="https://mainedoenews.net/category/maine-school-safety-center/">Maine School Safety Center</a>
+</li>
+	<li class="cat-item cat-item-779005944"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/maine-solutionaries-project/">Maine Solutionaries Project</a>
+</li>
+	<li class="cat-item cat-item-26170696"><a href="https://mainedoenews.net/category/maine-teacher-of-the-year/">Maine Teacher of the Year</a>
+</li>
+	<li class="cat-item cat-item-779005945"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/mobile-computer-science-labs/">MaineTeachesCS</a>
+</li>
+	<li class="cat-item cat-item-3582"><a href="https://mainedoenews.net/category/mathematics/">Mathematics</a>
+</li>
+	<li class="cat-item cat-item-6564342"><a href="https://mainedoenews.net/category/mckinney-vento/">McKinney-Vento</a>
+</li>
+	<li class="cat-item cat-item-149085"><a href="https://mainedoenews.net/category/news-views/media-releases/">Media Releases</a>
+</li>
+	<li class="cat-item cat-item-458487"><a href="https://mainedoenews.net/category/migrant/">Migrant</a>
+</li>
+	<li class="cat-item cat-item-1528931"><a href="https://mainedoenews.net/category/mlti/">MLTI</a>
+</li>
+	<li class="cat-item cat-item-2054229"><a href="https://mainedoenews.net/category/mtss/">Multi-tiered Systems of Support (MTSS)</a>
+</li>
+	<li class="cat-item cat-item-81463845"><a href="https://mainedoenews.net/category/multilingual-learning/">Multilingual Learning</a>
+</li>
+	<li class="cat-item cat-item-41145"><a href="https://mainedoenews.net/category/news-views/">News &amp; Views</a>
+</li>
+	<li class="cat-item cat-item-206418111"><a href="https://mainedoenews.net/category/news-views/newsroom-articles/">Newsroom Articles</a>
+</li>
+	<li class="cat-item cat-item-94635"><a href="https://mainedoenews.net/category/numeracy/">Numeracy</a>
+</li>
+	<li class="cat-item cat-item-1677"><a href="https://mainedoenews.net/category/nutrition/">Nutrition</a>
+</li>
+	<li class="cat-item cat-item-4587575"><a href="https://mainedoenews.net/category/outdoor-learning/">Outdoor Learning</a>
+</li>
+	<li class="cat-item cat-item-47573221"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/pine-project/">Pine Project</a>
+</li>
+	<li class="cat-item cat-item-6360435"><a href="https://mainedoenews.net/category/pbis/">Positive Behavioral Intervention and Supports (PBIS)</a>
+</li>
+	<li class="cat-item cat-item-63987749"><a href="https://mainedoenews.net/category/news-views/priority-notices/">Priority Notices</a>
+</li>
+	<li class="cat-item cat-item-8235"><a href="https://mainedoenews.net/category/professional-development/">Professional Development</a>
+</li>
+	<li class="cat-item cat-item-779005946"><a href="https://mainedoenews.net/category/awards-and-honors/recognizing-inspiring-school-employees-rise-award/">Recognizing Inspiring School Employees (RISE) Award</a>
+</li>
+	<li class="cat-item cat-item-13142139"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/restorative-practices/">Restorative Practices</a>
+</li>
+	<li class="cat-item cat-item-779005991"><a href="https://mainedoenews.net/category/rethinking-responsive-education-ventures-rrev/">Rethinking Responsive Education Ventures (RREV)</a>
+</li>
+	<li class="cat-item cat-item-55036080"><a href="https://mainedoenews.net/category/school-approval/">School Approval</a>
+</li>
+	<li class="cat-item cat-item-278825"><a href="https://mainedoenews.net/category/school-safety/">School Safety</a>
+</li>
+	<li class="cat-item cat-item-321297"><a href="https://mainedoenews.net/category/sel/">Social Emotional Learning (SEL)</a>
+</li>
+	<li class="cat-item cat-item-30210"><a href="https://mainedoenews.net/category/special-education/">Special Education</a>
+</li>
+	<li class="cat-item cat-item-15764"><a href="https://mainedoenews.net/category/standards/">Standards</a>
+</li>
+	<li class="cat-item cat-item-1528801"><a href="https://mainedoenews.net/category/state-board-of-education/">State Board of Education</a>
+</li>
+	<li class="cat-item cat-item-227311745"><a href="https://mainedoenews.net/category/student-cabinet/">Student Cabinet</a>
+</li>
+	<li class="cat-item cat-item-11131047"><a href="https://mainedoenews.net/category/student-opportunity/">Student Opportunity</a>
+</li>
+	<li class="cat-item cat-item-779005948"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/students-with-limited-or-interrupted-instruction/">Students with Limited or Interrupted Instruction</a>
+</li>
+	<li class="cat-item cat-item-779005949"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/summer-learning-and-enrichment-grant/">Summer Learning and Enrichment Grant</a>
+</li>
+	<li class="cat-item cat-item-779005950"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/teacher-leader-fellowship-program/">Teacher Leader Fellowship Program</a>
+</li>
+	<li class="cat-item cat-item-206250"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/trap/">Teacher Registered Apprenticeship Program</a>
+</li>
+	<li class="cat-item cat-item-779005952"><a href="https://mainedoenews.net/category/federal-emergency-relief-funding/the-regulated-classroom/">The Regulated Classroom</a>
+</li>
+	<li class="cat-item cat-item-2401"><a href="https://mainedoenews.net/category/transportation/">Transportation</a>
+</li>
+	<li class="cat-item cat-item-203680930"><a href="https://mainedoenews.net/category/wabanaki-studies/">Wabanaki Studies</a>
+</li>
+	<li class="cat-item cat-item-779005953"><a href="https://mainedoenews.net/category/welcoming-libraries/">Welcoming Libraries</a>
+</li>
+	<li class="cat-item cat-item-5004"><a href="https://mainedoenews.net/category/mental-health/">Wellness</a>
+</li>
+	<li class="cat-item cat-item-62800117"><a href="https://mainedoenews.net/category/whole-student/">Whole Student</a>
+</li>
+	<li class="cat-item cat-item-99939"><a href="https://mainedoenews.net/category/workforce-development/">Workforce Development</a>
+</li>
+</ul></div></div>
+</aside>	</div><!-- .left-sidebar -->
+	
+		<div class="right-sidebar">
+		<aside id="search-5" class="widget widget_search"><form role="search" method="get" class="search-form" action="https://mainedoenews.net/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit screen-reader-text" value="Search" />
+			</form></aside><aside id="block-2" class="widget widget_block widget_media_image">
+<figure class="wp-block-image size-large"><a href="http://maine.us2.list-manage1.com/subscribe?u=a582edd6473e477ef6307c769&amp;id=21283d239d"><img loading="lazy" width="1024" height="280" src="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/subscribe.png?w=1024" alt="" class="wp-image-240581" srcset="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/subscribe.png?w=1024 1024w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/subscribe.png?w=150 150w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/subscribe.png?w=300 300w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/subscribe.png?w=768 768w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/subscribe.png 1133w" sizes="(max-width: 1024px) 100vw, 1024px" /></a></figure>
+</aside><aside id="text-3" class="widget widget_text"><h2 class="widget-title">Connect</h2>			<div class="textwidget"><p><a href="https://www.facebook.com/MaineDepartmentofEducation1/"><img loading="lazy" class="alignnone wp-image-240584" src="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-facebook-icon-dark.png?w=108" alt="" width="50" height="50" srcset="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-facebook-icon-dark.png?w=50 50w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-facebook-icon-dark.png?w=100 100w" sizes="(max-width: 50px) 100vw, 50px" /></a> <a href="https://www.instagram.com/mainedepted/"><img loading="lazy" class="alignnone wp-image-240585" src="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-instagram-icon-dark.png?w=108" alt="" width="50" height="50" srcset="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-instagram-icon-dark.png?w=50 50w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-instagram-icon-dark.png?w=100 100w" sizes="(max-width: 50px) 100vw, 50px" /></a> <a href="https://www.linkedin.com/company/57756892/admin/dashboard/"><img loading="lazy" class="alignnone wp-image-240586" src="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-linkedin-icon-dark.png?w=150" alt="" width="50" height="50" srcset="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-linkedin-icon-dark.png?w=50 50w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-linkedin-icon-dark.png?w=100 100w" sizes="(max-width: 50px) 100vw, 50px" /></a> <a href="https://www.youtube.com/MaineDOEComm"><img loading="lazy" class="alignnone wp-image-240587" src="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-youtube-icon-dark.png?w=150" alt="" width="50" height="50" srcset="https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-youtube-icon-dark.png?w=50 50w, https://mainedoenews.wordpress.com/wp-content/uploads/2025/03/maine-doe-youtube-icon-dark.png?w=100 100w" sizes="(max-width: 50px) 100vw, 50px" /></a></p>
+</div>
+		</aside><aside id="block-6" class="widget widget_block">
+<h5 class="wp-block-heading">MAINE DOE INSTAGRAM</h5>
+</aside><aside id="block-3" class="widget widget_block">		<div class="wp-block-jetpack-instagram-gallery wp-block-jetpack-instagram-gallery__grid wp-block-jetpack-instagram-gallery__grid-columns-3 is-stacked-on-mobile" style="grid-gap: 10px; --latest-instagram-posts-spacing: 10px;">
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/reel/DYCm16tPWnV/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="During #TeacherAppreciationWeek, we’re tapping into student voice to help celebrate the educators who make a lasting difference in the lives of Maine students every single day. 🍎"
+					src="https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/692727661_18095906720324041_2839925534907410357_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=107&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&#038;_nc_ohc=TNZuPerMLwkQ7kNvwGQwG_I&#038;_nc_oc=AdqBgnCnuQlDUMMzf-4Q0DTegQdVnVCVoqpuPBFnVWbcFiZkCqxhQ6a19tyF7Bnp-Cg&#038;_nc_zt=23&#038;_nc_ht=scontent-iad6-1.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQEpAl5S-1y3AL1owMqxMVEiY997LCkerY67LeXlLdA444Uf64E7g1SfGhsiS_I_OpUZ611SaJmI4g&#038;oh=00_Af42C3ghw5SXzp6Yrs7Z7kAC2pemyxKHlmhQn_M2Yw0lrg&#038;oe=6A035537"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DYCPXgwINKc/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Applications are now open for the Leading Early Learning Fellowship—a professional learning opportunity for elementary school administrators across Maine! 🍎"
+					src="https://scontent-iad3-2.cdninstagram.com/v/t39.30808-6/689483468_1404281975071171_8711301690992473045_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=103&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=3z5VVkhVyLUQ7kNvwElLM6b&#038;_nc_oc=AdpmIA9Z-p4PBznnKvPsKzuuGa_TdeCab5WITh4VvcJxJy9LGx8aSPzaVXBFBnlssTQ&#038;_nc_zt=23&#038;_nc_ht=scontent-iad3-2.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQEc_D8AR8yaGowR6u2tg4s0aG_7m6yKfPb4bpLs23TK2d7FFkru3nRZVoYGjBjROTmS2ge5vEGpHg&#038;oh=00_Af4EnGeFPYFbJfdHGpn_Z8u8K2pwVhCUPeb1EZVF8GsC8w&#038;oe=6A035C74"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DYALGWfFdIa/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="At Oxford Hills School District MSAD #17, students took the lead in planning and hosting their annual Respect Day—creating meaningful opportunities for peers to explore culture, identity, and community through engaging workshops and activities. "
+					src="https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/687694097_1404261925073176_5971289542806318603_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=102&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=XuBCqA0W70AQ7kNvwG5-tOm&#038;_nc_oc=AdoHqoUJAd1Vn7w__9aLNx97oqiywkMLXxCmdltm0n5tpKUExhqE3k96C29lTTlw-Zg&#038;_nc_zt=23&#038;_nc_ht=scontent-iad6-1.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQGSrH_yuw152rzML6WNoVvgGmtYdsAVqv5W3XH3eM11fceBB3ncVVmgyN7OhiDvT-PjxHmyXMegbA&#038;oh=00_Af68ulbn6GhbYkO0-IGjb2iH-UfNHOthduCdXYUo0KpidA&#038;oe=6A03578F"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DX_qkOUjypU/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Today, the Maine Department of Education joins the @nasnschoolnurses and the Maine Association of School Nurses in celebrating National School Nurse Day (May 6) and the incredible impact of school nurses across our state!"
+					src="https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/672627567_1388213496678019_2706304960283808456_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=106&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=LhEBKVEwJ_EQ7kNvwGae-bY&#038;_nc_oc=AdomIiRU449esgdWTFMc-XSTheyZ3THrlVpdF_cH-ubHhcQ-Btc7ogG2O91HHcKAxY0&#038;_nc_zt=23&#038;_nc_ht=scontent-iad6-1.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQFiC3yIaMhKmegURXwhoIOtaPTrykF-IBCHwnEouIhK1fFEZttdjmKmx0DUW-_xqPemz2mGecc-5A&#038;oh=00_Af7X_aVAeO1ITIXSLW9LxiCxomtUwboQRCSyhaaI56361Q&#038;oe=6A035F98"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DX-D00ND5do/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Training dates and locations are now available! "
+					src="https://scontent-iad3-2.cdninstagram.com/v/t39.30808-6/690642386_1404275351738500_5094310137174130075_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=111&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=N31sD_MfK-cQ7kNvwGlO1yi&#038;_nc_oc=Adp204Ol81JOmSEcn3rjFPgN2JuvSDR_RQso7BP5X3AzdOapJAyCxDr5a1Itl6pqc0A&#038;_nc_zt=23&#038;_nc_ht=scontent-iad3-2.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQG71Nu2ZG3K1T5ndEEvXrEgcKXtuDbhNjwJJmoIyhkZ-31aun0j5QL7vzXjQH6SUzKMEP2A3OJdlQ&#038;oh=00_Af689vFQ-CgUXaiZURw5qjbUp5EGgQ_AcaOScQQ6wv2jWA&#038;oe=6A036B51"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/reel/DX9dacnvS16/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Today, we at the Maine DOE are pleased to celebrate National Teacher Appreciation Day, as part of National Teacher Appreciation Week from May 4-8, 2026! From Maine Education Commissioner Pender Makin and all of us at the Maine DOE, thank you to the thousands of educators in Maine for the dedicated and selfless work that you commit to every single day. You are helping to make the world a better and brighter place, one lesson and student at a time."
+					src="https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/683894112_18095695604324041_8772537758745456762_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=110&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&#038;_nc_ohc=1nmcaha9ePsQ7kNvwF2uOdf&#038;_nc_oc=AdqhQ1asSwS2LFDJycvZt1vJ0hqovj8UkZuiBQ-PJ2gsQKv_NQBg0YyZDFqrBKvID5A&#038;_nc_zt=23&#038;_nc_ht=scontent-iad3-1.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQFfZXliRbaTw0o17xP0QTp1U1FW9M_DKBwPoU6msiKzmXvLAAFuv9Lsj4s7cZBPmUJ0pw7oitDrUw&#038;oh=00_Af77k-MYSgO2uFMGJto94LSBzFG4-4c_QM4qh2oBwSoXdw&#038;oe=6A035C87"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DX9FsNsiYmP/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Nominations are now open for the 2026 Maine Association for Health, Physical Education, Recreation, and Dance Awards! "
+					src="https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/686926308_1404235688409133_6906482624260534675_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=102&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=y7V-EUinv_4Q7kNvwG48yIh&#038;_nc_oc=Adredo1y1FjnsX05EXH-ALu8r0AQN7pVRvWYoGZcoVbUM5jjM5wDnb5xNLERFz-M168&#038;_nc_zt=23&#038;_nc_ht=scontent-iad6-1.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQEPDG2BcK5X342xFvisZlJMt7T3g2Wuqr1rNCs_pw5ZgnX-mTxO_LiRishCcg8OUd3FRJXF0IrTng&#038;oh=00_Af630uG6P1RRnWWWgPscyRgzU3GJVWhYRqaMOS69NhEwIw&#038;oe=6A035653"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DX7se1biNRW/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Students from Mount Abram High School are bringing classroom learning to life through the arts! "
+					src="https://scontent-iad3-1.cdninstagram.com/v/t39.30808-6/690943501_1404244385074930_7864604927006862800_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=101&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=yQVYYgv0KaEQ7kNvwHNClS4&#038;_nc_oc=AdoIMNqV8Hoi9WCV30nx5TLGn1b52MEppYDGvfIQDF4FCkwhY5C0XXZLnFTpa_EIdnc&#038;_nc_zt=23&#038;_nc_ht=scontent-iad3-1.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQHzngGprSJ6B_zIIJlcLOWfKCOb7mj9SQd8ecrdAZEqBY9Xi95Gnz8F7hYWXCd4zbSC1MGhkpZYkQ&#038;oh=00_Af4vAVRdhQgpNC2VoijUVNqSWnVR5YwpfkFyYg5aZa3yNA&#038;oe=6A0347BF"
+					loading="lazy"
+				/>
+			</a>
+					<a
+				class="wp-block-jetpack-instagram-gallery__grid-post"
+				href="https://www.instagram.com/p/DX6_cjmAvs2/"
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<img
+					alt="Nominations are now open! The Alternative Education Association of Maine is seeking submissions for Alternative Educator of the Year, the Martin Mackey Memorial Scholarship, and retiree recognition."
+					src="https://scontent-iad3-2.cdninstagram.com/v/t39.30808-6/687822554_1404231168409585_9142073008809359532_n.jpg?stp=dst-jpg_e35_tt6&#038;_nc_cat=111&#038;ccb=7-5&#038;_nc_sid=18de74&#038;efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&#038;_nc_ohc=hlFCyXwQcNoQ7kNvwGIEOQg&#038;_nc_oc=Adqsp6U5Of_rCqSLZq-QcBgAtbcngHPbKxyIGKPaJVL7lQ6q4VvhzTn6z3ANNBGq4AY&#038;_nc_zt=23&#038;_nc_ht=scontent-iad3-2.cdninstagram.com&#038;edm=ANo9K5cEAAAA&#038;_nc_gid=_Wkpv2RddcjGU3dwJ0z8XQ&#038;_nc_tpa=Q5bMBQGFY29sAxNIWoG2rMyPm0A564QMZxBReoSYWMPTTu7h5XpgkSLmxlGKn72pd9dV3jr_ymKbp0dLOg&#038;oh=00_Af7nrVPS2OHvtRQZh-Jiz0teTBJcMnjSU_vFXNsQ03WM1w&#038;oe=6A034809"
+					loading="lazy"
+				/>
+			</a>
+			</div>
+
+	</aside><aside id="facebook-likebox-4" class="widget widget_facebook_likebox"><h2 class="widget-title"><a href="https://www.facebook.com/MaineDepartmentofEducation1/">Maine DOE Facebook</a></h2>		<div id="fb-root"></div>
+		<div class="fb-page" data-href="https://www.facebook.com/MaineDepartmentofEducation1/" data-width="340"  data-height="580" data-hide-cover="false" data-show-facepile="true" data-tabs="timeline" data-hide-cta="false" data-small-header="false">
+		<div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/MaineDepartmentofEducation1/"><a href="https://www.facebook.com/MaineDepartmentofEducation1/">Maine DOE Facebook</a></blockquote></div>
+		</div>
+		</aside>	</div><!-- .right-sidebar -->
+	
+	
+</div><!-- #secondary -->
+	</div><!-- #content -->
+
+	
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a>
+			
+					</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!--  -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/files/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/pub/colinear/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="grofiles-cards-js" src="//0.gravatar.com/js/hovercards/hovercards.min.js?ver=202619d1133547e8a1f2801609f51cef12522abe7f6647d869e9fbc974fe356a37e613"></script>
+<script id="wpgroho-js-extra">
+var WPGroHo = {"my_hash":""};
+//# sourceURL=wpgroho-js-extra
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1610363240i'></script>
+
+	<script>
+		// Initialize and attach hovercards to all gravatars
+		( function() {
+			function init() {
+				if ( typeof Gravatar === 'undefined' ) {
+					return;
+				}
+
+				if ( typeof Gravatar.init !== 'function' ) {
+					return;
+				}
+
+				Gravatar.profile_cb = function ( hash, id ) {
+					WPGroHo.syncProfileData( hash, id );
+				};
+
+				Gravatar.my_hash = WPGroHo.my_hash;
+				Gravatar.init(
+					'body',
+					'#wp-admin-bar-my-account',
+					{
+						i18n: {
+							'Edit your profile →': 'Edit your profile →',
+							'View profile →': 'View profile →',
+							'Contact': 'Contact',
+							'Send money': 'Send money',
+							'Sorry, we are unable to load this Gravatar profile.': 'Sorry, we are unable to load this Gravatar profile.',
+							'Gravatar not found.': 'Gravatar not found.',
+							'Too Many Requests.': 'Too Many Requests.',
+							'Internal Server Error.': 'Internal Server Error.',
+							'Is this you?': 'Is this you?',
+							'Claim your free profile.': 'Claim your free profile.',
+							'Email': 'Email',
+							'Home Phone': 'Home Phone',
+							'Work Phone': 'Work Phone',
+							'Cell Phone': 'Cell Phone',
+							'Contact Form': 'Contact Form',
+							'Calendar': 'Calendar',
+						},
+					}
+				);
+			}
+
+			if ( document.readyState !== 'loading' ) {
+				init();
+			} else {
+				document.addEventListener( 'DOMContentLoaded', init );
+			}
+		} )();
+	</script>
+
+		<div style="display:none">
+	</div>
+		<div id="actionbar" dir="ltr" style="display: none;"
+			class="actnbr-pub-colinear actnbr-has-follow actnbr-has-actions">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+						<a class="actnbr-action actnbr-actn-reblog" href="">
+							<svg class="gridicon gridicons-reblog" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M22.086 9.914L20 7.828V18c0 1.105-.895 2-2 2h-7v-2h7V7.828l-2.086 2.086L14.5 8.5 19 4l4.5 4.5-1.414 1.414zM6 16.172V6h7V4H6c-1.105 0-2 .895-2 2v10.172l-2.086-2.086L.5 15.5 5 20l4.5-4.5-1.414-1.414L6 16.172z"/></g></svg><span>Reblog</span>
+						</a>
+					</li>
+									<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z"  fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20"></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5"></path></svg>
+			<span>Subscribed</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename">
+			<a href="https://mainedoenews.net">
+				<img loading='lazy' alt='' src='https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=50&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' srcset='https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=50&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 1x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=75&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 1.5x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=100&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 2x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=150&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 3x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=200&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 4x' class='avatar avatar-50' height='50' width='50' />				Maine DOE Newsroom			</a>
+		</li>
+										<div class="actnbr-message no-display"></div>
+									<form method="post" action="https://subscribe.wordpress.com" accept-charset="utf-8" style="display: none;">
+																						<div class="actnbr-follow-count">Join 378 other subscribers</div>
+																					<div>
+										<input type="email" name="email" placeholder="Enter your email address" class="actnbr-email-field" aria-label="Enter your email address" />
+										</div>
+										<input type="hidden" name="action" value="subscribe" />
+										<input type="hidden" name="blog_id" value="21507034" />
+										<input type="hidden" name="source" value="https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/" />
+										<input type="hidden" name="sub-type" value="actionbar-follow" />
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="bc5a08791d" />										<div class="actnbr-button-wrap">
+											<button type="submit" value="Sign me up">
+												Sign me up											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge">
+										<div>
+											Already have a WordPress.com account? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Fmainedoenews.net%252F2025%252F10%252F10%252Fadministrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025%252F">Log in now.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"/></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+								<li class="actnbr-sitename">
+			<a href="https://mainedoenews.net">
+				<img loading='lazy' alt='' src='https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=50&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' srcset='https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=50&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 1x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=75&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 1.5x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=100&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 2x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=150&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 3x, https://secure.gravatar.com/blavatar/4acbc1e0ae16fd97d8a5b3689ed4843d730e9aec7146214cd18723b267b52035?s=200&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png 4x' class='avatar avatar-50' height='50' width='50' />				Maine DOE Newsroom			</a>
+		</li>
+								<li class="actnbr-folded-follow">
+										<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z"  fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20"></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5"></path></svg>
+			<span>Subscribed</span>
+		</a>
+								</li>
+														<li class="actnbr-signup"><a href="https://wordpress.com/start/">Sign up</a></li>
+							<li class="actnbr-login"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Fmainedoenews.net%252F2025%252F10%252F10%252Fadministrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025%252F">Log in</a></li>
+																<li class="actnbr-shortlink">
+										<a href="https://wp.me/p1seXE-13lR">
+											<span class="actnbr-shortlink__text">Copy shortlink</span>
+											<span class="actnbr-shortlink__icon"><svg class="gridicon gridicons-checkmark" height="16" width="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M9 19.414l-6.707-6.707 1.414-1.414L9 16.586 20.293 5.293l1.414 1.414"/></g></svg></span>
+										</a>
+									</li>
+																<li class="flb-report">
+									<a href="https://wordpress.com/abuse/?report_url=https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/" target="_blank" rel="noopener noreferrer">
+										Report this content									</a>
+								</li>
+															<li class="actnbr-reader">
+									<a href="https://wordpress.com/reader/blogs/21507034/posts/251215">
+										View post in Reader									</a>
+								</li>
+															<li class="actnbr-subs">
+									<a href="https://subscribe.wordpress.com/">Manage subscriptions</a>
+								</li>
+																<li class="actnbr-fold"><a href="">Collapse this bar</a></li>
+														</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "DOMContentLoaded", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "/wp-content/mu-plugins/actionbar/actionbar.css?v=20250116";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "/wp-content/mu-plugins/actionbar/actionbar.js?v=20250204";
+	document.body.appendChild( script );
+} );
+</script>
+
+	
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https://mainedoenews.net/2025/10/10/administrative-letter-legal-requirements-to-provide-english-language-acquisition-services-to-students-who-are-multilingual-learners-revised-october-9-2025/":251215};
+	</script>
+				
+	<script type="text/javascript">
+		(function () {
+			var wpcom_reblog = {
+				source: 'toolbar',
+
+				toggle_reblog_box_flair: function (obj_id, post_id) {
+
+					// Go to site selector. This will redirect to their blog if they only have one.
+					const postEndpoint = `https://wordpress.com/post`;
+
+					// Ideally we would use the permalink here, but fortunately this will be replaced with the 
+					// post permalink in the editor.
+					const originalURL = `${ document.location.href }?page_id=${ post_id }`; 
+					
+					const url =
+						postEndpoint +
+						'?url=' +
+						encodeURIComponent( originalURL ) +
+						'&is_post_share=true' +
+						'&v=5';
+
+					const redirect = function () {
+						if (
+							! window.open( url, '_blank' )
+						) {
+							location.href = url;
+						}
+					};
+
+					if ( /Firefox/.test( navigator.userAgent ) ) {
+						setTimeout( redirect, 0 );
+					} else {
+						redirect();
+					}
+				},
+			};
+
+			window.wpcom_reblog = wpcom_reblog;
+		})();
+	</script>
+<script id="colinear-navigation-js-extra">
+var screenReaderText = {"expand":"\u003Cspan class=\"screen-reader-text\"\u003Eexpand child menu\u003C/span\u003E","collapse":"\u003Cspan class=\"screen-reader-text\"\u003Ecollapse child menu\u003C/span\u003E"};
+//# sourceURL=colinear-navigation-js-extra
+</script>
+<script id="jetpack-facebook-embed-js-extra">
+var jpfbembed = {"appid":"249643311490","locale":"en_US"};
+//# sourceURL=jetpack-facebook-embed-js-extra
+</script>
+<script id="jetpack-blocks-assets-base-url-js-before">
+var Jetpack_Block_Assets_Base_Url="https://s0.wp.com/wp-content/mu-plugins/jetpack-plugin/sun/_inc/blocks/";
+//# sourceURL=jetpack-blocks-assets-base-url-js-before
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/_static/??-eJyNj80KwjAQhF/IuFSK4kF8FEnTTbv52cRuVn18K3gQvPQ4MN98DDyrcYUbcoOspiadiAUSRRS4KyrOlseEyz7IDn7Kbca8VqoO4EoiRrtAEGD7oMk2KrwRkEjVrDEaX5yK8fTaSHpl9xHJVhONONi/Iz+vA7ZqXfxmEGW4ETvw1uFQSjSYBxzXgWu+dKe+Ox+7Q9+HN7XueFE='></script>
+<script data-wp-strategy="defer" defer id="jetpack-block-instagram-gallery-js" src="/wp-content/mu-plugins/jetpack-plugin/sun/_inc/blocks/instagram-gallery/view.js?m=1778085426i&#038;minify=false&#038;ver=15.9-a.0"></script>
+<script id="sharing-js-js-extra">
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+//# sourceURL=sharing-js-js-extra
+</script>
+<script crossorigin='anonymous' type='text/javascript'  src='/wp-content/mu-plugins/jetpack-plugin/sun/_inc/build/sharedaddy/sharing.min.js?m=1755011788i'></script>
+<script id="sharing-js-js-after">
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-facebook' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-facebook' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-twitter' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-twitter' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-linkedin' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-linkedin' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+						return false;
+					}
+				} );
+			} )();
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-tumblr' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-tumblr' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+						return false;
+					}
+				} );
+			} )();
+//# sourceURL=sharing-js-js-after
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/72x72/","ext":".png","svgUrl":"https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/","svgExt":".svg","source":{"concatemoji":"/wp-includes/js/wp-emoji-release.min.js?m=1764078722i&ver=7.0-RC2-62280"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+	<iframe src='https://widgets.wp.com/likes/master.html?ver=20260508#ver=20260508' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+	<div id='likes-other-gravatars' role="dialog" aria-hidden="true" tabindex="-1"><div class="likes-text"><span>%d</span></div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+	<script src="//stats.wp.com/w.js?68" defer></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'21507034','blog_tz':'-4','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+		// Prevent sending pageview tracking from WP-Admin pages.
+		_stq.push(['view', {'blog':'21507034','v':'wpcom','tz':'-4','user_id':'0','post':'251215','subd':'mainedoenews'}]);
+		_stq.push(['extra', {'crypt':'UE5tW3cvZGQ9cG1YN2FWaX5wZWt3VEZhRkZ8PW55VStjOFR4Y29bLGRvYnNGemYrQXJjK3NWbUthWT9PNUxJMVM5PUMwb2U1TTVLRV11Mz12V2RGfDh0Y0RzTGovUUZ+bDIteEZtSTU3WT9vWl80S1MxMlNTeUdVeSVTSlRiNDRzcGlqLl1FKyxOdDJuL0Y9aThXR093dzJfSEJKYnFrMnc3NnUlVExjQUlhWnppcn5dM3VwM1l0X0JqT1k9cVczbiVCJkt1NSYmOFpdQmo3Smx5OEp3fiVJSzIvb3Z5OU1LeldvXXRTVml0'}]);
+_stq.push([ 'clickTrackerInit', '21507034', '251215' ]);
+</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<meta id="bilmur" property="bilmur:data" content="" data-provider="wordpress.com" data-service="simple" data-site-tz="America/New_York" data-custom-props="{&quot;enq_jquery&quot;:&quot;1&quot;,&quot;logged_in&quot;:&quot;0&quot;,&quot;wptheme&quot;:&quot;pub\/colinear&quot;,&quot;wptheme_is_block&quot;:&quot;0&quot;}"  >
+		<script defer src="/wp-content/js/bilmur.min.js?i=17&amp;m=202619"></script> 	
+</body>
+</html>
+<!--
+	generated in 0.392 seconds
+	161579 bytes batcached for 300 seconds
+-->

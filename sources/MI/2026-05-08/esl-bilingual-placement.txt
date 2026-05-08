@@ -1,0 +1,979 @@
+                                          MICHIGAN
+                                          Departme~lEducation
+  Appropriate Placement of Teachers Serving in English as a
+Second Language (ESL), Sheltered English, Bilingual Education,
+      Newcomer, and Dual Language Programs Guide
+                                                          Table of Contents
+ Introduction ............................................................................................................................................. 2
+ Overview & Purpose ................................................................................................................................ 2
+ Methodology for Determining Course Coding, Appropriate Placement of Teachers, and Pre-Planned
+ Credit(s).................................................................................................................................................... 3
+ Teacher Endorsement Considerations & Requirements ......................................................................... 4
+ Appropriate Levels of Staffing.................................................................................................................. 4
+ Appropriate Endorsements for Serving ELs In Michigan ......................................................................... 5
+ Permits for Non-Certified and/or Endorsed Staff .................................................................................... 5
+ Pathways to Certification and/or Endorsement ...................................................................................... 5
+ Methodology Explained for Common EL Programs................................................................................. 7
+ ELD Programs: Designated and Integrated .............................................................................................. 7
+ Program Model: Newcomer Program...................................................................................................... 8
+ Program Model: English as a Second Language (Push in or Pull out).................................................... 12
+ Program Model: Sheltered English Instruction...................................................................................... 14
+ Program Model: Dual Language Education (DLE) Program ................................................................... 17
+ Closing.................................................................................................................................................... 20
+
+
+
+
+                                                                                                                                                              1
+Introduction
+In 2024, the Michigan Department of Education (MDE) Office of Educational Supports (OES), in
+collaboration with the Office of Educator Excellence (OEE), and with the support of Michigan’s English
+Learner Advisory Committee, completed an extensive review and update of the Appropriate Placement
+of Teachers Serving in English as a Second language (ESL), Sheltered English, Bilingual Education,
+Newcomer, and Dual Language Programs Guide. This resource has been designed to support local
+education agencies (LEAs) to plan, schedule, staff and implement English Language Development
+programs that are compliant with federal requirements.
+
+Overview & Purpose
+Critical to student achievement and compliance with Michigan law is the appropriate preparation and
+endorsement of educators assigned to teach English learners (ELs). Michigan Law (380.1233(1)) requires
+that teachers of ELs be appropriately endorsed for the program type implemented by the LEA and for
+the position that they hold. A certified teacher who holds an endorsement in English as a Second
+Language (ESL) or Bilingual Education is permitted to serve ELs according to their endorsement grade
+bands and any additional endorsement areas the teacher may hold. Teachers must demonstrate content
+knowledge and hold appropriate endorsement(s) for the subject(s) for which they are the sole provider
+of instruction. The guidance in this document will assist LEAs with properly placing teachers in ESL,
+Bilingual, Dual Language, and Newcomer programs and co-taught courses. Either an ESL endorsement
+(NS) or a Bilingual Education (YA-YT, Y_) endorsement may be utilized in each of the common program
+types. In ESL, Newcomer, or Sheltered programs, both endorsement types may be leveraged. For
+bilingual and dual language programs, a Bilingual Education endorsement is preferred; however, an ESL
+endorsement may be used if the individual holds the corresponding world language endorsement (FA-
+FS) or has passed the appropriate Oral Proficiency Interview (OPI) or similar language proficiency exam
+at the required ACTFL Proficiency Guidelines.
+
+Legal Obligations
+Under Michigan’s Elliott-Larsen Civil Rights Act and federal laws, including Title VI of the Civil Rights Act
+of 1964 and the Elementary and Secondary Education Act (ESEA) as amended by the Elementary and
+Secondary Education Act as amended by the Every Student Succeeds Act (ESSA), state education
+agencies (SEAs) and school districts have “legal obligations to ensure that EL students can participate
+meaningfully and equally in educational programs and services” (Dear Colleague Letter 2015). Two
+landmark court cases form the basis for the requirement for appropriately certified and endorsed
+teachers to provide direct services to all ELs. In 1974, Lau v. Nichols provided requirements regarding
+the education of language minority students. Justice William Douglas delivered the opinion of the court,
+“Under these state-imposed standards, there is no equality of treatment merely by providing students
+with the same facilities, textbooks, teachers, and curriculum; for students who do not understand English
+are effectively foreclosed from any meaningful education…. We know that those who do not understand
+English are certain to find their classroom experiences wholly incomprehensible and in no way
+meaningful.” This case was followed by Castañeda v Pickard in 1981, which established the requirement
+of the three-pronged test. “The case established a three-part test to evaluate the adequacy of a district's
+program for ELL [English language learners] students:
+        (1) is the program based on an educational theory recognized as sound by some experts in the
+        field or is considered by experts as a legitimate experimental strategy;
+        (2) are the programs and practices, including resources and personnel, reasonably calculated to
+        implement this theory effectively; and
+        (3) does the school district evaluate its programs and make adjustments where needed to ensure
+        language barriers are actually being overcome?”
+
+                                                                                                            2
+The Office of English Language Acquisition (OELA) Toolkit Chapter 3, produced as a companion to the
+(Dear Colleague Letter 2015) by the U.S. Department of Education (USED), Office for Civil Rights (OCR),
+and the Department of Justice (DOJ), outlines the legal obligations for ELs, and states the following
+regarding staffing an EL program:
+    •   “LEA must provide the personnel necessary to effectively implement EL programs.
+    •   “Necessary personnel include teachers who are qualified to provide EL services, core-content
+        teachers who are highly qualified in their field, as well as, trained to support EL students, and
+        trained administrators who can evaluate these teachers.
+    •   “SEAs must ensure that LEAs have qualified teachers and administrators for their EL programs.”
+
+Methodology for Determining Course Coding, Appropriate Placement of Teachers, and
+Pre-Planned Credit(s)
+MDE provides the following methodology to assist LEAs in creating and defining courses for students.
+The methodology asks LEAs to consider four questions beginning with the standards of focus (content or
+English Language Development (ELD) standards). Using that information, the LEA will determine which
+course code(s) align to the standards. If the course is designed to meet the ELD needs of the student,
+then the additional Course Funding Program Code of 02 – English Learner Course will be added to the
+Student Course Component in the Teacher Student Data Link (TSDL). LEAs will consider what skills and
+expertise are necessary for a teacher to deliver that instruction. LEAs will also consider how they are
+meeting the federal and state requirements for ELs to have direct ELD instruction and full access to core
+content instruction (meaningful access). Teachers who are instructing ELs will be required to have ESL or
+Bilingual Education endorsements or be working toward this credential on an approved permit.
+    •   Question 1 – What are the standards that will be instructed in this course?
+    •   Question 2 – What is the course code that aligns to the standards instructed in the course?
+    •   Question 3 – What teacher endorsements align to the skills and expertise necessary to deliver
+        the standards?
+    •   Question 4 – What standard(s) based; pre-planned credit(s) will students who demonstrate
+        proficiency earn?
+
+Example
+This course example illustrates the methodology used by LEAs when planning courses for ELs. The four
+questions are designed to walk the LEA team through the standards taught, the correlating course
+codes, the appropriate certifications or endorsements needed, and the credit that the LEA plans to grant
+students who demonstrate proficiency on the identified standards.
+
+Specific scenarios aligned to the different EL Program Models are provided in the following section.
+Questions 2 and 3 are not necessarily linear and will be discussed with fluidity as the LEA plans.
+
+Course Example
+Course: Sheltered ELD and 9th Grade ELA course (Integrated ELD)
+ Questions                 Considerations             Answers                        Resources
+ Question 1 – What are     A course can address       The standards instructed in    WIDA ELD Standards
+ the standards that will   multiple areas of          this course are the WIDA       (page 178)
+ be instructed in this     standards.                 ELD Standards and the
+                                                                                     Michigan ELA
+ course?                                              Michigan ELA State
+                                                                                     Standards (starting on
+                                                      Standards for 9th grade.
+                                                                                     page 34)
+
+
+
+
+                                                                                                            3
+ Questions                  Considerations            Answers                         Resources
+ Question 2 – What is       Based on the              This course will be coded as    Course SCED Codes
+ the course code that       standards taught,         an ELA course with an EL
+ aligns to the standards    determine the course      setting in TSDL.
+ instructed in the          codes that will be        Example: SCED code 01001
+ course?                    included.                 for 9th grade ELA
+                                                      The EL Setting (code 02-
+                                                      English learner Course)
+                                                      under the Course Funding
+                                                      Program Code in the
+                                                      Student Course Component
+                                                      will be added.
+ Question 3 –What           Identify the skills and   The teacher must have the       OEE Guidance –
+ teacher endorsements       expertise, and            ESL or Bilingual Education      Appropriate
+ align to the skills and    corresponding             endorsement as well as the      Placement Guidelines
+ expertise necessary to     endorsements using        appropriate ELA grade-level
+                                                                                      Registry of
+ deliver the standards?     the standards and         endorsement OR
+                                                                                      Educational Personnel
+                            SCED course code(s)       If the teacher does not
+                                                                                      Data Field Manual
+                            using the Appropriate     have the appropriate
+                            Placement Guidelines.     endorsement, the LEA may
+                                                      place an individual who
+                                                      holds the appropriate
+                                                      content knowledge for the
+                                                      course under an
+                                                      appropriate permit.
+ Question 4 – What          Identify the credits      LEA would grant ELA 9th-        Michigan Merit
+ standard(s) based; pre-    that will be awarded      grade credit.                   Curriculum law
+ planned credit will        once students                                             380.1278a
+ students who               demonstrate                                               380.1278b
+ demonstrate                proficiency in the
+ proficiency earn?          identified course.
+
+Teacher Endorsement Considerations & Requirements
+Appropriate Levels of Staffing
+Students qualifying for EL services must be served by certified and appropriately endorsed teachers.
+While the OCR does not provide a specific requirement in their guidance for student to teacher ratios
+or the number of minutes ELs are served in EL programs, the LEA must ensure that the EL program is
+effective (Castañeda v Pickard). Michigan’s EL Advisory Committee members compiled the agreements
+and settlements filed between OCR and LEAs over the last 20 years. At a minimum, each agreement
+settled on at least 30 minutes daily (or 150 weekly) of ELD instruction by certified ESL (NS) or Bilingual
+(YA-YT, Y_) teachers for all ELs with an additional period of designated ELD for newcomers’ and those
+at the lowest proficiency levels.
+
+
+
+
+                                                                                                             4
+Appropriate Endorsements for Serving ELs In Michigan
+Teachers who provide direct ELD services to ELs in an ESL Program Model must be appropriately
+certified with an endorsement in English as a Second Language (NS) or Bilingual Education (YA-YT, Y_),
+matching the grade level of the students being served.
+For Bilingual Education Program Models that are not co-taught, the assigned teacher providing EL
+services must hold a grade level certification appropriate to the content of the course as well as a
+Bilingual Education endorsement (YA-YT, Y_) or hold an ESL endorsement (NS) with either a
+corresponding world language endorsement (FA-FS) or as required on the appropriate OPI or similar
+language proficiency exam aligned to the ACTFL Proficiency Guidelines. The preferred credential for
+Bilingual Education Program Models is the Bilingual Education endorsement.
+
+Permits for Non-Certified and/or Endorsed Staff
+A system of permits is available through the OEE to support LEAs to be in compliance with certification
+and endorsement requirements while LEA staff pursue the hiring of appropriately endorsed educators
+or support current staff who are seeking the appropriate endorsement through education. If the LEA
+does not have any certified and endorsed staff, they must create a 4 -year plan that addresses the lack
+of certified and appropriately endorsed staff. The LEA may choose to support the staff member pursuing
+endorsement by offsetting tuition costs. These funds may come from Title III, Section 41, Michigan
+Grow-Your-Own Grants, or other allowable sources.
+If a non-certified individual or a certified teacher without an ESL endorsement (NS) or Bilingual
+Education endorsement (YA-YT, Y_) is currently working with ELs as the primary instructor of EL services,
+the LEA must apply for a Full Year Basic Substitute Permit for that teacher immediately and have a plan
+for that teacher to earn teacher certification and/or the appropriate endorsement via a state-approved
+endorsement program. Permits cost $45.00 per year (for 2024-2025) and must be renewed by the
+district each year that the teacher is employed while working toward earning the endorsement for up to
+a total of four years.
+For additional information, visit the Teacher Permits webpage for information on how to obtain a
+permit.
+Alternatively, LEAs may also create a plan to recruit and hire a properly certified and endorsed teacher.
+Such plans must be achieved within a reasonable amount of time (1-3 years), be in written format, and
+be available upon request. LEAs must provide EL services through permitted staff during the
+implementation of the plan.
+
+Pathways to Certification and/or Endorsement
+All pathways to certification and/or endorsement require successful completion of an approved
+preparation program, passage of endorsement-specific state assessments, and the addition of the
+endorsement to a valid teaching certificate. (OEE Resource: Adding an Endorsement to a Michigan
+Teaching Certificate) See OEE’s Directory of Educator Preparation Providers and Programs for
+information on approved programs for the ESL endorsement (NS) and Bilingual Education (YA-YT, Y_)
+endorsements.
+Traditional Route for Undergraduate Certification and Endorsement
+        Graduation/completion of a state-approved teacher preparation program leading to
+        certification with an ESL or Bilingual Education endorsement at an Institution of Higher
+        Education (IHE).
+
+
+
+
+                                                                                                            5
+Alternative Route for Certification and Endorsement
+       Alternative routes to teacher certification are non-traditional preparation programs designed for
+       individuals who hold a minimum of a bachelor’s degree and are seeking to complete an
+       expedited teacher preparation program while employed as a teacher under an Interim Teaching
+       Certificate (ITC). These programs are designed to support non-certificated individuals
+       transitioning into the teacher workforce, as well as certified teachers with experience working
+       with ELs who seek an expedited pathway to earning an ESL endorsement (NS) or Bilingual
+       Education endorsement (YA-YT, Y_). For more information on alternative routes, visit OEE’s
+       Alternative Routes to Teacher Certification and Endorsement.
+Master’s Degree in ESL or Bilingual Education
+       Graduation/completion of a master’s degree or post-baccalaureate certification program in ESL
+       or Bilingual Education from an approved Institution of Higher Education.
+Master’s Degree in TESOL
+       A master’s degree in TESOL does not automatically fulfill the requirement for ESL or Bilingual
+       Education endorsement in Michigan. If a teacher currently holds or is seeking a master’s degree
+       in TESOL, they should additionally contact a Michigan-approved educator preparation program
+       to have their transcripts reviewed for endorsement. Additional coursework may be necessary to
+       qualify for ESL or Bilingual Education endorsement in Michigan.
+Excerpt taken from OEE Quick Reference Guide:
+
+ Endorsement        Endorsement      Classes That Can Be Taught by Holders of Each Endorsement
+                    Code
+
+
+ English as a       NS                •   English Language Development (ELD) classes
+ Second                               •   Sheltered instruction*3 in all subjects according to
+ Language (ESL)                           certificate level
+                                      •   For classes using sheltered instruction of academic
+                                          content, the teacher of record must also be endorsed in
+                                          the area of specialty. (e.g., If a class is coded as a sheltered
+                                          social studies course, it must be taught by a teacher
+                                          endorsed in both social studies and ESL).
+                                      •   The ESL endorsement does not provide authorization to
+                                          teach in a bilingual/dual language classroom unless the
+                                          individual holds the corresponding world language
+                                          endorsement (FA-FS) or has passed the appropriate OPI or
+                                          similar language proficiency exam at the required level
+                                          aligned to the ACTFL Proficiency Guidelines 2024.
+
+
+
+
+                                                                                                             6
+ Endorsement          Endorsement       Classes That Can Be Taught by Holders of Each Endorsement
+                      Code
+
+
+ Bilingual           YA-YT, Y_           •   Subjects for which the teacher holds primary
+ Education                                   certification/endorsement at the level of certification
+                                         •   Subjects are taught in English and the language of the
+                                             Bilingual Education endorsement (Bilingual Education
+                                             Program or Dual Language Program).
+                                         •   ESL courses at the grade level of endorsement
+                                         •   Sheltered instruction*3 in all subjects using English or the
+                                             language of the Bilingual Education endorsement
+                                         •   Sheltered courses (taught in English or the identified non-
+                                             English language) in the areas of specialty endorsement
+                                             (e.g., If a class is coded as a sheltered social studies course,
+                                             it would be taught by a teacher endorsed in both social
+                                             studies and Bilingual Education)
+
+*3 In sheltered instruction, teachers use specific strategies to teach a specific content area (e.g., social
+studies or math) in ways comprehensible to the students while promoting their language development.
+
+Methodology Explained for Common EL Programs
+ELD Programs: Designated and Integrated
+English Language Development (ELD) refers to the intentional instruction of English (listening, speaking,
+reading and writing) for students that are English learners. The terms designated and integrated ELD are
+described in the chart and are used throughout the following program descriptions. A combination of
+Designated ELD and Integrated ELD is used to fulfill the required minutes of EL services each week. In
+addition, LEAs must ensure students have meaningful access to all courses. Additional specificity on the
+required duration of ELD by proficiency level will be released in Spring 2025.
+
+     Topics                    Designated ELD                                 Integrated ELD
+
+ Description      Designated ELD is language acquisition        Integrated ELD is language instruction
+                  instruction provided to students during       that embeds the ELD standards into
+                  identified times, separate from content       general education course content or
+                  instruction. This type of model is often      subject areas.
+                  delivered through small group
+                  instruction or an ELD course. Designated
+                  ELD is required for proficiency levels
+                  1.0-1.9.
+
+
+ Standards        The teacher is responsible for the WIDA       The teacher is responsible for both the
+ and              ELD standards                                 WIDA ELD standards and content
+ Resources                                                      standards in one course.
+                  Often leverages specific ELD curriculum
+                  that is Tier I instruction aligned.           Incorporates WIDA ELD standards into
+                                                                the content area curriculum.
+
+
+
+                                                                                                                7
+    Topics                    Designated ELD                              Integrated ELD
+
+ Teacher         Teachers must have an ESL/Bilingual Ed       Two teachers: One content endorsed,
+                 Endorsement or be on an appropriate          and one ESL or Bilingual Education
+                 permit (Full Year Basic for the ESL NS or    endorsed.
+                 Bilingual YA-YT, Y_).                        One teacher: Content teacher with ESL
+                                                              or Bilingual Education endorsement.
+
+ Michigan        09 ESL                                       05 Dual Language
+ Student         13 Newcomer (ELD)                            07 Transitional Bilingual
+ Data System                                                  10 Sheltered Instruction
+ (MSDS)                                                       13 Newcomer (sheltered)
+ Language
+ Model
+ Codes
+
+
+Program Model: Newcomer Program
+Description: The National Clearinghouse of English Language Acquisition [NCELA] describes Newcomer
+Programs in their publication on Programs for Newcomer Students:
+
+   “Students who arrive in the United States from other countries (newcomers) represent a variety of
+   educational and linguistic backgrounds. States and LEAs need to be prepared to meet the academic
+   and social-emotional needs of these students. Newcomer students from different countries speak a
+   variety of languages and have different levels of literacy skills and educational backgrounds. They
+   may have specific needs based on their personal histories and family circumstances, but they
+   generally share various academic and language challenges when arriving in the United States. Some
+   districts [LEAs] establish dedicated newcomer programs to meet the needs of students who are new
+   to the United States. These newcomers are important assets to the global economy and will make a
+   valuable contribution to the nation's social and economic vitality. Moreover, these students will help
+   expand the knowledge that native English speakers have of other cultures and countries.
+
+   “Newcomer programs are as diverse as the students they serve. In districts where the number of
+   newcomers is small, newcomer programs may consist of classes within existing elementary, middle,
+   or high schools, which students can attend for part of the day while attending general education
+   classes with their non-EL peers for the remainder of the day. Other newcomer programs are large,
+   with as many as 400 students or more, and are housed at separate site locations. The International
+   High Schools network is an example of this type of program (see Schools & Academies on the
+   Internationals Network website).
+
+   “The following goals of newcomer programs in secondary schools have been articulated by Short &
+   Boyson (2012):
+    •   “Helping newly arrived students develop beginning English language skills.
+    •   “Delivering appropriate content area instruction.
+    •   “Assisting students to acclimate to the U.S. school system.
+    •   “Building or strengthening students’ native language skills.”
+
+Appropriate Teacher Placement: Teachers in newcomer programs must hold a teaching certificate valid
+for the grade in which they are placed, ESL or Bilingual Education (YA-YT, Y_) endorsement.
+
+                                                                                                        8
+        Scenario 1: Elementary Newcomer program placement. Students arriving from abroad are
+        beginning learners of English. These students are grouped into a multiage classroom (K-3 or 3-5),
+        and the focus of their day is learning English through scaffolded grade-level-appropriate
+        content.
+
+        Scenario 2: Newcomer Secondary program placement. Students who are arriving from abroad
+        are beginning learners of English. These students are grouped into a multiage classroom (6-8 or
+        9-12), and the focus of their day is learning English through scaffolded grade-level appropriate
+        content.
+
+        Scenario 3: Newcomer Secondary Course placement. A newcomer course is held for 1-2 class
+        periods and combines integrated ELD and any content standards into the instruction. In this
+        scenario, there is a Newcomer course that is double-blocked at the high school that combines
+        designated ELD, integrated ELD, and US History.
+
+        Scenario 4: Newcomer Secondary ELD Course placement. A newcomer course held for one or
+        more class periods that is solely focused on teaching English. In this scenario, the entire focus of
+        the course is ELD.
+
+Course Example: Newcomer Scenario 1
+Elementary Newcomer Program (multiage K-3) (Integrated ELD)
+A teacher who is appropriately placed in this program could have a K-8 Self-contained Certification with
+an ESL or Bilingual Education endorsement.
+ Questions                           Answers                             Resources
+ Question 1 – What are the           WIDA ELD Standards and              WIDA ELD Standards (Page 25)
+ standards that will be instructed   elementary content subject
+                                                                         ELA Standards
+ in this course?                     standards
+ Question 2 – What is the course     Grades K-3 (Create multiple         SCED Finder
+ code that aligns to the             courses with one teacher)
+ standards instructed in the         Grade K 23003
+ course?                             Grade 1 23004
+                                     Grade 2 23005
+                                     Grade 3 23006
+                                     The EL Setting (code 02- English
+                                     learner Course) under the
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or    OEE Guidance – Courses That
+ endorsements align to the skills    Bilingual Education                 Can Be Taught
+ and expertise necessary to          Endorsement as well as the
+                                                                         OEE Guidance- Self-contained
+ deliver the standards?              appropriate grade band
+                                                                         flexibility
+                                     endorsement.
+                                                                         Registry of Educational
+                                                                         Personnel Data Field Manual
+ Question 4 – What standard(s)       Not Applicable (N/A)                Not Applicable (N/A)
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+
+                                                                                                           9
+Course Example: Newcomer Scenario 2
+Secondary, Self-Contained Newcomer Program (vs. Course, see below) (Integrated ELD)
+A teacher who is appropriately placed in this self-contained, multi-hour program (more than just a
+double block) is a certified teacher who holds any endorsement at the grades they are serving with an
+ESL or Bilingual Education endorsement.
+ Questions                           Answers                             Resources
+ Question 1 – What are the           WIDA ELD Standards and              6-8 WIDA ELD Standards
+ standards that will be instructed   identified additional content       9-12 WIDA ELD Standards
+ in this course?                     standards to be taught in the
+                                     content areas.                      ELA Standards
+                                                                         Math Standards
+                                                                         Science Standards
+                                                                         Social Studies Standards
+ Question 2 – What is the course     Miscellaneous Other SCED code       Course SCED Codes
+ code that aligns to the             – 22999. Secondary, Self-
+ standards instructed in the         Contained Newcomer programs
+ course?                             do not have a designated SCED
+                                     code. The LEA will choose
+                                     22999, Miscellaneous.
+                                     The EL Setting (code 02- English
+                                     learner Course) under the
+                                     Course Funding Program Code in
+                                     the Student Course Component
+                                     will be added.
+ Question 3 –What teacher            The teacher will have the ESL or    OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                 Placement Guidance
+ and expertise necessary to          Endorsement as well as any
+                                                                         OEE Guidance- Self-contained
+ deliver the standards?              required secondary certification.
+                                                                         flexibility
+                                                                         Registry of Educational
+                                                                         Personnel Data Field Manual
+ Question 4 – What standard(s)       Elective credit (for the ELD        N/A
+ based; pre-planned credit will      standards) + course content
+ students who demonstrate            credit for the standards that
+ proficiency earn?                   were instructed.
+                                     Given the uniqueness of this
+                                     program type, the content credit
+                                     awarded will vary by
+                                     demonstration of proficiency.
+
+
+
+
+                                                                                                        10
+Course Example: Newcomer Scenario 3
+Secondary Newcomer Course (vs. Program, see above) (Integrated ELD)
+A teacher that is appropriately placed in this program is a certified teacher who holds the endorsement
+that is appropriate to the content being taught with an ESL or Bilingual Education endorsement.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards and the         6-8 WIDA ELD Standards
+ standards that will be instructed   Michigan Social Studies            9-12 WIDA ELD Standards
+ in this course?                     standards (ex. Double Blocked
+                                                                        Michigan K-12 Social Studies
+                                     US History course for
+                                                                        Standards
+                                     Newcomers)
+ Question 2 – What is the course     04101 – US History                 Course SCED Codes
+ code that aligns to the             Comprehensive
+ standards instructed in the
+                                     The EL Setting (code 02- English
+ course?
+                                     learner Course) under the
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or   OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                Placement Guidelines
+ and expertise necessary to          Endorsement as well as an
+                                                                        OEE Guidance- Self-contained
+ deliver the standards?              appropriate social studies
+                                                                        flexibility
+                                     grade-level endorsement.
+                                                                        Registry of Educational
+                                                                        Personnel Data Field Manual
+ Question 4 – What standard(s)       US History credit                  N/A
+ based, pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+Course Example: Newcomer Scenario 4
+Secondary Newcomer Course (Designated ELD)
+A teacher that is appropriately placed in this program is a certified teacher who holds the endorsement
+that is appropriate to the content being taught with an ESL or Bilingual Education endorsement.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards and the         6-8 WIDA ELD Standards
+ standards that will be instructed   Michigan ELA State standards       9-12 WIDA ELD Standards
+ in this course?
+ Question 2 – What is the course     01008 English as a Second          Course SCED Codes
+ code that aligns to the             Language
+ standards instructed in the
+                                     The EL Setting (code 02- English
+ course?
+                                     learner Course) under the
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or   OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                Placement Guidelines
+ and expertise necessary to          Endorsement as well as an
+                                                                        OEE Guidance- Self-contained
+ deliver the standards?
+                                                                        flexibility
+
+                                                                                                       11
+ Questions                           Answers                               Resources
+                                     appropriate social studies
+                                                                           Registry of Educational
+                                     grade-level endorsement.
+                                                                           Personnel Data Field Manual
+ Question 4 – What standard(s)       Elective credit for ELD               N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+Program Model: English as a Second Language (Push in or Pull out)
+Description: An ESL Program Model uses a variety of techniques, strategies, methodology, and special
+curriculum designed to teach EL students English language skills, which may include listening, speaking,
+reading, writing, study skills, comprehension, content vocabulary, and cultural orientation. ESL
+instruction is primarily taught in English with translation used to support meaning.
+
+Appropriate Teacher Placement: Teachers in ESL programs should hold a teaching certificate. In
+addition, the teacher must hold an ESL or Bilingual Education (YA-YT, Y_) endorsement that is valid for
+the grade in which they are placed.
+
+        Scenario 1: An elementary student is placed in a general education 1st-grade class, and an
+        appropriately certified and ESL or Bilingual education endorsed teacher pulls the student out of
+        their classroom to provide direct designated ELD instruction in ESL designed to teach the
+        language of English. The ESL teacher’s endorsement must cover the grades taught. The
+        classroom teacher should be trained in appropriate methodologies for delivering content
+        instruction that is accessible/comprehensible to students learning English (meaningful access).
+
+        Scenario 2: A secondary student is placed in non-sheltered 9th-grade courses with a SIOP trained
+        teacher. The general education teachers are responsible for instructing the content in an
+        accessible/comprehensible manner, and an appropriately certified ESL or Bilingual Education
+        endorsed teacher pulls the student out of their content courses for direct ELD instruction with a
+        frequency and duration that is needed to support the student in learning academic English and
+        meets the minimum requirements. Additional specificity on the required duration of ELD by
+        proficiency level will be released in Spring 2025.
+
+        Scenario 3: A secondary student is placed in an ESL course that runs for one or two blocks every
+        day. All the students in the class are English Learners, and the focus of the course is to provide
+        designated ELD and teach the English language (not English Language Arts). The focal standards
+        of this course are the WIDA ELD Standards. An appropriately certified ESL or Bilingual Education
+        endorsed teacher will have one of these endorsements that is valid in the grade band being
+        instructed. The initial certification is not relevant to this course. For example, if a teacher has an
+        elementary certificate with aK-12 ESL endorsement, they would be appropriately placed in this
+        course because they are using their expertise as a K-12 ESL teacher.
+
+
+
+
+                                                                                                            12
+Course Example: ESL Scenario 1 (Grade 1)
+Elementary, ESL Push In or Pull Out (Designated ELD)
+A teacher who is appropriately placed in this program is a certified teacher who has an ESL or Bilingual
+Education endorsement with an endorsement or certification for the grades they are serving.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards                 WIDA ELD Standards (Page 25)
+ standards that will be instructed   It is possible for additional
+                                                                        ELA Standards (Used to support
+ in this course?                     standards to be taught in the
+                                                                        the instruction in the General
+                                     content areas.
+                                                                        Education classroom)
+ Question 2 – What is the course     No SCED Code – The teacher is      Course SCED Codes
+ code that aligns to the             not the teacher of record
+ standards instructed in the
+                                     Services are provided by pulling
+ course?
+                                     or pushing into other content
+                                     areas
+ Question 3 –What teacher            The teacher will have the ESL or   OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                Placement Guidelines
+ and expertise necessary to          Endorsement as well as an
+                                                                        Registry of Educational
+ deliver the standards?              elementary endorsement
+                                                                        Personnel Data Field Manual
+                                     and/or certification.
+ Question 4 – What standard(s)       N/A                                N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+
+Course Example: ESL Scenario 2 (Grade 9)
+Secondary, Push in Pull Out (Designated ELD)
+A teacher who is appropriately placed in this program is a certified teacher who has an ESL or Bilingual
+Education endorsement and holds an endorsement or certification for the grades they are serving.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           ELD, EL services, or Co-teaching   9-12 WIDA ELD Standards
+ standards that will be instructed   WIDA ELD Standards
+                                                                        ELA Standards (Used to support
+ in this course?                     It is possible for additional
+                                                                        the instruction happening in the
+                                     standards to be taught in the
+                                                                        General Education classroom)
+                                     content areas.
+ Question 2 – What is the course     No SCED Code – The teacher is      Course SCED Codes
+ code that aligns to the             not the teacher of record.
+ standards instructed in the
+                                     Services are provided by pulling
+ course?
+                                     or pushing into other content
+                                     areas
+ Question 3 –What teacher            The teacher will have the ESL or   OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                Placement Guidelines
+ and expertise necessary to          Endorsement.
+                                                                        Registry of Educational
+ deliver the standards?
+                                                                        Personnel Data Field Manual
+
+
+
+
+                                                                                                           13
+ Questions                           Answers                             Resources
+ Question 4 – What standard(s)       N/A                                 N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+Course Example: ESL Scenario 3 (Secondary)
+Secondary ESL Course (Designated ELD)
+A teacher who is appropriately placed in this program is a certified teacher, has an ESL or Bilingual
+Education endorsement, and who holds an endorsement that is valid for the appropriate grade band (for
+example, K-12), accompanied by a teacher certificate in any grade band.
+ Questions                           Answers                             Resources
+ Question 1 – What are the           WIDA ELD Standards                  9-12 WIDA ELD Standards
+ standards that will be instructed   It is possible for additional
+ in this course?                     standards to be taught in the
+                                     content areas.
+ Question 2 – What is the course     01992 ELD                           Course SCED Codes
+ code that aligns to the
+ standards instructed in the
+ course?
+ Question 3 –What teacher            The teacher will have the ESL or    OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                 Placement Guidance
+ and expertise necessary to          Endorsement as well as an
+                                                                         Registry of Educational
+ deliver the standards?              elementary or secondary
+                                                                         Personnel Data Field Manual
+                                     certification
+ Question 4 – What standard(s)       Elective credit                     N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+Program Model: Sheltered English Instruction
+Description: A Sheltered English Instruction Program uses instructional approaches designed to make
+academic instruction in English understandable to EL students. In a sheltered classroom, teachers
+incorporate strategies such as physical activities, visual aids, and the environment to teach vocabulary
+and academic content in mathematics, science, social studies, and other subjects. There is a dual,
+simultaneous focus on learning the WIDA ELD standards while learning the identified content standards.
+
+Appropriate Teacher Placement: Teachers in Sheltered English programs must hold a teaching
+certificate that is valid for the grade/content in which they are placed. In addition, the teacher must hold
+an ESL or Bilingual Education (YA-YT, Y_) endorsement.
+
+        Scenario 1: An elementary student is placed in a grade-level classroom where the instruction is
+        designed for students learning English. Every lesson delivered is carefully planned for language
+        access and the integrated ELD along with the content being presented. Sheltered teachers are
+        appropriately certified with the self-contained endorsement for the grade taught and endorsed
+        for their content, hold the ESL or Bilingual Education endorsement, and are the teacher of
+        record for the student. Teachers in these programs readily use the SIOP methodologies to make
+        the learning comprehensible and to develop the student’s proficiency in English.
+
+        Scenario 2: A secondary student is placed in a Sheltered ELA course in 9th grade. The teacher is
+        appropriately endorsed with a 9-12 ELA endorsement as well as an ESL or Bilingual Education
+                                                                                                         14
+endorsement. The course is designed to meet the needs of students learning English and covers
+the grade-level ELA content standards.
+
+NON-EXAMPLE: A secondary student is placed in a Sheltered ELA course in 9th grade. The
+teacher is appropriately endorsed with a 9-12 ELA endorsement and is trained in SIOP. The
+course is designed to support meaningful access, to meet the needs of students learning English,
+and to provide instruction in the grade-level ELA content standards. This course does not
+qualify as part of the ELD instruction required by the Language Assistance Program (LAP). To
+qualify as a sheltered course and meet the compliance requirements of the LAP, the teacher
+must also have the ESL or Bilingual Education endorsement and provide integrated ELD.
+
+
+
+
+                                                                                             15
+                                                                                                   ■
+Course Example: Sheltered Instruction Scenario 1
+Elementary, Sheltered Instruction (Integrated ELD)
+A teacher who is appropriately placed in this sheltered instruction program is a certified teacher who
+holds an endorsement for the grades they are serving with an ESL or Bilingual Education endorsement.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards                 ELD Standards (Page 61)
+ standards that will be instructed   The elementary content             ELA Standards
+ in this course?                     standards for the content area     Math Standards
+                                     that will be addressed.            Science Standards
+                                                                        Social Studies Standards
+ Question 2 – What is the course     Self-Contained Grade Level         Course SCED Codes
+ code that aligns to the
+                                     The EL Setting (code 02- English
+ standards instructed in the
+                                     learner Course) under the
+ course?
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or   OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                placement Guidelines
+ and expertise necessary to          Endorsement as well as
+                                                                        Registry of Educational
+ deliver the standards?              elementary certification
+                                                                        Personnel Data Field Manual
+ Question 4 – What standard(s)       N/A                                N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+Course Example: Sheltered Instruction Scenario 2
+Secondary, Sheltered Instruction – 9th grade ELA (Integrated ELD)
+A teacher that is appropriately placed in this sheltered instruction program is a certified teacher who
+holds an endorsement in the grades and content they are serving and has an ESL or Bilingual Education
+endorsement.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards                 9-12 WIDA ELD Standards
+ standards that will be instructed   ELA Michigan
+                                                                        ELA Standards
+ in this course?
+ Question 2 – What is the course     01001 – 9th grade ELA              Course SCED Codes
+ code that aligns to the
+                                     The EL Setting (code 02- English
+ standards instructed in the
+                                     learner Course) under the
+ course?
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or   Appropriate Placement
+ endorsements align to the skills    Bilingual Education                Guidelines
+ and expertise necessary to          Endorsement as well as an ELA
+                                                                        Registry of Educational
+ deliver the standards?              endorsement and secondary
+                                                                        Personnel Data Field Manual
+                                     certification
+
+
+
+                                                                                                         16
+ Questions                          Answers                            Resources
+ Question 4 – What standard(s)      ELA Credit                         The content credit awarded will
+ based; pre-planned credit will     ELD Elective Credit                vary by demonstration of
+ students who demonstrate                                              proficiency.
+ proficiency earn?
+
+Program Model: Dual Language Education (DLE) Program
+Description: In Dual Language Education Programs, also known as two-way, one-way, or developmental
+Bilingual Education Programs, the goal is for students to develop language proficiency in two languages
+by receiving instruction in English and another language in a classroom that is often comprised of half
+native English speakers and half native speakers of the other language. DLE programs may be 50/50 with
+instruction in each target language is divided equally, or 90/10, 80/20, etc. with instruction gradually
+shifts from the non-English target language to English.
+
+There are two main program types in DLE programs.
+
+        Two Way – A two-way dual language program is based on the premise that two groups of
+        students (each with different home languages, in the United States, one being English) learn
+        together in a systematic way so that both groups become bilingual and biliterate in the two
+        languages. (Source: IDRA.org)
+
+        One Way – A one-way dual language program is a program that serves a single group of
+        students with the same language to learn both English and the other language with the goal of
+        becoming bilingual and biliterate.
+
+Note: This guidance is designed to support LEAs in maintaining compliance and best practices for
+English Learners. If your dual language program does not include English learners, the following
+guidance does not apply.
+
+Appropriate Teacher Placement: Teachers in the DLE program should hold the Bilingual Education
+endorsement for the non-English language being taught. If the teacher does not have the Bilingual
+Education endorsement, the ESL endorsement can be considered if the individual holds the
+corresponding world language endorsement (FA-FS) or has passed the appropriate OPI or similar
+language proficiency exam at the required level aligned to the ACTFL Proficiency Guidelines 2024.
+
+        Scenario 1: In an elementary 50/50 DLE model where students move between two teachers,
+        one that teaches in English and another that teaches in the target language, at least one of the
+        teachers (preferably the teacher teaching English) should have the appropriate grade level self-
+        contained endorsement as well as the Bilingual Education endorsement (preferred) or the ESL
+        endorsement with required language proficiency. This model can also be staffed by a single
+        teacher teaching in both languages, but in this model, the teacher is required to hold the
+        Bilingual Education endorsement or the ESL endorsement with required language proficiency.
+
+        Scenario 2: In an elementary 90/10 or 80/20 DLE model where students are served by their
+        single teacher all day, all teachers serving should have the Bilingual Education endorsement
+        (preferred) or the ESL endorsement with required language proficiency. As students progress in
+        their grades and their percentages become more balanced, if students begin to be taught by
+        two teachers daily, at least one of them must hold a Bilingual Education or ESL endorsement.
+        The example is provided for a 50/50 Grade 2 DLE classroom.
+
+
+
+                                                                                                       17
+       Scenario 3: In a secondary 50/50 DLE program, students have half of their courses per day in
+       English and half of their courses in the target language. The student's course load must include
+       at least one of the teachers must have the Bilingual Education Endorsement (preferred) or ESL
+       endorsement with required language proficiency. The example is provided for a 50/50 Grade 9
+       DLE program.
+
+Course Example: DLE Scenario 1 50/50 Model (Grade 2)
+Elementary, Dual Language Education Program (Integrated ELD)
+A teacher who is appropriately placed in this DLE model holds the Bilingual Education endorsement for
+the non-English language being taught. If the teacher does not have the Bilingual Education
+endorsement, the ESL endorsement can be considered if the individual holds the corresponding world
+language endorsement (FA-FS) or has passed the appropriate OPI or similar language proficiency exam
+at the required level aligned to the ACTFL Proficiency Guidelines 2024.
+ Questions                           Answers                             Resources
+ Question 1 – What are the           WIDA ELD Standards:                 WIDA ELD Standards (Page 83)
+ standards that will be instructed   The elementary content
+                                                                         ELA Standards/SLA* Standards
+ in this course?                     standards for the content area
+                                                                         (Spanish language)
+                                     that will be addressed.
+                                                                         Math Standards
+                                                                         Science Standards
+                                                                         Social Studies Standards
+ Question 2 – What is the course     Self-Contained Grade Level          Course SCED Codes
+ code that aligns to the
+                                     The EL Setting (code 02- English
+ standards instructed in the
+                                     learner Course) under the Course
+ course?
+                                     Funding Program Code in the
+                                     Student Course Component will
+                                     be added.
+ Question 3 –What teacher            The teacher will have the ESL or    OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education Endorsement     Placement Guidelines
+ and expertise necessary to          OR an ESL endorsement with an
+                                                                         Registry of Educational
+ deliver the standards?              elementary Self-Contained
+                                                                         Personnel Data Field Manual
+                                     certification
+ Question 4 – What standard(s)       N/A                                 N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+Course Example: DLE Scenario 2 90/10 Model (Grade 2)
+Elementary, Dual Language Education Program (Integrated ELD)
+A teacher who is appropriately placed in this DLE model holds the Bilingual Education endorsement for
+the non-English language being taught. If the teacher does not have the Bilingual Education
+endorsement, the ESL endorsement can be considered if the individual holds the corresponding world
+language endorsement (FA-FS) or has passed the appropriate OPI or similar language proficiency exam
+at the required level aligned to the ACTFL Proficiency Guidelines 2024.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards                 Grade 2-3 WIDA ELD Standards
+ standards that will be instructed   The elementary content
+                                                                        ELA Standards/ SLA Standards
+ in this course?                     standards for the content area
+                                                                        (if the non-English Language is
+                                     that will be addressed.
+                                                                        Spanish)
+                                                                        Math Standards
+
+                                                                                                          18
+ Questions                           Answers                            Resources
+                                                                        Science Standards
+                                                                        Social Studies Standards
+ Question 2 – What is the course     Self-Contained Grade Level         Course SCED Codes
+ code that aligns to the
+                                     The EL Setting (code 02- English
+ standards instructed in the
+                                     learner Course) under the
+ course?
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or   Appropriate Placement
+ endorsements align to the skills    Bilingual Education                Guidelines
+ and expertise necessary to          Endorsement OR an ESL
+ deliver the standards?              endorsement with an                Registry of Educational
+                                     elementary Self-Contained          Personnel Data Field Manual
+                                     certification
+ Question 4 – What standard(s)       N/A                                N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+Course Example: DLE Scenario 3 50/50 Model (Grade 9)
+Secondary, Dual Language Education Program (Integrated ELD)
+A teacher that is appropriately placed in this DLE model holds the Bilingual Education endorsement for
+the non-English language being taught and the appropriate secondary certificate with relevant content
+endorsements for the assignment (for example, secondary math for a 9th-grade math teacher). If the
+teacher does not have the Bilingual Education endorsement, the ESL endorsement can be considered if
+the individual holds the corresponding world language endorsement (FA-FS) or has passed the
+appropriate OPI or similar language proficiency exam at the required level aligned to the ACTFL
+Proficiency Guidelines 2024.
+ Questions                           Answers                            Resources
+ Question 1 – What are the           WIDA ELD Standards                 9-12 WIDA ELD Standards
+ standards that will be instructed   The secondary content
+                                                                        ELA Grade 9 Standards (It is
+ in this course?                     standards for the content area
+                                                                        used to support the instruction
+                                     that will be addressed as with
+                                                                        happening in the General
+                                     ELA Grade 9.
+                                                                        Education classroom.)
+ Question 2 – What is the course     SCED Code for the relevant         Course SCED Codes
+ code that aligns to the             content such as 01001 for 9th
+ standards instructed in the         grade ELA.
+ course?
+                                     The EL Setting (code 02- English
+                                     learner Course) under the
+                                     Course Funding Program Code
+                                     in the Student Course
+                                     Component will be added.
+ Question 3 –What teacher            The teacher will have the ESL or   OEE Guidance – Appropriate
+ endorsements align to the skills    Bilingual Education                Placement Guidelines
+ and expertise necessary to          Endorsement as well as
+                                                                        Registry of Educational
+ deliver the standards?              secondary certification with an
+                                                                        Personnel Data Field Manual
+                                     ELA ( or other relevant content)
+                                     endorsement.
+                                                                                                          19
+ Questions                          Answers                             Resources
+ Question 4 – What standard(s)      ELA Credit                          N/A
+ based; pre-planned credit will
+ students who demonstrate
+ proficiency earn?
+
+Closing
+The updated "Appropriate Placement of Teachers Serving in English as a Second Language (ESL),
+Sheltered English, Bilingual Education, Newcomer, and Dual Language Programs Guide" represents a
+significant step forward in supporting ELs in Michigan. By providing clear, actionable guidance for LEAs
+on planning, staffing, and implementing ELD programs, the guide ensures compliance with federal and
+state requirements while promoting the academic success of EL students.
+This framework benefits EL students in Michigan by ensuring they are taught by highly qualified,
+appropriately endorsed educators who are equipped to meet their unique linguistic and academic
+needs. With access to programs designed to remove language barriers, EL students are empowered to
+engage meaningfully in their education, achieve their full potential, and build the skills necessary for
+lifelong success.
+Additionally, the guide strengthens LEAs by offering pathways for educator certification, supporting
+professional growth, and ensuring schools have the resources and tools to meet the unique needs of
+their students. By prioritizing access, and excellence, Michigan reaffirms its commitment to creating
+educational environments where all students can thrive, contributing to stronger communities and a
+brighter future for English learners across the state. If questions arise, contact MDE-OES at MDE-
+EL@Michian.gov.
+
+
+
+
+                                                                                                           20
+

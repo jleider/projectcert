@@ -1,0 +1,4726 @@
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+Effective: June 2, 2022
+TABLE OF CONTENTS
+Chapter 1 – Regulatory Authority – Purpose – Definitions
+1-1.0
+Regulatory Authority; Purpose ............................................................................................ 3
+1-2.0
+Definitions ................................................................................................................................... 4
+Chapter 2 –Types of Permits and Licenses
+2-1.0
+Career-Technical Permit .............................................................................................................. 12
+2-2.0
+Ancillary License ......................................................................................................................... 12
+2-3.0
+Provisional License...................................................................................................................... 12
+2-4.0
+Standard License ......................................................................................................................... 12
+2-5.0
+Standard Lifetime Teaching License ........................................................................................... 12
+2.60
+Career Continuum ....................................................................................................................... 12
+Chapter 3 – Preparation for Licensure
+3-1.0
+Approved Program or Pathway Required .................................................................................... 15
+3-2.0
+Institute of Higher Education....................................................................................................... 18
+3-3.0
+Alternative Educator Preparation Programs ................................................................................ 19
+3-4.0
+Educational Leadership Preparation Programs ............................................................................ 19
+3-5.0
+State Review Process ............................................................................................................ 20
+3-6.0
+Suspension or Discontinuance of Program Approval .................................................................. 20
+Chapter 4 – Application Requirements
+4-1.0
+Application for a Career-Technical Permit .................................................................................. 22
+4-2.0
+Application for a Standard License – In-State Applicants ........................................................... 22
+4-3.0
+Application for a Standard License – Out-of-State Applicants (Reciprocity) .............................. 26
+4-4.0
+Application for the Standard Lifetime Teaching License ............................................................ 29
+4-5.0
+Application for a Provisional License – Alternative Educator Preparation Program
+Applicants ............................................................................................................................. 30
+4-6.0
+Application for a Provisional License – Professional Provisional Teaching License
+(PPTL) Pathway Applicants ................................................................................................ 32
+4-7.0
+Application for a Standard License – Highly Qualified Professor (HQP) Pathway Applicants…34
+4-8.0
+Application for a Provisional License – Arkansas Professional Educator Preparation (ArPEP)
+Applicants .................................................................................................................................... 35
+4-9.0
+Application for a Provisional License – Out-of-Country Applicants ........................................... 36
+4-10.0 Application for Ancillary License ............................................................................................... 39
+4-11.0 Adding Endorsements, Areas, and Levels of Licensure .............................................................. 40
+Addition of Areas and Endorsements to a Standard License by Reciprocity ....................... 42
+4-12.0 Application for an Educator Career Continuum Designation on a Standard License .................. 43
+Chapter 5 – License Effective Dates, Renewal, Reinstatement, and Conversion
+5-1.0
+License Effective Dates .............................................................................................................. 46
+5-2.0
+License Renewal ......................................................................................................................... 46
+5-3.0
+Reinstatement of a Suspended .................................................................................................... 48
+5-4.0
+Reinstatement of a Revoked License .......................................................................................... 48
+5-5.0
+Miscellaneous Provisions ........................................................................................................... 52
+Chapter 6 – Administrator Endorsement Requirements
+6-1.0
+Building-Level Administrator Endorsement ............................................................................... 55
+6-2.0
+Program Administrator Endorsement ......................................................................................... 57
+6-3.0
+District-Level Administrator Endorsement ................................................................................. 59
+Chapter 7 – Licensure Exceptions
+7-1.0
+Licensure Exceptions Generally ................................................................................................. 61
+7-2.0
+Emergency Teaching Permit ....................................................................................................... 61
+7-3.0
+Effective Teacher Licensure Exception ...................................................................................... 63
+7-4.0
+Additional Licensure Plan (ALP) ............................................................................................... 63
+7-5.0
+Administrator Licensure Completion Plan (ALCP) .................................................................... 65
+7-6.0
+Substitute Teachers ..................................................................................................................... 66
+ADE 317-1
+
+Agency #005.16
+
+7-7.0
+
+Waivers from Licensure Rules or Laws...................................................................................... 67
+
+Appendix A – Areas and Levels of Licensure .................................................................................................................................. 68
+Appendix B – Application Fees......................................................................................................................................................... 75
+
+ADE 317-2
+
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 1:
+REGULATORY AUTHORITY – PURPOSE – DEFINITIONS
+1-1.0
+
+REGULATORY AUTHORITY AND PURPOSE
+1-1.01 These Rules shall be known as Arkansas Department of Education Division of
+Elementary and Secondary Education Rules Governing Educator Licensure.
+1-1.02 The State Board of Education enacts these Rules pursuant to its authority as set
+forth in Ark. Code Ann. §§ 6-11-105, 6-15-1004, 6-15-1703, 6-17-401 et seq.,
+6-17-422, 6-17-2601 et seq., 6-20-2204, 6-20-2305, 6-41-609, 6-61-133, 25-15201 et seq., and Acts 513, 657, and 746 of 2021.
+1-1.03 The purposes of these Rules are to:
+
+1-1.04
+
+1-1.03.1
+
+Establish requirements and procedures for the issuance, licensure,
+re-licensure, and continuance of licensure of educators in the public
+schools of this state, as required by Ark. Code Ann. § 6-17-402;
+
+1-1.03.2
+
+Provide for the acceptance of educator licenses by reciprocity, as
+required by Ark. Code Ann. § 6-17-403;
+
+1-1.03.3
+
+Implement as a prerequisite to licensure the requirement of
+assessments adopted by the State Board of Education, as required
+by Ark. Code Ann. §§ 6-17-402, 6-17-601, and 6-15-1004;
+
+1-1.03.4
+
+Implement as a prerequisite to licensure the requirement of collegelevel coursework in Arkansas History for certain educators, as
+required by Ark. Code Ann. § 6-17-418;
+
+1-1.03.5
+
+Provide for the issuance of Provisional Licenses, as required by
+Ark. Code Ann. §§ 6-17-403 and 6-17-418;
+
+1-1.03.6
+
+Provide for the issuance of provisional and standard licenses
+through alternative educator preparation programs, under Ark. Code
+Ann. § 6-17-409; and
+
+1-1.03.7
+
+Provide for a Lifetime Teaching License, under Ark. Code Ann. §
+6-17-2601 et seq.
+
+Provide the minimum requirements for Division approval of educator
+preparation programs offered by an institution of higher education in
+ADE 317-3
+
+Agency #005.16
+
+Arkansas and alternative educator preparation programs based on the
+recommendations of the Professional Licensure Standards Board under Ark.
+Code Ann. § 6-17-422.
+1-2.0
+
+DEFINITIONS
+For the purposes of these Rules:
+1-2.01 “Accredited College or University” means an institution of higher education
+that is regionally or nationally accredited by an accrediting organization
+recognized by the U.S. Department of Education or the Council for Higher
+Education Accreditation.
+1-2.02 “Accredited School Psychology program” means a program of study for
+school psychology that is offered by an accredited college or university, and the
+program is:
+1-2.02.1
+
+Nationally accredited in school psychology by the Commission on
+Accreditation of the American Psychological Association; or
+
+1-2.02.2
+
+Approved by the National Association of School Psychologists
+(NASP) or
+
+1-2.02.3
+
+Nationally accredited by an accrediting organization recognized by
+the U.S. Department of Education or the Council for Higher
+Education Accreditation.
+
+1-2.03 “Accredited Speech-Language Pathology Program” means a speechlanguage pathology program that is offered by an accredited college or
+university, and the program is:
+1-2.03.1
+
+Nationally accredited by the Council on Academic Accreditation in
+Audiology and Speech-Language Pathology of the American
+Speech-Language-Hearing Association; or
+
+1-2.03.2
+
+Nationally accredited by an accrediting organization recognized by
+the U.S. Department of Education or the Council for Higher
+Education Accreditation.
+
+1-2.04 “Accredited Approved Educator Preparation Program” means an educator
+preparation program that is:
+
+1-2.04.1
+
+Accredited by an accrediting organization recognized by the U.S.
+Department of Education or the Council for Higher Education
+Accreditation; and
+
+1-2.04.2
+
+Approved by the licensing authority of a state government.
+ADE 317-4
+
+Agency #005.16
+
+1-2.05 “Additional Licensure Plan (ALP)” means a plan approved by the Office of
+Educator Licensure that allows an individual holding a Standard License or
+Provisional License (by reciprocity only) to accept employment or assignment
+in an out-of-area position, prior to completion of the requirements for the
+required endorsement, licensure content area, or level of licensure, for no more
+than six (6) consecutive semesters.
+1-2.06 “Administrator License” means an endorsement to a standard five (5)-year
+renewable license, issued by the State Board, which allows the license holder
+to serve as an administrator in an educational entity.
+1-2.07 “ Administrator Licensure Completion Plan (ALCP)” means a plan
+approved by the Office of Educator Licensure that allows an individual
+holding a Standard License to accept employment as an administrator, prior to
+completion of the requirements for an Administrator License, for no more than
+six (6) consecutive semesters.
+1.2.08 “Alternate Assessment Plan (AAP)” means a plan submitted by a building or
+district level administrator approved by the Office of Educator Licensure on
+behalf of an applicant for a standard license in a first time licensure area (See
+Appendix A) who has not demonstrated competency in their subject matter
+content with a passing score on a State Board approved content area
+assessment.
+1-2.09 “Alternative Educator Preparation Program” means a program of study
+approved by the Division for candidates who have a bachelor’s degree and are
+preparing for licensure as teachers and leaders in public schools in this state.
+1-2.10 “Ancillary License” means a five (5)-year renewable license, issued by the
+State Board, that does not require prior classroom teaching experience, and
+which allows the license holder to practice in Arkansas public schools in a
+licensure area identified on Appendix A, excluding an administrator’s
+endorsement.
+1-2.11 “Approved Professional Development” means the continuing learning
+experiences for educators that meet the standards and focus areas under the
+Division’s Rules Governing Professional Development.
+1-2.12 “Approved Program for Educator Preparation” means an educator
+preparation program that is approved by the Division of Elementary and
+Secondary Education to prepare candidates for a license issued by the State
+Board of Education.
+1 -2.13 “ArkansasIDEAS” means Internet Delivered Education for Arkansas Schools,
+a partnership between the Division and the Arkansas Educational Television
+Network (AETN) to provide through the AETN access to high-quality, online
+professional development for Arkansas licensed educators.
+
+ADE 317-5
+
+Agency #005.16
+
+1 -2.14“ Arkansas Professional Educator Preparation Program (ArPEP)” means
+the alternative educator preparation program administered by the Division,
+whose participants hold a minimum of a baccalaureate degree (and have
+passed the appropriate state-mandated assessments) and are allowed to teach
+with a Provisional License. The program requirements consist of two (2) years
+of teaching and instructional modules, which must be completed within three
+(3) years.
+1 -2.15 “Building-Level Administrator” means a principal, assistant principal, or
+vice principal in an educational entity.
+1-2.16 “Candidate” means an individual who has been admitted into an educator
+licensure program.
+1-2.17 “Charter School” includes an open-enrollment public charter school,
+conversion public charter school, or other type of public charter school
+authorized under Arkansas law.
+1-2.18 Clinical experiences” means the activities for candidates in educator
+preparation programs that allow early and ongoing practice opportunities to
+apply content and pedagogical knowledge, such as observations, tutoring,
+assisting teachers and administrators, and practicums.
+1-2.19 “Clinical Internship” means a culminating clinical practice experience that can
+be of varying duration but no less than 15 weeks. The clinical internship takes
+place in an authentic educational setting where teacher candidates engage in the
+pedagogical work of the profession of teaching, closely integrated with educator
+preparation instruction and supported by a formal school-educator preparation
+partnership. Placements must reflect the subject area and grade level of the
+license being sought.
+1-2.20“Core Academic Subject Areas” means the following areas approved by the
+State Board:
+Elementary Education (K-6);
+English Language Arts;
+Mathematics;
+Science;
+Social Studies;
+Art;
+Music; and
+Foreign Language
+1-2.21“District-Level Administrator” means a superintendent, assistant/associate
+superintendent, or deputy superintendent.
+1-2.22“Division” means the Arkansas Department of Education Division of
+Elementary and Secondary Education.
+ADE 317-6
+
+Agency #005.16
+
+1.2.23 “Division recognized external micro-credential” means a single or a stacked
+micro-credential that meets the following criteria:
+1-2.23.1
+Is developed by a state, regional, or national educational
+organization;
+1-2.23.2
+
+Is based on peer-reviewed education research;
+
+1-2.23.3
+
+Utilizes national standards or competencies;
+
+1-2.23.4
+Contains rigorous requirements for research, performance
+(including submission of artifacts), and self-reflection.
+1-2.24“Educational Entity” means a public school district, a charter school, an
+education service cooperative, or other public entity that is assigned a
+local education agency number by the Division.
+1-2.25“Educator” means any individual holding a license issued by the State Board,
+specifically including, without limitation, teachers, administrators, library
+media specialists, and counselors.
+1-2.25.1
+
+“Educator” also includes a nonlicensed person employed under the
+educational entity’s waiver of licensure.
+
+1-2.26 “Educator preparation program” means a planned sequence of academic
+courses and experiences leading to a recommendation for licensure by the State
+Board.
+1-2.27 “Educator Preparation Program Completer” means a person who has
+completed all coursework/modules and program requirements of a state
+approved program of study.
+1-2.28“Effective Leader” has the meaning given that term in the state’s plan adopted
+under the Elementary and Secondary Education Act of 1965, Pub. L. No. 89-10,
+as reauthorized by the Every Student Succeeds Act, Pub. L. No. 114-95.
+1-2.29“Effective Teacher” has the meaning given that term in the state’s plan adopted
+under the Elementary and Secondary Education Act of 1965, Pub. L. No. 89-10,
+as reauthorized by the Every Student Succeeds Act, Pub. L. No. 114-95.
+1-2.30 “Endorsement” means any licensure area or licensure level that may be added
+only to an existing Standard License.
+1-2.31“Exception area endorsement” means an endorsement that is not available by
+testing out.
+1-2.32“Good Standing” means, for the purpose of reciprocity, that:
+ADE 317-7
+
+Agency #005.16
+
+1-2.32.1
+
+There are no ethics proceedings or proceedings on criminal
+offenses for which the license would be subject to sanctions in
+Arkansas pending against a licensee;
+
+1-2.32.2
+
+The licensee has not been sanctioned for an ethics violation or
+criminal offense for which the license would be subject to sanction
+in Arkansas during the three (3) most recent years of teaching
+experience, if any; and
+
+1-2.32.3
+
+The license has not been revoked by or is not currently under
+suspension in the licensing state or country based on an offense for
+which the license would be subject to sanction in Arkansas.
+
+1-2.33 “Level of Licensure” or “Licensure Level” means the grade/age level
+parameter of the educator license as identified in Appendix A, Areas and
+Levels of Licensure.
+1-2.3 4 “Licensure Content Area” means a particular content field as recognized by
+the State Board. Licensure content areas are listed in Appendix A, Areas and
+Levels of Licensure.
+1-2.35“Licensed teaching experience” means teaching in a K-12 public or private
+school while holding a standard or provisional teaching license, or the
+equivalent if the applicant is seeking licensure reciprocity. Teaching experience
+under a licensure exception does not count as licensed teaching experience;
+1-2.36“Licensure exception” is an exception (formerly a ‘waiver’) from the legal
+requirement that a position at an educational entity must be filled by a person
+holding the appropriate license issued by the State Board. Licensure exceptions
+approved by the State Board are identified in Chapter 7 of these rules.
+1-2.37 “Micro-credential” means a form of certification earned through
+demonstrating competency/mastery in a specific skill or set of skills.
+1 -2.38 “Out-of-Area Position” means a licensed position requiring a particular
+license, endorsement, licensure content area, or level of licensure that the
+employee filling the position does not currently hold.
+1-2.39 “Passing Score” for a state-mandated assessment for licensure means the cut
+score on the assessment approved by the State Board.
+1-2.39.1
+
+A passing score on a licensure assessment approved by the State
+Board before the currently approved version of an assessment will
+be accepted for five (5) years after the date the State Board
+discontinued or replaced the assessment provided the passing score
+was achieved before the date the assessment was discontinued or
+replaced.
+ADE 317-8
+
+Agency #005.16
+
+1-2.40 “Preservice Teacher” means an unlicensed person who is enrolled as a student
+in an educator preparation program approved by the Division.
+1-2.41 “Primary partnership” means a partnership that meets all the requirements of
+a state-recognized partnership while also requiring established and explicit
+processes for identifying and responding to educational entities areas of
+need(e.g., ESL or Special Education teachers); collaborative development of
+candidate selection criteria; collaborative design of high-quality, need-based
+clinical experiences; and collaborative implementation of high-quality clinical
+experiences with engagement of both partners throughout the partnership.
+1-2.42“Private Credential Evaluation Agency” means an independent agency
+approved by the Division that:
+1-2.42.1
+
+Is located in the United States; and
+
+1-2.42.2
+
+Provides an educational background assessment that:
+1-2.42.2.1 Contains a course-by-course evaluation of the
+applicant’s transcript;
+1-2.42.2.2 Indicates the applicant’s major area of study and
+documents the candidate’s cumulative grade point
+average;
+1-2.42.2.3 Documents whether the applicant’s out-of-country
+degree is equivalent to one that would have been
+completed at an accredited college or university in the
+United States;
+1-2.42.2.4 Documents whether the out-of-country professional
+preparation program is equivalent to one that would
+have been completed at an approved educator
+preparation program or accredited speech-language
+pathology or school psychology program;
+1-2.42.2.5 Indicates the areas of licensure represented by the outof-country license; and
+1-2.42.2.6 Documents which areas of licensure on the out-ofcountry license are equivalent to the areas of
+licensure approved by the State Board.
+
+1-2.4 3 “Professional Development” means a coordinated set of planned, learning
+development activities for teachers that are based on research, are standardsbased and that meet the focus areas for professional development required by
+the Division.
+ADE 317-9
+
+Agency #005.16
+
+1.2.44 “Program Administrator” means a school leader who is responsible for
+program development and administration, and who may be responsible for
+employment evaluation decisions, in content areas approved by the State Board
+1-2.45 “Program of Study” means a curriculum that requires a candidate to
+demonstrate and document competency in the specific knowledge, skills, and
+dispositions for a particular endorsement to an educator’s license, a licensure
+content area, or level of licensure, and is:
+1-2.45.1
+
+Provided by one (1) or more accredited colleges or universities, or
+an alternative educator preparation program;
+
+1-2.45.2
+
+Aligned with Arkansas Teaching Standards and the appropriate
+content knowledge and pedagogical competencies for the
+respective licensure areas; and
+
+1-2.45.3
+
+Approved by the Division.
+
+1-2.46“Provisional License” means a temporary license issued by the State Board
+that allows the license holder to teach or work in Arkansas schools.
+1-2.47 “Reciprocity” means the recognition of a teaching license from another state or
+country based on these Rules or the terms of the National Association of State
+Directors of Teacher Education and Certification (NASDTEC) Interstate
+Agreement for Educator Licensure.
+1-2.48 “Secondary Partnership” means a partnership that meets all the requirements
+of a state-recognized partnership with educational entities or accredited private
+schools with which they do not have a primary partnership, but where enrolled
+candidates are placed for clinical experiences.
+1-2.49“Semester” means the fall or spring of an academic year. If an educational
+entity uses a different method of academic year scheduling (such as a twelvemonth academic year), the Division and the educational entity will identify a
+semester equivalent.
+1-2.50“SPED 101 Academy” means a three (3) credit hour course developed by
+institutions of higher education based on competencies developed in
+collaboration with the Division Educator Preparation Unit, Special Education
+Unit, and public school districts, public charter schools, and education service
+cooperatives.
+1-2.51 “Stacked micro-credential” means a series of micro-credentials, each of which
+builds upon a previous micro-credential in the series;
+1-2.52“Standard License” means a five-year renewable license, issued by the State
+Board, where a recipient has demonstrated content knowledge and
+ADE 317-10
+
+Agency #005.16
+
+understanding of pedagogical practice required to perform professional
+education services for the licensure content area and licensure level specified
+on the license.
+1-2.53“Standard License Equivalent” means a current, unrestricted, nonprobationary, non-provisional teaching license that allows an individual to
+work as a teacher, administrator, counselor, or library media specialist in
+another state’s public schools and is in good standing with the licensing state.
+1-2.54“State Board” means the Division of Elementary and Secondary State Board of
+Education.
+1-2.55 “State-Recognized Partnership” means a partnership that establishes the roles
+and responsibilities of educator preparation faculty educational entities or
+accredited private schools, including clinical educators and supervisors, and
+establishes clear expectations regarding the delivery of candidate support and
+evaluation.
+1-2.56“Successful completion of background checks” means that the individual
+cleared both the state and federal criminal history checks and cleared the
+Child Maltreatment Central Registry check as provided under the DESE Rules
+Governing Background Checks.
+1-2. 57“Teacher of Record” means an individual (or individuals in co-teaching
+assignments) who has been assigned the lead responsibility for a student’s
+learning in a subject/course with aligned performance measures.
+
+ADE 317-11
+
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 2:
+TYPES OF PERMITS AND LICENSES
+
+2-1.0 CAREER-TECHNICAL PERMIT
+2-1.01 A Career-Technical Permit authorizes the permit holder to teach in an identified
+career or technical content area. An applicant must meet the requirements of the
+Division of Career Education for a Career-Technical Permit.
+2-2.0 ANCILLARY LICENSE
+2-2.01 An Ancillary License is a license to provide specific services to students in
+areas identified on Appendix A, and that does not require prior classroom
+teaching experience.
+2-3.0 PROVISIONAL LICENSE
+2-3.01 A Provisional License is a temporary license issued in specific circumstances
+approved by the State Board under which an applicant for a Standard License
+has not completed all of the requirements for the Standard License. A
+Provisional License authorizes the license holder to teach in the identified
+licensure level and content areas during the term of the license.
+2-4.0 STANDARD LICENSE
+2-4.01 A Standard License is a five-year renewable license, issued by the State Board,
+where a recipient has demonstrated content knowledge and understanding of
+pedagogical practice required to perform professional education services for the
+licensure content area and licensure level specified on the license.
+
+2-5.0 STANDARD LIFETIME TEACHING LICENSE
+2-5.01 A Standard Lifetime Teaching License is issued to an applicant based on age or
+retirement eligibility requirements as set forth in these rules, and entitles the
+license holder to a release from annual professional development requirements
+(subject to employment requirements) and from license renewal requirements.
+2-6.0 CAREER CONTINUUM
+2-6.01 To implement the Educator Career Continuum, the Division will issue a
+Standard License based on recommendations for licensure requirements from
+the Professional Licensure Standards Board as follows:
+ADE 317-12
+
+Agency #005.16
+
+2-6.01.1
+
+Early Career Professional Educator Designation: The Early
+Career Professional Educator Designation is a first-time license.
+The licensee may renew the license or seek a Career Professional
+Educator Designation after meeting the requirements for the Career
+Professional Educator Designation.
+
+2-6.01.2
+
+Career Professional Educator Designation: The educator
+holding this standard license will be recognized as a career
+professional with a strong commitment to the teaching profession.
+The requirements for a Career Professional Educator Designation
+will include at a minimum that the applicant meets the requirements
+for an Early Career Professional Educator Designation, has
+completed a minimum of three (3) years of teaching experience,
+and provides verification that the educator has performed at the
+level of an Effective Teacher, as defined in the state’s ESSA Plan,
+or an equivalent measure if the applicant is not employed by an
+Arkansas public school at the time of application.
+
+2-6.01.3
+
+Lead Professional Educator Designation: The Lead Professional
+Educator Designation allows an educator who aspires to a
+leadership role to do so without leaving the classroom. Examples
+of some of these roles include: leading professional learning among
+staff, mentoring, involvement in committee decisions impacting the
+building/district, improving community relations and building
+support. The requirements for a Lead Professional Educator
+Designation will include at a minimum the requirements of the
+Career Professional Educator Designation, has a minimum number
+of years of teaching experience, and provides verification that the
+educator has performed at the level of an Effective Teacher, as
+defined in the state’s ESSA Plan, or an equivalent measure if the
+applicant is not employed by an Arkansas public school at the time
+of application. The applicant will also meet the additional
+requirements for demonstrating competency in teacher leadership
+found in Section 4-12.0.
+
+2-6.01.4
+
+Master Professional Educator Designation: An educator holding
+a Master Professional Educator Designation is recognized in the
+educational community as a high achiever in both subject-matter
+content and pedagogy. An applicant will demonstrate that he or she
+has attained a high level of academic achievement in the content
+area in which they are teaching and is an exemplar in pedagogical
+practice. The requirements for a Master Professional Educator
+Designation will include at a minimum the requirements of the
+Career Professional Educator Designation, that the applicant has a
+minimum number of years of teaching experience and provides
+verification that the educator has performed at the level of an
+Effective Teacher, as defined in the state’s ESSA Plan, or an
+ADE 317-13
+
+Agency #005.16
+
+equivalent measure if the applicant is not employed by an Arkansas
+public school at the time of application. The applicant will also
+meet the additional requirements for the license found in Section 412.0.
+2-6.01.5
+
+An applicant may apply for licensure at any level when the applicant
+meets the requirements for the level.
+
+ADE 317-14
+
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 3:
+PREPARATION FOR LICENSURE
+
+3-1.0 APPROVED PROGRAM OR PATHWAY REQUIRED
+3-1.01 All applicants for licensure shall complete an approved educator preparation
+program or an approved pathway for a licensure level and content area.
+3-1.02 An applicant should consult the Division’s website for the most recently
+approved program or pathway requirements for each permit or license available.
+3-1.03 An educator preparation provider shall apply to the Division for approval based
+on these rules and the Division’s protocol for program approval.
+3-1.03.1
+
+Programs shall include curriculum that addresses the licensure
+requirements in these rules, and requirements established by
+Arkansas statutes governing educator preparation and these rules.
+At a minimum, educator preparation programs for a first-time
+Arkansas standard license shall provide instruction in:
+3-1.03.1.1
+
+The state-approved Arkansas Teaching Standards
+(ATS) and the Teacher Excellence and Support
+System (TESS);
+
+3-1.03.1.2 Scientific Reading Instruction.
+3-1.03.1.2.1
+
+Completers of educator preparation
+programs leading to Elementary
+Education (K-6) or Special Education
+(K-12) licensure cannot receive a
+standard license if a prescribed pathway
+for proficiency credential has not been
+completed. Completers of educator
+preparation providers leading to all other
+licensure areas cannot receive a standard
+license if a Prescribed Pathway for
+Awareness Credential has not been
+completed.
+
+3-1.03.1.2.2
+
+Beginning with the 2022-2023 school
+year, an educator preparation provider
+shall publish on its website information
+describing its program to prepare
+
+ADE 317-15
+
+Agency #005.16
+
+teachers in applicable licensure areas to
+teach reading using scientific reading
+instruction;
+3-1.03.1.3
+
+Child maltreatment, under Ark. Code Ann. § 6-61133;
+
+3-1.03.1.4
+
+Family and Community Engagement, under Ark.
+Code Ann. § 6-15-1703;
+
+3-1.03.1.5
+
+Teen suicide and bullying awareness and
+prevention, under Ark. Code Ann. § 6-17-708 and
+6-17-711;
+
+3-1.03.1.6
+
+Dyslexia professional awareness of the
+characteristics of dyslexia and evidence-based
+interventions and accommodations for dyslexia,
+under Ark. Code Ann. § 6-41-609;
+
+3-1.03.1.7
+
+Human trafficking awareness under Ark. Code Ann.
+§ 6-17-710;
+
+3-1.03.1.8
+3-1.03.1.9
+
+Code of Ethics training; and
+All other state initiatives.
+
+3-1.03.2
+
+All first-time licensure programs must include a method used to
+demonstrate pedagogical competence.
+
+3-1.03.3
+
+All Educator Preparation Programs must establish:
+3-1.03.3.1
+
+State-Recognized Partnerships.
+3-1.03.3.1.1 All educator preparation providers must
+establish at least one primary partnership
+with the educational entity or accredited
+private school of their choice where
+teacher candidates are placed for any
+portion of their clinical experience.
+3-1.03.3.1.2 Secondary Partnerships should be
+established anywhere for any portion of
+their placement of clinical experience.
+
+3-1.03.4
+
+All educator preparation providers shall work with partners to
+design clinical experiences of sufficient depth, breadth, diversity,
+coherence, and duration to ensure that candidates demonstrate their
+developing effectiveness and positive impact on all students’
+learning and development.
+ADE 317-16
+
+Agency #005.16
+
+3-1.03.4.1
+
+First-time licensure programs must include a clinical
+internship of no less than one university semester or
+equivalent.
+
+3-1.03.4.1.1
+
+A candidate in an educator
+preparation program may
+satisfy their clinical internship
+requirement by serving as a teacher
+of record at an education entity or
+accredited private school that
+ensures teachers participate in a
+Division approved novice teacher
+mentoring program.
+
+3-1.03.4.1.2
+
+Exception area endorsement
+programs must include a clinical
+internship if required by the
+Arkansas Educator Competencies
+for the licensure area.
+
+3-1.03.4.2
+
+3-1.03.4.3
+
+Clinical experiences for teacher licensure areas for
+grades K-12, for school administration, or for other
+non-teaching licensure areas, shall be completed in:
+3-1.03.4.2.1
+
+Public K-12 school settings that are
+accredited by the Division;
+
+3-1.03.4.2.2
+
+Accredited private or other public
+school settings where candidates
+experience educator effectiveness and
+district support for teacher or leader
+professional growth and
+development; or
+
+3-1.03.4.2.3
+
+Innovative educational settings
+approved by the Division that engage
+candidates in culturally responsive
+teaching.
+
+Clinical experiences in a B-K licensure program
+shall be completed in:
+3-1.03.4.3.1
+
+ADE 317-17
+
+An early childhood education setting
+accredited by the Division of Child
+Care and Early Childhood Education
+of the Department of Human Services
+
+Agency #005.16
+
+as a Better Beginnings Level 3 or
+higher program; or
+3-1.03.4.3.2
+
+3-1.03.4.4
+
+3-1.03.4.5
+
+Other early childhood education
+setting having state accreditation
+similar to the Arkansas accreditation
+for a Better Beginnings Level 3 or
+higher program.
+
+Clinical experiences in a Pre-K licensure program
+shall be completed in an Arkansas Better Chance
+(ABC) setting.
+An undergraduate educator preparation program
+shall first obtain permission from the Division for
+the placement of a candidate for clinical experience
+into a district receiving intensive support.
+
+3-1.04 An approved educator preparation program is subject to annual review by the
+Professional Licensure Standards Board and the Division for program quality
+and reporting to include without limitation submission of:
+3-1.04.1
+
+The report required under Title II of the Higher Education Act of
+1965, as amended (HEA);
+
+3-1.04.2
+
+Candidate scores on state-mandated licensure assessments;
+
+3-1.04.3
+
+The minority graduate report under Ark. Code Ann. § 6-61-124.
+
+3-1.05 A preservice teacher shall complete all requirements for preservice teachers set
+forth in the Division Rules Governing Background Checks.
+
+3-2.0 INSTITUTION OF HIGHER EDUCATION (IHE) PROGRAMS
+3-2.01 An IHE based educator preparation program that leads to licensure in Arkansas
+must meet the following requirements:
+3-2.01.1 Undergraduate first-time licensure programs and exception area
+licensure endorsement programs must be aligned to the Arkansas
+Educator Competencies for the licensure areas offered.
+3-2.01.2
+
+Prior to implementation of an educator preparation program, a
+public institution of higher education in Arkansas and an out-ofstate institution of higher education offering programs (including
+programs with online coursework) to candidates in Arkansas shall
+be approved by the Arkansas Higher Education Coordinating
+ADE 317-18
+
+Agency #005.16
+
+Board (AHECB) to offer certificate and degree programs leading to
+educator licensure in Arkansas;
+3-2.01.3
+
+An institution of higher education that offers programs in Arkansas
+leading to educator licensure shall be accredited by a national or
+regional accrediting agency that is recognized by the United States
+Department of Education (USDE) or the Council for Higher
+Education Accreditation (CHEA);
+3.02.01.1
+
+3-2.01.4
+
+3-2.02
+
+An IHE-based EPP may seek accreditation from a
+national or regional accrediting agency as a
+measure of program quality.
+
+IHE-based EPP is considered eligible by the Division to provide
+professional education programs leading to educator licensure in
+Arkansas if it meets standards and requirements set forth in the
+Protocol for the Review and Approval of Programs of Study
+Leading to Educator Licensure in Arkansas approved by the State
+Board.
+
+Each IHE shall collaborate with the Division of Higher Education to
+develop a strategic plan for increasing the number of teachers and
+administrators of minority races and ethnicities in the state.
+
+3-3.0 ALTERNATIVE EDUCATOR PREPARATION PROGRAMS
+3-3.01
+
+An alternative educator preparation program that leads to licensure in
+Arkansas at the post-baccalaureate level shall meet the requirements of
+Section 3-1.0 and of the Division’s protocol for program approval approved
+by the State Board.
+
+3-4.0 EDUCATIONAL LEADERSHIP PREPARATION PROGRAMS
+3-4.01
+
+An educational leadership preparation program that leads to an
+administrator’s license shall demonstrate in its program proposal and
+revisions for approval the program’s methods of preparing candidates for
+competency in the educational leadership standards adopted by the State
+Board.
+
+3-4.02
+
+To obtain and maintain state approval, principal leadership programs must
+document in the program’s application for approval:
+3-4.02.1
+
+Rigorous admission requirements for candidates;
+
+3-4.02.2
+
+Primary partnerships with one (1) or more educational entities;
+and
+
+3-4.02.3
+
+A clinical internship requirement that includes site-based and inADE 317-19
+
+Agency #005.16
+
+person interaction among school supervisors, program faculty,
+and candidates.
+3-4.02.4
+
+Programs shall include meaningful leadership interactions
+throughout the program with school personnel, students, and
+community members, with the support of program faculty.
+
+3-5.0 STATE REVIEW PROCESS
+3-5.01 Approved educator preparation programs shall regularly undergo a review process to
+determine if programs are meeting continuous improvement indicators that are aligned
+with Arkansas education workforce needs.
+3-5.01.1
+
+The State Review shall, at a minimum, include:
+3-5.01.1.1
+
+An annual audit of educator preparation providers;
+
+3-5.01.1.2
+
+Periodic, on-site reviews of educator preparation
+providers;
+
+3-5.01.1.3
+
+Annual Reporting of educator preparation providers
+progress in meeting standards; and
+
+3-5.01.1.4
+
+A process for the educator preparation providers to
+address areas needing improvement
+
+3-5.01.2
+
+Onsite reviews will be conducted by teams consisting of peer reviewers
+and content and pedagogical specialist specialists and scheduled to align
+to the current Council for the Accreditation of Educator Preparation onsite cycle. Onsite reviews may be conducted more frequently if areas for
+improvement require more frequent examination.
+
+3-5.01.3
+
+The framework for the review process will consist of domains that
+include, but are not limited to, the evaluation of: candidate recruitment,
+program experience, candidate assessment, employment, and completer
+effectiveness and preparedness.
+
+3-5.01.4
+
+Common data measures will be established by a committee of
+practitioners for the evaluation of the domains.
+
+3-5.01.5
+
+Annual reporting of progress will be shared with education preparation
+providers and stakeholders.
+
+3-6.0 SUSPENSION OR DISCONTINUANCE OF PROGRAM APPROVAL
+ADE 317-20
+
+Agency #005.16
+
+3-6.01
+
+3-6.02
+
+State approval of an educator preparation provider is immediately suspended
+if:
+3-6.01.1
+
+The institution fails to obtain approval by the Arkansas
+Higher Education Coordinating Board to offer certificate and
+degree programs leading to educator licensure in Arkansas,
+or the AHECB approval is discontinued;
+
+3-6.01.2
+
+The institution fails to obtain national or regional
+accreditation, or the national or regional accreditation is
+discontinued; or
+
+3-6.01.3
+
+The educator preparation provider fails to address areas needing
+improvement as identified through the state review process.
+
+If state approval is immediately suspended, the PLSB shall submit a
+recommendation to the State Board for discontinuance of the authority of
+the institution to offer a program of study for educator licensure.
+3-6.02.1
+
+Within thirty (30) days of the occurrence of any of the events
+under Section 3-5.01, an educator preparation provider shall
+inform current students in its programs and shall post on its
+website the institution’s or the provider’s accreditation or state
+approval status.
+
+3-6.02.2
+
+The institution may request a hearing before the State Board on
+the recommendation by providing a written request to the PLSB
+within thirty (30) days of receiving the notice from the PLSB.
+
+3-6.02.3
+
+The written request for a hearing shall be accompanied by the
+institution’s written objections to the recommendation and any
+evidence the institution will present to the State Board.
+
+3-6.02.4
+
+Hearings shall be conducted pursuant to rules of the State Board
+and the Arkansas Administrative Procedure Act, Ark. Code
+Ann. §§ 25-15-201 et seq.
+
+3-6.02.5
+
+After an educator preparation program’s approval is
+discontinued by the State Board, the program shall not admit
+any new student into the program. However, the Division may
+allow candidates already enrolled to complete the program.
+
+ADE 317-21
+
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 4: APPLICATION REQUIREMENTS
+4-1.0 APPLICATION FOR A CAREER-TECHNICAL PERMIT
+4-1.01 A person applying for a Career-Technical Permit shall submit to the Division:
+4-1.01.1
+
+A completed application for licensure with payment of the nonrefundable application fee;
+
+4-1.01.2
+
+Documentation that the applicant has successfully completed all
+background checks required by the Division’s Rules Governing
+Background Checks;
+
+4-1.01.3
+
+Verification by the Division of Career Education that the applicant
+has completed the Department of Career Education requirements
+for the career-technical permit area including without exception:
+
+4-1.01.4
+
+4-1.01.3.1
+
+Transcript evidencing the awarding of a bachelor’s
+or higher degree in the career or technical area to be
+taught; or
+
+4-1.01.3.2
+
+A high school diploma or high school equivalency
+credential and a minimum of four (4) years of
+experience in the career or technical area to be
+taught; and
+
+Documentation of the completion of the following professional
+development, which may be obtained on ArkansasIDEAS, from the
+applicant’s educator preparation program, or by another method of
+delivery approved by the Division under the Rules Governing
+Professional Development:
+4-1.01.4.1
+4-1.01.4.2
+4-1.01.4.3
+4-1.01.4.4
+4-1.01.4.5
+4-1.01.4.6
+
+Family and Community Engagement;
+Child Maltreatment training;
+Teen Suicide Awareness and Prevention;
+Bullying prevention;
+Human trafficking awareness; and
+Code of Ethics training.
+
+4-2.0 APPLICATION FOR A STANDARD LICENSE – IN-STATE APPLICANTS
+4-2.01 A person applying for a first-time Arkansas Standard License who does not
+hold a current, valid educator license from Arkansas or another state or country
+shall submit to the Division:
+ADE 317-22
+
+Agency #005.16
+
+4-2.01.1
+
+A completed application for licensure with payment of the nonrefundable application fee.
+
+4-2.01.2
+
+Documentation that the applicant has successfully completed all
+background checks required by the Division’s Rules Governing
+Background Checks.
+
+4-2.01.3
+
+An official score report reflecting passing scores, as approved by
+the State Board, on the appropriate content-area assessments as
+mandated by the State Board.
+
+4-2.01.3.1
+
+Applicant for an Elementary Education (K-6) or a Special
+Education (K-12) shall pass a subject matter content
+assessment, stand-alone assessment that examines the
+acquisition of knowledge of essential components of
+beginning reading instruction based on the science of
+reading, and demonstrate pedagogical competence.
+
+4-2.01.3.2
+
+An applicant may be eligible for an Alternate Assessment
+Plan if the candidate meets the following criteria:
+
+4-2.01.3.2.1
+
+Has a score within minus two (-2) standard error
+of measurement (SEM) based on the national
+standard or an approved score by the State Board
+on the content area assessment; and
+
+4-2.01.3.2.2
+
+Has Completed an educator preparation program
+or is enrolled in an approved alternate route
+program for licensure; and
+
+4-2.01.3.2.3
+
+Has verification of employment in an accredited
+P-12 Arkansas school
+
+4-2.01.3.2.4
+
+To complete the Alternate Assessment Plan the
+applicant must:
+
+4-2.01.3.2.4.1 Earn a Division approved microcredential(s) or pass a Division approved
+performance based content assessment and
+4-2.01.3.2.4.2 have at least three years of relevant
+teaching experience in the content area as
+demonstrated through successful TESS
+evaluations and the definition of effective
+teacher found under 1- 2.31.
+
+ADE 317-23
+
+Agency #005.16
+
+4-2.01.3.2.4.3 An applicant may receive a renewable
+provisional license based on yearly
+progress on DESE approved identified
+assessment. This renewable provisional
+license is limited for up to three (3) years.
+4-2.01.4
+
+An official transcript from an accredited college or university
+documenting an awarded bachelor’s degree or higher;
+4-2.01.4.1 An applicant whose degree is from a non-accredited
+college or university outside of the United States, shall
+have his or her credentials evaluated by a private
+credential evaluation agency recognized by the
+Division.
+
+4-2.01.5
+
+Verification by the educator preparation program that the applicant
+has completed the approved program of study or approved pathway
+for the licensure level and content area.
+4-2.01.5.1 For purposes of a licensure pathway that is completed
+at a public school district or charter school, the
+superintendent or director shall serve as the licensure
+officer.
+4-2.01.5.2 The verification shall be submitted in the manner and
+form prescribed by the Division.
+4-2.01.5.2.1
+
+4-2.01.6
+
+An applicant who has never been
+licensed and whose most recent
+licensure content area degree or
+educator preparation program was
+completed more than ten (10)
+years before the date of application
+shall be required to complete
+current licensure assessments and
+requirements;
+
+An applicant seeking licensure in Early Childhood (P-4),
+Elementary Education (K-6), Middle Childhood Social Studies (48), or Secondary Social Studies (7-12) shall provide documentation
+of the successful completion of:
+4-2.01.6.1 Three (3) college credit-hours in Arkansas History at an
+accredited institution of higher education; or
+4-2.01.6.2 If the applicant completed an alternative educator
+preparation program or pathway, either:
+
+ADE 317-24
+
+Agency #005.16
+
+4-2.01.7
+
+4-2.01.6.2.1
+
+Three (3) college credit-hours in
+Arkansas History at an accredited
+institution of higher education; or
+
+4-2.01.6.2.2
+
+The 45-hour professional development in
+Arkansas History offered through
+ArkansasIDEAS.
+
+Documentation of the completion of the following professional
+development, which may be obtained on ArkansasIDEAS, from the
+applicant’s teacher education program, or by another method of
+delivery approved by the Division under the Rules Governing
+Professional Development:
+4-2.01.7.1 Family and Community Engagement;
+4-2.01.7.2 Child Maltreatment training;
+4-2.01.7.3 Teen Suicide Awareness and Prevention;
+4-2.01.7.4 Bullying prevention;
+4-2.01.7.5 Human trafficking awareness; and
+4-2.01.7.6 Code of Ethics.
+
+Source: Ark. Code Ann. §§ 6-17-418, 6-17-703, 6-17-709, 6-17-710, 6-17-711
+
+4-2.01.8
+
+The Division may issue a one-year Provisional License to an
+applicant for a Standard License who submits proof of employment
+with an Arkansas educational entity in a position that requires an
+educator license and has:
+4-2.01.8.1 Met all other requirements except for:
+
+4-2.01.9
+
+4-2.01.8.1.1
+
+Completion of the Arkansas History
+requirement, if applicable;
+
+4-2.01.8.1.2
+
+If applicable, the stand-alone reading test.
+
+To convert a Provisional License issued under 4-2.01.8, an
+applicant shall complete the missing requirements before the
+Provisional License expires.
+
+4-2.01.10 If an applicant for first-time licensure or administrator licensure or
+for the addition of a licensure content area, endorsement, or level
+of licensure, was enrolled in a program of study prior to the
+effective date of these rules, and meets all other requirements for
+licensure, the Division may reference and utilize the licensure
+content areas, endorsements, or levels of licensure that were
+ADE 317-25
+
+Agency #005.16
+
+recognized by the State Board immediately prior to the effective
+date of these Rules.
+4-2.01.11 A first-time Arkansas standard license issued under this section will
+be designated as an Early Career Professional Educator
+Designation, unless the applicant qualifies for a standard license for
+the Career Professional Educator Designation under Section 412.01.
+4-3.0 APPLICATION FOR A STANDARD LICENSE – OUT-OF-STATE
+APPLICANTS (RECIPROCITY)
+4-3.01 The Division shall grant reciprocity to a person who holds a current or expired
+Standard License (or Standard License Equivalent) from another state upon
+receipt of the following:
+4-3.01.1 A valid, Standard License (or Standard License Equivalent) that:
+4-3.01.1.1 Was issued in another state; and
+4-3.01.1.2 Has been in good standing during the most recent three
+(3) years of the applicant’s teaching experience;
+4-3.01.2
+
+If applicable a completed application for licensure with payment of
+the non-refundable application fee;
+
+4-3.01.3
+
+Documentation that the applicant has successfully completed all
+background checks required by the Division’s Rules Governing
+Background Checks;
+
+4-3.01.4
+
+Documentation that the applicant has completed at least three (3)
+years of teaching under the out-of-state license.
+4-3.01.4.1 An applicant who has not completed three (3) years of
+teaching under the out-of-state license shall also submit
+an official score report:
+4-3.01.4.1.1
+
+reflecting passing scores on the
+appropriate content-area assessments
+required by the licensing state, including
+for licensure in Elementary Education
+(K-6) or Special Education (K-12) the
+stand-alone reading assessment, as
+adopted by the State Board; or
+
+4-3.01.4.1.2
+
+if the licensing state does not require such
+assessments, reflecting passing scores, as
+approved by the State Board, on the
+
+ADE 317-26
+
+Agency #005.16
+
+appropriate content-area assessments as
+mandated by the State Board, including
+for licensure in Elementary Education
+(K-6) or Special Education (K-12) the
+stand-alone reading assessment, as
+adopted by the State Board;
+4-3.01.4.1.2
+
+4-3.01.4.1.3
+
+4-3.01.5
+
+The Division may issue a
+Provisional License for up
+to three (3) years for an
+applicant who has not
+completed the stand-alone
+reading assessment;
+
+An out-of-state applicant may also be
+eligible for the Alternate Assessment Plan
+as referenced in section 4-2.01.3.2.
+
+For an applicant whose out-of-state license is expired, an official
+score report reflecting passing scores, as approved by the State
+Board, on content-area assessments as mandated by the State Board,
+including for licensure in Elementary Education (K-6) or Special
+Education (K-12) the stand-alone reading assessment, as adopted by
+the State Board.
+4-3.01.5.1
+
+The Division may issue a Provisional License for up
+to three (3) years for an applicant who has not
+completed the stand-alone reading assessment;
+
+4-3.01.6
+
+An official transcript documenting an awarded bachelor’s degree or
+higher from an accredited college or university;
+
+4-3.01.7
+
+Documentation of one (1) of the following:
+4-3.01.7.1
+
+Successful completion of a program of teacher
+education at a nationally or regionally accredited
+institution of higher education, but only if the
+applicant possesses a Standard License Equivalent;
+
+4-3.01.7.2
+
+Successful completion of an educator preparation
+program that is nationally accredited by an
+accrediting organization recognized by the United
+States Department of Education, the Council for
+Higher Education, or the Council for the
+Accreditation of Educator Preparation (CAEP); or
+
+4-3.01.7.3
+
+If the applicant is a National Board Certified
+Teacher, documentation of current certification from
+ADE 317-27
+
+Agency #005.16
+
+the National Board of Professional Teaching
+Standards.
+4-3.01.8
+
+For applicants seeking licensure in Early Childhood (P-4),
+Elementary Education (K-6) or for any elementary licensure level
+that includes a grade within K-6, Middle Childhood Social Studies
+(4-8), or Secondary Social Studies (7-12), documentation of the
+successful completion of three (3) college credit-hours in Arkansas
+History at an accredited college or university or a 45-hour
+professional development piece in Arkansas History through
+ArkansasIDEAS;
+4-3.01.8.1 The Division may issue a one-year Provisional License
+for an applicant who has not completed the Arkansas
+history requirements of 4-3.01.8;
+
+4-3.01.9
+
+Documentation of the completion of the following professional
+development through the Arkansas IDEAS Portal:
+4-3.01.9.1 Family and Community Engagement;
+4-3.01.9.2 Child Maltreatment training;
+4-3.01.9.3 Teen Suicide Awareness and Prevention;
+4-3.01.9.4 Bullying prevention;
+4-3.01.9.5 Human trafficking awareness; and
+4-3.01.9.6 Code of Ethics.
+
+4-3.01.10 The Division may issue a Provisional License for an applicant who
+has not completed the professional development under Section 43.01.9.
+4-3.02 An out-of-state license that is provisional or less than a Standard License
+Equivalent in the issuing state will not be accepted for reciprocity.
+4-3.03 Licensure content areas, levels, and endorsements listed on an out-of-state
+license shall be recognized for licensure through reciprocity, as follows:
+4-3.03.1
+
+Only the licensure content areas, levels, or endorsements
+specifically listed on an out-of-state license shall be recognized for
+a first-time Arkansas Standard License through reciprocity;
+
+4-3.03.2
+
+An out-of-state applicant shall receive the Arkansas-equivalent
+licensure content areas, endorsements, or levels of licensure
+provided all other licensure requirements have been met;
+
+4-3.03.3
+
+An applicant whose licensure content area, endorsement, or level is
+not recognized by Arkansas shall receive the licensure content area,
+endorsement, or level of licensure that most closely parallels their
+ADE 317-28
+
+Agency #005.16
+
+out-of-state licensure area, endorsement, or level; and
+4-3.03.4
+
+For the purpose of reciprocity, the Division may reference and
+utilize any licensure content area, endorsement, or level of licensure
+that has ever been recognized by the State Board in the past,
+regardless of whether the area, endorsement, or level is current.
+
+4-3.04 The Division may recommend to the State Board that a person’s Arkansas
+Standard License issued by reciprocity be revoked, suspended, surrendered or
+placed on probation if the out-of-state license is revoked, suspended, or placed
+on probation, as applicable, by the issuing state for any reason that a Standard
+License may be revoked, suspended, or placed on probation in Arkansas.
+4-3.05 The Division may rescind a license issued by reciprocity that was no longer in
+good standing at the time the Arkansas license was issued.
+4-3.06 A first-time Arkansas license issued under this section will carry the Educator
+Career Continuum designation for which the applicant is qualified under Section
+4-2.11.
+4-4.0
+
+APPLICATION FOR THE STANDARD LIFETIME TEACHING LICENSE
+4-4.01 Applicants for the Standard Lifetime Teaching License shall meet the following
+eligibility requirements:
+4-4.01.1
+
+Hold a current or expired Arkansas Standard License;
+
+4-4.01.2
+
+Be at least sixty-two (62) years of age or retired from active
+teaching under Ark. Code Ann. §§ 24-7-701, 24-7-702, or 24-7704; and
+
+4-4.01.3
+
+Document that the applicant has either:
+4-4.01.3.1 While maintaining an Arkansas teaching license,
+worked in an educational setting, including without
+limitation a public school, a private school, an
+institution of higher education, an education service
+cooperative, the Division, an adult education setting or
+for another agency/organization that employs licensed
+teachers for educational purposes; or
+4-4.01.3.2 Made significant contributions to education,
+educational research, or the profession of teaching
+through scholarly endeavors, teaching experience,
+excellence in teaching, or educational innovation;
+
+4-4.02 The Division shall issue a Lifetime Teaching License upon:
+
+ADE 317-29
+
+Agency #005.16
+
+4-4.02.1
+
+The applicant submitting to the Division a completed application
+requesting the Lifetime Teaching License, using the application
+form developed by the Division;
+
+4-4.02.2
+
+Documentation from the Arkansas Teacher Retirement System of
+retirement under Ark. Code Ann. §§ 24-7-701, 24-7-702, or 24-7704; and
+
+4-4.02.3
+
+Documentation that the applicant has successfully completed all
+background checks required by the Division’s Rules Governing
+Background Checks.
+4-4.02.3.1 The required background check or Child Maltreatment
+Central Registry check cannot be older than one year at
+the time of application.
+
+4-4.04 The Lifetime Teaching License shall reflect the applicant’s licensure areas at the
+time of the application.
+4-4.05 A teacher holding a Lifetime Teaching License is not required to renew his or her
+teaching license.
+4-4.06A Lifetime Teaching License is subject to the same laws for revocation as any
+Arkansas teaching license.
+4-4.07 A Lifetime Teaching License holder is not subject to the requirements for annual
+professional development; however, if the license holder is employed at an
+educational entity in a position that requires a license issued by the State Board
+(including a position for which licensure was waived by the State Board), the
+license holder shall comply with the requirements for a professional growth plan
+and the educational entity’s professional development requirements.
+4-4.08 The Lifetime Teaching License shall terminate upon the death or legal incapacity
+of the license holder.
+4-5.0 APPLICATION FOR A PROVISIONAL LICENSE – ALTERNATIVE
+EDUCATOR PREPARATION PROGRAM APPLICANTS
+4-5.01 The Division shall issue a Provisional License for up to three (3) years to an
+applicant who is enrolled in an alternative educator preparation program that is
+approved by the Division upon submission of the following:
+4-5.01.1
+
+A completed application form for the Provisional License, verified
+by the educator preparation program;
+
+4-5.01.2
+
+Official transcript(s) documenting an awarded four-year college
+bachelor’s degree or higher from an institution of higher education
+that is regionally or nationally accredited by an accrediting
+ADE 317-30
+
+Agency #005.16
+
+organization recognized by the U.S. Department of Education or
+the Council for Higher Education Accreditation.
+4-5.01.2.1 For out-of-country candidates, an official college
+transcript evaluation from a private credential
+evaluation agency recognized by the Division;
+4-5.01.3
+
+An official score report evidencing passing scores on the staterequired assessments for the licensure content area in which the
+applicant seeks to teach;
+4-5.01.3.1
+An applicant may also be eligible for the Alternate
+Assessment Plan as referenced in section 4-2.01.3.2.
+
+4-5.01.4
+
+An offer of employment in a position as a teacher of record at an
+educational entity or approved accredited private school in
+Arkansas teaching a minimum of three (3) hours per day in the
+appropriate licensure area(s);
+
+4-5.01.5
+
+Documentation of the completion of the following professional
+development through the ArkansasIDEAS Portal:
+4-5.01.5.1 Family and Community Engagement;
+4-5.01.5.2 Child maltreatment training;
+4-5.01.5.3 Teen suicide awareness and prevention;
+4-5.01.5.4 Bullying prevention;
+4-5.01.5.5 Human trafficking awareness; and
+4-5.01.5.6 Code of Ethics.
+
+4-5.01.6
+
+Documentation of the successful completion of professional
+educator ethics training that meets the guidelines established by the
+Professional Licensure Standards Board.
+4-5.01.6.1 The Division may deny a provisional license to an
+applicant who has been determined to have an ethics
+violation under the Division’s Rules Governing the
+Code of Ethics for Arkansas Educators.
+
+4-5.01.7
+
+Before a candidate may enter a public school classroom, evidence
+that the applicant successfully completed the background checks
+required under the Division’s Rules Governing Background
+Checks.
+
+4-5.01.8
+
+An applicant enrolled in a master’s degree in teaching program
+(MAT, M.Ed., or MTLL) in Special Education shall document
+successful completion of the following before a Provisional License
+ADE 317-31
+
+Agency #005.16
+
+may be issued:
+4-5.01.8.1 SPED 101 Academy or course aligned to the SPED 101
+educator competencies;
+4-5.01.8.2 Three (3) credit hours in special education; and
+4-5.01.8.3 The appropriate content area assessments for special
+education.
+4-5.02 A Provisional License under this Section 4-5.0 is issued to a participant in one (1)
+licensure content area based upon the areas and levels of teaching assignment has
+been approved by the State Board, except as follows:
+
+4-5.02.1
+
+A Middle Childhood (4-8) participant may license in one (1) or more
+of the four (4) middle childhood licensure content areas of math,
+science, social studies, and language arts, and may have one (1) or
+more endorsements at (K-12) or (4-8).
+
+4-5.02.2
+
+A Secondary (7-12) participant must successfully complete one (1)
+secondary licensure content area and may have one (1) endorsement;
+(7-12), (K-12), or (4-12) level.
+
+4-5.02.3
+
+A participant must have a teaching assignment in each licensure
+content area of the Provisional License;
+
+4-5.03 The Division may extend the Provisional License for one (1) additional year for
+extenuating circumstances, as approved by the State Board, but in no event shall
+a Provisional License be issued for more than three (3) years.
+4-5.04 The Provisional License may be converted to a Standard License upon
+completion of the remaining requirements for a Standard License.
+4-5.04.1
+
+An applicant who has completed the American Board for
+Certification of Teacher Excellence (ABCTE) program shall provide
+a recommendation for a Standard License from the applicant’s
+superintendent.
+
+4-6.0 APPLICATION FOR A PROVISIONAL LICENSE –PROFESSIONAL
+PROVISIONAL TEACHING LICENSE (PPTL) PATHWAY APPLICANTS
+4-6.01 The Division shall issue a Provisional License for three (3) years to an applicant
+who is seeking licensure through the Professional Provisional Teaching License
+pathway upon submission of the following:
+4-6.01.1
+
+A completed application form for the Provisional License;
+
+ADE 317-32
+
+Agency #005.16
+
+4-6.01.2
+
+Official transcript(s) documenting an awarded four-year college
+bachelor’s degree or higher from an institution of higher education
+that is regionally or nationally accredited by an accrediting
+organization recognized by the U.S. Department of Education or
+the Council for Higher Education Accreditation.
+4-6.01.2.1 For out-of-country candidates, an official college
+transcript evaluation from a private credential
+evaluation agency recognized by the Division.
+
+4-6.01.3
+
+An official score report evidencing passing scores on the staterequired assessments for the licensure content area in which the
+applicant seeks to teach;
+4-6.01.3.1
+
+An applicant may also be eligible for the Alternate
+Assessment Plan as referenced in section 42.01.3.2.
+
+4-6.01.4
+
+Evidence that the applicant has successfully completed background
+checks required under the Division’s Rules Governing Background
+Checks;
+
+4-6.01.5
+
+Documentation of the completion of the following professional
+development through the ArkansasIDEAS Portal:
+4-6.01.5.1 Family and Community Engagement;
+4-6.01.5.2 Child maltreatment training;
+4-6.01.5.3 Teen Suicide awareness and prevention
+4-6.01.5.4 Bullying prevention;
+4-6.01.5.5 Human trafficking awareness and
+4-6.01.5.6 Code of Ethics.
+
+4-6.01.6
+
+Verification of a minimum of three (3) years of working experience
+in the licensure content area of the class to be taught;
+
+4-6.01.7
+
+Verification of an offer of employment to teach classes in an
+Arkansas educational entity in any first-time license content area
+for a standard license, as identified on Appendix A, except for
+Special Education, Elementary Education (K-6), and Guidance and
+Counseling;
+
+4-6.01.8
+
+One (1) letter of justification from the applicant expressing the
+relevance of the applicant’s credentials to teach the subject in
+question; and
+
+4-6.01.9
+
+Two (2) professional letters of recommendation submitted by
+references to the Division.
+ADE 317-33
+
+Agency #005.16
+
+4-6.02 The Provisional License will be issued for each licensure content area the
+applicant is assigned to teach, as verified by the applicant’s superintendent.
+4-6.03 The applicant shall complete twelve (12) hours each year of the Provisional
+License of training in pedagogy through ArkansasIDEAS as determined by the
+Division.
+4-6.04.1
+
+The hours of training in pedagogy are in addition to and not
+considered a part of the annual professional development
+requirement.
+
+4-6.05 The Provisional License may be converted to a Standard License upon
+completion of the requirements for a Standard License and with a
+recommendation from the superintendent of the employing school district.
+
+4-7.0 APPLICATION FOR A STANDARD LICENSE – HIGHLY QUALIFIED
+PROFESSOR (HQP)
+4-7.01 The Division shall issue a Standard License to an applicant who is seeking
+licensure in a first time licensure area (See Appendix A) through the Highly
+Qualified Professor (HQP) pathway upon submission of the following:
+4-7.01.1
+
+A completed application form for the Standard License;
+
+4-7.01.2
+
+Official transcript(s) documenting an awarded masters degree or
+higher from an institution of higher education that is regionally
+or nationally accredited by an accrediting organization
+recognized by the U.S. Department of Education or the Council
+for Higher Education Accreditation.
+4-7.01.2.1
+
+For out-of-country candidates, an official college
+transcript evaluation from a private credential
+evaluation agency recognized by the Division.
+
+4-7.01.3
+
+Verification of a minimum of three (3) years of teaching
+experience in the licensure content area at an accredited
+institution of higher education.
+
+4-7.01.4
+
+Evidence of pedagogical competence through one of the
+following:
+4.7.01.4.1
+
+Documentation of successful teaching experience
+teaching in the grade level to be licensed, or
+
+4.7.01.4.2
+
+Pedogical competence by completion of twelve
+(12) hours of pedagogy professional development
+ADE 317-34
+
+Agency #005.16
+
+though ArkansasIDEAS; or
+4.7.01.4.3
+
+An official score report evidencing passing scores
+on a current Principles of Learning and Teaching
+exam.
+
+4-7.01.5
+
+If seeking licensure in Elementary Education (K-6) or Special
+Education (K-12) evidence of an official score report reflecting
+passing scores on the stand-alone reading assessment for
+licensure in Elementary Education (K-6) or Special Education
+(K-12) as adopted by the State Board;
+
+4.7.01.6
+
+Evidence that the applicant has successfully completed
+background checks required under the Division’s Rules
+Governing Background Checks;
+
+4-7.01.7
+
+Documentation of the completion of the following professional
+development through the ArkansasIDEAS Portal:
+4-7.01.7.1 Family and Community Engagement;
+4-7.01.7.2 Child maltreatment training;
+4-7.01.7.3 Teen suicide awareness and prevention
+4-7.01.7.4 Bullying prevention
+4-7.01.7.5 Human trafficking awareness; and
+4-7.01.7.6 One (1) hour of Code of Ethics.
+
+4.7.01.8
+
+A one (1) year provisional license may be issued while the
+applicant is completing the required professional development.
+
+4-8.0 APPLICATION FOR A PROVISIONAL LICENSE – ARKANSAS
+PROFESSIONAL EDUCATOR PREPARATION(ArPEP) APPLICANTS
+4-8.01 The Division shall issue a Provisional License for up to three (3) years to an
+applicant who is seeking licensure through the Arkansas Professional Pathway to
+Educator Licensure (ArPEP) program upon submission of the following:
+4-8.01.1
+
+A completed application form for the Provisional License, verified
+by the ArPEP program;
+
+4-8.01.2
+
+Official transcript(s) documenting an awarded four-year college
+bachelor’s degree or higher from an institution of higher education
+that is regionally or nationally accredited by an accrediting
+organization recognized by the U.S. Department of Education or
+the Council for Higher Education Accreditation.
+4-8.01.2.1 For out-of-country candidates, an official college
+ADE 317-35
+
+Agency #005.16
+
+transcript evaluation from a private credential
+evaluation agency recognized by the Division;
+4-8.01.3
+
+An official score report evidencing passing scores on the staterequired assessments for the licensure content area in which the
+applicant seeks to teach;
+4-8.01.3.1
+
+An applicant may also be eligible for the Alternate
+Assessment Plan as referenced in section 2.01.3.2.
+
+4-8.01.4
+
+Evidence that the applicant has successfully completed the required
+background checks under the Division’s Rules Governing
+Background Checks;
+
+4-8.01.5
+
+Verification of an offer of employment to teach classes in an
+Arkansas educational entity, or accredited private school, in a
+licensure content area identified by the ArPEP program; and
+
+4-8.01.6
+
+Documentation of the completion of the following professional
+development through the ArkansasIDEAS Portal:
+4-8.01.6.1 Family and Community Engagement;
+4-8.01.6.2 Child maltreatment training;
+4-8.01.6.3 Teen suicide awareness and prevention;
+4-8.01.6.4 Bullying prevention;
+4-8.01.6.5 Human trafficking awareness: and
+4-8.01.6.6 Code of Ethics.
+
+4-8.02 An applicant enrolled in the ArPEP program shall adhere to and abide by all
+the policies and procedures as outlined in the published ArPEP Program
+Handbook for the year of admission.
+4-8.03 The Division may rescind the Provisional License for the licensee’s failure to
+abide by ArPEP policies and procedures or for the failure to meet any of the
+requirements for the Provisional License.
+4-8.04 The Division may refuse to admit for enrollment in the ArPEP program a
+person who has been dismissed from an educator preparation program at an
+institution of higher education.
+4-9.0 APPLICATION FOR A PROVISIONAL LICENSE – OUT-OF-COUNTRY
+APPLICANTS
+4-9.01 The Division shall issue a two-year Provisional License to an applicant who holds
+an out-of-country license or its equivalent and who:
+4-9.01.1
+
+Submits a completed application for a Provisional License;
+ADE 317-36
+
+Agency #005.16
+
+4-9.01.2
+
+Is not a United States citizen and provides evidence satisfactory to the
+Division that the applicant meets the criteria of an exception under 8
+U.S.C. § 1621 for the state to issue a professional license;
+
+4-9.01.3
+
+Submits documentation of the successful completion of a Divisionapproved assessment of English-language skills; or
+4-9.01.3.1
+
+Has completed a master’s degree or higher at an
+accredited college or university in the United States.
+
+4-9.01.3.2
+
+The Department may waive this requirement for an
+applicant whose out-of-country Standard License
+Equivalent is issued by a country whose official language
+and the language of instruction in higher education is
+English;
+
+4-9.01.4
+
+Submits an official college transcript evaluation from a private
+credential evaluation agency recognized by the Division;
+
+4-9.01.5
+
+Submits proof of employment with an Arkansas public school district,
+charter school, or other agency or organization in a position that
+requires an educator license;
+
+4-9.01.6
+
+Submits documentation that the applicant has successfully completed
+all background checks required by the Division’s Rules Governing
+Background Checks;
+
+4-9.01.7
+
+Submits a copy of the out-of-country license(s) held by the applicant;
+
+4-9.01.8
+
+Submits certification from the country that issued the license that the
+license has been in good standing for the most recent three (3) years;
+
+4-9.01.9
+
+Submits documentation of the completion of the following professional
+development through the ArkansasIDEAS Portal:
+4-9.01.9.1 Family and Community Engagement;
+4-9.01.9.2 Child maltreatment training;
+4-9.01.9.3 Teen suicide awareness and prevention;
+4-9.01.9.4 Bullying prevention;
+4-9.01.9.5 Human trafficking awareness; and
+4-9.01.9.6 Code of Ethics.
+
+4-9.02 The Division may rescind the Provisional License for the licensee’s failure to meet
+any of the requirements for the Provisional License.
+4-9.03 To convert the Provisional License to a Standard License the applicant shall submit
+to the Division:
+ADE 317-37
+
+Agency #005.16
+
+4-9.03.1
+
+An application for a Standard License, including the required
+nonrefundable application fee;
+
+4-9.03.2
+
+For applicants seeking licensure in Elementary Education (K-6),
+Middle Childhood Social Studies (4-8), or Secondary Social Studies
+(7-12), documentation of the successful completion of three college
+credit-hours in Arkansas History at an accredited college or university
+or a 45-hour professional development piece in Arkansas History
+through ArkansasIDEAS;
+
+4-9.03.3
+
+Submission of an official score report reflecting passing scores, as
+approved by the State Board, on the appropriate pedagogical and
+content-area assessments as mandated by the State Board; and
+
+4-9.03.4
+
+For applicants seeking licensure in Elementary Education (K-6) or
+Special Education (K-12), or grade levels within the range of
+Elementary Education (K-6) or Special Education (K-12), an official
+score report reflecting passing scores on the stand-alone reading
+assessment, as adopted by the State Board.
+4-9.03.4.1
+
+The Division may extend the Provisional License for an
+out-of-country applicant who has not completed the
+stand-alone reading assessment at the time of
+application for a Standard License.
+
+4-9.04 Licensure content areas, levels, and endorsements listed on an out-of-country
+license may be recognized for reciprocity in accordance with the credential
+evaluation required in Section 4-10.01.4 of these Rules.
+4-9.04.1
+
+An applicant whose licensure content area, endorsement, or level is not
+recognized by Arkansas shall receive the licensure content area,
+endorsement, or level of licensure that most closely parallels their outof-state licensure area, endorsement, or level.
+
+4-9.04.2
+
+The Division may license the applicant to teach his or her native
+language upon the applicant providing an official score report reflecting
+passing scores, as approved by the State Board, on the appropriate statemandated content area exam and pedagogy exam.
+
+4-9.05 The Division may recommend to the State Board that a person’s Arkansas Standard
+License issued to an out-of-country applicant be revoked, suspended, or placed on
+probation if the out-of-country license is revoked, suspended, or placed on
+probation, as applicable, by the issuing country for any reason that a Standard
+License may be revoked, suspended, or placed on probation in Arkansas.
+
+ADE 317-38
+
+Agency #005.16
+
+4-10.0
+
+APPLICATION FOR ANCILLARY LICENSE
+4-10.01 The Division shall issue an Ancillary License in a licensure area identified on
+Appendix A, upon receipt of the following from an applicant, whether or not
+the applicant is licensed in another state:
+4-10.01.1 A completed application for licensure, with payment of the nonrefundable application fee;
+4-10.01.2 Documentation that the applicant has successfully completed all
+background checks required by the Division’s Rules Governing
+Background Checks;
+4-10.01.3 An official score report reflecting passing scores on the specialty
+area assessment for licensure area as mandated by the State Board;
+and
+4-10.01.4 For a first-time license, documentation of the completion of the
+following professional development through the ArkansasIDEAS
+Portal:
+4-10.01.4.1 Family and Community Engagement;
+4-10.01.4.2 Child maltreatment training;
+4-10.01.4.3 Teen suicide awareness and prevention;
+4-10.01.4.4 Bullying prevention;
+4-10.01.4.5 Human trafficking awareness; and
+4-10.01.4.6 Code of Ethics.
+
+4-10.01.5 An applicant for an ancillary license in Speech-Language
+Pathology shall also submit an official transcript documenting an
+awarded bachelor’s and master’s or higher degree, from an
+accredited college or university, in Speech Language Pathology,
+and either:
+4.10.01.5.1
+
+Successful completion of a graduate-level,
+accredited Speech-Language Pathology program, or
+a degree with equivalent competencies; or
+
+4.10.01.5.2
+
+Certification of Clinical Competence in SpeechLanguage Pathology from the American SpeechLanguage-Hearing Association.; or
+
+4-10.01.6 An applicant for an ancillary license in School Psychology shall
+also submit an official transcript documenting an awarded master’s
+or higher degree that includes 60 hours of graduate level
+coursework in the area, from a NASP accredited state approved
+college or university, in:
+ADE 317-39
+
+Agency #005.16
+
+4-10.02
+
+4-10.01.6.1
+
+School Psychology, or
+
+4-10.01.6.2
+
+Psychology and documenting the applicant’s
+successful completion of a graduate-level, accredited
+School Psychology program.
+
+Other licensure areas for an Ancillary License shall require:
+
+4-10.02.1 Either (a) a master’s degree or higher in the licensure area or (b) a
+bachelor’s degree or higher with post-baccalaureate course work or
+nationally recognized certification for the licensure area; and
+4-10.02.2 Successful completion of the licensure content area assessment, if
+one is approved by the State Board for the licensure content area.
+4-10.03 A licensure content area, endorsement, or level of licensure shall not be added
+to an existing Ancillary License, and the applicant must first obtain a Standard
+License, except upon meeting the requirements for the following
+endorsements:
+4-10.03.1 Program Administrator for Special Education endorsement to an
+Ancillary License in Speech-Language Pathology or School
+Psychology;
+4-10.03.2 Dyslexia endorsement;
+4-10.03.3 English for Speakers of Other Languages (ESOL) endorsement;
+4-10.03.4 Library Media; or
+4-10.03.5 Another licensure area adopted by the State Board as an
+endorsement to an Ancillary License.
+4-11.0 ADDING ENDORSEMENTS, AREAS, AND LEVELS OF LICENSURE
+General Provisions
+4-11.01 Endorsements may be added to a license through a program of study or by
+testing out, as provided in these rules. Endorsements that are not available by
+testing out are known as exception area endorsements. A list of Division
+approved endorsements is published on the Division’s website.
+4-11.02 The Division shall add an endorsement, licensure content area, or level of
+license to a Standard License upon receipt of the following from an applicant:
+4-11.02.1
+
+A completed application for addition of area or level;
+
+ADE 317-40
+
+Agency #005.16
+
+4-11.02.2 An official score report reflecting passing scores, as approved by
+the State Board, on the appropriate licensure content area
+assessment and other applicable assessments mandated by the
+State Board; and
+4-11.02.3
+
+If an endorsement requires a program of study, (see Appendix A)
+an official transcript documenting successful completion of a
+program of study at an accredited approved educator preparation
+program, to include an internship if applicable in the licensure
+content area to be taught.
+4-11.02.3.1
+
+The successful completion of a program of study
+shall be recognized for licensure only if the
+institution’s Licensure Officer signs and verifies
+the application for licensure;
+
+4-11.02.4 An applicant whose program of study was completed more than
+ten (10) years before the date of application shall be required to
+meet all current licensure requirements as determined by either the
+Division or an accredited educational program; For applicants
+seeking an endorsement for Elementary Education (K-6), Middle
+Childhood Social Studies (4-8), or Secondary Social Studies (712), documentation of the successful completion of three (3)
+college credit-hours in Arkansas History at an accredited college
+or university or a 45-hour professional development piece in
+Arkansas History through ArkansasIDEAS; and
+4-11.02.5 For applicants seeking an endorsement for Elementary Education
+(K-6) or Special Education (K-12), or grade levels within the
+range of Elementary Education (K-6) or Special Education (K12), an official score report reflecting passing scores on the standalone reading assessment, as adopted by the State Board.
+4-11.03 To add a licensure level by testing out, the level to be added must be no more
+than one grade level span above or one grade level span below a current
+licensed area, unless the applicant has completed three (3) years of teaching at
+the licensure level sought to be added.
+4-11.03.1 Available licensure levels and areas that may be added to a license
+are provided on Appendix A.
+4-11.04 An individual holding a Standard License first issued with a guidance and
+school counseling licensure area may add Building-Level Administrator by
+meeting the requirements of Section 6-1.0 of these rules.
+4-11.05 To add an Elementary Education (K-6), (7-12) English Language Arts,
+Mathematics, or Science, (7-12) Special Education Resource endorsement by
+program of study, an applicant shall:
+ADE 317-41
+
+Agency #005.16
+
+4-11.05.1
+
+Hold a standard Elementary Education (K-6) or 4-8
+license, or a standard 7-12 license in a content area of
+English Language Arts, Mathematics, or Science;
+
+4-11.05.2
+
+Document successful completion of twelve (12) hours of
+an approved program of study in special education, to
+include:
+4-11.05.2.1
+
+SPED 101 Academy or course aligned to
+the SPED 101 educator competencies;
+
+4-11.05.2.2
+
+An additional nine (9) credit hours in
+special education except that three (3)
+college credit hours of a special education
+survey course successfully completed by
+the applicant in a previous program of
+study may count as three (3) of the nine
+(9) credit hours; and
+
+4-11.05.3 Document successful completion of the special education
+content area assessments approved by the State Board.
+4-11.05.4 The training or coursework, or in combination, under 411.05.2 shall include at a minimum multi-sensory reading
+instruction and classroom management for special
+education.
+4-11.05.5 The successful completion of a program of study shall be
+recognized for licensure only if the institution’s Licensure
+Officer signs and verifies the application for licensure.
+Addition of Areas and Endorsements to an Arkansas Standard License by Reciprocity
+4-11.06
+
+The following applies to an applicant for an endorsement area who holds
+an Arkansas Standard License:
+4-11.06.1
+
+An applicant who completes coursework and testing outof-state for the purpose of adding a licensure area to the
+Arkansas Standard License by reciprocity shall first have
+the areas added to the applicant’s out-of-state license and
+then may apply for reciprocity to add the areas to the
+Arkansas license; and
+
+4-11.06.2
+
+An endorsement area that is identified by these rules as an
+exception area endorsement will not be added by testing
+out through reciprocity, unless the applicant provides
+documentation that the applicant has been employed in the
+ADE 317-42
+
+Agency #005.16
+
+area sought to be added for at least three (3) years in the
+reciprocal state.
+4-11.06.3
+
+Applicants holding an Arkansas license who apply for an
+administrator endorsement by reciprocity, the program of
+study must meet substantially the same requirements as
+set forth in Section 3-4.02 of these rules.
+4-11.06.3.1
+
+The Division may seek a review of the
+program of study by the Professional
+Licensure Standards Board to determine
+the qualification under 4-11.06.3
+
+4-12.0 APPLICATION FOR AN EDUCATOR CAREER CONTINUUM
+DESIGNATION ON A STANDARD LICENSE
+Application for Career Professional Educator Designation:
+4-12.01
+
+An applicant holding an Arkansas Early Career Professional Educator
+Designation in good standing may apply for the designation of Career
+Professional Educator by completing the appropriate online application,
+and providing the following with the online application:
+4-12.01.1 Documentation of three (3) years of licensed teaching
+experience, which may include teaching with a provisional
+license that is in good standing; and
+4-12.01.2 Verification that the applicant has performed at the level of an
+Effective Teacher as evidenced by the applicant’s most recent
+summative evaluation completed before applying for the
+license.
+
+Application for Lead Professional Educator Designation– In-State or By
+Reciprocity:
+4-12.02
+
+An applicant may add the designation of Lead Professional Educator to an
+Arkansas standard license in good standing by completing the appropriate
+online application, and providing the following with the online application:
+4-12.02.1 Documentation of three (3) years of licensed teaching
+experience; and
+4-12.02.2 Verification that the applicant has performed at the level of an
+Effective Teacher as evidenced by the most recent summative
+evaluation, or equivalent completed in the last four (4) years
+before applying for the license; and
+
+ADE 317-43
+
+Agency #005.16
+
+4-12.02.3 Documentation of:
+
+4-4-12.02.3.1 Official score report demonstrating passing
+score, as set by the State Board, on a
+performance assessment approved by the State
+Board for the Lead Professional Educator
+Designation or successful completion of
+Division recognized micro-credentials or a
+Division approved program.
+Application for Master Professional Educator Designation– In-State or By
+Reciprocity:
+4-12.03
+
+An applicant may add the designation of Master Professional Educator to
+an Arkansas standard license in good standing by completing the
+appropriate online application, and providing the following with the online
+application:
+4-12.03.1 Documentation of three (3) years of licensed teaching
+experience; and
+4-12.03.2 Verification that the applicant has performed at the level of an
+Effective Teacher as evidenced by the applicant’s most recent
+summative evaluation completed before applying for the
+license; and
+4-12.03.3 Documentation of one of the following:
+4-12.03.3.1
+
+Receipt of one of the following awards:
+4-12.03.3.1.1 Arkansas Teacher of the Year;
+4-12.03.3.1.2 National Teacher of the Year;
+4-12.03.3.1.3 Out of state Teacher of the Year;
+4-12.03.3.1.4 Milken Educator Award; or
+4-12.03.3.1.5 Presidential Award for Excellence
+in Mathematics and Science
+Teaching; or
+4-12.03.3.1.6 Nationally approved award
+recognized by the State Board.
+
+4-12.02.3.2
+
+Board certification from the National Board for
+Professional Teaching Standards that is a
+current certification at the time of application;
+or
+
+4-12.02.3.3
+
+Successful completion of:
+
+ADE 317-44
+
+Agency #005.16
+
+4-12.02.3.3.1 A master’s degree or higher in
+the content area, or a Master’s
+Degree or higher and 18
+graduate hours in the teacher’s
+content area; and successful
+completion of a DESE-approved
+micro-credential or
+4-12.02.3.3.2 Completion of an approved
+competency based pathway
+aligned with standards adopted
+by the State Board.
+
+ADE 317-45
+
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 5:
+LICENSE EFFECTIVE DATES, RENEWAL, REINSTATEMENT,
+AND CONVERSION
+5-1.0 LICENSE EFFECTIVE DATES
+5-1.01 A Standard License, Ancillary License, or Technical Permit is a renewable
+license, valid for a period of five (5) years.
+5-1.02 A first-time license is effective from the first date issued through December 31
+of the fourth full calendar year following the year of the issue date.
+5-1.02.1
+
+The first year of a first-time license issued after January 1 of the
+calendar year shall expire on December 31 even if the first year is
+not a full calendar year.
+
+5-1.03 The addition of an endorsement, including an Administrator’s License,
+licensure content area, or level of licensure to a license shall reflect the actual
+date of the addition and the same expiration date as the licensee’s Standard
+License.
+5-1.04 The renewal of a license, including all endorsements, licensure content areas,
+and levels of licensure for the license is effective:
+5-1.04.1 For a currently valid license, January 1 of the following year through
+December 31 of the fifth year from the expiration date of the existing
+license; or
+5-1.04.2 For licenses that are expired at the time of renewal, the date the
+expired license was renewed through December 31 of the fifth year
+from the year of renewal.
+5-1.05 A Provisional License term is based on a school year and is effective on the date
+of issuance stated on the license and expires on the last day of the Provisional
+License period.
+5-2.0
+
+LICENSE RENEWAL
+5-2.01 Applications for license renewal may be submitted to the Division no earlier
+than January 1 of the year of expiration of the license.
+5-2.02 An applicant for renewal of a license shall submit the following to the Division:
+5-2.02.1
+
+A completed online application for renewal with payment of the
+ADE 317-46
+
+Agency #005.16
+
+non-refundable application fee;
+5-2.02.2
+
+Documentation that the applicant has successfully completed all
+background checks required by the Division’s Rules Governing
+Background Checks within the twelve-month period before the date
+of the application for renewal;
+
+5-2.02.3
+
+Documentation of the completion of professional development
+requirements including years during which the applicant was not
+employed in an educational entity.
+5-2.02.3.1
+
+The Division may issue a one-year non-renewable
+Provisional License to any applicant who has not
+completed all professional development
+requirements for renewal.
+
+5-2.03 For the renewal of a license that expires on December 31, 2023, and thereafter,
+an applicant shall also provide documentation of an awareness credential in
+knowledge and practices of scientific reading instruction.
+5-2.03.1
+
+If the applicant does not have the required credential, the educator’s
+license will not be renewed.
+
+5-2.03.2
+
+An applicant seeking Elementary (K-6) or Special Education (K-12)
+licensure by reciprocity or by adding an endorsement must
+demonstrate proficiency in the knowledge and skills to teach
+reading consistent with the best practices of scientific reading
+instruction.
+
+5-2.03.3
+
+The Division may issue a Provisional License to an employed
+applicant who has not completed the required awareness credential.
+
+5-2.04 An applicant holding an Arkansas teaching license that is expired for more than
+one (1) year and who obtained the license before state-mandated licensure
+assessments were required by law and by rule for licensure, and who has less
+than three (3) years of teaching experience may renew that teaching license
+by:
+5-2.04.1
+
+Passing the content-area assessment for the requested license; and
+
+5-2.04.2
+
+Completing the remaining requirements of this section 5-2.0 for
+renewal.
+
+5-2.05 Every standard Arkansas educator’s license will be renewed with an Educator
+Career Continuum designation for which the applicant qualifies under Section
+4-12.
+5-2.05.1
+
+A standard Arkansas educator’s license will be renewed with a
+ADE 317-47
+
+Agency #005.16
+
+Career Professional Educator designation unless the applicant
+qualifies for the Lead Professional Educator or Master Professional
+Educator designation.
+
+5-3.0
+
+REINSTATEMENT OF A SUSPENDED LICENSE
+5-3.01 A licensee whose license is suspended shall apply for reinstatement of the
+license by providing the following:
+5-3.01.1
+
+Approval from the Professional Licensure Standards Board of the
+reinstatement from suspension based on its determination that the
+applicant has completed all conditions of the suspension and has
+paid the assessed fine.
+
+5-3.01.2
+
+For reinstatement from suspension requested before the year of
+renewal for the license, the applicant shall submit an application for
+reinstatement.
+
+5-4.0 REINSTATEMENT OF A REVOKED LICENSE
+5-4.01 The State Board may reinstate a revoked license if:
+5-4.01.1
+
+Ten years have passed since the date of revocation if the revocation
+was based on a felony disqualifying offense under § 6-17-410 or an
+ethics violation under § 6-17-428; or
+
+5-4.01.2
+
+Five years have passed since the date the license was revoked if the
+revocation was for any reason other than those set forth in Section
+5-4.01.1 of these Rules.
+
+5-4.02 The State Board shall not reinstate a revoked license when the reasons for the
+revocation concerned the:
+5-4.02.1
+
+Physical or sexual injury of another person;
+
+5-4.02.2
+
+Physical or sexual abuse of another person;
+
+5-4.02.3
+
+Physical mistreatment of another person resulting in death; or
+
+5-4.02.4
+
+Sexual mistreatment of another person.
+
+5-4.03 The State Board may reinstate a revoked license with or without a hearing if
+the applicant provides evidence from the Department of Human Services that
+the Department has removed the applicant’s name from the Child Maltreatment
+Central Registry.
+5-4.03.1 The item will be placed on the Consent agenda for the State Board’s
+ADE 317-48
+
+Agency #005.16
+
+next regularly scheduled monthly meeting following the submission
+of a completed application and relevant evidence.
+5-4.03.2 The State Board may remove the item from the consent agenda for
+further review as follows:
+5-4.03.2.1 The State Board may move to request that the item be
+placed on the action agenda for its next available
+regularly scheduled monthly board meeting for
+review.
+5-4.03.2.2 If the State Board removes the item from the consent
+agenda, the Division shall notify the educator of the
+following:
+5-4.03.2.2.1
+
+The State Board elected to hold a hearing
+to review the educator’s application;
+
+5-4.03.2.2.2 The date, time, and location for the hearing;
+5-4.03.2.2.3 The educator may appear in person, with or
+without an attorney, to present the
+educator’s case to the State Board and
+answer questions.
+5-4.03.2.3
+
+A representative from the Division shall introduce the
+item at the review hearing.
+
+5-4.03.2.4 The educator or his/her attorney may elect to:
+5-4.03.2.4.1
+
+5-4.03.2.5
+
+Appear at the subsequent review meeting
+and have ten (10) minutes to present his or
+her case to the State Board. Additional
+time may be granted at the discretion of
+the board chair. The board members may
+ask questions of the educator or his/her
+attorney or the representative of the
+Division.
+
+If the educator does not appear for the subsequent review
+or send his or her attorney to appear on behalf of the
+educator, the State Board shall conduct the subsequent
+review without the educator or his/her attorney and make
+a final decision.
+
+5-4.04 An application for reinstatement of revoked license must include the
+following:
+
+ADE 317-49
+
+Agency #005.16
+
+5-4.04.1
+
+A written request notifying the Office of Educator
+Effectiveness and PLSB of intent to seek the reinstatement of
+a revoked license;
+
+5-4.04.2
+
+An updated criminal records background check. All
+associated costs are the responsibility of the applicant;
+
+5-4.04.3
+
+A minimum of three reference letters from educational
+professionals attesting to the applicant’s character and fitness
+to serve as an educator. Each individual providing a reference
+must submit the letter directly to the Office of Educator
+Effectiveness and PLSB. The letter must include the
+notarized signature of the individual providing the reference
+and his or her contact information including email address,
+mailing address, and telephone number; and
+
+5-4.04.4
+
+Documentation of having completed any and all
+requirements of any criminal sentence, made restitution if
+applicable, paid any fine issued by the State Board of
+Education for ethics violations and, does not pose a threat to
+the health, safety, and welfare of public school students and
+public school employees.
+
+5-4.04.5
+
+The applicant must meet all current certification
+requirements in place at the time of application for an initial
+certification, including current testing requirements.
+
+5-4.04.6
+
+After receipt of a complete application for reinstatement of a
+revoked license, the Division of Elementary and Secondary
+Education shall send notice to the applicant that he or she
+may request a hearing before the State Board. The applicant
+must request a hearing within 30 days of receipt of notice of
+a completed application.
+
+5-4.04.7
+
+Reinstatement of a Revoked License Hearing Procedures.
+5-4.04.7.1 An individual whose teaching license was
+revoked following an ethics complaint under
+6-17-428 shall release to the State Board any
+confidential information regarding an ethics
+complaint made against the individual upon
+the individual’s application for reinstatement
+of his or her revoked license. Any confidential
+information concerning student information
+regardless of the format of the information,
+which may include, but is not limited to,
+communications (physical and electronic);
+photographs (physical and electronic); audio
+ADE 317-50
+
+Agency #005.16
+
+or video recordings (analog and digital) shall
+be redacted and or edited to protect the
+identity of the person(s) that is currently or
+was a student at the time of the incident.
+5-4.04.7.2 Each party shall exchange exhibits and
+witness lists not less than ten (10) calendar
+days before the scheduled hearing date, unless
+both parties agree to a shorter period of time.
+5-4.04.7.3 Requests for subpoenas must be received in
+the Office of Legal Counsel not less than ten
+(10) calendar days before the hearing date.
+5-4.04.7.4 Each party will have the opportunity to
+present an opening statement of no longer
+than five (5) minutes, beginning with the
+representative of the Division. The
+Chairperson of the State Board may, only for
+good cause shown and upon the request of
+either party, allow either party additional time
+to present their opening statements.
+5-4.04.7.5 Each party will have ten (10) minutes to
+present their cases, beginning with the
+representative of the Division. The
+Chairperson of the State Board may, only for
+good cause shown and upon the request of
+either party, allow either party additional time
+to present their cases.
+5-4.04.7.6 Every witness giving oral testimony must be
+sworn under oath by the Chair of the State
+Board and shall be subject to direct
+examination, cross examination, and
+questioning by the State Board.
+5-4.04.7.7 For the purposes of the record, documents
+offered during the hearing by the Division
+shall be clearly marked “DESE’ and
+numbered in sequential, numeric order (for
+example: DESE-1).
+5-4.04.7.8 For the purposes of the record, documents
+offered during the hearing by the Educator
+shall be clearly marked “Educator” and
+numbered in sequential, numeric order (for
+example: Educator-1).
+ADE 317-51
+
+Agency #005.16
+
+5-4.04.7.9 While the scope of each party’s presentation
+ultimately lies within the State Board
+Chairperson’s discretion, case presentation
+should be arranged in such a way as to avoid
+redundant testimony.
+5-4.04.7.10 After both parties have presented their cases,
+the State Board may allow each party to
+present limited rebuttal testimony.
+5-4.04.7.11 Each party will be given five (5) minutes to
+present a closing argument, ending with the
+Division.
+5-4.05
+
+After a hearing, the State Board may take one (1) or more of the following
+actions:
+
+5-4.05.6
+
+5-5.0
+
+5-4.05.1
+
+Place or grant a license on probationary status for a
+terminable period of time with the license to be revoked or
+suspended if the probationary period is not successfully
+completed;
+
+5-4.05.2
+
+Require a licensee to complete appropriate professional
+development programs, education courses, or both;
+
+5-4.05.3
+
+Impose conditions or restrictions on the teaching or
+educational activities of the applicant;
+
+5-4.05.4
+
+Impose any other requirement or penalty as may be
+appropriate under the circumstances of the case and which
+would achieve the State Board’s desired disciplinary
+purposes; or
+
+5-4.05.5
+
+Take no action against a license.
+
+After making its decision, the State Board shall reduce its decision to
+writing and shall mail copies of the decision to each party and each
+party’s attorney.
+
+MISCELLANEOUS PROVISIONS
+5-5.01 A Standard or Ancillary License may reflect the highest earned degree awarded
+to the licensee in:
+5-5.01.1
+
+Education, if the degree was awarded by an accredited teacher
+education program;
+ADE 317-52
+
+Agency #005.16
+
+5-5.01.2
+
+Educational Leadership, if the degree was awarded by an accredited
+college or university;
+
+5-5.01.3
+
+Speech-Language Pathology, if the degree was awarded by an
+accredited speech-language pathology program;
+
+5-5.01.4
+
+School Psychology, Psychology, or Counseling, if the degree was
+awarded by an accredited school psychology program; or
+
+5-5.01.5
+
+A licensure content area, if the degree was awarded by an
+accredited college or university.
+
+5-5.02 When a licensure content area assessment is not available for a specific licensure
+area, the Division may use a current Principles of Learning and Teaching exam or
+the Division may request that the State Board approve an alternative method of
+demonstrating subject matter content competency.
+5-5.03 An applicant who is not a U.S. citizen shall provide evidence satisfactory to the
+Division that the applicant meets the criteria of an exception under 8 U.S.C. §
+1621 for the state to issue a professional license.
+5-5.04 The Division shall grant active duty service members, returning military veterans,
+and their spouses automatic licensure pursuant to Act 135 of 2021.
+5-5.05 The Division may issue a duplicate of a current license upon application of a
+current license holder, with payment of the non-refundable application fee.
+5-5.06 All information and documentation submitted for an Arkansas teaching license
+must be accurate, authentic, and unaltered. Any license issued as a result of a
+violation of this Section 5-6.07 will be null and void.
+5-5.07 The Division, as authorized by the State Board, reserves the right to amend or
+rescind any license that has been issued in error.
+5-5.08 If an applicant for first-time licensure or administrator licensure or for the addition
+of a licensure content area, endorsement, or level of licensure, was enrolled in a
+program of study prior to July 1, 2015, and meets all other requirements for
+licensure, the Office of Educator Licensure may reference and utilize the licensure
+content areas, tests, endorsements, or levels of licensure that were recognized by
+the State Board prior to the effective date of these Rules.
+5-5.09 The Division shall not remove a licensure content area, or level of licensure, or
+designation once a license is issued, unless issued in error.
+5-5.10 Any license issued by the Division is subject to disciplinary action as provided by
+law, up to and including revocation by the State Board.
+
+ADE 317-53
+
+Agency #005.16
+
+5-5.10.1
+
+The Division may deny a license to an applicant who has been
+determined to have an ethics violation under the Division’s Rules
+Governing the Code of Ethics for Arkansas Educators that is at a level
+equivalent to:
+5-5.10.1.1 Suspension, for the period of the sanction, or
+5-5.10.1.2 Revocation.
+
+ADE 317-54
+
+Agency #005.16
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 6:
+ADMINISTRATOR ENDORSEMENT REQUIREMENTS
+6-1.0 Building-Level Administrator Endorsement
+6-1.01 The Division shall issue a Building-Level Administrator endorsement to a
+Standard License, and as specifically limited in these rules to a standard License
+or Career-Technical Permit that requires a bachelor’s degree, as provided in
+these rules upon receipt of the following:
+6-1.01.1
+
+A completed application for licensure.
+
+6-1.01.2
+
+An official transcript documenting an awarded master’s or higher
+degree from an accredited college or university in:
+6-1.01.2.1 Educational Leadership from a Division approved
+program; or
+6-1.01.2.2 In education or a licensure content area with the
+addition of a Division approved program of study that
+includes coursework in Educational Leadership and an
+internship, with experiences at both the K-6 and 7-12
+grade levels.
+6-1.01.2.3 If an applicant is seeking to add a licensure level to an
+older Building-Level Administrator license that is for
+less than all levels K-12, the applicant must complete a
+current internship for the missing licensure levels.
+6-1.01.2.4 An awarded degree or an approved program of study
+from an institution inside of Arkansas shall be
+recognized for licensure only if the institution’s
+Licensure Officer and Education Leadership Chair sign
+and verify the application for licensure.
+6-1.01.2.5 An applicant who has never received an administrator
+license and whose program of study in Educational
+Leadership was completed more than ten (10) years
+before the date of application shall be required to meet
+all current licensure requirements as determined by
+either the Division or an accredited educational
+leadership program;
+
+ADE 317-55
+
+Agency #005.16
+
+6-1.01.3
+
+An official score report reflecting passing scores, as approved by
+the State Board, on the appropriate administrative licensure
+assessment as mandated by the State Board, at the time of
+application;
+
+6-1.01.4
+
+Documentation of at least three (3) years of P-12 experience as an
+educator.
+
+6-1.01.4.1 One (1) year of experience is defined as a minimum of one
+hundred sixty (160) days of full-time work in a single
+school year, either:
+6-1.01.4.1.1
+
+With a minimum of fifty percent (50%) of
+each day directly engaged in instruction
+with students in a classroom setting; or
+
+6-1.01.4.1.2
+
+As a guidance and school counselor or a
+library media specialist.
+
+6-1.01.4.2 The experience requirement may be satisfied by equivalent
+working experience, including without limitation
+employment with an education service cooperative or the
+Division or postsecondary institution.
+6-1.01.4.3 Teaching experience in a career and technical education
+area as recognized by the State Board may satisfy this
+requirement only if the educator has obtained a bachelor’s
+degree or higher in:
+
+6-1.01.5
+
+6-1.01.4.3.1
+
+The career and technical education area
+taught by the educator; or
+
+6-1.01.4.3.2
+
+Another licensure content area that is
+related to the career and technical education
+area taught by the educator; and
+
+Verification from the applicant’s superintendent that the applicant
+is performing at the level of an Effective Teacher, or an equivalent
+measure of effective performance as demonstrated on a
+performance evaluation if the applicant is not employed by an
+Arkansas public school.
+
+ADE 317-56
+
+Agency #005.16
+
+6-2.0
+
+Program Administrator Endorsement
+6-2.01 The Division shall issue Program Administrator endorsement to the licenses
+specified below upon receipt of the following from the applicant:
+6-2.01.1
+
+A completed application for licensure.
+
+6-2.01.2
+
+An official transcript documenting an awarded master’s or higher
+degree from an accredited college or university in:
+6-2.01.2.1 Educational Leadership from a DESE approved
+program; or
+6-2.01.2.2 Education; or
+6-2.01.2.3 A licensure content area with the addition of a Division
+approved program of study that includes coursework in
+Educational Leadership and an internship, with
+experiences at both the K-6 and 7-12 grade levels; or
+6-2.01.2.4 A Career and Technical Education area recognized by
+the Arkansas Division of Career and Technical
+education with the addition of a Division approved
+program of study that includes coursework in
+Educational Leadership and an internship, with
+experiences at both the K-6 and 7-12 grade levels.
+6-2.01.2.5 An applicant with an older Building-Level
+Administrator license that is for less than all levels K12 who is seeking to add a licensure level shall
+complete a current internship for the licensure levels
+missing from the existing license.
+6-2.01.2.6 An awarded degree or an approved program of study
+from an Arkansas institution shall be recognized for
+licensure only if the institution’s Licensure Officer and
+Education Leadership Chair sign and verify the
+application for licensure.
+6-2.01.2.6.1
+
+For applicants who entered a program of
+study for an administrator’s license on
+and after the Fall of 2021, the program
+of study must meet the requirements of
+Section 3-4.02 of these rules;
+
+6-2.01.2.6.2
+
+An applicant who has never received an
+
+ADE 317-57
+
+Agency #005.16
+
+administrator license and whose
+program of study for
+curriculum/program administrator
+licensure was completed more than ten
+(10) years before the date of application
+shall be required to meet all current
+licensure requirements as determined by
+either the Division or an accredited
+educational leadership program;
+6-2.01.3
+
+An official score report reflecting passing scores, as approved by
+the State Board, on the appropriate administrative licensure
+assessment as mandated by the State Board, at the time of
+application;
+
+6-2.01.4
+
+Documentation of at least three (3) years of licensed experience
+under the terms of an approved teacher employment contract in the
+relevant licensure area as follows:
+
+6-2.01.4.1 Special Education – Classroom teaching experience in
+special education, or experience in speech language
+pathology or school psychology, while employed by a
+public or private school under the terms of an approved
+teacher employment contract and not under a purchaseservice contract;
+6-2.01.4.2 Gifted and Talented Education – Classroom teaching
+experience in the area of gifted and talented education;
+6-2.01.4.3 Career and Technical Education – Classroom teaching
+experience in one (1) or more career and technical
+education areas as recognized by the State Board, if the
+educator has obtained a bachelor’s degree or higher in:
+6-2.01.4.3.1
+
+The career and technical education area
+taught by the educator; or
+
+6-2.01.4.3.2
+
+Another licensure content area that is
+related to the career and technical education
+area taught by the educator, as determined
+by the Division.
+
+6-2.01.4.4 Curriculum-Program Administrator – Experience as a
+school counselor, library media specialist, or classroom
+teacher in any licensure content area or level of licensure;
+or
+
+ADE 317-58
+
+Agency #005.16
+
+6-2.01.4.5 Adult Education – Classroom teaching experience in the
+area of adult education.
+6-2.01.4.6 The experience requirement may be satisfied by equivalent
+working experience, including without limitation
+employment with an education service cooperative or the
+Division or a postsecondary institution.
+6-3.0
+
+District-Level Administrator Endorsement
+6-3.01 The Division shall issue a District-Level Administrator endorsement to a
+Standard License upon receipt of the following from an applicant holding a
+Building-Level or Program Administrator License:
+6-3.01.1
+
+A completed application for licensure.
+
+6-3.01.2
+
+An official transcript documenting an awarded master’s or higher
+degree from an accredited college or university in education,
+educational leadership, or a licensure content area;
+6-3.01.2.1 An awarded degree or an approved program of study
+from an Arkansas institution shall be recognized for
+licensure only if the institution’s Licensure Officer and
+Education Leadership Chair sign and verify the
+application for licensure.
+
+6-3.01.3
+
+An official transcript documenting successful completion of a
+Division-approved, graduate-level program of study, above and
+beyond a master’s degree, reflective of the standards for districtlevel administrator licensure, to include an internship.
+6-3.01.3.1
+
+For applicants who entered a program of study for
+an administrator’s license on and after the Fall of
+2021, the program of study must meet the
+requirements of Section 3-4.02 of these rules;
+6-3.01.3.1
+
+ADE 317-59
+
+An applicant who has never received
+a district-level administrator license
+and whose program of study for
+district-level administrator licensure
+was completed more than ten (10)
+years before the date of application
+shall be required to meet all current
+licensure requirements as determined
+by either the Division or an
+accredited educational leadership
+
+Agency #005.16
+
+program;
+6-3.01.4
+
+An official score report reflecting passing scores, as approved by
+the State Board, on the appropriate administrative licensure
+assessment as mandated by the State Board, at the time of
+application; and
+
+6-3.01.5
+
+Documentation of at least one (1) year of experience under the
+terms of an approved administrator employment contract as a
+building-level or program administrator.
+6-3.01.6 This one-year experience requirement may be satisfied by
+experience with an education service cooperative or the
+Division if the Division determines that the experience is
+substantially equivalent to building-level administration
+experience.
+
+ADE 317-60
+
+Agency #005.16
+
+APPENDIX A
+
+ARKANSAS DEPARTMENT OF EDUCATION
+DIVISION OF ELEMENTARY AND SECONDARY EDUCATION
+RULES GOVERNING EDUCATOR LICENSURE
+CHAPTER 7:
+LICENSURE EXCEPTIONS
+7-1.0 LICENSURE EXCEPTIONS GENERALLY
+7-1.01 Except as specifically allowed by law, rule, or regulation, no person shall be
+employed by a public school in an out-of-area position for more than thirty (30)
+instructional days unless the person meets one of the licensure exceptions of this
+Chapter 7.
+7-1.02 The available licensure exceptions are:
+Emergency Teaching Permit
+Effective Teacher Licensure Exception
+Additional Licensure Plan (ALP)
+Administrator Licensure Completion Plan (ALCP)
+Long-term Substitute Teacher (Note: Beginning 2024-2025 school year, a long-term
+substitute waiver will not be available for a special education vacancy as
+teacher of record)
+Waivers from Licensure Rules or Laws
+7-1.03 Notwithstanding the other provisions of this Chapter 7, if the State Board or the
+Commissioner of Elementary and Secondary Education orders the suspension or
+removal of a superintendent or school board under authority granted under Title 6 of
+the Arkansas Code, the State Board or Commissioner may appoint, subject to state
+law, one (1) or more individuals in out-of-area positions as district-level
+administrators for that public school district.
+7-2.0 EMERGENCY TEACHING PERMIT
+7-2.01 An emergency teaching permit authorizes the permit holder to be hired to fill a
+vacant teaching position without a license as teacher of record.
+7-2.02 Upon submission by an educational entity of the application required by the
+Division, the Division may issue an Emergency Teaching Permit to a non-licensed
+person hired to fill a teaching, school counseling, and library media vacancy under
+the following conditions:
+7-2.02.1
+
+An emergency teaching permit will expire upon the earlier of:
+
+ADE 317-61
+
+Agency #005.16
+
+APPENDIX A
+
+7-2.02.1.1 The date the permit holder leaves the employ of the
+educational entity that requested the permit; or
+7-2.02.1.2 At the end of the school year for which the emergency
+teaching permit was issued, but may be extended for one (1)
+additional school year for extenuating circumstances upon
+the Division’s approval of the school district’s application
+for the extension. The school district’s application must
+demonstrate that the individual employed under the
+emergency teaching permit made progress in acquiring
+licensure for the area covered by the emergency teaching
+permit.
+7-2.02.1.3 The emergency teaching permit will end automatically if the
+individual employed under the permit becomes licensed in
+the area covered by the emergency teaching permit.
+7-2.02.2
+
+A person hired under an emergency teaching permit must have relevant
+work experience in the content area, a bachelor’s degree from an
+accredited college or university, and one of the following requirements:
+7-2.02.2.1 The bachelor’s degree or advanced degree is in the content
+area in which the educator will teach;
+7-2.02.2.2 The bachelor’s degree or advanced degree contains a
+minimum of eighteen (18) college credit hours in the
+content area in which the educator will teach;
+7-2.02.2.3 The educator has successfully completed a content area
+assessment approved by the State Board of Education for the
+content area in which the educator will teach;
+7-2.02.2.4 The educator is a National Board Certified Teacher for the
+content area in which the educator will teach.
+
+7-2.02.3
+
+The permit holder shall successfully complete the state and federal
+criminal records checks and the Child Maltreatment Central Registry
+check in accordance with the Division of Elementary and Secondary
+Education Rules Governing Background Checks.
+
+7-2.02.4
+
+The educational entity shall report the Emergency Teaching Permit as a
+licensure exception in the Division’s data reporting system.
+
+7.2.02.5
+
+The emergency teaching permit cannot be issued for Special Education.
+
+ADE 317-62
+
+Agency #005.16
+
+APPENDIX A
+
+7-3.0 EFFECTIVE TEACHER LICENSURE EXCEPTION
+7-3.01 An educational entity may allow a teacher who meets the definition of an Effective
+Teacher to teach a content area related to the teacher’s current licensure area but for
+which the teacher is not currently licensed, under the following conditions:
+7-3.01.1
+
+The grade level seeking to be taught shall not be more than one (1)
+grade above or one (1) grade below the grade level that the teacher is
+currently licensed in and has received an Effective Teacher in
+summative rating.
+
+7-3.01.2
+
+The Effective Teacher Licensure Exception shall not be used for
+teaching special education.
+
+7-3.01.3
+
+The educational entity has determined that the teacher meets the
+definition of Effective Teacher;
+
+7-3.01.4
+
+The teacher continues to meet the definition of Effective Teacher for
+each school year the teacher teaches in an out-of-area assignment and
+for each content area taught, as reported by the educational entity to the
+Division; and
+
+7-3.01.5
+
+The licensure exception is valid until the educational entity determines
+that the teacher no longer meets the definition of Effective Teacher.
+
+7-3.01.6
+
+The educational entity is not required to obtain Division approval for this
+licensure exception but shall:
+7-3.01.6.1 Report the Effective Teacher Licensure Exception in the
+Division’s data reporting system; and
+7-3.01.6.2 Maintain its records, under the educational entity’s records
+retention policy, on the determination for meeting the
+requirements of this section 7-3.0, which shall be subject to
+Division monitoring.
+
+7-4.0 ADDITIONAL LICENSURE PLAN (ALP)
+7-4.01 The Division shall issue an ALP to an individual holding a Standard License and
+employed in an out-of-area position, upon the submission of a completed
+application for an ALP, Plan of Study, and Justification required by the Division.
+7-4.01.1
+
+An educator who holds a Provisional License is not eligible to be placed
+on an ALP, unless the Provisional License is issued by the Division
+under Section 4-3.0 for reciprocity.
+
+ADE 317-63
+
+Agency #005.16
+
+APPENDIX A
+
+7-4.02 An ALP is valid for a maximum of six (6) consecutive semesters and is not
+renewable.
+7-4.02.1
+
+An ALP requiring a Division-approved program of study shall remain
+valid only so long as the applicant successfully completes:
+7-4.02.1.1 A minimum of three (3) hours of program-of-study
+coursework in the first year of the ALP; and
+7-4.02.1.2 A minimum of six (6) hours of Division-approved programof-study coursework in both the second and third years.
+
+7-4.03 An ALP for testing out of a content area shall be completed as follows:
+7-4.03.1
+
+In the first year of the ALP, the teacher must attempt the content area
+assessment mandated by the State Board.
+
+7-4.03.2
+
+If the applicant does not successfully complete the attempted content
+area assessment within the first year, the educational entity may request
+an additional four (4) consecutive semesters.
+7-4.03.2.1 Until the applicant successfully completes the content area
+assessment, the applicant shall complete a minimum of six
+(6) hours of Division-approved program-of-study
+coursework for each two-semester period remaining in the
+ALP.
+7-4.03.2.2 By the end of the third year of the ALP, the educator must
+successfully complete the content area assessment.
+
+7-4.04 An ALP that requires a program of study shall be completed within six (6)
+consecutive semesters.
+7-4.05 If the person does not make the progress required under 7-4.02.1 to complete the
+ALP within six (6) consecutive semesters, he or she is not eligible for another ALP
+in the same licensure content area.
+7-4.06 If the person in the position for which the ALP was approved leaves the school
+district:
+7-4.06.1
+
+The ALP may transfer with the person as long as the person
+has complied with the terms of the ALP under these rules;
+and
+
+7-4.06.2
+
+The school district may request an ALP for another person to
+
+ADE 317-64
+
+Agency #005.16
+
+APPENDIX A
+
+fill the position.
+7-4.07 The Division may extend the ALP for up to two (2) additional consecutive semesters
+for extenuating circumstances, as approved by the State Board.
+7-4.08 Except as provided below, a person holding a Provisional License shall not be granted
+an ALP.
+7-4.08.1
+
+An individual holding a Provisional License issued by
+reciprocity is eligible for an ALP subject to the remaining
+requirements for the ALP.
+
+7-5.0 ADMINISTRATOR LICENSURE COMPLETION PLAN (ALCP)
+7-5.01 The Division shall issue an Administrator Licensure Completion Plan (ALCP) to an
+individual employed in an out-of-area administrator position who:
+7-5.01.1
+
+Submits a completed application for an ALCP, Plan of Study, and
+Justification required by the Division, verified by the Educational
+Leadership Chair of the accredited college or university where the degree
+or program of study is offered;
+
+7-5.01.2
+
+Submits proof of employment with an Arkansas educational entity in a
+position that requires an Administrator License.
+7-5.01.2.1
+
+7-5.01.3
+
+7-5.02
+
+Employment must be verified by an authorized
+representative of the educational entity; and
+
+Meets all of the requirements of these Rules for a Building-Level
+Administrator License, a Curriculum/Program Administrator License, or
+a District-Level Administrator License, except for:
+7-5.01.3.1
+
+Successful completion of an awarded master’s or higher
+degree as required for the appropriate administrator
+license under rules;
+
+7-5.01.3.2
+
+Successful completion of a graduate-level program of
+study as required for the appropriate administrator
+license under these rules; or
+
+7-5.01.3.3
+
+Submission of an official score report reflecting passing
+scores on the appropriate administrator’s license
+assessment under these rules.
+
+An ALCP is valid for a maximum of six (6) consecutive semesters, is not
+
+ADE 317-65
+
+Agency #005.16
+
+APPENDIX A
+
+renewable, and shall remain valid so long as the applicant:
+7-5.02.1
+
+Remains employed with an Arkansas educational entity in a position
+that requires an Administrator License;
+
+7-5.02.2
+
+Holds the degree required for the appropriate administrator license, or
+remains enrolled and actively participates in the appropriate degree
+program; and
+
+7-5.02.3
+
+Has completed or remains enrolled and actively participates in the
+appropriate program of study required for the appropriate administrator
+license.
+
+7-5.02.4
+
+Active participation in a degree program or program of study means
+continuous enrollment in the program during the term of the ALCP.
+
+7-5.03 The Division may extend the ALCP for up to two (2) additional consecutive
+semesters for extenuating circumstances, as approved by the State Board.
+7-5.04 An educator who holds a Provisional License issued by the Division under Section 43.0 for reciprocity is eligible for placement under an Administrator Licensure
+Completion Plan (ALCP).
+7-6.0 SUBSTITUTE TEACHERS
+7-6.01 A person employed as a temporary substitute for a licensed teacher in an
+educational entity shall:
+7-6.01.1
+
+Be a high school graduate; or
+
+7-6.01.2
+
+Hold a high school equivalency test certificate.
+
+7-6.02 No class of students in any public school shall be under the instruction of a substitute
+teacher for more than thirty (30) consecutive instructional days in the same class
+during a school year unless the substitute teacher instructing the class has:
+7-6.02.1 A bachelor's or higher degree awarded by an accredited college or
+university; or
+7-6.02.2
+
+A license issued by the State Board of Education.
+
+7-6.03 An educational entity shall request a long-term substitute waiver for each semester,
+not to exceed two (2) consecutive semesters to employ a substitute teacher
+whenever a class of students will be receiving instructions from the substitute
+teacher for longer than thirty (30) consecutive instructional days unless the
+substitute is fully licensed in Arkansas for areas in which the substitute is employed.
+
+ADE 317-66
+
+Agency #005.16
+
+APPENDIX A
+
+7-6.04 The district superintendent or charter school director shall send written notice of the
+assignment of a substitute teacher to an out-of- area position to the parent or guardian
+of each student in the teacher’s classroom no later than thirty (30) consecutive
+instructional days after the date of the assignment.
+7-6.05 Before the long term substitute (LTS) begins employment, he or she shall
+successfully complete the state and federal criminal records checks and the Child
+Maltreatment Central Registry check in accordance with the Division of Elementary
+and Secondary Education Rules Governing Background Checks.
+Source: Ark. Code Ann. § 6-17-309
+
+7-7.0 WAIVERS FROM LICENSURE RULES OR LAWS
+7-7.01 The following waivers from state law or rules governing licensure granted to an
+educational entity under the applicable statute shall be reported by an educational
+entity as a licensure exception in the Division’s reporting system:
+7-7.01.1
+
+Waivers granted in the original or amended charter of a public charter
+school under the Arkansas Quality Charter Schools Act of 2013, Ark.
+Code Ann. § 6-23-101 et seq.;
+
+7-7.01.2
+
+Waivers granted to a School of Innovation under the District of
+Innovation Program, § 6-15-2801 et seq.; or
+
+7-7.01.3
+
+Waivers granted to a school district under Ark. Code Ann. § 6-15-103
+(Act 1240 of 2015, as amended).
+
+7-7.02 Persons employed in positions under one of these waivers shall meet the
+requirements under the Division Rules Governing Arkansas Qualified Teacher
+Requirements if teaching in a core subject area.
+7-7.03 The district superintendent or charter school director shall send written notice of the
+assignment of a teacher on an ALP, LTS, or emergency teaching permit to the
+parent or guardian of each student in the teacher’s classroom no later than thirty (30)
+consecutive instructional days after the date of the assignment.
+
+APPENDIX A: LEVELS AND AREAS OF LICENSURE
+
+ADE 317-67
+
+Agency #005.16
+
+APPENDIX A
+
+ENDORSEMENTS
+
+CHART 1: LEVELS AND AREAS FOR A STANDARD OR
+PROVISIONAL LICENSE
+
+Available
+for FirstTime
+License
+
+Exception
+Areas:
+Available By
+Program of
+Study Only
+
+Available By
+Testing Out
+(See Chart 2
+For Eligibility)
+
+(Not By
+Testing Out)
+LICENSURE CONTENT AREA (GRADE LEVELS):
+ADULT EDUCATION (POST SECONDARY)
+
+X
+
+AGRICULTURE (7-12)
+
+X
+
+ALTERNATIVE LEARNING (K-12)
+
+X
+X
+X
+
+ART (K-12)
+
+X
+
+X
+
+BIOLOGY/LIFE SCIENCE (7-12)
+
+X
+
+X
+
+BUSINESS TECHNOLOGY (4-12)
+
+X
+
+X
+
+CHEMISTRY (7-12)
+
+X
+
+X
+
+COACHING (7-12)
+
+X
+
+COMPUTER SCIENCE (4-12)
+
+X
+
+X
+
+DANCE (K-12)
+
+X
+
+X
+
+DRAMA (7-12)
+
+X
+
+X
+
+DRAMA / SPEECH (K-12)
+
+X
+
+X
+
+DRIVER’S EDUCATION
+
+X
+
+DYSLEXIA (K-12)
+
+X
+
+EARTH SCIENCE (7-12)
+
+X
+
+EARLY CHILDHOOD PRE-K
+
+X
+
+X
+
+EARLY CHILDHOOD /SPECIAL EDUCATION INTEGRATED (B-K)
+
+X
+
+X
+
+EDUCATIONAL EXAMINER (K-12)
+
+X
+
+ELEMENTARY (K-6)
+
+X
+
+ENGLISH FOR SPEAKERS OF OTHER LANGUAGES (ESOL) (K-12)
+
+X
+X
+
+ENGLISH LANGUAGE ARTS - MIDDLE LEVEL (4-8)
+
+X
+
+X
+
+ENGLISH LANGUAGE ARTS - SECONDARY (7-12)
+
+X
+
+X
+
+FAMILY & CONSUMER SCIENCES (7-12)
+
+X
+
+X
+
+FOREIGN LANGUAGES - (K-12)
+
+X
+
+X
+
+FOREIGN LANGUAGES - AMERICAN SIGN LANGUAGE (K-12)
+
+X
+
+X
+
+ADE 317-68
+
+Agency #005.16
+
+APPENDIX A
+
+ENDORSEMENTS
+
+CHART 1: LEVELS AND AREAS FOR A STANDARD OR
+PROVISIONAL LICENSE
+
+Available
+for FirstTime
+License
+
+Exception
+Areas:
+Available By
+Program of
+Study Only
+
+Available By
+Testing Out
+(See Chart 2
+For Eligibility)
+
+(Not By
+Testing Out)
+LICENSURE CONTENT AREA (GRADE LEVELS):
+GEOMETRY (7-12)
+
+X
+
+GIFTED & TALENTED (K-12)
+
+X
+
+GUIDANCE & SCHOOL COUNSELING (K-12)
+
+X
+
+INDUSTRIAL TECHNOLOGY (7-12)
+
+X
+
+INSTRUCTIONAL FACILITATOR (K-12)
+
+X
+X
+X
+
+INSTRUMENTAL MUSIC (K-12)
+
+X
+
+X
+
+JOURNALISM (7-12)
+
+X
+
+LIBRARY MEDIA SPECIALIST (K-12)
+
+X
+
+MARKETING TECHNOLOGY (7-12)
+
+X
+
+X
+
+MATHEMATICS - MIDDLE LEVEL (4-8)
+
+X
+
+X
+
+MATHEMATICS - SECONDARY (7-12)
+
+X
+
+X
+
+ONLINE TEACHING (K-12)
+
+X
+
+PE & HEALTH (K-12)
+
+X
+
+X
+
+PHYSICS (7-12)
+
+X
+
+X
+
+PHYSICS/MATHEMATICS (7-12)
+
+X
+
+X
+X
+
+READING SPECIALIST (K-12)
+SCIENCE - MIDDLE LEVEL (4-8)
+
+X
+
+X
+
+SOCIAL STUDIES - MIDDLE LEVEL (4-8)
+
+X
+
+X
+
+SOCIAL STUDIES - SECONDARY (7-12)
+
+X
+
+X
+
+SPECIAL EDUCATION (K-12)
+
+X
+
+X
+
+SPECIAL EDUCATION - HEARING SPECIALIST(K-12)
+
+X
+
+SPECIAL EDUCATION - VISUAL SPECIALIST (K-12)
+
+X
+
+SPECIAL EDUCATION RESOURCE - ELEMENTARY (K-6)
+
+X
+
+SPECIAL EDUCATION RESOURCE - ENGLISH LANGUAGE ARTS (7-12)
+
+X
+
+SPECIAL EDUCATION RESOURCE - MATH (7-12)
+
+X
+
+SPECIAL EDUCATION RESOURCE - SCIENCE (7-12)
+
+X
+
+ADE 317-69
+
+Agency #005.16
+
+APPENDIX A
+
+ENDORSEMENTS
+
+CHART 1: LEVELS AND AREAS FOR A STANDARD OR
+PROVISIONAL LICENSE
+
+Available
+for FirstTime
+License
+
+Exception
+Areas:
+Available By
+Program of
+Study Only
+
+Available By
+Testing Out
+(See Chart 2
+For Eligibility)
+
+(Not By
+Testing Out)
+LICENSURE CONTENT AREA (GRADE LEVELS):
+SPEECH (7-12)
+
+X
+
+X
+
+VOCAL MUSIC (K-12)
+
+X
+
+X
+
+GRADE 5-6 ENDORSEMENT (FOR 7-12 TEACHER LICENSED IN MATH,
+SCIENCE, LANG ARTS OR SOCIAL STUDIES)
+
+X
+
+EARLY CHILDHOOD PRE-K ENDORSEMENT (FOR TEACHERS HOLDING
+AN ELEMENTARY K-6 LICENSE)
+
+X
+
+EARLY CHILDHOOD PRE-K SPECIAL EDUCATION ENDORSMENT (FOR
+TEACHERS HOLDING PRE-K OR P-4 LICENSE
+
+X
+X
+
+EARLY CHILDHOOD PRE-K SPECIAL EDUCATION ENDORSEMENT (FOR
+TEACHERS HOLDING A SPECIAL EDUCATION LICENSE)
+CONTENT SPECIALIST (MATH, SCIENCE, AND LITERACY FOR TEACHERS
+HOLDING A K-6 LICENSE)
+
+X
+
+EDUCATIONAL LEADERSHIP:
+DISTRICT-LEVEL ADMINISTRATOR (P-12)
+
+X
+
+BUILDING-LEVEL ADMINISTRATOR (P-12)
+
+X
+
+CURRICULUM PROGRAM ADMINISTRATOR (P-12)
+
+X
+
+PROGRAM ADMINISTRATOR - ADULT EDUCATION (P-12)
+
+X
+
+PROGRAM ADMINISTRATOR - CAREER TECH ED(P-12)
+
+X
+
+PROGRAM ADMINISTRATOR - CONTENT SPECIALIST(P-12)
+
+X
+
+PROGRAM ADMINISTRATOR - GIFTED & TALENTED(P-12)
+
+X
+
+PROGRAM ADMINISTRATOR - SPECIAL EDUCATION(P-12)
+
+X
+
+CAREER AND TECHNICAL EDUCATION ADMINISTRATOR (P-12)
+
+X
+
+ADULT EDUCATION ADMINISTRATOR
+
+X
+
+ADE 317-70
+
+Agency #005.16
+
+APPENDIX A
+
+CHART 2: ENDORSEMENT BY TESTING
+AN ENDORSEMENT BY TESTING MAY BE ADDED AT THIS
+LEVEL* (FOR ANY CONTENT AREA):
+* See the exception in Section 4-10.03 of these rules
+AGE 3-4
+K-6
+4-8
+4-12
+7-12
+SpEd
+
+K-12
+
+IF THE FIRST-TIME LICENSURE
+LEVEL (IN ANY CONTENT AREA)
+IS:
+B-K
+
+X
+
+P-4*
+
+X
+
+X
+
+X
+
+X
+
+K-6
+
+X
+
+X
+
+X
+
+X
+
+1-6
+
+X
+
+X
+
+X
+
+X
+
+4-8
+
+X
+
+X
+
+X
+
+X
+
+X
+
+4-12
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+X
+
+7-12
+P-8
+
+X
+
+K-12
+K-12 SPECIAL EDUCATION
+
+X
+
+X
+
+X
+
+*This is for older P-4 licenses. For those entering a P-4 program after Fall 2015, this license is no longer available.
+
+ENDORSEMENTS
+
+CHART 3: EDUCATOR LICENSURE LEVELS AND
+AREAS FOR AN ANCILLARY LICENSE
+
+Available
+for a FirstTime
+License
+
+Exception
+Areas:
+Available By
+Program of
+Study Only
+(Not By
+Testing Out)
+
+LICENSURE CONTENT AREA (GRADE LEVELS):
+SCHOOL PSYCHOLOGY SPECIALIST (K-12)
+
+X
+
+X
+
+SPEECH LANGUAGE PATHOLOGY (K-12)
+
+X
+
+X
+
+DYSLEXIA (K-12)
+
+X
+
+X
+
+ENGLISH FOR SPEAKERS OF OTHER LANGUAGES (ESOL) (K-12)
+
+X
+
+X
+
+ADE 317-71
+
+Available By
+Testing Out
+(See Chart 2 For
+Eligibility)
+
+Agency #005.16
+
+APPENDIX A
+
+ENDORSEMENTS
+
+CHART 3: EDUCATOR LICENSURE LEVELS AND
+AREAS FOR AN ANCILLARY LICENSE
+
+Available
+for a FirstTime
+License
+
+Exception
+Areas:
+Available By
+Program of
+Study Only
+
+Available By
+Testing Out
+(See Chart 2 For
+Eligibility)
+
+(Not By
+Testing Out)
+
+LICENSURE CONTENT AREA (GRADE LEVELS):
+LIBRARY MEDIA (K-12)
+
+X
+
+X
+
+CHART 4: CAREER-TECHNICAL PERMIT AREAS & LEVELS*
+*MUST MEET ARKANSAS DEPARTMENT OF CAREER EDUCATION REQUIREMENTS
+
+616
+
+ADVANCED MANUFACTURING
+
+7-12
+
+571
+
+ADVERTISING DESIGN
+
+7-12
+
+567
+
+AUTOMOTIVE COLLISION REPAIR
+
+7-12
+
+568
+
+AUTOMOTIVE SERVICE TECHNOLOGY
+
+7-12
+
+627
+
+AVIATION FLIGHT TECHNOLOGY
+
+7-12
+
+569
+
+AVIATION MECHANICS
+
+7-12
+
+624
+
+BIO MEDICAL
+
+7-12
+
+624
+
+BIOMEDICAL SCIENCE
+
+9-12
+
+648
+
+CAREER COMPUTER SOFTWARE ENGINEER
+
+7-12
+
+628
+
+CAREER-AEROSPACE ENGINEERING
+
+11-12
+
+645
+
+CAREER-BIOMEDICAL INNOVATION
+
+9-12
+
+629
+
+CAREER-BIOTECHNICAL ENGINEERING
+
+11-12
+
+630
+
+CAREER-CIVIL ENGINEERING & ARCHITECTURE
+
+11-12
+
+631
+
+CAREER-COMPUTER INTEGRATED MANUFACTURING
+
+11-12
+
+632
+
+CAREER-DIGITAL ELECTRONICS
+
+11-12
+
+636
+
+CAREER-ENERGY & THE ENVIRONMENT
+
+7-8
+
+633
+
+CAREER-ENGINEERING DESIGN & DEVELOPMENT
+
+12
+
+637
+
+CAREER-FLIGHT AND SPACE
+
+7-8
+
+638
+
+CAREER-GREEN ARCHITECTURE
+
+7-8
+
+639
+
+CAREER-MAGIC OF ELECTRONS
+
+7-8
+
+640
+
+CAREER-MEDICAL DETECTIVES
+
+7-8
+
+644
+
+CAREER-MEDICAL INTERVENTIONS
+
+9-12
+
+ADE 317-72
+
+Agency #005.16
+
+APPENDIX A
+
+CHART 4: CAREER-TECHNICAL PERMIT AREAS & LEVELS*
+*MUST MEET ARKANSAS DEPARTMENT OF CAREER EDUCATION REQUIREMENTS
+
+641
+
+CAREER-SCIENCE OF TECHNOLOGY
+
+7-8
+
+600
+
+CASHIER/CHECKER INSTRUCTION
+
+7-12
+
+610
+
+CHILD CARE
+
+7-12
+
+602
+
+COMMERCIAL PHOTOGRAPHY
+
+7-12
+
+618
+
+COMMUNICATIONS
+
+7-12
+
+572
+
+COMPUTER ENGINEERING
+
+7-12
+
+648
+
+COMPUTER SCIENCE & SOFTWARE ENGINEERING
+
+9-12
+
+570
+
+CONSTRUCTION TECHNOLOGY
+
+7-12
+
+573
+
+COSMETOLOGY
+
+7-12
+
+603
+
+CRIMINAL JUSTICE
+
+7-12
+
+580
+
+CULINARY ARTS AND CHEF PREPARATION
+
+7-12
+
+574
+
+DIESEL MECHANICS
+
+7-12
+
+575
+
+DRAFTING AND DESIGNING
+
+7-12
+
+576
+
+DRY-CLEANING LAUNDRY
+
+7-12
+
+577
+
+ELECTRONICS
+
+7-12
+
+599
+
+EXPLORATORY TRADES AND INDUSTRY
+
+7-12
+
+579
+
+EXPLORING INDUSTRIAL TECHNOLOGY EDUCATION
+
+7-12
+
+598
+
+FOOD PRODUCTION MANAGEMENT AND SERVICES
+
+7-12
+
+605
+
+FORESTRY
+
+7-12
+
+635
+
+FOUNDATIONAL CAREER DESIGN & MODELING
+
+7-8
+
+634
+
+FOUNDATIONAL CAREER-AUTOMATION & ROBOTICS
+
+7-8
+
+646
+
+FOUNDATIONAL: CAREER - PRINCIPLES OF ENGINEERING
+
+10-11
+
+647
+
+FOUNDATIONAL: CAREER- INTRODUCTION TO ENGINEERING DESIGN
+
+9-10
+
+643
+
+FOUNDATIONAL: CAREER-HUMAN BODY SYSTEM
+
+9-12
+
+642
+
+FOUNDATIONAL: CAREER-PRINCIPLES OF BIOMEDICAL SCIENCE
+
+9-12
+
+581
+
+FURNITURE/CABINET MAKING
+
+7-12
+
+607
+
+GEO SPACIAL TECHNOLOGY
+
+7-12
+
+582
+
+GRAPHIC COMMUNICATION
+
+7-12
+
+578
+
+HEATING VENT A/C
+
+7-12
+
+604
+
+HORTICULTURE
+
+7-12
+
+583
+
+INDUSTRIAL CONTROL TECHNOLOGY
+
+7-12
+
+584
+
+INDUSTRIAL COOPERATIVE TRAINING
+
+7-12
+
+585
+
+INDUSTRIAL EQUIPMENT MAINTENANCE
+
+7-12
+
+586
+
+INSTRUMENTATION
+
+7-12
+
+ADE 317-73
+
+Agency #005.16
+
+APPENDIX A
+
+CHART 4: CAREER-TECHNICAL PERMIT AREAS & LEVELS*
+*MUST MEET ARKANSAS DEPARTMENT OF CAREER EDUCATION REQUIREMENTS
+
+623
+
+JAPANESE
+
+7-12
+
+612
+
+JUNIOR ROTC
+
+7-12
+
+622
+
+LATIN
+
+7-12
+
+615
+
+LEGAL SERVICES
+
+7-12
+
+587
+
+MACHINE TOOL TECHNOLOGY
+
+7-12
+
+588
+
+MAJOR APPLIANCE REPAIR
+
+7-12
+
+619
+
+MANDARIN CHINESE
+
+7-12
+
+626
+
+MANDARIN CHINESE
+
+P-8
+
+608
+
+MARINE MECHANICS
+
+7-12
+
+589
+
+MEAT PROCESSING
+
+7-12
+
+611
+
+MEDICAL PROFESSIONS
+
+7-12
+
+613
+
+PERFORMING ARTS
+
+5-12
+
+617
+
+PERFORMING ARTS
+
+P-4
+
+620
+
+PETROLEUM PRODUCTION
+
+7-12
+
+590
+
+PIANO TUNING
+
+7-12
+
+593
+
+POWER EQUIPMENT TECH
+
+7-12
+
+614
+
+POWER SPORTS
+
+7-12
+
+606
+
+PRE-ENGINEERING
+
+7-12
+
+609
+
+PULP AND PAPER SCIENCE
+
+7-12
+
+591
+
+RADIO AND TELEVISION BROADCASTING
+
+7-12
+
+621
+
+RENEWABLE ENERGY TECHNOLOGY
+
+7-12
+
+592
+
+ROBOTICS
+
+7-12
+
+625
+
+SPORTS MEDICINE
+
+7-12
+
+594
+
+SURVEYING
+
+7-12
+
+595
+
+TELEVISION BROADCASTING
+
+7-12
+
+596
+
+TEXTILES
+
+7-12
+
+601
+
+TRUCK DRIVING
+
+7-12
+
+597
+
+WELDING
+
+7-12
+
+ADE 317-74
+
+Agency #005.16
+
+APPENDIX B
+
+APPENDIX B: APPLICATION FEES
+The fees for the following applications are nonrefundable and must be paid at the time of application.
+If multiple requests are submitted on one application the educator is only required to pay one fee.
+
+APPLICATIONS REQUIRING A FEE
+
+FEE
+AMOUNT
+
+First-time Five-Year Standard Educator’s License (including by reciprocity)
+
+$ 75.00
+
+First-time Five-Year Ancillary License
+
+$ 75.00
+
+First-time Five-Year Career-Technical Permit
+
+$ 75.00
+
+Duplicate License
+
+$ 25.00
+
+Renewal of License
+
+$ 75.00
+
+NO-FEE APPLICATIONS:
+Provisional License
+
+N/A
+
+Lifetime Teaching License
+
+N/A
+
+Adding Degree, Adding Area, Adding Level to Existing License, Adding a
+Designation
+
+N/A
+
+Name Change
+
+N/A
+
+ADE 317-75
+
+

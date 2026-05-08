@@ -1,0 +1,1232 @@
+ENGLISH LEARNER
+PROGRAM HANDBOOK
+School System & Charter School
+Administrators
+
+July 2020
+
+CONTENTS
+PURPOSE & INTRODUCTION.................................................................................................. 2
+CHAPTER I: IDENTIFYING ALL ENGLISH LEARNERS (ELS).........................................3
+CHAPTER II: ENGLISH LANGUAGE PROFICIENCY: ASSESSMENT AND
+ACCOUNTABILITY......................................................................................................................6
+CHAPTER III: PROVIDING ELS WITH A SPECIALIZED
+LANGUAGE PROGRAM........................................................................................................... 12
+CHAPTER IV: PROVIDING MEANINGFUL ACCESS........................................................ 14
+CHAPTER V: ADDRESSING ENGLISH LEARNERS WITH DISABILITIES.................. 15
+CHAPTER VI: MONITORING AND EXITING..................................................................... 16
+CHAPTER VII: ENSURING MEANINGFUL COMMUNICATION WITH
+EL PARENTS................................................................................................................................ 17
+CHAPTER VIII: TITLE III REQUIRED SUB-GRANTEE ACTIVITIES............................ 18
+RESOURCES................................................................................................................................ 21
+
+PURPOSE & INTRODUCTION
+PURPOSE OF HANDBOOK
+The Louisiana Department of Education (LDOE) supports the efforts of school systems to assist English Learners (EL)
+to learn English while simultaneously meeting challenging state academic content and student academic achievement
+standards.
+Federal legislation1 requires every school system to have a plan in place to serve ELs, regardless of whether they
+have students who meet this classification enrolled. The plan must ensure that, immediately upon enrollment, the
+student has access to a specialized language instructional program. The plan for meeting the linguistic needs of ELs
+must provide resources to support the specialized language instructional program and the academic achievement of
+ELs using state and local funds. This plan is referred to as a “Lau Plan”, named after the landmark Lau vs Nichols U.S
+Supreme Court Decision of 1975. In the plan, each school system (LEA) outlines how it will:
+• identify English Learners;
+• design an effective program reflective of the needs of English Learners;
+• employ appropriate English-as-a-second-language or bilingual personnel (or both);
+• align the instruction of English Learners to state and local content standards; and
+• provide ongoing authentic assessments to monitor student progress toward English language proficiency and
+comprehension of academic content.
+This handbook is designed to help LEAs create their Lau plan. In conjunction with the EL Toolkit, it presents a picture
+of the legal obligations LEAs have in regards to the ELs attending their schools. The structure of this handbook follows
+that of the EL Toolkit to the extent applicable. Users should use the links to the EL Toolkit and other applicable
+resources at the end of each chapter for more information.
+The LDOE is grateful for the assistance of the education practitioners and the South Central Comprehensive Center
+who helped in the development and revision of this handbook.
+
+1 Title VI of the Civil Rights Act of 1964 (Title VI) and the Equal Educational Opportunities Act of 1974 (EEOA)
+
+2
+
+CHAPTER I: IDENTIFYING ALL ENGLISH LEARNERS (ELs)
+IDENTIFYING POTENTIAL ELs
+A Local Educational Agency (LEA) must establish an effective and systematic procedure to identify all ELs. The identification,
+assessment, and placement procedure must include:
+1. for all parents and/or guardians registering children in school, a survey that is designed to determine a student’s dominant
+language and potential for being an EL;
+2. timely administration of the state approved English Language Proficiency Screener (ELPS) that measures proficiency in each of
+the four language domains, listening, speaking, reading, and writing; and
+3. a system to notify parents of a child who has been identified as an EL (see page 9).
+All of these steps must be completed within thirty (30) days of enrollment.
+
+EL DEFINITION
+A student in Louisiana is classified as an English Learner (EL) according to Louisiana BESE Bulletin 741. A student identified
+as an English Learner must:
+1. be between the ages of 3 through 21;
+2. be enrolled in an English-speaking elementary school or secondary school;
+3. not have been born in the United States or has a native language other than English; and
+4. have difficulties in speaking, reading, writing, or understanding the English language such that such challenges may be
+sufficient to deny them:
+a. the ability to meet the state’s proficient level of achievement on state assessments;
+b. the ability to successfully achieve in classrooms where the language of instruction is English, or
+c. the opportunity to participate fully in society.
+A student identified as an English Learner may be:
+a. a Native American, Alaska Native, or a native resident of outlying areas and comes from an environment where a language
+other than English has had a significant impact on his or her level of English language proficiency; OR
+b. migratory, having a native language other than English, and come from an environment where a language other than
+English is dominant.
+
+3
+
+HOME LANGUAGE SURVEY (HLS)
+All schools in the state are required to survey each parent and/or guardian who registers a child in school to determine if the
+student is eligible to be identified as EL and must ensure that responses to the survey are kept on file in the student’s cumulative
+file (CUM folder).
+
+The Home Language Survey must include the following:
+• the language first learned and used by student,
+• the language student uses most often at home, and
+• the language student uses most often with other students/children.
+If the answers to the HLS questions indicate a predominant language other than English, the child should be screened for English
+proficiency (see Chapter 2). However, to ensure bilingual/bi-literate students are not identified as ELs, school systems can use the
+optional Family Interview Questions to assist in making the screening determination. If the Family Interview Questions reveal the
+student’s English proficiency is on par with an English-only peer, documentation is filed in the cumulative file (CUM folder), and
+the screening process is stopped.
+Native American students can be considered for EL program services if the student’s Home Language Survey responses indicate that
+a language other than English is spoken in the home, but they should not be identified solely on the basis of being Native American.
+The survey should also be used to determine what language to use for communications with the parent and/or guardian.
+Louisiana’s HLS template is available in Spanish, Vietnamese, and Arabic.
+
+PREVIOUSLY IDENTIFIED ELS/TRANSFER STUDENTS
+In-state transfers: If a student in a Louisiana school system
+transfers to another Louisiana school system and the HLS
+indicates that a language other than English has influenced
+the student’s English language development, an attempt
+should be made to obtain documentation from the sending
+school regarding the student’s EL status. The receiving system
+should attempt to get a copy of the student’s English Language
+Proficiency Screener (ELPS) results and/or any available
+English Language Proficiency Test (ELPT) results. Receiving
+systems can also access a student’s prior ELPT results by
+conducting a search via the CAI Reporting System on the
+ELPT Portal.
+If documentation confirms that the student is an EL, the student
+should be identified as an EL (flagged in SIS) and enrolled in a
+language assistance program by the receiving school system. If
+documentation confirms that the student has been reclassified
+and exited from EL status, the receiving system should pay close
+attention to the year of exit. Students who achieve the state’s exit
+criteria are un-flagged as EL from school information systems
+(SIS) but should be placed on monitoring rolls for 2 consecutive
+years immediately following the exit year.
+Out-of-state transfers: If a student from another state
+transfers to a Louisiana school system and the current HLS
+indicates that the child’s dominant language is other than
+English, the receiving school system must screen the student
+using ELPS and follow the initial identification process
+outlined in this chapter.
+
+4
+
+The law requires identification and
+screening to be accomplished and parental
+notification of eligible students within
+30 days of enrollment (BESE Bulletin
+741, ESEA Section 112(e)(3)(A), 112(e(3)(B)).
+Documentation must be obtained within
+the mandatory time frame for parent
+notification of identification and placement
+in a language assistance program. If
+the receiving school system is unable to
+obtain proper documentation within the
+required timeframe, or cannot locate
+results conducting a search via TIDE or CAI
+Reporting System on the ELPT Portal, then
+the receiving school system must screen the
+student using the ELPS screening instrument
+and follow the initial identification process
+outlined in this chapter.
+
+GUIDELINES FOR ENROLLING AN EL
+On May 06, 2011, the U.S. Department of Education Office for Civil Rights released a “Dear Colleague Letter” to help school
+systems eliminate any possible chilling effect on enrollment. For example, questions regarding immigration status (e.g., country of
+origin, date of US entry, years of U.S. schooling, etc.) and questions regarding pre-determining educational services (e.g., Has your
+child taken ESL courses?) may cause parents/adults to associate the survey with a determination of citizenship. The Office for
+Civil Rights is clear about removing or revising practices and policies that cause a chilling effect.
+There is also guidance on what kinds of documentation a school system can require for enrollment. Students cannot be turned
+away from a school if they lack a birth certificate or social security card or if the parent does not have a driver’s license or passport.
+See Fact Sheet: Information on the Rights of ALL Children to Enroll in School.
+
+REVIEWING FOREIGN TRANSCRIPTS
+Students new to U.S. schools may enter the country with transcripts from a foreign school. It can be challenging to align these courses
+with those offered in a Louisiana school, but school systems should have a process in place to remain consistent and to make sure
+students receive credit for classes they have successfully completed. School systems do not have to rely on a transcript translation
+service, but guidance should be created and made available if that student transfers to another school system in or out of state.
+Ideally, a school system should enlist an individual with knowledge of schooling and course descriptions of the countries from
+which most ELs will come. This individual should be able to communicate with the student or parents/guardians (or have access
+to others who can) to gain any additional insight that might be needed to make the best decisions about transferring credits. This
+may also entail contacting the transferring school to speak to personnel there (if feasible).
+If a student receives credit for a class that has a Louisiana statewide assessment, they will not be required to take the assessment
+for that course. A list of these assessments can be found in the Grades 3-8 Assessment Fact Sheet and High School Assessments
+Frequently Asked Questions.
+
+STUDENTS WITH INTERRUPTED FORMAL EDUCATION (SIFES)
+ELs who are newcomers and have little to no documentation of prior education may also be classified as Students with Interrupted
+Formal Education (SIFEs). SIFEs may require additional support to acclimate to formal schooling. These students may also need
+supplemental instruction to fill-in their educational gaps. This should be considered when scheduling them for classes and interventions.
+To be identified as SIFEs, students must meet the following criteria:
+• identified as English Learners,
+• age 13 or older,
+• have two or more years of education interrupted in their native country, and
+• are two or more grade levels behind in reading and mathematics (when able to assess).
+State placement tests are available in grades 4 and 8 in ELA and mathematics and may be used to assess a student’s grade level
+readiness in those subjects. Mathematics placement tests are also available in Spanish.
+School systems may want to use assessments in the student’s native language to assess their proficiency and to determine their
+overall level of literacy. More information about these tests can be found in the Louisiana World Languages Compendium (page 11).
+CHAPTER I RESOURCES
+For more details, see Chapter 1 of the EL Toolkit
+• Moving Toward a More Common Definition of English Learner; Council of Chief State School Officers
+• South Central Comprehensive Center Knowledge Bases
+• English Learner (EL) Identification Flowchart
+• ELPS Assessment Guidance
+• EL Frequently Asked Questions
+• State Placement Tests Overview
+
+5
+
+CHAPTER II: ENGLISH LANGUAGE PROFICIENCY:
+ASSESSMENT AND ACCOUNTABILITY
+INITIAL ASSESSMENT TO DETERMINE EL STATUS
+Once a student has been identified as eligible to be determined an EL through HLS responses and the Family Interview
+Questionnaire, when applicable, LEAs are required to test the student with the state approved English Language Proficiency
+Screener (ELPS). The school system must ensure that designated system and school staff members administering the screener
+are fully trained in the administration of the screening instrument so that accurate results are obtained. Local education agencies
+(LEAs) are not required to obtain permission or inform parents of placement testing.
+The law requires identification,screening, and parental notification of eligible students be completed within 30 days of
+enrollment (BESE Bulletin 741, ESEA Section 112(e)(3)(A), 112(e(3)(B)).
+ASSESSMENT RESOURCES
+• ELPS Test Administrator Overview and Training Webinar
+• ELPS Test Administrator Overview and Training Presentation
+• ELPS Assessment Guidance
+• EL Frequently Asked Questions
+
+PARENTAL NOTIFICATION: INITIAL NOTIFICATION
+School systems are required to inform parents of their child’s qualification for initial placement into a language development
+program. If the student scores less than proficient on the ELPS, then a letter must be provided to the parent or guardian, in
+the primary language of the home (if possible), indicating that the child was identified as needing specific English language
+development services. The parent must be given an opportunity to waive any English language development services. If the
+student does not qualify for services, then the school system is not required to inform the parents.
+While waiting for parental permission, the child should be scheduled for appropriate language assistance services, and
+services should begin immediately.
+
+OPTION TO WAIVE SERVICES
+If parents choose to waive English language development services for their child, it is recommended that the school system/
+school discuss the benefits of English Language Development instruction and address any misconceptions or questions parents
+have about the program. If a parent still opts to waive services, the school system/school should place the signed letter and
+any notes from the conversation in the student’s cumulative file (CUM folder). Parents should also be informed that a refusal of
+services does not exempt the student from taking the English Language Proficiency Test (ELPT).
+
+6
+
+ELPT: ANNUAL ASSESSMENT TO MEASURE ENGLISH PROFICIENCY PROGRESS
+The English Language Proficiency Test (ELPT) is designed to assess the English proficiency of students who meet the participation
+criteria for ELs as they progress through their K-12 education. In pursuit of this, the ELPT draws upon emerging technologies and
+innovative methods to measure progress, encourage reclassification relative to grade-appropriate performance, and determine
+which school systems are meeting accountability goals for ELs.
+The ELPT items are designed to gather evidence that demonstrates how students are progressing toward full English language
+proficiency and meeting the skills measured through the LA Connectors for ELs. The standards describe how language is used to
+meet the rigorous content demands in each grade through the integration of academic language and content. The test presents a
+range of items in the four language domains of reading, writing, speaking, and listening, and results are reported individually for
+each category. The ELPT measures increases in:
+• the amount or sophistication of words or ways of combining words;
+• repertoire of use and expansion of the types of relationships students can construct between ideas (e.g., additive, causal,
+conditional, contrastive) and the number of ways students are able to construct those relationships between ideas;
+• accuracy in constructing precise meanings;
+• contextualization, the ability to tailor the use of language functions to fit a variety of sociocultural contexts; and
+• autonomy, which is observed by the need for fewer language supports and scaffolds as proficiency increases.
+Grade-appropriate language tasks are presented to measure the proficiency level of students of all ranges—from those who are just
+beginning to learn English to those who are fully English proficient.
+All identified ELs in grades K-12 will take ELPT each year until the criteria to exit are met; Bulletin 111: Chapter 40.
+
+PARENT NOTIFICATION: ANNUAL NOTIFICATION
+Notification of continuation of services must be sent to parents on an annual basis (ELPT Individual Student Report) for as long
+as the child is classified as an EL. As with initial notification, the annual notification to parents must be in the primary language (if
+possible) spoken in the home.
+As in the initial screening notification, parents have the right to waive services annually. If parents choose to waive English
+language development services for their child, it is recommended that the school system/school discuss the benefits of English
+Language Development instruction and address any misconceptions or questions parents have about the program. If a parent
+still opts to waive services, the school system/school should place the signed letter and any notes from the conversation in the
+student’s cumulative file (CUM folder). Parents should also be informed that a refusal of services does not exempt the student from
+taking ELPT.
+
+If the parent waives services, LEAs are still required to:
+• provide necessary supports to ensure curriculum is accessible to the student;
+• administer ELPT until student achieves reclassification criteria, (Bulletin 111; Chapter 40); and
+• provide the same eligible accommodations that are available to their non-EL peers.
+A sample Parent Notification Letter is available in Spanish, Vietnamese and Arabic.
+Parent refusal of services does not waive a child’s right to appropriate accommodations.
+
+7
+
+CODING AND DATA ENTRY
+School systems are required to compile data regarding EL enrollment, specialized language service placement and programs,
+assessment, exiting, and monitoring in order to satisfy accountability requirements and to receive Title I and Title III funding. The
+state’s Student Information System (SIS) has been designed to facilitate school system efforts to record data on ELs who have been
+offered language development services, have received EL support, and have been exited from EL programs.
+Students identified as EL are reported in SIS with an English Proficiency Code: 01 [Proficient] or 02 [Limited]. When students are
+reported with an English Proficiency Code: 02 [Limited], an EL Funding Source Code is also reported. This code indicates the title
+of the program which is the primary funding source for instructional language services for students identified as an EL.
+SIS will track students previously identified English Learner (ELs) for two years following their last reported EL status. This is done
+to comply with state and federal reporting requirements. If a student qualifies as an EL but the parent or guardian refuse services,
+they are reported with code 13 [No instructional language program provided].
+
+EVERY STUDENT SUCCEEDS ACT (ESSA) ELP INDICATOR REQUIREMENT
+ESSA requires all states to hold schools responsible for the progress of English Learners. State accountability plans must include
+a measure or assessment of English proficiency in listening, speaking, reading, and writing. Additionally, accountability plans
+must set goals with timelines for attaining proficiency. English Learners are also measured as a subgroup indicating the percent
+of students who meet academic goals on state assessments (LEAP 2025), graduation rates, and other accountability measures
+included in accountability plans.
+
+LOUISIANA’S ACCOUNTABILITY PLAN
+The state’s accountability formula includes a measure of English proficiency progress as part of the assessment index. A progress
+level is determined by using a combination of the scores from the four domains: listening, speaking, reading, and writing. The
+overall progress of students is measured yearly using a baseline score, which is the first ELPT test taken by each student (the
+measure does not use prior years’ ELDA test scores) and the number of years between their current overall proficiency level and
+the baseline overall proficiency. Points are awarded to the school for EL students based on their progress toward an expected
+target, and the points are averaged to create the index.
+The assessment index includes weights for each subject test. In grades 3-8, LEAP 2025 English Language Arts (ELA) and
+mathematics, subject test scores are weighted by 2. Science and social studies subject test scores are weighted by 1. The scores
+from a student’s measure of EL progress is weighted by 6, making it equal to the combined subjects included in LEAP 2025. See
+Example 1: Steps to Determine EL Progress Measure for Grades K-5.
+In high school grades, all subject tests are weighted equally by 1. Because the weights of high school assessments vary depending
+on which subject tests are taken by a student each year, the measure of EL progress will be weighted by 2. See Example 2: Steps to
+Determine EL Progress Measure for Grades 6-12.
+
+8
+
+Example 1: Steps to Determine EL Progress Measure for Grades K-5
+1. Determine a baseline of proficiency. The baseline proficiency is determined by the combination of scores that were earned in
+listening, speaking, reading, and writing using the table below. Yesin, a fourth grade student, earned the following scores on his first
+administration of the ELPT: Listening-3, Speaking-2; Reading-2; Writing-1. Based on the table below, Yesin is Progressing 1 (P1).
+OVERALL PROFICIENCY LEVEL
+
+COMBINATION NEEDED FROM 4 DOMAINS
+
+Emerging
+
+All domain scores are 1s and 2s.
+
+Progressing 1 (P1)
+
+The highest domain score is 3 or higher and the lowest score is 1.
+
+Progressing 2 (P2)
+
+The highest domain score is 3 or higher and the lowest score is 2.
+
+Progressing 3 (P3)
+
+The highest domain score is 3 or higher and the lowest score is 3.
+
+Transitioning
+
+All domain scores are 4s and 5s.
+
+2. Determine how much progress a student made toward the required target. Compare the overall proficiency level demonstrated
+by the student in year 2 to the overall baseline proficiency level. The table below illustrates the progress needed toward
+proficiency each year in grades K-5. In Year 2, Yesin earns the following scores on the four domains of ELPT: Listening-3;
+Speaking-3; Reading-2, Writing-2. This combination of scores indicates that Yesin has progressed to Progressing 2 (P2).
+TRAJECTORY TO ENGLISH LANGUAGE PROFICIENCY: STUDENTS FIRST IDENTIFIED IN GRADES PK-5
+INITIAL ELPT PROFICIENCY LEVEL
+
+YEAR 2
+
+YEAR 3
+
+YEAR 4
+
+YEAR 5 & BEYOND
+
+Emerging (E)
+
+P1
+
+P2
+
+P3
+
+T
+
+Progressing 1 (P1)
+
+P2
+
+P3
+
+T
+
+T
+
+Progressing 2 (P2)
+
+P3
+
+T
+
+T
+
+T
+
+Progressing 3 (P3)
+
+T
+
+T
+
+T
+
+T
+
+Transitioning (T)
+
+N/A
+
+N/A
+
+N/A
+
+N/A
+
+(Note: Grades 6-8 will use the trajectory table for high school students in Example 2)
+3. Determine the progress that was made by the student and
+identify the points that are awarded to the school for the
+student. The table below provides the points awarded per
+student for one of four levels of progress. Based on the table
+below, Yesin met his trajectory target and will earn 100
+points toward the progress index for the school.
+
+ELPT PROGRESS ASSESSMENT INDEX POINTS
+ELP INDEX
+POINTS
+
+OUTCOME
+ELPT level exceeds trajectory
+
+150
+
+ELPT level meets trajectory
+
+100
+
+ELPT level is at least one above the prior year
+
+80
+
+ELPT level is the same or lower than the prior year
+
+0
+
+4. Multiply the points awarded for EL progress by 6. Add the points for Yesin’s progress to the points that he earned from the
+LEAP 2025 subject tests.
+LEVEL EARNED
+
+POINTS AWARDED
+TO LEVEL
+
+WEIGHT IN
+ASSESSMENT INDEX
+
+TOTAL POINTS
+IN INDEX
+
+LEAP 2025 ELA
+
+Approaching Basic
+
+0
+
+2
+
+0
+
+LEAP 2025 Math
+
+Basic
+
+80
+
+2
+
+160
+
+LEAP 2025 Social Studies
+
+Basic
+
+80
+
+1
+
+80
+
+LEAP 2025 Science
+
+Approaching Basic
+
+0
+
+1
+
+0
+
+EL Progress
+
+Meets Trajectory
+
+100
+
+6
+
+600
+
+TEST TYPE
+
+9
+
+Example 2: Steps to Determine EL Progress Measure for Grades 6-12
+1. Determine a baseline of proficiency. Use the combination of scores that were earned in listening, speaking, reading, and
+writing to locate the student’s overall baseline proficiency level using the table below. Teresa, a tenth grade student, earned
+the following scores on her first administration of the ELPT: Listening-3, Speaking-2; Reading-2; Writing-1. Based on the table,
+Teresa’s overall proficiency level is Progressing 1 (P1).
+OVERALL PROFICIENCY LEVEL
+
+COMBINATION NEEDED FROM 4 DOMAINS
+
+Emerging
+
+All domain scores are 1s and 2s.
+
+Progressing 1 (P1)
+
+The highest domain score is 3 or higher and the lowest score is 1.
+
+Progressing 2 (P2)
+
+The highest domain score is 3 or higher and the lowest score is 2.
+
+Progressing 3 (P3)
+
+The highest domain score is 3 or higher and the lowest score is 3.
+
+Transitioning
+
+All domain scores are 4s and 5s.
+
+2. Determine how much progress a student made toward the required target. Compare the overall proficiency level demonstrated
+by the student in year 2 to the baseline overall proficiency level. The table below illustrates the progress needed for proficiency
+each year in grades 6-12. In Year 2, Teresa earns the following scores on the four domains of ELPT: Listening-3; Speaking-3;
+Reading-2, Writing-2. This combination of scores indicates that Teresa has progressed to Progressing 2 (P2).
+TRAJECTORY TO ENGLISH LANGUAGE PROFICIENCY:STUDENTS FIRST IDENTIFIED IN GRADES 6-12
+INITIAL ELPT
+PROFICIENCY LEVEL
+
+YEAR 2
+
+YEAR 3
+
+YEAR 4
+
+YEAR 5
+
+YEAR 6
+
+YEAR 7 &
+BEYOND
+
+Emerging (E)
+
+P1
+
+P2
+
+P2
+
+P3
+
+P3
+
+T
+
+Progressing 1 (P1)
+
+P2
+
+P2
+
+P3
+
+P3
+
+T
+
+T
+
+Progressing 2 (P2)
+
+P2
+
+P3
+
+P3
+
+T
+
+T
+
+T
+
+Progressing 3 (P3)
+
+P3
+
+T
+
+T
+
+T
+
+T
+
+T
+
+Transitioning (T)
+
+N/A
+
+N/A
+
+N/A
+
+N/A
+
+N/A
+
+N/A
+
+3. Determine the progress that was made by thestudent and
+identify the points that are awarded to the school for the
+student. The table below provides the points awarded per
+student for one of four levels of progress. Based on the table
+below, Teresa met her trajectory target and will earn 100
+points toward the progress index for the school.
+
+ELPT PROGRESS ASSESSMENT INDEX POINTS
+ELP INDEX
+POINTS
+
+OUTCOME
+ELPT level exceeds trajectory
+
+150
+
+ELPT level meets trajectory
+
+100
+
+ELPT level is at least one above the prior year
+
+80
+
+ELPT level is the same or lower than the prior year
+
+0
+
+4. Multiply the points awarded for EL progress by 2. Add the points for Teresa’s progress to the points that she earned from the
+LEAP 2025 high school subject tests.
+TEST TYPE
+
+LEVEL EARNED
+
+POINTS AWARDED
+TO LEVEL
+
+WEIGHT IN
+ASSESSMENT INDEX
+
+TOTAL POINTS
+IN INDEX
+
+LEAP 2025 English II
+
+Approaching Basic
+
+0
+
+1
+
+0
+
+LEAP 2025 Algebra I
+
+Basic
+
+80
+
+1
+
+80
+
+LEAP 2025 Biology
+
+Basic
+
+80
+
+1
+
+80
+
+Meets Trajectory
+
+100
+
+2
+
+200
+
+EL Progress
+
+10
+
+CHAPTER II RESOURCES
+Chapters 7 and 10 of the EL Toolkit
+• Accountability Policy Update: Measuring Progress of English Learners
+• South Central Comprehensive Center Knowledge Bases
+• Moving Toward a More Common Definition of English Learner; Council of Chief State School Officers
+
+11
+
+CHAPTER III: PROVIDING ELS WITH A SPECIALIZED
+LANGUAGE PROGRAM
+PROGRAM DESIGN AND DEVELOPMENT
+In determining whether a program for ELs complies with Title VI of the Civil Rights Act of 1964, USDOE Office for Civil Rights (OCR) has
+used the standard set forth in Castañeda v. Pickard, 648 F. 2d 989 (5th Cir. 1981). Under this standard, a program for ELs is acceptable if:
+• The school system is pursuing a program informed by an educational theory recognized as sound by some experts in the field
+or, at least, deemed a legitimate experimental strategy [A Sound Approach];
+• The programs and practices actually used by [the] school system are reasonably calculated to implement effectively the
+educational theory adopted by the school [Reasonable Implementation]; and
+• The school’s program succeeds, after a legitimate trial, in producing results indicating that the language barriers confronting
+students are actually being overcome [Evaluate for Outcomes] Id. at 1009-10.
+
+TYPES OF PROGRAMS
+Statute does not mandate or forbid any specific type of program.
+It does, however, define scientifically-based research as research
+that involves the application of rigorous, systematic, and
+objective procedures to obtain reliable and valid knowledge
+relevant to educational activities and programs (ESEA section
+9101(37)). The EL must also have access to all additional services
+and programs available to other students.
+Although school systems are permitted flexibility in the types
+of educational programs that they may offer an EL, each
+system must use the standard procedures described in Chapter
+1 for determining EL placement. Depending on each school
+system’s program(s), English and content-area instructional
+programs may be concurrent or sequential. The plan must
+be comprehensive and provide ELs with appropriate English
+language development services, full access to subject matter
+content, and other generally available resources, including all
+other educational programs and extracurricular activities.
+As detailed in Chapter 2 of the EL Toolkit , the following EL
+approaches/programs are considered educationally sound
+in theory, meet the Castañeda standard, and align with
+the broader academic strategy outlined by the Louisiana
+Department of Education. The following options should be
+considered based on the needs of ELs in each school system:
+• English as a Second Language (ESL): This approach is
+designed primarily to teach ELs English language skills. The
+program may also teach study skills, content vocabulary,
+and cultural orientation. The medium of instruction is
+English with little or no use of native language.
+• Content-Based English as a Second Language: This
+approach uses academic content areas as the “vehicle” for
+developing English language skills. English instruction is
+concurrent with subject matter instruction. English is used
+as the medium of instruction.
+• Sheltered English Instruction: An instructional approach
+similar to content-based ESL programs with the focus of
+
+12
+
+making academic instruction in English comprehensible
+to ELs. In the sheltered classroom, teachers use physical
+activities, visual aids, learning strategies, and other
+methods and resources to teach academic language and
+concept development in mathematics, science, social
+studies, and other subjects.
+• Dual Language: Also known as Two-Way Immersion, the
+main goal of this type of program is for students to develop
+proficiency in English and another language. Students receive
+significant instruction time in both languages. Classes that
+participate in dual language programs are usually comprised
+of roughly equal numbers of native English speakers and ELs.
+• Newcomer Program: Newcomer programs are essentially
+separate, relatively self-contained educational interventions
+designed primarily to meet the needs of newly arrived
+immigrants. Typically, students attend these programs for a
+set period of time before transitioning into other specialized
+language programs.
+• Structured English Immersion Program: The goal
+of this type of program is to teach English skills in a
+progressively complex way so that ELs can succeed in
+the general education classroom. Instruction is entirely in
+English, although teachers and/or paraprofessionals have
+specialized training in meeting the needs of ELs, hold ESL
+certification, and may possess at least some communication
+skills in the primary language of the EL.
+• Transitional Bilingual Education Program: This type of
+program, also known as early-exit bilingual, mainly uses
+the EL’s primary language as a medium of instruction early
+on. Students receive instruction in the native language so
+that they may access content as much as possible while
+acquiring English. The program maintains and develops
+the student’s primary language while developing English
+proficiency, gradually transitioning from a bilingual to allEnglish instructional program. Note that teachers must be
+highly qualified in any content area(s) taught.
+
+INSTRUCTIONAL RECOMMENDATIONS
+
+GRADING ENGLISH LEARNERS
+
+All ELs should receive daily instruction using high-quality core
+curriculum.
+
+Although school systems decide how an EL should be graded,
+ELs should not receive a failing grade in their content classes
+if their lack of English proficiency is keeping them from fully
+accessing the content (EL Toolkit). If an EL is receiving all
+accommodations and/or classroom modifications and is still
+unable to access the content, the student should be referred to
+the School Building Learning Committee (SBLC) for evaluation.
+
+STAFFING AND SUPPORTING AN EL
+PROGRAM
+A detailed discussion of staffing is in Chapter 3 of the EL
+Toolkit. Key points regarding staffing of an EL program include:
+• LEAs must provide the personnel necessary to effectively
+implement the selected EL program(s); necessary personnel
+include teachers who are qualified to provide EL services,
+core-content teachers who are highly qualified in their
+field as well as trained to support EL students, and trained
+administrators who can evaluate these teachers;
+• LEAs must provide adequate professional development and
+follow-up training in order to prepare EL program teachers and
+administrators to implement the EL program effectively; and
+• LEAs must ensure that administrators who evaluate EL
+program staff are adequately trained to meaningfully
+evaluate whether EL teachers are appropriately employing
+their training in the classroom in order for the EL program
+model to successfully achieve its educational objectives.
+
+PROFESSIONAL DEVELOPMENT
+All school systems with a population of one or more EL students
+are required to provide professional development to teachers
+and administrators regarding research-based programming on
+how to serve EL students. It is the school system’s responsibility
+to ensure that all teachers are implementing strategies to serve
+EL students successfully during instruction using a high-quality
+curriculum. LDOE has created a PD vendor guide to help guide
+school systems in selecting recommended PD providers who
+will ensure that both EL and general education teachers are able
+to meet the needs of their ELs. This professional development
+can be funded by federal grant dollars, including Title II and
+Title III.
+
+PROGRAM EVALUATION
+Instructional programs must be regularly evaluated, modified,
+and replaced as needed in order to meet legal requirements
+stipulated by the Civil Rights Act. Evaluation on an annual
+basis is strongly recommended. Data on academic achievement
+and retention, dropout, and graduation rates of students who
+have exited EL status should be comparable to the data for
+their non-EL peers. The data should be used to evaluate and
+modify programs if necessary. The following are the key points
+highlighted in the EL Toolkit:
+• Successful EL programs enable EL students to attain both
+English proficiency and parity of participation in the
+standard instructional program within a reasonable period
+of time.
+• LEAs should collect longitudinal data to monitor and
+compare the performance of current ELs, former ELs, and
+never-ELs in the LEA’s standard instructional program.
+Data should not be limited to English proficiency growth.
+• When EL programs do not produce both English proficiency
+and parity of participation within a reasonable period of
+time, SEAs and LEAs must modify the EL program.
+• LEAs should consider the following data when evaluating
+their EL program: ELPS/ELPT results, LEAP 2025 and other
+assessment results (as appropriate).
+
+CHAPTER III RESOURCES
+Guidelines and resources for developing programs for ELs can be found in Chapters 2 and 3 of the EL Toolkit
+See Chapter 9 of the EL Toolkit for more information on evaluating the effectiveness of a school system or charter school EL program
+More information on providing meaningful access is found in Chapter 4 of the EL Toolkit
+• English Learner Guidebook: Changing Educational Outcomes for English Learners
+• LA Connectors for English Learners
+• EL Instructional Support Plan
+• Two-Way Immersion Programs One Pager
+• Developing a School System PD Plan
+• Louisiana Academic Content PD Vendor Guide
+
+13
+
+CHAPTER IV: PROVIDING MEANINGFUL ACCESS
+In Louisiana, all ELs must participate in statewide assessments (Bulletin 118, §3307) and have access to the same educational
+opportunities as their non-EL peers. This means that ELs should be participating 100% of the time in high-quality content and
+instruction with appropriate language supports selected according to the student’s individual needs. A list of suggested EL
+accommodations for classroom and assessment can be found in the EL Accommodations Checklist.
+In addition, both Title I and Title III of the Elementary and Secondary Education Act (ESEA) require that all ELs take an annual
+assessment of English language proficiency that measures a student’s reading, writing, speaking, and listening skills in English.
+Louisiana administers the English Language Proficiency Test (ELPT).
+
+ASSESSMENT WAIVERS
+The School Building Level Committee (SBLC) has the authority to waive the state’s grade promotion policy for an EL student. A
+student who was granted a waiver at the fourth grade level is ineligible for a waiver at the eighth grade level (Bulletin 111).
+
+FULL ACADEMIC YEAR STATUS
+The test score of every student who is enrolled in any school in a school system (LEA) on October 1 of the academic year
+and who is eligible to take a test at a given school within the same school system (LEA) shall be included in the LEA’s district
+performance score (DPS).
+The score of every student that will count in the DPS will be counted at the school where the student was enrolled on February 1
+for SPS and subgroup performance scores.
+
+TESTING ACCOMMODATIONS
+Students classified as English Learners may receive accommodations during state testing if they are used routinely in the
+student’s classroom instruction and assessment. Providing testing accommodations for ELs may increase the accuracy of results
+regarding mastery of content. An accommodation is a change in setting of test administration, timing, scheduling, presentation
+format, and/or method of response to the assessment. Use of EL accommodations will be determined by the classroom teacher and
+EL teacher or other individual providing language services.
+Testing Accommodations include:
+• Extended time
+
+• Math assessment in Spanish
+
+• Provision of English/Native Language Word-to- Word
+Dictionary
+
+• Test administered by EL teacher or by individual providing
+language services
+
+• Tests read aloud (on math, science and social studies)
+
+• Directions in Native Language.
+
+Individual or small group administration must be used if the accommodations will interfere with the testing of other students (e.g.,
+test read aloud). All provided accommodation(s) must be selected during test set-up. The accommodations should not compromise
+test security or confidentiality. Any assistance in test administration must not give away the answers. All conditions that pertain to
+test security and the returning of test materials after the test is administered still apply.
+Accommodations for the English Language Proficiency Test (ELPT) should be documented on a student’s Individual Education
+Plan (IEP) or Individual Academic Plan (IAP) no later than 30 days prior to the opening of the testing window (Bulletin 111).
+CHAPTER IV RESOURCES
+More information on providing meaningful access is found in Chapter 4 of the EL Toolkit
+• The EL Instructional Support Plan (ISP)
+• LEAP 2025 Accommodations and Accessibility Features User Guide
+• ELPS/ELPT Accessibility and Accommodations Manual
+• EL Accommodation Checklist
+
+14
+
+CHAPTER V: ADDRESSING ENGLISH LEARNERS WITH
+DISABILITIES
+The Individuals with Disabilities Education Act (IDEA) and Section 504 of the Rehabilitation Act of 1973 address the rights of
+students with disabilities in school and other educational settings. If an EL is suspected of having one or more disabilities, the
+student should be referred to the SBLC for consideration of possible special education evaluation. Evaluations may not be delayed
+because of a student’s language proficiency or the student’s participation in a language instruction educational program. Also, a
+student’s classification as EL cannot be the basis for determining if the EL has a disability.
+In order to address EL students who may have disabilities, a school system must:
+• identify, locate, and evaluate ELs with disabilities in a timely manner;
+• consider the English language proficiency of ELs with disabilities in determining appropriate assessments and other evaluation
+materials;
+• provide and administer special education evaluations in the child’s native language, unless it is clearly not feasible to do so, to
+ensure that a student’s language needs can be distinguished from a student’s disability related needs;
+• not identify or determine that EL students are students with disabilities because of their limited English language proficiency;
+and
+• provide EL students with disabilities with both the language assistance and disability related services they are entitled to under
+federal law.
+CHAPTER V RESOURCES
+For more information regarding serving ELs with special needs, see Chapter 6 of the EL Toolkit
+• Bulletin 1508: Pupil Appraisal Handbook
+• LDOE Students with Disabilities Website
+
+15
+
+CHAPTER VI: MONITORING AND EXITING
+In order for ELs to be reclassified and exited from a specialized language assistance program, they must attain levels of English
+proficiency in speaking, listening, reading, and writing so that they are able to meaningfully participate in core academic classes and
+reach levels of academic achievement commensurate with that of their English-speaking peers. The student will retain EL coding
+status in the Student Information System (SIS) until the criteria, established in BESE Bulletin 111, Chapter 40, have been met.
+
+PROFICIENCY DEFINITION
+ELs who achieves a score of Proficient on ELPT have demonstrated that they have attained a level of English language skills
+necessary to independently provide, interpret, collaborate on, and succeed in grade-level, content-related academic tasks in English.
+To be considered English proficient and exit English Learner (EL) status, an EL student must score level 4 (Early Advanced) or level
+5 (Advanced) on all four ELPT domains including speaking, listening, reading and writing.
+Once a student has achieved overall proficiency on ELPT, the student is no longer classified as EL and should be reclassified as
+Fully English Proficient. LEAS must notify parents through a notification letter and update their student information system with
+the student’s new, non-EL status.
+
+RECLASSIFYING STUDENTS WITH DISABILITIES
+Students with disabilities who are unable to meet the above exit criteria after four years or more in EL status, and whose disability
+impacts language acquisition, may be reclassified and exempt from future ELPT participation but will still be required to take
+statewide assessments. In such cases, if the IEP team determines that the student’s disability directly impacts language acquisition,
+then the student’s exit is decided by consensus of the members of the SBLC. Students who meet the participation criteria for LEAP
+Connect may exit sooner until such time as an alternate ELPT is available (Bulletin 111).
+
+STUDENT MONITORING
+After students have exited the specialized English language program(s) and no longer require services, LEAs must have a plan for
+tracking their academic progress for two years following their last reported EL status. Staff responsible for monitoring exited ELs
+must be provided with clear, detailed instructions in order to:
+• ensure that students formerly classified as EL can meaningfully participate in the school’s general education program;
+• monitor students who seem unable to participate meaningfully in the school’s general educational program as seen in poor
+academic achievement in order to determine the reasons for this; and
+• document classroom grades, assessment scores, attendance, and any other related evidence needed to measure the student’s
+continual progress.
+School system staff members must be familiar with the standard procedures and documentation that will be employed throughout
+the monitoring process.
+A former EL may be reclassified as EL if they meet all of the following criteria:
+• It is 3 years or less from initial classification to Fully English Proficient.
+• There is documentation in the form of assessment scores, classwork, or observations that the student is struggling with the
+language demands in numerous content areas.
+• All other classroom interventions have been unsuccessful.
+• The SBLC determines that there is still a need for specific types of language supports.
+Once a student has been identified as needing to be rescreened, the school system will administer ELPS again and make
+placement decisions based on the student’s most current proficiency levels. If there are any questions about this process, contact
+assessment@la.gov.
+CHAPTER VI RESOURCES
+For more information on exiting and monitoring ELs, see Chapter 8 of the EL Toolkit
+
+16
+
+CHAPTER VII: ENSURING MEANINGFUL
+COMMUNICATION WITH EL PARENTS
+Successful communication provides parents with the school-related information they need to participate in and make
+informed decisions about their children’s education. This essential information includes, but is not limited to, information
+regarding language assistance programs, special education and related services, IEP meetings, grievance procedures, notices
+of nondiscrimination, student discipline policies and procedures, registration and enrollment, report cards, requests for parent
+permission for student participation in school system or school activities, parent-teacher conferences, parent handbooks, gifted
+and talented programs, magnet and charter schools, and any other school and program choice options.
+School systems must develop and implement a process for determining whether parents of non-English proficient students need
+documents in language other than English (see Home Language Survey (HLS)) and must participate in parental outreach activities
+in order to provide parents opportunities to:
+• Be involved in the education of their child.
+• Be active participants in assisting their child with:
+» learning English;
+» achieving at high levels in core academic subjects; and
+» meeting the same challenging state academic content and student academic achievement standards that all children are
+expected to meet.
+CHAPTER VII RESOURCES
+See Chapter 10 of the EL Toolkit for more information and The English Learner Family Toolkit for resources, tips, and parental rights.
+• A Guide for Engaging ELL Families: Twenty Strategies for School Leaders
+• Home Language Survey Arabic, Spanish, Vietnamese, Urdo, French, Mandarin
+
+17
+
+CHAPTER VIII: TITLE III REQUIRED SUB-GRANTEE
+ACTIVITIES
+The obligations detailed in above chapters pertain to each of the state’s local education agencies. This chapter addresses the additional
+requirement for LEAs that receive funds under Title III, Language Instruction for Limited English Proficient Immigrant Students.
+
+TITLE III FUNDING FORMULA
+
+Who are Immigrant Students? Immigrant students:
+
+The LDOE receives a formula Title III allocation that is
+determined by the USDOE on an annual basis. The portion
+of the annual allocation designated for school systems is
+allocated based on a per-pupil amount. To receive an allocation
+a school system must:
+
+• are between the ages 3 and 21;
+
+a. Have and EL population large enough to generate an
+allocation of at least $10,000; or
+
+The new student does NOT necessarily need to qualify for the
+school system/charters LIEP program and services; however,
+most new immigrants will. For example, a school system could
+receive an immigrant student from India who is already fluent
+in English but that could still be counted for Immigrant funds.
+
+b. Join a Title III consortium with other systems to have
+enough ELs within consortium to generate a cumulative
+total of $10,000. See Attachment 5 for consortium guidelines.
+
+SPECIFIC REQUIREMENTS UNDER TITLE III
+Under Section 3115(c) of Title III, a school system (LEA)
+receiving funds shall use them to:
+a. Provide effective language instruction educational
+programs that demonstrate effectiveness in increasing:
+» English language proficiency and
+» Student academic achievement (ESEA Section 3115(c)(1))
+b. Provide effective professional development to:
+» Improve instruction and assessment;
+» Enhance the ability of teachers to understand and
+implement curricula, assessment practices, and
+instructional strategies; and
+» Increase English language proficiency or substantially
+increasing knowledge of sufficient intensity and
+duration (ESEA Section 3115(c)(2)).
+c. Provide and implement other effective activities and
+strategies that enhance or supplement language instruction
+educational programs for ELs, which shall include parent,
+family, and community engagement activities, and may
+include strategies that serve to coordinate and align related
+programs (ESEA Section 3115(c)(3)).
+
+IMMIGRANT INFLUX FUNDS
+To receive Title III Immigrant Influx funds, a school system
+must experience an average increase of at least 10 percent
+in its number of immigrant students over the two preceding
+years. A school system does not need to qualify for regular
+Title III funding to review immigrant influx funds.
+
+18
+
+• were not born in any U.S. State (or Puerto Rico); and
+• have been enrolled in U.S. schools for less than 3 academic
+years [Title III, section 3301(6)].
+
+Under the statute, a school system (LEA) must use the
+immigrant sub-grant to provide enhanced instructional
+opportunities for immigrant children and youth (ESEA Section
+3115(e)). Activities may include:
+• family literacy, parent and family outreach, and training
+activities designed to assist parents and families to become
+active participants in the education of their children;
+• recruitment of and support for personnel, including
+teachers and paraprofessionals who have been specifically
+trained, or are being trained, to provide services to
+immigrant children and youth;
+• provision of tutorials, mentoring, and academic or career
+counseling for immigrant children and youth;
+• identification, development, and acquisition of curricular
+materials, educational software, and technologies to be used in
+the program;
+• basic instruction services that are directly attributable to
+the presence of immigrant children and youth in the LEA,
+including the payment of costs of providing additional
+classroom supplies, costs of transportation, or such other
+costs as are directly attributable to such additional basic
+instruction services;
+• other instruction services that are designed to assist
+immigrant children and youth to achieve in elementary
+and secondary schools in the U.S., such as programs
+of introduction to the educational system and civics
+education; and
+• activities coordinated with community-based organizations,
+institutions of higher education, nonpublic sector entities,
+or other entities with expertise in working with immigrants,
+to assist parents and families of immigrant children and
+youth by offering comprehensive community services.
+
+NONPUBLIC SCHOOL PARTICIPATION
+A school system (LEA) receiving Title III funds must consult with appropriate nonpublic school officials during the design and
+development of the Title III program and, after timely and meaningful consultation, provide educational services to EL children
+and educational personnel. (No Child Left Behind Act of 2001, Title IX, Part E Secs. 9501-9506). During the consultation, the school
+system (LEA) must discuss with appropriate nonpublic school officials the design and development of the Title III program on
+issues such as:
+• how English Learner needs will be identified,
+• what services will be offered,
+• how, where and by whom the services will be provided,
+• how the services will be assessed and how the results of the assessment will be used to improve those services,
+• the size and scope of the services to be provided to the nonpublic school children and educational personnel,
+• the amount of funds available for those services, and
+• how and when the school system (LEA)will make decisions about the delivery of services, including a thorough consideration
+of the views of the nonpublic school officials on the provision of contract services through potential third-party providers.
+In addition:
+• Title III services provided to children and educational personnel in nonpublic schools must be equitable and timely and
+address their educational needs.
+• Funds provided for educational services for nonpublic school children and educational personnel must be equal, taking into
+account the number and educational needs of those children and the funds provided for participating public school children.
+• Title III services provided to nonpublic school children and educational personnel must be secular, neutral, and nonideological.
+• LEAs may serve nonpublic school ELs and educational personnel either directly or through contracts with public and
+nonpublic agencies, organizations, and institutions.
+• The control of funds used to provide services and the title to materials and equipment purchased with those funds must be
+retained by the LEA.
+• Services for nonpublic school children and educational personnel must be provided by employees of the school system (LEA)
+or through a contract made by the school system (LEA) with a third party.
+• Providers of services to nonpublic school children and educational personnel must be independent of the nonpublic school and
+of any religious organization, and the providers’ employment or contract must be under the control and supervision of the LEA.
+• Funds used to provide services to nonpublic school children and educational personnel must not be commingled with
+nonfederal funds.
+
+19
+
+REPORTING NONPUBLIC CONSULTATION IN EGMS
+Information regarding consultation with nonpublic schools is recorded in the Nonpublic/Title III tab under the Administration
+Section of the SuperApp. The total amount available for services goes in the “Title III Section” under the Nonpublic tab.
+
+The amount available for and services provided to each individual nonpublic school is recorded in the chart under the Nonpublic
+Consultation tab.
+
+IMPORTANT NOTE: School systems must document the result of its consultation with nonpublics regarding services under Title
+III even if the nonpublic declines the services. If a nonpublic refuses services, there must be a statement in the comment section
+of nonpublic consultation page stating that Title III services were offered and declined. If refusal was due to no English Learners
+(EL) being enrolled in the nonpublic school, a note must be entered in the comment section that the school was informed about
+process to receive services should an EL enroll in the nonpublic.
+
+DATA REPORTING
+Title I requires that states and LEAs annually report on ELs’ progress in achieving English language proficiency, attainment of
+English language proficiency, academic achievement, and high school graduation rates. (ESEA Section 1111(h)(1), (h)(2)). Under
+Title III, there are additional reporting requirements. LEAs must report to their states on:
+• Title III programs and services provided to ELs by grade;
+• number and percentage of ELs making progress toward
+English language proficiency. This must be disaggregated by
+ELs with disabilities;
+• number and percentage of ELs who attain proficiency and
+exit LIEPs;
+
+• number and percentage of former ELs who meet academic
+content standards (for 4 years). This must be disaggregated by
+ELs with disabilities; and
+• number and percentage of ELs who have not exited LIEPs
+after 5 years as an EL.
+
+CHAPTER VIII RESOURCES
+Nonpublic School Participation in Title III Programs
+Non-Regulatory Guidance: English Learners and Title III of the Elementary and Secondary Education Act (ESEA), as amended
+by the Every Student Succeeds Act (ESSA)
+
+20
+
+RESOURCES
+• Bulletin 111: The Louisiana School, District, and State Accountability System
+• Bulletin 118: Statewide Assessment Standards and Practices
+• Bulletin 741: Louisiana Handbook for School Administrators
+• Bulletin 1508: Pupil Appraisal Handbook
+• Developing a School System PD Plan
+• EL Accommodation Checklist
+• EL Frequently Asked Questions
+• English Learner Guidebook: Changing Educational Outcomes for English Learners
+• English Learner (EL) Identification Flowchart
+• EL Instructional Support Plan
+• ELPS/ELPT Accessibility and Accommodations Manual
+• ELPS Assessment Guidance
+• ELPS Test Administrator Overview and Training Webinar
+• ELPS Test Administrator Overview and Training Presentation
+• ELPT Portal
+• A Guide for Engaging ELL Families: Twenty Strategies for School Leaders
+• Louisiana Academic Content PD Vendor Guide
+• LA Connectors for English Learners
+• LDOE Students with Disabilities Website
+• LEAP 2025 Accommodations and Accessibility Features User Guide
+• Moving Toward a More Common Definition of English Learner
+• Non-Regulatory Guidance
+• OELA EL Toolkit
+• Nonpublic School Participation in Title III Programs
+• South Central Comprehensive Center Knowledge Bases
+• State Placement Tests Overview
+• Two-Way Immersion Programs One Pager
+
+21
+
+

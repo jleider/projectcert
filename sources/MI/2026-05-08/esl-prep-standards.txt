@@ -1,0 +1,630 @@
+    Standards for the
+Preparation of Teachers of
+   English as a Second
+        Language
+
+
+   Approved by the Michigan State Board of Education
+                  February 14, 2017
+
+               Updated October 1, 2024
+Standards for the Preparation of Teachers of English as a Second Language
+
+Table of Contents
+Introduction ............................................................................................. 3
+  Conceptual Framework for the Preparation of Teachers in Michigan ................... 3
+  Standards for the Preparation of Teachers of English as a Second Language ....... 3
+     Purpose ................................................................................................ 3
+     Development of the Proposal ................................................................... 4
+     Program Requirements (Fall 2017-Winter 2024) ......................................... 6
+     Endorsement Authorizations .................................................................... 7
+     Fall 2024 Update ................................................................................... 8
+     Program Requirements ........................................................................... 8
+     Endorsement Authorizations .................................................................... 8
+     Implementation Supports and Resources ................................................... 9
+  Participants in Standards Development ...................................................... 10
+English as a Second Language (NS) Content Standards ........................... 11
+  Standard 1: Language, Linguistics, Comparisons ......................................... 12
+  Standard 2: Cultures, Literatures, Cross-Disciplinary Concepts ....................... 12
+  Standard 3: Second Language Development Theories and Instructional Practices
+  ........................................................................................................... 13
+  Standard 4: Integration of Standards Into Curriculum and Instruction ............. 14
+  Standard 5: Assessment .......................................................................... 14
+  Standard 6: Professionalism ..................................................................... 15
+
+
+
+
+                                                                                                              2
+Standards for the Preparation of Teachers of English as a Second Language
+
+                                   Introduction
+
+Conceptual Framework for the Preparation of Teachers in Michigan
+
+A teacher preparation program is comprised of multiple interdependent components
+that prepare candidates for certification to demonstrate proficiencies defined in
+several aligned sets of standards.
+
+   •   The Michigan Interstate Teacher Assessment and Support Consortium (MI-
+       InTASC) Model Core Teaching Standards, adopted by the SBE in 2013, define
+       the theoretical and practical knowledge, skills, and dispositions that all entry
+       level teachers should possess upon completion of an approved teacher
+       preparation program.
+
+   •   The Michigan Certification Standards for the Preparation of All Elementary
+       and Secondary Teachers in Reading Instruction specify the expected
+       knowledge and skills in the areas of reading that all teachers at the
+       elementary and secondary levels should possess upon entry to the
+       profession, regardless of content area specialization.
+
+   •   Michigan-specific content standards define the central concepts, tools of
+       inquiry, and structures of the specific discipline(s) in which teacher
+       candidates seek endorsement, as well as pedagogical applications of that
+       disciplinary knowledge.
+
+A recommendation for teacher certification is an assurance on the part of
+the teacher preparation program that a candidate demonstrates the
+appropriate proficiencies specified in each of these sets of standards.
+
+Standards for the Preparation of Teachers of English as a Second Language
+
+Purpose
+The purpose of the Standards for the Preparation of Teachers of English as a
+Second Language (ESL) is to establish a shared vision for the knowledge and skills
+that entry level teachers of ESL in Michigan should possess and be able to
+demonstrate in their teaching, regardless of whether they follow a traditional or
+alternate route into the profession. This document provides standards across six
+domains of professional preparation to provide instruction for English Learners.
+These standards establish outcomes for graduates of teacher preparation programs
+in ESL and should be used to inform program development and continuous
+improvement efforts at Michigan’s institutions of higher education and alternate
+route providers. They exemplify the following “Beliefs for Supporting Linguistically
+and Culturally Diverse Learners in English/Multilingual Teaching,” developed and
+adopted by the MDE’s OFS’ English Learner Advisory Committee (ELAC) in its
+strategic planning process and revised in November 2016.
+
+       We are committed to providing intensive, intentional, and appropriate
+       instructional opportunities that meet the unique needs of English Learners
+       and ensuring their academic success by building on the prior knowledge,
+       cultural and linguistic assets students bring to their learning communities.
+
+
+
+                                                                                      3
+Standards for the Preparation of Teachers of English as a Second Language
+
+         We are committed to teacher preparation and ongoing professional learning
+         that leads to effective teaching so that all students are able to make
+         contributions to economic, social, civic, technological and cultural
+         advancements.
+
+         We are committed to advocating for educational equity and excellence for
+         linguistically and culturally diverse learners which includes fostering climates
+         that welcome, honor and respect diversity, multilingualism, multiliteracy, and
+         students’ cultural contributions in a global society.
+
+These standards are rooted in the belief that the primary role of an English as a
+Second Language (NS) endorsed teacher is to promote educational equity and the
+academic achievement of students whose home languages are not English by
+delivering instruction in how to speak, read, write, listen and communicate in
+English and by supporting their acquisition of content knowledge and academic
+language while they learn English. This role is distinct from that of the World
+Language (F_) endorsed teacher, whose primary role is to increase children’s global
+competence by delivering instruction in how to speak, read, write and listen in a
+target world language that is not their home language, as well as by supporting
+students’ understanding of the world cultures associated with the target language.
+It is also distinct from that of the Bilingual Education (Y_) endorsed teacher, whose
+primary role is to promote educational equity by making content curriculum
+accessible to students whose home languages are not English by delivering content
+area instruction in the students’ home language(s), supporting the maintenance
+and development of literacy in students’ home language(s), and simultaneously
+providing direct instruction in English language and literacy.
+
+These standards are aligned with the TESOL/CAEP Standards of the Recognition of
+Initial TESOL Programs in P-12 ESL Teacher Education (2010). Because they are
+aligned with the same standards used by national accrediting bodies and specialty
+program associations for recognition and accreditation decisions, Michigan
+programs’ alignment to the state standards will support their accreditation
+activities.
+
+Development of the Proposal
+The ELAC, led by the MDE’s OFS and composed of representatives from Michigan’s
+local education agencies, intermediate school districts, and public and independent
+teacher preparation programs in bilingual education and ESL, began discussions
+about updating Michigan’s teacher preparation standards in November 2014. This
+action was motivated by recognition of a critical shortage of appropriately prepared
+teachers to meet the needs of Michigan’s growing population of students eligible for
+ESL or bilingual education services. For example, in the 2015-2016 school year,
+90,121 students were identified as English Learners1 and eligible for ESL or bilingual
+education programs yet only 733 full-time equivalent instructional positions (FTEs)
+were devoted to serving this population by teachers holding NS or Y_
+endorsements, according to the Registry of Educational Personnel for End of Year
+2016. Further impetus for updating the standards came after the November 2015
+SBE adoption of updated standards for world language teacher preparation. At its
+
+1
+    Source: MI School Data, 2015-2016 Student Count
+
+
+                                                                                        4
+Standards for the Preparation of Teachers of English as a Second Language
+
+March 17, 2016, meeting, the consensus of the ELAC was to review the
+TESOL/CAEP 2010 standards and Michigan’s Standards for the Preparation of
+Teachers of English as a Second Language (NS) adopted by the SBE at its July 7,
+2004, meeting to determine whether an adoption of the TESOL/CAEP standards or a
+targeted revision of the English as a Second Language (NS) standards would be the
+best approach to updating Michigan’s standards. Members of the ELAC were
+surveyed for their interest to serve on a workgroup engage in this work and bring
+an updated set of standards for ELAC approval before its fall 2016 meeting. The
+ESL Standards Workgroup met at the MDE on May 10, 2016, and determined that a
+targeted revision of the 2004 NS standards was the best approach for updating
+Michigan standards. It identified 19 standards for revision and drafted new
+language for the identified standards. The workgroup met again at the ELAC’s June
+2, 2016, meeting to review recommended revisions from the May meeting and
+reach consensus on draft language for standards that were not considered during
+the May meeting. The workgroup met for a third time at the MDE on August 3,
+2016, to review the standards holistically, discuss the purpose of the English as a
+Second Language (NS) endorsement, and consider both preparation program
+requirements and endorsement authorizations, discussed later in this document.
+
+These standards were submitted for the SBE review at its November 15, 2016,
+meeting. This presentation was followed by a period of public comment through
+January 17, 2017. Seven comments explicitly addressing the proposed NS
+standards were submitted, and all were strongly supportive of the standards. One
+commenter recommended that Program Requirements be amended to require non-
+native English speakers pursuing the NS endorsement to “prove that they had
+taken a certain number of college credits in English.” Because teacher preparation
+coursework for the NS endorsement is taught in English and teacher licensure
+assessments are administered in English, the demonstration of English proficiency
+represented by “successful completion of coursework in an approved program and
+required assessments for teacher licensure” in Standard 1.1 was considered
+sufficient by the ESL Standards Workgroup for addressing this concern, and no
+changes to the standards or program requirements were made as a result of this
+feedback.
+
+A second commenter on both the NS and Y_ standards recommended that
+references to “academic vocabulary” and “language acquisition” throughout both
+sets of standards and introductory remarks be changed to “academic language” (to
+acknowledge that achieving proficiency in academic disciplines involves more than
+the mastery of discrete words) and “language development” (to acknowledge that
+language is not a commodity to be acquired, but rather a social resource that
+develops in interaction with others), respectively, to be more in line with current
+research and teaching in the field. This same commenter also recommended the
+addition of a standard “to acknowledge current research on language in different
+disciplinary and content areas that is showing how teachers can benefit from
+understanding the different discourse expectations for language in different
+subjects.” A third commenter, representing the collective feedback of the faculty
+from a Michigan educator preparation institution, recommended slight rewordings of
+selected standards (specifically, 1.4, 1.5, 2.2, 2.3 and 2.4 in both NS and Y_
+standards) for clarity. The ESL Standards Workgroup reviewed these
+recommendations and endorsed updating the standards accordingly. These
+
+
+                                                                                 5
+Standards for the Preparation of Teachers of English as a Second Language
+
+standards have strong continuity with the previous Michigan standards in terms of
+the core competencies that teachers in ESL programs should be able to
+demonstrate, with most of the targeted revisions consisting of subtle updates in
+language that increase the currency of the standards and provide stronger
+distinctions between expected competencies for ESL, bilingual and world language
+teachers. Standards related to teachers’ understanding of the role that culture plays
+in language development and ability to apply their understanding of different
+cultural perspectives in instruction with English Learners (Standards 2.1 – 2.4) are
+unchanged from the 2004 standards. Outdated language referring to “limited-
+English proficient” learners was updated throughout to reference English Learners
+to align with the language adopted in the Every Student Succeeds Act (e.g., 3.7,
+6.4). Standards relating to assessment (5.1 – 5.6) were updated to more clearly
+emphasize that teachers of ESL must be able to demonstrate assessment literacy
+not only in general, but also in the unique context of working with English Learners
+in an ESL setting. New standards (4.6 and 5.7) were added to further emphasize
+the need for teachers of ESL to be able to implement a variety of accommodations
+in both instruction and assessment that are appropriate to the needs of English
+Learners. Lastly, a new standard (1.5) was added to support bilingual teachers’
+ability to distinguish patterns of behavior and performance in the second language
+development process that may resemble patterns of behaviors exhibited by children
+with learning disabilities from manifestations of true learning disabilities. The most
+significant change in the updated standards is the expectation for language
+proficiency in English that teacher candidates are to demonstrate (1.1). The 2004
+standards specified “At least a superior level of speaking, listening, reading, and
+writing proficiency in English using a variety of testing protocols.” The new
+Standard 1.1 specifies that candidates demonstrate “an ability to serve as effective
+models of spoken and written English as demonstrated by successful completion of
+coursework in an approved program and required assessments for teacher
+licensure.” The rewritten standard aligns with the performance indicator for
+exceeding TESOL/CAEP’s corresponding standard. As teacher preparation programs
+in ESL are delivered in English and multiple certification testing requirements for
+earning an NS endorsement (e.g. Professional Readiness Exam, Michigan Test for
+Teacher Certification #086) assess candidates’ reading and writing skills at a high
+level, the consensus view of the ESL Standards Workgroup is that reifying
+additional formal testing of candidates’ English proficiency within the standards was
+not warranted.
+
+Program Requirements (Fall 2017-Winter 2024)
+Educator preparation institutions wishing to recommend candidates for
+endorsements in world languages must ensure that candidates have completed a
+program of study that includes:
+
+   •   an elementary or secondary program of study of at least 20 semester
+       hours, or K-12 program of study of at least 24 semester hours connected
+       with a program of study of at least 30 semester hours in Elementary
+       Education, Language Arts, Social Studies, Science or Mathematics for
+       initial endorsement on an elementary or secondary teaching certificate.
+       For programs leading to an additional endorsement on an existing teacher
+       certificate, at least 20 semester hours for an elementary or secondary
+       endorsement and 24 semester hours for a K-12 endorsement;
+
+
+                                                                                    6
+Standards for the Preparation of Teachers of English as a Second Language
+
+    •   Prerequisite/co-requisite: documented experience learning a second
+        language equivalent to two semesters’ worth of college-level study in
+        order to gain an understanding and appreciation of the processes of
+        learning an additional language. Any semester hours earned in language
+        coursework in fulfillment of this requirement may not count toward the 20
+        semester hour minor or 24 semester hour group minor; and
+
+    •   for initial certification, a separate professional education program of at
+        least 20 semester hours appropriate to grade level of the endorsement
+        sought that prepares the candidate to the appropriate learning
+        progression of the Michigan Interstate Teacher Assessment and Support
+        Consortium (MI-InTASC) Model Core Teaching Standards and the
+        appropriate Michigan Certification Standards for the Preparation of All
+        Elementary and Secondary Teachers in Reading Instruction.
+
+In addition K-12 initial and additional endorsement programs must provide:
+
+    •   structured field experiences with a gradual release of responsibility
+        (inclusive of student teaching) in three areas: elementary, middle school,
+        and high school;
+
+    •   course work in growth and development for early childhood and
+        adolescent learners; and
+
+    •   preparation in instructional methods with specific strategies of instruction
+        for English Learners and multilingual learners appropriate to all levels of
+        certification.
+
+Endorsement Authorizations
+Teachers possessing an English as a Second Language (NS) endorsement may
+provide instruction in an ESL classroom in the grade levels indicated on their
+certificate for the NS endorsement. Teachers possessing an English as a Second
+Language (NS) endorsement and an endorsement in a core subject area may
+provide sheltered instruction2 in all subjects according to certificate grade level and
+Michigan Merit Curriculum (MMC) credit in core subject areas in which they are
+endorsed (e.g., a teacher with English as a Second Language (NS) and Social
+Studies (RX) endorsements with 6-12 grade level authorizations may serve as the
+instructor of record for a course granting MMC credit in social studies offered only
+to students in grades 6-12 who qualify for ESL services).
+
+Teachers possessing an English as a Second Language (NS) endorsement may also
+provide support for students who qualify for ESL services through co-teaching with
+teachers possessing appropriate certification in any subject area and in any grade
+level within the span of the NS endorsement. They may also provide instruction in a
+resource room setting for students who qualify for ESL services and may serve as
+instructor of record for courses granting elective credit under the MMC without
+
+2
+  Sheltered instruction is defined as a classroom setting in which teachers use specific
+strategies to teach a specific content area (e.g., social studies or math) in ways
+comprehensible to students whose home language is not English while promoting their
+English language development.
+
+
+                                                                                           7
+Standards for the Preparation of Teachers of English as a Second Language
+
+possessing additional subject area endorsements. The NS endorsement is not
+authorization to teach in a bilingual classroom in Michigan.
+
+Fall 2024 Update
+In alignment with Michigan’s revised teacher certification structure, the NS
+endorsement is only available with a PK-12 grade band, effective June 30, 2024.
+Grade bands of K-8, 6-12, and K-12 have been phased out. The following updated
+program requirements and implementation supports and resources provide further
+guidance to educator preparation providers (EPP) approved to offer PK-12 NS
+endorsement.
+
+EPPs wishing to recommend candidates for the PK-12 NS endorsement must ensure
+that candidates have completed a program of study that includes:
+       • Course work in growth and development as related to dual language
+          learners’ literacy development for early childhood through adolescent
+          phase
+       • Preparation in instructional methods with specific strategies of instruction
+          for multilingual learners appropriate for early childhood, early
+          adolescence, and adolescence.
+Program Requirements
+       • For currently certified teachers seeking an additional endorsement, an
+          approved program of study aligned to the NS teacher preparation
+          standards.
+       • For currently certified teachers seeking an additional endorsement, an
+          approved program of study aligned to the NS teacher preparation
+          standards.
+Prerequisite/co-requisite: documented experience1 learning a second language
+equivalent to two semesters’ worth of college-level study in order to gain an
+understanding and appreciation of the processes of learning an additional language.
+
+Endorsement Authorizations
+Teachers possessing an English as a Second Language (NS) endorsement may
+provide instruction in an ESL classroom in the grade levels indicated on their
+certificate for the NS endorsement. Teachers possessing an English as a Second
+Language (NS) endorsement and an endorsement in a core subject area may
+provide sheltered2 instruction in all subjects according to certificate grade level and
+Michigan Merit Curriculum (MMC) credit in core subject areas in which they are
+endorsed (e.g., a teacher with English as a Second Language (NS) and Social
+Studies (RQ) endorsements with 5-9 or 7-12 grade level authorizations may serve
+as the instructor of record for a course granting MMC credit in social studies offered
+to multilingual learners in grades 5-9 or 7-12 who qualify for ESL services).
+Teachers possessing an English as a Second Language (NS) endorsement may also
+provide support for students who qualify for ESL services through co-teaching with
+teachers possessing appropriate endorsement in any subject area and in any grade
+level within the span of the NS endorsement. They may also provide instruction in a
+resource room setting for multilingual learners who qualify for ESL services and
+may serve as instructor of record for courses granting elective credit under the
+MMC without possessing additional subject area endorsements. The NS
+endorsement is not an authorization to teach in a bilingual classroom in Michigan.
+
+
+
+                                                                                      8
+Standards for the Preparation of Teachers of English as a Second Language
+
+
+Implementation Supports and Resources
+  • Glossary of terms encountered in the NS standards and/or current evidence-
+     based teaching and assessment practices.
+  • NS Standards aligned projects, assessments, and relevant resources offered
+     by committee members for EPP faculty’s perusal.
+
+
+
+
+                                                                             9
+Introduction to Standards for the Preparation of Teachers of English as a Second Language
+
+
+
+                            Participants in Standards Development
+
+       Martha A. Adler, Ph.D.                     Maria Selena Protacio, Ph.D.
+       Associate Professor,                       Assistant Professor of Literacy Studies
+       Reading/Language Arts & ESL                Western Michigan University
+       University of Michigan-Dearborn
+                                                  Marcie Pyper, Ph.D.
+       Elizabeth Corah-Hopkins, Ph.D.             Professor of Spanish
+       Program Coordinator,                       Calvin College
+       Bilingual/Bicultural Education
+       Wayne State University                     Sara Rainwater
+                                                  ESL Coordinator
+       Christina DeNicolo, Ph.D.                  Genesee Intermediate School District
+       Assistant Professor of Bilingual and
+       Bicultural Education                       Maura Sedgeman
+       Wayne State University                     Language & Literacy/SIOP Trainer
+                                                  Dearborn Public Schools
+       Casey L. Gordon
+       Special Populations Consultant             Kerry Segel, Ph.D.
+       Kent Intermediate School District          Professor of English
+                                                  Saginaw Valley State University
+       Norma Hernandez
+       Director, Office of English Language       Maria Elena Silva
+       Learners                                   English Learner Consultant
+       Detroit Public Schools                     Michigan Department of Education
+
+       Sean Kottke, Ph.D.                         Kay Smith
+       Education Consultant                       ELL Coordinator
+       Michigan Department of Education           Grand Rapids Public Schools
+
+       Sarah-Kate LaVan, Ph.D.                    Shereen Tabrizi, Ph.D.
+       Manager, Professional Preparation and      Manager, Special Populations Unit
+       Learning Unit                              Michigan Department of Education
+       Michigan Department of Education
+                                                  Suzanne Toohey, M.Ed.
+       Su McKeithen-Polish, Ph.D.                 ESL/Title III Consultant
+       Bilingual Education/Title III Consultant   Oakland Schools
+       Macomb Intermediate School District
+                                                  Michelle Williams
+       Lena Montgomery                            Migrant Education Consultant
+       Manager                                    Michigan Department of Education
+       Wayne Regional Education Service
+       Agency
+
+       Rui Niu-Cooper, Ph.D.
+       Associate Professor of Education
+       Aquinas College
+
+
+
+
+                                                                                       10
+English as a Second Language (NS)
+        Content Standards
+
+
+
+
+                                    11
+                              English as a Second Language (NS) Content Standards
+
+
+
+                                  Standard 1: Language, Linguistics, Comparisons
+
+Candidates for endorsement in English as a Second Language will demonstrate:
+
+1.1   An ability to serve as effective models of spoken and written English as demonstrated by successful completion of
+coursework in an approved program and required assessments for teacher licensure.
+
+1.2   Knowledge of the linguistic elements (such as phonology, morphology, syntax, semantics, pragmatics, and discourse)
+of English and their role in developing literacy.
+
+1.3   An understanding of the dynamic changing nature of language systems.
+
+1.4    Knowledge of socio-linguistic elements such as language varieties, dialects, registers, and the value of
+bilingualism/multilingualism.
+
+1.5   An ability to distinguish between learning challenges and behaviors associated with language development and those
+associated with learning disabilities.
+
+1.6  An understanding of the ways language varies across subject areas and familiarity with the discursive and
+grammatical challenges of language use in different subjects.
+
+                          Standard 2: Cultures, Literatures, Cross-Disciplinary Concepts
+
+Candidates for endorsement in English as a Second Language will demonstrate:
+
+2.1   Knowledge, understanding, and use of the major concepts, principles, theories, and research related to the nature
+and role of culture in language development and academic achievement that support students learning.
+
+2.2   Application of knowledge and understanding of how valuing cultural groups and students’ cultural identities affect
+language learning and school achievement.
+
+2.3   An understanding of the value and role of literary and cultural texts that reflect students’ heritage and cultures and
+the ability to use them to interpret and reflect upon a variety of cultural perspectives over time.
+
+
+
+
+                                                                                                                        12
+                               English as a Second Language (NS) Content Standards
+
+
+
+2.4   An understanding of similarities and differences between English-speaking and heritage cultures, and knowledge of
+how to make thoughtful comparisons between them that indicate the valuing of learners’ home cultures while enabling them
+to adapt to the new culture.
+
+                Standard 3: Second Language Development Theories and Instructional Practices
+
+Candidates for endorsement in English as a Second Language will demonstrate:
+
+3.1   An understanding of second language development theories and research, inclusive of error analysis, performance
+analysis, and interlanguage analysis.
+
+3.2    An ability to use language development knowledge to create a supportive classroom-learning environment that
+includes opportunities for interaction and negotiation of meaning in English.
+
+3.3   A variety of instructional practices that produce language outcomes through articulated program models that address
+the needs of linguistically and culturally diverse learners.
+
+3.4   Knowledge and use of second language development theories and research in classroom organization, developing
+teaching strategies, and choosing and adapting classroom instructional resources.
+
+3.5   Knowledge of individual learner variables (e.g., linguistic, cognitive, affective, social) in the second language
+development process.
+
+3.6   Knowledge of second language teaching methodologies and their applicability in developing instructional practices
+and resources to meet the needs of individual English Learners.
+
+3.7   Knowledge and use of a variety of strategies to promote full participation of English Learners in classrooms.
+
+3.8   Knowledge and use of a wide range of materials, resources, and technologies in effective content teaching for English
+Learners.
+
+3.9    Competency in teaching English Learners to acquire and use English in listening, speaking, reading, and writing for
+social and academic purposes.
+
+
+
+
+                                                                                                                          13
+                              English as a Second Language (NS) Content Standards
+
+
+
+                     Standard 4: Integration of Standards Into Curriculum and Instruction
+
+Candidates for endorsement in English as a Second Language will demonstrate:
+
+4.1   An understanding of the standards and benchmarks currently approved in Michigan for K-12 content and English
+language proficiency in curricular planning.
+
+4.2    An ability to integrate the standards and benchmarks currently approved in Michigan for K-12 content and English
+language proficiency into instruction with appropriate strategies and techniques that support students in accessing the core
+curriculum as they learn both language and academic content.
+
+4.3   An ability to use standards and benchmarks to evaluate, select, design, and adapt instructional resources by
+connecting curriculum to students’ experiences and skills of home and community.
+
+4.4   An ability to manage and implement standards-based content instruction to support English Learners in accessing the
+core curriculum as they learn language and academic content.
+
+4.5  Knowledge, understanding, and use of standards-based practices and strategies related to planning, implementing,
+and managing content instruction including the use of critical thinking skills for English Learners.
+
+4.6    Familiarity with and adaptive use of a wide range of standards-based materials, resources, and technologies in the
+delivery of effective content curriculum for English learners.
+
+4.7   Knowledge and use of differentiated instruction and appropriate and timely accommodations based on the needs of
+the needs of English Learners.
+
+                                               Standard 5: Assessment
+
+Candidates for endorsement in English as a Second Language will demonstrate:
+
+5.1   Knowledge of the nature of assessment and multiple ways to assess that are age, level, and language appropriate.
+
+5.2    Effective and timely assessment practices including: analysis of formative, interim and summative assessment
+results, and use of outcome data to inform instruction and to interpret and communicate student achievement results to all
+stakeholders.
+
+
+
+                                                                                                                      14
+                               English as a Second Language (NS) Content Standards
+
+
+
+5.3    Knowledge of various assessment issues affecting English Learners (e.g., cultural and linguistic bias, political, social,
+linguistic and psychological factors).
+
+5.4    Knowledge and use of various standards-based language proficiency instruments to inform instruction and the value
+of data for identification, placement, and demonstration of language proficiency and academic achievement of English
+Learners.
+
+5.5   Knowledge of the difference between language proficiency testing and other types of assessment (e.g., standardized
+achievement tests of overall mastery) as they affect English Learners.
+
+5.6   Knowledge of the relationship between standards and assessment decisions.
+
+5.7   Knowledge and use of a variety of assessment accommodations appropriate to the needs of English Learners.
+
+                                              Standard 6: Professionalism
+
+Candidates for endorsement in English as a Second Language will demonstrate:
+
+6.1   Knowledge of culturally responsive teaching practices.
+
+6.2   Knowledge of the additive value that multilingualism brings to the overall success of all students and an
+understanding of the teacher’s role as an advocate with students, colleagues, and members of the community in promoting
+and developing multilingualism.
+
+6.3   An ability to identify, analyze, and reflect upon professional knowledge and language proficiency, and seek resources
+for improvement.
+
+6.4   Knowledge of legislative impact on teaching in programs for world languages, English Learners, and bilingual
+education.
+
+6.5   Knowledge of the teacher’s role as a professional within a discipline.
+
+6.6    Knowledge of the history and current state of teaching world languages, English Learners, and bilingual students as it
+affects public policy and advocacy issues.
+
+
+
+
+                                                                                                                           15
+                              English as a Second Language (NS) Content Standards
+
+
+
+6.7   An ability to serve as a professional resource, advocate for students, and build partnerships with students’ families
+and communities.
+
+
+
+
+                                                                                                                        16
+

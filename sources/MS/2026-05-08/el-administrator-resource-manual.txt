@@ -1,0 +1,5581 @@
+English Learner (EL)
+Administrator and Teacher Guide
+
+Carey M. Wright, Ed. D., State Superintendent of Education
+Kim S. Benton, Ed. D., Chief Academic Officer
+OFFICE OF ELEMENTARY EDUCATION AND READING
+Student Intervention Services Pre-K - 12
+Published 2016
+English Learner (EL) – Administrator Resource Manual
+
+1
+
+MISSISSIPPI DEPARTMENT OF EDUCATION
+CAREY M. WRIGHT, ED. D., STATE SUPERINTENDENT OF EDUCATION
+The Mississippi State Board of Education, the Mississippi Department of Education, the
+Mississippi School for the Arts, the Mississippi School for the Blind, the Mississippi
+School for the Deaf, and the Mississippi School for Mathematics and Science do not
+discriminate on the basis of race, sex, color, religion, national origin, age, or disability in
+the provision of educational programs and services or employment opportunities and
+benefits. The following office has been designated to handle inquiries and complaints
+regarding the non-discrimination policies of the above mentioned entities: Director,
+Office of Human Resources, Mississippi Department of Education, 359 North West
+Street, P. O. Box 771, Suite 203, Jackson, MS 39205-0771, (601)359-3511.
+
+English Learner (EL) – Administrator Resource Manual
+
+2
+
+INTRODUCTION
+Mississippi’s English Learner (EL) population has been expanding for a number of
+years. A significant increase was noted during late 2015 and early 2016. From the end of
+May 2015 to late January 2016, approximately 4,000 EL students were added to the
+state’s population. This represents about a 34 percent increase. Statewide, almost all
+Mississippi districts now have at least one EL student, and more than 12,100 EL
+students have been identified across the Magnolia State.
+With this shift in Mississippi’s population, it is more important than ever to provide
+supports to teachers, administrators and other educators responsible for serving ELs.
+This is a shared responsibility, with administrators, regular classroom teachers, EL
+teachers, EL tutors, and other staff all working together to ensure success. General
+education and EL teachers should collaborate together to determine appropriate
+instructional strategies and accommodations for EL students. Using this model, all
+educators function as language teachers when ELs are enrolled in their classes.
+While English is designated as the official language of the state of Mississippi, and the
+state Kindergarten Readiness Assessment,
+Third Grade Summative Assessment, high
+school graduation test and high school End of
+Course Tests are all in English, it is our
+responsibility as a state to successfully
+prepare ELs to access all available
+postsecondary options. This ambitious goal
+requires that instructional approaches be
+effective, innovative and flexible, with the
+unique needs of EL students and families
+always being considered. Ultimately, our responsibility is to ensure that ELs succeed
+socially as well as academically. It is essential, for this reason, that ELs understand
+American culture and how to function successfully within it. To accomplish these goals,
+it may be necessary at times to provide some support in students’ native languages. This
+means of support is appropriate, and is a research-based accommodation.
+The purpose of the EL Resource Manual is to provide assistance with program
+management and effective instruction of ELs. The intent of this document is to provide
+instructional strategies, resources for teachers, assessment and supplementary
+assessment choices, and sample portfolio guidelines.
+Our hope is that this guide will serve as a valuable resource for Mississippi educators, as
+we strive to ensure that all of our EL students across the state receive the education they
+both need and deserve. Please remember that the Mississippi Department of Education
+is here to serve and support you with this effort.
+
+English Learner (EL) – Administrator Resource Manual
+
+3
+
+The EL Administrator and Teacher Guide is organized according to the
+following sections:
+
+SECTION I: Federal Guidelines and Guidance – Includes an
+overview of federal guidelines for serving EL students.
+
+SECTION II: Instructional Resources – Includes EL instructional
+strategies, an early childhood checklist and a compilation of resources
+to support effective classroom instruction.
+
+SECTION III: Assessment of ALL EL Standards – Provides an
+overview of the LAS Links assessment, as well as language proficiency
+descriptors and strategies for each proficiency level. Additional
+assessment tools, techniques teachers can use to respond to ELs’ writing
+assignments, along with a sample analytic oral scoring rubric are also
+provided.
+
+SECTION IV: Student Portfolios – Features elementary, middle, and
+high school reading/writing portfolio cover sheets and evaluation
+summaries. Additionally, samples for language, speaking, and content
+area progress documents along with self assessment forms for language
+and speaking documents are included.
+
+SECTION V: Appendix – Contains sample assessments and lesson
+plans for EL students.
+
+English Learner (EL) – Administrator Resource Manual
+
+4
+
+TABLE OF CONTENTS
+SECTION I: FEDERAL GUIDELINES AND GUIDANCE ............................................................................. 6
+Federal Guideline Information ..................................................................................................... 7
+Guidance on Special Education Services for EL Students .......................................................... 11
+SECTION II: INSTRUCTIONAL RESOURCES ..........................................................................................12
+EL Instructional Strategies ..........................................................................................................13
+Early Childhood Checklist for Teachers ...................................................................................... 15
+Resources for Teachers ............................................................................................................... 18
+EL Reading Rubric vs. Developmental Reading Rubric ............................................................ 23
+Online Articles and Resources Specific to Teaching EL Students ............................................. 25
+SECTION III: ASSESSMENT OF ALL EL STANDARDS ........................................................................... 26
+LAS Links Assessment Overview ................................................................................................ 27
+LAS Links Proficiency Level Descriptors for Grades K-5 .......................................................... 27
+Expectations and Strategies by Proficiency Level ...................................................................... 32
+Factors Affecting Rate and Ease of Language Development ..................................................... 34
+Supplementary Assessment Choices for ELs ............................................................................. 36
+Techniques for Responding to EL Student Writing Samples .................................................... 37
+Analytic Oral Language Scoring Rubric ..................................................................................... 39
+SECTION IV: STUDENT PORTFOLIOS ................................................................................................. 41
+Elementary School Reading/Writing Portfolio Cover Sheet ..................................................... 42
+Middle School Reading/Writing Portfolio Cover Sheet ............................................................. 43
+High School Reading/Writing Portfolio Cover Sheet ................................................................ 44
+Portfolio Evaluation Summary ................................................................................................... 45
+Summary Evaluation Guidelines ................................................................................................ 46
+Content Area Progress ................................................................................................................ 47
+Self-Assessment of Academic Language Functions ................................................................... 48
+Language and Academic Progress .............................................................................................. 49
+Self-Assessment of Oral Language ............................................................................................. 50
+Self-Assessment of Speaking Ability ........................................................................................... 51
+Oral Scoring Rubric .................................................................................................................... 52
+Math Development Checklist ..................................................................................................... 53
+SECTION V: APPENDIX ..................................................................................................................... 54
+English Learner (EL) – Administrator Resource Manual
+
+5
+
+SECTION I:
+Federal Guidelines and Guidance
+
+This section includes the following information:
+1. Federal Guideline Information
+2. Guidance on Special Education Services for EL students
+
+English Learner (EL) – Administrator Resource Manual
+
+6
+
+Federal Guideline Information
+Compliance Considerations
+Forty years ago, the U.S. Supreme Court ruled in the Lau v. Nichols case that for schools
+to meet their legal obligations under Title VI of the Civil Rights Act of 1964, they had to
+take steps to ensure that students with Limited English Proficiency (LEP) could
+meaningfully participate in schools’ education programs and services. The same year,
+Congress enacted the Equal Educational Opportunities Act, which reaffirmed that public
+schools and state educational agencies are required to overcome students’ language
+barriers and to equip them to participate equally and meaningfully in school programs.
+Nationwide and in Mississippi, the number of EL students is growing. Nationally, EL
+students are now enrolled in almost three out of every four public schools and account
+for 9 percent of all public school students.
+In a January 2015 Dear Colleague Letter, English Learner Students and Limited
+English Proficient Parents, several requirements were reiterated as part of an effort to
+ensure that all EL students have “access to equal educational opportunities.”
+
+Guidelines for Schools
+1. Identify and Serve All Potential EL Students
+The first step in serving EL students effectively is to have a clear identification
+process. Most school districts do this through a home language survey given to
+families when a student enters school. The survey typically asks what languages are
+spoken in the home, what languages are spoken most often by the student, and what
+languages the student is able to read. School districts “must to the extent practicable
+translate such notices in a language the parent can understand.” If translation is not
+feasible, parents must be offered free oral interpretation of the written survey
+information.
+It is essential to note that all ELs must be allowed to attend school, even if they are
+unable to present a birth certificate, social security number or immigration
+documentation. If immunization records are not available from a previous school or
+doctor, students can begin the immunization series at the local public health
+department.
+2. Assessing Potential EL Students
+Federal guidelines require that all potential EL students be assessed in all four
+domains of English – speaking, listening, reading and writing. In Mississippi, that
+assessment is done using LAS Links, a fully online assessment system. Parents
+English Learner (EL) – Administrator Resource Manual
+
+7
+
+should be notified of results and program placement in a language they can
+understand. Students who start school during the first month of the academic year
+have up to 30 days to be screened, while students who start after the first month of
+school have two weeks to be screened and placed. More information on assessing
+ELs is available in the section on the LAS Links assessment, found on page 27.
+3. Providing EL Students with a Language Assistance Program
+Students must receive language assistance services or programs that have been
+demonstrated “educationally sound in theory and effective in practice.” No particular
+program or method of instruction is required for EL students. Some Mississippi
+districts have EL teachers working in pull-out programs, where EL students are
+pulled from general education classrooms for intensive language instruction and
+support. In other cases, EL teachers or tutors might use a push-in model, where they
+provide support to students within the general education classroom, in conjunction
+with the general education teacher.
+Some EL program models that have been implemented nationally include:
+• English as a Second Language/English Language Development –
+programs designed to teach EL students explicitly about the English language,
+including the academic vocabulary needed to access content and to develop
+English language proficiency. Instruction is usually in English with little to no
+use of the student’s primary language.
+• Transitional Bilingual Education – uses a student’s primary language for
+instruction. Students maintain and develop skills in their native language, while
+English is introduced, maintained and developed.
+• Dual Language Program – is a bilingual program where some students are
+native English speakers and some are ELs. The two groups are both maintaining
+their existing language, while learning a new one.
+4. Providing Meaningful Access to All Programs
+While they are receiving support in developing their English proficiency, EL students
+also must have access to the core academic curriculum of their peers. This means
+they should be receiving supports in the regular classroom to ensure that they are
+able to understand and build academic content. Schools also must ensure that EL
+students have equal access to athletics, clubs, the arts, gifted and talented programs,
+and other activities. Additionally, EL students must have access to the same
+facilities, including science and computer labs and other facilities.
+Once a student has been identified as EL, they must have an English Language
+Service Plan (LSP), which should be filed and updated annually until the student
+exits EL status. The plan should be developed and updated through the Student
+Evaluation Team (SET), a school team responsible for guiding and monitoring
+English Learner (EL) – Administrator Resource Manual
+
+8
+
+placement, services and assessment of EL students. The committee must include, at
+the minimum, an ESL teacher, a general education teacher, a school administrator,
+and a parent representative. The team should meet at least quarterly.
+5. Serving Students Who Opt Out of EL Services
+Parents have a legal right to opt their children out of an EL program or a specific EL
+service. However, school representatives can in no way encourage families to opt out.
+Schools also must provide guidance that parents can understand about the EL
+services their child could receive, and the potential benefits of such services. Districts
+must document all opt-outs, and letters verifying that parents opted out of services
+must be kept on file.
+Even if students opt out of the EL program, districts are still responsible for
+monitoring them. Students who have opted out remain designated as EL students
+and schools must appropriately serve them, including with interventions in the
+regular education classroom. The progress of students who opt out also should
+continue to be monitored and students must still take annual English proficiency
+assessments.
+6. Monitoring and Exiting EL Students
+All EL students, including those who have opted out of specific EL services, must be
+monitored for progress. In Mississippi, monitoring occurs through both the annual
+LAS Links assessment and when students take mandated state assessments required
+of all students. EL students who have been in U.S. schools two years or more are
+expected to take and pass required state assessments. Assessment results need to
+inform instruction, and ELs who are not progressing should receive additional
+supports and services, which should then be documented in the Language
+Service Plan.
+To exit EL status, students must post scores of either proficient or advanced
+proficient for each of the four LAS Links domains (reading, writing, listening and
+speaking), or have a composite score of proficient when the four domain scores are
+averaged from one test administration. At the same time, students also must
+demonstrate proficiency in academic content areas. This should be done by posting
+proficient scores on the Mississippi Assessment Program (MAP), the statewide
+exams for students in grades 3-8 and in end-of-course assessments. Once a student
+has been exited from EL status, progress should continue to be monitored for two
+years. If academic deficits surface after the student has been exited, additional
+supports should again be provided. The student also should be re-tested using LAS
+Links, and if the student does not score proficient, they need to again be designated
+as EL.
+
+English Learner (EL) – Administrator Resource Manual
+
+9
+
+7. Meaningful Communication with Parents
+Teachers and administrators must ensure they are communicating with EL parents
+in a way they can comprehend. Parents must be adequately notified in a language
+they understand about any programs, services or activities within the district. They
+should also receive information on language assistance programs, special education
+and related services, IEP meetings, grievance procedures, notices of
+nondiscrimination, student discipline procedures and actions, registration and
+enrollment, report cards, permission slips, parent-teacher conferences and parent
+handbooks. Information included in students’ Language Service Plans also must be
+shared with parents.
+School districts should identify EL parents, and be mindful that some students might
+speak English fluently but have parents who require translated materials.
+The school should provide translated materials for any languages that are common
+in the local community. For less common languages, schools may use a cover page
+explaining in those languages how a parent might receive oral interpretation. When
+using translators, care should be taken to ensure that the translator has a strong
+grasp of English, and is able to translate potentially complex education information.
+Translators and interpreters should be aware of confidentiality requirements.
+In Mississippi, districts also have free access to TransACT, a company that provides a
+menu of legally reviewed forms and notices in multiple languages. Any Mississippi
+public school employee with a district email address can create a TransACT account.
+Go to www.transact.com to create an account.
+For more information on district and state requirements for EL students, go to
+http://www2.ed.gov/about/offices/list/ocr/letters/colleague-el-201501.pdf
+
+English Learner (EL) – Administrator Resource Manual
+
+10
+
+Guidance on Special Education Services for EL Students
+Federal law requires that districts ensure that all EL students who have a disability
+under either IDEA or Section 504 receive appropriate services for their disability, while
+also still receiving the supports they need and are entitled to as EL students.
+When evaluating students for possible disabilities, districts need to consider the English
+proficiency of students, and then determine which assessments and materials are most
+appropriate. Districts must not identify EL students as having disabilities simply
+because they have limited English proficiency.
+Districts are responsible for ensuring that disabilities assessments and other evaluations
+materials be provided in the child’s native language or through another form of
+communication that is likely to yield an accurate evaluation of the student’s abilities.
+Even students whose parents have opted out of EL services must be given language
+appropriate assessments.
+Once an EL student has been identified as having a qualifying disability, the district is
+responsible, through the IEP process, for identifying how to best serve the child. Both
+the child’s disability and their language proficiency needs should be considered as part
+of this process. Additionally, the IEP team should include individuals who understand
+the language acquisition process and are able to add insights into the child’s language
+needs. Language services must continue to be documented through the Language
+Service Plan. Parents with limited English proficiency should be provided with
+information about assessments, special education services and the IEP process in their
+native language.
+
+English Learner (EL) – Administrator Resource Manual
+
+11
+
+SECTION II:
+Instructional Resources
+
+This section includes the following information:
+1. EL Instructional Strategies
+2. Early Childhood Checklist for Teachers
+3. Resources
+a) Academic Language and English Learners
+b) English Learners with Learning Disabilities (ELLD)
+c) Strategies for Teaching English Learners
+d) High School English Learners and Mathematics
+e) Graphic Organizers for Content Instruction
+f) Let’s Read It Again: Comprehension Strategies for English
+Learners
+g) Acrostic Poems
+h) Understanding the “Silent Period” with English Learners
+4. EL Reading Rubric vs. Developmental Reading Rubric
+5. Website links to Articles and Resources
+English Learner (EL) – Administrator Resource Manual
+
+12
+
+EL Instructional Strategies
+The following instructional strategies are designed to support ELs’ content learning,
+provide a variety of approaches for completing assignments, and assist with building
+confidence for the EL student.
+
+EL Instructional Strategies
+Methodologies/
+Approaches
+
+Visuals
+
+Total Physical Response (TPR)
+Natural Approach
+Cognitive Academic Language Learning Approach (CALLA)
+Whole Language Approach
+Language Experience Approach (LEA)
+Retelling a Story
+Activating Prior Knowledge
+Graphic Organizers
+Flow Charts
+Maps
+Charts
+Graphs
+Pictures
+Semantic Webbing/
+Mapping
+T-Charts
+Venn Diagrams
+Story Maps
+Timelines
+
+Interactive
+Strategies
+
+Cooperative Learning
+Peer Buddy
+Small Group Activities
+Pairs and Threes
+Jigsaw
+“Corners”
+Think/Pair/Share
+Group Reports, Projects
+Panel Discussions/Debate
+Choral Reading/ Read
+Around Groups
+
+Audio/Visual
+Videos/Films/CD ROM
+Demonstrations
+Captioning
+Labeling
+Music/Songs
+Jazz Chants/Raps
+CDs – Music/Books
+Computer/Software
+
+Other
+Field Trips
+K-W-L (Know/Wants to
+Know/Learned)
+Role Play
+Games
+Dialogue Journals
+
+English Learner (EL) – Administrator Resource Manual
+
+13
+
+Modified Class
+Work
+(Based on Level
+of English
+Proficiency)
+
+Vary Complexity of Assignment
+One-on-One Instruction with Teacher or Aide
+Modify Nature of Assignment
+Substitute Diagram for Paragraph
+Use of Home Language for Instruction
+Explain Key Concepts
+Repeat/Paraphrase/Slow Down
+Vocabulary with Context Clues
+Reading with a Specific Purpose
+Use Simple, Direct Language (Limit Idioms)
+Use all Modalities/Learning Styles
+Provide Meaningful Language Practice
+Drills (Substitution, Expansion, Paraphrase, Repetition)
+Matching with Visuals
+Unscramble Sentences, Words, Visuals
+Categorize Vocabulary
+Context Clues
+Outline Notes
+Directed Reading/Thinking Activity (DRTA)
+Semantic Feature Analysis
+SQ3R (Survey, Question, Read, Recite, Review)
+Summarizing
+Notetaking
+Wordbanks
+Repetition
+Question-Answer Relationship (QAR)
+Personal Dictionaries
+
+Alternative
+Assessment
+Instruments
+
+Interview
+Content Retelling
+Content Dictation
+Cloze Procedure
+Graphic Representation
+Student Self-rating and Evaluation
+Teacher Rating Checklist
+Writing Sample
+Group Testing
+Observation/Anecdotal
+Portfolio
+
+Multicultural
+Resources
+
+Guest Speakers
+Use of Community Resources
+Cultural Sharing
+Varied Holiday Activities
+Diverse Literature
+
+Modified version of the Multicultural/Foreign Language/ESOL Education Department – ESOL Instructional Strategies Matrix
+
+English Learner (EL) – Administrator Resource Manual
+
+14
+
+Early Childhood Checklist for Teachers
+This checklist is intended to improve the awareness and sensitivity of personnel to the
+importance of cultural diversity, cultural competence, and linguistic competence in early
+childhood settings. It provides concrete examples of the types of practices that foster
+such an environment. If, upon the completion of the checklist, you find you frequently
+responded “C,” you may not be utilizing practices that promote a culturally diverse and
+culturally competent learning environment for your students or their families. If you
+find a pattern of mostly B’s and C’s, you may want to adjust your practices. It is
+important to make sure you are considering all aspects of your students’ educations,
+including awareness and representation of their cultural backgrounds. The following
+checklist can be used to ensure that you are providing students with the best possible
+education.
+Please select A, B, or C for each item listed below.
+A = Things I do frequently
+B = Things I do occasionally
+C = Things I do rarely or never
+___ 1. I display pictures, posters, and other materials that reflect the cultures and
+ethnic backgrounds of children and families served in my early childhood
+program or setting.
+___ 2. I select props for the dramatic play/housekeeping area that are culturally
+diverse (e.g., dolls, clothing, cooking utensils, household articles, furniture).
+___ 3. I ensure that the book/literacy area has pictures and storybooks that reflect the
+different cultures of children and families served in my school or setting.
+___ 4. I ensure that tabletop toys and other play accessories (that depict people) are
+representative of the various cultural and ethnic groups both within my
+community and society in general.
+___ 5. I read a variety of books exposing children in my early childhood program or
+setting to various life experiences of cultures and ethnic groups other than their
+own.
+___ 6. When such books are not available, I provide opportunities for children and
+their families to create their own books and include them among the resources
+and materials in my early childhood program or setting.
+___ 7. I adapt the above referenced approaches when providing services, supports,
+and other interventions in the home setting.
+
+English Learner (EL) – Administrator Resource Manual
+
+15
+
+___ 8. I encourage and provide opportunities for children and their families to share
+experiences through storytelling, puppets, marionettes, or other props to
+support the “oral tradition” common among many cultures.
+___ 9. I plan trips and community outings to places where children and their families
+can learn about their own cultural or ethnic history as well as the history of
+others.
+___ 10. I select videos, films, or other media resources reflective of diverse cultures to
+share with children and families served in my early childhood program or
+setting.
+___ 11. I play a variety of music and introduce musical instruments from many
+cultures.
+___ 12. I provide opportunities for children to cook or sample a variety of foods
+typically served by different cultural and ethnic groups other than their own.
+___ 13. If my early childhood program or setting consists entirely of children and
+families from the same cultural or ethnic group, I feel it is important to plan an
+environment and implement activities that reflect the cultural diversity within
+the society at large.
+___ 14. I am cognizant of and ensure that curricula I use include traditional holidays
+celebrated by the majority culture, as well as those holidays that are unique to
+the culturally diverse children and families served in my early childhood
+program or setting.
+___ 15. For children who speak languages or dialects other than English, I attempt to
+learn and use key words in their language so that I am better able to
+communicate with them.
+___ 16. I attempt to determine any familiar colloquialisms used by children and
+families that will assist and/or enhance the delivery of services and supports.
+___ 17. I use visual aids, gestures, and physical prompts in my interactions with
+children who have limited English proficiency.
+___ 18. When interacting with parents and other family members who have limited
+English proficiency, I always keep in mind that:
+___ (a) limitation in English proficiency is in no way a reflection of their level
+of intellectual functioning;
+___ (b) their limited ability to speak the language of the dominant culture has
+no bearing on their ability to communicate effectively in their
+language of origin;
+English Learner (EL) – Administrator Resource Manual
+
+16
+
+___ (c) they may neither be literate in their language of origin nor English.
+___ 19. I avoid imposing values that may conflict or be inconsistent with those of
+cultures or ethnic groups other than my own.
+___ 20. I discourage children from using racial and ethnic slurs by helping them
+understand that certain words can hurt others.
+___ 21. I screen books, movies, and other media resources for negative cultural, ethnic,
+racial, or religious stereotypes before sharing them with children and their
+families served in my early childhood program or setting.
+___ 22. I provide activities to help children learn about and accept the differences and
+similarities in all people as an ongoing component of program curricula.
+
+English Learner (EL) – Administrator Resource Manual
+
+17
+
+Resources for Teachers
+The following compilation of resources is provided to assist classroom teachers with
+effective instruction and assessment, differentiation, parent engagement activities, and
+available content area graphic organizers designed to aid in the comprehension and
+proficiency of English Learners.
+
+Academic Language and English Learners
+Teachers who work with ELs will find English as a Second Language (ESL), English
+for Speaking of Other Language (ESOL), English Learner (EL), English as a Foreign
+Language (EFL) reading/writing skill building activities and ideas to help PreK-3, 48, and 9-12 students with acquiring Academic Language. ¡Colorín Colorado! offers a
+webcast on Academic Language and English Learners. The webcast features Dr.
+Robin Scarcella of the University of California at Irvine. Dr. Scarcella provides an
+overview of academic language instruction for English Learners, as well as teaching
+strategies, activity ideas, and recommended resources.
+http://www.colorincolorado.org/webcasts/academiclanguage/
+
+English Learners with Learning Disabilities (ELLD)
+Do you know how to tell the difference in an EL student with a learning disability or
+an EL having difficulties in learning academic language? Many times it is difficult to
+identify the difference because the student is being quiet or we think the student is
+nonverbal. In this webcast from ¡Colorín Colorado!, Dr. Elsa Cárdenas-Hagan
+discusses effective assessment and instructional strategies for English Learners with
+disabilities. Dr. Cárdenas-Hagan is a bilingual speech-language pathologist. This
+webcast discusses effective assessment and instructional strategies for English
+Learners with learning disabilities, as well as ways to help encourage the active
+involvement of parents of ELs with learning disabilities in their children’s schools.
+http://www.colorincolorado.org/webcasts/disabilities/
+
+English Learner (EL) – Administrator Resource Manual
+
+18
+
+Strategies for Teaching English Learners
+If you are like many teachers, your classroom is becoming more linguistically
+diverse. While this diversity occurs, teachers are asking, “How can I assist this
+student to learn English and become proficient?” Scholastic has an article that
+includes advice from veteran teachers on how to most effectively serve English
+Learners.
+http://www.scholastic.com/teachers/article/strategies-teaching-english-languagelearners
+High School English Learners and Mathematics
+WIDA has a blog titled “Using the Can Do Descriptors in a High School Math Class,”
+which provides strategies mainstream and EL teachers can use to instruct high
+school students in math. The blog highlights how to differentiate classroom
+instruction or classroom assessment according to the student’s language proficiency
+level. (NOTE: Any Reference to WIDA is for resource purposes only. LAS
+Links is the new diagnostic assessment administered to EL students
+upon enrollment in a Mississippi public school.)
+http://www.widaatwcer.blogspot.com/2012/05/using-can-do-descriptors-in-highschool.html
+Graphic Organizers for Content Instruction
+Graphic organizers make content area information more accessible to English
+Learners by converting complex information into manageable chunks. One of the
+roles of EL and bilingual specialists is to encourage mainstream teachers to employ
+teaching techniques which make content area information more accessible to second
+language learners. Content materials present text which is too dense for ELs. You
+might teach your students to use graphic organizers such as webs, Venn diagrams,
+and charts to help them better comprehend texts. The link provides various
+
+English Learner (EL) – Administrator Resource Manual
+
+19
+
+downloadable activities that can be used in the classroom.
+http://www.everythingesl.net/inservices/graphic_organizers.php
+Let’s Read It Again: Comprehension Strategies for English-Language
+One of the most effective ways to engage ELs and help them comprehend and read
+English is through repeated readings and retellings of appealing bilingual picture
+books. Using Con Mi Hermano/With My Brother by Eileen Roe, second grade
+Spanish-speaking ELs identify the main idea of the story, construct meaning from
+text and illustrations, and learn English words. Students then demonstrate their
+knowledge and practice writing in English by writing a poem and a retelling of the
+story. This lesson (which can be adapted using bilingual books in other languages
+and for older students) also has older struggling readers read with younger students.
+Finally, English-speaking students in regular classrooms learn Spanish words for
+familiar people and objects. The following link from ReadWriteThink is a good
+resource for lesson planning and activities. This is a K-2 activity with an estimated
+time of five 30-minute sessions.
+http://www.readwritethink.org/classroom-resources/lesson-plans/read-againcomprehension-strategies-1045.html
+Acrostic Poems
+In this online interactive writing poetry activity from ReadWriteThink, students can
+learn about and write acrostic poems. An acrostic poem uses the letters in a word to
+begin each line of a poem. All lines of the poem relate to or describe the main topic
+word. As part of the online tool, students brainstorm words to prepare themselves to
+write their poems and can save their work in progress to revise and edit, reinforcing
+elements of the writing process. Students can also print their finished acrostic
+poems or proudly show off their work by emailing it to a friend or family member.
+http://www.readwritethink.org/classroom-resources/student-interactives/acrosticpoems-30045.html.
+
+English Learner (EL) – Administrator Resource Manual
+
+20
+
+Understanding the “Silent Period” with English Learners
+If you have a new EL in your class who is not speaking, do not assume that they are
+not learning. According to language researcher Stephen Krashen, most new learners
+of English will go through a “silent period,” where they are unwilling or unable to
+communicate orally, even though they understand much of what is going on around
+them. They are not comfortable speaking in the new language, because it is difficult
+for them to express their thoughts orally. Children in this silent period should not be
+forced to speak before they are ready. They need time to listen to others talk, digest
+what they hear, and observe their fellow classmates’ interactions with each other.
+Their silence does not mean they are not learning the language. The following link
+from Choice Literacy has a helpful article by Andie Cunningham and Ruth Shagoury
+to assist teachers with understanding non-verbal English Learners.
+https://www.choiceliteracy.com/articles-detail-view.php?id=47.
+
+LAS Links Frequently Asked Questions
+The Office of Student Assessment provides an overview of answers to commonly
+asked questions about Mississippi’s new LAS Links assessment.
+https://districtaccess.mde.k12.ms.us/studentassessment/Public
+Access/Special_Populations/English Learners/ELPT LAS Links Assessment System
+Q-A - December 2015.pdf
+
+Bilingual Dictionaries Listing
+The Mississippi Office of Student Assessment provides a list of recommended
+bilingual word-to-word and technical dictionaries for use with EL students.
+https://districtaccess.mde.k12.ms.us/studentassessment/Public%20Access/Special
+_Populations/English%20Learners/Suggested%20List%20of%20Bilingual%20Dicti
+onaries%20for%20ELL%20Students.pdf
+
+English Learner (EL) – Administrator Resource Manual
+
+21
+
+U.S. Department of Education EL Tool Kit
+In 2015, the U.S. Department of Education’s Office of English Language Acquisition
+released the English Learner Tool Kit, a 10-chapter resource that contains an
+overview of EL policies and needs, sample tools, and EL resources.
+http://www2.ed.gov/about/offices/list/oela/english-learner-toolkit/index.html
+
+English Learner (EL) – Administrator Resource Manual
+
+22
+
+EL Reading Rubric vs. Developmental Reading Rubric
+It is important to recognize the similarities and differences between EL students and
+native English-speaking students’ development in reading. The following chart is
+designed to help teachers recognize whether or not an EL student needs continued
+language support.
+
+EL
+
+Developmental
+
+Pre-Reader
+
+• Listens to read-alouds
+• Repeats words and phrases
+• Uses pictures to comprehend
+text
+• May recognize some
+sound/symbol relationship
+
+• Pretends to read
+• Uses illustrations to tell a story
+• Participates in reading of familiar
+books
+• Knows some letter sounds
+• Recognizes names/words in context
+• Memorizes pattern books and
+familiar books
+• Rhymes and plays with words
+
+Emerging
+Reader
+
+• Participates in choral reading
+• Begins to retell familiar,
+predictable text
+• Uses visuals to facilitate
+meaning
+• Uses phonics and word
+structure to decode
+
+• Sees self as reader
+• Reads books with word patterns
+• Knows most letter sounds
+• Retells main idea of text
+• Recognizes simple words
+• Relies on print and illustrations
+
+Developing
+Reader
+
+• Begins to make predictions
+• Retells beginning, middle, and
+end of story
+• Recognizes plot, characters,
+and events
+• Begins to rely more on print
+than illustrations
+• May need assistance in
+choosing appropriate texts
+
+• Relies more on print than
+illustrations
+• Recognizes names/words by sight
+• Uses sentence structure clues
+• Uses phonetic clues
+• Retells beginning, middle, and end
+• Begins to read silently
+• Uses basic punctuation
+
+English Learner (EL) – Administrator Resource Manual
+
+23
+
+Expanding
+Reader
+
+• Begins to read independently
+• Responds to literature
+• Begins to use a variety of
+reading strategies
+• Usually chooses appropriate
+texts
+
+• Begins to read short stories and
+books
+• Reads and finishes a variety of
+materials with guidance
+• Uses reading strategies
+• Retells plot, characters, and events
+• Recognizes different types of books
+• Reads silently for short periods of
+time
+
+Proficient
+Reader
+
+• Reads independently
+• Relates reading to personal
+experience
+• Uses a wide variety of reading
+strategies
+• Usually chooses appropriate
+texts
+
+• Begins to read chapter books of
+moderate difficulty
+• Reads and finishes a variety of
+materials with guidance
+• Reads and understands most new
+words
+• Uses reference materials to locate
+information with guidance
+• Increases knowledge of literary
+elements and genres
+• Reads silently for extended periods
+
+Independent
+Reader
+
+• Reads for enjoyment
+• Reads and completes a wide
+variety of texts
+• Responds personally and
+critically to texts
+• Matches a wide variety of
+reading strategies to purpose
+• Chooses appropriate or
+challenging texts
+
+• Reads most literature appropriate to
+grade-level
+• Selects, reads, and finishes a wide
+variety of materials
+• Uses reference materials
+independently
+• Recognizes and uses literary
+elements and genres
+• Begins to interpret and expand
+meaning from literature
+• Participates in literary discussions
+
+English Learner (EL) – Administrator Resource Manual
+
+24
+
+Online Articles and Resources Specific to Teaching EL Students
+The articles and resources below will provide guidance and support for EL teachers,
+classroom teachers, RtI Team members, and the EL Team as they develop academic and
+literacy language content for ELs.
+Center for Applied Linguistics
+Resource Center (Compilations of different briefs, databases, facts, publications, and
+resource archive)
+http://www.cal.org/resource-center
+Colorin Colorado
+“Identifying Language Proficiency for Program Placement”
+http://www.colorincolorado.org/educators/assessment/identification/
+Education World
+“ESL Lessons on the Web”
+http://www.educationworld.com/a_lesson/lesson/lesson224.shtml
+“Express Yourself (Well) Web Sites for Teaching Students about the English
+Language”
+http://www.educationworld.com/a_curr/curr149.shtml
+National Center for the Study of Adult Learning and Literacy
+“Beginning ESOL Learners’ Advice to their Teachers”
+http://www.ncsall.net/index.html@id=279.html
+One Stop English
+“ESOL Teaching Tips”
+http://www.onestopenglish.com/esol/esol-support/teaching-tips/
+Reading Rockets
+“Extending English Learners’ Classroom Interactions Using the Response Protocol”
+http://www.readingrockets.org/article/extending-english-language-learnersclassroom-interactions-using-response-protocol
+
+English Learner (EL) – Administrator Resource Manual
+
+25
+
+SECTION III:
+Assessment of All EL Standards
+
+This section includes the following information:
+1.
+
+LAS Links Assessment Overview
+
+2.
+
+LAS Links Proficiency Descriptors for Grades K-5
+
+3.
+
+Expectations and Strategies by Proficiency Level
+
+4.
+
+Factors Affecting Rate and Ease of Language Development
+
+5.
+
+Supplementary Assessment Choices for ELs
+
+6.
+
+Techniques for Responding to EL Student Writing Samples
+
+7.
+
+Analytic Oral Language Scoring Rubric
+
+English Learner (EL) – Administrator Resource Manual
+
+26
+
+LAS Links Assessment Overview
+Mississippi started using the LAS Links assessment to identify and monitor the progress
+of EL students during the 2015-16 school year. The web-based assessment includes tests
+in listening, speaking, reading and writing, as required under federal guidelines.
+Reading and writing selected-response items are scored automatically, providing
+teachers with immediate data on students’ language proficiency.
+Students receive different assessments, based on their grade level. LAS Links’ grade
+bands are K-1, 2-3, 4-5, 6-8 and 9-12. The assessments are aligned to the Teachers of
+English to Speakers of Other Languages (TESOL) PreK-12 English Language Proficiency
+Standards. Your district test coordinator should have been provided with access to
+download a copy of these standards and has been directed to distribute the standards to
+all administrators and teachers who serve EL students. Contact your test coordinator or
+appropriate school level administrator for more information. The standards also are
+available for purchase here: https://www.tesol.org/advance-the-field/standards/prek12-english-language-proficiency-standards.
+Data from the LAS Links assessment is used to assign the student a proficiency level,
+ranging from beginning to early intermediate to intermediate. Higher performing
+students are either proficient or above proficient.
+Individual student proficiency and home/parent reports are available. A summary
+report of strands provides teachers and administrators with group assessment data. The
+Reading Links Report gives a list of recommended independent reading books, based on
+the student’s reading level.
+
+English Learner (EL) – Administrator Resource Manual
+
+27
+
+English Learner (EL) – Administrator Resource Manual
+
+28
+
+English Learner (EL) – Administrator Resource Manual
+
+29
+
+English Learner (EL) – Administrator Resource Manual
+
+30
+
+English Learner (EL) – Administrator Resource Manual
+
+31
+
+Expectations and Strategies by Proficiency Level
+
+Above Proficient
+
+The final stage for EL learners is above proficient. At this level, students’
+communication and reading mirrors that of a native English speaker. At this
+stage, students are able to read and comprehend grade-level text
+independently. They are able to meet grade level expectations in writing, and
+are likely ready to be exited from EL status. Students may still have an
+accent at this stage and may occasionally struggle with idioms and other
+figurative language, but are generally successful in their use of and
+understanding of English and are basically similar to their native English
+peers.
+
+Proficient
+
+A proficient student is able to understand and communicate about academic
+content in fairly complex ways. They are able to read and understand text at
+grade level, and are able to write more lengthy and complex pieces.
+Grammar tends to be consistent and academic vocabulary is fairly strong,
+with students feeling comfortable learning and expressing an understanding
+of new concepts. In this stage, EL students still benefit from explanations of
+figurative language and are capable of more nuanced understanding.
+Occasionally, students may need explanations of particularly complex
+grammatical constructs.
+
+Intermediate
+
+3
+
+4
+
+5
+
+Examining the LAS Links proficiency levels for any grade band, expectations grow with
+each proficiency level. EL students should be supported differently, based on their
+proficiency level, and educators are likely to find that some strategies align better with
+specific proficiency stages.
+
+Once students move into the intermediate language proficiency level, they
+are more consistently able to comprehend and communicate understanding
+of academic content. Their vocabulary becomes more sophisticated and they
+are able to shift verb tenses correctly. Compound sentences also are more
+frequently used. Grammar is more consistent, although there are still errors.
+At this level, there are still errors in both expression and comprehension.
+Students functioning in this level benefit most from instruction in
+explanations of figurative language, and still require a great deal of
+repetition. Students in the intermediate stage also benefit most from support
+and extensive instruction in the writing process. Intermediate level students
+may still need a great deal of support to understand and express their
+understanding of concepts that are new to them.
+
+English Learner (EL) – Administrator Resource Manual
+
+32
+
+Early Intermediate
+Beginning
+
+2
+1
+
+In the early intermediate stage, students are beginning to make sense of and
+use English. They are often able to communicate basic and familiar concepts
+using simple sentences. Students in this stage still make significant errors in
+basic communication and comprehension, and their ability to function both
+socially and academically is still significantly impaired. They can read and
+write short paragraphs on concepts that are familiar to them, and also hold
+simple discussions. Students in this phase benefit from the teaching of and
+modeling of the use of high-frequency and key words. Sentence and
+paragraph frames are particularly helpful to students in this language
+proficiency stage.
+In the beginning stage, the student is just beginning to use and make sense
+of the English language. Students in this stage still rely heavily on their
+native language, and much of their comprehension may be demonstrated
+either in the native language or nonverbally. Students in this stage need the
+most support because their English proficiency is so low. Some students in
+this stage may be in the silent phase, where they do not speak at all, only
+speak in their native language, or only parrot back what is being said to
+them. Students in this stage often comprehend far more than they can
+express or demonstrate, and communicate most often through gesturing,
+pointing or drawing. Students closer to entering the early intermediate stage
+will likely use single words or basic, similarly structured phrases and
+sentences, usually in present tense. Their grammar may be incorrect.
+
+English Learner (EL) – Administrator Resource Manual
+
+33
+
+Factors Affecting Rate and Ease of Language Development
+Some students might move through language acquisition stages more easily and with
+less support than others. A variety of factors have been found to influence how easily a
+student develops the ability to communicate in and comprehend English, both socially
+and within academic settings. Some of the English language acquisition factors most
+consistently identified by education researchers are outlined here.
+Personality Traits of the Learner
+EL students who are confident and particularly outgoing often are more comfortable
+speaking a second language. This is because they tend to be less apprehensive about
+making mistakes and being criticized by others, and are more willing to take language
+risks. Students who are less extroverted may pick up reading and writing skills more
+quickly, while still struggling with the spoken word. Students who are more selfmotivated also tend to fare better when learning English. One way motivation can be
+bolstered is by helping students to see the benefits of learning a new language. Some
+of these benefits, depending upon the age of the student, might include being able to
+socialize more successfully, or being able to graduate and go to college or find a good
+job. Teachers also can provide additional motivation to EL students by offering
+prizes, extra privileges or praise, along with other incentives.
+Environmental Factors
+Some families place a high priority on students learning English. Students whose
+families recognize they will likely be in the U.S. long-term tend to be more motivated
+to use English than students from families who believe that they will eventually
+return to their native countries. Those students who are exposed to effective EL
+programs at school, and also hear English spoken outside of school, also tend to be
+more successful. Students who communicate with native English speakers most often,
+both in and out of school, also are typically more successful.
+Chronological Age and Brain Development
+Research seems to indicate that students between the ages of 2 and 12 are most
+successful at mastering a new language, with children between the ages of 8 and 12
+being particularly good at learning a new language because they have already had an
+opportunity to master a first language. Once students have entered puberty, it is more
+challenging for them to develop a new language because the brain is less adaptive.
+This explains why people who learn a new language after they have started puberty
+tend to keep their native accent.
+
+English Learner (EL) – Administrator Resource Manual
+
+34
+
+Native Language Development
+Students who have strong reading and communication skills in their native language
+are almost always more successful in learning English than students who have weak
+skills in their native language. Students who have received a strong, uninterrupted
+education also tend to have more success than students who have had their education
+disrupted. In some cases, students who have been exposed to several languages but
+never developed fluency in one will struggle when striving to learn English. Cognitive
+ability also is a factor, and some students are naturally more inclined to pick up a new
+language with ease.
+Similarity of the Native Language to English
+Clearly, students from all language backgrounds are able to learn English. That said,
+there are some native languages that are more similar to English, making the
+transition from the native language to English easier. Students who already speak
+Spanish, for example, are at an advantage when learning English because there are
+many words that are similar from Spanish to English. Students transitioning from a
+dramatically different alphabet, such as the Arabic alphabet, also might find reading
+and writing in English more challenging.
+
+English Learner (EL) – Administrator Resource Manual
+
+35
+
+Supplementary Assessment Choices for ELs
+Supplementary assessments are an important means of collecting data relevant to the
+students’ academic and linguistic development. Supplementary assessment refers to
+procedures and techniques which can be used within the context of instruction and can
+be easily incorporated into the daily activities of the school or classroom. Supplementary
+assessments generally meet the following criteria:
+•
+
+Focus is on documenting individual student growth over time, rather than
+comparing students with one another.
+
+•
+
+Emphasis is on students' strengths (what they know), rather than weaknesses
+(what they don't know).
+
+•
+
+Consideration is given to the learning styles, language proficiencies, cultural and
+educational backgrounds, and grade levels of students.
+
+Supplementary assessment includes a variety of measures that can be adapted for
+different situations. The following examples are particularly useful for assessing EL
+students.
+
+Supplementary Assessment Choices for English Learners
+•
+
+Audio and Video
+
+•
+
+Interview
+
+•
+
+Checklist
+
+•
+
+Journal
+
+•
+
+Cloze Procedure
+
+•
+
+Observation/Anecdotal
+
+•
+
+Content Dictation
+
+•
+
+Portfolio
+
+•
+
+Content Retelling
+
+•
+
+Role Play
+
+•
+
+Debate
+
+•
+
+Student Self-Rating and Evaluation
+
+•
+
+Games
+
+•
+
+Technology
+
+•
+
+Graphic Representation
+
+•
+
+Venn Diagram/Semantic Map
+
+•
+
+Group Testing
+
+•
+
+Writing Sample
+
+English Learner (EL) – Administrator Resource Manual
+
+36
+
+Techniques for Responding to EL Student Writing Samples
+The chart below provides writing response techniques, along with a description, for
+evaluating student writing assignments.
+
+Technique
+
+Student SelfEvaluation
+Student Editors (Peer
+Conferences)
+
+Student-Teacher FiveMinute Conferences
+
+Student Publishing
+
+General Impression
+(Holistic Scoring)
+
+Single Focus (Primary
+Trait) Scoring
+
+# of Items
+Scored per
+Paper
+
+Description
+
+None
+
+Student chooses a goal (e.g., eliminating runon sentences) and evaluates his or her own
+progress.
+
+None
+
+Students read or listen to each other’s
+writing, making positive comments and
+suggestions.
+
+None
+
+While the class writes, the teacher quickly
+skims individual student’s work and makes
+positive comments and suggestions. This will
+allow the teacher to conference with every
+student weekly or bi-weekly.
+
+None
+
+Students share their writing samples with
+individuals other than the teacher, read their
+writing samples aloud, mail or e-mail letters,
+and display their work.
+
+1
+
+A single score of 0-4 or 0-6 is based on an
+overall, or “whole” impression from a quick
+read. Example: o - did not address the
+assignment in any way (e.g., a short story
+was assigned and the student wrote a
+rhyme).
+Example: 4 - addresses the assignment and
+shows originality.
+
+1-2
+
+A single trait is commented on or scored 04 or 0-6. (e.g., Did the student name a
+problem and suggest solutions?)
+A related trait also may be considered.
+Students focus on and improve one skill at a
+time. (e.g., persuasiveness)
+
+English Learner (EL) – Administrator Resource Manual
+
+37
+
+Focused Holistic
+Scoring
+
+Yes/No (Dichotomous
+Scale Scoring)
+
+Analytic Scoring
+
+Traditional Grading
+
+2-4
+
+A cross between holistic and primary trait
+scoring, which may be scored 0-4 or 0-6.
+Both are combined to elicit an overall
+(holistic) impression and one or several
+specific traits (e.g., Were purpose and
+audience addressed? Was the piece well
+organized?)
+
+4-10
+
+A checklist of about 4-10 criteria is marked
+yes or no (e.g., Was correct time order used?
+Yes/No).
+
+4-10
+
+A list of about 4-10 traits (e.g., ideas,
+organization, word choice, grammar,
+spelling, mechanics) are commented on or
+scored high, middle, or low.
+
+Everything
+
+All errors are marked. Students might select,
+revise, and polish a favorite composition to
+submit for traditional grading every month or
+two.
+
+Betty G. Gray, author, WORLD OF LANGUAGE, Grades K-8 from the Professional Handbook
+English Learner (EL) – Administrator Resource Manual
+
+38
+
+Analytic Oral Language Scoring Rubric
+EL students’ portfolios should also include an Analytic Oral Language Scoring Rubric
+completed by the teacher or teachers working directly with the student. This rubric can
+be used to determine whether a students’ oral language proficiency is social only, or
+both social and academic.
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+Begins to
+name
+concrete
+objects
+
+Begins to
+communicate
+personal and
+survival
+needs
+
+Begins to
+initiate
+conversations; retells
+a story or
+experience;
+asks and
+responds to
+simple
+questions
+
+Initiates and
+sustains a
+conversation
+with
+descriptors
+and details;
+exhibits selfconfidence in
+social
+situations;
+begins to
+communicate
+in classroom
+settings
+
+Speaks in
+social and
+classroom
+settings with
+sustained
+and
+connected
+discourse;
+any errors do
+not interfere
+with meaning
+
+Communicates
+competently
+in social and
+classroom
+settings
+
+Repeats
+words and
+phrases
+
+Speaks in
+single-word
+utterances
+and short
+patterns
+
+Speaks
+hesitantly
+because of
+rephrasing
+and
+searching for
+words
+
+Speaks with
+occasional
+hesitation
+
+Speaks with
+near-native
+fluency; any
+hesitations
+do not
+interfere with
+communication
+
+Speaks
+fluently
+
+Uses
+predominantly present
+tense verbs;
+demonstrates
+errors or
+omission
+(leaves words
+out, word
+endings off)
+
+Uses some
+complex
+sentences;
+applies rules
+of grammar
+but lacks
+control of
+irregular
+forms (e.g.,
+runned,
+mans, not
+never, more
+higher)
+
+Uses a
+variety of
+structures
+with
+occasional
+grammatical
+errors
+
+Masters a
+variety of
+grammatical
+structures
+
+Structure
+
+Fluency
+
+Speaking
+
+Focus/
+Rating:
+
+English Learner (EL) – Administrator Resource Manual
+
+39
+
+Vocabulary
+Listening
+
+Understands
+little or no
+English
+
+Uses
+functional
+vocabulary
+
+Uses limited
+vocabulary
+
+Uses
+adequate
+vocabulary;
+some word
+usage
+irregularities
+
+Uses varied
+vocabulary
+
+Uses
+extensive
+vocabulary
+but may lag
+behind
+nativespeaking
+peers
+
+Understands
+words and
+phrases,
+requires
+repetition
+
+Understands
+simple
+sentences in
+sustained
+conversation;
+requires
+repetition
+
+Understands
+classroom
+discussions
+with
+repetition,
+rephrasing,
+and
+clarification
+
+Understands
+most spoken
+language,
+including
+classroom
+discussion
+
+Understands
+classroom
+discussion
+without
+difficulty
+
+Adapted from a rating scale developed by ESL teachers Portfolio Assessment Group (Grades 1-12), Fairfax County Public Schools,
+Virginia.
+
+English Learner (EL) – Administrator Resource Manual
+
+40
+
+SECTION IV:
+Student Portfolios
+
+This section includes the following information:
+1.
+
+Elementary School Reading/Writing Portfolio Cover Sheet
+
+2.
+
+Middle School Reading/Writing Portfolio Cover Sheet
+
+3.
+
+High School Reading/Writing Portfolio Cover Sheet
+
+4.
+
+Portfolio Evaluation Summary
+
+5.
+
+Summary Evaluation Guidelines
+
+6.
+
+EL’s Content Area Progress
+
+7.
+
+Self-Assessment of Academic Language Functions
+
+8.
+
+EL’s Language and Academic Progress
+
+9.
+
+Self-Assessment of Oral Language
+
+10.
+
+Self-Assessment of Speaking Ability
+
+11.
+
+Oral Scoring Rubric
+
+12.
+
+Math Development Checklist
+
+English Learner (EL) – Administrator Resource Manual
+
+41
+
+Once students have been identified as needing EL support, a student portfolio can
+be created. Below is a model of a portfolio cover sheet for elementary school EL students. The
+student’s portfolio would be used to record test scores, class scores, and would include selfassessment documentation from the student to to aid in determining whether a child is ready for
+removal from EL classes or needs continued support.
+
+Elementary School Reading/Writing Portfolio Cover Sheet
+Student: _________________________________ School Year: ___________
+Teacher: ________________________________ Grade Level: ___________
+School: _________________________________
+
+Required Content
+
+1st
+Quarter
+
+2nd
+Quarter
+
+3rd
+Quarter
+
+4th
+Quarter
+
+1st
+Quarter
+
+2nd
+Quarter
+
+3rd
+4th
+Quarter Quarter
+
+1. Oral summary
+2. Story summary (writing or drawing)
+3. Writing sample (teacher choice)
+4. Student choice of writing (any choice)
+5. Student self-evaluation
+
+Optional Content
+1. List of books/stories read in class
+2. List of books/stories read independently
+3. Reading interest inventory
+4. Literacy development checklist
+5. Content sample (e.g., reading
+comprehension sample, project, report)
+6. Student choice (any type)
+Test
+
+Initial Testing
+
+Final Testing
+
+Screener
+
+_____Date
+
+_____Score
+
+_____Level
+
+_____Date
+
+_____Score
+
+_____Level
+
+Reading
+
+_____Date
+
+_____Score
+
+_____Level
+
+_____Date
+
+_____Score
+
+_____Level
+
+Writing
+
+_____Date
+
+_____Score
+
+_____Level
+
+_____Date
+
+_____Score
+
+_____Level
+
+Placement
+
+Comments:
+Adapted from portfolio developed by elementary school ESL teachers, Prince William County Public Schools, Virginia. © Addison-Wesley.
+Authentic Assessment for English Language Learners. O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+42
+
+Once students have been identified as needing EL support, a student portfolio can
+be created. Below is a model of a portfolio cover sheet for middle school EL students. The
+student’s portfolio would be used to record test scores, class scores, and would include selfassessment documentation from the student to to aid in determining whether a child is ready for
+removal from EL classes or needs continued support.
+
+Middle School Reading/Writing Portfolio Cover Sheet
+Student: ________________________________ Grade: ______________
+Teacher: ________________________________ School: ______________
+Level: __________________________________ School Year:___________
+1st
+Quarter
+
+Required Content
+
+2nd
+Quarter
+
+3rd
+Quarter
+
+4th
+Quarter
+
+1st
+2nd
+Quarter Quarter
+
+3rd
+Quarter
+
+4th
+Quarter
+
+1. Cloze sample
+2. Writing sample
+3. Self-rating strategies checklist
+4. List of books read
+5. Reading passage with comprehension
+questions
+
+Optional Content
+1. Content area samples
+2. Audio/visual performances
+3. Illustrations
+4. Other
+
+1st Quarter
+
+Teacher Observations
+3rd Quarter
+
+2nd Quarter
+
+4th Quarter
+
+Parent Comments
+
+___________________
+Signature
+
+___________________
+Signature
+
+____________________
+Signature
+
+___________________
+Signature
+
+Adapted from portfolio developed by middle school ESL teachers, Prince William County Public Schools, Virginia. © Addison-Wesley. Authentic
+Assessment for English Language Learners. O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+43
+
+Once students have been identified as needing EL support, a student portfolio can
+be created. Below is a model of a portfolio cover sheet for high school EL students. The
+student’s portfolio would be used to record test scores, class scores, and would include selfassessment documentation from the student to aid in determining whether a child is ready for
+removal from EL classes or needs continued support.
+
+High School Reading/Writing Portfolio Cover Sheet
+Student: ________________________________ Grade: ______________
+Teacher: ________________________________ School: ______________
+Level: __________________________________ School Year: __________
+Date of Entry: ____________________________
+1st
+Quarter
+
+Required Content
+
+2nd
+Quarter
+
+3rd
+Quarter
+
+4th
+Quarter
+
+1st
+2nd
+Quarter Quarter
+
+3rd
+Quarter
+
+4th
+Quarter
+
+1. Reading passage with comprehension
+questions
+1. Cloze Sample
+2. Writing Sample
+3. Written response to oral stimulus
+4. Written response to prompt/literature
+5. Self-rating strategies checklist
+6. Student choice
+
+Optional Content
+1. Content area samples
+2. Audio/visual performances
+3. List readings with short synopsis
+4. Oral language sample (including native
+language)
+
+5. Other
+
+1st Quarter
+
+2nd Quarter
+
+3rd Quarter
+
+4th Quarter
+
+Test scores
+
+Test scores
+
+Test scores
+
+Test scores
+
+__________________
+Signature
+
+__________________
+Signature
+
+__________________
+Signature
+
+__________________
+Signature
+
+Adapted from portfolio developed by high school ESL teachers, Prince William County Public Schools, Virginia. © Addison-Wesley. Authentic
+Assessment for English Language Learners. O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+44
+
+The Portfolio Evaluation Summary Form may be used to determine how a student
+meets academic standards in their first language (L1) compared to their second language
+(L2). For this form to be used, students would need to be given the opportunity to test on
+curriculum in their native language.
+
+Portfolio Evaluation Summary
+Student: __________________________ Grade: ______ Date: __________
+Teacher: __________________________ School: ____________________
+First Language (L1): ______________ Second Language (L2):______________
+
+Direction: Circle L1 or L2 to indicate if the student meets the standard.
+Curriculum/
+Assessment Area
+
+Does Not Meet
+Standards
+
+Meets
+Standards
+
+Exceeds
+Standards
+
+Oral Language
+
+L1
+
+L2
+
+L1
+
+L2
+
+L1
+
+L2
+
+Written Language
+
+L1
+
+L2
+
+L1
+
+L2
+
+L1
+
+L2
+
+Reading
+
+L1
+
+L2
+
+L1
+
+L2
+
+L1
+
+L2
+
+Overall Summary
+
+L1
+
+L2
+
+L1
+
+L2
+
+L1
+
+L2
+
+Comments:
+
+Adapted from M. Gottlieb in Valdez Pierce and Gottlieb (1994). © Addison-Wesley. Authentic Assessment for English Language
+Learners. O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+45
+
+The following Summary Evaluation Guidelines Rubric may be used to evaluate the
+student’s academic performance.
+
+Summary Evaluation Guidelines
+Student: ____________________________________ Date: ____________
+
+This student:
+
+Never
+
+Sometimes
+
+Often
+
+Always
+
+Identifies the topic
+
+1
+
+2
+
+3
+
+4
+
+Identifies the main idea
+
+1
+
+2
+
+3
+
+4
+
+Combines/chunks similar ideas
+
+1
+
+2
+
+3
+
+4
+
+Paraphrases accurately
+
+1
+
+2
+
+3
+
+4
+
+Deletes minor details
+
+1
+
+2
+
+3
+
+4
+
+Reflects author’s emphasis
+
+1
+
+2
+
+3
+
+4
+
+Recognizes author’s purpose
+
+1
+
+2
+
+3
+
+4
+
+Stays within appropriate length
+
+1
+
+2
+
+3
+
+4
+
+Comments:
+
+Adapted from Casazza (1992) © Addison-Wesley. Authentic Assessment for English Language Learners. O’Malley/Valdez
+Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+46
+
+The following Content Area Progress form may be used to evaluate the student’s
+academic performance.
+
+EL’s Content Area Progress
+Student: _______________________________ Class: ________________
+Teacher: ___________________________
+
+Grade: ______ Date: ________
+
+1. Level of performance in relation to the concepts and skills identified in the
+content area:
+Below grade level
+At grade level
+Above grade level
+1
+
+2
+
+3
+
+4
+
+5
+
+2. Work habits in class: Does he or she understand and follow directions?
+Understand the content, problem, solution process? Ask for assistance? Bring
+required materials?
+No Effort
+Average
+Hard-working
+1
+
+2
+
+3
+
+4
+
+5
+
+3. Recommendations: What kind of help does the student need during the coming
+weeks or months?
+
+4. How can these recommendations be accomplished?
+
+5. What grade does the student have in class to date? __________________
+Notes:
+
+Adapted from: Eastern Stream Center on Resources and Training (ESCORT). (2003). Help! They Don't Speak English.
+Starter Kit for Primary Teachers. Oneonta, NY: State University College. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+47
+
+An important part of the student’s portfolio is evidence of student Self-Assessment of
+Academic Language Functions. These could be completed monthly, quarterly, or each
+semester. Early on, a student might need the assistance of an interpreter to help them complete the
+self-assessment.
+
+Self-Assessment of Academic Language Functions
+Name: _____________________________________ Date: _____________
+Check the box that shows what you can do. Add comments.
+Difficulty Level
+Task
+
+Not Very
+Well
+
+Okay
+
+Well
+
+Very
+Well
+
+Comments
+
+1. I can describe objects
+and people.
+2. I can describe past
+events.
+3. I can listen to and
+understand radio
+programs.
+4. I can listen to and
+understand video and
+television.
+5. I can state an opinion.
+
+6. I can agree and
+disagree.
+7. I can summarize a
+story.
+8. I can give an oral
+report.
+
+Adapted from Bachman and Palmer (1989). © Addison-Wesley. Authentic Assessment for English Language Learners.
+O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+48
+
+The following Language and Academic Progress form may be used to monitor overall
+student progress.
+
+EL’s Language and Academic Progress
+Student: _______________________________ Class: ________________
+Teacher: ___________________________
+
+Grade: ______ Date: ________
+
+Low
+
+Average
+
+High
+
+1. Progress during the past month
+
+1
+
+2
+
+3
+
+4
+
+5
+
+2. Performance in class on:
+• Oral comprehension
+
+1
+
+2
+
+3
+
+4
+
+5
+
+• Reading comprehension
+
+1
+
+2
+
+3
+
+4
+
+5
+
+• Communicates ideas through
+writing assignments
+
+1
+
+2
+
+3
+
+4
+
+5
+
+• Works independently
+
+1
+
+2
+
+3
+
+4
+
+5
+
+• Asks for help when needed
+
+1
+
+2
+
+3
+
+4
+
+5
+
+• Successful completion of tests
+and assessments
+
+1
+
+2
+
+3
+
+4
+
+5
+
+3. Recommendations: What kind of help does the EL student need during the
+coming weeks or months?
+
+4. How can these recommendations be accomplished?
+
+5. Other:
+
+Adapted from: Eastern Stream Center on Resources and Training (ESCORT). (2003). Help! They Don't Speak English. Starter
+Kit for Primary Teachers. Washington, D.C.: Center for Applied Linguistics. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+49
+
+An important part of the student’s portfolio is evidence of student Self-Assessment of
+Oral Language. These could be completed monthly, quarterly, or each semester. Early on, a
+student might need the assistance of an interpreter to help them complete the forms.
+
+Self-Assessment of Oral Language
+Name: _____________________________________ Date: _____________
+
+Check the box that shows what you can do. Add comments.
+What Can You Do
+in English?
+
+Difficulty Level
+Not Very
+Well
+
+Okay
+
+Well
+
+Very
+Well
+
+Comments
+
+1. I can ask
+questions in class.
+2. I can understand
+others when
+working in a
+group.
+3. I can understand
+television shows.
+4. I can speak with
+native English
+speakers outside
+of school.
+5. I can talk on the
+phone.
+
+6. I can ask for an
+explanation.
+
+Adapted from Bachman and Palmer (1989). © Addison-Wesley. Authentic Assessment for English Language Learners.
+O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+50
+
+An important part of the student’s portfolio is evidence of student Self-Assessment of
+Speaking Ability. These could be completed monthly, quarterly, or each semester. Early
+on, a student might need the assistance of an interpreter to help them complete the forms.
+
+Self-Assessment of Speaking Ability
+Name: _____________________________________ Date: _____________
+
+Part 1: Place an X on each line to show how much you agree or disagree.
+This week I used English to talk with ______________________________.
+1. I think that I was successful.
+
+Disagree
+
+Agree
+
+2. The person I spoke to understood me.
+
+Disagree
+
+Agree
+
+3. I felt comfortable speaking with
+this person in English.
+
+Disagree
+
+Agree
+
+4. I understood everything that
+this person said to me.
+
+Disagree
+
+Agree
+
+5. I could do this again with no problem.
+
+Disagree
+
+Agree
+
+Part 2: Complete the sentences below.
+6. When someone doesn’t understand me, I ______________________________.
+
+7. When I don’t understand someone, I _________________________________.
+
+8. Now I know _________________________________________________.
+
+Adapted from a form developed by ESL teacher M. Crossman (1994). Addison-Wesley: Authentic Assessment for English
+Language Learners. O’Malley/Valdez Pierce. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+51
+
+The following Oral Scoring Rubric may be used to evaluate the overall oral
+communication skills of ELs.
+
+Oral Scoring Rubric
+Student: _______________________________ Class: ________________
+Teacher: ___________________________
+
+Grade: ______ Date: ________
+
+Level
+
+Description
+
+5
+
+Communicates very well in social and academic
+English; uses content vocabulary, has command of
+basic grammatical structures; participates in
+classroom discussion.
+
+3
+
+Communicates with some difficulty but conveys
+meaning; uses some grammar structures but has
+problems with verb tenses and use of singular and
+plural; uses content vocabulary with some difficulty;
+and communicates well in social contexts.
+
+1
+
+Can name concrete objects displayed; repeats words
+and phrases; understands English very little or not at
+all.
+
+Notes:
+
+Adapted from: Clemons, J., Areglado, L., & Dill, M. (1993). Portfolios in the classroom. New York: Scholastic.
+This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+52
+
+The following Math Development Checklist may be used to evaluate the performance
+of ELs.
+
+Math Development Checklist
+Student: ____________________________ Class: ___________________
+Teacher: ____________________________ Grade: ___ Date: __________
+
+1. Counts to 1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+2. Has 1:1 correspondence
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+3. Verbalizes addition
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+4. Verbalizes subtraction
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+5. Symbolizes addition to 1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+6. Symbolizes subtraction to
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+7. Verbalizes multiplication
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+8. Other:
+Does not apply____ Most of the time____ Sometimes____ Not noticed yet_____
+Comments:
+
+Adapted from: Eastern Stream Center on Resources and Training (ESCORT). (2003). Help! They Don't Speak English.
+Starter Kit for Primary Teachers. Oneonta, NY: State University College. This page may be reproduced for classroom use.
+
+English Learner (EL) – Administrator Resource Manual
+
+53
+
+SECTION V:
+Appendix
+
+This section includes the following information:
+1. Common Acronyms
+2. Key Terminology
+3. Absolute Beginners - One Stop English
+http://www.onestopenglish.com/
+4. Introduction to the LaRue Reading Skills Assessment
+http://www.mcedservices.com/ESL/Littest.html
+5. Instructions for using the LaRue Reading Skills Assessment
+6. Department of Intervention Services Contact Information
+
+English Learner (EL) – Administrator Resource Manual
+
+54
+
+Common Acronyms
+ACCESS
+
+Assessing Comprehension and Communication in English State-to-State
+
+AMAO
+
+Annual Measurable Achievement Objectives
+
+BICS
+
+Basic Interpersonal Communicative Skills
+
+CALP
+
+Cognitive Academic Language Proficiency
+
+CRT
+
+Criterion-referenced Test
+
+EEOA
+
+Equal Educational Opportunities Act
+
+ELD
+
+English Language Development
+
+EL
+
+English Learner
+
+ESEA
+
+Elementary and Secondary Education Act
+
+ESL
+
+English as a Second Language
+
+ESSA
+
+Every Student Succeeds Act
+
+FEP
+
+Fluent (or fully) English Proficient
+
+IEP
+
+Individualized Education Plan (or Program)
+
+LAD
+
+Language Acquisition Device
+
+LEA
+
+Local Education Agency; school district
+
+LEP
+
+Limited English Proficient
+
+MCT2
+
+Mississippi Curriculum Test, Second Edition
+
+MDE
+
+Mississippi Department of Education
+
+MPI
+
+Model Performance Indicators
+
+NCELA
+
+National Clearinghouse for English Language Acquisition
+
+NCLB
+
+No Child Left Behind Act of 2001
+
+NEP
+
+Non-English Proficient
+
+NRT
+
+Norm-referenced Test
+
+OCR
+
+Office for Civil Rights
+
+OELA
+
+Office of English Language Acquisition
+
+RtI
+
+Response to Intervention
+
+SEA
+
+State Education Agency
+
+SET
+
+Student Evaluation Team
+
+TPR
+
+Total Physical Response
+
+USDOE
+
+United States Department of Education
+
+English Learner (EL) – Administrator Resource Manual
+
+55
+
+Key Terminology
+Academic language proficiency: The use of language in acquiring academic
+content in formal schooling contexts, including specialized or technical language and
+discourse related to each content area.
+Accommodation: Adapting language (spoken or written) to make it more
+understandable to second language learners. In assessment, accommodations may
+be made to the presentation, response method, setting, or timing/scheduling of the
+assessment.
+Affective Filter: The affective filter is a screen of emotion that can block language
+acquisition or learning. A high affective filter keeps the users from learning by being
+too embarrassed or too self-conscious to take risks during communicative
+exchanges.
+Annual Measureable Achievement Objectives (AMAOs): Mandated by No Child
+Left Behind, Title III to demonstrate student progress in acquiring the English
+language. Language progress is measured and reported to the federal government.
+Districts not making appropriate progress are subject to sanctions.
+Basic Interpersonal Communication Skills (BICS): The language ability
+required for face-to-face communication where linguistic interactions are embedded
+in a situational context.
+Bilingual Education Act: Enacted in Congress in 1968 as Title VII of the Elementary
+and Secondary Education Act (ESEA) of 1965 as amended. It established a
+discretionary competitive grant program to fund bilingual education programs for
+economically disadvantaged language minority students, in recognition of the unique
+educational disadvantages faced by non-English speaking students. The Act was
+reauthorized in 1974, 1978, 1984, 1988, 1994, and 2001. Each reauthorization
+brought changes in the types of bilingual education programs that could receive
+federal grants (Crawford, 1995; Baker, 2001). Under the No Child Left Behind Act of
+2001, former Title VII programs are now subsumed under Title III: Language
+Instruction for Limited English Proficient and Immigrant Students.
+Bilingualism: The ability to speak two languages. Defining bilingualism is problematic
+since individuals with varying bilingual characteristics may be classified as bilingual.
+One approach is to recognize various categories of bilingualism such as bilingual
+ability through the determination of bilingual proficiency that includes consideration
+of the four language dimensions: listening, speaking, reading, and writing.
+Bilingual Education: An educational program in which two languages are used to
+provide content matter instruction. As with the term bilingualism, bilingual
+English Learner (EL) – Administrator Resource Manual
+
+56
+
+education is "a simple label for a complex phenomenon." An important distinction is
+between those programs that use and promote two languages and those where
+bilingual children are present, but bilingualism is not fostered in the curriculum
+(Baker & Jones, 1998).
+CAN DO Descriptors: General performance indicators that describe typical behaviors
+of ELs in each language domain at each level of English language proficiency.
+Cognitive Academic Language Proficiency (CALP): The language ability
+required for academic achievement in a context-reduced environment such as
+classroom lectures and textbook reading assignments.
+Carnegie Unit: A standard measure of high school work indicating the minimum
+amount of time that instruction in a subject has been provided. Awarding of one
+Carnegie unit indicates that a minimum of 140 hours of instruction has been
+provided in regular and laboratory classes over a school year; awarding of ½
+Carnegie unit indicates that a minimum of 70 hours has been provided.
+Castañeda v. Pickard: On June 23, 1981, the Fifth Circuit Court issued a decision
+that is the seminal post-Lau decision concerning education of language minority
+students. The case established a three-part test to evaluate the adequacy of a
+district's program for ELs: (1) is the program based on an educational theory
+recognized as sound by some experts in the field or considered by experts as a
+legitimate experimental strategy; (2) are the programs and practices, including
+resources and personnel, reasonably calculated to implement this theory effectively;
+and (3) does the LEA evaluate its programs and make adjustments where needed to
+ensure language barriers are actually being overcome? [648 F.2d 989 (5th Cir.
+1981)].
+Cognitive Academic Language Learning Approach (CALLA): Instructional
+approach that provides explicit teaching of learning strategies within academic
+subject areas. Strategies are divided into three major characteristics: meta cognitive
+(planning, self-monitoring, classifying etc.), cognitive (note taking, summarizing,
+making inferences etc.), and social - affective (asking questions, cooperative
+learning, peer tutoring, etc.).
+Cognitive Academic Language Proficiency (CALP): The type of abstract
+language needed for academic success. This may take from five to seven years to
+develop.
+Communicative Approaches: Teaching approach where negotiation for meaning is
+critical.
+Comprehensible Input: Input + 1, instruction that is just above the student’s ability;
+instructional level.
+English Learner (EL) – Administrator Resource Manual
+
+57
+
+Cultural Awareness: Understanding that students come from a variety of ethnic,
+geographic, economic and religious backgrounds and how these diverse cultural
+and/or academic backgrounds impact the instructional process.
+Dominant Language: The language with which the speaker has greater proficiency
+and/or uses most often.
+English as a Second Language (ESL): An educational approach in which ELs are
+instructed in the use of the English language. Instruction is based on special
+curricula that typically involve little or no use of the native language and is usually
+taught during specific school periods. For the rest of the school day, students may be
+placed in mainstream classes, an immersion program, or a bilingual program.
+English Learner: Anyone whose native language is not English, but who is in the
+process of learning English and who may benefit from various types of language
+support programs. This term is used mainly in the U.S. to describe K-12 students
+who are English Language Learners.
+English as a Second Language (ESL): often used interchangeably with ELL or EL
+Equal Education Opportunities Act of 1974: This civil rights statute prohibits
+states from denying equal educational opportunity to an individual based on his or
+her race, color, sex, or national origin. The statute specifically prohibits states from
+denying equal educational opportunity by the failure of an educational agency to take
+appropriate action to overcome language barriers that impede equal participation by
+its students in its instructional programs. [20 U.S.C. §1203(f)].
+Gifted Program: Special instructional programs designed to meet the individual
+needs of intellectually gifted children in addition to and different from the general
+classroom instructional setting.
+Home Language Survey (HLS): Form completed by parents/guardians that gives
+information about a student’s language background. Must be kept in the student’s
+cumulative folder.
+Immigrant Child: According to Title III of the No Child Left Behind Act of 2001, an
+immigrant child is an individual who:
+(A) is aged 3 through 21;
+(B) was not born in any State; and
+(C) has not been attending one or more schools in any one or more States for
+more than three (3) full academic years.
+Interpreter: A person who translates orally from one language to another.
+
+English Learner (EL) – Administrator Resource Manual
+
+58
+
+Interventions: All students are entitled to appropriate instructional interventions.
+Interventions may include alternative strategies and assessments and added time to
+learn the curriculum. Interventions provide additional opportunities for students to
+master the curriculum. They differ from modifications since interventions do not
+include changing or deleting objectives in the curriculum. ESL classes are
+appropriate instructional interventions for ELs. Core content courses delivered
+through a sheltered approach are also appropriate interventions for ELs.
+L1: The first language that a person acquires; also referred to as the native language.
+L2: The second language that a person acquires.
+Language Acquisition Device (LAD): The hypothesized "device" in the brain that
+allows humans to acquire language.
+Language Acquisition Theory (Krashen and others): Theory in which the
+acquisition and learning of the L2 are viewed as two separate processes, with
+learning being knowing about a language and acquiring the language that is used in
+real conversation. This theory embodies the following hypotheses: 1) natural order;
+natural progression of language development; 2) monitor; an innate error detecting
+mechanism that scans utterances for accuracy in order to make corrections; 3)
+comprehensible input, as defined earlier; 4) affective filter, as defined earlier
+Language domains: The four main subdivisions of language: listening, speaking,
+reading, and writing.
+LAS Links: The assessment used to identify and monitor the progress of EL students
+in Mississippi, as well as some other states. The web-based assessment includes tests
+in listening, speaking, reading and writing, as required under federal guidelines.
+Language Instruction Educational Program: According to Title III of the No
+Child Left Behind Act of 2001, language instruction educational program means an
+instruction course: (A) in which a limited English proficient child is placed for the
+purpose of developing and attaining English proficiency, while meeting challenging
+State academic content and student academic achievement standards; and (B) that
+may make instructional use of both English and a child’s native language to enable
+the child to develop and attain English proficiency, and may include the
+participation of English proficient children if such course is designed to enable all
+participating children to become proficient in English and a second language.
+Language Proficiency: Refers to the degree to which the student exhibits control
+over the use of language, including the measurement of expressive and receptive
+language skills in the areas of phonology, syntax, vocabulary, and semantics and
+including the areas of pragmatics or language use within various domains or social
+
+English Learner (EL) – Administrator Resource Manual
+
+59
+
+circumstances. Proficiency in a language is judged independently and does not imply
+a lack of proficiency in another language.
+Language Service Plan: An individual plan detailing the English language services
+that will be received by the EL student. The plan should be updated annually until
+the student exits EL status. Plans are developed by Student Evaluation Teams, which
+should include, at the minimum, an ESL teacher, general education teacher, a school
+administrator and a parent representative. The team should meet quarterly.
+Lau v. Nichols: Class action lawsuit brought by parents of non-English-proficient
+Chinese students against the San Francisco Unified LEA. In 1974, the Supreme Court
+ruled that identical education does not constitute equal education under the Civil
+Rights Act of 1964. The court ruled that the district must take affirmative steps to
+overcome educational barriers faced by the non-English speaking Chinese students
+in the district. [414 U.S. 563 (1974)]
+Limited English Proficient (LEP): Employed by the U.S. Department of Education
+to refer to ELs who lack sufficient mastery of English to meet state standards and
+excel in an English-language classroom. Increasingly, English Learner (EL) is used
+to describe this population, because it highlights learning, rather than suggesting
+that non-native-English-speaking students are deficient.
+Linguistic complexity: The amount and quality of speech or writing for a given
+situation.
+Local Education Agency (LEA): This is your local school district.
+Maintenance Bilingual Education Program: Bilingual program whose goal is to
+maintain English learners’ native language and culture. Students are encouraged to
+be proficient in English and their native language.
+The May 25 Memorandum: To clarify a LEA's responsibilities with respect to
+national-origin-minority children, the U.S. Department of Health, Education, and
+Welfare, on May 25, 1970, issued a policy statement stating, in part, that "where
+inability to speak and understand the English language excludes national-origin
+minority group children from effective participation in the educational program
+offered by a LEA, the district must take affirmative steps to rectify the language
+deficiency in order to open the instructional program to the students."
+Migrant Child: Migrant child means a child who is, or whose parent, spouse or
+guardian is, a migratory agricultural worker or migratory fisher and who, in the
+preceding thirty-six (36) months, has moved from one LEA to another to obtain or
+accompany such parent, spouse, or guardian in order to obtain temporary or
+seasonal employment in the agricultural or fishing industry as a principle means of
+livelihood.
+English Learner (EL) – Administrator Resource Manual
+
+60
+
+Model Performance Indicators (MPIs): The term “model performance indicator”
+(MPI) refers to a single cell within the standards’ matrices that describes a specific
+level of English language proficiency for a particular language domain (listening,
+speaking, reading, writing).
+Native Language: The first language learned in the home, or the home language.
+Often, it continues to be the students’ stronger language in terms of competence and
+function.
+No Child Left Behind Act of 2001 (NCLB): Sets broad and in-depth accountability
+requirements for English Learners.
+Non-English Proficient (NEP): This term describes students who are just beginning
+to learn English. They are also considered EL, but at the lowest end of the proficiency
+scale.
+NRT: A norm-referenced test.
+Office for Civil Rights (OCR): The Office for Civil Rights of the U.S. Department of
+Education is responsible for enforcing Title VI of the Civil Rights Act of 1964, which
+prohibits discrimination based on race, color, national origin, disability, sex, or age.
+Paraprofessional: An individual who is employed in a preschool, elementary school,
+or secondary school under the supervision of a licensed teacher, including
+individuals employed in language instruction educational programs, special
+education, and migrant education.
+Parent Involvement: Any program or activity that encourages parents to become
+involved in their child's education; for example, conferences, volunteering, helping
+the child with homework, attending workshops on parenting.
+Phase or Stage: Periods of language development that typically used in discussion of
+language ability instead of ages to refer to a child’s progress in second language
+development.
+Primary Language: The language of most benefit in learning new and difficult
+information.
+Pull-out: A program model in which a paraprofessional or tutor pulls students from
+their classes for small group or individual work.
+Realia: Real-life objects used for supporting language development.
+Response to Intervention (RTI): Response to Intervention (RTI) is a system used
+at each school to screen, assess, identify, plan for, and provide interventions to any
+student at risk of school failure due to academic or behavior needs.
+
+English Learner (EL) – Administrator Resource Manual
+
+61
+
+Scaffolding: Building on already acquired skills and knowledge from level to level of
+language proficiency based on increased linguistic complexity, vocabulary usage and
+language control through the use of supports.
+Sheltered Courses: High school content courses (usually social studies, science,
+math, or English literature/language arts) in which the instruction and assessment
+are tailored to the proficiency level of ELs.
+Sheltered Instruction: A sheltered delivery model is defined as one in which teachers
+incorporate second language acquisition principles with traditional teaching
+methodologies to increase the comprehension of the content being taught.
+Sheltered/Structured English Immersion Teacher: Is a teacher who has
+received a minimum of 32 hours of SIOP® training in instructional strategies for
+English Learners. On site coaching and consulting is also provided as a part of
+ongoing professional development support.
+Supplementary Assessment: Assessment that is different from a traditional paperand-pencil test. This type of assessment usually examines how well a student can
+perform a real-life or hands-on task.
+Syntax: The study of the sentence patterns of a language and the rules that govern the
+correctness of sentences.
+Teacher Support Team (TST): A problem-solving unit responsible for interventions
+developed at Tier 3 of RtI. It is a requirement that every school have a Teacher
+Support Team and that the team be implemented in accordance with the process
+developed by the Mississippi Department of Education.
+Teachers of English to Speakers of Other Languages (TESOL): This is the
+international professional organization.
+Teachers of English to Speakers of Other Languages (TESOL) PreK-12
+English Language Proficiency Standards: The set of standards aligned to the
+LAS Links assessment, which is used to identify and monitor the progress of EL
+students in Mississippi. These standards should be used to guide and inform
+instruction by both EL and general education teachers.
+Title I: Title I of the No Child Left Behind Act of 2001 supports programs to assist
+economically disadvantaged students and students at risk of not meeting educational
+standards. The reauthorized Title I makes it clear that ELs are eligible for services on
+the same basis as other students.
+Title III: Title III of the No Child Left Behind Act of 2001 ensures that ELs, including
+immigrant children and youth, develop English proficiency and meet the same
+academic content and academic achievement standards that other children are
+English Learner (EL) – Administrator Resource Manual
+
+62
+
+expected to meet. Title III effectively establishes national policy by acknowledging
+the needs of ELs and their families.
+Title VI: Title VI of the Civil Rights Act of 1964 prohibits discrimination on the basis of
+race, color, or national origin in programs and activities that receive federal funding.
+Total Physical Response (TPR): Communicative approach where students respond
+first with actions, not words. Instruction is accomplished through the use of
+commands.
+Translator: A person (or computer program or application) that translates written
+documents from one language to another. This term is sometimes used
+simultaneously with the term interpreter, however, interpreter is someone who
+translates oral language as opposed to written language.
+Waiver: Official document needed for parents who decline the services of the Language
+Instruction Educational Program while the student is considered EL. In these cases,
+a waiver is required. The waiver must state that students are held accountable for
+meeting all grade level expectations for Mississippi standards and state mandated
+standardized testing.
+
+English Learner (EL) – Administrator Resource Manual
+
+63
+
+Absolute Beginners Lesson Plans
+
+Absolute Beginners
+
+by Frances Marnie
+Unit 1
+
+Level: Beginners with no previous knowledge of Roman script
+Age: Adults
+Time: 90-120 minutes
+Language objectives: hello, what’s your name?, alphabet (upper case), repeat please, numbers 1-5,
+book, pen, chair, table, goodbye
+Key skills: speaking, reading, listening, writing
+Materials: one set of cut-out alphabet cards (laminated, if possible) per pair of students; one alphabet
+formation sheet per student; one set of flash cards; one REPEAT PLEASE sign; the following objects in the
+classroom: pen, book, table, chair; sticky labels
+
+Notes for an interpreter – Part 1
+If an interpreter is available (e.g. a family member
+or friend of the student who speaks good English),
+try to follow the steps below before or at the start of
+the lesson.
+•
+
+Enlist their help with Exercises 1 and 2 and
+ask them to translate repeat please for the
+student. They should not be encouraged to
+stay for the whole lesson as this may inhibit
+the student and / or reinforce the student’s
+dependence on an interpreter.
+
+•
+
+Ask them if they can return at the end of
+the lesson to clarify, if necessary, any
+language items.
+
+•
+
+If they are not available at the end of the
+lesson, agree on the best means of
+communication, e.g. by phone or by attaching
+notes to the student’s worksheet.
+
+2. Ask a confident-looking student What’s your name?
+If the student answers, repeat the name as accurately
+as possible and watch for signs of confirmation that
+you have got it right.
+If the student looks confused, introduce yourself, e.g.
+My name is Susan Smith. Point to yourself as you say
+this. Repeat What’s your name? whilst gesturing to
+the student. If there is still no response, prompt them
+by saying their name. That should elicit at least a nod.
+Repeat What’s your name? The student should now
+understand what is required and give their name.
+Introduce yourself again and ask What’s your name?
+Encourage, prompting if necessary, the response, e.g.
+My name is Yasmin Asif. Repeat this process with all
+the students. Encourage group members to help
+each other.
+3. Model the question What’s your name? and ask the
+students to repeat please, pointing to the REPEAT
+PLEASE sign on the wall. Put the students in pairs to
+practise What’s your name? My name is… . Practise
+until each student is comfortable with this exchange.
+
+Why teach upper-case letters first?
+
+•
+
+Write your own name, and each student’s name,
+on separate sticky labels. Use upper case only and
+place them on a table in the middle of the classroom
+(to arouse curiosity).
+
+Only upper-case letters are introduced in the first unit
+to simplify the presentation of the alphabet at this
+stage. This is because:
+
+•
+
+Stick the REPEAT PLEASE sign to the front wall of
+the classroom.
+
+c. The majority of administration forms require upper
+case only.
+
+•P
+H
+
+© Macmillan Publishers Limited, 2013
+ESOL / Absolute Beginners / Unit 1
+
+b. One of the main focuses of this unit is the students’
+names. A name can be written in upper case only but
+cannot be written in lower case only.
+
+O
+
+1. When the students enter, smile and say hello. If the
+student replies with hello, smile encouragingly and nod
+to show that is the right response – even if the attempt
+is not produced perfectly. If the student says nothing,
+let it pass for now. The word will be reviewed before
+the end of the lesson and it is important to start on a
+positive note.
+
+N T
+O
+FR BE C
+O DO O
+M W P
+W N IA
+EB LO B
+SI A L
+TE DE E
+D •
+
+Procedure
+
+a. The aim of the series is to provide ‘survival
+English’ and the majority of social signs are in upper
+case (e.g. street names, shop names, signs for
+toilets, hospital signs, car registration plates).
+
+CA
+
+TEACHER’S NOTES
+
+Before the lesson
+
+English Learner (EL) – Administrator Resource Manual
+
+64
+
+Absolute Beginners
+
+by Frances Marnie
+Unit 1
+Level: Beginners
+Age: Adults
+Time: Approx. 90 minutes
+
+Language objectives: hello, what’s your name?, alphabet, repeat please, spell please, numbers 1-5,
+book, pen, chair, table, goodbye
+Key skills: speaking, reading, listening, writing
+Materials: one set of cut-out alphabet cards (laminated, if possible) per pair of students; one set of flashcards;
+one Repeat please sign; one Spell please sign; the following objects in the classroom: pen, book, table, chair;
+sticky labels
+
+Enlist their help with Exercises 1 and 2 and ask
+them to translate repeat please and spell please
+for the student. They should not be encouraged
+to stay for the whole lesson as this may inhibit
+the student and / or reinforce the student’s
+dependence on an interpreter.
+
+•
+
+Ask them if they can return at the end of the
+lesson to clarify, if necessary, any language items.
+
+•
+
+If they are not available at the end of the lesson,
+agree on the best means of communication,
+e.g. by phone or by attaching notes to the
+student’s worksheet.
+
+Before the lesson
+•
+
+Stick the Repeat please / Spell please signs on the
+front wall of the classroom.
+
+Procedure
+1. When the students enter, smile and say hello. If the
+student replies with hello, smile encouragingly and nod to
+show that is the right response – even if the attempt is not
+produced perfectly. If the student says nothing, let it pass
+for now. The word will be reviewed before the end of the
+lesson and it is important to start on a positive note.
+
+The rhythm of the chant is designed to help students
+learn the alphabet more easily. It can be repeated
+several times in the first class and used again in
+future lessons until the students are comfortable with
+the alphabet.
+
+H
+
+© Macmillan Publishers Limited, 2013
+ESOL / Absolute Beginners / Unit 1
+
+5. Write the full alphabet on the whiteboard and play
+Track 1 (the alphabet chant). Point to each letter as it
+is named. Play the track several times, encouraging
+the students to join in at any point if they are able to
+name a letter. Allow time for students to write any notes
+on the pronunciation of the letters that will help them
+remember it. You could test the students at this stage
+by pausing the audio file and asking students to either
+say the next letter or point to the last letter spoken on
+their alphabet formation sheets.
+
+O
+
+2. Ask a confident-looking student What’s your name?
+If the student answers, repeat the name as accurately
+as possible and watch for signs of confirmation that
+you have got it right.
+
+4. Introduce yourself again and make a show of
+looking for the sticky label with your name on it. Find
+it and stick it on yourself. Ask What’s your name?
+encouraging the response, e.g. My name is Yasmin
+Asif. Using gesture, ask them to find the sticky label
+with their name and put it on themselves. Repeat this
+process with all the students and encourage group
+members to help each other.
+
+•P
+
+TEACHER’S NOTES
+
+•
+
+Write your own name, and each student’s name,
+on separate sticky labels. Place them on a table in
+the middle of the classroom.
+
+3. Model the question What’s your name? and ask
+the students to repeat please, pointing to the Repeat
+please sign. Put the students in pairs to practise
+What’s your name? My name is … Practise until each
+student is comfortable with this exchange.
+
+CA
+
+•
+
+If the student looks confused, introduce yourself, e.g.
+My name is Susan Smith. Point to yourself as you say
+this. Repeat What’s your name? whilst gesturing to
+the student. If there is still no response, prompt them
+by saying their name. That should elicit at least a nod.
+Repeat What’s your name? The student should now
+understand what is required and give their name.
+Introduce yourself again and ask What’s your name?
+Encourage, prompting if necessary, the response, e.g.
+My name is Yasmin Asif. Repeat this process with all the
+students. Encourage group members to help each other.
+
+N T
+O
+FR BE C
+O DO O
+M W P
+W N IA
+EB LO B
+SI A L
+TE DE E
+D •
+
+Notes for an interpreter – Part 1
+If an interpreter is available (e.g. a family member
+or friend of the student who speaks good English),
+try to follow the steps below before or at the start of
+the lesson.
+
+English Learner (EL) – Administrator Resource Manual
+
+65
+
+Introduction to the LaRue Reading Skills Assessment for
+Preliterate Students
+The Reading Skills Assessment for Preliterate Students was developed to meet a need
+for testing students who have very limited English literacy skills, and cannot read and
+write in their own language. It was created to show which literacy skills and knowledge
+preliterate ESL students have and don’t have. This assessment is not appropriate for
+students who have attended school and learned to read and write in any language. It
+also cannot accurately identify pre-literacy skills of students who are
+literate in a language not written in a Roman alphabet. Some non-Roman
+alphabet languages include Arabic, Greek, Russian, Thai and Chinese.
+Research on education shows that reading as a skill is transferable from language to
+language. Educated students, even if they don’t know a word of English, already
+understand the idea of the alphabetical order, they already know that letters can be
+represented in a variety of fonts, and that there is a correspondence between letters and
+sounds in determining how to pronounce a word. They also know that languages,
+however well organized, have exceptions to rules that need to be learned as exceptions.
+However, some students have no educational background, and have never learned to
+write in their native language. They often have great difficulty taking written tests of any
+kind. This test is designed specifically for these students. It provides the instructor with
+a starting point for their instruction in learning to read and write English. The skills and
+knowledge that are needed to begin to learn to read are included in this test.
+This test combines an oral interview by the instructor, along with reading and writing by
+the student. It allows us to test the student’s knowledge of sounds and phonics, as well
+as other literacy skills. It reveals what skills a student does and doesn’t have. This can
+give the instructor information that is not available from the CASAS tests, since it is only
+a paper and pencil test. The LaRue Reading Skills Assessment for Preliterate Students
+will help you determine which skills need to be taught next, and whether a pre-literate
+student has all of the literacy skills needed to join a mainstream ESL class.
+If a student can score a total of 90 points or more on The LaRue Reading Skills
+Assessment for Preliterate Students, that is strong evidence that they have basic literacy
+skills and will be able to take the CASAS test 11 or 12, and get a meaningful score.
+
+English Learner (EL) – Administrator Resource Manual
+
+66
+
+Instructions for using the LaRue Reading Skills Assessment A
+This assessment is given as a one to one interview with the student. To test the student,
+read the following script, and point to the examples on the test page as appropriate.
+Have your student point to the correct answer, say the correct answer aloud, or write the
+correct answer on the test page as appropriate. Mark the correct score for each question
+on this page, as you give the test. Don’t correct the student if they answer incorrectly,
+just acknowledge their answer and ask the next question. You can repeat each question
+or statement only once. If the student doesn’t understand, move to the next question.
+Note on pronunciation: If the student’s answer is accented but comprehensible, give
+them credit. If their answer is too accented to be understood by most people, do not give
+them credit.
+The questions are ordered in increasing difficulty within each section. If a student
+cannot answer the first two questions in each section, there is no need to ask them
+further questions in that section. Move on to the next section to find out if they are more
+proficient in another area.
+There are 4 sections to this test. Subtotal each section separately. When you have
+finished testing, refer to the Scoring Guide for help in interpreting the test scores.
+SECTION
+
+Score
+
+1.
+
+“This is an e, and this is an e.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+2.
+
+“This is an e, and this is an e.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+3.
+
+“This is a g, and this is a g.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+4.
+
+“This is an f, and this is a g.” For the following three letters ask, “What is this?’
+Then ask, “What letter is next?” Score one point for each letter identified correctly.
+
+5.
+
+“This letter is s, and this letter is t.” For the following three letters ask, “What’s
+this letter?” Then ask, “What letter is next?” Score one point for each letter identified
+correctly.
+
+Section I Subtotal
+6.
+
+“This number is 3, and this number is 4.” For the following three numbers ask,
+“What’s this number?” And then ask, “What number is next?” Score one point for
+each of the numbers identified correctly.
+
+7.
+
+“This phone number is 786-3295. What is this phone number?” Score one point for
+each of the numbers identified correctly.
+
+English Learner (EL) – Administrator Resource Manual
+
+67
+
+8.
+
+“This number is 27.” For the following four numbers ask, “What is this
+number?” Score one point for each of the numbers identified correctly.
+
+9.
+
+“This price is $1.29.” For the following four prices ask, “What’s this price?”
+“One fifty nine” or “one dollar fifty nine” are both acceptable answers. “One five nine” is incorrect.
+Score one point for each of the prices identified correctly.
+
+10. “This time is two-ten.” For the following four times ask, “What’s this time?”
+Score one point for each of the times identified correctly.
+
+Section II Subtotal
+11. “This word is can.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+12. “This word is also can.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+13. “This word is DIN.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+14. “This word is school.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+15. “This word is who.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+16. “This word is nine.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+Section III Subtotal
+17. “Write your first name and your last name.” Score two points for each name spelled
+correctly.
+18. “This letter is e. Copy this letter. This letter is f. Copy this letter. This letter is
+g. Copy this letter. Write the letter h.” Score 1 point for each letter correctly written. Score
+half for wrong case.
+
+19. “This letter is h. Copy this letter. This letter is i. Copy this letter. This letter is j.
+Copy this letter. Write the letter k.” Score 1 point for each letter correctly written. Score half
+for the wrong case.
+
+20. “This word is mad. Copy this word. This word is sad. Copy this word. Write the
+word dad.” Score one point for each word correctly written.
+21. “This word is where. Copy this word. This word is how. Copy this word. Write
+the word why.” Score one point for each word correctly written.
+22. “This date is July 4th, 2001, and this date is 7/4/01. Write May 1st, 2001.” Score
+one point each for the day, month, and year correctly written. The student can use either format for
+writing the date.
+
+23. “Write this sentence: ‘The woman has a baby.’” Score one point for each word written
+correctly.
+
+24. “Write this sentence: ‘Deb went to bed.’” Score one point for each word written correctly.
+Section IV Subtotal
+TEST TOTAL
+The LaRue Reading Skills Assessment was created by Charles LaRue through a grant from the Minnesota Department of Children
+Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+68
+
+LaRue Reading Skills Assessment A
+Name: _________________________________ Date: _________________
+
+Section I
+
+1.
+
+E
+
+E
+
+F
+
+E
+
+B
+
+T
+
+H
+
+2.
+
+e
+
+e
+
+o
+
+c
+
+e
+
+a
+
+a
+
+3.
+
+g
+
+G
+
+G
+
+j
+
+g
+
+Q
+
+g
+
+4.
+
+F
+
+G
+
+H
+
+I
+
+J
+
+_____
+
+5.
+
+s
+
+t
+
+u
+
+v
+
+w
+
+_____
+
+4
+
+5
+
+6
+
+7
+
+____
+
+151
+
+500
+
+Section II
+
+6.
+
+3
+
+7.
+
+786-3295
+
+571-0436
+
+8.
+
+27
+
+39
+
+72
+
+English Learner (EL) – Administrator Resource Manual
+
+69
+
+9.
+
+$1.29
+
+$2.59
+
+$10.95
+
+$59.95
+
+$329.00
+
+10.
+
+2:10
+
+3:15
+
+4:30
+
+12:02
+
+9:45
+
+Section III
+
+11.
+
+can
+
+man
+
+tan
+
+plan
+
+ran
+
+12.
+
+can
+
+cap
+
+cat
+
+cash
+
+cad
+
+13.
+
+DIN
+
+DAN
+
+DEN
+
+DUN
+
+DON
+
+14.
+
+school
+
+good
+
+child
+
+baby
+
+woman
+
+15.
+
+who
+
+when
+
+where
+
+why
+
+how
+
+16.
+
+nine
+
+six
+
+two
+
+eight
+
+twelve
+
+English Learner (EL) – Administrator Resource Manual
+
+70
+
+Section IV
+
+17.
+
+___________________ ____________________
+
+18. E ____
+
+F ____
+
+G _____
+
+______
+
+19. h ____
+
+i ____
+
+j _____
+
+______
+
+20. mad _________
+
+sad _________
+
+_________
+
+21. where ________
+
+how _________
+
+_________
+
+22. July 4, 2001
+
+7/4/01
+
+___________________
+
+23.
+
+_________________________________________
+
+24.
+
+_________________________________________
+
+Adapted from The LaRue Reading Skills Assessment, created by Charles LaRue through a grant from the Minnesota Department
+of Children Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children
+Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+71
+
+Name __________________________ Date _____________
+
+LaRue Reading Skills Assessment A – Scoring Page
+
+SCORE
+
+SECTION I – Tests the ability to recognize and name letters and knowledge of alphabetical order.
+1.
+
+E
+
+E
+
+F
+
+E
+
+B
+
+T
+
+H
+
+____ / 5
+
+2.
+
+e
+
+e
+
+o
+
+c
+
+e
+
+a
+
+a
+
+____ / 5
+
+3.
+
+g
+
+G
+
+G
+
+j
+
+g
+
+Q
+
+g
+
+____ / 5
+
+4.
+
+F
+
+G
+
+H
+
+I
+
+J
+
+(K)
+
+____ / 4
+
+5.
+
+s
+
+t
+
+u
+
+v
+
+w
+
+(x )
+
+____ / 4
+SUBTOTAL
+
+____ / 23
+
+SECTION II – Tests the ability to name numbers, to read numbers as prices and times, and knowledge of numerical order.
+6.
+
+3
+
+4
+
+5
+
+6
+
+7
+
+(8 )
+
+____ / 4
+
+7.
+
+786-3295
+
+571-0436
+
+8.
+
+27
+
+39
+
+72
+
+151
+
+500
+
+____ / 4
+
+9.
+
+$1.29
+
+$2.59
+
+$10.95
+
+$59.95
+
+$329.00
+
+____ / 4
+
+10.
+
+2:10
+
+3:15
+
+4:30
+
+12:02
+
+9:45
+
+____ / 4
+
+____ / 7
+
+SUBTOTAL
+
+____ / 23
+
+SECTION III – Tests knowledge of letter sounds for beginning and ending consonants, short vowels, and sight words.
+11.
+
+can
+
+man
+
+tan
+
+plan
+
+ran
+
+____ / 4
+
+12.
+
+can
+
+cap
+
+cat
+
+cash
+
+cad
+
+____ / 4
+
+13.
+
+DIN
+
+DAN
+
+DEN
+
+DUN
+
+DON
+
+____ / 4
+
+14.
+
+school
+
+good
+
+child
+
+baby
+
+woman
+
+____ / 4
+
+15.
+
+who
+
+when
+
+where
+
+why
+
+how
+
+____ / 4
+
+16.
+
+nine
+
+six
+
+two
+
+eight
+
+twelve
+
+____ / 4
+SUBTOTAL
+
+____ / 24
+
+SECTION IV – Tests the ability to copy and write letters, alphabetical order, write a date, write a sentence from dictation,
+to spell phonetically and write sight words.
+
+17.
+
+(student first name)
+
+(student last name)
+
+____ / 4
+
+18.
+
+E ___
+
+F ___
+
+G ___
+
+(H)
+
+____ / 4
+
+19.
+
+h ___
+
+i ___
+
+j ___
+
+(k)
+
+____ / 4
+
+20.
+
+mad _______
+
+sad _______
+
+(dad)
+
+____ / 3
+
+21.
+
+where ______
+
+how _______
+
+(why)
+
+____ / 3
+
+22.
+
+July 4, 2001
+
+7/4/01
+
+(May 1, 2001 or 5/1/01)
+
+____ / 3
+
+23.
+
+(The woman has a baby.)
+
+____ / 5
+
+24.
+
+(Deb went to bed.)
+
+____ / 4
+SUBTOTAL
+
+____ / 30
+
+TOTAL
+
+____ / 100
+
+Adapted from The LaRue Reading Skills Assessment, created by Charles LaRue through a grant from the Minnesota Department of
+Children Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+72
+
+Instructions for using the LaRue Reading Skills Assessment B
+This assessment is given as a one-to-one interview with the student. To test the student,
+read the following script, and point to the examples on the test page as appropriate.
+Have your student point to the correct answer, say the correct answer aloud, or write the
+correct answer on the test page as appropriate. Mark the correct score for each question
+on this page as you give the test. Don’t correct the student. If they answer incorrectly,
+just acknowledge their answer and ask the next question. You can repeat each question
+or statement only once. If the student doesn’t understand, move to the next question.
+Note on pronunciation: If the student’s answer is accented but comprehensible, give
+them credit. If their answer is too accented to be understood by most people, do not give
+them credit.
+The questions are ordered in increasing difficulty within each section. If a student
+cannot answer the first two questions in each section, there is no need to ask them
+further questions in that section. Move on to the next section to find out if they are more
+proficient in another area.
+There are 4 sections to this test. Subtotal each section separately. When you have
+finished testing, refer to the Scoring Guide for help in interpreting the test scores.
+SECTION
+
+Score
+
+1.
+
+“This is an o, and this is an o.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+2.
+
+“This is an a, and this is an a.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+3.
+
+“This is a h, and this is a h.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+4.
+
+“This is a c, and this is a d.” For the following three letters ask, “What is this?’
+Then ask, “What letter is next?” Score one point for each letter identified correctly.
+
+5.
+
+“This letter is k, and this letter is l.” For the following three letters ask, “What’s
+this letter?” Then ask, “What letter is next?” Score one point for each letter identified
+correctly.
+
+Section I Subtotal
+6.
+
+“This number is 2, and this number is 3.” For the following three numbers ask,
+“What’s this number?” And then ask, “What number is next?” Score one point for
+each of the numbers identified correctly.
+
+7.
+
+“This phone number is 362-9578. What is this phone number?” Score one point for
+each of the numbers identified correctly.
+
+English Learner (EL) – Administrator Resource Manual
+
+73
+
+8.
+
+“This number is 33.” For the following four numbers ask, “What is this
+number?” Score one point for each of the numbers identified correctly.
+
+9.
+
+“This price is $1.13.” For the following four prices ask, “What’s this price?”
+“One thirteen” or “one dollar thirteen” are both acceptable answers. “One one three” is incorrect. Score
+one point for each of the prices identified correctly.
+
+10. “This time is one-fifteen.” For the following four times ask, “What’s this time?”
+Score one point for each of the times identified correctly.
+
+Section II Subtotal
+11. “This word is pin.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+12. “This word is also pin.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+13. “This word is BIG.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+14. “This word is child.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+15. “This word is why.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+16. “This word is ten.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+Section III Subtotal
+17. “Write your first name and your last name.” Score two points for each name spelled
+correctly.
+18. “This letter is c. Copy this letter. This letter is d. Copy this letter. This letter is
+e. Copy this letter. Write the letter f.” Score 1 point for each letter correctly written. Score
+half for wrong case.
+
+19. “This letter is p. Copy this letter. This letter is q. Copy this letter. This letter is
+r. Copy this letter. Write the letter s.” Score 1 point for each letter correctly written. Score
+half for the wrong case
+
+20. “This word is red. Copy this word. This word is fed. Copy this word. Write the
+word bed.” Score one point for each word correctly written.
+21. “This word is what. Copy this word. This word is why. Copy this word. Write
+the word who.” Score one point for each word correctly written.
+22. “This date is August 6th, 2001, and this date is 8/6/01. Write June 3rd, 2001.”
+Score one point each for the day, month, and year correctly written. The student can use either format
+for writing the date.
+
+23. “Write this sentence: ‘Tim is in school.’” Score one point for each word written correctly.
+24. “Write this sentence: ‘The little baby was good.’” Score one point for each word written
+correctly.
+
+Section IV Subtotal
+TEST TOTAL
+The LaRue Reading Skills Assessment was created by Charles LaRue through a grant from the Minnesota Department of Children
+Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+74
+
+LaRue Reading Skills Assessment B
+Name: _________________________________ Date: _________________
+
+Section I
+
+1.
+
+O
+
+O
+
+F
+
+E
+
+B
+
+T
+
+H
+
+2.
+
+a
+
+a
+
+c
+
+o
+
+e
+
+n
+
+a
+
+3.
+
+h
+
+H
+
+k
+
+t
+
+M
+
+T
+
+b
+
+4.
+
+C
+
+D
+
+E
+
+F
+
+G
+
+_____
+
+5.
+
+k
+
+l
+
+m
+
+n
+
+o
+
+_____
+
+3
+
+4
+
+5
+
+6
+
+____
+
+162
+
+300
+
+Section II
+
+6.
+
+2
+
+7.
+
+362-9578
+
+716-0543
+
+8.
+
+33
+
+54
+
+86
+
+English Learner (EL) – Administrator Resource Manual
+
+75
+
+9.
+
+$1.13
+
+$2.99
+
+$10.28
+
+$38.94
+
+$412.00
+
+10.
+
+1:15
+
+7:30
+
+4:03
+
+11:15
+
+6:45
+
+Section III
+
+11.
+
+pin
+
+tin
+
+chin
+
+win
+
+fin
+
+12.
+
+pin
+
+pit
+
+pig
+
+pick
+
+pip
+
+13.
+
+BIG
+
+BAG
+
+BEG
+
+BOG
+
+BUG
+
+14.
+
+child
+
+come
+
+your
+
+house
+
+father
+
+15.
+
+why
+
+how
+
+where
+
+when
+
+what
+
+16.
+
+ten
+
+three
+
+one
+
+six
+
+thirteen
+
+English Learner (EL) – Administrator Resource Manual
+
+76
+
+Section IV
+
+17.
+
+___________________ ____________________
+
+18. C ____
+
+D ____
+
+E _____
+
+______
+
+19. p ____
+
+q ____
+
+r _____
+
+______
+
+20. red _________
+
+fed _________
+
+_________
+
+21. what ________
+
+why _________
+
+_________
+
+22. August 6, 2001
+
+8/6/01 ___________________
+
+23.
+
+_________________________________________
+
+24.
+
+_________________________________________
+
+Adapted from The LaRue Reading Skills Assessment, created by Charles LaRue through a grant from the Minnesota Department
+of Children Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children
+Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+77
+
+Name __________________________ Date _____________
+
+LaRue Reading Skills Assessment B – Scoring Page
+
+SCORE
+
+SECTION I – Tests the ability to recognize and name letters and knowledge of alphabetical order.
+1.
+
+O
+
+O
+
+F
+
+E
+
+B
+
+T
+
+H
+
+____ / 5
+
+2.
+
+a
+
+a
+
+c
+
+o
+
+e
+
+n
+
+a
+
+____ / 5
+
+3.
+
+h
+
+H
+
+k
+
+t
+
+M
+
+T
+
+b
+
+____ / 5
+
+4.
+
+C
+
+D
+
+E
+
+F
+
+G
+
+(H)
+
+____ / 4
+
+5.
+
+k
+
+l
+
+m
+
+n
+
+o
+
+(p )
+
+____ / 4
+SUBTOTAL
+
+____ / 23
+
+SECTION II – Tests the ability to name numbers, to read numbers as prices and times, and knowledge of numerical order.
+6.
+
+2
+
+3
+
+4
+
+5
+
+6
+
+(7)
+
+____ / 4
+
+7.
+
+362-9578
+
+716-0543
+
+8.
+
+33
+
+54
+
+86
+
+162
+
+300
+
+____ / 4
+
+9.
+
+$1.13
+
+$2.99
+
+$10.28
+
+$38.94
+
+$412.00
+
+____ / 4
+
+10.
+
+1:15
+
+7:30
+
+4:03
+
+11:15
+
+6:45
+
+____ / 4
+
+____ / 7
+
+SUBTOTAL
+
+____ / 23
+
+SECTION III – Tests knowledge of letter sounds for beginning and ending consonants, short vowels, and sight words.
+11.
+
+pin
+
+tin
+
+chin
+
+win
+
+fin
+
+____ / 4
+
+12.
+
+pin
+
+pit
+
+pig
+
+pick
+
+pip
+
+____ / 4
+
+13.
+
+BIG
+
+BAG
+
+BEG
+
+BOG
+
+BUG
+
+____ / 4
+
+14.
+
+child
+
+come
+
+your
+
+house
+
+father
+
+____ / 4
+
+15.
+
+why
+
+how
+
+where
+
+when
+
+what
+
+____ / 4
+
+16.
+
+ten
+
+three
+
+one
+
+six
+
+thirteen
+
+____ / 4
+SUBTOTAL
+
+____ / 24
+
+SECTION IV – Tests the ability to copy and write letters, alphabetical order, write a date, write a sentence from dictation,
+to spell phonetically and write sight words.
+
+17.
+
+(student first name)
+
+(student last name)
+
+____ / 4
+
+18.
+
+C ___
+
+D ___
+
+E ___
+
+(F)
+
+____ / 4
+
+19.
+
+p ___
+
+q ___
+
+r ___
+
+(s)
+
+____ / 4
+
+20.
+
+red _______
+
+fed _______
+
+(bed)
+
+____ / 3
+
+21.
+
+what ______
+
+why _______
+
+(who)
+
+____ / 3
+
+22.
+
+August 6, 2001
+
+8/6/01
+
+(June 3, 2001 or 6/3/01)
+
+____ / 3
+
+23.
+
+(Tim is in school.)
+
+____ / 4
+
+24.
+
+(The little baby was good.)
+
+____ / 5
+SUBTOTAL
+
+____ / 30
+
+TOTAL
+
+____ / 100
+
+Adapted from The LaRue Reading Skills Assessment, created by Charles LaRue through a grant from the Minnesota Department of Children
+Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+78
+
+Instructions for using the LaRue Reading Skills Assessment C
+This assessment is given as a one to one interview with the student. To test the student,
+read the following script, and point to the examples on the test page as appropriate.
+Have your student point to the correct answer, say the correct answer aloud, or write the
+correct answer on the test page as appropriate. Mark the correct score for each question
+on this page, as you give the test. Don’t correct the student, if they answer incorrectly,
+just acknowledge their answer and ask the next question. You can repeat each question
+or statement only once. If the student doesn’t understand, move to the next question.
+Note on pronunciation: If the student’s answer is accented but comprehensible, give
+them credit. If their answer is too accented to be understood by most people, do not give
+them credit.
+The questions are ordered in increasing difficulty within each section. If a student
+cannot answer the first two questions in each section, there is no need to ask them
+further questions in that section. Move on to the next section to find out if they are more
+proficient in another area.
+There are 4 sections to this test. Subtotal each section separately. When you have
+finished testing, refer to the Scoring Guide for help in interpreting the test scores.
+SECTION
+
+Score
+
+1. “This is an a, and this is an a.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+2.
+
+“This is an f, and this is an f.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+3.
+
+“This is a p, and this is a p.” For each of the following letters ask, “What is
+this?” Score one point for each letter identified correctly.
+
+4.
+
+“This is a h, and this is an i.” For the following three letters ask, “What is this?’
+Then ask, “What letter is next?” Score one point for each letter identified correctly.
+
+5.
+
+“This letter is p, and this letter is q.” For the following three letters ask,
+“What’s this letter?” Then ask, “What letter is next?” Score one point for each letter
+identified correctly.
+
+Section I Subtotal
+6.
+
+“This number is 4, and this number is 5.” For the following three numbers ask,
+“What’s this number?” And then ask, “What number is next?” Score one point for
+each of the numbers identified correctly.
+
+7.
+
+“This phone number is 952-3678. What is this phone number?” Score one point for
+each of the numbers identified correctly.
+
+English Learner (EL) – Administrator Resource Manual
+
+79
+
+8.
+
+“This number is 25.” For the following four numbers ask, “What is this
+number?” Score one point for each of the numbers identified correctly.
+
+9.
+
+“This price is $2.54.” For the following four prices ask, “What’s this price?”
+“Two fifty four” or “two dollars fifty four” are both acceptable answers. “Two five four” is incorrect.
+Score one point for each of the prices identified correctly.
+
+10. “This time is three-twenty.” For the following four times ask, “What’s this
+time?” Score one point for each of the times identified correctly.
+Section II Subtotal
+11. “This word is pen.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+12. “This word is also pen.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+13. “This word is BIT.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+14. “This word is home.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+15. “This word is what.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+16. “This word is six.” For the next four words ask, “What’s this word?”
+Score one point for each of the words identified correctly.
+
+Section III Subtotal
+17. “Write your first name and your last name.” Score two points for each name spelled
+correctly.
+18. “This letter is b. Copy this letter. This letter is c. Copy this letter. This letter is
+d. Copy this letter. Write the letter e.” Score 1 point for each letter correctly written. Score
+half for wrong case.
+
+19. “This letter is m. Copy this letter. This letter is n. Copy this letter. This letter is
+o. Copy this letter. Write the letter p.” Score 1 point for each letter correctly written. Score
+half for the wrong case
+
+20. “This word is tan. Copy this word. This word is pan. Copy this word. Write the
+word man.” Score one point for each word correctly written.
+21. “This word is when. Copy this word. This word is what. Copy this word. Write
+the word where.” Score one point for each word correctly written.
+22. “This date is May 5th, 2001, and this date is 5/5/01. Write April 6th, 2001.”
+Score one point each for the day, month, and year correctly written. The student can use either format
+for writing the date.
+
+23. “Write this sentence: ‘Dad had a bad day.’” Score one point for each word written
+correctly.
+
+24. “Write this sentence: ‘She’s a pretty girl.’” Score one point for each word written
+correctly.
+
+Section IV Subtotal
+TEST TOTAL
+The LaRue Reading Skills Assessment was created by Charles LaRue through a grant from the Minnesota Department of Children
+Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+80
+
+LaRue Reading Skills Assessment C
+Name: _________________________________ Date: _________________
+
+Section I
+
+1.
+
+A
+
+A
+
+E
+
+P
+
+H
+
+B
+
+F
+
+2.
+
+f
+
+f
+
+k
+
+l
+
+t
+
+h
+
+k
+
+3.
+
+p
+
+p
+
+g
+
+d
+
+a
+
+q
+
+b
+
+4.
+
+H
+
+I
+
+J
+
+K
+
+L
+
+_____
+
+5.
+
+p
+
+q
+
+r
+
+s
+
+t
+
+_____
+
+5
+
+6
+
+7
+
+8
+
+_____
+
+217
+
+400
+
+Section II
+
+6.
+
+4
+
+7.
+
+952-3678
+
+763-1045
+
+8.
+
+25
+
+42
+
+63
+
+English Learner (EL) – Administrator Resource Manual
+
+81
+
+9.
+
+$2.54
+
+$3.99
+
+$12.25
+
+$47.75
+
+$236.00
+
+10.
+
+3:20
+
+8:30
+
+10:06
+
+1:15
+
+6:45
+
+Section III
+
+11.
+
+pen
+
+men
+
+ten
+
+den
+
+hen
+
+12.
+
+pen
+
+pet
+
+peck
+
+peg
+
+pep
+
+13.
+
+BIT
+
+BAT
+
+BET
+
+BUT
+
+BOT
+
+14.
+
+home
+
+some
+
+know
+
+girl
+
+mother
+
+15.
+
+what
+
+who
+
+how
+
+where
+
+when
+
+16.
+
+six
+
+four
+
+seven
+
+three
+
+eleven
+
+English Learner (EL) – Administrator Resource Manual
+
+82
+
+Section IV
+
+17.
+
+___________________ ____________________
+
+18. B ____
+
+C ____
+
+D _____
+
+______
+
+19. m ____
+
+n ____
+
+o _____
+
+______
+
+20. tan _________
+
+pan _________
+
+_________
+
+21. when ________
+
+what _________
+
+_________
+
+22. May 5, 2001
+
+5/5/01
+
+___________________
+
+23.
+
+_________________________________________
+
+24.
+
+_________________________________________
+
+Adapted from The LaRue Reading Skills Assessment, created by Charles LaRue through a grant from the Minnesota Department
+of Children Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children
+Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+83
+
+Name __________________________ Date _____________
+
+LaRue Reading Skills Assessment C – Scoring Page
+
+SCORE
+
+SECTION I – Tests the ability to recognize and name letters and knowledge of alphabetical order.
+1.
+
+A
+
+A
+
+E
+
+P
+
+H
+
+B
+
+F
+
+____ / 5
+
+2.
+
+f
+
+f
+
+k
+
+l
+
+t
+
+h
+
+k
+
+____ / 5
+
+3.
+
+p
+
+p
+
+g
+
+d
+
+a
+
+q
+
+b
+
+____ / 5
+
+4.
+
+H
+
+I
+
+J
+
+K
+
+L
+
+(M)
+
+____ / 4
+
+5.
+
+p
+
+q
+
+r
+
+s
+
+t
+
+(u )
+
+____ / 4
+SUBTOTAL
+
+____ / 23
+
+SECTION II – Tests the ability to name numbers, to read numbers as prices and times, and knowledge of numerical order.
+6.
+
+4
+
+5
+
+6
+
+7
+
+8
+
+(9 )
+
+____ / 4
+
+7.
+
+952-3678
+
+763-1045
+
+____ / 7
+
+8.
+
+25
+
+42
+
+63
+
+217
+
+400
+
+____ / 4
+
+9.
+
+$2.54
+
+$3.99
+
+$12.25
+
+$47.75
+
+$236.00
+
+____ / 4
+
+10.
+
+3:20
+
+8:30
+
+10:06
+
+1:15
+
+6:45
+
+____ / 4
+SUBTOTAL
+
+____ / 23
+
+SECTION III – Tests knowledge of letter sounds for beginning and ending consonants, short vowels, and sight words.
+11.
+
+pen
+
+men
+
+ten
+
+den
+
+hen
+
+____ / 4
+
+12.
+
+pen
+
+pet
+
+peck
+
+peg
+
+pep
+
+____ / 4
+
+13.
+
+BIT
+
+BAT
+
+BET
+
+BUT
+
+BOT
+
+____ / 4
+
+14.
+
+home
+
+some
+
+know
+
+girl
+
+mother
+
+____ / 4
+
+15.
+
+what
+
+who
+
+how
+
+where
+
+when
+
+____ / 4
+
+16.
+
+six
+
+four
+
+seven
+
+three
+
+eleven
+
+____ / 4
+SUBTOTAL
+
+____ / 24
+
+SECTION IV – Tests the ability to copy and write letters, alphabetical order, write a date, write a sentence from dictation,
+to spell phonetically and write sight words.
+
+17.
+
+(student first name)
+
+(student last name)
+
+____ / 4
+
+18.
+
+B ___
+
+C ___
+
+D ___
+
+(E)
+
+____ / 4
+
+19.
+
+m___
+
+n ___
+
+o ___
+
+(p)
+
+____ / 4
+
+20.
+
+tan _______
+
+pan _______
+
+(man)
+
+____ / 3
+
+21.
+
+when ______
+
+what ______
+
+(where)
+
+____ / 3
+
+22.
+
+May 5, 2001
+
+5/5/01
+
+(April 6, 2001 or 4/6/01)
+
+____ / 3
+
+23.
+
+(Dad had a bad day.)
+
+____ / 5
+
+24.
+
+(She’s a pretty girl.)
+
+____ / 4
+SUBTOTAL
+
+____ / 30
+
+TOTAL
+
+____ / 100
+
+Adapted from The LaRue Reading Skills Assessment, created by Charles LaRue through a grant from the Minnesota Department of Children
+Families and Learning under the supervision of the Minnesota Literacy Council. ©2001 MN Dept. of Children Families and Learning
+
+English Learner (EL) – Administrator Resource Manual
+
+84
+
+Contact Information
+Mississippi Department of Education
+Office of Elementary Education and Reading
+Robin Lemonis
+DIRECTOR OF STUDENT INTERVENTION SERVICES (PRE-K – 12)
+rlemonis@mdek12.org
+Monique Henderson
+ENGLISH LEARNER SPECIALIST
+mhenderson@mdek12.org
+Sharon Prestridge
+SPECIAL POPULATIONS COORDINATOR
+sprestridge@mdek12.org
+Tarro Funchess
+TITLE III COORDINATOR
+tfunchess@mdek12.org
+
+English Learner (EL) – Administrator Resource Manual
+
+85
+
+
