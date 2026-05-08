@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CredentialPanel from "@/components/CredentialPanel.astro";
 import SourceList from "@/components/SourceList.astro";
 import VerificationBadge from "@/components/VerificationBadge.astro";
+import ReportIssue from "@/components/ReportIssue.astro";
 import { binFor } from "@/data/bins";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
 
@@ -110,6 +111,13 @@ const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boo
     </ul>
 
     <SourceList sources={s.sources} />
+
+    <ReportIssue
+      variant="inline"
+      state={s.usps}
+      pageType="state"
+      verificationStatus={s.verificationStatus}
+    />
 
     <p class="mt-8 text-sm text-ink-subtle">
       See the <a class="text-accent hover:underline" href="/methodology/">methodology</a> for how these data were collected, or the <a class="text-accent hover:underline" href="/glossary/">glossary</a> for term definitions.

@@ -2,6 +2,8 @@
 import "@/styles/tokens.css";
 import PreLaunchBanner from "@/components/PreLaunchBanner.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+import ReportIssue from "@/components/ReportIssue.astro";
+import { FEEDBACK_FORM } from "@/config/feedback";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -64,6 +66,12 @@ const totalCount = states.length;
           <a class="text-accent hover:underline" href="/verification/">Verification status</a>
           {" · "}
           <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
+          {FEEDBACK_FORM.baseUrl && (
+            <>
+              {" · "}
+              <ReportIssue variant="footer" />
+            </>
+          )}
         </p>
       </div>
     </footer>
