@@ -129,6 +129,19 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "1976-09-21",
+      "title": "Chacón-Moscone Bilingual-Bicultural Education Act enacted (AB 1329, Stats. 1976 ch. 978)",
+      "description": "California's first comprehensive bilingual-education statute required districts to provide bilingual instruction wherever 10 or more EL students of the same primary language were enrolled in the same grade at a school. The act underwrote two decades of growth in California bilingual programs and bilingual-teacher credentialing infrastructure (the BCLAD pathway descends from it). The legislature allowed Chacón-Moscone to sunset in 1987, but the State Board of Education continued most of its requirements administratively until Proposition 227 (1998) overrode them."
+    },
+    {
+      "date": "1998-06-02",
+      "title": "Voters approve Proposition 227 — English-only mandate (English in Public Schools Initiative)",
+      "description": "Funded by Ron Unz, Prop 227 passed roughly 61%–39% and rewrote California Education Code §§300-340 to require Sheltered English Immersion for nearly all EL students, capping it at \"normally not to exceed one year\" and narrowing parental waivers. Bilingual programs collapsed statewide and the BCLAD credential pipeline contracted sharply. Prop 227 remained in force until voters approved Proposition 58 in 2016, which restored district choice. The Unz model exported to Arizona (Prop 203, 2000) and Massachusetts (Question 2, 2002).",
+      "sourceUrls": [
+        "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=EDC"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",

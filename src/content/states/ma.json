@@ -97,11 +97,35 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "1971-11-04",
+      "title": "Massachusetts enacts first-in-nation transitional bilingual education mandate (Ch. 1005 of the Acts of 1971)",
+      "description": "An Act Providing for the Equal Educational Opportunities of Children with Limited Speaking Ability of the English Language (codified at M.G.L. c. 71A) required districts enrolling 20 or more students of the same non-English language background to provide transitional bilingual education (TBE) in that language. Massachusetts was the first U.S. state to mandate bilingual instruction; the statute became the template cited in the federal Bilingual Education Act's later reauthorizations and in subsequent state TBE laws.",
+      "sourceUrls": [
+        "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXII/Chapter71A"
+      ]
+    },
+    {
+      "date": "2002-11-05",
+      "title": "Voters pass Question 2 — English-only mandate replaces TBE (Ch. 386 of the Acts of 2002)",
+      "description": "Ballot Question 2 (\"English Language Education in Public Schools\"), modeled on California Proposition 227 (1998) and Arizona Proposition 203 (2000) and bankrolled by Ron Unz's English for the Children campaign, passed roughly 68%–32%. It rewrote M.G.L. c. 71A to repeal the 1971 transitional-bilingual mandate and require Sheltered English Immersion (SEI) for nearly all EL students, with narrowly drawn parental waivers. Effective for the 2003-2004 school year. The mandate remained in force until partially repealed by the 2017 LOOK Act, which restored district choice over program model.",
+      "sourceUrls": [
+        "https://malegislature.gov/Laws/SessionLaws/Acts/2002/Chapter386"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2011-06-14",
+      "title": "U.S. DOJ / MA DESE settlement triggers RETELL and the SEI endorsement framework",
+      "description": "Following a federal investigation that found Massachusetts's pre-existing \"Category 1-4\" SEI training out of compliance with the Equal Educational Opportunities Act and the Castañeda v. Pickard standard, the U.S. Department of Justice and MA DESE entered a settlement agreement. DESE responded by launching RETELL (Rethinking Equity and Teaching for English Language Learners) in 2012 — a statewide initiative that promulgated 603 CMR 7.14(1), the Sheltered English Immersion endorsement, and required core-academic teachers and administrators of ELs to obtain it on a phased schedule. RETELL is the operational backbone the LOOK Act later codified.",
+      "sourceUrls": [
+        "https://www.doe.mass.edu/licensure/endorsements/sei.html"
       ]
     },
     {

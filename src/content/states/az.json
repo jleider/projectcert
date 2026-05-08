@@ -131,6 +131,11 @@
       ]
     },
     {
+      "date": "1992-08-12",
+      "title": "Flores v. Arizona filed (D. Ariz. CV-92-596-TUC-RCC)",
+      "description": "Plaintiff parents in the Nogales Unified School District filed a class action alleging Arizona was violating the Equal Educational Opportunities Act of 1974 by underfunding programs for EL students. The case (later named Flores v. Arizona) drove the next two decades of EL policy in the state, leading to the 2000 district-court ruling that Arizona's per-pupil EL funding was \"arbitrary and capricious\" and forcing the legislature to act on EL teacher preparation and program funding. The case ultimately produced Horne v. Flores at the U.S. Supreme Court in 2009."
+    },
+    {
       "date": "2000-11-07",
       "title": "Voters approve Proposition 203 (English for the Children)",
       "description": "Proposition 203 amends Arizona law to require Structured English Immersion as the default instructional model for ELs and lays the foundation for the universal SEI-endorsement mandate later codified in R7-2-615(L) and A.R.S. § 15-756.09.",
@@ -145,6 +150,14 @@
       "sourceUrls": [
         "https://www.azed.gov/oelas/sei-endorsement",
         "https://www.azed.gov/educator-certification/structured-english-immersion-prek-12"
+      ]
+    },
+    {
+      "date": "2009-06-25",
+      "title": "Horne v. Flores decided by U.S. Supreme Court (557 U.S. 433)",
+      "description": "In a 5–4 decision, the U.S. Supreme Court vacated the lower courts' rulings against Arizona in the long-running Flores v. Arizona litigation and remanded for reconsideration in light of changed circumstances — namely Proposition 203's SEI mandate, HB 2064's new EL Task Force and SEI endorsement, and the federal No Child Left Behind framework. The decision narrowed the EEOA enforcement leverage federal courts had previously exercised over state EL programs and is the controlling SCOTUS precedent on EEOA \"appropriate action\" claims. The companion HB 2064 SEI infrastructure remained in force.",
+      "sourceUrls": [
+        "https://supreme.justia.com/cases/federal/us/557/433/"
       ]
     },
     {
