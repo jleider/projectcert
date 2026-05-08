@@ -10,6 +10,7 @@ export interface ChoroplethDatum {
   seiMandated: boolean;
   standardsMentionsEl: boolean;
   sealOfBiliteracy: { adopted: boolean | null; year: number | null };
+  widaMember: boolean;
 }
 
 export async function getAllStates(): Promise<State[]> {
@@ -38,5 +39,6 @@ export async function getChoroplethData(): Promise<ChoroplethDatum[]> {
     seiMandated: s.credentials.sei.mandatedForAllTeachers,
     standardsMentionsEl: s.professionalStandardsMentions.el,
     sealOfBiliteracy: s.sealOfBiliteracy,
+    widaMember: s.widaMember,
   }));
 }

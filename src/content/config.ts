@@ -53,6 +53,16 @@ const SealOfBiliteracy = z.object({
   year: z.number().int().min(2011).max(2030).nullable(),
 });
 
+/**
+ * WIDA Consortium membership.
+ *
+ * Member SEAs use the WIDA ACCESS for ELLs assessment as their annual
+ * English Language Proficiency (ELP) test. Source: wida.wisc.edu
+ * /about/consortium. Boolean is sufficient — the member list is
+ * canonical and doesn't have an "unknown" state.
+ */
+const WidaMember = z.boolean();
+
 export const StateSchema = z.object({
   usps: z.string().length(2).regex(/^[A-Z]{2}$/),
   name: z.string().min(2),
@@ -65,6 +75,7 @@ export const StateSchema = z.object({
   }),
   professionalStandardsMentions: StandardsMentions,
   sealOfBiliteracy: SealOfBiliteracy,
+  widaMember: WidaMember,
   sources: z.array(Source).min(1, "Provenance is required"),
   lastVerified: isoDate,
   verificationStatus: z.enum([

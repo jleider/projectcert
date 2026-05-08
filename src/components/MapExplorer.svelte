@@ -8,7 +8,8 @@
     | "eld"
     | "sei"
     | "standardsMentionsEl"
-    | "sealOfBiliteracy";
+    | "sealOfBiliteracy"
+    | "widaMember";
 
   export let states: Array<{
     usps: string;
@@ -19,6 +20,7 @@
     seiMandated: boolean;
     standardsMentionsEl: boolean;
     sealOfBiliteracy: { adopted: boolean | null; year: number | null };
+    widaMember: boolean;
   }>;
 
   let layer: Layer = "elPercent";
@@ -30,6 +32,7 @@
     { value: "sei", label: "SEI mandate" },
     { value: "standardsMentionsEl", label: "Standards mention ELs" },
     { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
+    { value: "widaMember", label: "WIDA Consortium" },
   ];
 
   type LegendEntry = { color: string; label: string };
@@ -58,6 +61,10 @@
       { color: "var(--seal-3)", label: "Adopted" },
       { color: "var(--seal-0)", label: "Not adopted" },
       { color: "var(--bin-na)", label: "Unverified" },
+    ],
+    widaMember: [
+      { color: "var(--wida-3)", label: "WIDA member (uses ACCESS for ELLs)" },
+      { color: "var(--wida-0)", label: "Non-member" },
     ],
   };
 

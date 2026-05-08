@@ -20,6 +20,7 @@
     seiMandated: boolean;
     standardsMentionsEl: boolean;
     sealOfBiliteracy: { adopted: boolean | null; year: number | null };
+    widaMember: boolean;
   }
 
   type Layer =
@@ -28,7 +29,8 @@
     | "eld"
     | "sei"
     | "standardsMentionsEl"
-    | "sealOfBiliteracy";
+    | "sealOfBiliteracy"
+    | "widaMember";
 
   /**
    * Encoded variable.
@@ -95,6 +97,9 @@
       if (datum.sealOfBiliteracy.adopted === false) return "var(--seal-0)";
       return "var(--bin-na)";
     }
+    if (l === "widaMember") {
+      return datum.widaMember ? "var(--wida-3)" : "var(--wida-0)";
+    }
     return "var(--bin-na)";
   }
 
@@ -131,6 +136,10 @@
       if (seal.adopted === false) return "Seal of Biliteracy not adopted";
       return "Seal of Biliteracy adoption status unverified";
     }
+    if (l === "widaMember")
+      return datum.widaMember
+        ? "WIDA Consortium member (uses ACCESS for ELLs)"
+        : "Not a WIDA Consortium member";
     return "";
   }
 
