@@ -24,8 +24,12 @@
   }>;
   /** Optional initial layer override (used by /embed/map/?layer=...). */
   export let initialLayer: Layer = "elPercent";
+  /** Render an embed-mode attribution footer whose "Open full atlas"
+   * link updates reactively as the user switches layers. */
+  export let embedFooter: boolean = false;
 
   let layer: Layer = initialLayer;
+  $: backUrl = `https://projectcert.org/map/?layer=${layer}`;
 
   const LAYERS: { value: Layer; label: string }[] = [
     { value: "elPercent", label: "% classified ELs" },
@@ -105,3 +109,24 @@
 <div class="mt-4">
   <Choropleth {states} {layer} />
 </div>
+
+{#if embedFooter}
+  <p class="mt-3 text-xs text-ink-subtle flex flex-wrap items-center justify-between gap-2">
+    <span>
+      Source:
+      <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline">
+        projectcert.org
+      </a>
+      · Data:
+      <a
+        href="https://doi.org/10.14507/epaa.29.5279"
+        target="_blank"
+        rel="noopener"
+        class="text-accent hover:underline"
+      >Leider, Colombo &amp; Nerlino (2021)</a>
+    </span>
+    <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline">
+      Open full atlas →
+    </a>
+  </p>
+{/if}

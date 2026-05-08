@@ -28,34 +28,16 @@ const requested = Astro.url.searchParams.get("layer");
 const initialLayer: Layer =
   requested && VALID_LAYERS.has(requested as Layer) ? (requested as Layer) : "elPercent";
 
-const back = `https://projectcert.org/map/?layer=${initialLayer}`;
 ---
 
 <EmbedLayout
   title="EL teacher certification map"
   description="Embeddable choropleth of U.S. state EL teacher certification data."
 >
-  <MapExplorer client:only="svelte" states={data} initialLayer={initialLayer} />
-
-  <p class="mt-3 text-xs text-ink-subtle flex flex-wrap items-center justify-between gap-2">
-    <span>
-      Source:
-      <a href={back} target="_blank" rel="noopener" class="text-accent hover:underline">
-        projectcert.org
-      </a>
-      · Data:
-      <a
-        href="https://doi.org/10.14507/epaa.29.5279"
-        target="_blank"
-        rel="noopener"
-        class="text-accent hover:underline"
-      >Leider, Colombo &amp; Nerlino (2021)</a>
-    </span>
-    <a
-      href={back}
-      target="_blank"
-      rel="noopener"
-      class="text-accent hover:underline"
-    >Open full atlas →</a>
-  </p>
+  <MapExplorer
+    client:only="svelte"
+    states={data}
+    initialLayer={initialLayer}
+    embedFooter={true}
+  />
 </EmbedLayout>
