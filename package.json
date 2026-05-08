@@ -17,7 +17,7 @@
     "validate": "astro check && npm run check:contrast && npm run check:integrity",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "astro sync && tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
