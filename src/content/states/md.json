@@ -1,25 +1,27 @@
 {
   "usps": "MD",
   "name": "Maryland",
-  "elPercent": 9.2,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 11.2,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Maryland's COMAR 13A.12.02 certification chapter has no separate bilingual-education credential track (no DBE/DLBE/TBE). EL instruction is delivered via the ESOL credential."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
-        "practicum": null,
+        "program": true,
+        "coursework": true,
+        "practicum": true,
         "test": true,
-        "languageProficiency": false
-      }
+        "languageProficiency": true
+      },
+      "notes": "ESOL Pre-K-12 (COMAR 13A.12.02.19). Approved program with 54 sem hrs of required coursework, 6 sh supervised ESOL student teaching (or 1 yr ESOL teaching experience), Praxis 5362, and 6 sh in a modern foreign language at the college level for the teacher candidate. The teacher-candidate language requirement is unusual nationally."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -34,7 +36,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2016,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://theglobalseal.com/maryland-seal-of-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,8 +55,38 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "COMAR 13A.12.02.19 - English for Speakers of Other Languages (ESOL), Pre-K-Grade 12",
+      "url": "http://mdrules.elaws.us/comar/13a.12.02.19",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ESL Teacher Edu - TESOL Certification in Maryland (Praxis 5362, program/endorsement pathways)",
+      "url": "https://www.eslteacheredu.org/maryland/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Condition of Education 2024 - English Learners in Public Schools (MD = 11.2% fall 2021)",
+      "url": "https://nces.ed.gov/programs/coe/pdf/2024/cgf_508c.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Global Seal of Biliteracy - Maryland (SB 781, Chapter 232, 2016; Education Article 7-208)",
+      "url": "https://theglobalseal.com/maryland-seal-of-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium membership page (Maryland member; ACCESS for ELLs)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
