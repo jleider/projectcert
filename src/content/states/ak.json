@@ -1,8 +1,8 @@
 {
   "usps": "AK",
   "name": "Alaska",
-  "elPercent": 12.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 10.8,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -15,7 +15,7 @@
         "test": false,
         "languageProficiency": false
       },
-      "notes": "Approved program courses required to include Native American/multicultural education."
+      "notes": "Approved program courses required to include Native American/multicultural education. Standalone 'Bilingual Education' endorsement listed under World Languages on DEED's available-endorsements page; add-on pathway via approved program (4 AAC 12)."
     },
     "eld": {
       "offered": true,
@@ -27,7 +27,8 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "Standalone 'English as a Second Language' and 'English as a Foreign Language' endorsements remain offered. Approved-program completion is the only method to add grade levels; content-area exam passing scores required. DEED also lists a 'Statewide English as a Second Language Acquisition, Bilingual and Literacy Education (SLABEL)' umbrella endorsement; no separate adoption date located in current SEA pages."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -40,14 +41,14 @@
     "el": true
   },
   "sealOfBiliteracy": {
-    "adopted": null,
-    "year": null,
-    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
+    "adopted": true,
+    "year": 2022,
+    "sourceUrl": "https://education.alaska.gov/alaska-seal-of-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
     "consortium": "WIDA",
-    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+    "sourceUrl": "https://education.alaska.gov/standards/elp"
   },
   "sources": [
     {
@@ -61,10 +62,64 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Alaska DEED — Available Endorsements (Bilingual Education, ESL, EFL, SLABEL listed under World Languages / Teaching Endorsements)",
+      "url": "https://education.alaska.gov/teachercertification/available-endorsements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alaska DEED — Teaching Certificates (Initial / Professional pathways; Alaska studies + multicultural coursework)",
+      "url": "https://education.alaska.gov/teachercertification/teaching-certificates",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "4 AAC 04.200 — Standards for Alaska's teachers (beginning teacher content & performance standards)",
+      "url": "https://www.akleg.gov/basis/aac.asp#4.04.200",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alaska DEED — Alaska Teacher Content Standards Definitions and Framework Alignment (Danielson / CEL 5D+ / Marzano)",
+      "url": "https://education.alaska.gov/teachercertification/standards",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alaska DEED — English Language Proficiency Standards (WIDA ELD Standards Framework 2020 adopted 2021-06-10)",
+      "url": "https://education.alaska.gov/standards/elp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alaska DEED — Alaska Seal of Biliteracy (4 AAC 06.077, adopted 2022)",
+      "url": "https://education.alaska.gov/alaska-seal-of-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Condition of Education 2024 — English Learners in Public Schools (Fall 2021: AK 10.8%)",
+      "url": "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners-in-public-schools",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alaska Online Public Notices — Title 4 regs re: Limited world language immersion teacher certificate and Seal of Biliteracy (effective 2024-08-21)",
+      "url": "https://aws.state.ak.us/OnlinePublicNotices/Notices/View.aspx?id=216160",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alaska DEED — Alaska Reads Act endorsements (effective 2025-07-01 for all K-3 teachers including ELL/ESL support)",
+      "url": "https://education.alaska.gov/endorsements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -72,6 +127,47 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2021-06-10",
+      "title": "Alaska adopts WIDA ELD Standards Framework 2020",
+      "description": "On 2021-06-10 the Alaska State Board of Education adopted the WIDA English Language Development Standards Framework, 2020 Edition (K–12) as Alaska's English Language Proficiency standards, in use since the 2021-22 school year. Cements Alaska's WIDA Consortium membership and ACCESS for ELLs assessment use.",
+      "sourceUrls": [
+        "https://education.alaska.gov/standards/elp"
+      ]
+    },
+    {
+      "date": "2022-06-08",
+      "title": "Alaska adopts Seal of Biliteracy (4 AAC 06.077)",
+      "description": "Alaska State Board of Education adopted 4 AAC 06.077 establishing the Alaska State Seal of Biliteracy, recognizing graduating high school students who attain proficiency in English plus one or more world languages. Alaska was the 49th state to adopt a state Seal of Biliteracy.",
+      "sourceUrls": [
+        "https://education.alaska.gov/alaska-seal-of-biliteracy",
+        "https://aws.state.ak.us/OnlinePublicNotices/Notices/View.aspx?id=205998"
+      ]
+    },
+    {
+      "date": "2022-07-01",
+      "title": "Alaska Reads Act takes effect",
+      "description": "The Alaska Reads Act (HB 114, 2022) takes effect, mandating evidence-based reading instruction in K-3 and authorizing the K-3 Teacher and K-3 Administrator endorsements. Not EL-specific but applies to ELL/ESL support teachers serving K-3 students.",
+      "sourceUrls": [
+        "https://education.alaska.gov/akreads"
+      ]
+    },
+    {
+      "date": "2024-08-21",
+      "title": "Limited world language immersion teacher certificate regs effective",
+      "description": "Regulations 4 AAC 12.388, 4 AAC 12.397, and 4 AAC 12.405 establishing a Limited world language immersion teacher certificate take effect (filed 2024-07-22; published Register 251, October 2024). Expands pathways for native-speaker world-language and bilingual immersion educators.",
+      "sourceUrls": [
+        "https://aws.state.ak.us/OnlinePublicNotices/Notices/View.aspx?id=216160"
+      ]
+    },
+    {
+      "date": "2025-07-01",
+      "title": "Alaska Reads Act K-3 endorsement requirement takes effect",
+      "description": "Effective 2025-07-01 (no extension or grace period), all K-3 educators in Alaska — including new hires and including SPED and ELL/ESL support teachers — must hold the AK Reads Act K-3 Teacher endorsement before working in any K-3 classroom (AS 14.20.015(c); 4 AAC 12.305).",
+      "sourceUrls": [
+        "https://education.alaska.gov/endorsements"
       ]
     }
   ]
