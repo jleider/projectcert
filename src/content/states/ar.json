@@ -1,13 +1,14 @@
 {
   "usps": "AR",
   "name": "Arkansas",
-  "elPercent": 8.3,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 8.1,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Arkansas does not offer a bilingual-education endorsement. Appendix A of the Rules Governing Educator Licensure (effective 2022-06-02) lists no bilingual credential. Foreign-language endorsements such as Spanish (code 710), French (248), and German (702) exist on the DESE licensure-area list but are world-language teaching credentials, not bilingual-program credentials."
     },
     "eld": {
       "offered": true,
@@ -17,29 +18,31 @@
         "program": true,
         "coursework": null,
         "practicum": null,
-        "test": null,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "Branded English as a Second Language (ESL, code 247) for the Standard License path and English for Speakers of Other Languages (ESOL, code 100) for the Ancillary License path; both are K-12 endorsements added to a primary teaching license. Per Rules §4-10.03.3 and §4-11.01, the endorsement is reachable by either an approved program of study (transcript pathway, internship 'if applicable') or by testing out — Appendix A Chart 1 marks ESOL (K-12) as available via both routes, and Chart 2 lists every first-time license level (B-K, K-6, 4-8, 4-12, 7-12, K-12, K-12 SpEd) as eligible to test out. Test-out instrument is the Praxis 5362 (English to Speakers of Other Languages), passing score 155 per the DESE Licensure Assessments page. State-prescribed competencies (Updated 2024 EEF document) cover five domains — Language, Culture, Planning/Implementing/Maintaining Instruction, Assessment, Professionalism — cross-walked to TESOL standards 1-5 and Praxis 5362 sections 1-6. No state-level minimum credit hours, clock hours, or practicum hours are published for the endorsement; approved programs set their own. No second-language proficiency requirement (ESOL is teaching English to non-English speakers, not bilingual instruction)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No statewide SEI / all-teacher EL training mandate. The current Rules Governing Educator Licensure contain no provisions requiring sheltered-instruction or EL coursework of teachers outside the ESOL endorsement; searches of the rules text for 'sheltered', 'SEI', 'all teachers', 'every teacher', and 'professional development' tied to English return no such mandate."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": true
+    "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2018,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://dese.ade.arkansas.gov/Offices/learning-services/curriculum-support/arkansas-seal-of-biliteracy"
   },
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+    "sourceUrl": "https://dese.ade.arkansas.gov/Offices/public-school-accountability/assessment/elpa21"
   },
   "sources": [
     {
@@ -53,8 +56,56 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Arkansas DESE — Rules Governing Educator Licensure (effective 2022-06-02; ADE 317-1, Agency #005.16). §4-10.03.3, §4-11.01, §4-11.02, Appendix A Charts 1 and 2.",
+      "url": "https://dese.ade.arkansas.gov/Files/Educator_Licensure_(Effective_6-2-22)_Legal.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Arkansas DESE — Educator Licensure Area list (ESL = code 247 K-12 Endorsement; ESOL Ancillary = code 100; foreign-language endorsements distinct).",
+      "url": "https://dese.ade.arkansas.gov/Offices/educator-effectiveness/educator-licensure-area",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Arkansas DESE — English as a Second Language (ESL) K-12 Endorsement Competencies (Updated 2024 EEF). TESOL- and Praxis-5362-aligned five-domain competency document.",
+      "url": "https://dese-admin.ade.arkansas.gov/Files/44._English_as_a_Second_Language_K-12_Endorsement_Competencies_Updated_2024_EEF.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Arkansas DESE — Arkansas Teaching Standards (Updated 2024 EEF). Adopts 2011 InTASC Model Core Teaching Standards as published; ten standards, no expanded performance criteria.",
+      "url": "https://dese-admin.ade.arkansas.gov/Files/62._Arkansas_Teaching_Standards_Updated_2024_EEF_EEF.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Arkansas DESE — Licensure Assessments (Praxis 5362 English to Speakers of Other Languages, passing score 155 for ESL endorsement).",
+      "url": "https://dese.ade.arkansas.gov/Offices/educator-effectiveness/licensure/licensure-assessments",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Arkansas DESE — ELPA21 assessment page (2025-2026 administration; effective 2014-09-01, revised 2026-04-30).",
+      "url": "https://dese.ade.arkansas.gov/Offices/public-school-accountability/assessment/elpa21",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Arkansas DESE — Arkansas Seal of Biliteracy (pilot 2017-03; State Board endorsement 2018-06; AFLTA + ARKTESOL initiative).",
+      "url": "https://dese.ade.arkansas.gov/Offices/learning-services/curriculum-support/arkansas-seal-of-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 (Arkansas: 39,763 / 8.1%).",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
