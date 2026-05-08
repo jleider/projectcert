@@ -1,26 +1,34 @@
 {
   "usps": "VA",
   "name": "Virginia",
-  "elPercent": 9.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 9.4,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
-      "offered": false,
-      "standalone": false,
-      "addOn": false
+      "offered": true,
+      "standalone": true,
+      "addOn": true,
+      "requirements": {
+        "program": true,
+        "coursework": true,
+        "practicum": null,
+        "test": true,
+        "languageProficiency": true
+      },
+      "notes": "Dual Language Endorsement adopted by VDOE effective 2025 (8VAC20-23-321 through -324). Four parallel sections cover Dual Language (English) preK-6 standalone and add-on, plus Dual Language (target language) preK-6 standalone and add-on. Approved teacher preparation program is one path; the alternate path requires specified semester hours plus elementary content / reading-for-educators assessments (English pathway) or 12 SH target language above intermediate level OR a qualifying language assessment (target-language pathway). VDOE introduced the endorsement via the August 7, 2025 webinar 'Introducing the Dual Language Endorsement and Data Management Updates.'"
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
+        "program": true,
+        "coursework": true,
         "practicum": null,
         "test": true,
         "languageProficiency": false
       },
-      "notes": "Alternative route: bachelor's + 24 credits relevant coursework."
+      "notes": "ESL preK-12 endorsement under 8VAC20-23-350. Two paths: (1) approved teacher preparation program in ESL, or (2) 24 semester hours distributed across reading & writing (6), English linguistics (3), cross-cultural education (3), second language acquisition (3), ESL methods grounded in the WIDA English Language Development Standards (3), ESL assessment (3), and electives (3). VDOE requires the Praxis English to Speakers of Other Languages test for the add-on path. Practicum requirement embedded in approved-program path but not separately enumerated in -350; coded null."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -54,8 +62,92 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "VDOE — Teacher Licensure landing page",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/licensure",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "VDOE — Licensing Services (VALO portal, components of licensure)",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/teacher-licensure/licensing-services",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "VDOE — Licensing Forms & Information (assessment requirements, reciprocity, adding endorsements)",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/teacher-licensure/licensing-services/licensing-forms-information",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "VDOE — English Learner Education Related Programs and Resources (Title III, ESL endorsement via Praxis ESOL, links to 2021 Uniform Performance Standards)",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/student-assessment/english-learner-education-related-programs",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "VDOE — Dual Language Endorsement (introduced August 2025; cites 8VAC20-23-321 through -324 and -130)",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/teacher-licensure/dual-language-endorsement",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "8VAC20-23-350 — English as a second language preK-12 endorsement (approved program OR 24 SH coursework path)",
+      "url": "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section350/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "8VAC20-23-321 — Dual language (English) endorsement preK-6",
+      "url": "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section321/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "8VAC20-23-322 — Dual language (English) preK-6 add-on endorsement",
+      "url": "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section322/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "8VAC20-23-323 — Dual language (target language) endorsement preK-6 (target-language proficiency required)",
+      "url": "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section323/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "8VAC20-23-324 — Dual language (target language) preK-6 add-on endorsement",
+      "url": "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section324/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "8VAC20-23-130 — Professional studies requirements (incl. dual language endorsements)",
+      "url": "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section130/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — member states (VA listed; ACCESS for ELLs is the ELP assessment)",
+      "url": "https://wida.wisc.edu/memberships/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20: English learners enrolled in public elementary and secondary schools, by state, fall 2011 through fall 2021 (VA fall 2021: 117,417 ELs = 9.4%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Condition of Education — English Learners in Public Schools (most recent year: fall 2021)",
+      "url": "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
