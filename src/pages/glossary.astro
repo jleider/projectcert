@@ -1,0 +1,74 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { CANONICAL_TERMS, STUDENT_TERM_ALIASES, STATE_LOCAL_NAMES } from "@/data/terminology";
+---
+
+<BaseLayout
+  title="Glossary"
+  description="Canonical terminology and state-local aliases used across projectcert."
+>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-ink">Glossary</h1>
+    <p class="mt-2 text-ink-muted">
+      Every state names things differently. To keep cross-state
+      comparison meaningful, we normalize SEA wording to a canonical
+      taxonomy.
+    </p>
+
+    <h2 class="mt-8 text-xl font-semibold text-ink">Student term</h2>
+    <table class="mt-3 min-w-full text-sm">
+      <thead class="text-left bg-surface-raised">
+        <tr>
+          <th class="px-3 py-2 font-semibold text-ink">Code</th>
+          <th class="px-3 py-2 font-semibold text-ink">Expansion</th>
+          <th class="px-3 py-2 font-semibold text-ink">Canonical?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {STUDENT_TERM_ALIASES.map((t) => (
+          <tr class="border-t border-ink-subtle/20">
+            <td class={`px-3 py-2 ${t.canonical ? "font-semibold text-accent" : "text-ink-muted"}`}>{t.code}</td>
+            <td class="px-3 py-2 text-ink-muted">{t.expansion}</td>
+            <td class="px-3 py-2 text-ink-muted">{t.canonical ? "Yes — used in site copy" : "Recorded in source quotes only"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2 class="mt-10 text-xl font-semibold text-ink">Credentials and program types</h2>
+    <dl class="mt-3 space-y-3">
+      {CANONICAL_TERMS.map((t) => (
+        <div>
+          <dt class="font-semibold text-ink">{t.canonical}</dt>
+          <dd class="text-ink-muted">
+            Aliases: {t.aliases.join(", ")}.
+            {t.notes && <span class="italic"> {t.notes}</span>}
+          </dd>
+        </div>
+      ))}
+    </dl>
+
+    <h2 class="mt-10 text-xl font-semibold text-ink">State-local names</h2>
+    <p class="mt-2 text-ink-muted">A sample of how SEAs label their own credentials:</p>
+    <table class="mt-3 min-w-full text-sm">
+      <thead class="text-left bg-surface-raised">
+        <tr>
+          <th class="px-3 py-2 font-semibold text-ink">State</th>
+          <th class="px-3 py-2 font-semibold text-ink">Bilingual</th>
+          <th class="px-3 py-2 font-semibold text-ink">ELD</th>
+          <th class="px-3 py-2 font-semibold text-ink">SEI</th>
+        </tr>
+      </thead>
+      <tbody>
+        {Object.entries(STATE_LOCAL_NAMES).map(([usps, names]) => (
+          <tr class="border-t border-ink-subtle/20">
+            <td class="px-3 py-2 font-semibold text-ink">{usps}</td>
+            <td class="px-3 py-2 text-ink-muted">{names.bilingual ?? "—"}</td>
+            <td class="px-3 py-2 text-ink-muted">{names.eld ?? "—"}</td>
+            <td class="px-3 py-2 text-ink-muted">{names.sei ?? "—"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </article>
+</BaseLayout>

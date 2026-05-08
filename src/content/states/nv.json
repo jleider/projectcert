@@ -1,0 +1,58 @@
+{
+  "usps": "NV",
+  "name": "Nevada",
+  "elPercent": 17.1,
+  "elPercentAsOf": "2019-10-01",
+  "credentials": {
+    "bilingual": {
+      "offered": true,
+      "standalone": true,
+      "addOn": true,
+      "requirements": {
+        "program": null,
+        "coursework": true,
+        "practicum": null,
+        "test": null,
+        "languageProficiency": true
+      }
+    },
+    "eld": {
+      "offered": true,
+      "standalone": false,
+      "addOn": true,
+      "requirements": {
+        "program": null,
+        "coursework": true,
+        "practicum": true,
+        "test": null,
+        "languageProficiency": false
+      }
+    },
+    "sei": {
+      "mandatedForAllTeachers": false,
+      "notes": "SEI-equivalent endorsement is being phased in: required for early childhood/elementary (2020) and middle/secondary (2021)."
+    }
+  },
+  "professionalStandardsMentions": {
+    "diverse": true,
+    "cultural": true,
+    "linguistic": true,
+    "el": false
+  },
+  "sources": [
+    {
+      "label": "Nevada Department of Education",
+      "url": "http://www.doe.nv.gov",
+      "retrievedAt": "2019-11-15",
+      "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Leider, Colombo & Nerlino (2021), EPAA 29(100). Tables 2-5 + Appendix A.",
+      "url": "https://doi.org/10.14507/epaa.29.5279",
+      "retrievedAt": "2019-11-15",
+      "retrievedBy": "leider-2021"
+    }
+  ],
+  "lastVerified": "2019-11-15",
+  "verificationStatus": "baseline-2019"
+}

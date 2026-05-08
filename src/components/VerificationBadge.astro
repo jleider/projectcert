@@ -1,0 +1,32 @@
+---
+import type { State } from "@/content/config";
+
+interface Props {
+  status: State["verificationStatus"];
+  lastVerified: string;
+}
+
+const { status, lastVerified } = Astro.props;
+
+const labels: Record<State["verificationStatus"], string> = {
+  "baseline-2019": "Baseline 2019 — needs re-verification",
+  "in-progress": "Refresh in progress",
+  "verified-2026": "Verified against current sources",
+};
+
+const classes: Record<State["verificationStatus"], string> = {
+  "baseline-2019": "bg-surface-warn text-ink border-ink-subtle/30",
+  "in-progress": "bg-bin-1/30 text-ink border-bin-2/40",
+  "verified-2026": "bg-accent/10 text-accent border-accent/30",
+};
+---
+
+<span
+  class={`inline-flex items-center gap-2 rounded border px-2 py-1 text-xs font-medium ${classes[status]}`}
+  data-status={status}
+  title={`Last verified: ${lastVerified}`}
+>
+  <span aria-hidden="true">●</span>
+  {labels[status]}
+  <span class="text-ink-subtle font-normal">({lastVerified})</span>
+</span>

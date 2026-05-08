@@ -1,0 +1,62 @@
+---
+import { BINS } from "@/data/bins";
+
+interface Props {
+  variant?: "elPercent" | "binary" | "categorical";
+  binaryLabels?: { off: string; on: string };
+  categoricalLabels?: { none: string; mid: string; high: string };
+}
+
+const {
+  variant = "elPercent",
+  binaryLabels = { off: "No", on: "Yes" },
+  categoricalLabels = {
+    none: "Not offered",
+    mid: "Add-on only",
+    high: "Standalone offered",
+  },
+} = Astro.props;
+---
+
+<div class="flex flex-wrap gap-3 items-center text-sm" role="group" aria-label="Map legend">
+  {variant === "elPercent" && BINS.map((b) => (
+    <div class="flex items-center gap-2">
+      <span
+        class="inline-block w-5 h-5 border border-ink-subtle/40"
+        style={`background: var(${b.cssVar});`}
+        aria-hidden="true"
+      />
+      <span>{b.label}</span>
+    </div>
+  ))}
+
+  {variant === "binary" && (
+    <>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-5 h-5 border border-ink-subtle/40" style="background: var(--bin-0);" aria-hidden="true" />
+        <span>{binaryLabels.off}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-5 h-5 border border-ink-subtle/40" style="background: var(--bin-3);" aria-hidden="true" />
+        <span>{binaryLabels.on}</span>
+      </div>
+    </>
+  )}
+
+  {variant === "categorical" && (
+    <>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-5 h-5 border border-ink-subtle/40" style="background: var(--bin-0);" aria-hidden="true" />
+        <span>{categoricalLabels.none}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-5 h-5 border border-ink-subtle/40" style="background: var(--bin-2);" aria-hidden="true" />
+        <span>{categoricalLabels.mid}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-5 h-5 border border-ink-subtle/40" style="background: var(--bin-3);" aria-hidden="true" />
+        <span>{categoricalLabels.high}</span>
+      </div>
+    </>
+  )}
+</div>

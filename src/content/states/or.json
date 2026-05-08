@@ -1,0 +1,58 @@
+{
+  "usps": "OR",
+  "name": "Oregon",
+  "elPercent": 8.8,
+  "elPercentAsOf": "2019-10-01",
+  "credentials": {
+    "bilingual": {
+      "offered": true,
+      "standalone": true,
+      "addOn": true,
+      "requirements": {
+        "program": null,
+        "coursework": null,
+        "practicum": null,
+        "test": null,
+        "languageProficiency": true
+      },
+      "notes": "Distinct Bilingual + Dual Language endorsements."
+    },
+    "eld": {
+      "offered": true,
+      "standalone": true,
+      "addOn": true,
+      "requirements": {
+        "program": true,
+        "coursework": null,
+        "practicum": null,
+        "test": true,
+        "languageProficiency": false
+      }
+    },
+    "sei": {
+      "mandatedForAllTeachers": false
+    }
+  },
+  "professionalStandardsMentions": {
+    "diverse": true,
+    "cultural": true,
+    "linguistic": true,
+    "el": false
+  },
+  "sources": [
+    {
+      "label": "Oregon Department of Education",
+      "url": "https://www.oregon.gov/ode/Pages/default.aspx",
+      "retrievedAt": "2019-11-15",
+      "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Leider, Colombo & Nerlino (2021), EPAA 29(100). Tables 2-5 + Appendix A.",
+      "url": "https://doi.org/10.14507/epaa.29.5279",
+      "retrievedAt": "2019-11-15",
+      "retrievedBy": "leider-2021"
+    }
+  ],
+  "lastVerified": "2019-11-15",
+  "verificationStatus": "baseline-2019"
+}

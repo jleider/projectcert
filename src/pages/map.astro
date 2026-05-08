@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MapExplorer from "@/components/MapExplorer.svelte";
+import { getChoroplethData } from "@/lib/state-data";
+
+const data = await getChoroplethData();
+---
+
+<BaseLayout
+  title="Map — full-screen exploration"
+  description="Interactive U.S. choropleth across five layers: % classified ELs, bilingual credential, ELD credential, SEI mandate, and standards mention of ELs."
+>
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-ink">Map</h1>
+    <p class="mt-2 text-ink-muted max-w-3xl">
+      Switch the encoded variable to compare how the same map carries very different stories depending on what you measure.
+    </p>
+
+    <div class="mt-6">
+      <MapExplorer client:only="svelte" states={data} />
+    </div>
+
+    <p class="mt-4 text-sm text-ink-subtle">
+      Hover or focus a state to see its details. Click to open the per-state page.
+    </p>
+  </section>
+</BaseLayout>

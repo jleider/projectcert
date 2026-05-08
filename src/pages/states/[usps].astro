@@ -1,0 +1,118 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CredentialPanel from "@/components/CredentialPanel.astro";
+import SourceList from "@/components/SourceList.astro";
+import VerificationBadge from "@/components/VerificationBadge.astro";
+import { binFor } from "@/data/bins";
+import { STATE_LOCAL_NAMES } from "@/data/terminology";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("states");
+  return entries.map((entry) => ({
+    params: { usps: entry.data.usps.toLowerCase() },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"states">;
+}
+
+const { entry } = Astro.props;
+const s = entry.data;
+const bin = binFor(s.elPercent);
+const localNames = STATE_LOCAL_NAMES[s.usps];
+
+const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boolean).length;
+---
+
+<BaseLayout
+  title={s.name}
+  description={`Teacher certification requirements for instructing classified English Learner students in ${s.name}.`}
+>
+  <article class="max-w-4xl mx-auto px-4 py-8">
+    <p class="text-sm text-ink-muted">
+      <a href="/" class="text-accent hover:underline">All states</a> /
+      <span aria-current="page">{s.name}</span>
+    </p>
+
+    <h1 class="mt-2 text-3xl font-bold text-ink">{s.name}</h1>
+
+    <div class="mt-3 flex flex-wrap gap-3 items-center">
+      <VerificationBadge status={s.verificationStatus} lastVerified={s.lastVerified} />
+    </div>
+
+    <section class="mt-6 grid sm:grid-cols-3 gap-4" aria-label="At a glance">
+      <div class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">{s.elPercent.toFixed(1)}%</div>
+        <div class="text-sm text-ink-muted">classified ELs ({s.elPercentAsOf})</div>
+        <div class="text-xs text-ink-subtle mt-1">{bin.label}</div>
+      </div>
+      <div class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">
+          {[s.credentials.bilingual.offered ? "Bil" : null, s.credentials.eld.offered ? "ELD" : null, s.credentials.sei.mandatedForAllTeachers ? "SEI" : null].filter(Boolean).join(" + ") || "ELD only"}
+        </div>
+        <div class="text-sm text-ink-muted">credential types offered</div>
+      </div>
+      <div class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">{standardsCount}<span class="text-ink-subtle">/4</span></div>
+        <div class="text-sm text-ink-muted">standards-mention categories</div>
+      </div>
+    </section>
+
+    <h2 class="mt-10 text-xl font-semibold text-ink">Credentials</h2>
+
+    <div class="mt-4 grid md:grid-cols-2 gap-4">
+      <CredentialPanel
+        title={localNames?.bilingual ?? "Bilingual education"}
+        credential={s.credentials.bilingual}
+        showLanguage={true}
+      />
+      <CredentialPanel
+        title={localNames?.eld ?? "English Language Development (ELD)"}
+        credential={s.credentials.eld}
+      />
+    </div>
+
+    <section class="mt-6 rounded border border-ink-subtle/20 p-4" aria-labelledby="sei-heading">
+      <h3 id="sei-heading" class="text-base font-semibold text-ink">{localNames?.sei ?? "Sheltered English Instruction (SEI)"}</h3>
+      <p class="mt-2 text-sm text-ink-muted">
+        {s.credentials.sei.mandatedForAllTeachers
+          ? "Mandated for all teachers."
+          : "Not mandated for all teachers."}
+      </p>
+      {s.credentials.sei.notes && (
+        <p class="mt-2 text-sm text-ink-muted italic">{s.credentials.sei.notes}</p>
+      )}
+    </section>
+
+    <h2 class="mt-10 text-xl font-semibold text-ink">Professional teaching standards</h2>
+    <p class="mt-1 text-sm text-ink-muted">Does the SEA's professional teaching standards document explicitly reference these categories?</p>
+
+    <ul class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm">
+      <li class={`p-3 rounded border ${s.professionalStandardsMentions.diverse ? "border-accent/40 text-accent" : "border-ink-subtle/20 text-ink-subtle"}`}>
+        <strong>Diverse / all</strong>
+        <div>{s.professionalStandardsMentions.diverse ? "Yes" : "No"}</div>
+      </li>
+      <li class={`p-3 rounded border ${s.professionalStandardsMentions.cultural ? "border-accent/40 text-accent" : "border-ink-subtle/20 text-ink-subtle"}`}>
+        <strong>Cultural</strong>
+        <div>{s.professionalStandardsMentions.cultural ? "Yes" : "No"}</div>
+      </li>
+      <li class={`p-3 rounded border ${s.professionalStandardsMentions.linguistic ? "border-accent/40 text-accent" : "border-ink-subtle/20 text-ink-subtle"}`}>
+        <strong>Linguistic</strong>
+        <div>{s.professionalStandardsMentions.linguistic ? "Yes" : "No"}</div>
+      </li>
+      <li class={`p-3 rounded border ${s.professionalStandardsMentions.el ? "border-accent/40 text-accent" : "border-ink-subtle/20 text-ink-subtle"}`}>
+        <strong>ELs explicit</strong>
+        <div>{s.professionalStandardsMentions.el ? "Yes" : "No"}</div>
+      </li>
+    </ul>
+
+    <SourceList sources={s.sources} />
+
+    <p class="mt-8 text-sm text-ink-subtle">
+      See the <a class="text-accent hover:underline" href="/methodology/">methodology</a> for how these data were collected, or the <a class="text-accent hover:underline" href="/glossary/">glossary</a> for term definitions.
+    </p>
+  </article>
+</BaseLayout>

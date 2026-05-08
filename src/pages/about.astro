@@ -1,0 +1,54 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="About projectcert — mission, approach, and how to contribute."
+>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-ink">About</h1>
+
+    <p class="mt-4 text-lg text-ink-muted">
+      projectcert is an atlas of teacher certification requirements for
+      instructing classified English Learner (EL) students across the
+      U.S. — every state and the District of Columbia.
+    </p>
+
+    <h2 class="mt-8 text-xl font-semibold text-ink">Why</h2>
+    <p class="mt-2 text-ink-muted">
+      Under <em>Lau v. Nichols</em> (1974) and subsequent federal
+      regulations, students classified as ELs are legally entitled to
+      meaningful access to the curriculum. Whether that promise is met
+      depends heavily on whether the teacher in front of them has been
+      trained to make it real. SEAs determine teacher credentialing.
+      Their requirements vary widely. This site catalogs the variation.
+    </p>
+
+    <h2 class="mt-8 text-xl font-semibold text-ink">What's here</h2>
+    <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
+      <li>An <a class="text-accent hover:underline" href="/map/">interactive map</a> with five layers.</li>
+      <li>Topical reports on <a class="text-accent hover:underline" href="/credentials/bilingual/">bilingual</a>, <a class="text-accent hover:underline" href="/credentials/eld/">ELD</a>, and <a class="text-accent hover:underline" href="/credentials/sei/">SEI</a> credentials.</li>
+      <li>A <a class="text-accent hover:underline" href="/standards/">standards-mention dashboard</a> for whether each SEA's professional teaching standards reference EL students.</li>
+      <li>A <a class="text-accent hover:underline" href="/compare/">side-by-side comparison</a> tool.</li>
+      <li>A <a class="text-accent hover:underline" href="/states/ma/">page for every state</a>.</li>
+    </ul>
+
+    <h2 class="mt-8 text-xl font-semibold text-ink">Source paper</h2>
+    <p class="mt-2 text-ink-muted">
+      Leider, C. M., Colombo, M. W., &amp; Nerlino, E. (2021).
+      Decentralization, teacher quality, and the education of English
+      learners: Do state education agencies effectively prepare teachers
+      of ELs? <em>Education Policy Analysis Archives, 29</em>(100).
+      <a class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">https://doi.org/10.14507/epaa.29.5279</a>
+    </p>
+
+    <h2 class="mt-8 text-xl font-semibold text-ink">Contributing</h2>
+    <p class="mt-2 text-ink-muted">
+      State data lives as JSON files in the project repo. To propose an
+      update — new SEA documents, changed credentialing requirements,
+      corrections — file an issue or open a PR with the source URL and
+      date.
+    </p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Methodology"
+  description="How projectcert collects, normalizes, and verifies state EL teacher certification data."
+>
+  <article class="max-w-3xl mx-auto px-4 py-8 prose-style">
+    <h1 class="text-3xl font-bold text-ink">Methodology</h1>
+
+    <h2 class="mt-6 text-xl font-semibold text-ink">Seed data</h2>
+    <p class="mt-2 text-ink-muted">
+      The 51-state baseline comes from Leider, Colombo &amp; Nerlino
+      (2021), <em>Education Policy Analysis Archives</em> 29(100). The
+      authors conducted a document analysis of every U.S. state education
+      agency's (SEA) public credentialing documents between October and
+      December 2019, plus each SEA's professional teaching standards.
+      <a class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Read the paper</a>.
+    </p>
+
+    <h2 class="mt-6 text-xl font-semibold text-ink">What we recorded</h2>
+    <p class="mt-2 text-ink-muted">For each state we capture, per the <a class="text-accent hover:underline" href="/glossary/">canonical taxonomy</a>:</p>
+    <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
+      <li>The percentage of public-school students classified as ELs.</li>
+      <li>Whether a bilingual education credential is offered, and (if so) whether it is available as a standalone certification, an add-on endorsement, or both.</li>
+      <li>Whether an ELD credential is offered, and the same standalone/add-on breakdown.</li>
+      <li>Requirements to earn each credential: completion of an approved program, coursework, practicum, content test, and (for bilingual) demonstrated proficiency in a non-English language.</li>
+      <li>Whether SEI training is mandated for all teachers.</li>
+      <li>Whether the SEA's professional teaching standards explicitly reference diverse / cultural / linguistic / EL students.</li>
+    </ul>
+
+    <h2 class="mt-6 text-xl font-semibold text-ink">Provenance</h2>
+    <p class="mt-2 text-ink-muted">
+      Every fact-bearing field on every state record is backed by at
+      least one entry in that state's <code>sources[]</code> array, with
+      the source URL and date of retrieval. The schema requires it; CI
+      fails if it's missing.
+    </p>
+
+    <h2 class="mt-6 text-xl font-semibold text-ink">Verification — current status</h2>
+    <p class="mt-2 text-ink-muted">
+      The 2019 baseline data is treated as a <em>seed</em>, not the
+      published version. Before public launch, every state must be
+      re-verified against the SEA's <em>current</em> public documents
+      and have its <code>verificationStatus</code> bumped from
+      <code>baseline-2019</code> to <code>verified-2026</code>.
+      <a class="text-accent hover:underline" href="/verification/">Track the per-state progress</a>.
+    </p>
+
+    <h2 class="mt-6 text-xl font-semibold text-ink">When data conflicts with what you know</h2>
+    <p class="mt-2 text-ink-muted">
+      States change credentialing requirements regularly. If you spot
+      something out of date, please file an issue on the project repo
+      with a link to the current SEA document. We'd rather hear from
+      practitioners than rely solely on our own re-verification
+      schedule.
+    </p>
+  </article>
+</BaseLayout>

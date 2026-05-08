@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Compare from "@/components/Compare.svelte";
+import { getAllStates } from "@/lib/state-data";
+
+const states = await getAllStates();
+
+const compareData = states.map((s) => ({
+  usps: s.usps,
+  name: s.name,
+  elPercent: s.elPercent,
+  bilingual: {
+    offered: s.credentials.bilingual.offered,
+    standalone: s.credentials.bilingual.standalone,
+    addOn: s.credentials.bilingual.addOn,
+    requirements: s.credentials.bilingual.requirements,
+  },
+  eld: {
+    offered: s.credentials.eld.offered,
+    standalone: s.credentials.eld.standalone,
+    addOn: s.credentials.eld.addOn,
+    requirements: s.credentials.eld.requirements,
+  },
+  seiMandated: s.credentials.sei.mandatedForAllTeachers,
+  standards: s.professionalStandardsMentions,
+}));
+---
+
+<BaseLayout
+  title="Compare states"
+  description="Side-by-side comparison of teacher certification requirements for instructing classified ELs across two to four states."
+>
+  <section class="max-w-5xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-ink">Compare states</h1>
+    <p class="mt-2 text-ink-muted max-w-3xl">
+      Pick up to four states to see their EL teacher credential
+      requirements side by side.
+    </p>
+
+    <div class="mt-6">
+      <Compare client:load states={compareData} />
+    </div>
+  </section>
+</BaseLayout>

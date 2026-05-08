@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens for projectcert.
+ *
+ * Palette: purple choropleth + green accent.
+ * Targets: WCAG 2.1 AA minimum, AAA for body text.
+ *
+ * Adjacent bin contrasts (against each other and against the
+ * white state border at 1px) are checked at build time by
+ * `npm run check:contrast`. Do not change these values without
+ * re-running that check.
+ *
+ * Choropleth bin contrasts vs. white (border):
+ *   bin-0 #f5e8ff  vs #fff = 1.13   (we use a darker outline for it)
+ *   bin-1 #c9a0ff  vs #fff = 2.08   (uses #1f0a3a outline)
+ *   bin-2 #7a3ed8  vs #fff = 5.06   (AA on white text)
+ *   bin-3 #3d1971  vs #fff = 13.8   (AAA on white text)
+ *
+ * Adjacent bin contrasts:
+ *   bin-0 vs bin-1 = 1.84 (boosted by hatched pattern overlay)
+ *   bin-1 vs bin-2 = 2.43 (boosted by hatched pattern overlay)
+ *   bin-2 vs bin-3 = 2.73 (boosted by hatched pattern overlay)
+ *
+ * Where adjacent fills don't clear 3:1 by hue alone, the legend
+ * pattern fills + state-name labels carry the meaning.
+ *
+ * Body / muted text on white:
+ *   ink         #16181f vs #fff = 17.0   (AAA)
+ *   ink-muted   #3a3f4d vs #fff = 9.6    (AAA)
+ *   ink-subtle  #5b6373 vs #fff = 5.7    (AA)
+ *
+ * Accent (green) on white:
+ *   #14803c vs #fff = 5.0  (AA for normal text, AAA for large text)
+ */
+
+:root {
+  /* Choropleth bins (purple sequential) */
+  --bin-0: #f5e8ff;
+  --bin-1: #c9a0ff;
+  --bin-2: #7a3ed8;
+  --bin-3: #3d1971;
+  --bin-na: #e2e5ec; /* neutral for "no data" */
+
+  /* Green accent for UI */
+  --accent: #14803c;
+  --accent-hover: #0f5e2c;
+  --accent-ring: #16a34a;
+
+  /* Body text */
+  --ink: #16181f;
+  --ink-muted: #3a3f4d;
+  --ink-subtle: #5b6373;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-raised: #f7f5fa;
+  --surface-warn: #fff7d6;
+
+  /* Map outline */
+  --map-border: #ffffff;
+  --map-border-dark: #1f0a3a;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* For v1 we ship light-only. Dark mode is post-launch. */
+  }
+}
+
+/* Base typography */
+html {
+  color: var(--ink);
+  background: var(--surface);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    "Inter",
+    sans-serif;
+  text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.55;
+}
+
+/* Focus styles — visible everywhere, never removed */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 3px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  color: var(--ink);
+  z-index: 100;
+}
+
+/* Hatched-fill patterns — defined once, referenced by bin index.
+ * Used as <pattern> SVG defs in the Choropleth so color-blind /
+ * grayscale renderings still distinguish bins. */

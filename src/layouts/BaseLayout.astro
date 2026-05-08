@@ -1,0 +1,70 @@
+---
+import "@/styles/tokens.css";
+import PreLaunchBanner from "@/components/PreLaunchBanner.astro";
+import { getCollection } from "astro:content";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const states = await getCollection("states");
+const verifiedCount = states.filter(
+  (s) => s.data.verificationStatus === "verified-2026",
+).length;
+const totalCount = states.length;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — projectcert</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="theme-color" content="#3d1971" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <PreLaunchBanner verified={verifiedCount} total={totalCount} />
+
+    <header class="border-b border-ink-subtle/15 bg-surface">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
+        <a href="/" class="font-semibold text-ink hover:text-accent">
+          projectcert
+        </a>
+        <nav aria-label="Primary">
+          <ul class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-muted">
+            <li><a href="/map/" class="hover:text-accent focus-visible:text-accent">Map</a></li>
+            <li><a href="/credentials/bilingual/" class="hover:text-accent focus-visible:text-accent">Credentials</a></li>
+            <li><a href="/standards/" class="hover:text-accent focus-visible:text-accent">Standards</a></li>
+            <li><a href="/compare/" class="hover:text-accent focus-visible:text-accent">Compare</a></li>
+            <li><a href="/methodology/" class="hover:text-accent focus-visible:text-accent">Methodology</a></li>
+            <li><a href="/glossary/" class="hover:text-accent focus-visible:text-accent">Glossary</a></li>
+            <li><a href="/about/" class="hover:text-accent focus-visible:text-accent">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="mt-16 border-t border-ink-subtle/15 bg-surface-raised text-sm text-ink-muted">
+      <div class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4 justify-between">
+        <p>
+          Seed data: <a class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</a>.
+        </p>
+        <p>
+          <a class="text-accent hover:underline" href="/verification/">Verification status</a>
+          {" · "}
+          <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

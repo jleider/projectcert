@@ -1,0 +1,96 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Choropleth from "@/components/Choropleth.svelte";
+import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
+import { getAllStates, getChoroplethData } from "@/lib/state-data";
+
+const states = await getAllStates();
+const data = await getChoroplethData();
+
+const counts = {
+  diverse: states.filter((s) => s.professionalStandardsMentions.diverse).length,
+  cultural: states.filter((s) => s.professionalStandardsMentions.cultural).length,
+  linguistic: states.filter((s) => s.professionalStandardsMentions.linguistic).length,
+  el: states.filter((s) => s.professionalStandardsMentions.el).length,
+};
+---
+
+<BaseLayout
+  title="Professional teaching standards — EL mentions"
+  description="Whether each SEA's professional teaching standards explicitly reference diverse / cultural / linguistic / EL students."
+>
+  <article class="max-w-5xl mx-auto px-4 py-8">
+    <p class="text-sm text-ink-muted">
+      <a href="/" class="text-accent hover:underline">Home</a> /
+      <span aria-current="page">Standards</span>
+    </p>
+
+    <h1 class="mt-2 text-3xl font-bold text-ink">Professional teaching standards mentions</h1>
+    <p class="mt-3 text-lg text-ink-muted max-w-3xl">
+      Most ELs spend most of their day with a mainstream teacher. We
+      checked each SEA's professional teaching standards document for
+      explicit references to four categories.
+    </p>
+
+    <ul class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+      <li class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">{counts.diverse}<span class="text-ink-subtle">/51</span></div>
+        <div class="text-ink-muted">mention diverse / all students</div>
+      </li>
+      <li class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">{counts.cultural}<span class="text-ink-subtle">/51</span></div>
+        <div class="text-ink-muted">mention culture / cultural</div>
+      </li>
+      <li class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">{counts.linguistic}<span class="text-ink-subtle">/51</span></div>
+        <div class="text-ink-muted">mention language / linguistic</div>
+      </li>
+      <li class="rounded border border-ink-subtle/20 p-4">
+        <div class="text-2xl font-bold text-ink">{counts.el}<span class="text-ink-subtle">/51</span></div>
+        <div class="text-ink-muted">explicitly mention ELs</div>
+      </li>
+    </ul>
+
+    <div class="mt-10">
+      <h2 class="text-xl font-semibold text-ink">Explicit EL mentions by state</h2>
+      <div class="mt-4">
+        <Choropleth client:only="svelte" states={data} layer="standardsMentionsEl" />
+      </div>
+      <div class="mt-3">
+        <ChoroplethLegend variant="binary" binaryLabels={{ off: "ELs not mentioned", on: "ELs mentioned" }} />
+      </div>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold text-ink">All categories by state</h2>
+
+      <div class="mt-4 overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead class="text-left bg-surface-raised">
+            <tr>
+              <th class="px-3 py-2 font-semibold text-ink">State</th>
+              <th class="px-3 py-2 font-semibold text-ink">Diverse</th>
+              <th class="px-3 py-2 font-semibold text-ink">Cultural</th>
+              <th class="px-3 py-2 font-semibold text-ink">Linguistic</th>
+              <th class="px-3 py-2 font-semibold text-ink">EL explicit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {states.map((s) => {
+              const flag = (v: boolean) => (v ? "✓" : "—");
+              return (
+                <tr class="border-t border-ink-subtle/20">
+                  <td class="px-3 py-2"><a class="text-accent hover:underline" href={`/states/${s.usps.toLowerCase()}/`}>{s.name}</a></td>
+                  <td class="px-3 py-2">{flag(s.professionalStandardsMentions.diverse)}</td>
+                  <td class="px-3 py-2">{flag(s.professionalStandardsMentions.cultural)}</td>
+                  <td class="px-3 py-2">{flag(s.professionalStandardsMentions.linguistic)}</td>
+                  <td class={`px-3 py-2 ${s.professionalStandardsMentions.el ? "font-semibold text-accent" : ""}`}>{flag(s.professionalStandardsMentions.el)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </article>
+</BaseLayout>

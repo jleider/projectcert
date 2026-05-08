@@ -1,0 +1,58 @@
+{
+  "usps": "UT",
+  "name": "Utah",
+  "elPercent": 7.1,
+  "elPercentAsOf": "2019-10-01",
+  "credentials": {
+    "bilingual": {
+      "offered": true,
+      "standalone": true,
+      "addOn": true,
+      "requirements": {
+        "program": true,
+        "coursework": null,
+        "practicum": null,
+        "test": null,
+        "languageProficiency": true
+      },
+      "notes": "Two pathways: state-approved program OR university courses + Utah Dual Language Institute."
+    },
+    "eld": {
+      "offered": true,
+      "standalone": false,
+      "addOn": true,
+      "requirements": {
+        "program": true,
+        "coursework": null,
+        "practicum": null,
+        "test": null,
+        "languageProficiency": false
+      }
+    },
+    "sei": {
+      "mandatedForAllTeachers": false
+    }
+  },
+  "professionalStandardsMentions": {
+    "diverse": true,
+    "cultural": false,
+    "linguistic": false,
+    "el": false
+  },
+  "sources": [
+    {
+      "label": "Utah State Board of Education",
+      "url": "https://www.schools.utah.gov",
+      "retrievedAt": "2019-11-15",
+      "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Leider, Colombo & Nerlino (2021), EPAA 29(100). Tables 2-5 + Appendix A.",
+      "url": "https://doi.org/10.14507/epaa.29.5279",
+      "retrievedAt": "2019-11-15",
+      "retrievedBy": "leider-2021"
+    }
+  ],
+  "lastVerified": "2019-11-15",
+  "verificationStatus": "baseline-2019"
+}
