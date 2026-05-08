@@ -117,6 +117,30 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2017-06-06",
+      "title": "Connecticut State Seal of Biliteracy enacted (Public Act 17-29)",
+      "description": "Governor signed Public Act 17-29 establishing the Connecticut State Seal of Biliteracy, recognizing high school graduates who attain proficiency in English plus one or more world languages. SDE administers the Seal in partnership with districts.",
+      "sourceUrls": [
+        "https://portal.ct.gov/sde/seal-of-biliteracy/seal-of-biliteracy"
+      ]
+    },
+    {
+      "date": "2017-07-01",
+      "title": "CSDE adopts CCT Rubric for Effective Teaching (2017 edition)",
+      "description": "CSDE released the 2017 edition of the Common Core of Teaching (CCT) Rubric for Effective Teaching, the foundational professional-standards document binding all CT teachers. Keyword scan: 'diverse', 'cultural', and 'English learner' present; 'linguistic' absent — driving professionalStandardsMentions.linguistic = false.",
+      "sourceUrls": [
+        "https://portal.ct.gov/-/media/SDE/Evaluation-and-Support/CCTRubricForEffectiveTeaching2017.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Bilingual cross-endorsement scope corrected on refresh",
+      "description": "Re-verification against current CSDE certification pages corrected the baseline coding of bilingual.offered from false to true (CT issues bilingual qualifications as cross-endorsements under an 18 semester-hour framework with ACTFL OPI/WPT and Praxis Core writing). No CSDE policy changed; the diff is a baseline-2019 miscoding fix.",
+      "sourceUrls": [
+        "https://portal.ct.gov/sdecertification/knowledge-base/articles/resources/endorsements/what-are-the-requirements-for-bilingual-cross-endorsements"
+      ]
     }
   ]
 }
