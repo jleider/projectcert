@@ -70,6 +70,13 @@ breaks the build with "astro:content is server-only".
 
 ### Use the helpers, don't hand-build
 
+- **Internal routes**: import from `@/lib/routes`. `ROUTES.map`,
+  `ROUTES.credentials.bilingual`, `ANCHORS.howToCite`, etc. For
+  fully-qualified URLs (JSON-LD, OG tags) use
+  `absoluteRoute(SITE_URL, ROUTES.x)`. For same-page anchors use
+  `sameAnchor(ANCHORS.x)`. ESLint rejects bare-string `href="/foo/"`
+  on `<a>` (`no-restricted-syntax`); a renamed page surfaces as a
+  typecheck failure rather than a silent broken link.
 - **State URLs**: `stateUrl(usps)` for root-relative,
   `absoluteStateUrl(SITE_URL, usps)` for absolute. Never write
   `` `/states/${s.usps.toLowerCase()}/` ``.
@@ -88,6 +95,43 @@ breaks the build with "astro:content is server-only".
   helper caught it).
 - **Cross-state credential filtering**: `breakdownFor(states, "bilingual" | "eld")`
   returns `{offered, standalone, addOnOnly, both, notOffered}`.
+
+### Static SSR has no request-time query string
+
+Astro is configured for static output, so `Astro.url.searchParams`
+in a page frontmatter resolves at *build* time, not at request
+time. For pages where state needs to derive from `?layer=`,
+`?state=`, etc., the resolution must happen client-side after
+hydration:
+
+- Server-render the page with a sensible default (e.g. `layer =
+  "elPercent"`).
+- In the Svelte/JS island that owns the state, read
+  `new URLSearchParams(window.location.search)` on mount and
+  upgrade the value if the query disagrees with the SSR default.
+- For URL ⇄ state sync within the page (e.g. layer toggle should
+  rewrite the URL), use `history.replaceState` rather than
+  `pushState` so back-button history isn't polluted with every
+  click.
+
+The `MapExplorer` component is the reference implementation; the
+`/embed/map/` page is the exception, since the iframe `src` is the
+canonical state and embed contexts shouldn't mutate the host URL.
+
+### State seals
+
+Per-state seal SVGs live at `public/seals/<usps>.svg` with sibling
+`.license.txt` provenance pointers. `<StateSeal>` renders them via
+`background-image` (not `<img>`) — `background-size: contain`
+guarantees aspect-ratio preservation across container sizes
+without fighting Tailwind's preflight `img { height: auto }` rule.
+
+A few state seals (notably CT) are genuinely portrait by official
+design; no naturally-square version exists on Wikimedia or
+elsewhere. The canonical fix is to pad the SVG's `viewBox` to a
+square and let the artwork center with transparent margins. Do
+*not* alter the underlying artwork dimensions — the official seal
+is the official seal.
 
 ### Embed mode
 
