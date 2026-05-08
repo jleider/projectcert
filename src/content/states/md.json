@@ -97,6 +97,22 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2016-05-19",
+      "title": "Maryland adopts State Seal of Biliteracy (SB 781, Ch. 232, 2016)",
+      "description": "SB 781 (Chapter 232, 2016) authorized the Maryland State Seal of Biliteracy, codified at Education Article §7-208. MSDE administers the credential for high-school graduates proficient in English plus one or more world languages; participation is district-opt-in.",
+      "sourceUrls": [
+        "https://theglobalseal.com/maryland-seal-of-biliteracy"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-audit (history events captured)",
+      "description": "Re-audited against current MSDE sources. ESOL credential governed by COMAR 13A.12.02.19 (PreK-12, both standalone certification and add-on endorsement pathways). No coding changes; this pass added Seal of Biliteracy adoption to the history log per the §3a history-capture emphasis.",
+      "sourceUrls": [
+        "http://mdrules.elaws.us/comar/13a.12.02.19"
+      ]
     }
   ]
 }
