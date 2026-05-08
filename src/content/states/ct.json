@@ -1,40 +1,50 @@
 {
   "usps": "CT",
   "name": "Connecticut",
-  "elPercent": 7.4,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 9.4,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
-      "offered": false,
+      "offered": true,
       "standalone": false,
-      "addOn": false
+      "addOn": true,
+      "requirements": {
+        "program": null,
+        "coursework": true,
+        "practicum": false,
+        "test": false,
+        "languageProficiency": true
+      },
+      "notes": "CT issues bilingual qualifications as cross-endorsements (no standalone bilingual license). Requires 18 semester hours across six areas at one regionally accredited college, plus ACTFL OPI + WPT in the target language and Praxis Core writing in English. Most bilingual endorsements layer on top of an existing primary endorsement; secondary bilingual humanities (#991) and STEM (#992) are exceptions requiring 15 content-area hours instead. ARCTEL exists as an alternate program-based pathway, hence program=null rather than false. Baseline-2019 coded offered=false; this refresh corrects to offered=true,addOn=true."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
-        "practicum": null,
-        "test": null,
+        "practicum": true,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "CT offers BOTH the Initial TESOL Teaching Certificate (PK-12, standalone) and a TESOL cross-endorsement. Standalone pathway requires an approved preparation program with TESOL student teaching and Praxis II ESOL. Cross-endorsement requires 30 semester hours of TESOL coursework across five categories (English Syntax/Composition; Language Theory; Linguistic and Academic Assessment of ELLs; Curriculum and Methods of Teaching ESL; Culture and Intergroup Relations). Schema fields are coded on the strength of the standalone pathway."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No statewide SEI mandate. Connecticut General Statutes §10-17f triggers bilingual programs when a school enrolls 20+ ELs of the same language background; ESL/sheltered instruction elsewhere is delivered by TESOL-credentialed teachers. Statewide SEI mandates exist in MA/AZ/CA (and phasing in NV) but not CT."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": true,
-    "el": false
+    "linguistic": false,
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2017,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://portal.ct.gov/sde/seal-of-biliteracy/seal-of-biliteracy"
   },
   "elpAssessment": {
     "name": "LAS Links Online",
@@ -53,8 +63,50 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "CSDE Certification — Bilingual Cross-Endorsement Requirements (18 semester hours; six coursework areas; ACTFL OPI/WPT; Praxis Core writing)",
+      "url": "https://portal.ct.gov/sdecertification/knowledge-base/articles/resources/endorsements/what-are-the-requirements-for-bilingual-cross-endorsements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "CSDE Certification — Approved Courses for TESOL Cross-Endorsement (30 semester hours; five course categories)",
+      "url": "https://portal.ct.gov/en/SDE/Certification/Approved-Courses-for-Teaching-English-to-Speakers-of-Other-Languages-TESOL-Cross-Endorsement",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "CSDE — English Language Proficiency Assessment (LAS Links, K-12, 2025-26 administration)",
+      "url": "https://portal.ct.gov/SDE/Student-Assessment/ELP-Assessment/English-Language-Proficiency-Assessment---LAS-Links",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "CSDE — Connecticut State Seal of Biliteracy (Public Act 17-29, signed June 6, 2017)",
+      "url": "https://portal.ct.gov/sde/seal-of-biliteracy/seal-of-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "CSDE — CCT Rubric for Effective Teaching 2017 (foundational professional standards; keyword scan: diverse/cultural/EL present; linguistic absent)",
+      "url": "https://portal.ct.gov/-/media/SDE/Evaluation-and-Support/CCTRubricForEffectiveTeaching2017.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — Connecticut Fall 2021: 47,740 ELs (9.4%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "CSDE — English Learners / Bilingual Education (CGS §10-17f program triggers; no statewide SEI mandate)",
+      "url": "https://portal.ct.gov/SDE/English-Learners/Bilingual-Education",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
