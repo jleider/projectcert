@@ -1,18 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="projectcert">
   <title>projectcert</title>
+  <!--
+    Standalone SVGs can't inherit CSS custom properties from the
+    embedding page. We mirror the design-token palette internally and
+    flip via prefers-color-scheme so the logo adapts when displayed
+    in dark contexts (in-page, social-share previews on dark clients,
+    etc.). Light-mode values mirror tokens.css `--bin-0`..`--bin-3`,
+    `--ink`, and `--brand`. Dark-mode values mirror the dark theme.
+  -->
+  <style>
+    :root {
+      --bin-0: #f5e8ff;
+      --bin-1: #c9a0ff;
+      --bin-2: #7a3ed8;
+      --bin-3: #3d1971;
+      --check: #ffffff;
+      --ink: #16181f;
+      --brand: #3d1971;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bin-0: #3a2c54;
+        --bin-1: #5d3da0;
+        --bin-2: #7d4ad0;
+        --bin-3: #e1c5ff;
+        --check: #262833;
+        --ink: #e8eaf0;
+        --brand: #c9a0ff;
+      }
+    }
+  </style>
   <!-- Mark: 2x2 of choropleth bin colors with a check on the darkest tile -->
   <g>
-    <rect x="2"  y="4"  width="18" height="18" rx="3.5" fill="#f5e8ff"/>
-    <rect x="22" y="4"  width="18" height="18" rx="3.5" fill="#c9a0ff"/>
-    <rect x="2"  y="24" width="18" height="18" rx="3.5" fill="#7a3ed8"/>
-    <rect x="22" y="24" width="18" height="18" rx="3.5" fill="#3d1971"/>
+    <rect x="2"  y="4"  width="18" height="18" rx="3.5" fill="var(--bin-0)"/>
+    <rect x="22" y="4"  width="18" height="18" rx="3.5" fill="var(--bin-1)"/>
+    <rect x="2"  y="24" width="18" height="18" rx="3.5" fill="var(--bin-2)"/>
+    <rect x="22" y="24" width="18" height="18" rx="3.5" fill="var(--bin-3)"/>
     <path d="M26.5 33.5 L30.5 37.5 L37.5 28"
-          fill="none" stroke="#ffffff" stroke-width="3"
+          fill="none" stroke="var(--check)" stroke-width="3"
           stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <!-- Wordmark -->
   <text x="52" y="31"
         font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="22" font-weight="700" fill="#16181f"
-        letter-spacing="-0.3">project<tspan fill="#3d1971">cert</tspan></text>
+        font-size="22" font-weight="700" fill="var(--ink)"
+        letter-spacing="-0.3">project<tspan fill="var(--brand)">cert</tspan></text>
 </svg>

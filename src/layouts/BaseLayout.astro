@@ -102,8 +102,6 @@ const siteJsonLd = [
     <meta name="twitter:image" content={ogImage} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
 
     <JsonLd data={siteJsonLd} />
     {jsonLd && <JsonLd data={jsonLd} />}
@@ -117,11 +115,11 @@ const siteJsonLd = [
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
         <a href="/" class="flex items-center gap-2 font-semibold text-ink hover:text-accent" aria-label="projectcert — home">
           <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-            <rect x="2"  y="2"  width="13" height="13" rx="2.5" fill="#f5e8ff"/>
-            <rect x="17" y="2"  width="13" height="13" rx="2.5" fill="#c9a0ff"/>
-            <rect x="2"  y="17" width="13" height="13" rx="2.5" fill="#7a3ed8"/>
-            <rect x="17" y="17" width="13" height="13" rx="2.5" fill="#3d1971"/>
-            <path d="M20.25 24.25 L23 27 L27.75 21.5" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2"  y="2"  width="13" height="13" rx="2.5" fill="var(--bin-0)"/>
+            <rect x="17" y="2"  width="13" height="13" rx="2.5" fill="var(--bin-1)"/>
+            <rect x="2"  y="17" width="13" height="13" rx="2.5" fill="var(--bin-2)"/>
+            <rect x="17" y="17" width="13" height="13" rx="2.5" fill="var(--bin-3)"/>
+            <path d="M20.25 24.25 L23 27 L27.75 21.5" fill="none" stroke="var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span>project<span style="color: var(--brand)">cert</span></span>
         </a>

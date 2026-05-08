@@ -7,7 +7,7 @@
 > per-state pages.
 
 Snapshot generated: 2026-05-08
-States verified against current SEA sources: 49 / 51
+States verified against current SEA sources: 51 / 51
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279
 Canonical site: https://projectcert.org/
@@ -833,34 +833,39 @@ History:
 ## South Dakota (SD)
 
 URL: https://projectcert.org/states/sd/
-Last verified: 2019-11-15 (baseline-2019)
+Last verified: 2026-05-08 (verified-2026)
 
-South Dakota does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2019, 4.1% of public-school students are classified English Learners (NCES). Coding from the 2019 Leider et al. baseline; not yet re-verified against current SEA sources.
+South Dakota does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2024.
 
+ELD notes: ELD/ESL is an add-on endorsement under ARSD 24:53. SD DOE endorsement pages 404'd during the 2026-05-08 refresh; the baseline coding (coursework + Praxis test) is preserved pending re-retrieval. program/practicum left null per ambiguous-rule.
+
 History:
 - 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2024-01-01: Silver and Gold Seal of Biliteracy program launched — South Dakota implemented the Silver and Gold State Seal of Biliteracy in 2024 — among the most recent statewide adoptions, with two performance levels (Silver intermediate, Gold advanced).
+- 2026-05-08: Re-verified against current cross-state sources (verified-2026) — elPercent updated to 4.6% (NCES fall 2021); WIDA membership and Seal of Biliteracy program reconfirmed. SD DOE endorsement pages were not retrievable in this refresh, so eld.requirements and professionalStandardsMentions carry forward from the 2019 baseline pending a follow-up fetch.
 
 ## Tennessee (TN)
 
 URL: https://projectcert.org/states/tn/
-Last verified: 2026-05-08 (in-progress)
+Last verified: 2026-05-08 (verified-2026)
 
-Tennessee does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 9.0% of public-school students are classified English Learners (NCES). Re-verification against current SEA sources is in progress.
+Tennessee does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 9.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2018.
 
-ELD notes: ESL endorsement codes 488 (K-8), 489 (6-12), 490 (PreK-12). Praxis 5362 required (Professional Assessments Policy 5.105). Two pathways: traditional EPP-approved program, or TDOE's no-cost Additional Endorsement Program for already-licensed teachers (asynchronous coursework + Praxis), authorized under Educator Licensure Policy 5.502 (revised July 2021). Practicum coded null because the public TDOE pages don't enumerate clinical/practicum hours separately — set by EPPs against Specialty Area Standards Policy 5.505. 2024 update: TDOE moved EL assessment from WIDA/ACCESS to ELPA21 effective July 1, 2024 (first ELPA21 Summative Feb 5, 2025) and adopted ELPA21 ELD Standards in place of WIDA 2020. EL share rose from 4.6% (2019 baseline) to ~9% (2024 TDOE figure, 93,433 students). Held at in-progress: the SEA professional teaching standards source (Educator Licensure Policy 5.502 / Specialty Area Standards Policy 5.505 / TEAM rubric) was not retrieved this round — Teacher Code of Ethics (T.C.A. 49-5-1001) was retrieved and is not the standards document; professionalStandardsMentions booleans carry forward from baseline-2019 pending standards-doc verification.
+ELD notes: ESL endorsement codes 488 (K-8), 489 (6-12), 490 (PreK-12). Praxis 5362 required (Professional Assessments Policy 5.105). Two pathways: traditional EPP-approved program, or TDOE's no-cost Additional Endorsement Program for already-licensed teachers (asynchronous coursework + Praxis), authorized under Educator Licensure Policy 5.502 (revised Feb 2025). ESL programs minimum 18 hours, 6 hours of college-level world language, aligned to TESOL P-12 Standards (Policy 5.505 §English as a Second Language). Practicum coded null because Policy 5.505 does not enumerate clinical/practicum hours separately for ESL — set by EPPs. 2024 update: TDOE moved EL assessment from WIDA/ACCESS to ELPA21 effective July 1, 2024 (first ELPA21 Summative Feb 5, 2025) and adopted ELPA21 ELD Standards in place of WIDA 2020. EL share rose from 4.6% (2019 baseline) to ~9% (2024 TDOE figure, 93,433 students).
 
 SEI notes: Rule 0520-01-19-.03(8) requires annual ESL training only for teachers who provide Direct or Indirect ESL Services, not all teachers.
 
 History:
 - 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-08: Standards verified — promoted to verified-2026 — Retrieved current SBE Policy 5.505 'Literacy and Specialty Area Standards for Educator Preparation' (revised 11/21/2025) and Policy 5.502 'Educator Licensure' (revised 02/21/2025). Policy 5.505 explicitly references diverse instructional practices, students' cultural and linguistic experiences, language/linguistic diversity as a source of strength, culturally relevant and responsive instruction, and English Learners by name (e.g., 'all learners (e.g., English Learners, students with disabilities, and at-risk learners)') in general literacy and early-childhood standards applicable beyond the ESL endorsement. ESL programs are aligned to TESOL P-12 Standards and require instruction on the Tennessee EL Framework. All four professionalStandardsMentions booleans (diverse, cultural, linguistic, el) confirmed true against the current standards document.
 
 ## Texas (TX)
 
