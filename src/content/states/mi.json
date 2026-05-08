@@ -1,47 +1,50 @@
 {
   "usps": "MI",
   "name": "Michigan",
-  "elPercent": 6.6,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 6.4,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
+        "coursework": true,
+        "practicum": true,
+        "test": true,
+        "languageProficiency": true
+      },
+      "notes": "Bilingual Education endorsement is language-specific (codes YA-YT, 17 languages). Standard 1.1 of the 2017 Bilingual Education Preparation Standards requires ACTFL Oral Proficiency Interview at Advanced Low or higher in both English and the target language. MTTC Bilingual Education exam also required."
+    },
+    "eld": {
+      "offered": true,
+      "standalone": true,
+      "addOn": true,
+      "requirements": {
+        "program": true,
         "coursework": true,
         "practicum": true,
         "test": true,
         "languageProficiency": false
-      }
-    },
-    "eld": {
-      "offered": true,
-      "standalone": false,
-      "addOn": true,
-      "requirements": {
-        "program": true,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
-        "languageProficiency": false
-      }
+      },
+      "notes": "ESL endorsement (code NS). Earned via an approved Educator Preparation Provider as either the initial endorsement on a teaching certificate or as an add-on, plus passage of the MTTC ESL exam. ESL preparation standards (2017, rev. 2024) do not require a separate language-proficiency exam."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Michigan does not mandate SEI training for all teachers. Per Michigan Law 380.1233(1) and the MDE ESL & Bilingual Placement Guide (2024), only teachers serving as the primary EL provider in ESL, sheltered English, bilingual, newcomer, or dual-language programs must hold the NS or Y_ endorsement."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": false,
-    "el": false
+    "linguistic": true,
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2018,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://www.michigan.gov/mde/services/flexible-learning/michigan-seal-of-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -60,8 +63,62 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "MDE — Appropriate Placement of Teachers Serving in ESL, Sheltered English, Bilingual Education, Newcomer, and Dual Language Programs Guide (2024 update)",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/English-Learners/ESL_Bilingual_Placement.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Standards for the Preparation of Teachers of English as a Second Language (adopted 2017, updated 2024)",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/mde/educator_services/prep/standards/esl_standards.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Standards for the Preparation of Teachers of Bilingual Education (adopted 2017)",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/mde/educator_services/prep/standards/bilingual_education_standards.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Active Endorsements and MTTC Alignment",
+      "url": "https://www.michigan.gov/mde/services/ed-serv/ed-cert/educator-preparation-providers/specialty-program-standards/active-endorsements-mttc",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Adding an Endorsement to a Michigan Teaching Certificate",
+      "url": "https://www.michigan.gov/mde/services/ed-serv/ed-cert/cert-guidance/becoming-a-teacher/adding-an-endorsement",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Standards for the Preparation of PK-12 Teachers, Professional Knowledge and Skills (adopted 2018, rev. 2024)",
+      "url": "https://www.michigan.gov/mde/-/media/Project/Websites/mde/educator_services/prep/standards/Prep_Standards_for_PK-12_Teachers.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Standards for the Preparation of Teachers (Middle Grades 5-9, High School 7-12), Professional Knowledge and Skills",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/mde/educator_services/prep/standards/professional_standards_59_712.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 (English learners enrolled in public elementary and secondary schools, by state, Fall 2011-2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "MDE — Michigan Seal of Biliteracy program page",
+      "url": "https://www.michigan.gov/mde/services/flexible-learning/michigan-seal-of-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
