@@ -6,6 +6,7 @@ import ReportIssue from "@/components/ReportIssue.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { FEEDBACK_FORM } from "@/config/feedback";
 import { SITE_URL, SITE_NAME } from "@/config/site";
+import { ROUTES, ANCHORS, sameAnchor, withAnchor } from "@/lib/routes";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -106,13 +107,13 @@ const siteJsonLd = [
     {jsonLd && <JsonLd data={jsonLd} />}
   </head>
   <body class="min-h-screen flex flex-col">
-    <a href="#main" class="skip-link">Skip to main content</a>
+    <a href={sameAnchor(ANCHORS.main)} class="skip-link">Skip to main content</a>
 
     <PreLaunchBanner verified={verifiedCount} total={totalCount} />
 
     <header class="border-b border-ink-subtle/15 bg-surface">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
-        <a href="/" class="flex items-center gap-2 font-semibold text-ink hover:text-accent" aria-label="projectcert — home">
+        <a href={ROUTES.home} class="flex items-center gap-2 font-semibold text-ink hover:text-accent" aria-label="projectcert — home">
           <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
             <rect x="2"  y="2"  width="13" height="13" rx="2.5" fill="var(--bin-0)"/>
             <rect x="17" y="2"  width="13" height="13" rx="2.5" fill="var(--bin-1)"/>
@@ -124,33 +125,33 @@ const siteJsonLd = [
         </a>
         <nav aria-label="Primary">
           <ul class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-muted">
-            <li><a href="/map/" class="hover:text-accent focus-visible:text-accent">Map</a></li>
-            <li><a href="/credentials/bilingual/" class="hover:text-accent focus-visible:text-accent">Credentials</a></li>
-            <li><a href="/standards/" class="hover:text-accent focus-visible:text-accent">Standards</a></li>
-            <li><a href="/compare/" class="hover:text-accent focus-visible:text-accent">Compare</a></li>
-            <li><a href="/methodology/" class="hover:text-accent focus-visible:text-accent">Methodology</a></li>
-            <li><a href="/glossary/" class="hover:text-accent focus-visible:text-accent">Glossary</a></li>
-            <li><a href="/about/" class="hover:text-accent focus-visible:text-accent">About</a></li>
+            <li><a href={ROUTES.map} class="hover:text-accent focus-visible:text-accent">Map</a></li>
+            <li><a href={ROUTES.credentials.bilingual} class="hover:text-accent focus-visible:text-accent">Credentials</a></li>
+            <li><a href={ROUTES.standards} class="hover:text-accent focus-visible:text-accent">Standards</a></li>
+            <li><a href={ROUTES.compare} class="hover:text-accent focus-visible:text-accent">Compare</a></li>
+            <li><a href={ROUTES.methodology} class="hover:text-accent focus-visible:text-accent">Methodology</a></li>
+            <li><a href={ROUTES.glossary} class="hover:text-accent focus-visible:text-accent">Glossary</a></li>
+            <li><a href={ROUTES.about} class="hover:text-accent focus-visible:text-accent">About</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main id="main" class="flex-1">
+    <main id={ANCHORS.main} class="flex-1">
       <slot />
     </main>
 
     <footer class="mt-16 border-t border-ink-subtle/15 bg-surface-raised text-sm text-ink-muted">
       <div class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4 justify-between">
         <p>
-          Seed data: <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</ExternalLink>. If you use data from this site, please <a class="text-accent hover:underline" href="/about/#how-to-cite">cite the authors</a>.
+          Seed data: <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</ExternalLink>. If you use data from this site, please <a class="text-accent hover:underline" href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>cite the authors</a>.
         </p>
         <p>
-          <a class="text-accent hover:underline" href="/verification/">Verification status</a>
+          <a class="text-accent hover:underline" href={ROUTES.verification}>Verification status</a>
           {" · "}
-          <a class="text-accent hover:underline" href="/about/#how-to-cite">How to cite</a>
+          <a class="text-accent hover:underline" href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>How to cite</a>
           {" · "}
-          <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
+          <a class="text-accent hover:underline" href={ROUTES.methodology}>Methodology</a>
           {FEEDBACK_FORM.baseUrl && (
             <>
               {" · "}

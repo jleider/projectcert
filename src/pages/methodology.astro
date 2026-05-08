@@ -42,7 +42,7 @@ const methodologyJsonLd = [
     </p>
 
     <h2 class="mt-6 text-xl font-semibold text-ink">Data captured</h2>
-    <p class="mt-2 text-ink-muted">Each state record encodes, per the <a class="text-accent hover:underline" href="/glossary/">canonical taxonomy</a>:</p>
+    <p class="mt-2 text-ink-muted">Each state record encodes, per the <a class="text-accent hover:underline" href={ROUTES.glossary}>canonical taxonomy</a>:</p>
     <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
       <li>The percentage of public-school students classified as ELs.</li>
       <li>Whether a bilingual education credential is offered, and (if so) whether it is available as a standalone certification, an add-on endorsement, or both.</li>
@@ -68,7 +68,7 @@ const methodologyJsonLd = [
       re-verified against the SEA's <em>current</em> public documents
       and have its <code>verificationStatus</code> bumped from
       <code>baseline-2019</code> to <code>verified-2026</code>.
-      <a class="text-accent hover:underline" href="/verification/">Track the per-state progress</a>.
+      <a class="text-accent hover:underline" href={ROUTES.verification}>Track the per-state progress</a>.
     </p>
 
     <h2 class="mt-6 text-xl font-semibold text-ink">Reporting outdated data</h2>

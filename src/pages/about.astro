@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+import StateLink from "@/components/StateLink.astro";
+import { ROUTES, ANCHORS } from "@/lib/routes";
 ---
 
 <BaseLayout
@@ -30,11 +32,11 @@ import ExternalLink from "@/components/ExternalLink.astro";
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Contents</h2>
     <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
-      <li>An <a class="text-accent hover:underline" href="/map/">interactive map</a> presenting seven encoded variables.</li>
-      <li>Cross-state reports on <a class="text-accent hover:underline" href="/credentials/bilingual/">bilingual</a>, <a class="text-accent hover:underline" href="/credentials/eld/">ELD</a>, and <a class="text-accent hover:underline" href="/credentials/sei/">SEI</a> credentials.</li>
-      <li>A <a class="text-accent hover:underline" href="/standards/">standards-mention dashboard</a> recording whether each SEA's professional teaching standards explicitly reference English Learners.</li>
-      <li>A <a class="text-accent hover:underline" href="/compare/">side-by-side state comparison</a> tool.</li>
-      <li>An individual record for each of the 51 jurisdictions (e.g., <a class="text-accent hover:underline" href="/states/ma/">Massachusetts</a>).</li>
+      <li>An <a class="text-accent hover:underline" href={ROUTES.map}>interactive map</a> presenting seven encoded variables.</li>
+      <li>Cross-state reports on <a class="text-accent hover:underline" href={ROUTES.credentials.bilingual}>bilingual</a>, <a class="text-accent hover:underline" href={ROUTES.credentials.eld}>ELD</a>, and <a class="text-accent hover:underline" href={ROUTES.credentials.sei}>SEI</a> credentials.</li>
+      <li>A <a class="text-accent hover:underline" href={ROUTES.standards}>standards-mention dashboard</a> recording whether each SEA's professional teaching standards explicitly reference English Learners.</li>
+      <li>A <a class="text-accent hover:underline" href={ROUTES.compare}>side-by-side state comparison</a> tool.</li>
+      <li>An individual record for each of the 51 jurisdictions (e.g., <StateLink usps="MA">Massachusetts</StateLink>).</li>
     </ul>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Source paper</h2>
@@ -46,7 +48,7 @@ import ExternalLink from "@/components/ExternalLink.astro";
       <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">https://doi.org/10.14507/epaa.29.5279</ExternalLink>
     </p>
 
-    <h2 id="how-to-cite" class="mt-8 text-xl font-semibold text-ink">How to cite / attribution</h2>
+    <h2 id={ANCHORS.howToCite} class="mt-8 text-xl font-semibold text-ink">How to cite / attribution</h2>
     <p class="mt-2 text-ink-muted">
       Use of data, figures, or findings from this catalog in research,
       reporting, policy work, presentations, or other publications
@@ -68,7 +70,7 @@ import ExternalLink from "@/components/ExternalLink.astro";
       projectcert. <em>An atlas of U.S. state teacher certification
       requirements for instructing classified English Learner students.</em>
       Retrieved {new Date().toISOString().slice(0, 10)} from
-      <a class="text-accent hover:underline" href="/">this website</a>.
+      <a class="text-accent hover:underline" href={ROUTES.home}>this website</a>.
     </p>
     <p class="mt-2 text-sm text-ink-muted">
       Per-state records also include a <code>sources[]</code> array

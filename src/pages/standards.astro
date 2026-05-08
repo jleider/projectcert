@@ -4,6 +4,7 @@ import Choropleth from "@/components/Choropleth.svelte";
 import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
 import StateLink from "@/components/StateLink.astro";
 import { getAllStates, getChoroplethData } from "@/lib/state-data";
+import { ROUTES } from "@/lib/routes";
 
 const states = await getAllStates();
 const data = await getChoroplethData();
@@ -22,7 +23,7 @@ const counts = {
 >
   <article class="max-w-5xl mx-auto px-4 py-8">
     <p class="text-sm text-ink-muted">
-      <a href="/" class="text-accent hover:underline">Home</a> /
+      <a href={ROUTES.home} class="text-accent hover:underline">Home</a> /
       <span aria-current="page">Standards</span>
     </p>
 

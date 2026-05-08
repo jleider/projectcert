@@ -6,6 +6,7 @@ import CitationBlock from "@/components/CitationBlock.astro";
 import StateLink from "@/components/StateLink.astro";
 import StateSeal from "@/components/StateSeal.astro";
 import { getChoroplethData, getAllStates, absoluteStateUrl, type Layer } from "@/lib/state-data";
+import { ROUTES, ANCHORS, sameAnchor } from "@/lib/routes";
 import { SITE_URL } from "@/config/site";
 
 const data = await getChoroplethData();
@@ -75,7 +76,7 @@ const homeJsonLd = {
     </p>
     <p class="mt-3">
       <a
-        href="#cite-this-page"
+        href={sameAnchor(ANCHORS.citeThisPage)}
         class="text-sm text-accent hover:underline focus-visible:underline"
       >Cite this site &darr;</a>
     </p>
@@ -130,15 +131,15 @@ const homeJsonLd = {
     </ul>
 
     <nav class="mt-10 grid sm:grid-cols-3 gap-4" aria-label="Explore">
-      <a href="/map/" class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
+      <a href={ROUTES.map} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
         <h2 class="font-semibold text-ink">Interactive map</h2>
         <p class="text-sm text-ink-muted mt-1">Color-coded map across seven layers: EL population, bilingual, ELD, SEI, standards, Seal of Biliteracy, and ELP assessment.</p>
       </a>
-      <a href="/credentials/bilingual/" class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
+      <a href={ROUTES.credentials.bilingual} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
         <h2 class="font-semibold text-ink">Credential reports</h2>
         <p class="text-sm text-ink-muted mt-1">Cross-state analyses of bilingual, ELD, and SEI credentialing patterns.</p>
       </a>
-      <a href="/compare/" class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
+      <a href={ROUTES.compare} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
         <h2 class="font-semibold text-ink">State comparison</h2>
         <p class="text-sm text-ink-muted mt-1">Two-to-four-state side-by-side view of credentials and requirements.</p>
       </a>

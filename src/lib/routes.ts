@@ -71,6 +71,11 @@ export function withAnchor(route: Route, anchor: Anchor): LinkUrl {
   return `${route}#${anchor}` as LinkUrl;
 }
 
+/** Same-page anchor href, e.g. `<a href={sameAnchor(ANCHORS.main)}>`. */
+export function sameAnchor(anchor: Anchor): LinkUrl {
+  return `#${anchor}` as LinkUrl;
+}
+
 /** Build an absolute URL from a Route, e.g. for JSON-LD `url` fields. */
 export function absoluteRoute(siteUrl: string, route: Route): LinkUrl {
   return `${siteUrl.replace(/\/$/, "")}${route}` as LinkUrl;

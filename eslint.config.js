@@ -44,4 +44,26 @@ export default [
       "no-console": "off",
     },
   },
+  {
+    // Prevent bare-string internal hrefs on <a>. Every internal route
+    // must come from ROUTES / ANCHORS / stateUrl in @/lib/routes (and
+    // @/lib/state-types) so a renamed page surfaces as a typecheck
+    // failure rather than a silent broken link.
+    //
+    // Permitted: external URLs (`https://`, `mailto:`, `tel:`),
+    // template literals, and JSX expressions resolving to a Route /
+    // LinkUrl. Forbidden: literal "/foo/" or "#anchor" strings.
+    files: ["**/*.astro", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    rules: {
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "JSXOpeningElement[name.name='a'] > JSXAttribute[name.name='href'] > Literal[value=/^[/#]/u]",
+          message:
+            "Bare-string href on <a>. Use href={ROUTES.x} or href={sameAnchor(ANCHORS.x)} from @/lib/routes; per-state URLs come from stateUrl(usps).",
+        },
+      ],
+    },
+  },
 ];

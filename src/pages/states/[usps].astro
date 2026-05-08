@@ -14,7 +14,7 @@ import { STATE_LOCAL_NAMES } from "@/data/terminology";
 import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
 import { SITE_URL } from "@/config/site";
 import { breadcrumbWithHome } from "@/lib/jsonld";
-import { ROUTES } from "@/lib/routes";
+import { ROUTES, ANCHORS, sameAnchor } from "@/lib/routes";
 import { absoluteStateUrl } from "@/lib/state-data";
 
 export async function getStaticPaths() {
@@ -83,7 +83,7 @@ const stateJsonLd = [
 >
   <article class="max-w-4xl mx-auto px-4 py-8">
     <p class="text-sm text-ink-muted">
-      <a href="/" class="text-accent hover:underline">All states</a> /
+      <a href={ROUTES.home} class="text-accent hover:underline">All states</a> /
       <span aria-current="page">{s.name}</span>
     </p>
 
@@ -95,7 +95,7 @@ const stateJsonLd = [
     <div class="mt-3 flex flex-wrap gap-3 items-center">
       <VerificationBadge status={s.verificationStatus} lastVerified={s.lastVerified} />
       <a
-        href="#cite-this-page"
+        href={sameAnchor(ANCHORS.citeThisPage)}
         class="text-xs text-accent hover:underline focus-visible:underline"
       >Cite this page &darr;</a>
     </div>
@@ -236,7 +236,7 @@ const stateJsonLd = [
     />
 
     <p class="mt-8 text-sm text-ink-subtle">
-      See the <a class="text-accent hover:underline" href="/methodology/">methodology</a> for how these data were collected, or the <a class="text-accent hover:underline" href="/glossary/">glossary</a> for term definitions.
+      See the <a class="text-accent hover:underline" href={ROUTES.methodology}>methodology</a> for how these data were collected, or the <a class="text-accent hover:underline" href={ROUTES.glossary}>glossary</a> for term definitions.
     </p>
   </article>
 </BaseLayout>

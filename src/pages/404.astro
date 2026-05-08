@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getAllStates } from "@/lib/state-data";
+import { getAllStates, stateUrl } from "@/lib/state-data";
+import { ROUTES } from "@/lib/routes";
 
 const states = await getAllStates();
 const stateIndex = states.map((s) => ({
   usps: s.usps,
   name: s.name,
-  url: `/states/${s.usps.toLowerCase()}/`,
+  url: stateUrl(s.usps),
 }));
 ---
 
@@ -33,11 +34,11 @@ const stateIndex = states.map((s) => ({
     </section>
 
     <nav class="mt-10 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" aria-label="Top destinations">
-      <a class="text-accent hover:underline" href="/">Home</a>
-      <a class="text-accent hover:underline" href="/map/">Map</a>
-      <a class="text-accent hover:underline" href="/credentials/bilingual/">Credentials</a>
-      <a class="text-accent hover:underline" href="/glossary/">Glossary</a>
-      <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
+      <a class="text-accent hover:underline" href={ROUTES.home}>Home</a>
+      <a class="text-accent hover:underline" href={ROUTES.map}>Map</a>
+      <a class="text-accent hover:underline" href={ROUTES.credentials.bilingual}>Credentials</a>
+      <a class="text-accent hover:underline" href={ROUTES.glossary}>Glossary</a>
+      <a class="text-accent hover:underline" href={ROUTES.methodology}>Methodology</a>
     </nav>
   </article>
 

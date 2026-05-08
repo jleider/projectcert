@@ -11,6 +11,8 @@
  * paper (for the original taxonomy and 2019 baseline coding).
  */
 
+import { ANCHORS } from "@/lib/routes";
+
 interface Props {
   /** e.g., "Texas EL teacher certification" or "projectcert: U.S. EL teacher certification atlas" */
   title: string;
@@ -70,7 +72,7 @@ const plainSeed = `Leider, Colombo & Nerlino. 2021. Decentralization, teacher qu
 ---
 
 <section
-  id="cite-this-page"
+  id={ANCHORS.citeThisPage}
   class="mt-10 scroll-mt-20 rounded border border-ink-subtle/20 bg-surface-raised p-4"
   aria-labelledby="cite-heading"
 >

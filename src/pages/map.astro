@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import MapExplorer from "@/components/MapExplorer.svelte";
 import StateLink from "@/components/StateLink.astro";
 import { getChoroplethData } from "@/lib/state-data";
+import { ROUTES } from "@/lib/routes";
 
 const data = await getChoroplethData();
 const tableRows = [...data].sort((a, b) => a.name.localeCompare(b.name));
@@ -35,7 +36,7 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
     </p>
     <p class="mt-2 text-sm text-ink-subtle">
       Embed instructions for third-party sites are available at
-      <a href="/embed/" class="text-accent hover:underline">/embed/</a>.
+      <a href={ROUTES.embed} class="text-accent hover:underline">/embed/</a>.
     </p>
 
     <section class="mt-12" aria-labelledby="data-table-heading">
