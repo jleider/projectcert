@@ -1,45 +1,48 @@
 {
   "usps": "MT",
   "name": "Montana",
-  "elPercent": 2.2,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 2.4,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "No bilingual-education endorsement on the FY2026 OPI endorsement code list. Montana offers world-language endorsements (06A ARA/ASL/CHI/FRE/GER/IRI/ITA/LAT/RUS/SPA) and tribal-language endorsements (06Z ASB/BLA/CHE/CHI/CRE/CRO/DAK/GV/KOO/SAL), plus a separate Class 7 American Indian Language and Culture Specialist license, but these are language-content credentials, not bilingual-education credentials."
     },
     "eld": {
       "offered": true,
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": null,
-        "practicum": null,
+        "practicum": true,
         "test": null,
         "languageProficiency": false
-      }
+      },
+      "notes": "Endorsement code 06A ESL (English as a Second Language K-12), added to a Class 1 or Class 2 license per ARM 10.57.412. ARM 10.57.301 explicitly excludes ESL K-12 from the degree-major / portfolio / PRAXIS-only / National Board substitute pathway, so completion of an OPI-approved educator preparation program with supervised teaching experience is the operative pathway (program=true, practicum=true). The state rule does not specify a freestanding coursework-hour count or a required exam at the SEA-policy level; coded null per the project's ambiguity rule (absence-from-rule is not affirmative absence)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Montana does not require sheltered English instruction (SEI) training for all teachers. ARM 10.58.501 (Teaching Standards) requires educator preparation programs to address ELLs and diverse cultures and languages, but does not impose a universal in-service SEI mandate."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": false
+    "el": true
   },
   "sealOfBiliteracy": {
-    "adopted": null,
-    "year": null,
-    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
+    "adopted": true,
+    "year": 2021,
+    "sourceUrl": "https://bpe.mt.gov/Seal-of-Biliteracy/Seal-of-Biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
     "consortium": "WIDA",
-    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+    "sourceUrl": "https://opi.mt.gov/Families-Students/Family-Student-Support/English-Learners"
   },
   "sources": [
     {
@@ -53,8 +56,56 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "OPI Educator License Options & Requirements",
+      "url": "https://opi.mt.gov/Educators/Licensure/Educator-Licensure/Educator-Licenses",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OPI Endorsement Codes (FY2026, revised 08/18/25)",
+      "url": "https://opi.mt.gov/Portals/182/Page%20Files/School%20Accreditation/FY2026%20Endorsement%20Codes.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ARM 10.57.412 — Class 1 and 2 Endorsements (Montana)",
+      "url": "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.57.412",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ARM 10.58.501 — Teaching Standards (Montana)",
+      "url": "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.58.501",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OPI English Learners landing page",
+      "url": "https://opi.mt.gov/Families-Students/Family-Student-Support/English-Learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OPI English Learner Guidance for School Districts",
+      "url": "https://opi.mt.gov/Portals/182/Page%20Files/English%20Language%20Learners/Docs/EnglishLearnerGuidanceForSchoolDistricts.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Montana Board of Public Education — Seal of Biliteracy",
+      "url": "https://bpe.mt.gov/Seal-of-Biliteracy/Seal-of-Biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest 2023, Table 204.20 (ELL by state, Fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
