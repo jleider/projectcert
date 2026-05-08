@@ -1,17 +1,15 @@
 import { getCollection } from "astro:content";
 import type { State } from "@/content/config";
 
-export interface ChoroplethDatum {
-  usps: string;
-  name: string;
-  elPercent: number;
-  bilingual: { offered: boolean; standalone: boolean; addOn: boolean };
-  eld: { offered: boolean; standalone: boolean; addOn: boolean };
-  seiMandated: boolean;
-  standardsMentionsEl: boolean;
-  sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
-  elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
-}
+export {
+  CREDENTIAL_TYPES,
+  type CredentialType,
+  LAYERS,
+  type Layer,
+  type ChoroplethDatum,
+  stateUrl,
+} from "./state-types";
+import type { ChoroplethDatum } from "./state-types";
 
 export async function getAllStates(): Promise<State[]> {
   const entries = await getCollection("states");

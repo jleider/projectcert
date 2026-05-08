@@ -11,27 +11,10 @@
   import { BINS, binFor } from "@/data/bins";
   import { FIPS_TO_USPS } from "@/data/states-meta";
   import { SITE_URL } from "@/config/site";
+  import type { Layer, ChoroplethDatum } from "@/lib/state-types";
+  import { stateUrl } from "@/lib/state-types";
 
-  interface StateDatum {
-    usps: string;
-    name: string;
-    elPercent: number;
-    bilingual: { offered: boolean; standalone: boolean; addOn: boolean };
-    eld: { offered: boolean; standalone: boolean; addOn: boolean };
-    seiMandated: boolean;
-    standardsMentionsEl: boolean;
-    sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
-    elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
-  }
-
-  type Layer =
-    | "elPercent"
-    | "bilingual"
-    | "eld"
-    | "sei"
-    | "standardsMentionsEl"
-    | "sealOfBiliteracy"
-    | "elpAssessment";
+  type StateDatum = ChoroplethDatum;
 
   /**
    * Encoded variable.
@@ -177,7 +160,7 @@
 
   function handleClick(datum: StateDatum | undefined) {
     if (!datum) return;
-    const path = `/states/${datum.usps.toLowerCase()}/`;
+    const path = stateUrl(datum.usps);
     // When embedded in an iframe, break out to a new tab on
     // projectcert.org so the click doesn't navigate the host page or
     // get trapped inside the embed.
@@ -244,7 +227,7 @@
       {@const d = pathFn(feat as never) ?? ""}
       {#if datum}
         <a
-          href={`${linkBase}/states/${datum.usps.toLowerCase()}/`}
+          href={`${linkBase}${stateUrl(datum.usps)}`}
           target={linkTarget}
           rel={linkRel}
           aria-label={`${datum.name}: ${describe(datum, layer)}`}
@@ -287,7 +270,7 @@
         aria-hidden="true"
       />
       <a
-        href={`${linkBase}/states/dc/`}
+        href={`${linkBase}${stateUrl("dc")}`}
         target={linkTarget}
         rel={linkRel}
         aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}

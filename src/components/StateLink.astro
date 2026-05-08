@@ -1,0 +1,18 @@
+---
+import { stateUrl } from "@/lib/state-types";
+
+interface Props {
+  /** USPS code (case-insensitive). */
+  usps: string;
+  /** Extra classes appended to the default link styling. */
+  class?: string;
+  /** Override the default `text-accent hover:underline` styling. */
+  unstyled?: boolean;
+}
+
+const { usps, class: className = "", unstyled = false } = Astro.props;
+const base = unstyled ? "" : "text-accent hover:underline";
+const cls = [base, className].filter(Boolean).join(" ");
+---
+
+<a href={stateUrl(usps)} class={cls}><slot /></a>

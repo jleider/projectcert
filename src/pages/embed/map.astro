@@ -1,32 +1,14 @@
 ---
 import EmbedLayout from "@/layouts/EmbedLayout.astro";
 import MapExplorer from "@/components/MapExplorer.svelte";
-import { getChoroplethData } from "@/lib/state-data";
+import { getChoroplethData, LAYERS, type Layer } from "@/lib/state-data";
 
 const data = await getChoroplethData();
 
-type Layer =
-  | "elPercent"
-  | "bilingual"
-  | "eld"
-  | "sei"
-  | "standardsMentionsEl"
-  | "sealOfBiliteracy"
-  | "elpAssessment";
-
-const VALID_LAYERS: ReadonlySet<Layer> = new Set([
-  "elPercent",
-  "bilingual",
-  "eld",
-  "sei",
-  "standardsMentionsEl",
-  "sealOfBiliteracy",
-  "elpAssessment",
-]);
-
 const requested = Astro.url.searchParams.get("layer");
-const initialLayer: Layer =
-  requested && VALID_LAYERS.has(requested as Layer) ? (requested as Layer) : "elPercent";
+const initialLayer: Layer = (LAYERS as readonly string[]).includes(requested ?? "")
+  ? (requested as Layer)
+  : "elPercent";
 
 ---
 

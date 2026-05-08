@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MapExplorer from "@/components/MapExplorer.svelte";
+import StateLink from "@/components/StateLink.astro";
 import { getChoroplethData } from "@/lib/state-data";
 
 const data = await getChoroplethData();
@@ -67,7 +68,7 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
             {tableRows.map((s) => (
               <tr class="border-t border-ink-subtle/20 align-top">
                 <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap text-left">
-                  <a href={`/states/${s.usps.toLowerCase()}/`} class="text-accent hover:underline">{s.name}</a>
+                  <StateLink usps={s.usps}>{s.name}</StateLink>
                 </th>
                 <td class="px-3 py-2 text-right tabular-nums" data-col="elPercent">{s.elPercent.toFixed(1)}%</td>
                 <td class="px-3 py-2" data-col="bilingual">{credCell(s.bilingual)}</td>

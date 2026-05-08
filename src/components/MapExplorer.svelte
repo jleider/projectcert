@@ -2,27 +2,9 @@
   import Choropleth from "./Choropleth.svelte";
   import { BINS } from "@/data/bins";
   import { SITE_URL } from "@/config/site";
+  import type { Layer, ChoroplethDatum } from "@/lib/state-types";
 
-  type Layer =
-    | "elPercent"
-    | "bilingual"
-    | "eld"
-    | "sei"
-    | "standardsMentionsEl"
-    | "sealOfBiliteracy"
-    | "elpAssessment";
-
-  export let states: Array<{
-    usps: string;
-    name: string;
-    elPercent: number;
-    bilingual: { offered: boolean; standalone: boolean; addOn: boolean };
-    eld: { offered: boolean; standalone: boolean; addOn: boolean };
-    seiMandated: boolean;
-    standardsMentionsEl: boolean;
-    sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
-    elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
-  }>;
+  export let states: ChoroplethDatum[];
   /** Optional initial layer override (used by /embed/map/?layer=...). */
   export let initialLayer: Layer = "elPercent";
   /** Render an embed-mode attribution footer whose "Open full atlas"

@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Choropleth from "@/components/Choropleth.svelte";
 import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
+import StateLink from "@/components/StateLink.astro";
 import { getAllStates, getChoroplethData } from "@/lib/state-data";
 
 const states = await getAllStates();
@@ -80,7 +81,7 @@ const counts = {
               const flag = (v: boolean) => (v ? "✓" : "—");
               return (
                 <tr class="border-t border-ink-subtle/20">
-                  <td class="px-3 py-2"><a class="text-accent hover:underline" href={`/states/${s.usps.toLowerCase()}/`}>{s.name}</a></td>
+                  <td class="px-3 py-2"><StateLink usps={s.usps}>{s.name}</StateLink></td>
                   <td class="px-3 py-2">{flag(s.professionalStandardsMentions.diverse)}</td>
                   <td class="px-3 py-2">{flag(s.professionalStandardsMentions.cultural)}</td>
                   <td class="px-3 py-2">{flag(s.professionalStandardsMentions.linguistic)}</td>
