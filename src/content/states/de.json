@@ -1,43 +1,45 @@
 {
   "usps": "DE",
   "name": "Delaware",
-  "elPercent": 9.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 11.5,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": null,
-        "test": null,
+        "test": true,
         "languageProficiency": true
-      }
+      },
+      "notes": "14 DE Admin Code 1561 Bilingual Teacher Standard Certificate; ACTFL OPI Advanced Mid in target language; Praxis ESOL #5362 (149)."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": null,
         "test": true,
-        "languageProficiency": false
+        "languageProficiency": true
       },
-      "notes": "English proficiency requirement explicit."
+      "notes": "14 DE Admin Code 1562 Teacher of English Learners; English proficiency required (ACTFL Advanced Mid OPI/WPT or English-medium U.S. degree); Praxis ESOL #5362 (149)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Delaware lists Sheltered English Instruction (SIOP) as one EL service model; no statewide SEI endorsement mandate for all teachers."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": false,
-    "el": false
+    "linguistic": true,
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
@@ -61,8 +63,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Delaware Department of Education (current site)",
+      "url": "https://education.delaware.gov/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "14 DE Admin Code 1562 - Teacher of English Learners",
+      "url": "https://regulations.delaware.gov/AdminCode/title14/1500/1562.shtml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "14 DE Admin Code 1561 - Bilingual Teacher",
+      "url": "https://regulations.delaware.gov/AdminCode/title14/1500/1561.shtml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Delaware DOE English Learner Guidebook (updated Jan 2024)",
+      "url": "https://education.delaware.gov/legacy/wp-content/uploads/sites/4/2025/02/el-guidebook-updated-1-2024.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Delaware Professional Teaching Standards (14 DE Admin Code 393)",
+      "url": "http://www1.udel.edu/educ/whitson/897s05/files/393%20DE%20Teaching%20Standards%203-03-03r.htm",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Condition of Education - English Learners in Public Schools (fall 2021)",
+      "url": "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners-in-public-schools",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
