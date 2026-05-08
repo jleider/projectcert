@@ -128,6 +128,40 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2020-04-09",
+      "title": "Nebraska Seal of Biliteracy adopted (LB 1042)",
+      "description": "Nebraska Seal of Biliteracy authorized by LB 1042 (2020) and codified at Neb. Rev. Stat. §79-769; administered by NDE World Languages. Recognizes graduates who demonstrate proficiency in English and at least one additional language.",
+      "sourceUrls": [
+        "https://www.education.ne.gov/worldlanguage/nebraska-seal-of-biliteracy/"
+      ]
+    },
+    {
+      "date": "2024-06-02",
+      "title": "Rule 24 (92 NAC 24) endorsement framework readopted",
+      "description": "NDE readopted Rule 24 effective 2024-06-02, refreshing the Bilingual Education (§006.09) and English As A Second Language (§006.23) endorsement specifications. Companion Rule 24 Guidelines (June 2024) align ESL to TESOL standards and set ACTFL Advanced-Low as the bilingual target-language proficiency floor.",
+      "sourceUrls": [
+        "https://www.education.ne.gov/wp-content/uploads/2024/06/Clean-Rule-24-2024.pdf",
+        "https://www.education.ne.gov/wp-content/uploads/2024/06/Rule-24-Guidelines-2024.pdf"
+      ]
+    },
+    {
+      "date": "2025-06-04",
+      "title": "Praxis content-test waiver for approved-program completers",
+      "description": "NDE Educator Certification announced that effective June 4, 2025 candidates completing an approved Nebraska educator-preparation program no longer need to pass the Praxis content test for endorsement; a Praxis-test add-on pathway remains available for adding endorsements without an approved program. Reflected in eld.requirements.test=false (program completers' default path).",
+      "sourceUrls": [
+        "https://www.education.ne.gov/educatorprep/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-verified against current NDE sources",
+      "description": "Confirmed Rule 24 §006.09 / §006.23 endorsement coursework, practicum, and language-proficiency requirements; ELPA21 confirmed as Nebraska's annual ELP assessment (NDE Title III page). elPercent updated to 7.3 (NCES fall 2021). No substantive standalone/add-on changes from baseline (ESL remains supplemental-only; bilingual remains supplemental atop ESL plus a primary subject endorsement).",
+      "sourceUrls": [
+        "https://www.education.ne.gov/natlorigin/serving-english-learners/",
+        "https://www.education.ne.gov/educatorprep/endorsements-offered-in-nebraska/"
+      ]
     }
   ]
 }
