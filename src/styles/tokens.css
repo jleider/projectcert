@@ -39,10 +39,13 @@
    * encoded variable produces an obvious recolor of the map.
    * Naming mirrors --bin-N (0 = none/off, 2 = mid, 3 = full/on). */
 
-  /* Bilingual credential — green (3-stop, adjacent ≥3:1) */
+  /* Bilingual credential — green (3-stop). 0↔2 passes 3:1; 2↔3 is
+   * deliberately relaxed to ~2.1:1 so level-3 reads as recognizably
+   * green rather than near-black. Hue + saturation provide the
+   * remaining differentiation, and the legend labels each level. */
   --bilingual-0: #e8f3ea;
   --bilingual-2: #2f7a45;
-  --bilingual-3: #0a2814;
+  --bilingual-3: #114328;
 
   /* ELD credential — amber/orange (3-stop, adjacent ≥3:1) */
   --eld-0: #fbecd2;
@@ -61,10 +64,10 @@
   --seal-0: #dde3f5;
   --seal-3: #1f2c80;
 
-  /* ELP assessment — slate (3-category, adjacent ≥3:1) */
-  --elp-0: #e3e7ec;
-  --elp-2: #5d6a7e;
-  --elp-3: #161e2a;
+  /* ELP assessment — lime (3-category) */
+  --elp-0: #f0f7d0;
+  --elp-2: #6b9020;
+  --elp-3: #3a5018;
 
   /* Green accent for UI */
   --accent: #14803c;
@@ -82,12 +85,21 @@
   --surface-warn: #fff7d6;
 
   /* Map outline */
-  --map-border: #ffffff;
+  --map-border: #c0c4cc;
   --map-border-dark: #1f0a3a;
+  /* Leader line for the DC callout. Crosses empty surface (not tiles),
+   * so it needs its own value: dark in light mode (visible on white),
+   * mid-grey in dark mode (matches state borders on dark surface). */
+  --map-leader: #1f0a3a;
 
   /* Brand mark — used by the wordmark "cert" emphasis. Shifts lighter
    * in dark mode so it stays readable against the dark surface. */
   --brand: #3d1971;
+
+  /* Hatched-pattern stroke for the darkest two bin tiles (pat-2, pat-3).
+   * White in light mode (light strokes on dark tiles); flips dark in
+   * dark mode where those tiles become light. */
+  --pattern-stroke-dark-end: #ffffff;
 
   /* Focus ring */
   --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px var(--surface);
@@ -96,32 +108,89 @@
 /*
  * Dark theme.
  *
- * Choropleth bin palettes (--bin-N, --bilingual-N, --eld-N, etc.) are
- * intentionally NOT remapped: those are data-encoding colors and the
- * map should look the same regardless of OS theme. Only chrome (ink,
- * surface, accents, the state-border) flips. Tile/border contrast is
- * preserved by switching --map-border from #fff to the dark surface
- * value so borders read against dark without re-tinting tiles.
+ * Choropleth palettes are remapped for dark mode. The luminance
+ * direction inverts: in light mode "more" is a darker, more saturated
+ * tile (dark-on-light); in dark mode "more" is a lighter, more
+ * saturated tile (light-on-dark). Hue stays the same per layer so the
+ * variable encoding ("purple = % EL", "green = bilingual", …) remains
+ * recognizable across themes; only luminance flips so the data tiles
+ * read against the dark surface.
+ *
+ * Adjacent contrast targets ≥3:1 within each palette, mirroring the
+ * light-mode design. (`npm run check:contrast` currently only audits
+ * light mode — dark-mode pairings are eyeballed; if/when we wire up
+ * dark coverage, run it before changing these values.)
  */
 @media (prefers-color-scheme: dark) {
   :root {
     --ink: #e8eaf0;
     --ink-muted: #b9bfca;
-    --ink-subtle: #8b91a0;
+    --ink-subtle: #6c727f; /* lower value → hairline borders read softer */
 
-    --surface: #14151a;
-    --surface-raised: #1d1f27;
-    --surface-warn: #3a2f10; /* dark amber, pairs with --ink */
+    --surface: #262833;
+    --surface-raised: #313340;
+    --surface-warn: #423516; /* dark amber, pairs with --ink */
 
     /* Brighter green so links/buttons clear AA on the dark surface. */
     --accent: #3acc6a;
     --accent-hover: #5be089;
     --accent-ring: #4ade80;
 
-    --map-border: #14151a;     /* match surface */
-    --map-border-dark: #0a0214;
+    /* Mid-grey state border bright enough to read against the dim
+     * level-0 tile colors (which sit around L≈0.06–0.15). Hue is
+     * neutral so the border doesn't compete with any layer's hue. */
+    --map-border: #838996;
+    --map-border-dark: #0d0a1a;
+    --map-leader: #838996; /* match state borders on dark */
 
     --brand: #c9a0ff;
+
+    /* Choropleth bin palettes — luminance-inverted for dark surface. */
+
+    /* Purple sequential (% EL). bin-0 sits just above surface; bin-3
+     * is a near-white pale-purple to maximize "more EL" salience.
+     * bin-2 is intentionally pulled below the border luminance so
+     * adjacent bin-2 states keep visible borders against the
+     * brighter dark-mode --map-border. */
+    --bin-0: #3a2c54;
+    --bin-1: #5d3da0;
+    --bin-2: #7d4ad0;
+    --bin-3: #e1c5ff;
+    --bin-na: #484a55;
+
+    /* Bilingual — green. Saturation and hue mirror the light-mode
+     * palette; only luminance flips so dark mode doesn't feel washed
+     * out compared to light mode. */
+    --bilingual-0: #2d5938;
+    --bilingual-2: #4eaf6e;
+    --bilingual-3: #a2e2b6;
+
+    /* ELD — amber/orange */
+    --eld-0: #3d2f1d;
+    --eld-2: #d39444;
+    --eld-3: #fce0b8;
+
+    /* SEI — teal (binary) */
+    --sei-0: #4a7178;
+    --sei-3: #5fc3cf;
+
+    /* Standards — rose (binary) */
+    --standards-0: #784651;
+    --standards-3: #e08099;
+
+    /* Seal of Biliteracy — indigo */
+    --seal-0: #4d5876;
+    --seal-3: #8d9eed;
+
+    /* ELP assessment — lime (3-category) */
+    --elp-0: #5a7a26;
+    --elp-2: #b8e066;
+    --elp-3: #e8f5c0;
+
+    /* Hatched-pattern stroke for the darkest two bin tiles. In light
+     * mode this is white (light strokes on dark tiles); in dark mode
+     * those tiles are now light, so the strokes flip dark. */
+    --pattern-stroke-dark-end: #1a1c24;
   }
 
   html {

@@ -9,7 +9,7 @@ export interface ChoroplethDatum {
   eld: { offered: boolean; standalone: boolean; addOn: boolean };
   seiMandated: boolean;
   standardsMentionsEl: boolean;
-  sealOfBiliteracy: { adopted: boolean | null; year: number | null; sourceUrl: string | null };
+  sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
   elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
 }
 

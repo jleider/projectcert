@@ -191,25 +191,17 @@ const stateJsonLd = [
           Recognition for graduating students proficient in English plus another language.
         </p>
         <p class="mt-2 text-sm">
-          {s.sealOfBiliteracy.adopted === true && (
+          {s.sealOfBiliteracy.adopted ? (
             <span class="text-accent">
               <strong>Adopted</strong>{s.sealOfBiliteracy.year && <> in {s.sealOfBiliteracy.year}</>}.
             </span>
-          )}
-          {s.sealOfBiliteracy.adopted === false && (
+          ) : (
             <span class="text-ink-subtle"><strong>Not adopted.</strong></span>
           )}
-          {s.sealOfBiliteracy.adopted === null && (
-            <span class="text-ink-subtle italic">
-              Adoption status unverified against current sealofbiliteracy.org sources.
-            </span>
-          )}
         </p>
-        {s.sealOfBiliteracy.sourceUrl && (
-          <p class="mt-2 text-xs text-ink-subtle">
+        <p class="mt-2 text-xs text-ink-subtle">
             Source: <ExternalLink href={s.sealOfBiliteracy.sourceUrl} class="text-accent hover:underline">sealofbiliteracy.org</ExternalLink>
-          </p>
-        )}
+        </p>
       </section>
 
       <section class="rounded border border-ink-subtle/20 p-4" aria-labelledby="elp-heading">

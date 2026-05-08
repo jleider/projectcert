@@ -19,7 +19,7 @@
     eld: { offered: boolean; standalone: boolean; addOn: boolean };
     seiMandated: boolean;
     standardsMentionsEl: boolean;
-    sealOfBiliteracy: { adopted: boolean | null; year: number | null; sourceUrl: string | null };
+    sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
     elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
   }
 
@@ -93,9 +93,7 @@
       return datum.standardsMentionsEl ? "var(--standards-3)" : "var(--standards-0)";
     }
     if (l === "sealOfBiliteracy") {
-      if (datum.sealOfBiliteracy.adopted === true) return "var(--seal-3)";
-      if (datum.sealOfBiliteracy.adopted === false) return "var(--seal-0)";
-      return "var(--bin-na)";
+      return datum.sealOfBiliteracy.adopted ? "var(--seal-3)" : "var(--seal-0)";
     }
     if (l === "elpAssessment") {
       const c = datum.elpAssessment.consortium;
@@ -132,12 +130,10 @@
         : "Professional teaching standards do not mention ELs";
     if (l === "sealOfBiliteracy") {
       const seal = datum.sealOfBiliteracy;
-      if (seal.adopted === true)
-        return seal.year
-          ? `Seal of Biliteracy adopted in ${seal.year}`
-          : "Seal of Biliteracy adopted";
-      if (seal.adopted === false) return "Seal of Biliteracy not adopted";
-      return "Seal of Biliteracy adoption status unverified";
+      if (!seal.adopted) return "Seal of Biliteracy not adopted";
+      return seal.year
+        ? `Seal of Biliteracy adopted in ${seal.year}`
+        : "Seal of Biliteracy adopted";
     }
     if (l === "elpAssessment") {
       const e = datum.elpAssessment;
@@ -214,12 +210,12 @@
       </pattern>
       <pattern id="pat-2" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
         <rect width="6" height="6" fill="var(--bin-2)" />
-        <line x1="0" y1="0" x2="0" y2="6" stroke="white" stroke-width="0.8" />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
       </pattern>
       <pattern id="pat-3" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(135)">
         <rect width="6" height="6" fill="var(--bin-3)" />
-        <line x1="0" y1="0" x2="6" y2="0" stroke="white" stroke-width="0.8" />
-        <line x1="0" y1="0" x2="0" y2="6" stroke="white" stroke-width="0.8" />
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
       </pattern>
     </defs>
 
@@ -266,7 +262,7 @@
         y1={dcPoint[1]}
         x2={DC_CALLOUT_X}
         y2={DC_CALLOUT_Y}
-        stroke="var(--map-border-dark)"
+        stroke="var(--map-leader)"
         stroke-width="0.75"
         aria-hidden="true"
       />

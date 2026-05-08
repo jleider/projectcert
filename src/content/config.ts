@@ -45,13 +45,13 @@ const StandardsMentions = z.object({
  * Recognition awarded to graduating high-school students who demonstrate
  * proficiency in English plus one or more other languages. Tangential
  * to teacher credentialing but a useful signal of state-level bilingual
- * policy. `adopted: null` means we couldn't confirm against current
- * sealofbiliteracy.org / Wikipedia evidence — not "no."
+ * policy. `year` is null only when `adopted` is false (no adoption,
+ * no year).
  */
 const SealOfBiliteracy = z.object({
-  adopted: z.boolean().nullable(),
+  adopted: z.boolean(),
   year: z.number().int().min(2011).max(2030).nullable(),
-  sourceUrl: z.string().url().nullable(),
+  sourceUrl: z.string().url(),
 });
 
 /**

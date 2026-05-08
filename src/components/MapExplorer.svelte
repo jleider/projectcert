@@ -19,7 +19,7 @@
     eld: { offered: boolean; standalone: boolean; addOn: boolean };
     seiMandated: boolean;
     standardsMentionsEl: boolean;
-    sealOfBiliteracy: { adopted: boolean | null; year: number | null; sourceUrl: string | null };
+    sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
     elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
   }>;
 
@@ -60,7 +60,6 @@
     sealOfBiliteracy: [
       { color: "var(--seal-3)", label: "Adopted" },
       { color: "var(--seal-0)", label: "Not adopted" },
-      { color: "var(--bin-na)", label: "Unverified" },
     ],
     elpAssessment: [
       { color: "var(--elp-3)", label: "WIDA · ACCESS for ELLs" },
