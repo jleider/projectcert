@@ -1,8 +1,8 @@
 {
   "usps": "SD",
   "name": "South Dakota",
-  "elPercent": 4.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 4.6,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -19,7 +19,8 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ELD/ESL is an add-on endorsement under ARSD 24:53. SD DOE endorsement pages 404'd during the 2026-05-08 refresh; the baseline coding (coursework + Praxis test) is preserved pending re-retrieval. program/practicum left null per ambiguous-rule."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -34,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2024,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/sd/"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,10 +54,28 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 (English Learners in Public Schools, fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — South Dakota",
+      "url": "https://sealofbiliteracy.org/state/sd/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — current member roster (South Dakota included)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -64,6 +83,24 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "title": "Silver and Gold Seal of Biliteracy program launched",
+      "description": "South Dakota implemented the Silver and Gold State Seal of Biliteracy in 2024 — among the most recent statewide adoptions, with two performance levels (Silver intermediate, Gold advanced).",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/sd/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-verified against current cross-state sources (verified-2026)",
+      "description": "elPercent updated to 4.6% (NCES fall 2021); WIDA membership and Seal of Biliteracy program reconfirmed. SD DOE endorsement pages were not retrievable in this refresh, so eld.requirements and professionalStandardsMentions carry forward from the 2019 baseline pending a follow-up fetch.",
+      "sourceUrls": [
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "https://wida.wisc.edu/about/consortium",
+        "https://sealofbiliteracy.org/state/sd/"
       ]
     }
   ]
