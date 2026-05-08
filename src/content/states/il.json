@@ -1,8 +1,8 @@
 {
   "usps": "IL",
   "name": "Illinois",
-  "elPercent": 11.3,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 12.8,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -24,13 +24,14 @@
         "program": null,
         "coursework": true,
         "practicum": true,
-        "test": null,
+        "test": false,
         "languageProficiency": false
       },
-      "notes": "Distinguishes ENL (English-only) from ESL (allows native-language support)."
+      "notes": "Distinguishes ENL (English-only) from ESL (allows native-language support). 18 SH coursework + 100-hr practicum required for the subsequent endorsement."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No SEI mandate. District-level TBE/TPI required under 105 ILCS 5/14C and 23 IAC 228 — TBE for attendance centers with 20+ same-language ELs, TPI for fewer. 23 IAC 24.140 takes effect 2026-07-01 and drops explicit ELL language from the IPTS; flag for next refresh."
     }
   },
   "professionalStandardsMentions": {
@@ -42,12 +43,12 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2013,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/il/"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
     "consortium": "WIDA",
-    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+    "sourceUrl": "https://wida.wisc.edu/about/consortium/il"
   },
   "sources": [
     {
@@ -61,8 +62,50 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "ISBE — Subsequent Teaching Endorsements (Bilingual + ESL)",
+      "url": "https://www.isbe.net/Pages/Subsequent-Teaching-Endorsements.aspx",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ISBE — Educator License with Stipulations (ELS-TBE pathway)",
+      "url": "https://www.isbe.net/pages/educator-license-with-stipulations.aspx",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ISBE — Pathways to Teaching ESL (May 2026 one-pager)",
+      "url": "https://www.isbe.net/Documents/ESL-Lic-Path.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "23 IAC 24.130 — Illinois Professional Teaching Standards (operative through 2026-06-30)",
+      "url": "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — Illinois page",
+      "url": "https://wida.wisc.edu/about/consortium/il",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — Illinois (sealofbiliteracy.org)",
+      "url": "https://sealofbiliteracy.org/state/il/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 (English Learners in Public Schools, fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
