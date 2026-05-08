@@ -116,6 +116,30 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2013-08-23",
+      "title": "Illinois adopts State Seal of Biliteracy (PA 098-0560)",
+      "description": "Illinois became one of the first states to authorize a State Seal of Biliteracy on high-school diplomas, certifying graduates' proficiency in English and one or more world languages. ISBE administers the program with district-level participation; the affordance is now embedded in graduation pathways and feeds into the Bilingual/ESL teacher pipeline.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/il/"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "title": "23 IAC 24.140 supersedes 24.130 as Illinois Professional Teaching Standards",
+      "description": "ISBE's revised Illinois Professional Teaching Standards (23 IAC 24.140) take effect 2026-07-01, replacing 23 IAC 24.130. The new standards drop the explicit 'English language learners' phrasing that 24.130 carried, shifting EL-relevant competencies under broader 'diverse learners' language. Flag for re-coding `professionalStandardsMentions.el` after the transition.",
+      "sourceUrls": [
+        "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-audit (history events captured)",
+      "description": "Re-audited current sources and confirmed all coding still grounded. No substantive coding changes from the 2026-05-08 verification; this pass added missing history rows (Seal of Biliteracy authorization; IPTS 24.140 phase-in) per the §3a history-capture emphasis.",
+      "sourceUrls": [
+        "https://www.isbe.net/Pages/Subsequent-Teaching-Endorsements.aspx"
+      ]
     }
   ]
 }
