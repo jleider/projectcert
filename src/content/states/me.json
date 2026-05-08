@@ -1,8 +1,8 @@
 {
   "usps": "ME",
   "name": "Maine",
-  "elPercent": 3.3,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 3.1,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -14,27 +14,29 @@
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
-        "practicum": null,
-        "test": true,
+        "practicum": true,
+        "test": null,
         "languageProficiency": false
-      }
+      },
+      "notes": "Endorsement 660 (ESOL) under Chapter 115 Part II §1.8. Pathway 1 = approved Maine ESOL preparation program; Pathway 3 = 24 SH coursework + one academic semester (≥15 weeks) student teaching; Pathway 5 = approved portfolio. The 5/14/2025 amendment dropped the conditional-cert and Pathway 2 floors from 24 to 15 SH. requirements.test is null because Chapter 115 Part II does not name a Praxis content test for 660; third-party sites cite Praxis 5362 but the binding rule does not."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Sheltered instruction is one optional service component per the 10/9/2025 administrative letter and multilingual-services staffing guidance, not a statewide mandate."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": false,
-    "el": true
+    "linguistic": true,
+    "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2018,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/me/"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,8 +55,50 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Maine Chapter 115 Part II — Endorsement 660 (ESOL) requirements",
+      "url": "https://www.maine.gov/doe/cert",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Maine DOE — Multilingual Learner program hub",
+      "url": "https://www.maine.gov/doe/learning/multilingual",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Maine DOE — Multilingual Services staffing guidance",
+      "url": "https://www.maine.gov/doe/learning/multilingual/staffing",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Maine DOE — MECAS / ACCESS for ELLs page",
+      "url": "https://www.maine.gov/doe/Testing_Accountability/MECAS",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Maine Initial Teacher Standards (InTASC, Rev. 8/2016)",
+      "url": "https://ccsso.org/sites/default/files/2017-12/2013_INTASC_Learning_Progressions_for_Teachers.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 (English Learners in Public Schools, fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — Maine (sealofbiliteracy.org)",
+      "url": "https://sealofbiliteracy.org/state/me/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
