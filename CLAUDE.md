@@ -29,9 +29,117 @@ be re-verified against current SEA sources before public launch.
 ## Commands
 
 - `npm run dev` — Astro dev server.
-- `npm run build` — produce static site in `dist/`.
-- `npm run validate` — Zod schema check + WCAG contrast check on tokens.
-- `npm run test` — Vitest + Playwright + axe.
+- `npm run build` — runs `check-state-integrity` + `generate-llms-full`
+  before `astro build`.
+- `npm run validate` — `astro check` (svelte/Zod) + contrast check +
+  state-integrity check (51 records, USPS uniqueness, provenance trail).
+- `npm run lint` — ESLint over `.ts`/`.astro`/`.js`. Svelte is excluded;
+  type errors there are caught by `astro check` (svelte-check).
+- `npm run typecheck` — `tsc --noEmit` under strict mode +
+  `noUncheckedIndexedAccess`.
+- `npm run test` — Vitest (schema + helper unit tests).
+- `npm run test:e2e` — Playwright + axe.
+
+## Conventions and DRY rules
+
+These are the patterns to reach for first; reviewers will flag drift.
+
+### Single source of truth for the canonical URL
+
+`src/config/site.ts` exports `SITE_URL` and `SITE_NAME`. The literal
+string `"https://projectcert.org"` should appear *only* there.
+`astro.config.ts` imports it; pages/components/scripts import from
+`@/config/site`. Internal navigation stays root-relative
+(`/states/...`, `/map/`); only canonical/JSON-LD/embed contexts need
+the absolute form.
+
+### State data: split between server-only and Svelte-safe
+
+- `src/lib/state-types.ts` — pure types/constants/helpers
+  (`Layer`, `LAYERS`, `ChoroplethDatum`, `CredentialType`,
+  `CREDENTIAL_TYPES`, `stateUrl`, `absoluteStateUrl`). No
+  `astro:content` import. Svelte islands import from here.
+- `src/lib/state-data.ts` — runtime helpers that need
+  `getCollection("states")` (`getAllStates`, `getChoroplethData`,
+  `breakdownFor`). Re-exports the types from `state-types.ts` for
+  convenience in `.astro` files.
+
+If a Svelte component needs a type or pure helper, **import from
+`state-types`**, not `state-data`. Importing `state-data` into Svelte
+breaks the build with "astro:content is server-only".
+
+### Use the helpers, don't hand-build
+
+- **State URLs**: `stateUrl(usps)` for root-relative,
+  `absoluteStateUrl(SITE_URL, usps)` for absolute. Never write
+  `` `/states/${s.usps.toLowerCase()}/` ``.
+- **State link rendering**: `<StateLink usps={s.usps}>{s.name}</StateLink>`
+  in `.astro` pages. Pass `unstyled` + `class` for card-style links.
+- **Per-state seals**: `<StateSeal usps={s.usps} size={N} />`. Files
+  live at `public/seals/<usps>.svg` with sibling `.license.txt`.
+  Re-run `tsx scripts/fetch-state-seals.ts` to refresh from
+  Wikimedia Commons (script handles backoff).
+- **JSON-LD breadcrumbs**: `breadcrumbWithHome([{name, url}, ...])`
+  from `@/lib/jsonld`. Auto-numbers positions; root-relative URLs
+  get resolved against `SITE_URL`. **Never** hand-build
+  `BreadcrumbList itemListElement` arrays — past hand-built ones
+  diverged silently (eld/sei breadcrumbs all pointed at
+  `/credentials/bilingual/` in position 2 for months before the
+  helper caught it).
+- **Cross-state credential filtering**: `breakdownFor(states, "bilingual" | "eld")`
+  returns `{offered, standalone, addOnOnly, both, notOffered}`.
+
+### Embed mode
+
+The map is embeddable via `/embed/map/?layer=<layer>`. Two prop
+flags drive the differences:
+
+- `<MapExplorer embedFooter={true}>` — renders the
+  Source/projectcert/Open-full-atlas attribution line and forwards
+  `embedLinks` to the Choropleth.
+- `<Choropleth embedLinks={true}>` — state-link `href`s become
+  absolute (`https://projectcert.org/states/<usps>/`) with
+  `target="_blank" rel="noopener"`, and the JS click handler also
+  opens a new tab. Without this, embedded users get trapped in the
+  iframe.
+
+Both layouts read `prefers-color-scheme`, so the embed adapts to its
+host page automatically.
+
+## Safeguards in place
+
+- **TypeScript**: `strict` + `noUncheckedIndexedAccess` +
+  `noImplicitOverride` + `noFallthroughCasesInSwitch`. Indexing
+  arrays returns `T | undefined`; use `arr[i]!` only when the
+  surrounding logic guarantees presence.
+- **Schema (Zod)**:
+  - `elPercentAsOf <= lastVerified` — refuses retro-dated freshness.
+  - `history[]` sorted oldest → newest — auto-resort lives in
+    git history if you need a one-off (see commit messages).
+  - `history[i].date` capped at +10 years — accommodates known
+    future-effective rules (e.g. IL 23 IAC 24.140 effective
+    2026-07-01) but rejects 9999-style typos.
+  - `sources.min(1)`, `history[i].sourceUrls.min(1)`.
+- **Build-time integrity** (`scripts/check-state-integrity.ts`):
+  - Exactly 51 state files; USPS codes unique; filename matches
+    `usps.toLowerCase()`.
+  - Every `verified-2026` state must have at least one
+    `sources/<USPS>/<YYYY-MM-DD>/changes-from-baseline.md` file
+    (the audit trail). When 5 states' worktree snapshots didn't
+    survive a cherry-pick, this check caught it; reconstruction
+    stubs at `sources/<USPS>/2026-05-07/changes-from-baseline.md`
+    list the cited URLs.
+  - Every `projectcert-2026` source row needs a corresponding
+    `sources/<USPS>/<retrievedAt>/` directory (cross-state shared
+    sources under `sources/{nces,wida,elp-assessments,seal-of-biliteracy}/`
+    are the documented exception).
+- **CI** (`.github/workflows/ci.yml`): on push + PR, runs lint →
+  typecheck → validate → test → build → offline link check.
+  Concurrency cancels in-flight runs on the same ref.
+- **Weekly external link sweep**
+  (`.github/workflows/external-link-check.yml`): non-blocking,
+  uploads a markdown report. Don't fail PRs on external SEA links —
+  they drift on their own schedule.
 
 ## Working principles
 
