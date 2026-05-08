@@ -125,7 +125,7 @@
   :root {
     --ink: #e8eaf0;
     --ink-muted: #b9bfca;
-    --ink-subtle: #9097a4;
+    --ink-subtle: #9fa6b4;
 
     --surface: #262833;
     --surface-raised: #313340;
@@ -200,10 +200,13 @@
   /* Soften hairline card borders in dark mode without dimming
    * `--ink-subtle` itself (which is also used for muted text). */
   .border-ink-subtle\/20 {
-    border-color: rgb(144 151 164 / 0.22);
+    border-color: rgb(144 151 164 / 0.25);
   }
   .border-ink-subtle\/30 {
-    border-color: rgb(144 151 164 / 0.32);
+    border-color: rgb(144 151 164 / 0.35);
+  }
+  .border-accent\/40 {
+    border-color: rgb(58 204 106 / 0.28);
   }
 }
 
