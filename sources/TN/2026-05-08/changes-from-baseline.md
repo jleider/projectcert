@@ -119,9 +119,17 @@ flip.
 TDOE 2024 transition deck reports 93,433 ELs = 9% of Tennessee public
 school enrollment (`wida-to-elpa-transition-may2024.pdf` slide
 "English Learners and Educators in Tennessee"). Baseline figure was
-4.6% (2019). Updating `elPercent` to `9.0` and `elPercentAsOf` to
-`2024-05-30` (date of the SBE workshop). Note: this is the SEA's
-self-reported figure rather than NCES; flagging in notes.
+4.6% (2019).
+
+**Re-verified 2026-05-08 against NCES** (`nces-table-204.20.html` —
+the NCES Digest 2023 Table 204.20 page, fetched today): Tennessee
+Fall 2021 = **57,799 ELs / 5.8%**. The catalog uses NCES Fall 2021
+across all 51 jurisdictions for cross-state comparability, so the
+TN record is set to `elPercent: 5.8` and `elPercentAsOf:
+2021-10-01`. The earlier 9% / 2024-05-30 reading remains accurate
+under TDOE's denominator and is preserved in `eld.notes` as a
+contextual reference; the 4.6% / 2019 figure was the seed-paper
+baseline.
 
 ## Source file disposition (matching baseline `sources[]`)
 

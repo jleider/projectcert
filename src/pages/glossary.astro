@@ -5,6 +5,7 @@ import { STATES } from "@/data/states-meta";
 import { SITE_URL } from "@/config/site";
 import StateLink from "@/components/StateLink.astro";
 import { breadcrumbWithHome } from "@/lib/jsonld";
+import { ROUTES, absoluteRoute } from "@/lib/routes";
 
 // Render state-local names in alphabetical order by state name, with
 // the canonical state name visible alongside the USPS code so users
@@ -17,7 +18,7 @@ const stateLocalRows = STATES
   }))
   .filter((r) => r.names);
 
-const glossaryUrl = `${SITE_URL}/glossary/`;
+const glossaryUrl = absoluteRoute(SITE_URL, ROUTES.glossary);
 const definedTerms = CANONICAL_TERMS.map((t) => ({
   "@type": "DefinedTerm",
   "@id": `${glossaryUrl}#${t.canonical}`,
