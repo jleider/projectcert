@@ -129,6 +129,39 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2014-05-16",
+      "title": "Louisiana adopts State Seal of Biliteracy",
+      "description": "Louisiana adopted the State Seal of Biliteracy on 2014-05-16, recognizing high-school graduates proficient in English plus one or more world languages. LDOE administers the program with district-level participation.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/la/"
+      ]
+    },
+    {
+      "date": "2023-08-01",
+      "title": "BESE Bulletin 746 ESL/Bilingual add-on rule revised (emergency rule)",
+      "description": "BESE issued an August 2023 emergency rule updating Bulletin 746 §1359 (ESL add-on) and §1343 (Bilingual Specialist add-on) certification requirements. LDOE's published applicant checklists track the revised rule. This is the operative pathway document for ESL/Bilingual add-on candidates today.",
+      "sourceUrls": [
+        "https://bese.louisiana.gov/docs/default-source/policy-page/28v131-(2).pdf",
+        "https://doe.louisiana.gov/docs/default-source/teaching/esl-add-on-checklist.pdf"
+      ]
+    },
+    {
+      "date": "2024-04-01",
+      "title": "Louisiana Educator Rubric (LEADS) released; statewide rollout 2025-26",
+      "description": "LDOE published the Louisiana Educator Rubric (LEADS) in April 2024 as the successor to the Compass Teacher Rubric, with statewide rollout in 2025-26. The rubric carries the state's professional-practice expectations for all teachers and is the document examined for `professionalStandardsMentions`.",
+      "sourceUrls": [
+        "https://doe.louisiana.gov/docs/default-source/key-compass-resources/louisiana-educator-rubric.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-audit (history events captured)",
+      "description": "Re-audited against current LDOE/BESE sources. No coding changes; this pass added Seal of Biliteracy adoption, the 2023 Bulletin 746 emergency rule, and the LEADS rubric release to the history log per the §3a history-capture emphasis.",
+      "sourceUrls": [
+        "https://doe.louisiana.gov/docs/default-source/english-learners/improving-outcomes-for-english-learners-louisianas-framework.pdf"
+      ]
     }
   ]
 }
