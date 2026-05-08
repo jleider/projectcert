@@ -2,7 +2,7 @@
   "usps": "MO",
   "name": "Missouri",
   "elPercent": 3.8,
-  "elPercentAsOf": "2019-10-01",
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -14,12 +14,13 @@
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": true,
-        "test": null,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ELL endorsement, K-12, per 5 CSR 20-400.570 (effective Aug 1, 2017): requires a valid Missouri permanent or professional teaching certificate, recommendation from a DESE-approved educator preparation program (per 5 CSR 20-400.500), 18 semester hours of content coursework (linguistics, language and culture, second language acquisition, methods, curriculum, assessment), 6 hours literacy, 3 hours psychology of the exceptional child, a 3-hour culminating clinical experience working with ELLs in elementary and secondary settings, and a qualifying score on the required exit assessment(s) per 5 CSR 20-400.310 and 5 CSR 20-400.440."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -34,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2017,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://dese.mo.gov/college-career-readiness/curriculum/english-language-development/missouri-seal-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,8 +54,50 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "5 CSR 20-400 — Missouri Code of State Regulations, Title 5, Division 20, Chapter 400 (Office of Educator Quality), incl. 5 CSR 20-400.500 general teacher certification requirements and 5 CSR 20-400.570 Certification Requirements for English Language Learners (K-12)",
+      "url": "https://www.sos.mo.gov/cmsimages/adrules/csr/current/5csr/5c20-400.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "DESE — English Language Development (program landing page; ACCESS for ELLs, MO ELP/ELD Standards, Seal of Biliteracy)",
+      "url": "https://dese.mo.gov/college-career-readiness/curriculum/english-language-development",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "DESE — Missouri Seal of Biliteracy",
+      "url": "https://dese.mo.gov/college-career-readiness/curriculum/english-language-development/missouri-seal-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Missouri's Teacher Standards (DESE, August 2025 revision)",
+      "url": "https://dese.mo.gov/educator-quality/educator-preparation/teacher-standards",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 — English learners (ELs) enrolled in public elementary and secondary schools, by state or jurisdiction: Fall 2011 through fall 2021 (2023 release; MO Fall 2021 = 3.8%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium member states (wida.wisc.edu/about/consortium); confirms Missouri as a current member, supporting ACCESS for ELLs as the annual ELP assessment",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy adoption-by-year list (sealofbiliteracy.org / Wikipedia mirror); confirms Missouri among 2017 adopters",
+      "url": "https://sealofbiliteracy.org/states/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
