@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+import ReportIssue from "@/components/ReportIssue.astro";
 import { SITE_URL } from "@/config/site";
 import { breadcrumbWithHome } from "@/lib/jsonld";
 import { ROUTES, absoluteRoute } from "@/lib/routes";
@@ -58,6 +59,17 @@ const methodologyJsonLd = [
       used as the diff target against which every subsequent verification
       is recorded.
     </p>
+    <p class="mt-3 text-ink-muted">
+      AI-assisted extraction is fallible. The agent may misread an SEA
+      regulation, conflate adjacent endorsements, miss a recent rule
+      revision, or apply the wrong canonical category. Readers are
+      asked to treat any field outside the original 2019 collection as
+      provisional until cross-checked against the cited source URL,
+      and to verify load-bearing claims directly with the SEA before
+      relying on them. Corrections — including disagreements with the
+      coding, missing history events, and broken or stale citations —
+      are welcome via the form below.
+    </p>
 
     <h2 class="mt-6 text-xl font-semibold text-ink">Data captured</h2>
     <p class="mt-2 text-ink-muted">Each state record encodes, per the <a class="text-accent hover:underline" href={ROUTES.glossary}>canonical taxonomy</a>:</p>
@@ -89,13 +101,17 @@ const methodologyJsonLd = [
       <a class="text-accent hover:underline" href={ROUTES.verification}>Track the per-state progress</a>.
     </p>
 
-    <h2 class="mt-6 text-xl font-semibold text-ink">Reporting outdated data</h2>
+    <h2 class="mt-6 text-xl font-semibold text-ink">Reporting outdated or incorrect data</h2>
     <p class="mt-2 text-ink-muted">
-      State credentialing requirements evolve regularly. Practitioners
-      who identify outdated entries are encouraged to file an issue on
-      the project repository with a link to the current SEA document.
-      Field-level corrections from practitioners are preferred to
-      reliance on the project's re-verification schedule alone.
+      State credentialing requirements evolve regularly, and AI-assisted
+      coding can introduce its own mistakes. Practitioners, SEA staff,
+      and researchers who identify outdated, miscoded, or insufficiently
+      cited entries are encouraged to flag them — field-level
+      corrections from people who work with these credentials directly
+      are preferred to reliance on the project's re-verification
+      schedule alone.
     </p>
+
+    <ReportIssue variant="inline" pageType="methodology" />
   </article>
 </BaseLayout>
