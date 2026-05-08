@@ -129,6 +129,30 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2017-01-01",
+      "title": "Bilingual Education Preparation Standards revised; ACTFL OPI Advanced Low required",
+      "description": "MDE adopted revised Bilingual Education Preparation Standards. Standard 1.1 — flagged by MDE as the most significant change from the 2004 standards — requires candidates to demonstrate ACTFL Oral Proficiency Interview at Advanced Low or higher in BOTH English and the target language. This grounds the schema's `bilingual.requirements.languageProficiency: true`.",
+      "sourceUrls": [
+        "https://www.michigan.gov/mde"
+      ]
+    },
+    {
+      "date": "2018-01-01",
+      "title": "Seal of Biliteracy adopted",
+      "description": "Michigan adopted the Seal of Biliteracy in 2018, administered by MDE. The program recognizes high school graduates who demonstrate proficiency in English and one or more additional languages.",
+      "sourceUrls": [
+        "https://www.michigan.gov/mde/services/flexible-learning/michigan-seal-of-biliteracy"
+      ]
+    },
+    {
+      "date": "2018-01-01",
+      "title": "PK-12 Professional Knowledge and Skills standards adopted",
+      "description": "MDE adopted the PK-12 Standards for the Preparation of Teachers (Professional Knowledge and Skills), which explicitly enumerate `linguistic` diversity and contain multiple operative references to `English learners` and `English language learners`. Subsequent revisions through 2024 retained and strengthened this language. Grounds the `professionalStandardsMentions.linguistic: true` and `.el: true` flips from the 2019 baseline.",
+      "sourceUrls": [
+        "https://www.michigan.gov/-/media/Project/Websites/mde/educator_services/prep/standards/professional_knowledge_skills.pdf"
+      ]
     }
   ]
 }
