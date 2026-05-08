@@ -18,9 +18,9 @@ const groups = {
   <article class="max-w-4xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">Verification progress</h1>
     <p class="mt-2 text-ink-muted max-w-3xl">
-      The site does not launch publicly until every state's data has been
-      re-pulled from current SEA sources, replacing the 2019 baseline.
-      This page tracks progress.
+      Public release is contingent on completion of per-state
+      re-verification against current SEA sources, superseding the
+      2019 baseline. This page records progress per jurisdiction.
     </p>
 
     <ul class="mt-6 grid grid-cols-3 gap-3 text-sm">
@@ -57,16 +57,17 @@ const groups = {
     ))}
 
     <section class="mt-10 rounded border border-ink-subtle/20 p-4 bg-surface-raised">
-      <h2 class="text-base font-semibold text-ink">How verification works</h2>
+      <h2 class="text-base font-semibold text-ink">Verification procedure</h2>
       <p class="mt-2 text-sm text-ink-muted">
-        Each state goes through the <code>state-source-refresh</code>
-        workflow: re-pull current SEA documents from the URLs in that
-        state's <code>sources[]</code>, save snapshots under
-        <code>sources/&lt;usps&gt;/&lt;date&gt;/</code>, re-code the
-        record against the schema, document any changes vs. the 2019
-        baseline, and bump <code>verificationStatus</code> to
-        <code>verified-2026</code>. The 2019 source citations remain
-        appended for the audit trail.
+        Each state passes through the <code>state-source-refresh</code>
+        workflow: current SEA documents are re-fetched from the URLs
+        in the state's <code>sources[]</code>, snapshots are stored
+        under <code>sources/&lt;usps&gt;/&lt;date&gt;/</code>, the
+        record is re-coded against the schema, divergences from the
+        2019 baseline are documented, and the
+        <code>verificationStatus</code> field is updated to
+        <code>verified-2026</code>. Original 2019 source citations are
+        retained as part of the audit trail.
       </p>
     </section>
   </article>

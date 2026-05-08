@@ -40,8 +40,8 @@ const methodologyJsonLd = [
       <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Read the paper</ExternalLink>.
     </p>
 
-    <h2 class="mt-6 text-xl font-semibold text-ink">What we recorded</h2>
-    <p class="mt-2 text-ink-muted">For each state we capture, per the <a class="text-accent hover:underline" href="/glossary/">canonical taxonomy</a>:</p>
+    <h2 class="mt-6 text-xl font-semibold text-ink">Data captured</h2>
+    <p class="mt-2 text-ink-muted">Each state record encodes, per the <a class="text-accent hover:underline" href="/glossary/">canonical taxonomy</a>:</p>
     <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
       <li>The percentage of public-school students classified as ELs.</li>
       <li>Whether a bilingual education credential is offered, and (if so) whether it is available as a standalone certification, an add-on endorsement, or both.</li>
@@ -53,10 +53,11 @@ const methodologyJsonLd = [
 
     <h2 class="mt-6 text-xl font-semibold text-ink">Provenance</h2>
     <p class="mt-2 text-ink-muted">
-      Every fact-bearing field on every state record is backed by at
-      least one entry in that state's <code>sources[]</code> array, with
-      the source URL and date of retrieval. The schema requires it; CI
-      fails if it's missing.
+      Every fact-bearing field on every state record is supported by
+      at least one entry in that state's <code>sources[]</code> array,
+      with source URL and date of retrieval. The schema enforces this
+      requirement; continuous integration fails when a citation is
+      missing.
     </p>
 
     <h2 class="mt-6 text-xl font-semibold text-ink">Verification — current status</h2>
@@ -69,13 +70,13 @@ const methodologyJsonLd = [
       <a class="text-accent hover:underline" href="/verification/">Track the per-state progress</a>.
     </p>
 
-    <h2 class="mt-6 text-xl font-semibold text-ink">When data conflicts with what you know</h2>
+    <h2 class="mt-6 text-xl font-semibold text-ink">Reporting outdated data</h2>
     <p class="mt-2 text-ink-muted">
-      States change credentialing requirements regularly. If you spot
-      something out of date, please file an issue on the project repo
-      with a link to the current SEA document. We'd rather hear from
-      practitioners than rely solely on our own re-verification
-      schedule.
+      State credentialing requirements evolve regularly. Practitioners
+      who identify outdated entries are encouraged to file an issue on
+      the project repository with a link to the current SEA document.
+      Field-level corrections from practitioners are preferred to
+      reliance on the project's re-verification schedule alone.
     </p>
   </article>
 </BaseLayout>

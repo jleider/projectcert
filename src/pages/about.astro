@@ -13,26 +13,28 @@ import ExternalLink from "@/components/ExternalLink.astro";
     <p class="mt-4 text-lg text-ink-muted">
       projectcert is an atlas of teacher certification requirements for
       instructing classified English Learner (EL) students across the
-      U.S. — every state and the District of Columbia.
+      fifty U.S. states and the District of Columbia.
     </p>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">Why</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">Background</h2>
     <p class="mt-2 text-ink-muted">
-      Under <em>Lau v. Nichols</em> (1974) and subsequent federal
-      regulations, students classified as ELs are legally entitled to
-      meaningful access to the curriculum. Whether that promise is met
-      depends heavily on whether the teacher in front of them has been
-      trained to make it real. SEAs determine teacher credentialing.
-      Their requirements vary widely. This site catalogs the variation.
+      Under <em>Lau v. Nichols</em>, 414 U.S. 563 (1974), and
+      subsequent federal civil-rights regulations, students classified
+      as English Learners are entitled to meaningful access to the
+      curriculum. Realization of that entitlement turns substantially
+      on the preparation of the teacher of record. State education
+      agencies (SEAs) set the credentialing requirements for teachers
+      of ELs; those requirements vary considerably. This catalog
+      documents the resulting variation.
     </p>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">What's here</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">Contents</h2>
     <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
-      <li>An <a class="text-accent hover:underline" href="/map/">interactive map</a> with five layers.</li>
-      <li>Topical reports on <a class="text-accent hover:underline" href="/credentials/bilingual/">bilingual</a>, <a class="text-accent hover:underline" href="/credentials/eld/">ELD</a>, and <a class="text-accent hover:underline" href="/credentials/sei/">SEI</a> credentials.</li>
-      <li>A <a class="text-accent hover:underline" href="/standards/">standards-mention dashboard</a> for whether each SEA's professional teaching standards reference EL students.</li>
-      <li>A <a class="text-accent hover:underline" href="/compare/">side-by-side comparison</a> tool.</li>
-      <li>A <a class="text-accent hover:underline" href="/states/ma/">page for every state</a>.</li>
+      <li>An <a class="text-accent hover:underline" href="/map/">interactive map</a> presenting seven encoded variables.</li>
+      <li>Cross-state reports on <a class="text-accent hover:underline" href="/credentials/bilingual/">bilingual</a>, <a class="text-accent hover:underline" href="/credentials/eld/">ELD</a>, and <a class="text-accent hover:underline" href="/credentials/sei/">SEI</a> credentials.</li>
+      <li>A <a class="text-accent hover:underline" href="/standards/">standards-mention dashboard</a> recording whether each SEA's professional teaching standards explicitly reference English Learners.</li>
+      <li>A <a class="text-accent hover:underline" href="/compare/">side-by-side state comparison</a> tool.</li>
+      <li>An individual record for each of the 51 jurisdictions (e.g., <a class="text-accent hover:underline" href="/states/ma/">Massachusetts</a>).</li>
     </ul>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Source paper</h2>
@@ -46,12 +48,12 @@ import ExternalLink from "@/components/ExternalLink.astro";
 
     <h2 id="how-to-cite" class="mt-8 text-xl font-semibold text-ink">How to cite / attribution</h2>
     <p class="mt-2 text-ink-muted">
-      If you use data, figures, or findings from this site — in
-      research, reporting, policy work, presentations, or other
-      publications — please cite <strong>both</strong> the underlying
-      source paper and this site. The paper is the original scholarly
-      work that seeded the catalog; citing only the site would obscure
-      the authors whose research made it possible.
+      Use of data, figures, or findings from this catalog in research,
+      reporting, policy work, presentations, or other publications
+      requires citation of <strong>both</strong> the underlying source
+      paper and this site. The paper is the original scholarly work
+      that seeded the catalog; citing only the site would obscure the
+      authors whose research established the dataset.
     </p>
     <h3 class="mt-4 text-base font-semibold text-ink">Source paper (required)</h3>
     <p class="mt-1 text-ink-muted">
@@ -70,17 +72,17 @@ import ExternalLink from "@/components/ExternalLink.astro";
     </p>
     <p class="mt-2 text-sm text-ink-muted">
       Per-state records also include a <code>sources[]</code> array
-      pointing to the SEA documents that back each fact; when quoting a
-      specific requirement, cite the SEA source directly in addition to
-      the above.
+      pointing to the SEA documents that ground each fact. Quotations
+      of specific requirements should cite the SEA source directly in
+      addition to the entries above.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Contributing</h2>
     <p class="mt-2 text-ink-muted">
-      State data lives as JSON files in the project repo. To propose an
-      update — new SEA documents, changed credentialing requirements,
-      corrections — file an issue or open a PR with the source URL and
-      date.
+      State data is stored as JSON files in the project repository.
+      Proposed updates — new SEA documents, changed credentialing
+      requirements, corrections — should be submitted as an issue or
+      pull request with the source URL and retrieval date.
     </p>
   </article>
 </BaseLayout>

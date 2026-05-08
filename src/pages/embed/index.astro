@@ -36,37 +36,35 @@ const responsiveSnippet = `<div style="position: relative; width: 100%; padding-
 
 <BaseLayout
   title="Embed the map"
-  description="Copy-paste iframe code to embed projectcert's interactive U.S. EL teacher certification map on your own site."
+  description="Iframe embed code for the projectcert U.S. EL teacher certification map. Distributed under CC BY 4.0; attribution required."
 >
   <article class="max-w-3xl mx-auto px-4 py-8 prose-sm">
-    <h1 class="text-3xl font-bold text-ink">Embed the map</h1>
+    <h1 class="text-3xl font-bold text-ink">Map embed</h1>
 
     <p class="mt-3 text-ink-muted">
-      The choropleth at <a href="/map/" class="text-accent hover:underline">projectcert.org/map/</a>
-      is embeddable on any site via an <code>&lt;iframe&gt;</code>. The embed
-      includes a small attribution line that links back to projectcert.org and
-      to the seed paper. Use is permitted under
+      The map at <a href="/map/" class="text-accent hover:underline">projectcert.org/map/</a>
+      is distributed for embedding via <code>&lt;iframe&gt;</code>. The embedded
+      view includes an attribution line linking to projectcert.org and to the
+      seed paper. Distribution terms are governed by
       <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="text-accent hover:underline">CC BY 4.0</a>;
-      please keep the attribution visible.
+      attribution must remain visible.
     </p>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">Quick copy-paste</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">Fixed-height snippet</h2>
     <p class="mt-2 text-sm text-ink-muted">
-      Drop this anywhere on your page. It will fill the available width and
-      keep a fixed height.
+      Renders at full container width with a fixed pixel height. Suitable for desktop-first layouts.
     </p>
     <pre class="mt-3 rounded border border-ink-subtle/20 bg-surface-raised p-3 overflow-x-auto text-xs"><code>{basicSnippet}</code></pre>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">Responsive (recommended)</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">Responsive snippet (recommended)</h2>
     <p class="mt-2 text-sm text-ink-muted">
-      Maintains a 10:7 aspect ratio so the map stays readable on phones.
+      Maintains a roughly 10:9 aspect ratio so the map remains legible on small viewports.
     </p>
     <pre class="mt-3 rounded border border-ink-subtle/20 bg-surface-raised p-3 overflow-x-auto text-xs"><code>{responsiveSnippet}</code></pre>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">Lock to one layer</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">Layer-locked variants</h2>
     <p class="mt-2 text-sm text-ink-muted">
-      Add <code>?layer=&lt;name&gt;</code> to set the initial encoded variable.
-      Visitors can still switch layers within the embed.
+      Appending <code>?layer=&lt;name&gt;</code> sets the initial encoded variable. The layer selector inside the embed remains active.
     </p>
     <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
       {layers.map((l) => (
@@ -79,9 +77,9 @@ const responsiveSnippet = `<div style="position: relative; width: 100%; padding-
       ))}
     </ul>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">Live preview</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">Preview</h2>
     <p class="mt-2 text-sm text-ink-muted">
-      This is exactly what an embedded map looks like on a third-party page:
+      Rendered below as it appears on a third-party page:
     </p>
     <div class="mt-3 rounded border border-ink-subtle/20 overflow-hidden">
       <div style="position: relative; width: 100%; padding-bottom: 92%;">
@@ -96,10 +94,10 @@ const responsiveSnippet = `<div style="position: relative; width: 100%; padding-
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Notes</h2>
     <ul class="mt-2 text-sm text-ink-muted list-disc pl-5 space-y-1">
-      <li>The embed honors the visitor's <code>prefers-color-scheme</code>, so it adapts to light or dark host pages automatically.</li>
-      <li>Hovering or focusing a state shows details inside the iframe; clicking opens that state's projectcert page in a new tab.</li>
-      <li>If you need a static image instead of an interactive embed, contact us — we can provide a high-resolution SVG.</li>
-      <li>Citation: please cite both <a class="text-accent hover:underline" href="/about/#how-to-cite">projectcert</a> and the <a class="text-accent hover:underline" target="_blank" rel="noopener" href="https://doi.org/10.14507/epaa.29.5279">seed paper</a> when you publish.</li>
+      <li>The embed honors the user agent's <code>prefers-color-scheme</code> and adapts to light or dark host pages.</li>
+      <li>Hovering or focusing a state surfaces summary details within the iframe; clicking opens the corresponding per-state page in a new tab on projectcert.org.</li>
+      <li>Static high-resolution SVG renderings of any map layer are available on request.</li>
+      <li>Citation: cite both <a class="text-accent hover:underline" href="/about/#how-to-cite">projectcert</a> and the <a class="text-accent hover:underline" target="_blank" rel="noopener" href="https://doi.org/10.14507/epaa.29.5279">seed paper (Leider, Colombo &amp; Nerlino, 2021)</a> in any publication that reproduces the figure.</li>
     </ul>
   </article>
 </BaseLayout>

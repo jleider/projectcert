@@ -143,6 +143,54 @@ host page automatically.
 
 ## Working principles
 
+### Voice, tone, and writing style
+
+User-facing copy on this site uses an **academic register**. Researchers,
+policymakers, teacher educators, and journalists are the primary
+readership; the prose should read as authoritative reference material,
+not marketing.
+
+- **Third person, measured.** "The catalog records…", "Connecticut
+  requires…", "Twenty-eight SEAs offer…". Avoid first-person plural
+  ("we") and second-person ("you") in body copy. Imperative voice in
+  developer-facing strings (CLAUDE.md, READMEs, code comments) is
+  fine.
+- **Quantify where possible.** "23 of 51 jurisdictions" beats "many
+  states". "Drops from 24 to 15 semester-hours" beats "fewer
+  hours".
+- **No contractions in body prose** ("does not" rather than
+  "doesn't"). Contractions are acceptable in admin/UI microcopy
+  ("It's empty", "Don't have an account") where the academic
+  register would feel stilted.
+- **No colloquialisms or intensifiers.** Avoid "wildly", "huge",
+  "tons of", "a lot", "really", "very", "kind of". Strike the
+  intensifier or replace with a number.
+- **No exhortations.** No "Drop this anywhere on your page" or
+  "Here's what you'll see". Replace with declarative description:
+  "The snippet below renders the map at full container width."
+- **Cite inline.** Quantitative claims should reference a source —
+  either a parenthetical citation, a footnoted link, or a sentence
+  attributing the figure to NCES / the seed paper / the SEA's own
+  document.
+- **Hedge correctly.** "The 2019 baseline coded X as Y" not "X is Y"
+  when the field carries `verificationStatus: baseline-2019`. The
+  verification status is itself a hedge; copy must respect it.
+- **Define on first use.** Spell out acronyms (English Learner, EL;
+  English Language Development, ELD; Sheltered English Instruction,
+  SEI; State Education Agency, SEA) the first time they appear in
+  any page or section. The glossary is the long-form reference.
+- **Source quotes preserve the SEA's own wording.** Quote verbatim,
+  including non-canonical aliases (ELL, ESOL, ENL, ML). Do not
+  silently retitle.
+- **Headings are noun phrases, not questions.** "Credentials by
+  state", not "Which states have credentials?". Questions in body
+  text are fine when they introduce evidence; in navigation they
+  read as marketing.
+
+When editing existing copy, prefer trimming to rewriting. Tighter prose
+in the academic voice almost always emerges from removing intensifiers
+and second-person constructions, not from reaching for new vocabulary.
+
 ### Provenance is the product
 
 Every fact-bearing field on a state must trace to an entry in that

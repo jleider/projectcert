@@ -18,12 +18,12 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
 
 <BaseLayout
   title="Map — full-screen exploration"
-  description="Interactive U.S. choropleth across five layers: % classified ELs, bilingual credential, ELD credential, SEI mandate, and standards mention of ELs."
+  description="Interactive U.S. map across seven layers: classified-EL share, bilingual credential, ELD credential, SEI mandate, standards mention of ELs, Seal of Biliteracy, and ELP assessment."
 >
   <section class="max-w-6xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">Map</h1>
     <p class="mt-2 text-ink-muted max-w-3xl">
-      Switch the encoded variable to compare how the same map carries very different stories depending on what you measure.
+      Switching the encoded variable surfaces distinct distributions across the same fifty-one jurisdictions. Each layer is documented separately on its corresponding credential or policy page.
     </p>
 
     <div class="mt-6">
@@ -31,18 +31,17 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
     </div>
 
     <p class="mt-4 text-sm text-ink-subtle">
-      Hover or focus a state to see its details. Click to open the per-state page.
+      Hover or focus a state for a summary; click to open the full per-state record.
     </p>
     <p class="mt-2 text-sm text-ink-subtle">
-      Want to put this on your site?
-      <a href="/embed/" class="text-accent hover:underline">Embed this map</a>.
+      Embed instructions for third-party sites are available at
+      <a href="/embed/" class="text-accent hover:underline">/embed/</a>.
     </p>
 
     <section class="mt-12" aria-labelledby="data-table-heading">
-      <h2 id="data-table-heading" class="text-xl font-semibold text-ink">All data</h2>
+      <h2 id="data-table-heading" class="text-xl font-semibold text-ink">Tabular data</h2>
       <p class="mt-1 text-sm text-ink-muted">
-        Every variable encoded in the map above, in one sortable-by-eye table.
-        Click a state name for the full per-state record and source list.
+        Every variable encoded above in tabular form. State names link to the full per-state record and source list.
       </p>
 
       <div class="mt-4 overflow-x-auto rounded border border-ink-subtle/20">
