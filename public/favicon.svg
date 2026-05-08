@@ -11,7 +11,7 @@
     the data ramp directly.
   -->
   <style>
-    :root {
+    svg {
       --bin-0: #f5e8ff;
       --bin-1: #c9a0ff;
       --bin-2: #7a3ed8;
@@ -19,7 +19,7 @@
       --check: #ffffff;
     }
     @media (prefers-color-scheme: dark) {
-      :root {
+      svg {
         --bin-0: #ffffff;
         --bin-1: #e1c5ff;
         --bin-2: #c9a0ff;
