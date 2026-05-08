@@ -133,15 +133,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audited against current SBEC rules and NCES EL share",
-      "description": "Re-verified against 19 TAC Chapter 233 (May 2024 update) and the TEA Bilingual/ESL Certification Pathways and Required Tests Chart. Bilingual Education Supplemental (§233.6) and ESL Supplemental (§233.7) remain the operative EL credentials; new Core/Bilingual Education Spanish and Core/ESL Supplemental base certificates with the Science of Teaching Reading become issuable Sept 1, 2028 (§233.2(f)-(g)); Bilingual Special Education Supplemental EC-12 effective Sept 1, 2027 (§233.8(a)). elPercent updated from 18 (2019 baseline) to 20.2 to align with NCES Digest Table 204.20 fall 2021.",
-      "sourceUrls": [
-        "https://tea.texas.gov/about-tea/laws-and-rules/sbec-rules-tac/sbec-tac-currently-in-effect/ch233.pdf",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

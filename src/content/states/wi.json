@@ -195,18 +195,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refresh against current SEA sources (verified-2026)",
-      "description": "Re-verified Wisconsin's record against current DPI pages and Wisconsin Administrative Code Chapter PI 34. Corrections vs. baseline: bilingual is supplemental (not standalone) under PI 34.078; ESL is available both as a standalone PI 34.047(3)(e) license and as a PI 34.052(6) content-test add-on; the operative 10 Wisconsin Educator Standards do not literally mention 'linguistic' or 'English learner,' so those professionalStandardsMentions booleans flip to false; elPercent updated to 5.9% (NCES Fall 2021).",
-      "sourceUrls": [
-        "https://dpi.wi.gov/licensing/supplementary-teaching-licenses",
-        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/ix/078",
-        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/047",
-        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/052",
-        "https://dpi.wi.gov/education-workforce/prepare/educator-preparation-programs/wi-educator-preparation-standards"
-      ]
     }
   ]
 }

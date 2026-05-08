@@ -153,16 +153,6 @@
         "https://www.fldoe.org/academics/eng-language-learners/esol-endorse.stml",
         "https://www.fldoe.org/file/7582/ESOLEndorse25.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified Rules 6A-4.0244 and 6A-4.0245, the Consent Decree page, the 2025 ESOL endorsement standards, FEAP (6A-5.065), and FTCE 047. Updated elPercent to 9.5% (NCES Fall 2021) and set eld.requirements.coursework=true to reflect the rule-mandated 15 SH across five areas.",
-      "sourceUrls": [
-        "https://www.fldoe.org/teaching/certification/certificate-subjects/administrative-rules/6a-4-0244.stml",
-        "https://www.fldoe.org/teaching/certification/certificate-subjects/administrative-rules/6a-4-0245.stml",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

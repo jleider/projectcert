@@ -136,14 +136,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited against current KSDE sources. No coding changes; this pass added Professional Education standards adoption, the 2016 ESOL revision, Seal of Biliteracy adoption, and ESOL standards adoption to the history log per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "https://www.ksde.gov/licensure/teacher-licensure/ESOL"
-      ]
     }
   ]
 }

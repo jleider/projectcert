@@ -136,16 +136,6 @@
       "sourceUrls": [
         "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified HTSB license fields (TESOL + Hawaiian-medium fields), Hawaii Teacher Performance Standards, and NCES EL counts. Re-coded bilingual.offered to true to reflect HTSB's standalone Hawaiian Language Immersion / ʻŌlelo Hawaiʻi fields, which roll up under the canonical bilingual umbrella as heritage/medium-of-instruction credentials. ELD requirements left partially null where HTSB's content-area rule pages were not reachable.",
-      "sourceUrls": [
-        "https://hawaiiteacherstandardsboard.org/content/license-fields/",
-        "https://hawaiiteacherstandardsboard.org/content/hawaii-teacher-performance-standards/",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

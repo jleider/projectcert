@@ -162,14 +162,6 @@
       "sourceUrls": [
         "https://doe.louisiana.gov/docs/default-source/key-compass-resources/louisiana-educator-rubric.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited against current LDOE/BESE sources. No coding changes; this pass added Seal of Biliteracy adoption, the 2023 Bulletin 746 emergency rule, and the LEADS rubric release to the history log per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "https://doe.louisiana.gov/docs/default-source/english-learners/improving-outcomes-for-english-learners-louisianas-framework.pdf"
-      ]
     }
   ]
 }

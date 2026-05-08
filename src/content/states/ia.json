@@ -142,16 +142,6 @@
       "sourceUrls": [
         "https://educate.iowa.gov/"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified Iowa DOE endorsements (Endorsement 104 — K-12 English Language Learners), Iowa Admin. Code r. 282-13.28, the Native Language Teaching Authorization, ELPA21 page, Iowa Teaching Standards (Iowa Code § 284.3), and NCES counts. Updated elPercent to 6.2% (NCES Fall 2021); set eld.requirements.program=true and coursework=true to reflect IAC 282-13.28's enumerated minimum content; bilingual fields preserved as false (no bilingual endorsement; only Native Language Teaching Authorization, which is not a bilingual-program credential per the schema).",
-      "sourceUrls": [
-        "https://educate.iowa.gov/educator-licensure/endorsements/k-12-english-language-learners",
-        "https://www.law.cornell.edu/regulations/iowa/Iowa-Admin-Code-r-282-13-28",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

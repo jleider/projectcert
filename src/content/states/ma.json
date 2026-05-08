@@ -152,22 +152,6 @@
       "sourceUrls": [
         "https://www.doe.mass.edu/licensure/endorsements/sei.html"
       ]
-    },
-    {
-      "date": "2026-05-07",
-      "title": "Re-verified against current DESE sources",
-      "description": "Bilingual reclassified standalone → add-on; ESL reclassified add-on → standalone (DESE lists Bilingual only as an endorsement and ESL as an Academic PreK-12 license). SEI mandate scope confirmed extended to vocational educators effective July 2021 under the LOOK Act. elPercent updated 10.0 → 10.5 (NCES fall 2021).",
-      "sourceUrls": [
-        "https://www.doe.mass.edu/licensure/academic-prek12/teacher/endorsement.html"
-      ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited the prior 2026-05-07 verification. No coding changes; this pass added LOOK Act enactment (2017), Seal of Biliteracy authorization, and the 2021 SEI vocational-educator extension to the history log per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "https://www.doe.mass.edu/licensure/endorsements/sei.html"
-      ]
     }
   ]
 }

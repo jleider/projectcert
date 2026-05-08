@@ -127,16 +127,6 @@
       "sourceUrls": [
         "https://education.delaware.gov/legacy/wp-content/uploads/sites/4/2025/02/el-guidebook-updated-1-2024.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified 14 DE Admin Code 1561 (Bilingual Teacher) and 1562 (Teacher of English Learners), Delaware Professional Teaching Standards, the 2024 EL Guidebook, and NCES counts. Updated elPercent to 11.5% (NCES Fall 2021) and set bilingual.requirements.program=true, bilingual.requirements.test=true, eld.requirements.program=true, eld.requirements.languageProficiency=true to match current rule text.",
-      "sourceUrls": [
-        "https://regulations.delaware.gov/AdminCode/title14/1500/1561.shtml",
-        "https://regulations.delaware.gov/AdminCode/title14/1500/1562.shtml",
-        "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners-in-public-schools"
-      ]
     }
   ]
 }

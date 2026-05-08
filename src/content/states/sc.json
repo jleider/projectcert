@@ -119,17 +119,6 @@
       "sourceUrls": [
         "https://ed.sc.gov/educators/certification/state-board-approved-actions/"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Phase 2 verification (verified-2026)",
-      "description": "Refreshed against current SCDE sources: Add-On Guidelines (ESOL field cert + ESOL endorsement), the September 2025 DLI endorsements, the 2025-26 Required Assessments document (Praxis 5362 + PLT 5625), and the NIET Teaching Standards 4.0 rubric used in Expanded ADEPT. ELD requirements refined from baseline `null`s to the explicit values now documented (program, coursework, practicum, and test all required somewhere in the ESOL pathway). Professional standards mentions revised: the NIET 4.0 rubric has no explicit 'diverse,' 'linguistic,' or EL/ESOL references, only 'cultural.' EL-population figure updated to NCES Digest 2023 Table 204.20 (fall 2021).",
-      "sourceUrls": [
-        "https://ed.sc.gov/educators/certification/educator-services-tasks/add-a-certification-field-or-endorsement/sc-guidelines-and-requirements-for-adding-certification-fields-and-endorsements/",
-        "https://ed.sc.gov/educators/certification/educator-services-tasks/passing-test-scores-for-certification-purposes/",
-        "https://ed.sc.gov/educators/educator-effectiveness/expanded-adept/",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

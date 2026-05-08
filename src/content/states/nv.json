@@ -135,14 +135,6 @@
       "sourceUrls": [
         "https://www.leg.state.nv.us/nac/nac-391.html"
       ]
-    },
-    {
-      "date": "2026-05-07",
-      "title": "Re-verified against current NDE sources",
-      "description": "Confirmed Nevada's rename of TESL → ELAD (English Language Acquisition and Development) under NAC 391.237. Bilingual.program null → true (NAC 391.242 names an approved program pathway); bilingual.test null → true (T002-24, effective 2024-12-26, requires a Praxis language exam prior to issuance). The 2019 'SEI phase-in' note retired — ELAD remains a voluntary specialization, not a universal mandate. elPercent 17.1 → 13.8 (NCES fall 2021; NCES flags NV's drop as the largest 2011–2021 negative change nationally).",
-      "sourceUrls": [
-        "https://www.leg.state.nv.us/nac/nac-391.html"
-      ]
     }
   ]
 }

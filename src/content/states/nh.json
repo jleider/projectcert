@@ -114,16 +114,6 @@
       "sourceUrls": [
         "https://gc.nh.gov/rules/state_agencies/ed500.html"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified against current Ed 500 administrative rules (Ed 505.03 professional standards; Ed 507.17 ESOL teacher), the NHED Seal of Biliteracy program page, NH/WIDA identification guidance, and NCES Table 204.20. Standards refresh added cultural and linguistic flags. ELD requirement flags moved from null to true for program/coursework/practicum/languageProficiency, reflecting Ed 507.17 text. Seal of Biliteracy confirmed adopted in 2020. EL share unchanged at 2.8% (NCES fall 2021).",
-      "sourceUrls": [
-        "https://www.education.nh.gov/who-we-are/commissioner/new-hampshire-seal-biliteracy",
-        "https://gc.nh.gov/rules/state_agencies/ed500.html",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

@@ -105,14 +105,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited against current MSDE sources. ESOL credential governed by COMAR 13A.12.02.19 (PreK-12, both standalone certification and add-on endorsement pathways). No coding changes; this pass added Seal of Biliteracy adoption to the history log per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "http://mdrules.elaws.us/comar/13a.12.02.19"
-      ]
     }
   ]
 }

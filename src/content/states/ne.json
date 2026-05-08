@@ -153,15 +153,6 @@
       "sourceUrls": [
         "https://www.education.ne.gov/educatorprep/"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-verified against current NDE sources",
-      "description": "Confirmed Rule 24 §006.09 / §006.23 endorsement coursework, practicum, and language-proficiency requirements; ELPA21 confirmed as Nebraska's annual ELP assessment (NDE Title III page). elPercent updated to 7.3 (NCES fall 2021). No substantive standalone/add-on changes from baseline (ESL remains supplemental-only; bilingual remains supplemental atop ESL plus a primary subject endorsement).",
-      "sourceUrls": [
-        "https://www.education.ne.gov/natlorigin/serving-english-learners/",
-        "https://www.education.ne.gov/educatorprep/endorsements-offered-in-nebraska/"
-      ]
     }
   ]
 }

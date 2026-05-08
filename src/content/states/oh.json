@@ -132,15 +132,6 @@
       "sourceUrls": [
         "https://education.ohio.gov/Topics/Student-Supports/English-Learners"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Phase 2 verification (verified-2026)",
-      "description": "Re-verified bilingual + TESOL pathway structure against current ODEW guidance and OAC 3301-13-11 OELPA mandate. elPercent updated to 3.8% (NCES Digest 2023, Table 204.20, Fall 2021). Filled previously-null requirements.coursework/practicum=true for both bilingual and ELD reflecting approved-program structure. ELPA21 / OELPA confirmed.",
-      "sourceUrls": [
-        "https://education.ohio.gov/Topics/Testing/Ohio-English-Language-Proficiency-Assessment-OELPA/Ohio-English-Language-Proficiency-Assessment-OELPA",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

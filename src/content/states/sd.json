@@ -92,16 +92,6 @@
       "sourceUrls": [
         "https://sealofbiliteracy.org/state/sd/"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-verified against current cross-state sources (verified-2026)",
-      "description": "elPercent updated to 4.6% (NCES fall 2021); WIDA membership and Seal of Biliteracy program reconfirmed. SD DOE endorsement pages were not retrievable in this refresh, so eld.requirements and professionalStandardsMentions carry forward from the 2019 baseline pending a follow-up fetch.",
-      "sourceUrls": [
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
-        "https://wida.wisc.edu/about/consortium",
-        "https://sealofbiliteracy.org/state/sd/"
-      ]
     }
   ]
 }

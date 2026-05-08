@@ -159,16 +159,6 @@
       "sourceUrls": [
         "https://www.sde.idaho.gov/federal-programs/el/files/program/English-Learner-Program-Manual.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified IDAPA 08.02.02 §017/§021, the OSBE-approved EPP endorsement matrix, the 2018 and 2024 initial-certification standards, the 2025 EL Program Manual, the SDE Institutional Recommendation form, and NCES counts. Updated elPercent to 5.8% (NCES Fall 2021). Bilingual and ESL endorsements re-confirmed as standalone-endorsement-program credentials with content assessment + supervised clinical experience required by IDAPA §021.",
-      "sourceUrls": [
-        "https://adminrules.idaho.gov/rules/current/08/080202.pdf",
-        "https://boardofed.idaho.gov/resources/approved-educator-preparation-programs/",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

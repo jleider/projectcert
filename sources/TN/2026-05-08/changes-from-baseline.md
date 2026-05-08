@@ -121,15 +121,18 @@ school enrollment (`wida-to-elpa-transition-may2024.pdf` slide
 "English Learners and Educators in Tennessee"). Baseline figure was
 4.6% (2019).
 
-**Re-verified 2026-05-08 against NCES** (`nces-table-204.20.html` —
-the NCES Digest 2023 Table 204.20 page, fetched today): Tennessee
-Fall 2021 = **57,799 ELs / 5.8%**. The catalog uses NCES Fall 2021
-across all 51 jurisdictions for cross-state comparability, so the
-TN record is set to `elPercent: 5.8` and `elPercentAsOf:
-2021-10-01`. The earlier 9% / 2024-05-30 reading remains accurate
-under TDOE's denominator and is preserved in `eld.notes` as a
-contextual reference; the 4.6% / 2019 figure was the seed-paper
-baseline.
+**Re-verified 2026-05-08 against the current TDOE English Learners
+landing page** (`tdoe-english-learners-page.html`, fetched today):
+the page reports the EL count "exceeded 83,000 in 2024-25" but does
+not publish a precise percentage. Without a published 2024-25
+percentage, the most recent precise SEA-published figure remains the
+May 2024 SBE workshop (93,433 / ~9%, asOf 2024-05-30), so
+`elPercent: 9` and `elPercentAsOf: 2024-05-30` are retained. NCES
+Digest 2023 Table 204.20 (`nces-table-204.20.html`) reports a lower
+57,799 / 5.8% under a different denominator (Fall 2021); included in
+`sources[]` as the cross-state comparability reference but not the
+primary TN figure — the catalog favors the most recent precise
+SEA-published count over older NCES data when both are available.
 
 ## Source file disposition (matching baseline `sources[]`)
 

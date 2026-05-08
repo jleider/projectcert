@@ -123,14 +123,6 @@
         "https://sealofbiliteracy.org/state/ky/",
         "https://education.ky.gov/curriculum/hsgradreq/Pages/Seal-of-Biliteracy.aspx"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited against current KDE/EPSB sources. Confirmed ESL P-12 endorsement governed by 16 KAR 2:200 (probationary endorsement, assessment-only path under Go Teach KY). No coding changes; this pass added Seal of Biliteracy adoption to the history log per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "https://apps.legislature.ky.gov/law/kar/titles/016/002/200/"
-      ]
     }
   ]
 }

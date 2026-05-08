@@ -127,14 +127,6 @@
       "sourceUrls": [
         "https://www.ride.ri.gov/"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Phase 2 verification (verified-2026)",
-      "description": "Re-verified Bilingual / Dual Language Education (six grade-band standalone certificates) and All Grades ESOL plus MLL endorsement / MLL Integrated Content add-on paths. Flipped bilingual.requirements.program and eld.requirements.program null to true per 2025 Cert Regs. Three of four professionalStandardsMentions flipped false to true based on RIPTS plus 2025 Cert Regs Section 1.3 explicit MLL/EL references. WIDA/ACCESS confirmed. elPercent updated to 12.5 (NCES Fall 2021; NCES notes RI as the largest positive percentage-point gain in EL representation 2011 to 2021).",
-      "sourceUrls": [
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

@@ -141,14 +141,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Bilingual cross-endorsement scope corrected on refresh",
-      "description": "Re-verification against current CSDE certification pages corrected the baseline coding of bilingual.offered from false to true (CT issues bilingual qualifications as cross-endorsements under an 18 semester-hour framework with ACTFL OPI/WPT and Praxis Core writing). No CSDE policy changed; the diff is a baseline-2019 miscoding fix.",
-      "sourceUrls": [
-        "https://portal.ct.gov/sdecertification/knowledge-base/articles/resources/endorsements/what-are-the-requirements-for-bilingual-cross-endorsements"
-      ]
     }
   ]
 }

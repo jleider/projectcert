@@ -154,15 +154,6 @@
       "sourceUrls": [
         "https://www.oregon.gov/tspc/"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Phase 2 verification (verified-2026)",
-      "description": "Re-verified Bilingual and Dual Language Specializations and the ESOL endorsement against current TSPC rules (effective 2023-11-01) and ORELA Test Guide (rev. 3/2025). Coded bilingual program/coursework/practicum/test=false for the broadest Bilingual Specialization pathway; ESOL coursework/practicum flipped null to true. ELPA21 confirmed. elPercent updated to 9.5 (NCES Fall 2021).",
-      "sourceUrls": [
-        "https://www.oregon.gov/ode/educator-resources/assessment/pages/english-language-proficiency.aspx",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

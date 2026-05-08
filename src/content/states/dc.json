@@ -127,16 +127,6 @@
       "sourceUrls": [
         "https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/Educator%20Credentials%20Exams_9%202025.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified OSSE credentialing pages, the September 2025 exam matrix, the DC Professional Teaching Standards (1/29/13), and NCES EL counts. Updated elPercent to 11.3% (NCES Fall 2021), set bilingual.requirements.program=true and test=true to match the OSSE matrix, and demoted bilingual.requirements.languageProficiency from true to null pending direct SEA confirmation (the 9/2025 matrix lists no language-proficiency exam).",
-      "sourceUrls": [
-        "https://osse.dc.gov/page/english-learner-policy-and-programs",
-        "https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/Educator%20Credentials%20Exams_9%202025.pdf",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

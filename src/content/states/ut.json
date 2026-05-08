@@ -104,14 +104,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-verified against current USBE sources",
-      "description": "Re-coded both EL credentials against current USBE endorsement applications. Bilingual (DLI) Endorsement: coursework null → true and practicum null → true (DLI Clinical Experience is a named requirement area; coursework pathway is explicit on the application); test null → false (no Praxis content exam — language proficiency is via ACTFL OPI/OPIc, captured under languageProficiency). ESL Endorsement: coursework null → true and test null → true (USBE application lists university course and Praxis II 5362 score 149 as two of four demonstrations of competency for each of five TESOL-aligned standard areas). UETS (Aug 2023) reviewed: only 'diverse' is referenced; cultural, linguistic, and EL booleans remain false. elPercent 7.1 → 8.3 (NCES fall 2021).",
-      "sourceUrls": [
-        "https://www.schools.utah.gov/curr/licensing/endorsements"
-      ]
     }
   ]
 }

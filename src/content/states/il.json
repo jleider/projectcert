@@ -134,14 +134,6 @@
       ]
     },
     {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited current sources and confirmed all coding still grounded. No substantive coding changes from the 2026-05-08 verification; this pass added missing history rows (Seal of Biliteracy authorization; IPTS 24.140 phase-in) per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "https://www.isbe.net/Pages/Subsequent-Teaching-Endorsements.aspx"
-      ]
-    },
-    {
       "date": "2026-07-01",
       "title": "23 IAC 24.140 supersedes 24.130 as Illinois Professional Teaching Standards",
       "description": "ISBE's revised Illinois Professional Teaching Standards (23 IAC 24.140) take effect 2026-07-01, replacing 23 IAC 24.130. The new standards drop the explicit 'English language learners' phrasing that 24.130 carried, shifting EL-relevant competencies under broader 'diverse learners' language. Flag for re-coding `professionalStandardsMentions.el` after the transition.",

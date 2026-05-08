@@ -140,14 +140,6 @@
       "sourceUrls": [
         "https://www.in.gov/doe/files/Meeting-EL-ToR-Requirements.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-audit (history events captured)",
-      "description": "Re-audited against current IDOE sources. No coding changes; this pass added Seal of Biliteracy adoption, EL Program Staffing memo, and EL ToR alternate-path sunset to the history log per the §3a history-capture emphasis.",
-      "sourceUrls": [
-        "https://www.in.gov/doe/files/EL-ToR-FAQ.pdf"
-      ]
     }
   ]
 }

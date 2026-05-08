@@ -138,15 +138,6 @@
         "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
         "https://www.gapsc.com/Certification/Documents/Certificate%20Field%20Codes.pdf"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Refreshed against current SEA sources (verified-2026)",
-      "description": "Re-verified GaPSC Rules 505-2-.14, 505-2-.166, 505-3-.89, 505-3-.03, the January 2026 Certificate Field Codes sheet, GADOE's Seal of Biliteracy page, and NCES counts. Updated elPercent to 7.7% (NCES Fall 2021); set eld.requirements.program=true to reflect the approved-program pathway.",
-      "sourceUrls": [
-        "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
-        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
-      ]
     }
   ]
 }

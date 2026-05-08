@@ -161,16 +161,6 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
-    },
-    {
-      "date": "2026-05-08",
-      "title": "Re-verified against current NYSED sources",
-      "description": "Re-confirmed Bilingual Education Extension as add-on-only with BEA exam doubling as language-proficiency instrument; ESOL/TESOL Classroom Teacher (CST 116) confirmed as standalone certificate with supplementary pathway. New Fall 2024 program-registration requirements (≥100 clock hrs field experience; ≥70 school days student teaching with ELLs) reflected in eld.notes. Standards.el coded false against the 2011 NY Teaching Standards general document (consistent with §3b guidance: keep 'el' against the general standards, not ESOL specialty rules). elPercent updated to 9.7 (NCES fall 2021).",
-      "sourceUrls": [
-        "https://www.nysed.gov/college-university-evaluation/general-and-program-specific-requirements-teaching-english-speakers",
-        "https://www.highered.nysed.gov/tcert/certificate/typesofcerts/extbil.html",
-        "https://www.highered.nysed.gov/tcert/pdf/teachingstandards9122011.pdf"
-      ]
     }
   ]
 }
