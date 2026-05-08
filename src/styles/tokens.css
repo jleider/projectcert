@@ -105,6 +105,13 @@
   --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px var(--surface);
 }
 
+/* Tailwind opacity modifiers on hex-typed CSS-var colors don't always
+ * apply alpha reliably, so emit explicit rgba() for the border classes
+ * we use on cards and pills. */
+.border-accent\/40 {
+  border-color: rgb(20 128 60 / 0.50);
+}
+
 /*
  * Dark theme.
  *
