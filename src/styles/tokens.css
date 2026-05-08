@@ -105,16 +105,6 @@
   --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px var(--surface);
 }
 
-/* Light-mode hairline card borders: soft accent-green tint instead of
- * neutral grey, so they harmonize with the green pills and verified
- * badge. Dark mode keeps grey hairlines (overridden below). */
-.border-ink-subtle\/20 {
-  border-color: rgb(20 128 60 / 0.20);
-}
-.border-ink-subtle\/30 {
-  border-color: rgb(20 128 60 / 0.28);
-}
-
 /*
  * Dark theme.
  *
