@@ -116,6 +116,23 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2021-07-01",
+      "title": "Montana Board of Public Education adopts Seal of Biliteracy",
+      "description": "The Montana Board of Public Education adopted the Seal of Biliteracy in July 2021, authorizing districts to award the Seal to high school graduates who demonstrate proficiency in English and one or more additional languages. Flips `sealOfBiliteracy.adopted` from null to true with `year: 2021`.",
+      "sourceUrls": [
+        "https://bpe.mt.gov/Seal-of-Biliteracy/Seal-of-Biliteracy",
+        "https://opi.mt.gov/Portals/182/Seal%20of%20Biliteracy%20FAQs.pdf"
+      ]
+    },
+    {
+      "date": "2020-07-01",
+      "title": "ARM 10.58.501 (Educator Preparation Standards) revised to enumerate ELL",
+      "description": "Montana's revised educator preparation/teaching standards rule (ARM 10.58.501) explicitly names \"English Language Learners (ELL)\" within the diversity standard, replacing the 2014-era predecessor standards that did not enumerate ELL. Grounds the `professionalStandardsMentions.el: false → true` flip.",
+      "sourceUrls": [
+        "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.58.501"
+      ]
     }
   ]
 }
