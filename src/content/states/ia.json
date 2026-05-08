@@ -120,11 +120,37 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "2018-04-04",
+      "title": "Iowa adopts the State Seal of Biliteracy",
+      "description": "House File 2304 (87th GA, 2018) authorized the Iowa Seal of Biliteracy, administered by the Iowa Department of Education for high-school graduates demonstrating proficiency in English plus one or more world languages.",
+      "sourceUrls": [
+        "https://educate.iowa.gov/pk-12/standards/instruction/biliteracy-seal"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "title": "Iowa DOE rebrands to educate.iowa.gov domain",
+      "description": "The Iowa Department of Education migrated from educateiowa.gov to educate.iowa.gov, with redirects in place. The 2019 baseline citation pointed at the bare educateiowa.gov homepage; this refresh re-grounds field-level claims against the current primary documents.",
+      "sourceUrls": [
+        "https://educate.iowa.gov/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified Iowa DOE endorsements (Endorsement 104 — K-12 English Language Learners), Iowa Admin. Code r. 282-13.28, the Native Language Teaching Authorization, ELPA21 page, Iowa Teaching Standards (Iowa Code § 284.3), and NCES counts. Updated elPercent to 6.2% (NCES Fall 2021); set eld.requirements.program=true and coursework=true to reflect IAC 282-13.28's enumerated minimum content; bilingual fields preserved as false (no bilingual endorsement; only Native Language Teaching Authorization, which is not a bilingual-program credential per the schema).",
+      "sourceUrls": [
+        "https://educate.iowa.gov/educator-licensure/endorsements/k-12-english-language-learners",
+        "https://www.law.cornell.edu/regulations/iowa/Iowa-Admin-Code-r-282-13-28",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
