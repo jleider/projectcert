@@ -9,27 +9,30 @@
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
+        "program": true,
+        "coursework": true,
         "practicum": null,
         "test": true,
-        "languageProficiency": null
-      }
+        "languageProficiency": true
+      },
+      "notes": "SBEC issues a Bilingual Education Supplemental certificate (19 TAC §233.6); a new Core/Bilingual Education Spanish with the Science of Teaching Reading: EC-Grade 6 base certificate becomes issuable Sept 1, 2028 (§233.2(f)). Required exams include the Bilingual Target Language Proficiency Test (BTLPT, #190), the Bilingual Supplemental (#164), Core Subjects EC-6 (or grade-band equivalent), and PPR or edTPA. Texas also recognizes a Bilingual Special Education Supplemental EC-12 effective Sept 1, 2027 (§233.8(a)). Practicum (clinical) experience left null as a separate flag because the EPP route bundles it; will revisit when the schema separates EPP-embedded vs. standalone practicum."
     },
     "eld": {
       "offered": true,
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
+        "program": true,
+        "coursework": true,
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "SBEC issues an English as a Second Language Supplemental certificate (19 TAC §233.7), required for any teacher serving emergent bilingual students in an ESL program (TEC §29.061). A Core/ESL Supplemental with the Science of Teaching Reading: EC-Grade 6 base certificate becomes issuable Sept 1, 2028 (§233.2(g)). Required exam: ESL Supplemental (#154) plus PPR or edTPA. No target-language proficiency exam is required for ESL."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Texas mandates bilingual or ESL services for emergent bilingual students (TEC Chapter 29 Subchapter B; 19 TAC §§89.1201, 89.1205, 89.1210), but those services are delivered by appropriately certified bilingual or ESL teachers — Texas does not impose an SEI training requirement on all classroom teachers."
     }
   },
   "professionalStandardsMentions": {
@@ -60,8 +63,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "19 TAC §89.1201 — Policy (State Plan for Educating Emergent Bilingual Students)",
+      "url": "https://txrules.elaws.us/rule/title19_chapter89_sec.89.1201",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "19 TAC §89.1205 — Required Bilingual Education and English as a Second Language Programs",
+      "url": "https://txrules.elaws.us/rule/title19_chapter89_sec.89.1205",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "19 TAC §89.1210 — Program Content and Design",
+      "url": "https://txrules.elaws.us/rule/title19_chapter89_sec.89.1210",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "19 TAC Chapter 233 — Categories of Classroom Teaching Certificates (May 2024 update); §§233.6 Bilingual Education Supplemental, 233.7 ESL Supplemental, 233.2(f)-(g), 233.8(a)",
+      "url": "https://tea.texas.gov/about-tea/laws-and-rules/sbec-rules-tac/sbec-tac-currently-in-effect/ch233.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TEA — Bilingual/ESL Certification Pathways (Emergency Permits, Intern, Probationary/Standard)",
+      "url": "https://tea.texas.gov/academics/special-student-populations/emergent-bilingual-support/eb-certification-pathways.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "TEA — Texas Examinations of Educator Standards (TExES) Required Tests Chart (BTLPT #190, Bilingual Supplemental #164, ESL Supplemental #154)",
+      "url": "https://tea.texas.gov/texas-educators/certification/educator-testing/required-tests-chart.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
