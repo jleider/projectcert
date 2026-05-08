@@ -2,39 +2,42 @@
   "usps": "NH",
   "name": "New Hampshire",
   "elPercent": 2.8,
-  "elPercentAsOf": "2019-10-01",
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "NH has no bilingual / dual-language educator endorsement in Ed 506 or Ed 507. Bilingual and dual-language are referenced in Ed 507.17 only as Language Instruction Educational Program (LIEP) types an ESOL teacher must understand, not as separate NH credentials."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
-        "practicum": null,
+        "program": true,
+        "coursework": true,
+        "practicum": true,
         "test": null,
-        "languageProficiency": false
-      }
+        "languageProficiency": true
+      },
+      "notes": "Ed 507.17 (eff. 8-11-23) governs ESOL teacher licensure K-12. Candidates must hold a bachelor's degree, qualify through an approved program or an Ed 505.01–505.06 alternative, demonstrate oral and written English language proficiency for ELs, and provide evidence of second-language study (≥2 college semesters, ≥6 months residency abroad, or native/heritage speaker). Six competency domains (language as a system, language development, culture in student learning, methods, assessment, professionalism) are required via combined academic and supervised practical experiences. NH's competency-based system does not require a specific content-area test in rule; `test` left null."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No statewide SEI training mandate for all teachers. NH places EL responsibility on ESOL-endorsed teachers per Ed 507.17 and on collaborative classroom practice."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
-    "cultural": false,
-    "linguistic": false,
+    "cultural": true,
+    "linguistic": true,
     "el": false
   },
   "sealOfBiliteracy": {
-    "adopted": null,
-    "year": null,
-    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
+    "adopted": true,
+    "year": 2020,
+    "sourceUrl": "https://www.education.nh.gov/who-we-are/commissioner/new-hampshire-seal-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,10 +56,40 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "NH Code of Administrative Rules, Ed 507.17 ESOL Teacher (eff. 8-11-23)",
+      "url": "https://www.gencourt.state.nh.us/rules/state_agencies/ed500.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NH Code of Administrative Rules, Ed 500 series (educator licensure, incl. Ed 505.03 professional education standards)",
+      "url": "https://gc.nh.gov/rules/state_agencies/ed500.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NH Department of Education — New Hampshire Seal of Biliteracy (program page)",
+      "url": "https://www.education.nh.gov/who-we-are/commissioner/new-hampshire-seal-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 — English learners by state, fall 2021",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NH/WIDA EL Identification & Placement guidance (NH is a WIDA member; ACCESS for ELLs)",
+      "url": "https://wida.wisc.edu/sites/default/files/id-placement/NH-ID-Placement.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -64,6 +97,32 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2020-09-01",
+      "title": "NH Seal of Biliteracy adopted",
+      "description": "Commissioner of Education Frank Edelblut approved adoption of the Seal of Biliteracy in New Hampshire in September 2020, with State Board of Education support. Students became eligible to earn the seal beginning spring 2021; the award appears on the high school diploma along with a state-issued certificate.",
+      "sourceUrls": [
+        "https://www.education.nh.gov/who-we-are/commissioner/new-hampshire-seal-biliteracy"
+      ]
+    },
+    {
+      "date": "2023-08-11",
+      "title": "Ed 507.17 ESOL Teacher rule readopted",
+      "description": "NH State Board readopted Ed 507.17 effective 8-11-23, restructuring the ESOL teacher competencies into six domains (language as a system; language development; culture; methods; assessment; professionalism) and codifying explicit requirements for English language proficiency in oral/written domains plus second-language study experience. Approved-program or Ed 505.01–505.06 alternative pathway is required.",
+      "sourceUrls": [
+        "https://gc.nh.gov/rules/state_agencies/ed500.html"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified against current Ed 500 administrative rules (Ed 505.03 professional standards; Ed 507.17 ESOL teacher), the NHED Seal of Biliteracy program page, NH/WIDA identification guidance, and NCES Table 204.20. Standards refresh added cultural and linguistic flags. ELD requirement flags moved from null to true for program/coursework/practicum/languageProficiency, reflecting Ed 507.17 text. Seal of Biliteracy confirmed adopted in 2020. EL share unchanged at 2.8% (NCES fall 2021).",
+      "sourceUrls": [
+        "https://www.education.nh.gov/who-we-are/commissioner/new-hampshire-seal-biliteracy",
+        "https://gc.nh.gov/rules/state_agencies/ed500.html",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
