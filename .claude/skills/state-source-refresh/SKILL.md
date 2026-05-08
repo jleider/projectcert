@@ -47,6 +47,14 @@ For each entry in `sources[]`:
 
    (Date is the day of retrieval, not publication.)
 
+5. **Read every source you save.** A file in `sources/<usps>/.../`
+   and a corresponding entry in `sources[]` is a claim you read it
+   and that the schema fields you set are grounded in its content.
+   If `WebFetch` returns "binary content / can't extract text",
+   fall back to the `Read` tool — it handles PDFs natively. Don't
+   skip a source because the first extraction attempt failed; either
+   read it some other way, or don't save it and don't cite it.
+
 For documents the paper's Appendix A names but no longer exist, log
 the disappearance in
 `sources/<usps>/<YYYY-MM-DD>/changes-from-baseline.md`.
@@ -119,6 +127,12 @@ The pre-launch banner count updates automatically on next build.
   baseline audit trail. Always *append*.
 - Don't refresh a state without saving snapshots. SEA pages change
   silently; future-you will need the bytes you saw today.
+- Don't save a snapshot you didn't read. A file under
+  `sources/<usps>/.../` and an entry in `sources[]` is a claim you
+  read it and grounded the schema fields in its content. If
+  `WebFetch` returns an unreadable binary blob, fall back to the
+  `Read` tool (it handles PDFs natively) — don't shortcut by saving
+  the bytes and coding from a third-party summary instead.
 - Don't promote to `verified-2026` if any source returned 404 and you
   couldn't find a current equivalent. Use `in-progress` and leave a
   note in the JSON's `notes` for the next session.
