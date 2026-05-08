@@ -167,6 +167,15 @@
       ]
     },
     {
+      "date": "1979-05-23",
+      "title": "Washington Transitional Bilingual Instruction Program established (Ch. 95, Laws of 1979)",
+      "description": "The Washington Legislature enacted RCW 28A.180 (originally Chapter 95, Laws of 1979) creating the Transitional Bilingual Instruction Program (TBIP) and committing state funds to districts serving EL students. Unlike the bilingual mandates in MA/NM/TX/IL/NJ, Washington's statute permits districts to choose program model — bilingual where staffing allows, ESL/sheltered instruction otherwise — and ties state funding to enrollment of identified ELs. RCW 28A.180.020 still requires OSPI to report annually on the program. OSPI rebranded the umbrella as the Multilingual Education Program in recent guidance, but the underlying TBIP statute remains the legal backbone of WA's EL services.",
+      "sourceUrls": [
+        "https://app.leg.wa.gov/RCW/default.aspx?cite=28A.180",
+        "https://ospi.k12.wa.us/student-success/access-opportunity-education/migrant-and-multilingual-education/multilingual-education-program/transitional-bilingual-instruction-program-guidance"
+      ]
+    },
+    {
       "date": "2026-05-07",
       "title": "Re-verified against current OSPI/PESB sources",
       "description": "Bilingual.standalone and ELD.standalone both true → false — Washington's ELL and Bilingual credentials are PESB endorsements added to a teaching certificate, not standalone licenses (WAC 181-82A). Standards.diverse and .el corrected false → true (InTASC, adopted by PESB as the role standards, explicitly enumerates 'English language learners' across Standards 1, 2, 6, 8 and references linguistic diversity; 2022 CCDEI standards add the diverse and cultural framing). TBIP renamed to Multilingual Education in OSPI guidance.",
