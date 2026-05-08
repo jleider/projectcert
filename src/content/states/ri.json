@@ -1,42 +1,55 @@
 {
   "usps": "RI",
   "name": "Rhode Island",
-  "elPercent": 9,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 12.5,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": true,
         "test": true,
         "languageProficiency": true
-      }
+      },
+      "notes": "Six standalone Bilingual / Dual Language Education certificates by grade band — Early Childhood PK-3 (§1.9.1.D), Elementary K-6 (§1.9.2.D), Middle 5-8 (§1.9.3.H), Secondary 6-12 (§1.9.4.M), and All Grades PK-12 (§1.9.5.R) — per the June 2025 RI Certification Regulations. Each requires (a) completion of a RI-Approved Program (or Credential Review / Reciprocity meeting equivalent competencies), (b) bachelor's degree from a regionally accredited institution, (c) 45 hours of practicum, (d) Praxis 5362 ESOL at 155 plus a language-specific test (e.g., Spanish 5195/168, French 5174/162, Mandarin 5665/164, ASL 0634/170, Latin 5601/161, German 5183/163; for all other world languages effective 2025-07-01, ACTFL OPI+WPT at Advanced Low), and (e) 'demonstrated proficiency in the first (1st) and second (2nd) languages of instruction.' Prerequisite: a valid certificate at the matching grade band, so bilingual functions as both a standalone area and an add-on layered onto base certification."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": true,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "Two pathways. Standalone: 'English to Speakers of Other Languages (ESOL)' All Grades PK-12 certificate per §1.9.5.S — requires approved program, bachelor's, one year of practical residency (or equivalent) plus 60 hours of field experience, 45-hour practicum, and Praxis 5362 ESOL at 155. Holders of only the ESOL certificate are restricted to ELD support roles unless also certified in the relevant content area. Add-on: the MLL (Multilingual Learner) Endorsement, available to educators holding any valid RI certificate via completion of an approved MLL proficiency program at one of seven approved providers (Brown, ExcEL Leadership Academy, Rhode Island College, Rhode Island School for Progressive Education, Roger Williams, URI, RI Federation of Teachers and Health Professionals); plus 'MLL Integrated Content Teacher' grade-band variants (§§1.9.X.C) that extend an existing certificate via specific coursework in second-language acquisition, linguistics, socio-cultural studies, MLL content-based instruction, and oracy/literacy development. No second-language proficiency requirement (ESOL is the English-language-teaching credential, not a bilingual one)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No statewide sheltered-English-instruction mandate. RI uses content-based instruction terminology (CBI, CBI for Newcomers, CBI for SLIFE) rather than 'SEI' on the RIDE MLL/EL landing page; the 2025 Certification Regulations impose EL-instructional preparation only through specific certificates / endorsements (Bilingual/DL, ESOL, MLL Endorsement, MLL Integrated Content), not on all teachers. No requirement found analogous to AZ/CA/MA."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
-    "cultural": false,
-    "linguistic": false,
-    "el": false
+    "cultural": true,
+    "linguistic": true,
+    "el": true
+  },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2016,
+    "sourceUrl": "https://sealofbiliteracy.org/state/ri/"
+  },
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
   },
   "sealOfBiliteracy": {
     "adopted": true,
@@ -60,8 +73,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "RIDE — Multilingual Learners (MLLs) / English Learners (ELs) landing page (program models, ELP assessment, screener).",
+      "url": "https://ride.ri.gov/students-families/multilingual-learners-mlls-english-learners-els",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "RIDE — Certificate Areas and Requirements (live index of every RI educator certificate, including six grade-band Bilingual/Dual Language certs, All Grades ESOL, MLL Endorsement, MLL Integrated Content, and District-Level Administrator — Multilingual Learners).",
+      "url": "https://ride.ri.gov/teachers-administrators/educator-certification/certificate-areas-and-requirements",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "RIDE — Regulations Governing the Certification of Educators in Rhode Island (Council on Elementary and Secondary Education, June 2025). Sections 1.3 (standards descriptors), 1.9.1–1.9.5 (grade-band certificates including Bilingual/Dual Language, ESOL, MLL Integrated Content), and 1.10 (administrator certificates).",
+      "url": "https://ride.ri.gov/sites/g/files/xkgbur806/files/2025-06/Certification-Regulations-2025.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "RIDE — Rhode Island Professional Teaching Standards (RIPTS, approved October 2007; with preamble). Eleven-standard document still linked from the RIDE certification page; preamble explicitly names English Language Learners; Standard 4 descriptors name cultural background, native language, and English language acquisition.",
+      "url": "https://ride.ri.gov/sites/g/files/xkgbur806/files/Portals/0/Uploads/Documents/Teachers-and-Administrators-Excellent-Educators/Educator-Certification/Cert-main-page/RIPTS-with-preamble.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "sealofbiliteracy.org — Rhode Island state page (RI Board of Education adopted standards including a Seal of Biliteracy on 2016-06-17).",
+      "url": "https://sealofbiliteracy.org/state/ri/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 (Rhode Island: 17,289 / 12.5%; NCES COE narrative flags RI as the largest positive percentage-point change in EL representation nationwide from fall 2011 to fall 2021).",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
