@@ -59,6 +59,21 @@ const tokens = {
   bin1: extractToken(css, "bin-1"),
   bin2: extractToken(css, "bin-2"),
   bin3: extractToken(css, "bin-3"),
+  bilingual0: extractToken(css, "bilingual-0"),
+  bilingual2: extractToken(css, "bilingual-2"),
+  bilingual3: extractToken(css, "bilingual-3"),
+  eld0: extractToken(css, "eld-0"),
+  eld2: extractToken(css, "eld-2"),
+  eld3: extractToken(css, "eld-3"),
+  sei0: extractToken(css, "sei-0"),
+  sei3: extractToken(css, "sei-3"),
+  standards0: extractToken(css, "standards-0"),
+  standards3: extractToken(css, "standards-3"),
+  seal0: extractToken(css, "seal-0"),
+  seal3: extractToken(css, "seal-3"),
+  elp0: extractToken(css, "elp-0"),
+  elp2: extractToken(css, "elp-2"),
+  elp3: extractToken(css, "elp-3"),
   ink: extractToken(css, "ink"),
   inkMuted: extractToken(css, "ink-muted"),
   inkSubtle: extractToken(css, "ink-subtle"),
@@ -93,15 +108,34 @@ for (const c of checks) {
   if (!ok) failed++;
 }
 
-// Adjacent bin contrasts — informational only. Where these don't clear
-// 3:1, the legend's hatched-pattern overlay carries the meaning.
-console.log("\nAdjacent bin contrasts (informational; <3:1 relies on hatched pattern):");
-for (const [a, b] of [
-  [tokens.bin0, tokens.bin1],
-  [tokens.bin1, tokens.bin2],
-  [tokens.bin2, tokens.bin3],
-] as const) {
-  console.log(`  ${a} vs ${b}  =  ${contrast(a, b).toFixed(2)}`);
+// Adjacent categorical-fill contrasts — WCAG 2.1 SC 1.4.11 requires 3:1
+// between adjacent graphical objects that convey information. The
+// elPercent (purple) layer is a 4-stop sequential ramp where adjacent
+// 3:1 is mathematically infeasible across four solid stops; the legend's
+// text labels (per SC 1.4.1, color is not the sole means) carry the
+// meaning, so adjacent bins there are informational only.
+const adjacencyChecks: { layer: string; pair: [string, string]; min: number; informational?: boolean }[] = [
+  { layer: "elPercent bin0↔bin1", pair: [tokens.bin0, tokens.bin1], min: 3, informational: true },
+  { layer: "elPercent bin1↔bin2", pair: [tokens.bin1, tokens.bin2], min: 3, informational: true },
+  { layer: "elPercent bin2↔bin3", pair: [tokens.bin2, tokens.bin3], min: 3, informational: true },
+  { layer: "bilingual none↔add-on", pair: [tokens.bilingual0, tokens.bilingual2], min: 3 },
+  { layer: "bilingual add-on↔standalone", pair: [tokens.bilingual2, tokens.bilingual3], min: 3 },
+  { layer: "eld none↔add-on", pair: [tokens.eld0, tokens.eld2], min: 3 },
+  { layer: "eld add-on↔standalone", pair: [tokens.eld2, tokens.eld3], min: 3 },
+  { layer: "sei not-mandated↔mandated", pair: [tokens.sei0, tokens.sei3], min: 3 },
+  { layer: "standards absent↔present", pair: [tokens.standards0, tokens.standards3], min: 3 },
+  { layer: "seal not-adopted↔adopted", pair: [tokens.seal0, tokens.seal3], min: 3 },
+  { layer: "elp state-specific↔ELPA21", pair: [tokens.elp0, tokens.elp2], min: 3 },
+  { layer: "elp ELPA21↔WIDA", pair: [tokens.elp2, tokens.elp3], min: 3 },
+];
+
+console.log("\nAdjacent categorical fills (WCAG 1.4.11, ≥3:1):");
+for (const a of adjacencyChecks) {
+  const ratio = contrast(a.pair[0], a.pair[1]);
+  const ok = a.informational || ratio >= a.min;
+  const tag = a.informational ? "INFO" : ok ? "PASS" : "FAIL";
+  console.log(`${tag}  ${ratio.toFixed(2).padStart(5)} >= ${a.min.toFixed(1)}  ${a.layer}  (${a.pair[0]} vs ${a.pair[1]})`);
+  if (!ok) failed++;
 }
 
 if (failed > 0) {
