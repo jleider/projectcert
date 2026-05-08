@@ -122,11 +122,46 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "1990-08-14",
+      "title": "LULAC v. State Board of Education Consent Decree entered",
+      "description": "The federal consent decree settling LULAC v. SBE established Florida's framework for serving ELs and trained teachers, including the category-conditional ESOL training requirements (Categories I–IV) that remain the operative SEI-style mandate in Florida. The decree is the foundation for Rules 6A-4.0244 (endorsement) and 6A-4.0245 (standalone K-12 certification).",
+      "sourceUrls": [
+        "https://www.fldoe.org/academics/eng-language-learners/consent-decree.stml"
+      ]
+    },
+    {
+      "date": "2016-04-14",
+      "title": "Florida adopts the State Seal of Biliteracy",
+      "description": "Florida Statute § 1003.432 (HB 7029, 2016) authorizes a Gold and Silver Seal of Biliteracy on the high-school diploma for graduates demonstrating proficiency in English plus one or more world languages.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/fl/"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2025-08-20",
+      "title": "State Board adopts 2025 Florida Teacher Standards for ESOL Endorsement",
+      "description": "The State Board adopted Rule 6A-4.02451 establishing new ESOL endorsement standards (effective September 2025), replacing the 2010 standards. The five-strand structure (Culture, Applied Linguistics, Methods of Teaching, Curriculum and Materials, Testing and Evaluation) is preserved; approved programs must submit revised matrices to FLDOE by 2026-06-01.",
+      "sourceUrls": [
+        "https://www.fldoe.org/academics/eng-language-learners/esol-endorse.stml",
+        "https://www.fldoe.org/file/7582/ESOLEndorse25.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified Rules 6A-4.0244 and 6A-4.0245, the Consent Decree page, the 2025 ESOL endorsement standards, FEAP (6A-5.065), and FTCE 047. Updated elPercent to 9.5% (NCES Fall 2021) and set eld.requirements.coursework=true to reflect the rule-mandated 15 SH across five areas.",
+      "sourceUrls": [
+        "https://www.fldoe.org/teaching/certification/certificate-subjects/administrative-rules/6a-4-0244.stml",
+        "https://www.fldoe.org/teaching/certification/certificate-subjects/administrative-rules/6a-4-0245.stml",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
