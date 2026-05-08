@@ -31,6 +31,12 @@
   let layer: Layer = initialLayer;
   $: backUrl = `https://projectcert.org/map/?layer=${layer}`;
 
+  // Broadcast layer changes so non-Svelte parts of the page (e.g. the
+  // /map/ data table) can react. Skips during SSR.
+  $: if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent("projectcert:layer-change", { detail: { layer } }));
+  }
+
   const LAYERS: { value: Layer; label: string }[] = [
     { value: "elPercent", label: "% classified ELs" },
     { value: "bilingual", label: "Bilingual credential" },

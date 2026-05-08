@@ -54,13 +54,13 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
           <thead class="bg-surface-raised text-ink text-left">
             <tr>
               <th scope="col" class="px-3 py-2 font-semibold">State</th>
-              <th scope="col" class="px-3 py-2 font-semibold text-right">% ELs</th>
-              <th scope="col" class="px-3 py-2 font-semibold">Bilingual</th>
-              <th scope="col" class="px-3 py-2 font-semibold">ELD</th>
-              <th scope="col" class="px-3 py-2 font-semibold">SEI mandate</th>
-              <th scope="col" class="px-3 py-2 font-semibold">Standards mention ELs</th>
-              <th scope="col" class="px-3 py-2 font-semibold">Seal of Biliteracy</th>
-              <th scope="col" class="px-3 py-2 font-semibold">ELP assessment</th>
+              <th scope="col" class="px-3 py-2 font-semibold text-right" data-col="elPercent">% ELs</th>
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="bilingual">Bilingual</th>
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="eld">ELD</th>
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="sei">SEI mandate</th>
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="standardsMentionsEl">Standards mention ELs</th>
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="sealOfBiliteracy">Seal of Biliteracy</th>
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="elpAssessment">ELP assessment</th>
             </tr>
           </thead>
           <tbody>
@@ -69,19 +69,19 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
                 <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap">
                   <a href={`/states/${s.usps.toLowerCase()}/`} class="text-accent hover:underline">{s.name}</a>
                 </th>
-                <td class="px-3 py-2 text-right tabular-nums">{s.elPercent.toFixed(1)}%</td>
-                <td class="px-3 py-2">{credCell(s.bilingual)}</td>
-                <td class="px-3 py-2">{credCell(s.eld)}</td>
-                <td class="px-3 py-2">{s.seiMandated ? "Mandated" : "—"}</td>
-                <td class="px-3 py-2">{s.standardsMentionsEl ? "Yes" : "—"}</td>
-                <td class="px-3 py-2 whitespace-nowrap">
+                <td class="px-3 py-2 text-right tabular-nums" data-col="elPercent">{s.elPercent.toFixed(1)}%</td>
+                <td class="px-3 py-2" data-col="bilingual">{credCell(s.bilingual)}</td>
+                <td class="px-3 py-2" data-col="eld">{credCell(s.eld)}</td>
+                <td class="px-3 py-2" data-col="sei">{s.seiMandated ? "Mandated" : "—"}</td>
+                <td class="px-3 py-2" data-col="standardsMentionsEl">{s.standardsMentionsEl ? "Yes" : "—"}</td>
+                <td class="px-3 py-2 whitespace-nowrap" data-col="sealOfBiliteracy">
                   {s.sealOfBiliteracy.adopted === true
                     ? (s.sealOfBiliteracy.year ? `Adopted (${s.sealOfBiliteracy.year})` : "Adopted")
                     : s.sealOfBiliteracy.adopted === false
                       ? "Not adopted"
                       : "—"}
                 </td>
-                <td class="px-3 py-2 whitespace-nowrap">
+                <td class="px-3 py-2 whitespace-nowrap" data-col="elpAssessment">
                   {s.elpAssessment.name}
                   {s.elpAssessment.consortium && (
                     <span class="text-ink-subtle"> · {s.elpAssessment.consortium}</span>
@@ -94,4 +94,25 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
       </div>
     </section>
   </section>
+
+  <style>
+    [data-col][data-active="true"] {
+      background-color: color-mix(in srgb, var(--accent) 8%, transparent);
+    }
+    th[data-col][data-active="true"] {
+      color: var(--accent);
+    }
+  </style>
+
+  <script is:inline>
+    (() => {
+      const apply = (layer) => {
+        document.querySelectorAll("[data-col]").forEach((el) => {
+          el.dataset.active = el.dataset.col === layer ? "true" : "false";
+        });
+      };
+      apply(new URLSearchParams(location.search).get("layer") || "elPercent");
+      window.addEventListener("projectcert:layer-change", (e) => apply(e.detail.layer));
+    })();
+  </script>
 </BaseLayout>
