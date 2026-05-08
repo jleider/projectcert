@@ -1,8 +1,8 @@
 {
   "usps": "OH",
   "name": "Ohio",
-  "elPercent": 3.2,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 3.8,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -10,11 +10,12 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
+        "coursework": true,
+        "practicum": true,
+        "test": false,
         "languageProficiency": null
-      }
+      },
+      "notes": "Two standard routes: a Bilingual Education multi-age standalone license, or a Bilingual Education endorsement on a primary teaching license. Both require completion of an approved teacher-preparation program. No OAE content exam currently exists for Bilingual Education. A Bilingual Education supplemental license (no exam, no approved program) is available for up to 3 years as a bridge to the standard route."
     },
     "eld": {
       "offered": true,
@@ -22,12 +23,12 @@
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
-        "practicum": null,
+        "coursework": true,
+        "practicum": true,
         "test": true,
         "languageProficiency": false
       },
-      "notes": "'Supplemental ESL licensure' (1-year, non-renewable) available via test only."
+      "notes": "Two standard routes: a TESOL multi-age standalone license, or a TESOL endorsement on a primary teaching license. Both require an approved teacher-preparation program and the Ohio Assessments for Educators (OAE) TESOL content exam. A Supplemental TESOL license is also available (test only, no approved program), valid for 1 year and renewable up to 3 years total."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -42,12 +43,12 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2017,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/ohio/"
   },
   "elpAssessment": {
     "name": "OELPA",
     "consortium": "ELPA21",
-    "sourceUrl": "https://education.ohio.gov/Topics/Testing/Testing-Materials/English-Language-Proficiency-Assessment"
+    "sourceUrl": "https://education.ohio.gov/Topics/Testing/Ohio-English-Language-Proficiency-Assessment-OELPA/Ohio-English-Language-Proficiency-Assessment-OELPA"
   },
   "sources": [
     {
@@ -61,8 +62,50 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Ohio Department of Education and Workforce — English Learners (Student Supports landing page)",
+      "url": "https://education.ohio.gov/Topics/Student-Supports/English-Learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Ohio Department of Education and Workforce — English Learner Programs",
+      "url": "https://education.ohio.gov/Topics/Student-Supports/English-Learners/English-Learner-Programs",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Ohio Department of Education and Workforce — Ohio English Language Proficiency Assessment (OELPA)",
+      "url": "https://education.ohio.gov/Topics/Testing/Ohio-English-Language-Proficiency-Assessment-OELPA/Ohio-English-Language-Proficiency-Assessment-OELPA",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Ohio Department of Education — Qualification for Teachers Providing Language Instruction Educational Programs for English Learners (Aug 2019 guidance, current canonical summary of TESOL/Bilingual licensure pathways)",
+      "url": "https://www.southernohioesc.org/wp-content/uploads/sites/13/2020/09/Qualification-for-Teachers-Providing-Language-Instruction-Educational-Programs-for-English-Learners.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Ohio Standards for the Teaching Profession (Ohio Department of Education)",
+      "url": "https://education.ohio.gov/getattachment/Topics/Teaching/Educator-Evaluation-System/Ohio-s-Teacher-Evaluation-System/Ohio-Standards-for-the-Teaching-Profession.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — Ohio state page (sealofbiliteracy.org)",
+      "url": "https://sealofbiliteracy.org/state/ohio/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public elementary and secondary schools, by state or jurisdiction (Fall 2011 through Fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
