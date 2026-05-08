@@ -1,47 +1,50 @@
 {
   "usps": "WI",
   "name": "Wisconsin",
-  "elPercent": 6.2,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 5.9,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
+      "offered": true,
+      "standalone": false,
+      "addOn": true,
+      "requirements": {
+        "program": true,
+        "coursework": true,
+        "practicum": true,
+        "test": true,
+        "languageProficiency": true
+      },
+      "notes": "Bilingual-Bicultural Education (subject 1023) is a supplemental license under PI 34.078 — it requires an underlying Tier II/III/IV teaching license and is not standalone. PI 34.078(2)(b) requires proficiency in English and the target language; PI 34.078(2)(c) requires an approved program with coursework in cultural studies, foundations, theory and methodology, contrastive language study (phonology/morphology/syntax), bilingual-bicultural field experiences, and a clinical program. No state-adopted bilingual content test exists; each EPP measures English and target-language proficiency (commonly via ACTFL). The underlying primary-license content test and edTPA gate the pathway."
+    },
+    "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
-        "languageProficiency": true
-      }
-    },
-    "eld": {
-      "offered": true,
-      "standalone": true,
-      "addOn": false,
-      "requirements": {
-        "program": null,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
+        "coursework": true,
+        "practicum": true,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ESL (subject 1395) is a kindergarten through grade 12 teaching-area license under PI 34.047(3)(e) earned via an approved program plus assessments under PI 34.021(1)(c)-(d) (Praxis II ESOL #0360, passing 530, plus edTPA in Teaching Students of Other Languages). PI 34.052(6) creates an add-on pathway for holders of an elementary/middle school, special education, or equivalent license: the ESL credential may be added by passing the approved content knowledge test (no second approved program required). No language-proficiency exam is required of ESL candidates."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Wisconsin does not mandate SEI-style training for all teachers. SEI/Sheltered English/Content-Based ESL is one of several Language Instruction Educational Program models (alongside pull-out ESL, push-in ESL, and bilingual program models) districts may run, taught by ESL-licensed (1395) staff."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": true,
-    "el": true
+    "linguistic": false,
+    "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2015,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://dpi.wi.gov/english-learners/wi-seal-of-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -60,17 +63,141 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Wisconsin DPI — Educator Licensing landing page",
+      "url": "https://dpi.wi.gov/licensing",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — Bilingual and English Learner Education",
+      "url": "https://dpi.wi.gov/english-learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — Bilingual-Bicultural Programs",
+      "url": "https://dpi.wi.gov/english-learners/bilingual-bicultural",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — What Can I Teach with My License?",
+      "url": "https://dpi.wi.gov/licensing/general/what-can-i-teach",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — Supplementary Teaching Licenses (PI 34 supplementary list)",
+      "url": "https://dpi.wi.gov/licensing/supplementary-teaching-licenses",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — Language Instruction Guidance: ESL, Bilingual/Bicultural, and World Languages (2017-09-15)",
+      "url": "https://dpi.wi.gov/sites/default/files/imce/tepdl/pdf/Language-Instruction-Guidance-9.15.2017.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wis. Admin. Code Chapter PI 34 — Educator Licenses (table of contents)",
+      "url": "https://docs.legis.wisconsin.gov/code/admin_code/pi/34",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wis. Admin. Code PI 34.078 — Bilingual-bicultural education",
+      "url": "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/ix/078",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wis. Admin. Code PI 34.047 — Teaching areas (English as a Second Language at PI 34.047(3)(e))",
+      "url": "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/047",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wis. Admin. Code PI 34.052 — Additional license areas (ESL add-on by content test at PI 34.052(6))",
+      "url": "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/052",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — Wisconsin Educator Standards (10 standards)",
+      "url": "https://dpi.wi.gov/education-workforce/prepare/educator-preparation-programs/wi-educator-preparation-standards",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wisconsin DPI — Wisconsin Seal of Biliteracy program page",
+      "url": "https://dpi.wi.gov/english-learners/wi-seal-of-biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium membership (Wisconsin = charter member; WIDA is housed at WCER, UW-Madison)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 (English learners by state, Fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
+    {
+      "date": "2015-10-01",
+      "title": "Wisconsin Seal of Biliteracy initiated by DPI",
+      "description": "DPI launched the Wisconsin Seal of Biliteracy in October 2015 to recognize graduating high-school students who demonstrate proficiency in English plus one or more additional languages. The program is administered by DPI rather than created by a standalone authorizing statute; districts opt in and award the seal locally.",
+      "sourceUrls": [
+        "https://dpi.wi.gov/english-learners/wi-seal-of-biliteracy",
+        "https://theglobalseal.com/wisconsin-seal-of-biliteracy"
+      ]
+    },
+    {
+      "date": "2017-09-15",
+      "title": "DPI publishes ESL/Bilingual-Bicultural/World Languages license guidance",
+      "description": "DPI's Teacher Education, Professional Development and Licensing team issued a one-stop guidance document mapping each WI language-instruction license (ESL 1395, Bilingual-Bicultural 1023, World Language) to the program models it can be used in (sheltered/SEI, pull-out/push-in ESL, transitional/two-way/maintenance bilingual, immersion) and the educator-preparation requirements for each — including Praxis II ESOL #0360 (passing 530), edTPA, and the EPP-administered language-proficiency check (commonly ACTFL) for bilingual candidates.",
+      "sourceUrls": [
+        "https://dpi.wi.gov/sites/default/files/imce/tepdl/pdf/Language-Instruction-Guidance-9.15.2017.pdf"
+      ]
+    },
+    {
+      "date": "2018-08-01",
+      "title": "Chapter PI 34 (educator licenses) reorganized and renumbered",
+      "description": "The Wisconsin administrative-rule re-number consolidated the educator licensing scheme. The bilingual-bicultural supplemental rule moved from PI 34.33(3) to PI 34.078; the ESL teaching-area subject moved from PI 34.30(g) to PI 34.047(3)(e); and the add-on-by-content-test pathway for ESL/world-languages was placed at PI 34.052(6). Substantive requirements (approved program, English + target-language proficiency for bilingual, content-area test for add-on) were preserved across the renumbering.",
+      "sourceUrls": [
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34",
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/ix/078",
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/047",
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/052"
+      ]
+    },
     {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refresh against current SEA sources (verified-2026)",
+      "description": "Re-verified Wisconsin's record against current DPI pages and Wisconsin Administrative Code Chapter PI 34. Corrections vs. baseline: bilingual is supplemental (not standalone) under PI 34.078; ESL is available both as a standalone PI 34.047(3)(e) license and as a PI 34.052(6) content-test add-on; the operative 10 Wisconsin Educator Standards do not literally mention 'linguistic' or 'English learner,' so those professionalStandardsMentions booleans flip to false; elPercent updated to 5.9% (NCES Fall 2021).",
+      "sourceUrls": [
+        "https://dpi.wi.gov/licensing/supplementary-teaching-licenses",
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/ix/078",
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/047",
+        "https://docs.legis.wisconsin.gov/code/admin_code/pi/34/vi/052",
+        "https://dpi.wi.gov/education-workforce/prepare/educator-preparation-programs/wi-educator-preparation-standards"
       ]
     }
   ]
