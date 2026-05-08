@@ -8,7 +8,6 @@ import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
 import HistoryTimeline from "@/components/HistoryTimeline.astro";
 import CitationBlock from "@/components/CitationBlock.astro";
-import { binFor } from "@/data/bins";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
 import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
 
@@ -26,7 +25,6 @@ interface Props {
 
 const { entry } = Astro.props;
 const s = entry.data;
-const bin = binFor(s.elPercent);
 const localNames = STATE_LOCAL_NAMES[s.usps];
 
 const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boolean).length;
@@ -120,7 +118,6 @@ const stateJsonLd = [
       <div class="rounded border border-ink-subtle/20 p-4">
         <div class="text-2xl font-bold text-ink">{s.elPercent.toFixed(1)}%</div>
         <div class="text-sm text-ink-muted">classified ELs ({s.elPercentAsOf})</div>
-        <div class="text-xs text-ink-subtle mt-1">{bin.label}</div>
       </div>
       <div class="rounded border border-ink-subtle/20 p-4">
         <div class="text-2xl font-bold text-ink">
