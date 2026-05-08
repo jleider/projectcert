@@ -253,6 +253,27 @@ the same URL — pivot to an alternate after two strikes.
   loop. Sign of failure: same URL fetched 3+ times. Better pattern:
   one fetch, evaluate, pivot.
 
+## Stay inside your worktree
+
+When this skill runs as a subagent under `isolation: "worktree"`, the
+agent's working directory is `.claude/worktrees/agent-<id>/`, not the
+repo root. Two failure modes seen in past sweeps:
+
+- **Absolute-path Bash commands escape the worktree.** A `cd
+  /Volumes/Sources/projectcert && git ...` invocation operates on the
+  *main* checkout, not your isolated copy. The worktree's git index
+  goes untouched, and your changes land in main's working tree where
+  the next unrelated commit silently sweeps them up. Always use
+  relative paths or `process.cwd()`-relative ops; let the harness
+  handle the worktree path.
+- **Sources written to `sources/<usps>/...`** must go in the
+  worktree's `sources/` tree, not the main repo's. Same root cause —
+  use relative paths.
+
+Quick check: `pwd` should print
+`.../.claude/worktrees/agent-<id>`, not the repo root. If it doesn't,
+stop and `cd` back to the worktree before any git operation.
+
 ## Resuming a partial refresh
 
 If you find a state at `verificationStatus: "in-progress"`, look for
