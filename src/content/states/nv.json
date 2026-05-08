@@ -1,20 +1,21 @@
 {
   "usps": "NV",
   "name": "Nevada",
-  "elPercent": 17.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 13.8,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": null,
-        "test": null,
+        "test": true,
         "languageProficiency": true
-      }
+      },
+      "notes": "NAC 391.242 (regulation T002-24, updated 2024-12-26): completion of a Department-approved bilingual preparation program OR 12 semester credits of coursework (second-language acquisition theory plus at least three of: native-language reading/language-arts methods, native-language content-area methods, second-language testing/evaluation, bilingual curriculum development, native language and culture, bilingual ed history/philosophy/theory). A Praxis language exam in the native language (e.g., Praxis Spanish) must be passed prior to issuance of the endorsement."
     },
     "eld": {
       "offered": true,
@@ -24,20 +25,21 @@
         "program": null,
         "coursework": true,
         "practicum": true,
-        "test": null,
+        "test": false,
         "languageProficiency": false
-      }
+      },
+      "notes": "Branded as ELAD (English Language Acquisition and Development) since the late-2010s rename from the prior TESL endorsement. NAC 391.237: 11 semester hours of credit (3 each in language acquisition theory, methods for English learners, and assessment of English learners; 2 in elementary or secondary EL policies) plus a 1-semester-hour practicum (≥25 classroom hours). No exam gate. A separate Specialist in ELAD endorsement adds coursework in cultural/linguistic diversity foundations and program leadership."
     },
     "sei": {
       "mandatedForAllTeachers": false,
-      "notes": "SEI-equivalent endorsement is being phased in: required for early childhood/elementary (2020) and middle/secondary (2021)."
+      "notes": "The phase-in language reported in the 2019 baseline (early childhood/elementary 2020, middle/secondary 2021) did not produce a universal mandate. As of 2026 NAC Chapter 391 contains no general requirement that all teachers obtain ELAD or any EL-related endorsement; ELAD is a voluntary specialization."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": false
+    "el": true
   },
   "sources": [
     {
@@ -51,8 +53,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "NDE — ELAD (English Language Acquisition and Development) endorsement requirements one-pager",
+      "url": "https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/English_Language_Acquisition_Development_ELAD_22f6394114.pdf",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDE — Bilingual Education endorsement requirements one-pager",
+      "url": "https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/Bilingual_Education_90148d04bc.pdf",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NAC 391.237 — Endorsements to teach English language acquisition and development; ESL; ELAD specialist",
+      "url": "https://www.leg.state.nv.us/nac/nac-391.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NAC 391.242 — Endorsements to teach in a program of bilingual education (and NAC 391.059 language-proficiency exam)",
+      "url": "https://www.leg.state.nv.us/nac/nac-391.html",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Nevada Educator Performance Framework (NEPF) Evaluation System 2024-25 — School Administrator and Teacher Protocols",
+      "url": "https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/sa_tch_nepf_protocols_2024_25_final_32f2285a6e.pdf",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-07",
+  "verificationStatus": "verified-2026"
 }
