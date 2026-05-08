@@ -1,13 +1,14 @@
 {
   "usps": "OK",
   "name": "Oklahoma",
-  "elPercent": 8,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 9.3,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Oklahoma does not offer a Bilingual Education teacher credential. OSDE recognizes Transitional Bilingual (IS1) and Dual Language / Two-way Immersion (IS2) as LEA-level program delivery models, but neither is a teacher endorsement. The OSDE Full Competencies document lists ESL but no Bilingual Education subject-area competency."
     },
     "eld": {
       "offered": true,
@@ -19,17 +20,29 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ESL (PK-12) endorsement, added via OSAT subject-area test 177. OSDE publishes ESL subject-matter competencies (Language, Culture, Planning/Implementation, Assessment, Professionalism). The candidate English-fluency expectation in competency E.5 is not a non-English language proficiency requirement. program/coursework/practicum coded null because OEQA does not publish per-endorsement approved-program or credit-hour requirements that we could verify directly."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "OEQA State Requirement 1 requires every EPP to choose one of two pathways for all candidates: novice-high foreign-language proficiency OR knowledge/skills to address Emergent Bilingual (English Learner) students. EPPs choose the pathway, not individual teachers, so this is not a per-teacher SEI mandate. OSDE EL FAQ 2025 also acknowledges that some LEAs operate without a dedicated EL teacher."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
-    "cultural": false,
-    "linguistic": false,
-    "el": false
+    "cultural": true,
+    "linguistic": true,
+    "el": true
+  },
+  "sealOfBiliteracy": {
+    "adopted": true,
+    "year": 2020,
+    "sourceUrl": "https://oklahoma.gov/education/services/standards-learning/world-languages/seal-of-biliteracy.html"
+  },
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/memberships/consortium/ok"
   },
   "sealOfBiliteracy": {
     "adopted": null,
@@ -53,8 +66,56 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "OSDE — Teacher Certification (landing page)",
+      "url": "https://oklahoma.gov/education/educators/teacher-certification.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSDE — Full (Subject-Matter) Competencies for Licensure and Certification (incl. ESL PK-12)",
+      "url": "https://oklahoma.gov/content/dam/ok/en/osde/documents/services/teacher-certification/teacher-certification-resources/Competencies.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OEQA — General Teacher Competencies for Licensure (OAC 210:20-9-152, InTASC adoption)",
+      "url": "https://oklahoma.gov/oeqa/educator-preparation/accreditation/general-teacher-competencies-for-licensure.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OEQA — State Requirements for Educator Preparation (incl. State Requirement 1 EL pathway)",
+      "url": "https://oklahoma.gov/oeqa/educator-preparation/accreditation/state-requirements.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSDE — English Language Proficiency Services",
+      "url": "https://oklahoma.gov/education/services/english-language-proficiency.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSDE — English Learner Process and Practice FAQ (2025)",
+      "url": "https://oklahoma.gov/content/dam/ok/en/osde/documents/services/english-language-proficiency/el-faq-and-legal-obligations/FAQ%202025.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES — Digest of Education Statistics 2023, Table 204.20 (English learners by state, Fall 2021)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSDE — Oklahoma Seal of Biliteracy (established Sept 2020 under 70 O.S. § 11-103.2)",
+      "url": "https://oklahoma.gov/education/services/standards-learning/world-languages/seal-of-biliteracy.html",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
