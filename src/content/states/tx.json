@@ -1,8 +1,8 @@
 {
   "usps": "TX",
   "name": "Texas",
-  "elPercent": 18,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 20.2,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -99,6 +99,12 @@
       "url": "https://tea.texas.gov/texas-educators/certification/educator-testing/required-tests-chart.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English Learners in Public Schools, fall 2021 (TX = 20.2%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
   "lastVerified": "2026-05-08",
@@ -110,6 +116,15 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-audited against current SBEC rules and NCES EL share",
+      "description": "Re-verified against 19 TAC Chapter 233 (May 2024 update) and the TEA Bilingual/ESL Certification Pathways and Required Tests Chart. Bilingual Education Supplemental (§233.6) and ESL Supplemental (§233.7) remain the operative EL credentials; new Core/Bilingual Education Spanish and Core/ESL Supplemental base certificates with the Science of Teaching Reading become issuable Sept 1, 2028 (§233.2(f)-(g)); Bilingual Special Education Supplemental EC-12 effective Sept 1, 2027 (§233.8(a)). elPercent updated from 18 (2019 baseline) to 20.2 to align with NCES Digest Table 204.20 fall 2021.",
+      "sourceUrls": [
+        "https://tea.texas.gov/about-tea/laws-and-rules/sbec-rules-tac/sbec-tac-currently-in-effect/ch233.pdf",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
