@@ -9,7 +9,7 @@
     | "sei"
     | "standardsMentionsEl"
     | "sealOfBiliteracy"
-    | "widaMember";
+    | "elpAssessment";
 
   export let states: Array<{
     usps: string;
@@ -19,8 +19,8 @@
     eld: { offered: boolean; standalone: boolean; addOn: boolean };
     seiMandated: boolean;
     standardsMentionsEl: boolean;
-    sealOfBiliteracy: { adopted: boolean | null; year: number | null };
-    widaMember: boolean;
+    sealOfBiliteracy: { adopted: boolean | null; year: number | null; sourceUrl: string | null };
+    elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
   }>;
 
   let layer: Layer = "elPercent";
@@ -32,7 +32,7 @@
     { value: "sei", label: "SEI mandate" },
     { value: "standardsMentionsEl", label: "Standards mention ELs" },
     { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
-    { value: "widaMember", label: "WIDA Consortium" },
+    { value: "elpAssessment", label: "ELP assessment" },
   ];
 
   type LegendEntry = { color: string; label: string };
@@ -62,9 +62,10 @@
       { color: "var(--seal-0)", label: "Not adopted" },
       { color: "var(--bin-na)", label: "Unverified" },
     ],
-    widaMember: [
-      { color: "var(--wida-3)", label: "WIDA member (uses ACCESS for ELLs)" },
-      { color: "var(--wida-0)", label: "Non-member" },
+    elpAssessment: [
+      { color: "var(--elp-3)", label: "WIDA · ACCESS for ELLs" },
+      { color: "var(--elp-2)", label: "ELPA21 consortium" },
+      { color: "var(--elp-0)", label: "State-specific (AZELLA, ELPAC, TELPAS, etc.)" },
     ],
   };
 

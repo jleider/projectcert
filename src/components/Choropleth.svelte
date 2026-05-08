@@ -19,8 +19,8 @@
     eld: { offered: boolean; standalone: boolean; addOn: boolean };
     seiMandated: boolean;
     standardsMentionsEl: boolean;
-    sealOfBiliteracy: { adopted: boolean | null; year: number | null };
-    widaMember: boolean;
+    sealOfBiliteracy: { adopted: boolean | null; year: number | null; sourceUrl: string | null };
+    elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
   }
 
   type Layer =
@@ -30,7 +30,7 @@
     | "sei"
     | "standardsMentionsEl"
     | "sealOfBiliteracy"
-    | "widaMember";
+    | "elpAssessment";
 
   /**
    * Encoded variable.
@@ -97,8 +97,11 @@
       if (datum.sealOfBiliteracy.adopted === false) return "var(--seal-0)";
       return "var(--bin-na)";
     }
-    if (l === "widaMember") {
-      return datum.widaMember ? "var(--wida-3)" : "var(--wida-0)";
+    if (l === "elpAssessment") {
+      const c = datum.elpAssessment.consortium;
+      if (c === "WIDA") return "var(--elp-3)";
+      if (c === "ELPA21") return "var(--elp-2)";
+      return "var(--elp-0)"; // state-specific
     }
     return "var(--bin-na)";
   }
@@ -136,10 +139,12 @@
       if (seal.adopted === false) return "Seal of Biliteracy not adopted";
       return "Seal of Biliteracy adoption status unverified";
     }
-    if (l === "widaMember")
-      return datum.widaMember
-        ? "WIDA Consortium member (uses ACCESS for ELLs)"
-        : "Not a WIDA Consortium member";
+    if (l === "elpAssessment") {
+      const e = datum.elpAssessment;
+      if (e.consortium === "WIDA") return `WIDA Consortium · ${e.name}`;
+      if (e.consortium === "ELPA21") return `ELPA21 consortium · ${e.name}`;
+      return `State-specific assessment · ${e.name}`;
+    }
     return "";
   }
 

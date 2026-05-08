@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2018
+    "year": 2018,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "Maine Department of Education",

@@ -70,9 +70,10 @@
   --seal-0: #dde3f5;
   --seal-3: #1f2c80;
 
-  /* WIDA Consortium membership — slate (binary) */
-  --wida-0: #e3e7ec;
-  --wida-3: #2f3a4a;
+  /* ELP assessment — slate (3-category: state-specific / ELPA21 / WIDA) */
+  --elp-0: #e3e7ec;
+  --elp-2: #6b7689;
+  --elp-3: #2f3a4a;
 
   /* Green accent for UI */
   --accent: #14803c;

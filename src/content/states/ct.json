@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2017
+    "year": 2017,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "LAS Links Online",
+    "consortium": null,
+    "sourceUrl": "https://portal.ct.gov/sde/student-assessment/lasla-las-links-online"
+  },
   "sources": [
     {
       "label": "Connecticut State Dept. of Education",

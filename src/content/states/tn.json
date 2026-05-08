@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2018
+    "year": 2018,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "WIDA ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://www.tn.gov/education/families/student-supports-in-tn/english-as-a-second-language.html"
+  },
   "sources": [
     {
       "label": "Tennessee Department of Education",

@@ -1,12 +1,12 @@
 {
   "usps": "WA",
   "name": "Washington",
-  "elPercent": 11.7,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 11.4,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
         "program": true,
@@ -14,11 +14,12 @@
         "practicum": null,
         "test": true,
         "languageProficiency": true
-      }
+      },
+      "notes": "Bilingual Education endorsement governed by PESB under WAC 181-82A. Added to a teaching certificate (no standalone license). Per WAC 181-82A-204(2)(a), the route is a state-approved endorsement program addressing PESB competencies plus the WEST-E content test; field experience is at the program provider's discretion. PESB endorsement competencies (Standard 1.A) require candidates to demonstrate 'a high level of oral and written language proficiency' in the additional language of instruction 'as demonstrated by performance on a standardized assessment of language proficiency.' Post-Fall 2021 candidates are evaluated against NDLETPS (National Dual Language Education Teacher Preparation Standards)."
     },
     "eld": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
         "program": true,
@@ -26,23 +27,30 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "English Language Learner (ELL) endorsement (PESB, 2015 competencies). Added to a teaching certificate (no standalone license). Same WAC 181-82A-204 route as Bilingual: state-approved endorsement program plus WEST-E content test; field experience at provider discretion. Unlike the Bilingual endorsement, no candidate language-proficiency gate. OSPI uses 'Multilingual/English Learner' branding in current program guidance; PESB retains the 'ELL' label on the endorsement itself."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Washington has no universal SEI / sheltered-instruction endorsement mandate. The Transitional Bilingual Instruction Program (TBIP, RCW 28A.180) is an OSPI-administered district program serving identified multilingual/EL students; it does not require all certificated teachers to hold an EL-related endorsement."
     }
   },
   "professionalStandardsMentions": {
-    "diverse": false,
+    "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": false
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2014
+    "year": 2014,
+    "sourceUrl": "https://app.leg.wa.gov/RCW/default.aspx?cite=28A.300.575"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "Washington Office of Superintendent of Public Instruction",
@@ -55,8 +63,98 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "OSPI homepage (current)",
+      "url": "https://ospi.k12.wa.us/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB — English Language Learner (ELL) endorsement competencies (2015)",
+      "url": "https://www.pesb.wa.gov/preparation-programs/standards/endorsement-competencies/ell/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB — Bilingual Education endorsement competencies (Pre-Fall 2021 + NDLETPS Post-Fall 2021)",
+      "url": "https://www.pesb.wa.gov/preparation-programs/standards/endorsement-competencies/bilingual-education/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB — Endorsement competencies index (lists ELL and Bilingual Education among ~40 endorsements)",
+      "url": "https://www.pesb.wa.gov/preparation-programs/standards/endorsement-competencies/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB — Adding an endorsement (test-only vs approved-program-plus-test lists; ELL and Bilingual require approved program plus test)",
+      "url": "https://www.pesb.wa.gov/current-educators/assignment/endorsements/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WAC 181-82A-204 — Endorsement requirements (state-approved program route, content-test route, out-of-state route, field-experience at provider discretion)",
+      "url": "https://app.leg.wa.gov/WAC/default.aspx?cite=181-82A-204",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSPI — Migrant and Multilingual Education program landing page",
+      "url": "https://ospi.k12.wa.us/student-success/access-opportunity-education/migrant-and-multilingual-education",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSPI — Transitional Bilingual Instruction Program (TBIP) guidance (RCW 28A.180.020 reporting authority)",
+      "url": "https://ospi.k12.wa.us/student-success/access-opportunity-education/migrant-and-multilingual-education/multilingual-education-program/transitional-bilingual-instruction-program-guidance",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB — CCDEI (Cultural Competency, Diversity, Equity, Inclusion) standards page (adopted March 2022 per ESSB 5044)",
+      "url": "https://www.pesb.wa.gov/innovation-policy/ccdei/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB CCDEI Standards for Educators (PDF, adopted March 2022)",
+      "url": "https://drive.google.com/file/d/1_1nf9XWXJKT_a3lOP169VmVc3U0l1ze0/view",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "PESB — Role standards (Washington adopts InTASC Model Core Teaching Standards as residency teacher role standards)",
+      "url": "https://www.pesb.wa.gov/preparation-programs/standards/role-standards/",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "InTASC Model Core Teaching Standards and Learning Progressions for Teachers 1.0 (CCSSO, April 2013) — adopted by PESB",
+      "url": "https://learning.ccsso.org/intasc-model-core-teaching-standards-and-learning-progressions-for-teachers",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "RCW 28A.300.575 — Washington State Seal of Biliteracy (originally enacted 2014 c 102 s 2; amended 2024 c 202 s 4)",
+      "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=28A.300.575",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium membership roster (Washington listed as current member)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 (WA = 11.4%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-07",
+  "verificationStatus": "verified-2026"
 }

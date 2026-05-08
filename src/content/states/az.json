@@ -1,49 +1,56 @@
 {
   "usps": "AZ",
   "name": "Arizona",
-  "elPercent": 8.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 8.2,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": true,
         "test": false,
         "languageProficiency": true
-      }
+      },
+      "notes": "Bilingual, PreK-12 endorsement under R7-2-615(J). Full endorsement = (a) approved bilingual program OR 21 semester hours of specified coursework, (b) 3-hr practicum OR 2 years bilingual classroom experience, (c) verified proficiency in a world language other than English (seven options: Arizona Classroom Spanish Proficiency Exam, AEPA/NES foreign-language portion, tribal verification of an American Indian language, comparable out-of-state exam, world-language degree, 3 years foreign-language teaching, or ACTFL OPI). Provisional endorsement (3 years, non-renewable) = prerequisite certificate + language-proficiency verification only."
     },
     "eld": {
       "offered": true,
       "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
         "practicum": true,
         "test": false,
         "languageProficiency": false
-      }
+      },
+      "notes": "English as a Second Language (ESL), PreK-12 endorsement under R7-2-615(K). Full endorsement = (a) approved ESL program OR 18 semester hours of specified coursework, (b) 3-hr ESL practicum OR 2 years ESL/bilingual experience, (c) a 'second language learning experience' (six-hour single-language coursework, intensive language training, third-semester placement, ACTFL OPI intermediate-low, AZ Spanish Proficiency Exam, American Indian language verification, or AEPA/NES foreign-language exam). The second-language requirement is exposure-not verified proficiency, hence languageProficiency=false. Provisional ESL = 6 hours of ESL coursework including methods (3 yrs, non-renewable). ADE explicitly states the ESL endorsement also authorizes teaching in a Structured English Immersion setting."
     },
     "sei": {
       "mandatedForAllTeachers": true,
-      "notes": "SEI endorsement is required for all teachers in AZ; earnable via one course."
+      "notes": "Universal mandate: per R7-2-615(L) and ADE OELAS, 'a Provisional or full SEI endorsement, or an ESL or Bilingual endorsement, shall be required of a teacher who is instructing students in a sheltered English immersion or structured English immersion model.' Originating in Proposition 203 (2000) and HB 2064 (2006), Arizona has the country's broadest teacher-of-EL credentialing mandate. The full SEI endorsement is earnable via 3 semester hours of approved coursework or 45 clock hours of approved professional development under A.R.S. § 15-756.09(B); the provisional version is 1 semester hour or 15 clock hours (3 years, non-renewable). Spring 2019 legislation reduced the daily SEI ELD block from 4 hours to 2 hours and re-opened broader access to dual-language and bilingual program models, but did not repeal the teacher endorsement mandate."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": false
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2016
+    "year": 2016,
+    "sourceUrl": "https://sealofbiliteracy.org/state/az"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "AZELLA",
+    "consortium": null,
+    "sourceUrl": "https://www.azed.gov/oelas/azella"
+  },
   "sources": [
     {
       "label": "Arizona Department of Education",
@@ -56,8 +63,62 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "ADE OELAS — SEI Endorsement (mandate language for all teachers of ELs)",
+      "url": "https://www.azed.gov/oelas/sei-endorsement",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ADE Educator Certification — Structured English Immersion, PreK-12 endorsement",
+      "url": "https://www.azed.gov/educator-certification/structured-english-immersion-prek-12",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ADE Educator Certification — Bilingual Education, PreK-12 endorsement",
+      "url": "https://www.azed.gov/educator-certification/bilingual-education-prek-12",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ADE Educator Certification — English as a Second Language, PreK-12 endorsement",
+      "url": "https://www.azed.gov/educator-certification/english-second-language-prek-12",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Ariz. Admin. Code R7-2-615 — Endorsements (J Bilingual, K ESL, L SEI), via Cornell LII mirror",
+      "url": "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R7-2-615",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Ariz. Admin. Code R7-2-602 — Professional Teaching Standards, via Cornell LII mirror",
+      "url": "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R7-2-602",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Sealofbiliteracy.org — Arizona state page (A.R.S. § 15-258, SB 1239 signed 2016-05-12)",
+      "url": "https://sealofbiliteracy.org/state/az",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium member roster (Arizona is not a member; AZ uses AZELLA)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-07",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-07",
+  "verificationStatus": "verified-2026"
 }

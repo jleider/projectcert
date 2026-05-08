@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2017
+    "year": 2017,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "Missouri Department of Elementary and Secondary Education",

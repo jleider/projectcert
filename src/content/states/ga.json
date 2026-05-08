@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2016
+    "year": 2016,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "Georgia Department of Education",

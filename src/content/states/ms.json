@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2019
+    "year": 2019,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "LAS Links",
+    "consortium": null,
+    "sourceUrl": "https://www.mdek12.org/OAE/OEAS/EnglishLearners"
+  },
   "sources": [
     {
       "label": "Mississippi Department of Education",

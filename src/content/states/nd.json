@@ -40,9 +40,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2019
+    "year": 2019,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "North Dakota Dept. of Public Instruction",

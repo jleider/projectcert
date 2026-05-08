@@ -41,9 +41,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2016
+    "year": 2016,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "ELPA21",
+    "consortium": "ELPA21",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+  },
   "sources": [
     {
       "label": "Oregon Department of Education",

@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CredentialPanel from "@/components/CredentialPanel.astro";
 import SourceList from "@/components/SourceList.astro";
 import VerificationBadge from "@/components/VerificationBadge.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
 import { binFor } from "@/data/bins";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
@@ -133,24 +134,31 @@ const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boo
             </span>
           )}
         </p>
+        {s.sealOfBiliteracy.sourceUrl && (
+          <p class="mt-2 text-xs text-ink-subtle">
+            Source: <ExternalLink href={s.sealOfBiliteracy.sourceUrl} class="text-accent hover:underline">sealofbiliteracy.org</ExternalLink>
+          </p>
+        )}
       </section>
 
-      <section class="rounded border border-ink-subtle/20 p-4" aria-labelledby="wida-heading">
-        <h3 id="wida-heading" class="text-base font-semibold text-ink">WIDA Consortium</h3>
+      <section class="rounded border border-ink-subtle/20 p-4" aria-labelledby="elp-heading">
+        <h3 id="elp-heading" class="text-base font-semibold text-ink">ELP assessment</h3>
         <p class="mt-1 text-sm text-ink-muted">
-          ELP assessment used for annual EL identification and re-classification.
+          Annual English Language Proficiency test used for EL identification and reclassification.
         </p>
         <p class="mt-2 text-sm">
-          {s.widaMember ? (
-            <span class="text-accent">
-              <strong>Member.</strong> Uses WIDA ACCESS for ELLs.
-            </span>
-          ) : (
-            <span class="text-ink-subtle">
-              <strong>Non-member.</strong> Uses a state-developed or alternative ELP assessment.
-            </span>
-          )}
+          <span class={s.elpAssessment.consortium === "WIDA" ? "text-accent" : "text-ink-muted"}>
+            <strong>{s.elpAssessment.name}</strong>
+          </span>
+          {s.elpAssessment.consortium === "WIDA" && <> · WIDA Consortium member.</>}
+          {s.elpAssessment.consortium === "ELPA21" && <> · ELPA21 consortium member.</>}
+          {s.elpAssessment.consortium === null && <> · State-specific assessment.</>}
         </p>
+        {s.elpAssessment.sourceUrl && (
+          <p class="mt-2 text-xs text-ink-subtle">
+            Source: <ExternalLink href={s.elpAssessment.sourceUrl} class="text-accent hover:underline">{new URL(s.elpAssessment.sourceUrl).hostname}</ExternalLink>
+          </p>
+        )}
       </section>
     </div>
 

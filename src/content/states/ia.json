@@ -34,9 +34,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2018
+    "year": 2018,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "ELPA21",
+    "consortium": "ELPA21",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+  },
   "sources": [
     {
       "label": "Iowa Department of Education",

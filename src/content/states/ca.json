@@ -41,9 +41,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2011
+    "year": 2011,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "ELPAC",
+    "consortium": null,
+    "sourceUrl": "https://www.cde.ca.gov/ta/tg/ep/"
+  },
   "sources": [
     {
       "label": "California Department of Education",

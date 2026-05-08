@@ -51,17 +51,27 @@ const StandardsMentions = z.object({
 const SealOfBiliteracy = z.object({
   adopted: z.boolean().nullable(),
   year: z.number().int().min(2011).max(2030).nullable(),
+  sourceUrl: z.string().url().nullable(),
 });
 
 /**
- * WIDA Consortium membership.
+ * Annual English Language Proficiency (ELP) assessment used by the SEA.
  *
- * Member SEAs use the WIDA ACCESS for ELLs assessment as their annual
- * English Language Proficiency (ELP) test. Source: wida.wisc.edu
- * /about/consortium. Boolean is sufficient — the member list is
- * canonical and doesn't have an "unknown" state.
+ * Three categories of `consortium`:
+ * - "WIDA"   — uses ACCESS for ELLs via the WIDA Consortium.
+ * - "ELPA21" — uses the ELPA21 assessment via the ELPA21 consortium.
+ * - null     — state-developed/state-specific assessment (e.g., AZELLA,
+ *              TELPAS, ELPAC).
+ *
+ * `name` is the SEA's own term for the test (e.g., "ACCESS for ELLs",
+ * "AZELLA"). Sources: wida.wisc.edu/about/consortium plus per-state SEA
+ * pages — see sources/elp-assessments/ for provenance per row.
  */
-const WidaMember = z.boolean();
+const ElpAssessment = z.object({
+  name: z.string().min(2),
+  consortium: z.enum(["WIDA", "ELPA21"]).nullable(),
+  sourceUrl: z.string().url().nullable(),
+});
 
 export const StateSchema = z.object({
   usps: z.string().length(2).regex(/^[A-Z]{2}$/),
@@ -75,7 +85,7 @@ export const StateSchema = z.object({
   }),
   professionalStandardsMentions: StandardsMentions,
   sealOfBiliteracy: SealOfBiliteracy,
-  widaMember: WidaMember,
+  elpAssessment: ElpAssessment,
   sources: z.array(Source).min(1, "Provenance is required"),
   lastVerified: isoDate,
   verificationStatus: z.enum([

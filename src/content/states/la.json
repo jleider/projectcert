@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2014
+    "year": 2014,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "ELPT",
+    "consortium": null,
+    "sourceUrl": "https://doe.louisiana.gov/resources/library/k-12-english-learners"
+  },
   "sources": [
     {
       "label": "Louisiana Department of Education",

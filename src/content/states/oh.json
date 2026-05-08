@@ -41,9 +41,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2017
+    "year": 2017,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "OELPA",
+    "consortium": "ELPA21",
+    "sourceUrl": "https://education.ohio.gov/Topics/Testing/Testing-Materials/English-Language-Proficiency-Assessment"
+  },
   "sources": [
     {
       "label": "Ohio Department of Education",

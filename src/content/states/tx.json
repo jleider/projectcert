@@ -40,9 +40,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": true,
-    "year": 2013
+    "year": 2013,
+    "sourceUrl": "https://sealofbiliteracy.org/"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "TELPAS",
+    "consortium": null,
+    "sourceUrl": "https://tea.texas.gov/student-assessment/testing/telpas"
+  },
   "sources": [
     {
       "label": "Texas Education Agency",

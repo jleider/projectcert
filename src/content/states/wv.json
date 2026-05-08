@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": null,
-    "year": null
+    "year": null,
+    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
   },
-  "widaMember": false,
+  "elpAssessment": {
+    "name": "ELPA21",
+    "consortium": "ELPA21",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+  },
   "sources": [
     {
       "label": "West Virginia Department of Education",

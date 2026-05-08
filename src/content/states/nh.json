@@ -33,9 +33,14 @@
   },
   "sealOfBiliteracy": {
     "adopted": null,
-    "year": null
+    "year": null,
+    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
   },
-  "widaMember": true,
+  "elpAssessment": {
+    "name": "ACCESS for ELLs",
+    "consortium": "WIDA",
+    "sourceUrl": "https://wida.wisc.edu/about/consortium"
+  },
   "sources": [
     {
       "label": "New Hampshire Department of Education",
