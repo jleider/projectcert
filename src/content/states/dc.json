@@ -105,11 +105,37 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "2014-12-04",
+      "title": "DC adopts the State Seal of Biliteracy",
+      "description": "The DC State Board of Education and OSSE established a Seal of Biliteracy for high-school graduates demonstrating proficiency in English plus one or more additional world languages, making DC one of the earliest adopters in the country.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/dc/"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "title": "OSSE publishes refreshed Educator Credentialing Exams matrix",
+      "description": "OSSE's September 2025 Educator Credentialing Exams document is the operative exam-requirements reference for DC educator credentials. For ESL it specifies Praxis 5362 (English to Speakers of Other Languages, score 155) plus PLT or World Languages Pedagogy; for Bilingual Education it requires a completed degree major or completion of an approved program plus a PLT pedagogy exam, with no Praxis content exam and no language-proficiency exam listed.",
+      "sourceUrls": [
+        "https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/Educator%20Credentials%20Exams_9%202025.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified OSSE credentialing pages, the September 2025 exam matrix, the DC Professional Teaching Standards (1/29/13), and NCES EL counts. Updated elPercent to 11.3% (NCES Fall 2021), set bilingual.requirements.program=true and test=true to match the OSSE matrix, and demoted bilingual.requirements.languageProficiency from true to null pending direct SEA confirmation (the 9/2025 matrix lists no language-proficiency exam).",
+      "sourceUrls": [
+        "https://osse.dc.gov/page/english-learner-policy-and-programs",
+        "https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/Educator%20Credentials%20Exams_9%202025.pdf",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
