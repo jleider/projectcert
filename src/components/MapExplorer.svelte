@@ -113,7 +113,7 @@
 </div>
 
 <div class="mt-4">
-  <Choropleth {states} {layer} />
+  <Choropleth {states} {layer} embedLinks={embedFooter} />
 </div>
 
 {#if embedFooter}

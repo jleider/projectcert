@@ -44,6 +44,14 @@
   /** Dataset, one entry per state + DC. */
   export let states: StateDatum[];
 
+  /** When true, render state links with target=_blank pointing to the
+   * canonical projectcert.org URL — used inside the iframe embed so
+   * clicks open a new tab on the canonical site. */
+  export let embedLinks: boolean = false;
+  $: linkBase = embedLinks ? "https://projectcert.org" : "";
+  $: linkTarget = embedLinks ? "_blank" : undefined;
+  $: linkRel = embedLinks ? "noopener" : undefined;
+
   /** Width is responsive; height is derived from viewBox. */
   let containerWidth = 975;
   const VIEWBOX_W = 975;
@@ -167,9 +175,18 @@
   }
 
   function handleClick(datum: StateDatum | undefined) {
-    if (datum) {
-      window.location.href = `/states/${datum.usps.toLowerCase()}/`;
+    if (!datum) return;
+    const path = `/states/${datum.usps.toLowerCase()}/`;
+    // When embedded in an iframe, break out to a new tab on
+    // projectcert.org so the click doesn't navigate the host page or
+    // get trapped inside the embed.
+    const inIframe =
+      typeof window !== "undefined" && window.self !== window.top;
+    if (inIframe) {
+      window.open(`https://projectcert.org${path}`, "_blank", "noopener");
+      return;
     }
+    window.location.href = path;
   }
 
   function handleKey(e: KeyboardEvent, datum: StateDatum | undefined) {
@@ -226,7 +243,9 @@
       {@const d = pathFn(feat as never) ?? ""}
       {#if datum}
         <a
-          href={`/states/${datum.usps.toLowerCase()}/`}
+          href={`${linkBase}/states/${datum.usps.toLowerCase()}/`}
+          target={linkTarget}
+          rel={linkRel}
           aria-label={`${datum.name}: ${describe(datum, layer)}`}
           on:click|preventDefault={() => handleClick(datum)}
         >
@@ -267,7 +286,9 @@
         aria-hidden="true"
       />
       <a
-        href="/states/dc/"
+        href={`${linkBase}/states/dc/`}
+        target={linkTarget}
+        rel={linkRel}
         aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}
         on:click|preventDefault={() => handleClick(dcDatum)}
       >
