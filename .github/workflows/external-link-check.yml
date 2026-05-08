@@ -1,0 +1,45 @@
+name: External link check (weekly)
+
+on:
+  schedule:
+    - cron: "0 13 * * 1" # Mondays 13:00 UTC
+  workflow_dispatch:
+
+jobs:
+  external-links:
+    name: External link sweep
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Lychee external link sweep
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # External-only sweep against built HTML. We don't fail the
+          # workflow — SEA pages drift; the report is what matters.
+          args: |
+            --no-progress
+            --max-concurrency 4
+            --timeout 30
+            --accept "200,206,301,302,308,403,429"
+            --exclude "^https?://localhost"
+            ./dist/**/*.html
+          fail: false
+          format: markdown
+          output: ./lychee-report.md
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report
+          path: lychee-report.md
+          retention-days: 30

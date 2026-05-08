@@ -6,13 +6,15 @@
   "description": "Atlas of U.S. state EL teacher certification requirements",
   "scripts": {
     "dev": "astro dev",
-    "build": "tsx scripts/generate-llms-full.ts && astro build && cp dist/sitemap-index.xml dist/sitemap.xml",
+    "build": "tsx scripts/check-state-integrity.ts && tsx scripts/generate-llms-full.ts && astro build && cp dist/sitemap-index.xml dist/sitemap.xml",
     "generate:llms": "tsx scripts/generate-llms-full.ts",
     "preview": "astro preview",
     "astro": "astro",
     "seed": "tsx scripts/seed-from-paper.ts",
     "check:contrast": "tsx scripts/check-contrast.ts",
-    "validate": "astro check && npm run check:contrast",
+    "check:integrity": "tsx scripts/check-state-integrity.ts",
+    "lint": "eslint .",
+    "validate": "astro check && npm run check:contrast && npm run check:integrity",
     "test": "vitest run",
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit"
@@ -33,12 +35,18 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.0",
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.48.0",
     "@types/d3-geo": "^3.1.0",
     "@types/node": "^22.0.0",
     "@types/topojson-client": "^3.1.5",
     "axe-core": "^4.10.0",
+    "eslint": "^10.3.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-svelte": "^3.17.1",
+    "svelte-eslint-parser": "^1.6.1",
     "tsx": "^4.19.0",
+    "typescript-eslint": "^8.59.2",
     "vitest": "^2.1.0"
   }
 }

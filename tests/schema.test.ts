@@ -22,7 +22,6 @@ describe("state content collection", () => {
       const raw = JSON.parse(readFileSync(resolve(STATES_DIR, file), "utf8"));
       const result = StateSchema.safeParse(raw);
       if (!result.success) {
-        // eslint-disable-next-line no-console
         console.error(result.error.format());
       }
       expect(result.success).toBe(true);

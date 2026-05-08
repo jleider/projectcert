@@ -92,28 +92,44 @@ const HistoryEvent = z.object({
   sourceUrls: z.array(z.string().url()).min(1, "Every history event needs at least one sourceUrl"),
 });
 
-export const StateSchema = z.object({
-  usps: z.string().length(2).regex(/^[A-Z]{2}$/),
-  name: z.string().min(2),
-  elPercent: z.number().min(0).max(100),
-  elPercentAsOf: isoDate,
-  credentials: z.object({
-    bilingual: Credential,
-    eld: Credential,
-    sei: SeiCredential,
-  }),
-  professionalStandardsMentions: StandardsMentions,
-  sealOfBiliteracy: SealOfBiliteracy,
-  elpAssessment: ElpAssessment,
-  sources: z.array(Source).min(1, "Provenance is required"),
-  history: z.array(HistoryEvent).optional(),
-  lastVerified: isoDate,
-  verificationStatus: z.enum([
-    "baseline-2019",
-    "in-progress",
-    "verified-2026",
-  ]),
-});
+export const StateSchema = z
+  .object({
+    usps: z.string().length(2).regex(/^[A-Z]{2}$/),
+    name: z.string().min(2),
+    elPercent: z.number().min(0).max(100),
+    elPercentAsOf: isoDate,
+    credentials: z.object({
+      bilingual: Credential,
+      eld: Credential,
+      sei: SeiCredential,
+    }),
+    professionalStandardsMentions: StandardsMentions,
+    sealOfBiliteracy: SealOfBiliteracy,
+    elpAssessment: ElpAssessment,
+    sources: z.array(Source).min(1, "Provenance is required"),
+    history: z.array(HistoryEvent).optional(),
+    lastVerified: isoDate,
+    verificationStatus: z.enum([
+      "baseline-2019",
+      "in-progress",
+      "verified-2026",
+    ]),
+  })
+  .refine((s) => s.elPercentAsOf <= s.lastVerified, {
+    message: "elPercentAsOf must not be later than lastVerified",
+    path: ["elPercentAsOf"],
+  })
+  .refine(
+    (s) => {
+      const h = s.history;
+      if (!h || h.length < 2) return true;
+      for (let i = 1; i < h.length; i++) {
+        if ((h[i]!.date) < (h[i - 1]!.date)) return false;
+      }
+      return true;
+    },
+    { message: "history[] must be sorted oldest → newest by date", path: ["history"] },
+  );
 
 export type State = z.infer<typeof StateSchema>;
 

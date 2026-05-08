@@ -5,7 +5,10 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["astro/client", "@types/node"]
+    "types": ["astro/client", "@types/node"],
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist", "node_modules"]
