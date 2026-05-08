@@ -1,36 +1,45 @@
 {
   "usps": "SC",
   "name": "South Carolina",
-  "elPercent": 6.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 5.6,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
-      "offered": false,
+      "offered": true,
       "standalone": false,
-      "addOn": false
+      "addOn": true,
+      "requirements": {
+        "program": false,
+        "coursework": true,
+        "practicum": false,
+        "test": false,
+        "languageProficiency": null
+      },
+      "notes": "On 2025-09-02 the SC State Board of Education approved a new add-on Dual Language Immersion (DLI) Teacher Endorsement (also DLI Coach and DLI Instructional Leadership endorsements). The DLI Teacher endorsement is added to an existing Initial, Professional, or Alternative Route certificate by completing two 3-semester-hour courses (Foundations of Dual Language Immersion; DLI Methods: Key Practices in Content-Based Language Instruction) with a grade of C or better. No practicum, no subject-area test, and no separately-stated language-proficiency exam are listed in the SBE-approved requirements (`languageProficiency` coded null because proficiency is implicit in the DLI role but the published endorsement requirements do not specify a proficiency screen). Coursework may be waived for completion of a comprehensive, extended sequence of professional learning approved by SCDE. There is no standalone bilingual education certification field; DLI is an add-on only."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": true,
-        "practicum": null,
-        "test": null,
+        "practicum": true,
+        "test": true,
         "languageProficiency": false
       },
-      "notes": "Practicum can be waived with one year of documented teaching."
+      "notes": "Two coexisting EL credentials: (1) the ESOL field certification (Grades PK-12) — a standalone certification field; per SCDE Add-On Guidelines Section G the ESOL field 'requires specialized preparation and may not be added by method of exam,' so candidates must complete an approved preparation program or the listed coursework pathway. The pedagogy exam is Praxis PLT 5625 PreK-12 and the subject-area exam is Praxis 5362 (English to Speakers of Other Languages, qualifying score 155, per the 2025-26 Required Assessments document). The coursework pathway requires Principles and Strategies for Teaching ESOL to PK-12 Learners, Linguistics, Teaching Reading and Writing to LEP Learners, and two electives — including a Practicum in the Instruction of ESOL that may be waived with one year of successful ESOL teaching experience. (2) The ESOL Endorsement, an add-on for already-certified educators, requires Cultural and Linguistic Diversity for ESOL Educators, Principles and Strategies for Teaching ESOL to PK-12 Learners, and a 15-hour ESOL practicum (which may be embedded in the coursework). Coursework for the endorsement may be waived for an SCDE-approved sequence of professional learning."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "South Carolina does not impose a universal Sheltered English Immersion / EL-instruction requirement on all teachers. EL-specific preparation obligations attach only to candidates seeking the ESOL field certification, the ESOL Endorsement, or the new DLI endorsements."
     }
   },
   "professionalStandardsMentions": {
-    "diverse": true,
+    "diverse": false,
     "cultural": true,
-    "linguistic": true,
-    "el": true
+    "linguistic": false,
+    "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
@@ -54,10 +63,46 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "SCDE — Guidelines and Requirements for Adding Certification Fields and Endorsements (Updated September 10, 2019; current document on SCDE Educator Services as of 2026-05-08). Defines the ESOL field certification (p. 12) and the ESOL Endorsement (p. 35).",
+      "url": "https://ed.sc.gov/educators/certification/educator-services-tasks/add-a-certification-field-or-endorsement/sc-guidelines-and-requirements-for-adding-certification-fields-and-endorsements/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "SCDE — Endorsements for Dual Language Immersion (DLI) for Teachers, Coaches and Instructional Leaders (approved by SC State Board of Education 2025-09-02).",
+      "url": "https://ed.sc.gov/educators/certification/state-board-approved-actions/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "SCDE — South Carolina Certification Assessment Program: Required Assessments, 2025-26 Academic Year (posted July 2025). Praxis 5362 ESOL (qualifying score 155); Praxis PLT 5625 PreK-12.",
+      "url": "https://ed.sc.gov/educators/certification/educator-services-tasks/passing-test-scores-for-certification-purposes/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "SCDE — Expanded ADEPT Support and Evaluation System: Teacher Standards Rubric Handbook (NIET Teaching Standards 4.0). Adopted by SCDE for ADEPT teacher evaluation; rubric does not mention 'diverse,' 'linguistic,' 'English learner,' 'ELL,' 'ESL,' 'ESOL,' or 'LEP'; references 'cultural heritage,' 'cultural centers,' and 'Respectful Culture.'",
+      "url": "https://ed.sc.gov/educators/educator-effectiveness/expanded-adept/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — member directory (South Carolina listed; uses ACCESS for ELLs).",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 (South Carolina: 41,949 / 5.6%).",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -65,6 +110,25 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2025-09-02",
+      "title": "SC SBE approves Dual Language Immersion (DLI) endorsements",
+      "description": "South Carolina State Board of Education approves new add-on endorsements for Dual Language Immersion: DLI Teacher (two required 3-semester-hour courses), DLI Coach, and DLI Instructional Leadership. This is the first SCDE-issued bilingual-program credential. Promotes `bilingual.offered` from false to true and `bilingual.addOn` from false to true.",
+      "sourceUrls": [
+        "https://ed.sc.gov/educators/certification/state-board-approved-actions/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Phase 2 verification (verified-2026)",
+      "description": "Refreshed against current SCDE sources: Add-On Guidelines (ESOL field cert + ESOL endorsement), the September 2025 DLI endorsements, the 2025-26 Required Assessments document (Praxis 5362 + PLT 5625), and the NIET Teaching Standards 4.0 rubric used in Expanded ADEPT. ELD requirements refined from baseline `null`s to the explicit values now documented (program, coursework, practicum, and test all required somewhere in the ESOL pathway). Professional standards mentions revised: the NIET 4.0 rubric has no explicit 'diverse,' 'linguistic,' or EL/ESOL references, only 'cultural.' EL-population figure updated to NCES Digest 2023 Table 204.20 (fall 2021).",
+      "sourceUrls": [
+        "https://ed.sc.gov/educators/certification/educator-services-tasks/add-a-certification-field-or-endorsement/sc-guidelines-and-requirements-for-adding-certification-fields-and-endorsements/",
+        "https://ed.sc.gov/educators/certification/educator-services-tasks/passing-test-scores-for-certification-purposes/",
+        "https://ed.sc.gov/educators/educator-effectiveness/expanded-adept/",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
