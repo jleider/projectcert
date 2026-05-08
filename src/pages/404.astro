@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import StateLink from "@/components/StateLink.astro";
 import { getAllStates } from "@/lib/state-data";
 
 const states = await getAllStates();
-const examples = states.slice(0, 6);
+const stateIndex = states.map((s) => ({
+  usps: s.usps,
+  name: s.name,
+  url: `/states/${s.usps.toLowerCase()}/`,
+}));
 ---
 
 <BaseLayout
@@ -14,19 +17,20 @@ const examples = states.slice(0, 6);
   <article class="max-w-2xl mx-auto px-4 py-12 text-center">
     <p class="text-7xl font-bold text-ink mb-4" aria-hidden="true">404</p>
     <h1 class="text-2xl font-semibold text-ink">That page isn't here.</h1>
-    <p class="mt-3 text-ink-muted">
-      Maybe a typo, or maybe a state code you spelled with the long name.
-      The atlas is organized by 2-letter USPS code — try one of these:
+    <p class="mt-3 text-ink-muted" id="not-found-explainer">
+      Maybe a typo. The atlas is organized by 2-letter USPS code.
     </p>
 
-    <ul class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
-      {examples.map((s) => (
-        <li class="rounded border border-ink-subtle/20 px-3 py-2">
-          <StateLink usps={s.usps}>{s.name}</StateLink>
-          <span class="text-ink-subtle"> ({s.usps})</span>
-        </li>
-      ))}
-    </ul>
+    <section class="mt-8" aria-labelledby="suggestions-heading">
+      <h2 id="suggestions-heading" class="text-sm font-semibold text-ink-muted uppercase tracking-wide">
+        Did you mean…
+      </h2>
+      <ul
+        id="suggestions"
+        class="mt-3 flex flex-wrap justify-center gap-3 text-sm"
+        aria-live="polite"
+      ></ul>
+    </section>
 
     <nav class="mt-10 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" aria-label="Top destinations">
       <a class="text-accent hover:underline" href="/">Home</a>
@@ -36,4 +40,86 @@ const examples = states.slice(0, 6);
       <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
     </nav>
   </article>
+
+  <script type="application/json" id="state-index" set:html={JSON.stringify(stateIndex)}></script>
+
+  <script is:inline>
+    (() => {
+      const idx = JSON.parse(document.getElementById("state-index").textContent || "[]");
+
+      // Pull candidate tokens out of the URL — segment by segment plus
+      // a normalized full path. We treat each non-empty path segment
+      // as a possible misspelling of a USPS code or state name.
+      const path = location.pathname.toLowerCase();
+      const segments = path.split("/").filter(Boolean);
+      const queryFromUrl = segments.join(" ");
+
+      // Levenshtein distance, capped at 8 — anything beyond that isn't
+      // a near-miss for a 2-letter code or a state name.
+      function dist(a, b) {
+        if (a === b) return 0;
+        const m = a.length, n = b.length;
+        if (Math.abs(m - n) > 8) return 9;
+        const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+        for (let i = 0; i <= m; i++) dp[i][0] = i;
+        for (let j = 0; j <= n; j++) dp[0][j] = j;
+        for (let i = 1; i <= m; i++) {
+          for (let j = 1; j <= n; j++) {
+            dp[i][j] = a[i - 1] === b[j - 1]
+              ? dp[i - 1][j - 1]
+              : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+          }
+        }
+        return dp[m][n];
+      }
+
+      // Score each state against the URL: lower = better match.
+      // Strong bonuses for substring matches on the USPS code or
+      // state name; otherwise fall back to character-level distance
+      // against the longest URL segment.
+      const longest = segments.reduce((a, b) => (b.length > a.length ? b : a), "");
+      function score(state) {
+        const usps = state.usps.toLowerCase();
+        const name = state.name.toLowerCase();
+        if (path.includes(`/${usps}/`) || path.includes(`/${usps}`)) return 0;
+        if (path.includes(name.replace(/\s+/g, "-"))) return 1;
+        if (longest && (longest.startsWith(usps) || longest.includes(usps))) return 2;
+        if (longest && name.startsWith(longest)) return 3;
+        const d = longest ? Math.min(dist(longest, usps), dist(longest, name)) : 9;
+        return 5 + d;
+      }
+
+      const ranked = idx
+        .map((s) => ({ ...s, score: score(s) }))
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 6);
+
+      const ul = document.getElementById("suggestions");
+      const explainer = document.getElementById("not-found-explainer");
+
+      // If the best match is a strong one (USPS/name substring) and
+      // there was a URL fragment to match against, lean in with the
+      // explainer copy.
+      if (queryFromUrl && ranked[0] && ranked[0].score <= 3) {
+        explainer.textContent = `Didn't find "${queryFromUrl}". Closest matches in the atlas:`;
+      } else if (queryFromUrl) {
+        explainer.textContent = `Didn't find "${queryFromUrl}". Some places to start:`;
+      }
+
+      for (const s of ranked) {
+        const li = document.createElement("li");
+        li.className = "rounded border border-ink-subtle/20 px-3 py-2";
+        const a = document.createElement("a");
+        a.href = s.url;
+        a.className = "text-accent hover:underline";
+        a.textContent = s.name;
+        const tag = document.createElement("span");
+        tag.className = "text-ink-subtle";
+        tag.textContent = ` (${s.usps})`;
+        li.appendChild(a);
+        li.appendChild(tag);
+        ul.appendChild(li);
+      }
+    })();
+  </script>
 </BaseLayout>
