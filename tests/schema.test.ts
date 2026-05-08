@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { z } from "zod";
 import { StateSchema } from "../src/content.config";
 import { STATES } from "../src/data/states-meta";
 
@@ -22,7 +23,7 @@ describe("state content collection", () => {
       const raw = JSON.parse(readFileSync(resolve(STATES_DIR, file), "utf8"));
       const result = StateSchema.safeParse(raw);
       if (!result.success) {
-        console.error(result.error.format());
+        console.error(JSON.stringify(z.treeifyError(result.error), null, 2));
       }
       expect(result.success).toBe(true);
     });

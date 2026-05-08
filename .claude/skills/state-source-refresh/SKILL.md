@@ -122,6 +122,30 @@ correct.
 Each state record carries a `history[]` array — a chronological log of
 SEA-side policy events that shape the EL credentialing landscape. As
 you read sources, watch for events worth a row and append them.
+
+**`history[]` is for substantive policy events, not the audit log.**
+Don't add rows that describe the verification process itself. The
+following titles and the prose patterns behind them are **forbidden**:
+
+- "Re-verified against current X sources"
+- "Refreshed against current SEA sources"
+- "Re-audit (history events captured)"
+- "Phase 2 verification (verified-2026)"
+- "Standards verified — promoted to verified-2026"
+- "Re-confirmed", "Re-checked", "Re-audited", "Bilingual cross-endorsement
+  scope corrected on refresh", and any other framing that describes the
+  catalog's QA workflow rather than an SEA-side event.
+
+The audit trail belongs in `sources/<USPS>/<date>/changes-from-baseline.md`,
+not in `history[]`. The site renders `history[]` as a public timeline of
+policy changes for researchers; meta-process rows clutter it and are
+written in the wrong voice. Voice for `history[]` rows is third-person,
+matter-of-fact academic register: "Massachusetts enacts the LOOK Act
+(Ch. 138 of the Acts of 2017)", not "MA verified against current DESE
+sources." Past tense is preferred over present-progressive ("enacted",
+"authorized", "filed", not "is enacting"). No first person, no
+references to "this catalog", "we", or "the verification".
+
 Examples worth filing:
 
 - A new statute or rule (e.g., a 2024 "Multilingual Learner Bill of

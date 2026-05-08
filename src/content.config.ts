@@ -1,11 +1,12 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "zod";
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD");
 
 const Source = z.object({
   label: z.string().min(3),
-  url: z.string().url(),
+  url: z.url(),
   retrievedAt: isoDate,
   retrievedBy: z.enum(["leider-2021", "projectcert-2026"]),
 });
@@ -52,7 +53,7 @@ const StandardsMentions = z.object({
 const SealOfBiliteracy = z.object({
   adopted: z.boolean(),
   year: z.number().int().min(2011).max(2030).nullable(),
-  sourceUrl: z.string().url(),
+  sourceUrl: z.url(),
 });
 
 /**
@@ -71,7 +72,7 @@ const SealOfBiliteracy = z.object({
 const ElpAssessment = z.object({
   name: z.string().min(2),
   consortium: z.enum(["WIDA", "ELPA21"]).nullable(),
-  sourceUrl: z.string().url().nullable(),
+  sourceUrl: z.url().nullable(),
 });
 
 /**
@@ -100,7 +101,7 @@ const HistoryEvent = z.object({
   }),
   title: z.string().min(3),
   description: z.string().min(10),
-  sourceUrls: z.array(z.string().url()).min(1, "Every history event needs at least one sourceUrl"),
+  sourceUrls: z.array(z.url()).min(1, "Every history event needs at least one sourceUrl"),
 });
 
 export const StateSchema = z
@@ -142,7 +143,7 @@ export const StateSchema = z
     { message: "history[] must be sorted oldest → newest by date", path: ["history"] },
   );
 
-export type State = typeof StateSchema._output;
+export type State = z.output<typeof StateSchema>;
 
 const states = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/states" }),

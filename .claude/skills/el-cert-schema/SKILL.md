@@ -142,6 +142,26 @@ What to log:
   boolean.
 - Phase-in milestones (NV's SEI mandate; CA's AB 1059 embedded prep).
 
+What **not** to log:
+
+- The verification process itself. Forbidden titles include
+  "Re-verified against current X sources", "Refreshed against
+  current SEA sources", "Re-audit (history events captured)",
+  "Phase 2 verification (verified-2026)", "Standards verified —
+  promoted to verified-2026", and any framing that describes the
+  catalog's QA workflow rather than an SEA-side event. The audit
+  trail belongs in `sources/<USPS>/<date>/changes-from-baseline.md`.
+- Coding corrections without an underlying SEA action (e.g.,
+  "bilingual reclassified standalone → add-on on refresh"). If a
+  reclassification reflects an actual SEA policy change with an
+  effective date, file *that* event; if it's a baseline-2019
+  miscoding fix, document it in changes-from-baseline.md instead.
+
+Voice: third-person, matter-of-fact academic register, past tense
+for events that have occurred ("enacted", "authorized", "filed").
+No first person, no references to "this catalog" / "we" / "the
+verification."
+
 Rules:
 
 - Append-only. The array is a log; don't rewrite or remove prior rows.
