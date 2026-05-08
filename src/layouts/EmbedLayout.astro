@@ -1,0 +1,33 @@
+---
+import "@/styles/tokens.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const SITE_URL = "https://projectcert.org";
+const fullTitle = `${title} — projectcert (embed)`;
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#3d1971" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#262833" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen bg-surface text-ink">
+    <main class="px-4 py-3">
+      <slot />
+    </main>
+  </body>
+</html>

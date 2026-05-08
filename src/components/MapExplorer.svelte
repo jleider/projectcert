@@ -22,8 +22,10 @@
     sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
     elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
   }>;
+  /** Optional initial layer override (used by /embed/map/?layer=...). */
+  export let initialLayer: Layer = "elPercent";
 
-  let layer: Layer = "elPercent";
+  let layer: Layer = initialLayer;
 
   const LAYERS: { value: Layer; label: string }[] = [
     { value: "elPercent", label: "% classified ELs" },
