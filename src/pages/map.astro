@@ -2,10 +2,15 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MapExplorer from "@/components/MapExplorer.svelte";
 import StateLink from "@/components/StateLink.astro";
-import { getChoroplethData } from "@/lib/state-data";
+import { getChoroplethData, LAYERS, type Layer } from "@/lib/state-data";
 
 const data = await getChoroplethData();
 const tableRows = [...data].sort((a, b) => a.name.localeCompare(b.name));
+
+const requested = Astro.url.searchParams.get("layer");
+const initialLayer: Layer = (LAYERS as readonly string[]).includes(requested ?? "")
+  ? (requested as Layer)
+  : "elPercent";
 
 function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }): string {
   if (!c.offered) return "—";
@@ -27,7 +32,7 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
     </p>
 
     <div class="mt-6">
-      <MapExplorer client:only="svelte" states={data} />
+      <MapExplorer client:only="svelte" states={data} initialLayer={initialLayer} />
     </div>
 
     <p class="mt-4 text-sm text-ink-subtle">
