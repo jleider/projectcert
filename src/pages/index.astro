@@ -132,8 +132,9 @@ const homeJsonLd = {
       <ul class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
         {states.map((s) => (
           <li>
-            <a
-              href={`/states/${s.usps.toLowerCase()}/`}
+            <StateLink
+              usps={s.usps}
+              unstyled
               class="flex items-center gap-3 rounded border border-ink-subtle/20 px-3 py-2 hover:bg-surface-raised hover:border-accent"
             >
               <StateSeal usps={s.usps} size={36} />
@@ -141,7 +142,7 @@ const homeJsonLd = {
                 <span class="block font-medium text-ink truncate">{s.name}</span>
                 <span class="block text-xs text-ink-subtle">{s.usps} · {s.elPercent.toFixed(1)}% EL</span>
               </span>
-            </a>
+            </StateLink>
           </li>
         ))}
       </ul>
