@@ -1,6 +1,7 @@
 <script lang="ts">
   import Choropleth from "./Choropleth.svelte";
   import { BINS } from "@/data/bins";
+  import { SITE_URL } from "@/config/site";
 
   type Layer =
     | "elPercent"
@@ -29,7 +30,7 @@
   export let embedFooter: boolean = false;
 
   let layer: Layer = initialLayer;
-  $: backUrl = `https://projectcert.org/map/?layer=${layer}`;
+  $: backUrl = `${SITE_URL}/map/?layer=${layer}`;
 
   // Broadcast layer changes so non-Svelte parts of the page (e.g. the
   // /map/ data table) can react. Skips during SSR.

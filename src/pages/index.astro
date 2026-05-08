@@ -4,6 +4,7 @@ import Choropleth from "@/components/Choropleth.svelte";
 import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
 import CitationBlock from "@/components/CitationBlock.astro";
 import { getChoroplethData, getAllStates } from "@/lib/state-data";
+import { SITE_URL } from "@/config/site";
 
 const data = await getChoroplethData();
 const states = await getAllStates();
@@ -20,7 +21,6 @@ const latestVerified = states
   .sort()
   .at(-1) ?? "2026-01-01";
 
-const SITE_URL = "https://projectcert.org";
 const homeJsonLd = {
   "@context": "https://schema.org",
   "@type": "DataCatalog",
@@ -125,7 +125,7 @@ const homeJsonLd = {
     <CitationBlock
       title="projectcert: a 51-state atlas of EL teacher certification"
       dateModified={latestVerified}
-      url="https://projectcert.org/"
+      url={`${SITE_URL}/`}
       bibKey={`projectcert_${latestVerified.slice(0, 4)}`}
     />
   </section>

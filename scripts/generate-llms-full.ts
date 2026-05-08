@@ -14,11 +14,11 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { SITE_URL } from "../src/config/site";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
 const OUT_PATH = resolve(__dirname, "../public/llms-full.txt");
-const SITE_URL = "https://projectcert.org";
 
 interface State {
   usps: string;

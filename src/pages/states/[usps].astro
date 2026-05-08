@@ -10,6 +10,7 @@ import HistoryTimeline from "@/components/HistoryTimeline.astro";
 import CitationBlock from "@/components/CitationBlock.astro";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
 import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
+import { SITE_URL } from "@/config/site";
 
 export async function getStaticPaths() {
   const entries = await getCollection("states");
@@ -29,7 +30,6 @@ const localNames = STATE_LOCAL_NAMES[s.usps];
 
 const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boolean).length;
 
-const SITE_URL = "https://projectcert.org";
 const stateUrl = `${SITE_URL}/states/${s.usps.toLowerCase()}/`;
 const lead = leadParagraph(s);
 const stateJsonLd = [

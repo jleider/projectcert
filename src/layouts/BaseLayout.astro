@@ -5,6 +5,7 @@ import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { FEEDBACK_FORM } from "@/config/feedback";
+import { SITE_URL, SITE_NAME } from "@/config/site";
 import { getCollection } from "astro:content";
 
 interface Props {
@@ -32,9 +33,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const SITE_URL = "https://projectcert.org";
-const SITE_NAME = "projectcert";
-const fullTitle = `${title} — projectcert`;
+const fullTitle = `${title} — ${SITE_NAME}`;
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
 const ogImage = new URL(image ?? "/og-default.png", SITE_URL).toString();
 

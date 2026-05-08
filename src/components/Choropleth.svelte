@@ -10,6 +10,7 @@
   import type { Feature, FeatureCollection } from "geojson";
   import { BINS, binFor } from "@/data/bins";
   import { FIPS_TO_USPS } from "@/data/states-meta";
+  import { SITE_URL } from "@/config/site";
 
   interface StateDatum {
     usps: string;
@@ -48,7 +49,7 @@
    * canonical projectcert.org URL — used inside the iframe embed so
    * clicks open a new tab on the canonical site. */
   export let embedLinks: boolean = false;
-  $: linkBase = embedLinks ? "https://projectcert.org" : "";
+  $: linkBase = embedLinks ? SITE_URL : "";
   $: linkTarget = embedLinks ? "_blank" : undefined;
   $: linkRel = embedLinks ? "noopener" : undefined;
 
@@ -183,7 +184,7 @@
     const inIframe =
       typeof window !== "undefined" && window.self !== window.top;
     if (inIframe) {
-      window.open(`https://projectcert.org${path}`, "_blank", "noopener");
+      window.open(`${SITE_URL}${path}`, "_blank", "noopener");
       return;
     }
     window.location.href = path;

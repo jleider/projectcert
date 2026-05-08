@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { CANONICAL_TERMS, STUDENT_TERM_ALIASES, STATE_LOCAL_NAMES } from "@/data/terminology";
 import { USPS_TO_NAME, STATES } from "@/data/states-meta";
+import { SITE_URL } from "@/config/site";
 
 // Render state-local names in alphabetical order by state name, with
 // the canonical state name visible alongside the USPS code so users
@@ -14,7 +15,6 @@ const stateLocalRows = STATES
   }))
   .filter((r) => r.names);
 
-const SITE_URL = "https://projectcert.org";
 const glossaryUrl = `${SITE_URL}/glossary/`;
 const definedTerms = CANONICAL_TERMS.map((t) => ({
   "@type": "DefinedTerm",
