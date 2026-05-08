@@ -123,6 +123,31 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2014-05-16",
+      "title": "LEAPS Act enacted; state Seal of Biliteracy authorized",
+      "description": "The Learning English for Academic Proficiency and Success (LEAPS) Act (2014 Minn. Laws ch. 272) reorganized Minnesota's EL framework and authorized the state Seal of Biliteracy. The seal language was subsequently codified at Minn. Stat. 120B.022 subd. 1b by 1Sp2015 c 3 art 2 s 2 and amended through 2024.",
+      "sourceUrls": [
+        "https://www.revisor.mn.gov/statutes/cite/120B.022",
+        "https://education.mn.gov/MDE/dse/stds/world/seals/"
+      ]
+    },
+    {
+      "date": "2022-01-01",
+      "title": "Rule 8710.2000 (Standards of Effective Practice) revised to name MN ELD Standards Framework",
+      "description": "PELSB's revision of Rule 8710.2000 Standard 4.A explicitly names \"Minnesota's English Language Development Standards Framework,\" strengthening the textual basis for `professionalStandardsMentions.el: true`. Standards 1.A, 1.D, 1.H, 1.I, 2.A, 4.E, 4.F, and 5.E carry diverse/cultural/linguistic language.",
+      "sourceUrls": [
+        "https://www.revisor.mn.gov/rules/8710.2000/"
+      ]
+    },
+    {
+      "date": "2023-08-01",
+      "title": "MTLE content/pedagogy/basic-skills tests no longer required for MN program completers",
+      "description": "Per the PELSB FY25 Licensure Compliance Manual, completers of Minnesota-state-approved licensure programs are no longer required to pass MTLE content, pedagogy, or basic-skills tests effective 2023-08-01. This grounds `bilingual.requirements.test: null` and `eld.requirements.test: null`: the MTLE Bilingual and MTLE ESL exams exist but are not uniformly required.",
+      "sourceUrls": [
+        "https://mn.gov/pelsb/"
+      ]
     }
   ]
 }
