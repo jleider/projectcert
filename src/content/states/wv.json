@@ -35,9 +35,9 @@
     "el": false
   },
   "sealOfBiliteracy": {
-    "adopted": false,
-    "year": null,
-    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
+    "adopted": true,
+    "year": 2021,
+    "sourceUrl": "https://sealofbiliteracy.org/state/wv/"
   },
   "elpAssessment": {
     "name": "ELPA21",
@@ -82,8 +82,8 @@
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "Wikipedia, Seal of Biliteracy (state-by-state adoption table; WV not listed)",
-      "url": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy",
+      "label": "Seal of Biliteracy — West Virginia state page (adopted 2021-03-18)",
+      "url": "https://sealofbiliteracy.org/state/wv/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -119,6 +119,14 @@
       "description": "WVBE Policy 5100 (Approval of Educator Preparation Programs, 126CSR114) is amended. EPPs leading to the ESL Pre-k-Adult specialization must align to the National Standards for Teachers of English to Speakers of Other Languages (TESOL) and to the current state-approved content standards, with field-based and yearlong-residency clinical experiences required for all initial-licensure programs.",
       "sourceUrls": [
         "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=56943&Format=PDF"
+      ]
+    },
+    {
+      "date": "2021-03-18",
+      "title": "West Virginia adopts the Seal of Biliteracy",
+      "description": "Per the national Seal of Biliteracy state tracker, West Virginia adopted the Seal of Biliteracy on 2021-03-18, recognizing high school graduates who attain proficiency in English and one or more additional languages. Prior to this verification the record had `adopted: false` based on a now-stale Wikipedia table; the SoB national page confirms WV adoption.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/wv/"
       ]
     },
     {
