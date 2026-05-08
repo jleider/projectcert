@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:State_Seal_of_South_Dakota.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/7/73/State_Seal_of_South_Dakota.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:27:30.562Z
+Usage: per Wikimedia Commons license metadata at the source page.

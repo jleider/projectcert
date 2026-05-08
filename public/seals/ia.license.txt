@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:State_seal_of_Iowa.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/e/e7/State_seal_of_Iowa.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:26:24.985Z
+Usage: per Wikimedia Commons license metadata at the source page.

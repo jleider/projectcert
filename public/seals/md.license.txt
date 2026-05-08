@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_Maryland_(reverse).svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/0/00/Seal_of_Maryland_%28reverse%29.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:26:28.113Z
+Usage: per Wikimedia Commons license metadata at the source page.

@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_the_State_of_Indiana.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/6/61/Seal_of_the_State_of_Indiana.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:26:26.052Z
+Usage: per Wikimedia Commons license metadata at the source page.

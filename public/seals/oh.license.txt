@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_Ohio.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/f/f3/Seal_of_Ohio.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:27:10.503Z
+Usage: per Wikimedia Commons license metadata at the source page.

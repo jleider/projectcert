@@ -32,6 +32,8 @@ interface SourceRow {
 interface StateFile {
   usps: string;
   sources: SourceRow[];
+  verificationStatus: "baseline-2019" | "in-progress" | "verified-2026";
+  lastVerified: string;
 }
 
 const errors: string[] = [];
@@ -61,6 +63,35 @@ for (const f of files) {
     errors.push(`${usps} is defined in both ${seenUsps.get(usps)} and ${f}`);
   }
   seenUsps.set(usps, f);
+
+  // verified-2026 must leave an audit trail under sources/<USPS>/<date>/
+  // changes-from-baseline.md. Without it, a refresh can silently
+  // promote without recording what diverged from the 2019 baseline.
+  if (data.verificationStatus === "verified-2026") {
+    const stateSourcesDir = join(SOURCES_DIR, usps);
+    let foundChangesDoc = false;
+    try {
+      const dates = readdirSync(stateSourcesDir);
+      for (const dateDir of dates) {
+        const candidate = join(stateSourcesDir, dateDir, "changes-from-baseline.md");
+        try {
+          if (statSync(candidate).isFile()) {
+            foundChangesDoc = true;
+            break;
+          }
+        } catch {
+          // missing file — keep looking
+        }
+      }
+    } catch {
+      // missing per-state sources dir — falls through
+    }
+    if (!foundChangesDoc) {
+      errors.push(
+        `${usps}: verificationStatus=verified-2026 requires sources/${usps}/<date>/changes-from-baseline.md (none found)`,
+      );
+    }
+  }
 
   // Snapshot directory check.
   for (const src of data.sources ?? []) {

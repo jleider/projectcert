@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_Nevada.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/1/1a/Seal_of_Nevada.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:27:08.432Z
+Usage: per Wikimedia Commons license metadata at the source page.

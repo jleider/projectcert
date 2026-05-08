@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_Wisconsin.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/3/31/Seal_of_Wisconsin.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:27:32.563Z
+Usage: per Wikimedia Commons license metadata at the source page.

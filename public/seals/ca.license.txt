@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_California.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/0/0f/Seal_of_California.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:26:22.362Z
+Usage: per Wikimedia Commons license metadata at the source page.

@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:Seal_of_Michigan.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/3/3f/Seal_of_Michigan.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:26:28.706Z
+Usage: per Wikimedia Commons license metadata at the source page.

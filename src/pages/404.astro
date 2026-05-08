@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import StateLink from "@/components/StateLink.astro";
+import { getAllStates } from "@/lib/state-data";
+
+const states = await getAllStates();
+const examples = states.slice(0, 6);
+---
+
+<BaseLayout
+  title="Page not found"
+  description="That page isn't here. Try the map, the credentials index, or one of the per-state pages."
+>
+  <article class="max-w-2xl mx-auto px-4 py-12 text-center">
+    <p class="text-7xl font-bold text-ink mb-4" aria-hidden="true">404</p>
+    <h1 class="text-2xl font-semibold text-ink">That page isn't here.</h1>
+    <p class="mt-3 text-ink-muted">
+      Maybe a typo, or maybe a state code you spelled with the long name.
+      The atlas is organized by 2-letter USPS code — try one of these:
+    </p>
+
+    <ul class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+      {examples.map((s) => (
+        <li class="rounded border border-ink-subtle/20 px-3 py-2">
+          <StateLink usps={s.usps}>{s.name}</StateLink>
+          <span class="text-ink-subtle"> ({s.usps})</span>
+        </li>
+      ))}
+    </ul>
+
+    <nav class="mt-10 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" aria-label="Top destinations">
+      <a class="text-accent hover:underline" href="/">Home</a>
+      <a class="text-accent hover:underline" href="/map/">Map</a>
+      <a class="text-accent hover:underline" href="/credentials/bilingual/">Credentials</a>
+      <a class="text-accent hover:underline" href="/glossary/">Glossary</a>
+      <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
+    </nav>
+  </article>
+</BaseLayout>

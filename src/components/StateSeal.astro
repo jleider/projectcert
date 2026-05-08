@@ -1,0 +1,24 @@
+---
+interface Props {
+  /** USPS code (case-insensitive). */
+  usps: string;
+  /** Square render size in px. */
+  size?: number;
+  /** Extra classes appended to the wrapper. */
+  class?: string;
+}
+
+const { usps, size = 64, class: className = "" } = Astro.props;
+const src = `/seals/${usps.toLowerCase()}.svg`;
+---
+
+<img
+  src={src}
+  alt={`${usps} state seal`}
+  width={size}
+  height={size}
+  loading="lazy"
+  decoding="async"
+  class={`shrink-0 ${className}`}
+  style={`width: ${size}px; height: ${size}px; object-fit: contain;`}
+/>

@@ -1,0 +1,4 @@
+Source: https://commons.wikimedia.org/wiki/File:State_Seal_of_Vermont.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/0/08/State_Seal_of_Vermont.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
+Fetched: 2026-05-08T18:26:35.542Z
+Usage: per Wikimedia Commons license metadata at the source page.

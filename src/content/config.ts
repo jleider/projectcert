@@ -85,8 +85,18 @@ const ElpAssessment = z.object({
  * `sources[]` array; one-off references (e.g., a justia link for a
  * federal case) may live only here.
  */
+// History rows may be future-dated for known phase-ins (e.g. an
+// effective date that's already published). Cap at +10y so order-of-
+// magnitude typos like 9999-12-31 still fail loud.
+const tenYearsOut = (() => {
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 10);
+  return d.toISOString().slice(0, 10);
+})();
 const HistoryEvent = z.object({
-  date: isoDate,
+  date: isoDate.refine((d) => d <= tenYearsOut, {
+    message: `date is more than 10 years in the future — likely a typo`,
+  }),
   title: z.string().min(3),
   description: z.string().min(10),
   sourceUrls: z.array(z.string().url()).min(1, "Every history event needs at least one sourceUrl"),
