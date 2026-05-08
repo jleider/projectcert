@@ -129,6 +129,15 @@
       ]
     },
     {
+      "date": "2024-07-01",
+      "title": "ELP assessment migrated WIDA → ELPA21",
+      "description": "Per the May 30, 2024 SBE workshop 'English as a Second Language ELPA21 Transition' presentation, Tennessee transitioned from the WIDA ACCESS for ELLs to ELPA21 effective July 1, 2024, with the first ELPA21 Summative administration on February 5, 2025. The transition also introduced new Tennessee ELD Standards (10) aligned to the ELPA21 framework. The TDOE EL Assessments page now references ELPA21 as the operative annual ELP measure.",
+      "sourceUrls": [
+        "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/2024-SBE-Meetings/may-30-2024-sbe-workshop/5-30-24%20IV%20A%20English%20as%20a%20Second%20Language%20ELPA21%20Transition%20Presentation.pdf",
+        "https://www.tn.gov/education/districts/lea-operations/assessment/english-learner-assessments.html"
+      ]
+    },
+    {
       "date": "2026-05-08",
       "title": "Standards verified — promoted to verified-2026",
       "description": "Retrieved current SBE Policy 5.505 'Literacy and Specialty Area Standards for Educator Preparation' (revised 11/21/2025) and Policy 5.502 'Educator Licensure' (revised 02/21/2025). Policy 5.505 explicitly references diverse instructional practices, students' cultural and linguistic experiences, language/linguistic diversity as a source of strength, culturally relevant and responsive instruction, and English Learners by name (e.g., 'all learners (e.g., English Learners, students with disabilities, and at-risk learners)') in general literacy and early-childhood standards applicable beyond the ESL endorsement. ESL programs are aligned to TESOL P-12 Standards and require instruction on the Tennessee EL Framework. All four professionalStandardsMentions booleans (diverse, cultural, linguistic, el) confirmed true against the current standards document.",
