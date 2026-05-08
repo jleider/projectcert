@@ -104,6 +104,23 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2019-01-01",
+      "title": "Mississippi Seal of Biliteracy adopted",
+      "description": "MDE adopted the Mississippi Seal of Biliteracy in 2019, recognizing high school graduates who demonstrate proficiency in English and one or more world languages. The MDE EL services page continues to link to the Seal policy.",
+      "sourceUrls": [
+        "https://www.mdek12.org/OAE/EL"
+      ]
+    },
+    {
+      "date": "2024-08-01",
+      "title": "ELP assessment migration: LAS Links → ELPA21 Summative",
+      "description": "Mississippi migrated its annual English Language Proficiency assessment from LAS Links to ELPA21 during the 2024-25 school year. The MDE ELPT page now references ELPA 21 as the contact and ties to the February 2026 Mississippi Testing Accommodations Manual; the MDE EL services page lists \"Interpreting ELPA21 Score Reports\" as a webinar topic. ELPA21's Spring 2025 Insider newsletter named Mississippi the consortium's \"newest partner state\" at AMTESOL 2025. This flips `elpAssessment.name` from \"LAS Links\" to \"ELPA21 Summative\" and `elpAssessment.consortium` from null to \"ELPA21\".",
+      "sourceUrls": [
+        "https://www.mdek12.org/OSA/ELPT",
+        "https://elpa21.org/elpa21-insider-newsletter-spring-2025/"
+      ]
     }
   ]
 }
