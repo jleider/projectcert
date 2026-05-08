@@ -116,6 +116,31 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2016-06-14",
+      "title": "Seal of Biliteracy authorized by Substitute SB 3",
+      "description": "Ohio General Assembly enacted Substitute Senate Bill 3 (131st GA, 2016) authorizing a State Seal of Biliteracy. Program launched in the 2017–18 academic year for the Class of 2018 graduates; sealofbiliteracy.org records adoption as 2017-03-16.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/ohio/"
+      ]
+    },
+    {
+      "date": "2023-07-04",
+      "title": "ODE renamed Ohio Department of Education and Workforce (ODEW)",
+      "description": "House Bill 33 (FY24-25 biennial budget, signed 2023-07-04) reorganized and renamed the Ohio Department of Education to the Ohio Department of Education and Workforce. The education.ohio.gov domain continues to resolve and current SEA pages display the ODEW banner. Structural change only; EL-related teacher credentialing requirements were not altered.",
+      "sourceUrls": [
+        "https://education.ohio.gov/Topics/Student-Supports/English-Learners"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Phase 2 verification (verified-2026)",
+      "description": "Re-verified bilingual + TESOL pathway structure against current ODEW guidance and OAC 3301-13-11 OELPA mandate. elPercent updated to 3.8% (NCES Digest 2023, Table 204.20, Fall 2021). Filled previously-null requirements.coursework/practicum=true for both bilingual and ELD reflecting approved-program structure. ELPA21 / OELPA confirmed.",
+      "sourceUrls": [
+        "https://education.ohio.gov/Topics/Testing/Ohio-English-Language-Proficiency-Assessment-OELPA/Ohio-English-Language-Proficiency-Assessment-OELPA",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      ]
     }
   ]
 }
