@@ -1,28 +1,31 @@
 {
   "usps": "KS",
   "name": "Kansas",
-  "elPercent": 10.3,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 8.0,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Kansas does not offer a bilingual-education teacher credential. Neither the KSDE 'Adding an Endorsement' page nor the Higher Education Teacher Preparation Standards index lists a bilingual endorsement; only an ESOL endorsement exists."
     },
     "eld": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
+        "program": true,
+        "coursework": true,
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ESOL endorsement (K.A.R. 91-1-203, updated March 2023) is an add-on to an existing Kansas teaching license, with two pathways: Option 1 — complete a state-approved ESOL program at a Kansas IHE plus pass the state-approved ESOL content exam; Option 2 ('Test Plus') — complete state-approved ESOL content-specific coursework at an approved KS institution (e.g., FHSU ESOL 884/885; KU C&T 330/331/491 or 820/825; K-State EDCI 420/431 or 720/742; McPherson CI 428/628; Newman EDUC 6133/6113; Washburn ED 650/624; Wichita State CI 775) plus pass the ESOL content exam. Practicum is included in some institutional pathways (FHSU, KU) but is not a statewide regulatory requirement, so coded null."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Kansas has no statewide sheltered-English-instruction (SEI) mandate for all teachers. The Professional Education Standards (adopted 2015, revised 2016) embed EL-relevant competencies in Standard 2 (Learning Differences) — including 2.1.5PS on strategies for making content accessible to English language learners — but these are teacher-preparation program standards, not an SEI endorsement requirement."
     }
   },
   "professionalStandardsMentions": {
@@ -53,8 +56,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "KSDE — English Speakers of Other Languages (ESOL) License Endorsement Requirements (K.A.R. 91-1-203, updated March 2023)",
+      "url": "https://www.ksde.gov/licensure/teacher-licensure/ESOL",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "KSDE — Adding an Endorsement to Your License (lists ESOL among endorsements that cannot be added by content test only; Test Plus required)",
+      "url": "https://www.ksde.gov/licensure/teacher-licensure/Adding-An-Endorsement-to-Your-License",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "KSDE — Higher Education Teacher Preparation Standards (index)",
+      "url": "https://www.ksde.gov/licensure/higher-education/higher-education-teacher-preparation-standards",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "KSDE — Professional Education Teacher Preparation Standards (adopted 2015-01-13; edited 2016-04-29 to include ESOL/virtual learning)",
+      "url": "https://www.ksde.gov/docs/default-source/licensure/higher-education-teacher-preparation-professional-education-standards00510e6c-d9b0-48e1-a8c1-2ee65299327c.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "KSDE — English for Speakers of Other Languages (ESOL) Teacher Preparation Standards (adopted 2017-05-09)",
+      "url": "https://www.ksde.gov/docs/default-source/licensure/english-for-speakers-of-other-languages-(esol)-grades-k-6-5-8-6-12-and-prek-12-teacher-preparation-standards.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learner share of public-school enrollment by state (Kansas Fall 2021: 8.0%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
