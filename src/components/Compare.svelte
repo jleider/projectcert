@@ -255,7 +255,7 @@
             <th
               scope="row"
               class="px-3 py-2 text-left text-ink-muted font-medium cursor-help underline decoration-dotted decoration-ink-subtle/50 underline-offset-4"
-              title="Percentage of public-school students in the state classified as English Learners (2019 baseline)."
+              title="Percentage of public-school students in the state classified as English Learners. See the per-state record for the as-of date and source."
             >
               % classified ELs
             </th>
