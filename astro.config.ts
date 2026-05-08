@@ -1,12 +1,14 @@
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
-import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import { SITE_URL } from "./src/config/site";
 
+// Tailwind 3 wired via PostCSS (postcss.config.cjs). The
+// @astrojs/tailwind integration was dropped in Astro 6; on Tailwind 3
+// the recommended path is PostCSS, on Tailwind 4 it's @tailwindcss/vite.
 export default defineConfig({
   site: SITE_URL,
-  integrations: [svelte(), tailwind({ applyBaseStyles: false }), sitemap()],
+  integrations: [svelte(), sitemap()],
   build: {
     format: "directory",
   },

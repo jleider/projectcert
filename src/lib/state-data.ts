@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import type { State } from "@/content/config";
+import type { State } from "@/content.config";
 
 export {
   CREDENTIAL_TYPES,

@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD");
 
@@ -141,10 +142,10 @@ export const StateSchema = z
     { message: "history[] must be sorted oldest → newest by date", path: ["history"] },
   );
 
-export type State = z.infer<typeof StateSchema>;
+export type State = typeof StateSchema._output;
 
 const states = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/*.json", base: "./src/content/states" }),
   schema: StateSchema,
 });
 

@@ -8,7 +8,7 @@
  * directly cited by an LLM or AI search engine.
  */
 
-import type { State } from "@/content/config";
+import type { State } from "@/content.config";
 
 function bilingualClause(state: State): string {
   const b = state.credentials.bilingual;

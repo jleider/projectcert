@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { StateSchema } from "../src/content/config";
+import { StateSchema } from "../src/content.config";
 import { STATES } from "../src/data/states-meta";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
