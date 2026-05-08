@@ -165,6 +165,15 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2026-05-07",
+      "title": "Re-verified against current OSPI/PESB sources",
+      "description": "Bilingual.standalone and ELD.standalone both true → false — Washington's ELL and Bilingual credentials are PESB endorsements added to a teaching certificate, not standalone licenses (WAC 181-82A). Standards.diverse and .el corrected false → true (InTASC, adopted by PESB as the role standards, explicitly enumerates 'English language learners' across Standards 1, 2, 6, 8 and references linguistic diversity; 2022 CCDEI standards add the diverse and cultural framing). TBIP renamed to Multilingual Education in OSPI guidance.",
+      "sourceUrls": [
+        "https://www.pesb.wa.gov/",
+        "https://ospi.k12.wa.us/"
+      ]
     }
   ]
 }

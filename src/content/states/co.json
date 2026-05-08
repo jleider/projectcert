@@ -135,6 +135,14 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2026-05-07",
+      "title": "Re-verified against current CDE sources",
+      "description": "Bilingual reclassified standalone → add-on (CDE explicitly classifies both CLDE and CLD Bilingual Education as 'added endorsements only'). New 45-hour EL professional-development requirement effective 2025-09-01 for educators renewing licenses with elementary, ELA, math, science, or social-studies endorsements. Standards corrections: linguistic true → false (text says 'language', not 'linguistic'); el false → true (2011 Quality Standards 2.4 explicitly names English language learners).",
+      "sourceUrls": [
+        "https://www.cde.state.co.us/cdeprof"
+      ]
     }
   ]
 }

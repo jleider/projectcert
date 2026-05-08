@@ -147,6 +147,11 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2026-05-07",
+      "title": "Re-verified against current NMPED sources",
+      "description": "Standards.linguistic and .el both corrected to false — 6.69.4 NMAC (the general teacher competencies) contains zero mentions of EL/ELL/English learner/second language/bilingual, and the word 'linguistic' does not appear. elPercent 16.3 → 18.8 (NCES fall 2021). Notes expanded with Yazzie/Martinez v. State of New Mexico litigation and remediation context through plaintiffs' February 2026 objections to the State's November 2025 remedial action plan."
     }
   ]
 }
