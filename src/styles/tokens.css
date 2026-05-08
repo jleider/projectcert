@@ -196,6 +196,15 @@
   html {
     color-scheme: dark;
   }
+
+  /* Soften hairline card borders in dark mode without dimming
+   * `--ink-subtle` itself (which is also used for muted text). */
+  .border-ink-subtle\/20 {
+    border-color: rgb(108 114 127 / 0.10);
+  }
+  .border-ink-subtle\/30 {
+    border-color: rgb(108 114 127 / 0.18);
+  }
 }
 
 /* Base typography */
