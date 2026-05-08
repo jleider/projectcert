@@ -1,8 +1,8 @@
 {
   "usps": "ND",
   "name": "North Dakota",
-  "elPercent": 3.4,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 3.3,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -13,20 +13,22 @@
         "coursework": true,
         "practicum": true,
         "test": false,
-        "languageProficiency": null
-      }
+        "languageProficiency": true
+      },
+      "notes": "Bilingual education endorsement (NDAC code 24500) — ELD endorsement requirements plus methods of teaching bilingual education and 16 semester hours in a language other than English OR documented proficiency in a language other than English."
     },
     "eld": {
       "offered": true,
-      "standalone": false,
+      "standalone": true,
       "addOn": true,
       "requirements": {
         "program": null,
         "coursework": true,
         "practicum": true,
-        "test": null,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "English Learner (EL) Endorsement (NDAC code 24000) — 16 semester hours across foundations/multicultural ed, linguistics, methods of teaching ESL, assessment of culturally diverse students, and field experience. Praxis ESOL is an alternative pathway in lieu of full coursework. ND is a WIDA member; the state ELP assessment is WIDA ACCESS for ELLs. ND adopted the Seal of Biliteracy in 2019 (NDSB, operated by NDDPI). Schema does not currently have dedicated fields for ELP assessment or Seal of Biliteracy; these facts are recorded here and in sources/ND/2026-05-08/changes-from-baseline.md."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -35,8 +37,8 @@
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": false,
-    "el": false
+    "linguistic": true,
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
@@ -60,8 +62,62 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "ND ESPB — English Learner (EL) Endorsement page",
+      "url": "https://www.nd.gov/espb/licensure/endorsement-information/english-learner-el-endorsement",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ND ESPB — Types of Licenses page",
+      "url": "https://www.nd.gov/espb/licensure/license-information/types-licenses",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDAC Chapter 67.1-02-03 (Re-Education) — incl. § 67.1-02-03-05 Bilingual / English Language Development Endorsement",
+      "url": "https://ndlegis.gov/information/acdata/pdf/67.1-02-03.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ND ESPB — InTASC Model Core Teaching Standards (Final, August 2015), adopted by ESPB",
+      "url": "https://www.nd.gov/espb/sites/www/files/documents/FINAL-INTASC-Standards-August-2015.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDDPI — English Learner / Multicultural Education program page",
+      "url": "https://www.nd.gov/dpi/education-programs/english-learnermulticultural-education",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDDPI — ACCESS for ELLs (WIDA) page",
+      "url": "https://www.nd.gov/dpi/districtsschools/assessment/access-ells",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDDPI — EL Data and Reporting page",
+      "url": "https://www.nd.gov/dpi/education-programs/english-learnermulticultural-education/el-data-and-reporting",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics, Table 204.20 — English learners enrolled in public schools, by state, Fall 2011 through Fall 2021 (2023 edition)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — North Dakota state page",
+      "url": "https://sealofbiliteracy.org/state/north-dakota/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
