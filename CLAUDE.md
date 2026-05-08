@@ -74,6 +74,16 @@ something) — and record that reason in the commit.
 Edit `src/content/states/<usps>.json` and run `npm run validate`. Use
 the `state-source-refresh` skill for the verification workflow.
 
+### Attribution is enforced
+
+If anyone uses data from this site, they must cite both the seed paper
+(Leider, Colombo & Nerlino, 2021) **and** this site, plus the relevant
+per-state SEA source for any specific fact quoted. The "How to cite"
+section in `src/pages/about.astro` is the canonical citation block;
+the footer links to it from every page. When changing the about page
+or footer, do not remove or downgrade these — the authors made the
+catalog possible and citing only this site would obscure them.
+
 ### External links open in new tabs
 
 Any link to a URL outside projectcert (SEA pages, the seed paper's DOI,
@@ -96,6 +106,8 @@ swap. Tokens live in `src/styles/tokens.css`.
 | `ELD credential` | Amber | `--eld-0` / `-2` / `-3` | Categorical |
 | `SEI mandate` | Teal | `--sei-0` / `-3` | Binary |
 | `Standards mention ELs` | Rose | `--standards-0` / `-3` | Binary |
+| `Seal of Biliteracy` | Indigo | `--seal-0` / `-3` | Binary |
+| `ELP assessment` | Lime | `--elp-0` / `-2` / `-3` | Categorical (state-specific / ELPA21 / WIDA) |
 
 Token naming follows `--{layer}-{level}` where level `0` = none/off,
 `2` = mid, `3` = full/on (matches `--bin-N` indexing).
@@ -103,6 +115,8 @@ Token naming follows `--{layer}-{level}` where level `0` = none/off,
 **Adding a new layer** is mechanical:
 
 1. Add tokens to `src/styles/tokens.css` with contrast-check comments.
+   Add **both** light-mode (`:root`) and dark-mode
+   (`@media (prefers-color-scheme: dark)`) values.
 2. Add a `LEGENDS[layer]` entry in
    `src/components/MapExplorer.svelte`.
 3. Add a branch to `fillFor()` and `describe()` in
@@ -113,6 +127,9 @@ Token naming follows `--{layer}-{level}` where level `0` = none/off,
    the documented exception — adjacent 3:1 across four solid stops
    is mathematically infeasible, so it's enforced as `informational`
    and relies on legend text labels (SC 1.4.1) for meaning.
+   *Categorical (not ordinal) layers may also relax adjacent contrast
+   when meaning is carried by the legend label rather than luminance
+   ordering — see "Dark theme" below.*
 
 Do **not** reuse the `--bin-N` purple palette for non-`elPercent`
 layers — purple is reserved for the sequential bin layer with
@@ -121,6 +138,65 @@ hatched-pattern affordance.
 State fills do not render text on top (the DC callout label sits
 *below* its rect on the white surface), so contrast budgets only
 need to consider fill-vs-fill adjacency, not text-on-fill.
+
+### Dark theme
+
+The site supports `prefers-color-scheme: dark` via token overrides in
+`src/styles/tokens.css`. Two non-obvious decisions to preserve:
+
+- **Choropleth palettes are remapped, not just dimmed.** In dark mode
+  every layer's palette inverts luminance direction: light tile = low
+  value, bright/saturated tile = high value (opposite of the
+  light-mode "more = darker" convention). Hue per layer is held
+  constant so the variable encoding ("purple = % EL", "green =
+  bilingual", …) is recognizable across themes; only luminance flips
+  so tiles read against the dark surface. Don't "fix" this by
+  re-aligning the direction.
+- **Visibility of the low-end tile beats strict 3:1 adjacency** for
+  categorical layers (`bilingual`, `elp`). On a dark surface the dim
+  end of a 3-stop palette has to sit far enough above the surface to
+  be clearly visible, which compresses adjacent contrast below the
+  schema's 3:1 target. This is acceptable for categorical layers
+  because the legend label carries the meaning. Sequential layers
+  (`elPercent` only) still hold to ≥3:1 adjacency.
+- **`scripts/check-contrast.ts` currently audits light-mode only.**
+  Dark-mode pairings are eyeballed. If you change a dark-mode token,
+  re-eyeball or extend the script to cover dark-mode pairs.
+- **Standalone SVGs in `public/` (favicon, logo) cannot inherit CSS
+  custom properties from the embedding page.** They mirror the token
+  palette internally and flip via `prefers-color-scheme` inside the
+  SVG `<style>`. If you change a brand or bin token in `tokens.css`,
+  also update the inline values in `public/favicon.svg` and
+  `public/logo.svg` to keep them in sync.
+
+### Parallel state refreshes via worktree subagents
+
+Verifications scale by spawning one subagent per state with
+`isolation: "worktree"`. Practical lessons from the bulk Phase 2 sweep:
+
+- **Batch size: 3-at-a-time, not 40+.** A large parallel fan-out
+  (>15 in flight) will exhaust the account-wide token quota for the
+  day and the latter agents will report "completed" with a "you've
+  hit your limit" body — meaning rate-limited, not done. Three
+  concurrent agents is the sweet spot.
+- **Worktree branch naming is non-uniform.** Some agents commit on
+  `worktree-agent-<id>` (the harness-default branch); others
+  self-name something like `verify/<state>-<date>` or
+  `verify-<state>-2026-XX-XX`. When cherry-picking back to `main`,
+  check both. `git branch --list 'verify*' 'worktree-agent-*'` will
+  enumerate them.
+- **Worktree branches may be stale relative to `main`.** If main has
+  evolved since the worktree was spawned (new schema fields, etc.),
+  the agent's commit will lack those fields and a naive cherry-pick
+  produces conflicts or duplicate JSON keys. Two mitigations: tell
+  the spawning prompt to `git merge main --no-edit` first, and
+  cherry-pick with `-X theirs` to prefer the agent's edits while
+  letting main's additive fields survive.
+- **Watch for false-positive completions.** The agent harness emits
+  a "completed" notification when the agent process exits — for any
+  reason. Always verify by checking the worktree branch's `git log`
+  and the `verificationStatus` field on the state JSON before
+  concluding the work landed.
 
 ### EL data nuances to keep in mind
 

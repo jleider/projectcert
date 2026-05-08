@@ -73,9 +73,49 @@ For `professionalStandardsMentions`: open the current professional
 teaching standards document. Search for `diverse, cultural, language,
 linguistic, EL, English`. Refresh the four booleans.
 
-For `elPercent`: prefer NCES "English Learners in Public Schools"
-table (current year) over an SEA-specific number, for cross-state
-comparability. Update `elPercentAsOf`.
+For `elPercent`: the canonical source is **NCES Digest of Education
+Statistics, Table 204.20** ("English Learners in Public Schools").
+The most recent table at the time of this skill's authorship is the
+2023 Digest reporting fall 2021 enrollment — code `elPercentAsOf:
+"2021-10-01"`. Pull the SD-row's percent to one decimal. Use an
+SEA-specific number only as a sanity-check; do not substitute.
+
+URL: <https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp>
+
+### 3b. Watch for common baseline miscodings
+
+The 2019 baseline systematically miscoded a few patterns. When you
+re-verify, double-check these specifically:
+
+- **`bilingual.standalone: true`** is often wrong. Many states offer
+  bilingual *only* as an add-on endorsement on top of a primary
+  license; coding standalone-true should require a license-list entry
+  for "Bilingual Education" as its own field. CT, KS, MN, NY, VT, WA,
+  and WI all flipped to false on refresh.
+- **`eld.standalone` vs `eld.addOn`** — same pattern. Some states
+  classify ESL as a free-standing license (TX, NY, MA), some as an
+  add-on only (ME, MS, MD), some both (NC, OH, IL).
+- **`professionalStandardsMentions.{linguistic, el}`** were sometimes
+  coded `true` against an EL-specific ESOL rule rather than the
+  state's general teaching standards document. The four flags should
+  reflect the *general* teaching standards (the document binding all
+  teachers, not the ESOL-specialty subset).
+
+### 3c. ELP-assessment migrations to verify
+
+Several states have migrated their annual ELP test in the last few
+years; do not assume the cross-state dataset is current:
+
+- **TN: WIDA → ELPA21** effective 2024-07-01 (per TDOE/SBE workshop
+  May 2024). First ELPA21 Summative Feb 5, 2025.
+- **MS: LAS Links → ELPA21** during 2024-25 (per ELPA21 Insider
+  Spring 2025; MDE ELPT page now references ELPA 21).
+- **NY: never WIDA** — uses NYSESLAT (state-specific) since 2003.
+  Companion screener is NYSITELL.
+
+If the existing `elpAssessment` field looks WIDA but the SEA's own
+EL-assessment page contradicts that, trust the SEA's page and
+correct.
 
 ### 3a. Capture history events
 
@@ -183,6 +223,35 @@ The pre-launch banner count updates automatically on next build.
 - Don't change the schema. If a state has a credential that genuinely
   doesn't fit (e.g., a brand new program type), stop and discuss the
   schema change separately rather than smuggling new fields in.
+
+## Common fetch failures and pivots
+
+SEA pages fail in predictable ways. Don't burn 600 seconds retrying
+the same URL — pivot to an alternate after two strikes.
+
+- **Cloudflare 1020 / "Access denied"** on `curl` and sometimes
+  `WebFetch`. Common on CTC (CA), MO DESE, several others. Pivot:
+  WebFetch directly (it sometimes succeeds where curl is blocked); or
+  use a mirror like `txrules.elaws.us`, `law.cornell.edu/regulations`,
+  or `revisor.mn.gov/rules` that hosts the same regulatory text.
+- **`acrobat.adobe.com` session-bound PDF URLs** (PTSB Wyoming and
+  similar) — can't be fetched headlessly. Pivot to the parent page's
+  HTML summary plus a Wayback Machine capture of the PDF, or skip the
+  source and ground the field elsewhere.
+- **Pages with large embedded images** (>2000px) trip the agent's
+  image-size limit and can crash the run. Avoid SEA dashboards and
+  pages that lead with hero graphics. Prefer text-heavy rule pages.
+- **Scanned PDFs without an OCR text layer** (some WV, older
+  legacy docs). Use `tesseract` on a saved page-image, or fall back
+  to the text version published alongside the PDF.
+- **State DOE URL renames** — common since 2019. If the baseline URL
+  404s, search the SEA homepage for the current section (`teacher
+  licensure`, `educator preparation`, `English learners`) before
+  giving up. Document any disappearance in `changes-from-baseline.md`.
+- **Agent watchdog stall (no progress for 600s)** — usually triggered
+  by the agent retrying a dead URL or a paginated PDF in a tight
+  loop. Sign of failure: same URL fetched 3+ times. Better pattern:
+  one fetch, evaluate, pivot.
 
 ## Resuming a partial refresh
 
