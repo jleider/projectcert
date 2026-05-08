@@ -113,6 +113,30 @@
       ]
     },
     {
+      "date": "2015-06-09",
+      "title": "Nevada Seal of Biliteracy enacted (AB 224, 2015)",
+      "description": "Nevada Assembly Bill 224 (2015 session, signed 2015-06-09) created the State Seal of Biliteracy under NRS 388.5965, recognizing high school graduates proficient in English plus one or more additional languages.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/nevada/"
+      ]
+    },
+    {
+      "date": "2019-07-01",
+      "title": "Phase-in of EL endorsement for new teachers did not produce universal mandate",
+      "description": "The 2019 baseline reported a phase-in requiring all new early-childhood/elementary teachers (2020) and middle/secondary teachers (2021) to obtain an EL endorsement. As of 2026 NAC ch. 391 contains no general mandate that all teachers hold ELAD or any EL-related endorsement; the phased rule did not result in a universal credential requirement. Captured here so the 2019 expectation is searchable against the 2026 state of regulation.",
+      "sourceUrls": [
+        "https://www.leg.state.nv.us/nac/nac-391.html"
+      ]
+    },
+    {
+      "date": "2024-12-26",
+      "title": "NAC 391 endorsements update (regulation T002-24)",
+      "description": "Permanent regulation T002-24 amended NAC ch. 391 effective 2024-12-26, including the bilingual education endorsement requirements at NAC 391.242 and confirming the Praxis native-language proficiency exam (NAC 391.059) as a precondition for issuance. The TESL → ELAD branding is reflected throughout NAC 391.237.",
+      "sourceUrls": [
+        "https://www.leg.state.nv.us/nac/nac-391.html"
+      ]
+    },
+    {
       "date": "2026-05-07",
       "title": "Re-verified against current NDE sources",
       "description": "Confirmed Nevada's rename of TESL → ELAD (English Language Acquisition and Development) under NAC 391.237. Bilingual.program null → true (NAC 391.242 names an approved program pathway); bilingual.test null → true (T002-24, effective 2024-12-26, requires a Praxis language exam prior to issuance). The 2019 'SEI phase-in' note retired — ELAD remains a voluntary specialization, not a universal mandate. elPercent 17.1 → 13.8 (NCES fall 2021; NCES flags NV's drop as the largest 2011–2021 negative change nationally)."
