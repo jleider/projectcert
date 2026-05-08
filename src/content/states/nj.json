@@ -1,48 +1,50 @@
 {
   "usps": "NJ",
   "name": "New Jersey",
-  "elPercent": 5.9,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 8.2,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
+        "coursework": true,
         "practicum": null,
         "test": null,
         "languageProficiency": true
-      }
+      },
+      "notes": "Bilingual/Bicultural Education endorsement (code 1480) under N.J.A.C. 6A:9B-11.5. Add-on to a CE, CEAS, or standard NJ instructional certificate. CEAS path: complete a Department-approved bilingual/bicultural preparation program. CE path: 12 credit hours of formal instruction. Target-language proficiency required via a Department-approved nationally recognized oral/written test (or equivalent undergrad/graduate education in the target language)."
     },
     "eld": {
       "offered": true,
-      "standalone": true,
+      "standalone": false,
       "addOn": true,
       "requirements": {
         "program": true,
-        "coursework": null,
+        "coursework": true,
         "practicum": null,
         "test": true,
         "languageProficiency": false
       },
-      "notes": "English proficiency requirement explicit."
+      "notes": "English as a Second Language endorsement (code 1475) under N.J.A.C. 6A:9B-11.6. Add-on to an underlying NJ instructional certificate. Path A: Department-approved NJ college/university preparation program. Path B: 15 credit hours of formal instruction across seven topic areas. Department-approved nationally recognized test of oral and written English proficiency required. languageProficiency=false because the ESL endorsement is not premised on a non-English target language; the proficiency requirement is English."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No statewide SEI mandate for general classroom teachers. NJ requires ESL teachers to hold an ESL endorsement; LEAs serving 10+ multilingual learners must offer one period daily of ESL by a certified teacher (N.J.S.A. 18A:6-38; N.J.A.C. 6A:9B-11.6)."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": false
+    "el": true
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2016,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://www.nj.gov/education/standards/worldlang/SealofBiliteracy.shtml"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -61,8 +63,62 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "N.J.A.C. 6A:9B-11.5 — Bilingual/bicultural education endorsement",
+      "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-6A-9B-11-5",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "N.J.A.C. 6A:9B-11.6 — English as a second language endorsement",
+      "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-6A-9B-11-6",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NJDOE — Multilingual Learners (MLs) Educator Certification",
+      "url": "https://www.nj.gov/education/title3/educators/certification.shtml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NJDOE — English as a Second Language (ESL) Requirements (district-side)",
+      "url": "https://www.nj.gov/education/title3/district/program_eslrequirements.shtml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NJDOE — Bilingual Education Requirements (district-side)",
+      "url": "https://www.nj.gov/education/title3/district/program_blerequirements.shtml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "N.J.A.C. 6A:9-3.3 — New Jersey Professional Standards for Teachers",
+      "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-6A-9-3-3",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NJDOE — State Seal of Biliteracy (P.L. 2015, c. 303; established 2016)",
+      "url": "https://www.nj.gov/education/standards/worldlang/SealofBiliteracy.shtml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium membership listing (NJ uses ACCESS for ELLs)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest 2023, Table 204.20 — EL students by state (NJ fall 2021: 8.2%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp?current=yes",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
