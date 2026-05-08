@@ -4,9 +4,9 @@
     Standalone SVGs can't inherit CSS custom properties from the
     embedding page, so the brand-mark palette is mirrored here as
     in-SVG vars and flipped for dark backgrounds via media query.
-    Light-mode values mirror tokens.css `--bin-0`..`--bin-3`. Dark-mode
-    values are tuned for browser-tab-bar visibility — the data-ramp
-    dark-mode `--bin-0` (#3a2c54) would disappear into a dark tab bar,
+    Light-mode values mirror tokens.css bin-0..bin-3. Dark-mode values
+    are tuned for browser-tab-bar visibility — the data-ramp dark-mode
+    bin-0 (#3a2c54) would disappear into a dark tab bar,
     so the favicon shifts the darkest tile lighter rather than mirroring
     the data ramp directly.
   -->

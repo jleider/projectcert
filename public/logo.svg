@@ -5,8 +5,8 @@
     embedding page. We mirror the design-token palette internally and
     flip via prefers-color-scheme so the logo adapts when displayed
     in dark contexts (in-page, social-share previews on dark clients,
-    etc.). Light-mode values mirror tokens.css `--bin-0`..`--bin-3`,
-    `--ink`, and `--brand`. Dark-mode values mirror the dark theme.
+    etc.). Light-mode values mirror tokens.css bin-0..bin-3, ink, and
+    brand. Dark-mode values mirror the dark theme.
   -->
   <style>
     svg {
