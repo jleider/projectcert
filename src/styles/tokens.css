@@ -206,7 +206,10 @@
     border-color: rgb(144 151 164 / 0.35);
   }
   .border-accent\/40 {
-    border-color: rgb(58 204 106 / 0.28);
+    border-color: rgb(58 204 106 / 0.42);
+  }
+  .border-accent\/30 {
+    border-color: rgb(58 204 106 / 0.20);
   }
 }
 
