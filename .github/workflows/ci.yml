@@ -68,10 +68,16 @@ jobs:
           # Internal-only by default — external SEA links live and die
           # on their own schedule and would make this gate flaky. Run
           # the external sweep on a schedule, not per-PR.
+          # Exclude fragment-only links (#main, #how-to-cite, etc.):
+          # lychee 0.23+ resolves them against --base and reports them
+          # as missing files, but they are in-page anchors that the
+          # browser handles client-side. We don't validate anchor
+          # targets here — the page-level check is the build itself.
           args: |
             --offline
             --no-progress
             --root-dir ${{ github.workspace }}/dist
             --base ${{ github.workspace }}/dist
+            --exclude '^file://.*#[^/]+$'
             ./dist/**/*.html
           fail: true
