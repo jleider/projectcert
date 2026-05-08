@@ -8,6 +8,7 @@ export {
   type Layer,
   type ChoroplethDatum,
   stateUrl,
+  absoluteStateUrl,
 } from "./state-types";
 import type { ChoroplethDatum } from "./state-types";
 

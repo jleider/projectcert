@@ -12,6 +12,7 @@ import { STATE_LOCAL_NAMES } from "@/data/terminology";
 import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
 import { SITE_URL } from "@/config/site";
 import { breadcrumbWithHome } from "@/lib/jsonld";
+import { absoluteStateUrl } from "@/lib/state-data";
 
 export async function getStaticPaths() {
   const entries = await getCollection("states");
@@ -31,7 +32,7 @@ const localNames = STATE_LOCAL_NAMES[s.usps];
 
 const standardsCount = Object.values(s.professionalStandardsMentions).filter(Boolean).length;
 
-const stateUrl = `${SITE_URL}/states/${s.usps.toLowerCase()}/`;
+const stateUrl = absoluteStateUrl(SITE_URL, s.usps);
 const lead = leadParagraph(s);
 const stateJsonLd = [
   {

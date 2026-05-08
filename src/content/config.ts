@@ -79,15 +79,17 @@ const ElpAssessment = z.object({
  * Used to surface the substantive policy moments behind the static
  * snapshot (e.g., AZ's Prop 203 (2000) → HB 2064 (2006) → 2019 ELD-block
  * reduction; NM's Yazzie/Martinez ruling and remediation milestones).
- * `description` is short prose; `sourceUrls` is optional supporting links
- * (each must already appear in the state's `sources[]` array if they're
- * load-bearing — this field is for reader convenience, not provenance).
+ * `description` is short prose; `sourceUrls` is required (≥1) so every
+ * dated event in the catalog points the reader at an authority for the
+ * claim. URLs that are load-bearing should also appear in the state's
+ * `sources[]` array; one-off references (e.g., a justia link for a
+ * federal case) may live only here.
  */
 const HistoryEvent = z.object({
   date: isoDate,
   title: z.string().min(3),
   description: z.string().min(10),
-  sourceUrls: z.array(z.string().url()).optional(),
+  sourceUrls: z.array(z.string().url()).min(1, "Every history event needs at least one sourceUrl"),
 });
 
 export const StateSchema = z.object({

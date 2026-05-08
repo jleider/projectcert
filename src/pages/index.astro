@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Choropleth from "@/components/Choropleth.svelte";
 import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
 import CitationBlock from "@/components/CitationBlock.astro";
-import { getChoroplethData, getAllStates } from "@/lib/state-data";
+import { getChoroplethData, getAllStates, absoluteStateUrl } from "@/lib/state-data";
 import { SITE_URL } from "@/config/site";
 
 const data = await getChoroplethData();
@@ -47,9 +47,9 @@ const homeJsonLd = {
   ],
   dataset: states.map((s) => ({
     "@type": "Dataset",
-    "@id": `${SITE_URL}/states/${s.usps.toLowerCase()}/#dataset`,
+    "@id": `${absoluteStateUrl(SITE_URL, s.usps)}#dataset`,
     name: `${s.name} EL teacher certification`,
-    url: `${SITE_URL}/states/${s.usps.toLowerCase()}/`,
+    url: absoluteStateUrl(SITE_URL, s.usps),
     dateModified: s.lastVerified,
   })),
 };
