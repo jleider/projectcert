@@ -123,11 +123,11 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "date": "1976-08-25",
+      "title": "Bilingual Instruction codified in the Revised School Code (MCL 380.1153)",
+      "description": "Michigan's Revised School Code (1976 PA 451), § 380.1153, requires any school district that has 20 or more EL students of the same language background enrolled at any one school to provide a bilingual instruction program in that language and English. The provision originated in 1974 PA 294 (the State Bilingual Instruction Act) and was carried forward into the 1976 Revised School Code. MCL 380.1153 is the legal source of Michigan's bilingual endorsement (BR) and the operative 20-student program-trigger threshold MDE still administers.",
       "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
+        "https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-380-1153"
       ]
     },
     {
@@ -152,6 +152,14 @@
       "description": "MDE adopted the PK-12 Standards for the Preparation of Teachers (Professional Knowledge and Skills), which explicitly enumerate `linguistic` diversity and contain multiple operative references to `English learners` and `English language learners`. Subsequent revisions through 2024 retained and strengthened this language. Grounds the `professionalStandardsMentions.linguistic: true` and `.el: true` flips from the 2019 baseline.",
       "sourceUrls": [
         "https://www.michigan.gov/-/media/Project/Websites/mde/educator_services/prep/standards/professional_knowledge_skills.pdf"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     }
   ]

@@ -116,19 +116,27 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
-      "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
-      "sourceUrls": [
-        "https://doi.org/10.14507/epaa.29.5279"
-      ]
-    },
-    {
       "date": "2016-04-14",
       "title": "Oregon Seal of Biliteracy adopted",
       "description": "Oregon adopted a State Seal of Biliteracy on 2016-04-14 (per sealofbiliteracy.org/state/or/). Awarded to graduating high school students who demonstrate proficiency in English plus one or more additional languages.",
       "sourceUrls": [
         "https://sealofbiliteracy.org/state/or/"
+      ]
+    },
+    {
+      "date": "2017-06-28",
+      "title": "Senate Bill 13 — Tribal History/Shared History enacted",
+      "description": "Governor signed Senate Bill 13 (codified at ORS 329.494) directing the Oregon Department of Education to develop a curriculum on the histories, languages, and contemporary lives of the nine federally-recognized tribes in Oregon, and requiring every school district to teach the curriculum at grades 4, 8, and high school. SB 13 funds tribal-language preservation work and shapes the content basis for ODE's Indigenous-language teacher-preparation work and the cultural-and-linguistic-diversity competencies that the Oregon Model Core Teaching Standards apply to all teachers. While not an EL-credential statute, SB 13 is the most significant pre-2019 Oregon language-policy enactment.",
+      "sourceUrls": [
+        "https://olis.oregonlegislature.gov/liz/2017R1/Measures/Overview/SB13"
+      ]
+    },
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
       ]
     },
     {

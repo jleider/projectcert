@@ -110,11 +110,27 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "1999-04-21",
+      "title": "Indian Education for All Act enacted (HB 528, 1999)",
+      "description": "The Montana Legislature enacted the Indian Education for All Act (HB 528, codified at MCA 20-1-501), implementing Article X § 1(2) of the Montana Constitution which commits the State to recognize \"the distinct and unique cultural heritage of the American Indians\" and to preserve their cultural integrity in its educational goals. IEFA requires every public school to teach about Montana's twelve federally-recognized tribes — and, after 2005 funding (HB 528 of 2005), the State funds districts on a per-pupil basis to support implementation. While not an EL credential per se, IEFA is the legal source of Montana's tribal-language and Native-American-Studies teacher pipelines and shapes how OPI frames cultural-competence elements of the educator-preparation standards (ARM 10.58.501).",
+      "sourceUrls": [
+        "https://opi.mt.gov/Educators/Teaching-Learning/Indian-Education-for-All"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2020-07-01",
+      "title": "ARM 10.58.501 (Educator Preparation Standards) revised to enumerate ELL",
+      "description": "Montana's revised educator preparation/teaching standards rule (ARM 10.58.501) explicitly names \"English Language Learners (ELL)\" within the diversity standard, replacing the 2014-era predecessor standards that did not enumerate ELL. Grounds the `professionalStandardsMentions.el: false → true` flip.",
+      "sourceUrls": [
+        "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.58.501"
       ]
     },
     {
@@ -124,14 +140,6 @@
       "sourceUrls": [
         "https://bpe.mt.gov/Seal-of-Biliteracy/Seal-of-Biliteracy",
         "https://opi.mt.gov/Portals/182/Seal%20of%20Biliteracy%20FAQs.pdf"
-      ]
-    },
-    {
-      "date": "2020-07-01",
-      "title": "ARM 10.58.501 (Educator Preparation Standards) revised to enumerate ELL",
-      "description": "Montana's revised educator preparation/teaching standards rule (ARM 10.58.501) explicitly names \"English Language Learners (ELL)\" within the diversity standard, replacing the 2014-era predecessor standards that did not enumerate ELL. Grounds the `professionalStandardsMentions.el: false → true` flip.",
-      "sourceUrls": [
-        "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.58.501"
       ]
     }
   ]
