@@ -145,13 +145,23 @@ What to log:
 Rules:
 
 - Append-only. The array is a log; don't rewrite or remove prior rows.
-- One row per discrete event, sorted oldest → newest.
+- One row per discrete event, sorted oldest → newest. **The Zod schema
+  enforces this**: a refinement rejects out-of-order rows. When
+  inserting a pre-existing event into a state's history, place it in
+  chronological position — don't append at the end.
 - `date` is the event's effective/adopted date, not the day you
   retrieved a source about it.
-- `sourceUrls` should resolve to documents you actually read; reuse
-  URLs from `sources[]` where they overlap.
+- `sourceUrls` is **required (≥1)**. The schema rejects rows without
+  it. URLs should resolve to documents you actually read; reuse URLs
+  from `sources[]` where they overlap. For pre-2019 backfills, prefer
+  *codified-statute* URLs on the state legislature site (cga.ct.gov,
+  ilga.gov, malegislature.gov, leg.mt.gov, etc.) over session-law
+  numbers — codified URLs survive renumbering. For federal cases, use
+  justia or oyez.
 - Don't backfill speculative or undocumented events — provenance
-  applies here too.
+  applies here too. "I think this happened around then" is not a
+  history row. If the only URL you can vouch for is an unreliable
+  guess, drop the row instead of fabricating.
 
 ## `verificationStatus` rules
 

@@ -153,7 +153,26 @@ should resolve to the same documents you saved under
 event you can corroborate (e.g., the 2014 LEAPS Act), cite the
 authoritative current page even if you didn't fetch the original
 bill text. Don't backfill speculative history — provenance still
-applies.
+applies, and the schema now enforces `sourceUrls.min(1)` so a row
+without a citation will fail validation outright.
+
+**Going further back than the 2019 baseline.** Many states have
+foundational pre-2019 events (1971 MA Ch. 71A; 1973 NM/TX/IL bilingual
+acts; 1975 NJ/WI; 1976 CA Chacón-Moscone; 1977 CT; 1979 WA; 1980 MN;
+1968 LA Act 409 / CODOFIL; 1972 AK; 1978 HI constitutional amendment;
+2002 MA Question 2; 1998 CA Prop 227; etc.). For these, prefer
+*codified-statute pages* on the state legislature's site (e.g.,
+cga.ct.gov, ilga.gov, malegislature.gov, leg.mt.gov,
+statutes.capitol.texas.gov, leginfo.legislature.ca.gov,
+docs.legis.wisconsin.gov, akleg.gov) over session-law page numbers —
+codified URLs survive renumbering. For federal cases, use justia
+(`law.justia.com`, `supreme.justia.com`) or oyez. **If you can't point
+at an authoritative URL you're confident in, drop the row** — fabricating
+a plausible-looking but unverified link is worse than a missing event.
+
+The schema enforces chronological ordering (`history[]` must be sorted
+oldest → newest). When inserting a pre-2019 event, place it at the
+chronologically correct position in the array, not at the end.
 
 ### 4. Document changes
 

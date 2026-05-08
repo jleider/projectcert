@@ -150,6 +150,14 @@ state's `sources[]` array, with `url` + `retrievedAt` + `retrievedBy`.
 The Zod schema enforces `sources.min(1)`. CI fails if a citation is
 missing. A catalog without provenance is opinion; treat it accordingly.
 
+`history[]` rows follow the same rule (schema enforces
+`sourceUrls.min(1)`). For pre-2019 backfills, prefer codified-statute
+URLs on the state legislature's site over session-law numbers —
+codified URLs survive renumbering. For federal cases, use justia or
+oyez. **If you can't cite a URL you're confident in, drop the row.**
+Fabricating a plausible-looking but unverified link is worse than a
+missing event.
+
 ### Terminology is canonical, not copied
 
 Every SEA names things differently. We standardize on:
