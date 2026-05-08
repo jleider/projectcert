@@ -2,16 +2,33 @@
   import Choropleth from "./Choropleth.svelte";
   import { BINS } from "@/data/bins";
   import { SITE_URL } from "@/config/site";
-  import type { Layer, ChoroplethDatum } from "@/lib/state-types";
+  import { LAYERS as LAYER_KEYS, type Layer, type ChoroplethDatum } from "@/lib/state-types";
 
   export let states: ChoroplethDatum[];
-  /** Optional initial layer override (used by /embed/map/?layer=...). */
+  /** Optional initial layer override. Used by /embed/map/?layer=...
+   * which is server-rendered with the query already resolved. The
+   * canonical /map/ page is statically built, so it can't read the
+   * query at server-render time and instead relies on the
+   * client-side URL read below. */
   export let initialLayer: Layer = "elPercent";
   /** Render an embed-mode attribution footer whose "Open full atlas"
    * link updates reactively as the user switches layers. */
   export let embedFooter: boolean = false;
 
-  let layer: Layer = initialLayer;
+  // On client hydration, prefer the actual URL's `?layer=` over the
+  // SSR/prop default. The static build bakes initialLayer="elPercent"
+  // into the HTML regardless of which query the visitor landed with;
+  // reading window.location.search here corrects that.
+  function resolveInitialLayer(): Layer {
+    if (typeof window === "undefined") return initialLayer;
+    const fromUrl = new URLSearchParams(window.location.search).get("layer");
+    if (fromUrl && (LAYER_KEYS as readonly string[]).includes(fromUrl)) {
+      return fromUrl as Layer;
+    }
+    return initialLayer;
+  }
+
+  let layer: Layer = resolveInitialLayer();
   $: backUrl = `${SITE_URL}/map/?layer=${layer}`;
 
   // Broadcast layer changes so non-Svelte parts of the page (e.g. the
