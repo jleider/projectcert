@@ -135,6 +135,47 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2002-07-01",
+      "title": "AB 1059 EL preparation embedded in every preliminary credential",
+      "description": "Effective 2002-07-01 (AB 1059, 1999), every Multiple Subject and Single Subject preliminary teaching credential issued by California must embed EL preparation, making CA's universal EL-credentialing mandate functionally one-course-plus EL preparation required of every newly-credentialed classroom teacher.",
+      "sourceUrls": [
+        "https://www.ctc.ca.gov/credentials/leaflets/english-learner-auth-clad-certificate-(cl-628c)",
+        "https://www.ctc.ca.gov/educator-prep/ela"
+      ]
+    },
+    {
+      "date": "2008-09-30",
+      "title": "AB 1871 establishes current Bilingual Authorization (CL-628B)",
+      "description": "AB 1871 (2008) restructured California's bilingual credentialing into the current Bilingual Authorization issued under CL-628B. Pathways: a Commission-approved bilingual program, CSET World Languages Tests II/III + IV + V, or program + CSET equivalency. Successor to the BCLAD/Bilingual Crosscultural Specialist Credential lineage.",
+      "sourceUrls": [
+        "https://www.ctc.ca.gov/credentials/leaflets/bilingual-authorizations-(cl-628b)"
+      ]
+    },
+    {
+      "date": "2011-10-08",
+      "title": "California State Seal of Biliteracy enacted (AB 815)",
+      "description": "Governor signed AB 815 establishing the California State Seal of Biliteracy — the nation's first state-level Seal — recognizing high school graduates who attain proficiency in English and one or more world languages.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/ca/"
+      ]
+    },
+    {
+      "date": "2016-11-08",
+      "title": "Voters approve Proposition 58 (CA Ed.G.E. Act)",
+      "description": "Proposition 58 (the California Education for a Global Economy Initiative) repeals the English-only instruction restrictions of Proposition 227 (1998), restoring local authority to offer bilingual, dual-language, and structured English immersion programs and reinforcing demand for the Bilingual Authorization.",
+      "sourceUrls": [
+        "https://www.cde.ca.gov/ds/ad/cefelfacts.asp"
+      ]
+    },
+    {
+      "date": "2024-04-01",
+      "title": "CTC adopts revised California Standards for the Teaching Profession (CSTP)",
+      "description": "CTC adopted the April 2024 revision of the California Standards for the Teaching Profession; standards continue to reference EL/cultural/linguistic diversity explicitly and bind all California teachers.",
+      "sourceUrls": [
+        "https://www.ctc.ca.gov/educator-prep/standards/cstp-2024.pdf"
+      ]
     }
   ]
 }
