@@ -1,8 +1,8 @@
 {
   "usps": "NE",
   "name": "Nebraska",
-  "elPercent": 7.6,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 7.3,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -11,11 +11,11 @@
       "requirements": {
         "program": null,
         "coursework": true,
-        "practicum": null,
-        "test": false,
+        "practicum": true,
+        "test": null,
         "languageProficiency": true
       },
-      "notes": "ELD certification is a prerequisite to bilingual add-on."
+      "notes": "92 NAC 24 §006.09 Bilingual Education endorsement (PK-12 / PK-6 / 7-12). Supplemental endorsement that requires the holder to also hold (or earn concurrently) an ESL endorsement plus a subject or field endorsement. Rule 24 mandates a minimum of 12 semester hours of methodology, content instruction, and content literacy in bilingual education programs, of which 9 hours must be taught in the target language, plus a 45-clock-hour practicum in a bilingual education program taught in the target language. The June 2024 Rule 24 Guidelines further set ACTFL Advanced-Low target-language proficiency as Standard 1. Both an approved educator-preparation program (Rule 20) and a Praxis content-test add-on pathway are available."
     },
     "eld": {
       "offered": true,
@@ -25,9 +25,10 @@
         "program": null,
         "coursework": true,
         "practicum": true,
-        "test": null,
+        "test": false,
         "languageProficiency": false
-      }
+      },
+      "notes": "92 NAC 24 §006.23 English As A Second Language endorsement (PK-12 / PK-6 / 7-12), Supplemental only — no standalone ESL/TESOL license. Rule 24 mandates 15 semester hours across Second Language Acquisition, English Language/Linguistics, Cross-Cultural Communication, Methods/Curriculum Design in ESL, and Assessment and Evaluation of ELLs, plus a 45-clock-hour practicum with ELL students. June 2024 Rule 24 Guidelines align the endorsement to TESOL standards. Per the NDE Educator Certification announcement of June 4, 2025, applicants who complete an approved educator preparation program are no longer required to pass the Praxis content test; a Praxis-test add-on pathway remains available for adding the endorsement. ESL is a prerequisite for the Bilingual Education endorsement."
     },
     "sei": {
       "mandatedForAllTeachers": false
@@ -36,18 +37,18 @@
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
-    "linguistic": false,
+    "linguistic": true,
     "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2020,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://www.education.ne.gov/worldlanguage/nebraska-seal-of-biliteracy/"
   },
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+    "sourceUrl": "https://www.education.ne.gov/natlorigin/serving-english-learners/"
   },
   "sources": [
     {
@@ -61,8 +62,62 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "NDE Educator Certification — homepage (Praxis content-test waiver for approved-program completers, June 4, 2025).",
+      "url": "https://www.education.ne.gov/educatorprep/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDE Educator Certification — Nebraska Certificate Endorsements list.",
+      "url": "https://www.education.ne.gov/educatorprep/endorsements-offered-in-nebraska/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "92 NAC 24 — Endorsements (Rule 24, effective June 2, 2024). §006.09 Bilingual Education and §006.23 English As A Second Language.",
+      "url": "https://www.education.ne.gov/wp-content/uploads/2024/06/Clean-Rule-24-2024.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDE Guidelines Recommended for Use With Rule 24 (Endorsements), June 2024 — TESOL-aligned ESL standards and ACTFL Advanced-Low Bilingual proficiency standard.",
+      "url": "https://www.education.ne.gov/wp-content/uploads/2024/06/Rule-24-Guidelines-2024.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "92 NAC 20 — Approval of Educator Preparation Programs (Rule 20). Professional teaching standards §005.02 (linguistic, cultural, diverse references).",
+      "url": "https://www.education.ne.gov/wp-content/uploads/2017/07/Clean_Rule_20_2024.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "92 NAC 21 — Issuance of Certificates and Permits (Rule 21).",
+      "url": "https://www.education.ne.gov/wp-content/uploads/2017/07/Clean_Rule_21_2024.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDE English Learner Programs — Serving English Learners (ELPA21 summative; Alt ELPA for students with significant cognitive disabilities).",
+      "url": "https://www.education.ne.gov/natlorigin/serving-english-learners/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NDE World Languages — Nebraska Seal of Biliteracy (NeSoBL).",
+      "url": "https://www.education.ne.gov/worldlanguage/nebraska-seal-of-biliteracy/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public elementary and secondary schools, by state, fall 2000 through fall 2021. Nebraska fall 2021: 7.3%.",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
