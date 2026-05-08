@@ -78,6 +78,6 @@ jobs:
             --no-progress
             --root-dir ${{ github.workspace }}/dist
             --base ${{ github.workspace }}/dist
-            --exclude '^file://.*#[^/]+$'
+            --exclude '%23'
             ./dist/**/*.html
           fail: true
