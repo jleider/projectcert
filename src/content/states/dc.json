@@ -1,20 +1,21 @@
 {
   "usps": "DC",
   "name": "District of Columbia",
-  "elPercent": 10.9,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 11.3,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
+        "program": true,
         "coursework": null,
         "practicum": null,
-        "test": null,
-        "languageProficiency": true
-      }
+        "test": true,
+        "languageProficiency": null
+      },
+      "notes": "OSSE 9/2025 exam matrix has no Praxis content exam for Bilingual Education; a completed degree major OR completion of an approved program is required, plus a PLT pedagogy exam. No language-proficiency exam (e.g., ACTFL OPI) is listed by OSSE; leider-2021 coded languageProficiency=true, so the field is set to null pending a direct SEA confirmation."
     },
     "eld": {
       "offered": true,
@@ -26,22 +27,24 @@
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "DC's canonical SEA term is 'English as a Second Language' (ESL). Praxis 5362 (English to Speakers of Other Languages, score 155) is the required content exam, with PLT or World Languages Pedagogy as the pedagogy exam."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "DC recognizes five EL program models for LEAs (dual language, inclusion/collaborative, content-based ESL, sheltered content, newcomer) but does not mandate sheltered English instruction training for all teachers."
     }
   },
   "professionalStandardsMentions": {
     "diverse": true,
     "cultural": true,
     "linguistic": true,
-    "el": true
+    "el": false
   },
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2014,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/dc/"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -60,8 +63,44 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "OSSE — English Learner Policy and Programs (ACCESS for ELLs, WIDA standards, five program models)",
+      "url": "https://osse.dc.gov/page/english-learner-policy-and-programs",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSSE — Educator Credential Areas and Fee Schedule (Bilingual Education, Bilingual Special Education, ESL — primary + endorsement)",
+      "url": "https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/Educator%20Credential%20Areas%20and%20Fee%20Schedule%201.8.21.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSSE — Educator Credentialing Exams 9/2025 (Praxis 5362 ESOL for ESL; PLT pedagogy; approved program for Bilingual Education)",
+      "url": "https://osse.dc.gov/sites/default/files/dc/sites/osse/publication/attachments/Educator%20Credentials%20Exams_9%202025.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "DC Professional Standards for Teaching (1/29/13 — currently published; keyword scan: diverse/cultural/language present; no EL/ELL mentions)",
+      "url": "https://osse.dc.gov/sites/default/files/dc/sites/osse/page_content/attachments/DC%20Professional%20Teaching%20Standards%20(Final)_1%2029%2013.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — DC Fall 2021: 10,035 ELs (11.3%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — DC state page (adopted Dec 4, 2014)",
+      "url": "https://sealofbiliteracy.org/state/dc/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
