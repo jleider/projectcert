@@ -109,6 +109,30 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2018-10-31",
+      "title": "Maine adopts Seal of Biliteracy",
+      "description": "Maine joined the Seal of Biliteracy program in October 2018, recognizing high school graduates who demonstrate proficiency in English and one or more world languages. Administered through the Maine DOE.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/me/"
+      ]
+    },
+    {
+      "date": "2025-05-14",
+      "title": "Chapter 115 Part II amended; ESOL coursework floor reduced 24 → 15 SH",
+      "description": "The 5/14/2025 amendment to Chapter 115 Part II §1.8 reduced the conditional-certificate floor and Pathway 2 floor for the 660 (ESOL) endorsement from 24 to 15 semester hours. Pathway 3 retains its 24 SH and one-semester student-teaching requirement. The amendment did not introduce a state-named Praxis content test for the endorsement.",
+      "sourceUrls": [
+        "https://www.maine.gov/doe/cert"
+      ]
+    },
+    {
+      "date": "2025-10-09",
+      "title": "DOE administrative letter on multilingual-services staffing",
+      "description": "Maine DOE issued an administrative letter and accompanying staffing guidance clarifying that sheltered instruction is one optional component of a district's multilingual-learner service model rather than a statewide mandate for all teachers. Confirms the schema's `sei.mandatedForAllTeachers: false` coding.",
+      "sourceUrls": [
+        "https://www.maine.gov/doe/learning/multilingual/staffing"
+      ]
     }
   ]
 }
