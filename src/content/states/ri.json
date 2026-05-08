@@ -111,6 +111,30 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2016-06-17",
+      "title": "Rhode Island Seal of Biliteracy adopted",
+      "description": "Rhode Island Board of Education adopted a State Seal of Biliteracy on 2016-06-17 (per sealofbiliteracy.org/state/ri/), awarded to graduating high school students demonstrating proficiency in English and one or more additional languages.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/state/ri/"
+      ]
+    },
+    {
+      "date": "2025-06-01",
+      "title": "RIDE Certification Regulations (June 2025) finalized",
+      "description": "RIDE issued the Regulations Governing the Certification of Educators in Rhode Island (June 2025), the document of record behind the live Certificate Areas and Requirements index. Section 1.9.X.D.2.b explicitly requires completion of an approved program for Bilingual / Dual Language Education certificates; Section 1.9.5.S.2.a does the same for All Grades ESOL. Effective 2025-07-01, ACTFL OPI+WPT at Advanced Low replaced certain language-specific exams for 'all other world languages' in Bilingual Education.",
+      "sourceUrls": [
+        "https://www.ride.ri.gov/"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Phase 2 verification (verified-2026)",
+      "description": "Re-verified Bilingual / Dual Language Education (six grade-band standalone certificates) and All Grades ESOL plus MLL endorsement / MLL Integrated Content add-on paths. Flipped bilingual.requirements.program and eld.requirements.program null to true per 2025 Cert Regs. Three of four professionalStandardsMentions flipped false to true based on RIPTS plus 2025 Cert Regs Section 1.3 explicit MLL/EL references. WIDA/ACCESS confirmed. elPercent updated to 12.5 (NCES Fall 2021; NCES notes RI as the largest positive percentage-point gain in EL representation 2011 to 2021).",
+      "sourceUrls": [
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      ]
     }
   ]
 }
