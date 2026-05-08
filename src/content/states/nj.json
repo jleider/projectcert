@@ -129,6 +129,24 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2016-01-19",
+      "title": "New Jersey State Seal of Biliteracy enacted (P.L. 2015, c. 303)",
+      "description": "Governor signed P.L. 2015, c. 303 on January 19, 2016, creating the New Jersey State Seal of Biliteracy administered by NJDOE. First seals awarded in the 2016-17 school year.",
+      "sourceUrls": [
+        "https://www.nj.gov/education/standards/worldlang/SealofBiliteracy.shtml"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-verified against current NJDOE sources",
+      "description": "Re-confirmed N.J.A.C. 6A:9B-11.5 (Bilingual/Bicultural endorsement) and 6A:9B-11.6 (ESL endorsement) as add-on-only credentials atop a primary NJ instructional certificate; both offer an approved-program (CEAS) path and a coursework path (12 credits bilingual / 15 credits ESL) with a Department-approved test. NJ's bilingual program statute (N.J.S.A. 18A:35-15 et seq.) continues to require districts with 20+ ELs of the same native language to operate a bilingual education program. ELP assessment remains WIDA ACCESS for ELLs. elPercent set to 8.2 (NCES fall 2021). No substantive credential structure change from baseline.",
+      "sourceUrls": [
+        "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-6A-9B-11-5",
+        "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-6A-9B-11-6",
+        "https://www.nj.gov/education/title3/educators/certification.shtml"
+      ]
     }
   ]
 }
