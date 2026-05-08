@@ -105,11 +105,11 @@
   --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px var(--surface);
 }
 
-/* Tailwind opacity modifiers on hex-typed CSS-var colors don't always
- * apply alpha reliably, so emit explicit rgba() for the border classes
- * we use on cards and pills. */
+/* Tailwind opacity modifiers on CSS-var colors aren't reliable across
+ * engines, so derive each card/pill border from its underlying token
+ * via color-mix — staying in lockstep if the token value changes. */
 .border-accent\/40 {
-  border-color: rgb(20 128 60 / 0.50);
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 /*
@@ -205,15 +205,18 @@
   }
 
   /* Soften hairline card borders in dark mode without dimming
-   * `--ink-subtle` itself (which is also used for muted text). */
+   * `--ink-subtle` itself (which is also used for muted text). The
+   * Tailwind opacity modifier on a CSS-var color isn't reliable across
+   * older engines, so we re-derive each from the active token via
+   * color-mix — staying in lockstep if the token value changes. */
   .border-ink-subtle\/20 {
-    border-color: rgb(144 151 164 / 0.25);
+    border-color: color-mix(in srgb, var(--ink-subtle) 25%, transparent);
   }
   .border-ink-subtle\/30 {
-    border-color: rgb(144 151 164 / 0.35);
+    border-color: color-mix(in srgb, var(--ink-subtle) 35%, transparent);
   }
   .border-accent\/40 {
-    border-color: rgb(58 204 106 / 0.42);
+    border-color: color-mix(in srgb, var(--accent) 42%, transparent);
   }
 }
 

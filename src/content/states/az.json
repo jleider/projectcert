@@ -182,7 +182,11 @@
     {
       "date": "2026-05-07",
       "title": "Re-verified against current ADE sources",
-      "description": "R7-2-615 re-read: bilingual.requirements.program null → true (R7-2-615(J)(4)(b) names an approved bilingual education program as Option A) and ELD.requirements.program null → true (R7-2-615(K)(3)(b) names an approved ESL program as Option A). Standards.el false → true — R7-2-602 Standard 2 explicitly references 'English language learners' and second-language acquisition. SEI mandate confirmed unchanged; notes expanded with Prop 203 (2000) / HB 2064 (2006) statutory backbone and the spring 2019 reduction of the daily SEI ELD block from 4 hours to 2 hours."
+      "description": "R7-2-615 re-read: bilingual.requirements.program null → true (R7-2-615(J)(4)(b) names an approved bilingual education program as Option A) and ELD.requirements.program null → true (R7-2-615(K)(3)(b) names an approved ESL program as Option A). Standards.el false → true — R7-2-602 Standard 2 explicitly references 'English language learners' and second-language acquisition. SEI mandate confirmed unchanged; notes expanded with Prop 203 (2000) / HB 2064 (2006) statutory backbone and the spring 2019 reduction of the daily SEI ELD block from 4 hours to 2 hours.",
+      "sourceUrls": [
+        "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R7-2-615",
+        "https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R7-2-602"
+      ]
     }
   ]
 }
