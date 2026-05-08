@@ -129,6 +129,40 @@
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
+    },
+    {
+      "date": "2003-05-01",
+      "title": "NYSESLAT introduced as the state ELP assessment",
+      "description": "New York adopted the New York State English as a Second Language Achievement Test (NYSESLAT) as its annual ELP assessment in 2003. NY has never been a WIDA Consortium member; the companion identification screener is NYSITELL. Coded as elpAssessment.consortium=null because NYSESLAT is state-specific.",
+      "sourceUrls": [
+        "https://www.nysed.gov/state-assessment/new-york-state-english-second-language-achievement-test-nyseslat"
+      ]
+    },
+    {
+      "date": "2012-12-17",
+      "title": "New York State Seal of Biliteracy enacted",
+      "description": "Chapter 416 of the Laws of 2012 (signed 2012-12-17) authorized the New York State Seal of Biliteracy (NYSSB) administered by NYSED's Office of Bilingual Education and World Languages. First seals issued 2013-14. Coded as sealOfBiliteracy.year=2013 to reflect the first-award year.",
+      "sourceUrls": [
+        "https://www.nysed.gov/world-languages/new-york-state-seal-biliteracy-nyssb"
+      ]
+    },
+    {
+      "date": "2014-09-23",
+      "title": "CR Part 154 Multilingual Learner / ELL regulations adopted",
+      "description": "Board of Regents adopted revised Commissioner's Regulations Part 154 (Sept. 2014, effective school year 2015-16) governing services for ELLs/MLs, including the requirement that general classroom teachers of ELLs dedicate 15% of CTLE clock hours to language acquisition. CR Part 154 (not a new credential) is the operative ELL service mandate; underpins the sei notes.",
+      "sourceUrls": [
+        "https://www.nysed.gov/bilingual-ed/english-language-learner-and-multilingual-learner-regulations-compliance"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Re-verified against current NYSED sources",
+      "description": "Re-confirmed Bilingual Education Extension as add-on-only with BEA exam doubling as language-proficiency instrument; ESOL/TESOL Classroom Teacher (CST 116) confirmed as standalone certificate with supplementary pathway. New Fall 2024 program-registration requirements (≥100 clock hrs field experience; ≥70 school days student teaching with ELLs) reflected in eld.notes. Standards.el coded false against the 2011 NY Teaching Standards general document (consistent with §3b guidance: keep 'el' against the general standards, not ESOL specialty rules). elPercent updated to 9.7 (NCES fall 2021).",
+      "sourceUrls": [
+        "https://www.nysed.gov/college-university-evaluation/general-and-program-specific-requirements-teaching-english-speakers",
+        "https://www.highered.nysed.gov/tcert/certificate/typesofcerts/extbil.html",
+        "https://www.highered.nysed.gov/tcert/pdf/teachingstandards9122011.pdf"
+      ]
     }
   ]
 }
