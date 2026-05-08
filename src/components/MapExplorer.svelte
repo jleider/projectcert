@@ -20,6 +20,18 @@
     window.dispatchEvent(new CustomEvent("projectcert:layer-change", { detail: { layer } }));
   }
 
+  // Sync the encoded layer to the page URL so refreshes, deep-links,
+  // and back-button navigation preserve the chosen variable. Embed
+  // mode skips this — its URL is the iframe src and shouldn't be
+  // mutated by user interaction inside the iframe.
+  $: if (typeof window !== "undefined" && !embedFooter) {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("layer") !== layer) {
+      url.searchParams.set("layer", layer);
+      window.history.replaceState({}, "", url);
+    }
+  }
+
   const LAYERS: { value: Layer; label: string }[] = [
     { value: "elPercent", label: "% classified ELs" },
     { value: "bilingual", label: "Bilingual credential" },
