@@ -137,6 +137,31 @@
       ]
     },
     {
+      "date": "2012-07-01",
+      "title": "Colorado joins WIDA Consortium",
+      "description": "Colorado joined the WIDA Consortium in 2012 and adopted ACCESS for ELLs as the state's annual English language proficiency assessment, replacing legacy state-specific instruments.",
+      "sourceUrls": [
+        "https://wida.wisc.edu/about/consortium/co"
+      ]
+    },
+    {
+      "date": "2017-04-04",
+      "title": "Diploma Endorsement for Biliteracy enacted (SB17-123)",
+      "description": "Governor signed SB17-123 establishing Colorado's High School Diploma Endorsement for Biliteracy (Seal of Biliteracy), recognizing graduates proficient in English and one or more world languages.",
+      "sourceUrls": [
+        "https://www.cde.state.co.us/cde_english/high-school-diploma-endorsement-for-biliteracy"
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "title": "45-hour EL professional-development requirement takes effect",
+      "description": "Effective 2025-09-01, educators renewing a Colorado professional teaching license with an elementary, ELA, math, science, or social-studies endorsement must complete 45 clock hours (or 3 semester hours) of EL-focused professional learning aligned to the CLD standards. CLDE / CLD Bilingual / LDE / LDE Bilingual endorsement holders are exempt; districts at ≤2% EL enrollment over three years can request waivers.",
+      "sourceUrls": [
+        "https://ed.cde.state.co.us/educatortalent/elpdeducators",
+        "https://ed.cde.state.co.us/educatortalent/elpdpathways"
+      ]
+    },
+    {
       "date": "2026-05-07",
       "title": "Re-verified against current CDE sources",
       "description": "Bilingual reclassified standalone → add-on (CDE explicitly classifies both CLDE and CLD Bilingual Education as 'added endorsements only'). New 45-hour EL professional-development requirement effective 2025-09-01 for educators renewing licenses with elementary, ELA, math, science, or social-studies endorsements. Standards corrections: linguistic true → false (text says 'language', not 'linguistic'); el false → true (2011 Quality Standards 2.4 explicitly names English language learners).",
