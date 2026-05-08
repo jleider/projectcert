@@ -108,11 +108,19 @@ Token naming follows `--{layer}-{level}` where level `0` = none/off,
 3. Add a branch to `fillFor()` and `describe()` in
    `src/components/Choropleth.svelte`.
 4. Add the pairings to `scripts/check-contrast.ts` and re-run
-   `npm run check:contrast`.
+   `npm run check:contrast`. Adjacent categorical levels must clear
+   ≥3:1 (WCAG 2.1 SC 1.4.11). The 4-stop `elPercent` purple ramp is
+   the documented exception — adjacent 3:1 across four solid stops
+   is mathematically infeasible, so it's enforced as `informational`
+   and relies on legend text labels (SC 1.4.1) for meaning.
 
 Do **not** reuse the `--bin-N` purple palette for non-`elPercent`
 layers — purple is reserved for the sequential bin layer with
 hatched-pattern affordance.
+
+State fills do not render text on top (the DC callout label sits
+*below* its rect on the white surface), so contrast budgets only
+need to consider fill-vs-fill adjacency, not text-on-fill.
 
 ### EL data nuances to keep in mind
 
