@@ -10,6 +10,11 @@ Items marked **(blocking)** should be done before any public link is
 shared. Items marked **(post-launch)** can happen in the first week or
 two after going live.
 
+**Data status**: 51/51 jurisdictions now `verified-2026`. The
+pre-launch banner auto-hides when verified == total, so it no longer
+renders. (See §12 for the wrap-up items that follow from full
+verification.)
+
 ---
 
 ## 1. Domain & hosting (blocking)
@@ -31,9 +36,14 @@ two after going live.
 - [ ] Force HTTPS, enable HSTS at the host level
 - [ ] Test that all the routes that were in `dist/` after `npm run build`
       actually load on the live domain — especially `/states/<usps>/`
-      paths (62 pages total)
-- [ ] Configure a real `404.astro` page (Astro doesn't ship one by
-      default; the host falls back to its generic page)
+      paths (65 pages total). The build now runs
+      `scripts/check-built-pages.ts` after `astro build`, which asserts
+      every route in `src/lib/routes.ts` and every state JSON produced
+      a `dist/.../index.html`, so this is mostly belt-and-suspenders.
+- [x] ~~Configure a real `404.astro` page (Astro doesn't ship one by
+      default; the host falls back to its generic page)~~
+      Done — `src/pages/404.astro` ships with a Levenshtein-based
+      "Did you mean…" suggestion list against the 51 USPS codes
 - [ ] Buy a 2-year domain registration up front so you don't lose it
       to a missed renewal email
 
@@ -44,9 +54,11 @@ These are referenced from `BaseLayout.astro` and currently 404:
 - [ ] `public/og-default.png` — 1200×630 social-share card. Even a plain
       title card with "projectcert: an atlas of EL teacher certification
       across the 51 SEAs" beats a blank thumbnail when the URL is shared
-      in Slack/Twitter/iMessage
-- [ ] `public/favicon.svg` — site icon. Single-color SVG of a map pin
-      or a stylized "pc" is fine
+      in Slack/Bluesky/iMessage. Note: `BaseLayout.astro` references
+      `/og-default.png` in the OG meta tag, so without this file every
+      social-share card 404s.
+- [x] ~~`public/favicon.svg` — site icon~~ Done — ships a 4-square
+      bin-palette logo with a checkmark glyph
 
 Optional but worth it:
 
@@ -264,10 +276,57 @@ SEO tweaks. Plan for the first 4–6 weeks post-launch.
 
 ## 12. Pre-launch content polish
 
-- [ ] Verify all 51 states (currently 6/51 — the pre-launch banner
-      surfaces this count automatically, but the banner copy assumes
-      pre-launch posture; remove or rewrite it once at 51/51)
+- [x] ~~Verify all 51 states~~ Done — 51/51 are `verified-2026` as of
+      2026-05-08
+- [x] ~~Once at 51/51, remove or rewrite `<PreLaunchBanner>`~~ The
+      banner already auto-hides via `verified === total`, so it no
+      longer renders; the component itself can stay in the layout
+      pending the next pre-launch event (e.g., a 2027 re-verification
+      sweep)
 - [ ] Re-verify the AZ Seal of Biliteracy entry around July 2026 —
       the program is statutorily set to sunset 2026-07-01 unless
-      reauthorized. Flagged in `sources/az/2026-05-07/changes-from-baseline.md`
-- [ ] Once at 51/51, remove or rewrite `<PreLaunchBanner>`
+      reauthorized. Flagged in `sources/AZ/2026-05-07/changes-from-baseline.md`
+- [ ] Decide whether to set up a recurring (annual or semi-annual)
+      re-verification cadence now that all 51 are at `verified-2026`.
+      The skill at `.claude/skills/state-source-refresh/` runs
+      per-state; the natural rhythm is one state per week or a batch
+      sweep timed against NCES Digest releases (typically mid-year)
+- [ ] Pick the next NCES update window for `elPercent`. Current
+      figures are NCES Fall 2021 for 50/51 (TN uses TDOE 2024). When
+      Digest 2024 publishes Fall 2022 state-level EL counts, batch-
+      update all 51 in one pass and bump `elPercentAsOf`.
+
+## 13. Built-in safeguards (reference)
+
+A summary of the typecheck / lint / build-time guards already wired
+in, useful when onboarding a contributor or debugging a CI failure:
+
+- **Schema (Zod 4)** at `src/content.config.ts`:
+  - `sources.min(1)` and `history[i].sourceUrls.min(1)` enforce
+    provenance on both fact-bearing fields and timeline events.
+  - `elPercentAsOf <= lastVerified` rejects retro-dated freshness.
+  - `history[]` must be sorted oldest → newest; the Zod refinement
+    rejects out-of-order rows, so a new pre-2019 event has to be
+    placed in chronological position, not appended.
+  - `history[i].date` capped at +10 years to catch 9999-style typos
+    while still allowing known phase-ins.
+- **Type-safe routes** at `src/lib/routes.ts`: every internal href
+  goes through `ROUTES.x` / `withAnchor(...)` / `sameAnchor(...)`;
+  per-state URLs come from `stateUrl(usps)`. `BreadcrumbItem.url`
+  accepts only `Route | LinkUrl` (a branded type), so hand-typed
+  path strings fail the typecheck. Anchor IDs (`<main id={...}>`,
+  `<h2 id={...}>`) reference `ANCHORS.x`, so renaming an anchor in
+  `routes.ts` updates both the link and the target in one place.
+- **ESLint rule** in `eslint.config.js`: `no-restricted-syntax`
+  flags any `<a href="/...">` or `<a href="#...">` literal as an
+  error, pointing the developer at the `routes.ts` helpers.
+- **`scripts/check-built-pages.ts`** runs after `astro build` and
+  asserts each route in `ALL_ROUTES` and each state JSON produced
+  a `dist/.../index.html`. Catches `getStaticPaths` mistakes that
+  silently drop pages.
+- **`scripts/check-state-integrity.ts`** asserts exactly 51 state
+  files, USPS uniqueness, and that every `verified-2026` state has
+  at least one `sources/<USPS>/<YYYY-MM-DD>/changes-from-baseline.md`.
+- **CI lychee link check** crawls `dist/**/*.html` for broken
+  internal links on every push/PR. External SEA links live on a
+  separate weekly non-blocking workflow.
