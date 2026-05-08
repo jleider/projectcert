@@ -107,11 +107,45 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "2016-04-26",
+      "title": "Georgia adopts the State Seal of Biliteracy",
+      "description": "Senate Bill 48 (2016) added O.C.G.A. § 20-2-159.5 directing GADOE to administer a Seal of Biliteracy on the high-school diploma for graduates demonstrating proficiency in English plus one or more additional languages. GADOE administers the program through districts.",
+      "sourceUrls": [
+        "https://gadoe.org/grants-awards-diploma-seals/seal-of-biliteracy/"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2023-08-15",
+      "title": "GaPSC Rule 505-3-.89 (ESOL EPP standards) effective",
+      "description": "Revised ESOL Educator Preparation Program standards take effect August 15, 2023. Combined with Rule 505-2-.14 (endorsements) and the 2026-effective Rule 505-2-.166 (ESOL endorsement certification), this is Georgia's current rule architecture for the ESOL credential.",
+      "sourceUrls": [
+        "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-3-.89.pdf"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "title": "GaPSC Rule 505-2-.166 (ESOL Endorsement) effective",
+      "description": "Revised ESOL Endorsement Certification rule takes effect, restating the approved-program-plus-test pathway to the ESOL endorsement (field code 825) on a primary teaching certificate. The standalone ESOL field (885) remains in the P-12 Fields list per GaPSC's January 2026 Certificate Field Codes sheet.",
+      "sourceUrls": [
+        "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
+        "https://www.gapsc.com/Certification/Documents/Certificate%20Field%20Codes.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified GaPSC Rules 505-2-.14, 505-2-.166, 505-3-.89, 505-3-.03, the January 2026 Certificate Field Codes sheet, GADOE's Seal of Biliteracy page, and NCES counts. Updated elPercent to 7.7% (NCES Fall 2021); set eld.requirements.program=true to reflect the approved-program pathway.",
+      "sourceUrls": [
+        "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
       ]
     }
   ]
