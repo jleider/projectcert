@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="projectcert"
+     fill="currentColor">
+  <title>projectcert</title>
+  <!--
+    Monochrome logo. All paint uses `currentColor`, so the logo inherits
+    the surrounding text color: dark on light backgrounds, light on dark.
+    The check on the darkest tile is masked out (cut through to the
+    background) so it stays legible on any surface.
+  -->
+  <defs>
+    <mask id="pc-check-cutout" maskUnits="userSpaceOnUse">
+      <rect width="220" height="48" fill="white"/>
+      <path d="M26.5 33.5 L30.5 37.5 L37.5 28"
+            fill="none" stroke="black" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#pc-check-cutout)">
+    <rect x="2"  y="4"  width="18" height="18" rx="3.5" opacity="0.18"/>
+    <rect x="22" y="4"  width="18" height="18" rx="3.5" opacity="0.40"/>
+    <rect x="2"  y="24" width="18" height="18" rx="3.5" opacity="0.70"/>
+    <rect x="22" y="24" width="18" height="18" rx="3.5" opacity="1"/>
+  </g>
+
+  <text x="52" y="31"
+        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="22" font-weight="700" letter-spacing="-0.3">projectcert</text>
+</svg>

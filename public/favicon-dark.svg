@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="projectcert">
+  <title>projectcert</title>
+  <!--
+    Tuned for dark backgrounds (dark browser tab bars).
+    Palette is shifted lighter so every tile reads as brighter than the
+    surrounding chrome; deepest brand purple (#3d1971) would otherwise
+    disappear into a dark tab bar.
+  -->
+  <rect x="2"  y="2"  width="13" height="13" rx="2.5" fill="#ffffff"/>
+  <rect x="17" y="2"  width="13" height="13" rx="2.5" fill="#e1c5ff"/>
+  <rect x="2"  y="17" width="13" height="13" rx="2.5" fill="#c9a0ff"/>
+  <rect x="17" y="17" width="13" height="13" rx="2.5" fill="#7a3ed8"/>
+  <path d="M20.25 24.25 L23 27 L27.75 21.5"
+        fill="none" stroke="#ffffff" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

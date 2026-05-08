@@ -1,0 +1,96 @@
+# projectcert
+
+> A 51-state atlas of U.S. state education agency (SEA) teacher
+> certification requirements for instructing classified English Learner
+> (EL) students. Open data under CC BY 4.0. Every fact-bearing field
+> traces to a dated, retrievable source.
+
+## What this site is
+
+projectcert catalogs how each U.S. state and the District of Columbia
+licenses teachers to instruct classified ELs. For all 51 SEAs we
+record:
+
+- Whether the SEA offers a **bilingual education** credential (and
+  whether as a standalone certification or only as an add-on
+  endorsement)
+- Whether the SEA offers an **ELD/ESL** credential (standalone vs.
+  add-on)
+- Whether **SEI training is mandated for all teachers** (rare —
+  AZ, CA, MA, with NV phasing in)
+- Whether the state's **professional teaching standards** explicitly
+  reference ELs / linguistic / cultural / diverse populations
+- The state's **classified EL population** (% of public school
+  students, NCES Table 204.20)
+- Whether the state has adopted the **Seal of Biliteracy** and which
+  **English Language Proficiency assessment** it uses (WIDA / ELPA21
+  / state-specific)
+- A dated **history** of policy and verification events per state
+
+Every record carries a `verificationStatus` of `baseline-2019`
+(coded from the Leider et al. 2021 paper using sources collected
+Oct–Dec 2019) or `verified-2026` (re-verified against current SEA
+documents in 2026).
+
+## Citation
+
+If you cite a fact from projectcert, link the specific page (e.g.,
+`/states/tx/`) and use the `lastVerified` date. Each per-state page
+has a "Cite this page" block with APA, BibTeX, and plain-text formats.
+The seed data is:
+
+> Leider, C. M., Colombo, M. W., & Nerlino, E. (2021). Decentralization,
+> teacher quality, and the education of English learners. *Education
+> Policy Analysis Archives, 29*(100). https://doi.org/10.14507/epaa.29.5279
+
+## Authoritative entry points
+
+- [Home / interactive map](https://projectcert.org/): national
+  choropleth, switchable across six layers (% EL, bilingual, ELD,
+  SEI, standards, ELP assessment)
+- [Methodology](https://projectcert.org/methodology/): how data is
+  collected, normalized, and re-verified
+- [Glossary](https://projectcert.org/glossary/): canonical terminology
+  with state-local aliases (CLDE, ELAD, TESL, ENL, etc.)
+- [Verification status](https://projectcert.org/verification/): which
+  states have been re-verified against current SEA sources
+
+## Per-credential reports
+
+- [Bilingual education credential](https://projectcert.org/credentials/bilingual/)
+- [ELD / ESL credential](https://projectcert.org/credentials/eld/)
+- [SEI mandate](https://projectcert.org/credentials/sei/)
+
+## Per-state pages
+
+Each US state and DC has a canonical page at `/states/<usps>/` (e.g.,
+`/states/tx/`, `/states/dc/`, `/states/ma/`). All 51 are listed in the
+[sitemap](https://projectcert.org/sitemap-index.xml).
+
+## Machine-readable
+
+- [Sitemap](https://projectcert.org/sitemap-index.xml)
+- [Full text dump for LLMs](https://projectcert.org/llms-full.txt) —
+  per-state factual blocks suitable for retrieval
+- Per-page `Dataset` JSON-LD with `dateModified`, `temporalCoverage`,
+  `spatialCoverage`, `creator`, `license`, `citation`
+- Site-level `DataCatalog` JSON-LD on the home page
+
+## License & provenance
+
+All site content licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Snapshots
+of source documents (PDFs, HTML pages) are stored in the project's
+GitHub repository under `sources/<usps>/<YYYY-MM-DD>/`. Every fact
+on a state page is traceable to a `sources[]` entry with a `url`,
+`retrievedAt` date, and `retrievedBy` tag.
+
+## What this site is not
+
+- Not legal advice, not certification advice. Always confirm current
+  requirements with the SEA directly before acting on this data.
+- Not exhaustive of every credential. We focus on EL-relevant
+  credentials specifically: bilingual education, ELD/ESL, SEI.
+- Not a replacement for the Leider et al. (2021) paper. The paper is
+  the analytical baseline; this site is its current-day extension and
+  a structured-data layer on top.

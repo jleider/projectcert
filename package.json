@@ -6,7 +6,8 @@
   "description": "Atlas of U.S. state EL teacher certification requirements",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "tsx scripts/generate-llms-full.ts && astro build && cp dist/sitemap-index.xml dist/sitemap.xml",
+    "generate:llms": "tsx scripts/generate-llms-full.ts",
     "preview": "astro preview",
     "astro": "astro",
     "seed": "tsx scripts/seed-from-paper.ts",
@@ -18,6 +19,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.7.2",
     "@astrojs/svelte": "^7.1.0",
     "@astrojs/tailwind": "^6.0.0",
     "astro": "^5.5.0",

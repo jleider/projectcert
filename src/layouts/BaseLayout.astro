@@ -3,21 +3,68 @@ import "@/styles/tokens.css";
 import PreLaunchBanner from "@/components/PreLaunchBanner.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
+import JsonLd from "@/components/JsonLd.astro";
 import { FEEDBACK_FORM } from "@/config/feedback";
 import { getCollection } from "astro:content";
 
 interface Props {
   title: string;
   description?: string;
+  /** OG type. "article" for state/credential/methodology pages, default "website". */
+  type?: "website" | "article";
+  /** ISO 8601 modified time, surfaced as `article:modified_time`. */
+  modifiedTime?: string;
+  /** ISO 8601 published time. */
+  publishedTime?: string;
+  /** Absolute or root-relative URL of the OG image; falls back to og-default.png. */
+  image?: string;
+  /** Per-page JSON-LD (Dataset, Article, etc.). The site-level Organization + WebSite is always emitted. */
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  type = "website",
+  modifiedTime,
+  publishedTime,
+  image,
+  jsonLd,
+} = Astro.props;
+
+const SITE_URL = "https://projectcert.org";
+const SITE_NAME = "projectcert";
+const fullTitle = `${title} — projectcert`;
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
+const ogImage = new URL(image ?? "/og-default.png", SITE_URL).toString();
 
 const states = await getCollection("states");
 const verifiedCount = states.filter(
   (s) => s.data.verificationStatus === "verified-2026",
 ).length;
 const totalCount = states.length;
+
+const siteJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    description:
+      "An atlas of every U.S. state education agency's teacher certification requirements for instructing classified English Learner students.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: SITE_NAME,
+    inLanguage: "en-US",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+  },
+];
 ---
 
 <!doctype html>
@@ -25,9 +72,41 @@ const totalCount = states.length;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} — projectcert</title>
+    <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
-    <meta name="theme-color" content="#3d1971" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#3d1971" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14151a" media="(prefers-color-scheme: dark)" />
+    <link
+      rel="license"
+      href="https://creativecommons.org/licenses/by/4.0/"
+      title="CC BY 4.0"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-light.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg" media="(prefers-color-scheme: dark)" />
+
+    <JsonLd data={siteJsonLd} />
+    {jsonLd && <JsonLd data={jsonLd} />}
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -36,8 +115,15 @@ const totalCount = states.length;
 
     <header class="border-b border-ink-subtle/15 bg-surface">
       <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
-        <a href="/" class="font-semibold text-ink hover:text-accent">
-          projectcert
+        <a href="/" class="flex items-center gap-2 font-semibold text-ink hover:text-accent" aria-label="projectcert — home">
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect x="2"  y="2"  width="13" height="13" rx="2.5" fill="#f5e8ff"/>
+            <rect x="17" y="2"  width="13" height="13" rx="2.5" fill="#c9a0ff"/>
+            <rect x="2"  y="17" width="13" height="13" rx="2.5" fill="#7a3ed8"/>
+            <rect x="17" y="17" width="13" height="13" rx="2.5" fill="#3d1971"/>
+            <path d="M20.25 24.25 L23 27 L27.75 21.5" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>project<span style="color: var(--brand)">cert</span></span>
         </a>
         <nav aria-label="Primary">
           <ul class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-muted">
@@ -60,10 +146,12 @@ const totalCount = states.length;
     <footer class="mt-16 border-t border-ink-subtle/15 bg-surface-raised text-sm text-ink-muted">
       <div class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4 justify-between">
         <p>
-          Seed data: <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</ExternalLink>.
+          Seed data: <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</ExternalLink>. If you use data from this site, please <a class="text-accent hover:underline" href="/about/#how-to-cite">cite the authors</a>.
         </p>
         <p>
           <a class="text-accent hover:underline" href="/verification/">Verification status</a>
+          {" · "}
+          <a class="text-accent hover:underline" href="/about/#how-to-cite">How to cite</a>
           {" · "}
           <a class="text-accent hover:underline" href="/methodology/">Methodology</a>
           {FEEDBACK_FORM.baseUrl && (

@@ -1,11 +1,38 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+
+const SITE_URL = "https://projectcert.org";
+const pageUrl = `${SITE_URL}/methodology/`;
+const methodologyJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Methodology",
+    description:
+      "How projectcert collects, normalizes, and verifies state EL teacher certification data — including the 2019 Leider et al. baseline and the 2026 per-state SEA re-verification workflow.",
+    url: pageUrl,
+    inLanguage: "en-US",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    isAccessibleForFree: true,
+    citation: "https://doi.org/10.14507/epaa.29.5279",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Methodology", item: pageUrl },
+    ],
+  },
+];
 ---
 
 <BaseLayout
   title="Methodology"
   description="How projectcert collects, normalizes, and verifies state EL teacher certification data."
+  type="article"
+  jsonLd={methodologyJsonLd}
 >
   <article class="max-w-3xl mx-auto px-4 py-8 prose-style">
     <h1 class="text-3xl font-bold text-ink">Methodology</h1>

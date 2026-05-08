@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Choropleth from "@/components/Choropleth.svelte";
 import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
+import CitationBlock from "@/components/CitationBlock.astro";
 import { getChoroplethData, getAllStates } from "@/lib/state-data";
 
 const data = await getChoroplethData();
@@ -13,11 +14,51 @@ const bilingualOffered = states.filter((s) => s.credentials.bilingual.offered).l
 const eldStandalone = states.filter((s) => s.credentials.eld.standalone).length;
 const seiMandated = states.filter((s) => s.credentials.sei.mandatedForAllTeachers).length;
 const standardsMentionEl = states.filter((s) => s.professionalStandardsMentions.el).length;
+
+const latestVerified = states
+  .map((s) => s.lastVerified)
+  .sort()
+  .at(-1) ?? "2026-01-01";
+
+const SITE_URL = "https://projectcert.org";
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "@id": `${SITE_URL}/#datacatalog`,
+  name: "projectcert — EL teacher certification atlas",
+  description:
+    "Per-state teacher certification requirements for instructing classified English Learner (EL) students across all 50 U.S. states plus the District of Columbia.",
+  url: SITE_URL,
+  inLanguage: "en-US",
+  license: "https://creativecommons.org/licenses/by/4.0/",
+  publisher: { "@id": `${SITE_URL}/#organization` },
+  isAccessibleForFree: true,
+  keywords: [
+    "English Learner",
+    "EL",
+    "ELL",
+    "bilingual education",
+    "ESL",
+    "ELD",
+    "teacher certification",
+    "teacher licensure",
+    "state education agency",
+    "SEA",
+  ],
+  dataset: states.map((s) => ({
+    "@type": "Dataset",
+    "@id": `${SITE_URL}/states/${s.usps.toLowerCase()}/#dataset`,
+    name: `${s.name} EL teacher certification`,
+    url: `${SITE_URL}/states/${s.usps.toLowerCase()}/`,
+    dateModified: s.lastVerified,
+  })),
+};
 ---
 
 <BaseLayout
   title="EL teacher certification across U.S. states"
   description="An atlas of every U.S. state education agency's teacher certification requirements for instructing classified English Learner students."
+  jsonLd={homeJsonLd}
 >
   <section class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="text-3xl sm:text-4xl font-bold text-ink max-w-3xl">
@@ -25,6 +66,12 @@ const standardsMentionEl = states.filter((s) => s.professionalStandardsMentions.
     </h1>
     <p class="mt-4 text-lg text-ink-muted max-w-3xl">
       Every state education agency interprets the same federal civil-rights protections differently. This site catalogs how — what credentials they offer, what those credentials require, and whether their professional teaching standards even acknowledge ELs.
+    </p>
+    <p class="mt-3">
+      <a
+        href="#cite-this-page"
+        class="text-sm text-accent hover:underline focus-visible:underline"
+      >Cite this site &darr;</a>
     </p>
 
     <div class="mt-8">
@@ -74,5 +121,12 @@ const standardsMentionEl = states.filter((s) => s.professionalStandardsMentions.
     <p class="mt-10 text-sm text-ink-subtle">
       National mean: {meanEl.toFixed(1)}% classified ELs (51-SEA average, 2019 baseline).
     </p>
+
+    <CitationBlock
+      title="projectcert: a 51-state atlas of EL teacher certification"
+      dateModified={latestVerified}
+      url="https://projectcert.org/"
+      bibKey={`projectcert_${latestVerified.slice(0, 4)}`}
+    />
   </section>
 </BaseLayout>

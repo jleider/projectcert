@@ -184,6 +184,16 @@
   }
 
   $: tooltip = hovered ?? focused;
+
+  // DC is geographically tiny (~68 sq mi) and renders at ~3px wide in
+  // the projection — far below a usable click target. Render it as a
+  // labelled square callout offset to the east with a leader line to
+  // its actual projected location.
+  $: dcDatum = stateById.get("DC");
+  $: dcPoint = projection([-77.0369, 38.9072]);
+  const DC_CALLOUT_X = 935;
+  const DC_CALLOUT_Y = 245;
+  const DC_CALLOUT_SIZE = 22;
 </script>
 
 <figure class="relative w-full" bind:clientWidth={containerWidth}>
@@ -249,6 +259,53 @@
         />
       {/if}
     {/each}
+
+    {#if dcDatum && dcPoint}
+      <line
+        x1={dcPoint[0]}
+        y1={dcPoint[1]}
+        x2={DC_CALLOUT_X}
+        y2={DC_CALLOUT_Y}
+        stroke="var(--map-border-dark)"
+        stroke-width="0.75"
+        aria-hidden="true"
+      />
+      <a
+        href="/states/dc/"
+        aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}
+        on:click|preventDefault={() => handleClick(dcDatum)}
+      >
+        <rect
+          x={DC_CALLOUT_X - DC_CALLOUT_SIZE / 2}
+          y={DC_CALLOUT_Y - DC_CALLOUT_SIZE / 2}
+          width={DC_CALLOUT_SIZE}
+          height={DC_CALLOUT_SIZE}
+          rx="2"
+          fill={fillFor(dcDatum, layer)}
+          stroke="var(--map-border)"
+          stroke-width="1"
+          tabindex="0"
+          role="button"
+          aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}
+          on:mousemove={(e) => handleMove(e, dcDatum)}
+          on:mouseleave={handleLeave}
+          on:focus={() => handleFocus(dcDatum)}
+          on:blur={handleBlur}
+          on:keydown={(e) => handleKey(e, dcDatum)}
+          style="cursor: pointer; outline-offset: 2px;"
+        />
+      </a>
+      <text
+        x={DC_CALLOUT_X}
+        y={DC_CALLOUT_Y + DC_CALLOUT_SIZE / 2 + 12}
+        text-anchor="middle"
+        font-size="10"
+        font-weight="600"
+        fill="var(--ink)"
+        pointer-events="none"
+        aria-hidden="true"
+      >DC</text>
+    {/if}
   </svg>
 
   {#if tooltip}

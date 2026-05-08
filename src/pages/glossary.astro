@@ -13,11 +13,44 @@ const stateLocalRows = STATES
     names: STATE_LOCAL_NAMES[meta.usps],
   }))
   .filter((r) => r.names);
+
+const SITE_URL = "https://projectcert.org";
+const glossaryUrl = `${SITE_URL}/glossary/`;
+const definedTerms = CANONICAL_TERMS.map((t) => ({
+  "@type": "DefinedTerm",
+  "@id": `${glossaryUrl}#${t.canonical}`,
+  name: t.canonical,
+  alternateName: t.aliases,
+  ...(t.notes && { description: t.notes }),
+  inDefinedTermSet: { "@id": `${glossaryUrl}#termset` },
+}));
+const glossaryJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${glossaryUrl}#termset`,
+    name: "projectcert glossary",
+    description:
+      "Canonical terminology used across projectcert for English Learner (EL) teacher certification, with state-local aliases.",
+    url: glossaryUrl,
+    inLanguage: "en-US",
+    hasDefinedTerm: definedTerms,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Glossary", item: glossaryUrl },
+    ],
+  },
+];
 ---
 
 <BaseLayout
   title="Glossary"
   description="Canonical terminology and state-local aliases used across projectcert."
+  jsonLd={glossaryJsonLd}
 >
   <article class="max-w-3xl mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-ink">Glossary</h1>

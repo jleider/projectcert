@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="projectcert">
+  <title>projectcert</title>
+  <!-- Mark: 2x2 of choropleth bin colors with a check on the darkest tile -->
+  <g>
+    <rect x="2"  y="4"  width="18" height="18" rx="3.5" fill="#f5e8ff"/>
+    <rect x="22" y="4"  width="18" height="18" rx="3.5" fill="#c9a0ff"/>
+    <rect x="2"  y="24" width="18" height="18" rx="3.5" fill="#7a3ed8"/>
+    <rect x="22" y="24" width="18" height="18" rx="3.5" fill="#3d1971"/>
+    <path d="M26.5 33.5 L30.5 37.5 L37.5 28"
+          fill="none" stroke="#ffffff" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="52" y="31"
+        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="22" font-weight="700" fill="#16181f"
+        letter-spacing="-0.3">project<tspan fill="#3d1971">cert</tspan></text>
+</svg>

@@ -44,6 +44,37 @@ import ExternalLink from "@/components/ExternalLink.astro";
       <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">https://doi.org/10.14507/epaa.29.5279</ExternalLink>
     </p>
 
+    <h2 id="how-to-cite" class="mt-8 text-xl font-semibold text-ink">How to cite / attribution</h2>
+    <p class="mt-2 text-ink-muted">
+      If you use data, figures, or findings from this site — in
+      research, reporting, policy work, presentations, or other
+      publications — please cite <strong>both</strong> the underlying
+      source paper and this site. The paper is the original scholarly
+      work that seeded the catalog; citing only the site would obscure
+      the authors whose research made it possible.
+    </p>
+    <h3 class="mt-4 text-base font-semibold text-ink">Source paper (required)</h3>
+    <p class="mt-1 text-ink-muted">
+      Leider, C. M., Colombo, M. W., &amp; Nerlino, E. (2021).
+      Decentralization, teacher quality, and the education of English
+      learners: Do state education agencies effectively prepare teachers
+      of ELs? <em>Education Policy Analysis Archives, 29</em>(100).
+      <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">https://doi.org/10.14507/epaa.29.5279</ExternalLink>
+    </p>
+    <h3 class="mt-4 text-base font-semibold text-ink">This site</h3>
+    <p class="mt-1 text-ink-muted">
+      projectcert. <em>An atlas of U.S. state teacher certification
+      requirements for instructing classified English Learner students.</em>
+      Retrieved {new Date().toISOString().slice(0, 10)} from
+      <a class="text-accent hover:underline" href="/">this website</a>.
+    </p>
+    <p class="mt-2 text-sm text-ink-muted">
+      Per-state records also include a <code>sources[]</code> array
+      pointing to the SEA documents that back each fact; when quoting a
+      specific requirement, cite the SEA source directly in addition to
+      the above.
+    </p>
+
     <h2 class="mt-8 text-xl font-semibold text-ink">Contributing</h2>
     <p class="mt-2 text-ink-muted">
       State data lives as JSON files in the project repo. To propose an

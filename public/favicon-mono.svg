@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="projectcert"
+     fill="currentColor">
+  <title>projectcert</title>
+  <defs>
+    <mask id="pc-check-cutout" maskUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="white"/>
+      <path d="M20.25 24.25 L23 27 L27.75 21.5"
+            fill="none" stroke="black" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <g mask="url(#pc-check-cutout)">
+    <rect x="2"  y="2"  width="13" height="13" rx="2.5" opacity="0.18"/>
+    <rect x="17" y="2"  width="13" height="13" rx="2.5" opacity="0.40"/>
+    <rect x="2"  y="17" width="13" height="13" rx="2.5" opacity="0.70"/>
+    <rect x="17" y="17" width="13" height="13" rx="2.5" opacity="1"/>
+  </g>
+</svg>

@@ -1,0 +1,1021 @@
+# projectcert — full state data (LLM-readable snapshot)
+
+> A dense, machine-readable snapshot of every U.S. state and DC's
+> teacher certification requirements for instructing classified
+> English Learner (EL) students. Generated from the underlying JSON
+> records — what you read here matches what users see on the live
+> per-state pages.
+
+Snapshot generated: 2026-05-08
+States verified against current SEA sources: 49 / 51
+License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279
+Canonical site: https://projectcert.org/
+
+## Field semantics
+
+- **bilingual / eld** credentials carry "offered", "standalone"
+  (own preparation program), and "addOn" (added to a primary
+  certification) flags.
+- **sei.mandatedForAllTeachers** is rare — historically AZ, CA, MA;
+  NV phasing in. Default state is false.
+- **professionalStandardsMentions** asks whether the SEA's professional
+  teaching standards document explicitly references each of: diverse
+  populations, cultural responsiveness, linguistic considerations,
+  English learners specifically.
+- **elpAssessment.consortium** is one of "WIDA", "ELPA21", or null
+  (state-specific assessment such as TELPAS, ELPAC, AZELLA, LAS
+  Links, ELPT).
+- **verificationStatus**: `baseline-2019` means the record is the
+  Leider et al. 2021 coding from sources collected Oct–Dec 2019;
+  `verified-2026` means re-verified against current SEA documents
+  in 2026; `in-progress` is mid-refresh.
+
+If you are an LLM citing a fact from this dump: link to the
+specific per-state URL above (`https://projectcert.org/states/<usps>/`) and
+include the `lastVerified` date as the as-of date for the claim.
+
+---
+
+## Alabama (AL)
+
+URL: https://projectcert.org/states/al/
+Last verified: 2026-05-08 (verified-2026)
+
+Alabama does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2022.
+
+Bilingual notes: Alabama does not issue a bilingual education certificate or endorsement. The only appearance of 'bilingual' anywhere in Alabama Administrative Code Chapter 290-3-3 (Educator Preparation) is in the Pre-K curriculum's reference to 'bilingual/multilingual' linguistic domains (Rule 290-3-3-.06) — not a credential.
+
+ELD notes: Branded 'English for Speakers of Other Languages (ESOL)' (Grades P-12) under Alabama Admin. Code Rule 290-3-3-.43. Issued only at the Class A (master's-degree-level) level — there is no Class B (bachelor's-level) ESOL certificate, so every ESOL candidate must first hold a Class B Professional Educator Certificate in another teaching field. We code both `standalone: true` (ESOL is the named field of a Professional Educator Certificate, with a dedicated rule, TESOL-aligned program standards, and a Praxis subject test) and `addOn: true` (it can be earned only by candidates already certified in another field). Single pathway: completion of a State-approved Class A ESOL program (3.25 GPA min for candidates admitted on/after 2017-07-01), 300-clock-hour internship with an ESOL-certified cooperating teacher, and the AECAP Praxis ESL subject test. No second-language proficiency requirement. Most recent rule revision adopted 2021-08-12, effective 2021-10-15.
+
+SEI notes: No universal SEI/EL training mandate for all teachers. Rule 290-3-3-.43(3)(b) and parallel rules in non-ESOL teaching fields require a 'survey of special education' or, alternatively, a diversity course — but the diversity course can be satisfied by any one of five topics (methods of accommodating students with exceptionalities; multicultural education; teaching English language learners; rural education; urban education). EL is a permitted but optional satisfier, not a required topic. The 2025-2026 ALSDE EL Guidebook does not impose new SEI obligations on non-ESL teachers.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Alaska (AK)
+
+URL: https://projectcert.org/states/ak/
+Last verified: 2026-05-08 (verified-2026)
+
+Alaska offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 10.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2022.
+
+Bilingual notes: Approved program courses required to include Native American/multicultural education. Standalone 'Bilingual Education' endorsement listed under World Languages on DEED's available-endorsements page; add-on pathway via approved program (4 AAC 12).
+
+ELD notes: Standalone 'English as a Second Language' and 'English as a Foreign Language' endorsements remain offered. Approved-program completion is the only method to add grade levels; content-area exam passing scores required. DEED also lists a 'Statewide English as a Second Language Acquisition, Bilingual and Literacy Education (SLABEL)' umbrella endorsement; no separate adoption date located in current SEA pages.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2021-06-10: Alaska adopts WIDA ELD Standards Framework 2020 — On 2021-06-10 the Alaska State Board of Education adopted the WIDA English Language Development Standards Framework, 2020 Edition (K–12) as Alaska's English Language Proficiency standards, in use since the 2021-22 school year. Cements Alaska's WIDA Consortium membership and ACCESS for ELLs assessment use.
+- 2022-06-08: Alaska adopts Seal of Biliteracy (4 AAC 06.077) — Alaska State Board of Education adopted 4 AAC 06.077 establishing the Alaska State Seal of Biliteracy, recognizing graduating high school students who attain proficiency in English plus one or more world languages. Alaska was the 49th state to adopt a state Seal of Biliteracy.
+- 2022-07-01: Alaska Reads Act takes effect — The Alaska Reads Act (HB 114, 2022) takes effect, mandating evidence-based reading instruction in K-3 and authorizing the K-3 Teacher and K-3 Administrator endorsements. Not EL-specific but applies to ELL/ESL support teachers serving K-3 students.
+- 2024-08-21: Limited world language immersion teacher certificate regs effective — Regulations 4 AAC 12.388, 4 AAC 12.397, and 4 AAC 12.405 establishing a Limited world language immersion teacher certificate take effect (filed 2024-07-22; published Register 251, October 2024). Expands pathways for native-speaker world-language and bilingual immersion educators.
+- 2025-07-01: Alaska Reads Act K-3 endorsement requirement takes effect — Effective 2025-07-01 (no extension or grace period), all K-3 educators in Alaska — including new hires and including SPED and ELL/ESL support teachers — must hold the AK Reads Act K-3 Teacher endorsement before working in any K-3 classroom (AS 14.20.015(c); 4 AAC 12.305).
+
+## Arizona (AZ)
+
+URL: https://projectcert.org/states/az/
+Last verified: 2026-05-07 (verified-2026)
+
+Arizona offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is mandated for all teachers. As of 2021, 8.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses AZELLA (state-specific assessment).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Bilingual, PreK-12 endorsement under R7-2-615(J). Full endorsement = (a) approved bilingual program OR 21 semester hours of specified coursework, (b) 3-hr practicum OR 2 years bilingual classroom experience, (c) verified proficiency in a world language other than English (seven options: Arizona Classroom Spanish Proficiency Exam, AEPA/NES foreign-language portion, tribal verification of an American Indian language, comparable out-of-state exam, world-language degree, 3 years foreign-language teaching, or ACTFL OPI). Provisional endorsement (3 years, non-renewable) = prerequisite certificate + language-proficiency verification only.
+
+ELD notes: English as a Second Language (ESL), PreK-12 endorsement under R7-2-615(K). Full endorsement = (a) approved ESL program OR 18 semester hours of specified coursework, (b) 3-hr ESL practicum OR 2 years ESL/bilingual experience, (c) a 'second language learning experience' (six-hour single-language coursework, intensive language training, third-semester placement, ACTFL OPI intermediate-low, AZ Spanish Proficiency Exam, American Indian language verification, or AEPA/NES foreign-language exam). The second-language requirement is exposure-not verified proficiency, hence languageProficiency=false. Provisional ESL = 6 hours of ESL coursework including methods (3 yrs, non-renewable). ADE explicitly states the ESL endorsement also authorizes teaching in a Structured English Immersion setting.
+
+SEI notes: Universal mandate: per R7-2-615(L) and ADE OELAS, 'a Provisional or full SEI endorsement, or an ESL or Bilingual endorsement, shall be required of a teacher who is instructing students in a sheltered English immersion or structured English immersion model.' Originating in Proposition 203 (2000) and HB 2064 (2006), Arizona has the country's broadest teacher-of-EL credentialing mandate. The full SEI endorsement is earnable via 3 semester hours of approved coursework or 45 clock hours of approved professional development under A.R.S. § 15-756.09(B); the provisional version is 1 semester hour or 15 clock hours (3 years, non-renewable). Spring 2019 legislation reduced the daily SEI ELD block from 4 hours to 2 hours and re-opened broader access to dual-language and bilingual program models, but did not repeal the teacher endorsement mandate.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-07: Re-verified against current ADE sources — R7-2-615 re-read: bilingual.requirements.program null → true (R7-2-615(J)(4)(b) names an approved bilingual education program as Option A) and ELD.requirements.program null → true (R7-2-615(K)(3)(b) names an approved ESL program as Option A). Standards.el false → true — R7-2-602 Standard 2 explicitly references 'English language learners' and second-language acquisition. SEI mandate confirmed unchanged; notes expanded with Prop 203 (2000) / HB 2064 (2006) statutory backbone and the spring 2019 reduction of the daily SEI ELD block from 4 hours to 2 hours.
+
+## Arkansas (AR)
+
+URL: https://projectcert.org/states/ar/
+Last verified: 2026-05-08 (verified-2026)
+
+Arkansas does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2018.
+
+Bilingual notes: Arkansas does not offer a bilingual-education endorsement. Appendix A of the Rules Governing Educator Licensure (effective 2022-06-02) lists no bilingual credential. Foreign-language endorsements such as Spanish (code 710), French (248), and German (702) exist on the DESE licensure-area list but are world-language teaching credentials, not bilingual-program credentials.
+
+ELD notes: Branded English as a Second Language (ESL, code 247) for the Standard License path and English for Speakers of Other Languages (ESOL, code 100) for the Ancillary License path; both are K-12 endorsements added to a primary teaching license. Per Rules §4-10.03.3 and §4-11.01, the endorsement is reachable by either an approved program of study (transcript pathway, internship 'if applicable') or by testing out — Appendix A Chart 1 marks ESOL (K-12) as available via both routes, and Chart 2 lists every first-time license level (B-K, K-6, 4-8, 4-12, 7-12, K-12, K-12 SpEd) as eligible to test out. Test-out instrument is the Praxis 5362 (English to Speakers of Other Languages), passing score 155 per the DESE Licensure Assessments page. State-prescribed competencies (Updated 2024 EEF document) cover five domains — Language, Culture, Planning/Implementing/Maintaining Instruction, Assessment, Professionalism — cross-walked to TESOL standards 1-5 and Praxis 5362 sections 1-6. No state-level minimum credit hours, clock hours, or practicum hours are published for the endorsement; approved programs set their own. No second-language proficiency requirement (ESOL is teaching English to non-English speakers, not bilingual instruction).
+
+SEI notes: No statewide SEI / all-teacher EL training mandate. The current Rules Governing Educator Licensure contain no provisions requiring sheltered-instruction or EL coursework of teachers outside the ESOL endorsement; searches of the rules text for 'sheltered', 'SEI', 'all teachers', 'every teacher', and 'professional development' tied to English return no such mandate.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## California (CA)
+
+URL: https://projectcert.org/states/ca/
+Last verified: 2026-05-08 (verified-2026)
+
+California offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is mandated for all teachers. As of 2021, 18.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ELPAC (state-specific assessment).
+- Seal of Biliteracy adopted in 2011.
+
+Bilingual notes: Bilingual Authorization (CL-628B) is the current new-issue add-on pathway (AB 1871, 2008); BCLAD/Bilingual Crosscultural Specialist Credential lineage is the standalone form. Pathways: (1) Commission-approved bilingual program; (2) CSET World Languages Tests II/III, IV, V; (3) program + CSET equivalency. Practicum not separately enumerated in leaflet — coded null.
+
+ELD notes: EL Authorization / CLAD Certificate (CL-628C) plus embedded EL preparation in every Multiple/Single Subject preliminary credential issued since 7/1/2002 (AB 1059). Pathways include CTEL Examination, approved CTEL program, program+exam equivalency, legacy ESL/SDAIE, SB 1969/CCSD, NBPTS ENL, out-of-state equivalency. Second-language requirement waived for candidates with a bachelor's degree from a regionally-accredited institution.
+
+SEI notes: California's SEI-equivalent mandate is the AB 1059 embedded EL authorization in every Multiple Subject and Single Subject preliminary credential issued since 7/1/2002 — functionally one-course-plus EL preparation required of every newly-credentialed classroom teacher.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Colorado (CO)
+
+URL: https://projectcert.org/states/co/
+Last verified: 2026-05-07 (verified-2026)
+
+Colorado offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 10.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+
+- Professional teaching standards explicitly reference: diverse, cultural, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2017.
+
+Bilingual notes: Branded 'Culturally and Linguistically Diverse (CLD) Bilingual Education' (Grades K-12). 'Added endorsement only' per CDE — applicants must first hold a Colorado initial or professional teacher license. Two pathways: (A) completion of a Colorado-State-Board-approved CLD Bilingual program (8.23), or (B) completion of the CLDE endorsement (8.22) coursework PLUS three CLD Bilingual competencies (Bilingualism and Biliteracy; Bilingual Methods, ≥15 clock hours; Ability to Teach in the Additional Language, ≥30 clock hours). Language proficiency in the partner language is required and is typically demonstrated via Praxis + ACTFL OPI in the chosen language or a degree in the language; the worksheet allows test scores OR equivalent coursework, so 'test' is coded null rather than true.
+
+ELD notes: Branded 'Culturally and Linguistically Diverse (CLD) Education' endorsement (Grades K-12). 'Added endorsement only.' Two pathways: (A) Colorado-State-Board-approved CLD program, or (B) 24 semester hours of coursework (B- or higher in each) across First/Second Language Acquisition, Literacy Development for CLD Students, Knowledge of English and Linguistics, Assessment of Language Proficiency, Foundations in CLD Education, Teaching Strategies for CLD Learners, CLD Field Experience (3 SH practicum), and Knowledge of Other Languages. Up to 6 of the 24 SH may come from documented professional development or work experience. No exam gate. The 'Knowledge of Other Languages' category does not require a language-proficiency exam — it can be satisfied by coursework, study abroad, a major/minor, or three additional hours in any other CLD category — so languageProficiency is coded false.
+
+SEI notes: No general SEI mandate for all teachers. However, effective 2025-09-01, educators renewing a professional teaching license with an elementary, English language arts, math, science, or social studies endorsement must complete 45 clock hours (or 3 semester hours) of EL-focused professional learning aligned to the CLD standards. Holders of CLDE, CLD Bilingual, LDE, or LDE Bilingual endorsements are exempt. Districts with ≤2% EL enrollment over three years can request waivers. This is a renewal-gated PD rule for selected endorsements rather than a universal pre-service SEI mandate of the AZ/CA/MA type, so mandatedForAllTeachers remains false.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-07: Re-verified against current CDE sources — Bilingual reclassified standalone → add-on (CDE explicitly classifies both CLDE and CLD Bilingual Education as 'added endorsements only'). New 45-hour EL professional-development requirement effective 2025-09-01 for educators renewing licenses with elementary, ELA, math, science, or social-studies endorsements. Standards corrections: linguistic true → false (text says 'language', not 'linguistic'); el false → true (2011 Quality Standards 2.4 explicitly names English language learners).
+
+## Connecticut (CT)
+
+URL: https://projectcert.org/states/ct/
+Last verified: 2026-05-08 (verified-2026)
+
+Connecticut offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, el.
+- Uses LAS Links Online (state-specific assessment).
+- Seal of Biliteracy adopted in 2017.
+
+Bilingual notes: CT issues bilingual qualifications as cross-endorsements (no standalone bilingual license). Requires 18 semester hours across six areas at one regionally accredited college, plus ACTFL OPI + WPT in the target language and Praxis Core writing in English. Most bilingual endorsements layer on top of an existing primary endorsement; secondary bilingual humanities (#991) and STEM (#992) are exceptions requiring 15 content-area hours instead. ARCTEL exists as an alternate program-based pathway, hence program=null rather than false. Baseline-2019 coded offered=false; this refresh corrects to offered=true,addOn=true.
+
+ELD notes: CT offers BOTH the Initial TESOL Teaching Certificate (PK-12, standalone) and a TESOL cross-endorsement. Standalone pathway requires an approved preparation program with TESOL student teaching and Praxis II ESOL. Cross-endorsement requires 30 semester hours of TESOL coursework across five categories (English Syntax/Composition; Language Theory; Linguistic and Academic Assessment of ELLs; Curriculum and Methods of Teaching ESL; Culture and Intergroup Relations). Schema fields are coded on the strength of the standalone pathway.
+
+SEI notes: No statewide SEI mandate. Connecticut General Statutes §10-17f triggers bilingual programs when a school enrolls 20+ ELs of the same language background; ESL/sheltered instruction elsewhere is delivered by TESOL-credentialed teachers. Statewide SEI mandates exist in MA/AZ/CA (and phasing in NV) but not CT.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Delaware (DE)
+
+URL: https://projectcert.org/states/de/
+Last verified: 2026-05-08 (verified-2026)
+
+Delaware offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2017.
+
+Bilingual notes: 14 DE Admin Code 1561 Bilingual Teacher Standard Certificate; ACTFL OPI Advanced Mid in target language; Praxis ESOL #5362 (149).
+
+ELD notes: 14 DE Admin Code 1562 Teacher of English Learners; English proficiency required (ACTFL Advanced Mid OPI/WPT or English-medium U.S. degree); Praxis ESOL #5362 (149).
+
+SEI notes: Delaware lists Sheltered English Instruction (SIOP) as one EL service model; no statewide SEI endorsement mandate for all teachers.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## District of Columbia (DC)
+
+URL: https://projectcert.org/states/dc/
+Last verified: 2026-05-08 (verified-2026)
+
+District of Columbia offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2014.
+
+Bilingual notes: OSSE 9/2025 exam matrix has no Praxis content exam for Bilingual Education; a completed degree major OR completion of an approved program is required, plus a PLT pedagogy exam. No language-proficiency exam (e.g., ACTFL OPI) is listed by OSSE; leider-2021 coded languageProficiency=true, so the field is set to null pending a direct SEA confirmation.
+
+ELD notes: DC's canonical SEA term is 'English as a Second Language' (ESL). Praxis 5362 (English to Speakers of Other Languages, score 155) is the required content exam, with PLT or World Languages Pedagogy as the pedagogy exam.
+
+SEI notes: DC recognizes five EL program models for LEAs (dual language, inclusion/collaborative, content-based ESL, sheltered content, newcomer) but does not mandate sheltered English instruction training for all teachers.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Florida (FL)
+
+URL: https://projectcert.org/states/fl/
+Last verified: 2026-05-08 (verified-2026)
+
+Florida does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Florida has no separate bilingual education certification or endorsement. Bilingual program delivery is staffed by ESOL-credentialed teachers, often paired with a World Language certification (e.g., Spanish K-12) where appropriate.
+
+ELD notes: Florida offers two ESOL credentials: (1) the standalone ESOL K-12 certification under Rule 6A-4.0245 (FTCE 047 ESOL K-12 subject area exam, or major in ESOL); and (2) the ESOL academic endorsement under Rule 6A-4.0244, which requires 15 semester hours across five areas (Methods, Curriculum and Materials, Cross-Cultural Communication, Applied Linguistics, Testing and Evaluation) — or a Florida district's approved inservice add-on program. The State Board adopted new ESOL endorsement standards on 2025-08-20 under Rule 6A-4.02451 (effective Sep 2025); approved programs must submit revised matrices to FLDOE by 2026-06-01. No language-proficiency exam (LOTE) is required.
+
+SEI notes: Florida operates under the LULAC v. State Board of Education Consent Decree (1990-08-14), which mandates ESOL training scaled by teacher category: Category I (Language Arts/English/Reading/Elementary/ESE serving ELLs) needs the full ESOL endorsement (15 SH or 300 inservice points) or FTCE 047 plus 2 ESOL courses; Category II (math/science/social studies/computer literacy) needs 1 course or 60 inservice points; Category III (fine arts/electives, SLPs, OT/PT) needs 1 course or 18 inservice points; Category IV (school-based administrators and counselors) needs 1 course. Training is conditional on serving ELLs in covered roles, so this is not equivalent to the AZ/CA/MA model where SEI is mandated for all teachers regardless of student population.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Georgia (GA)
+
+URL: https://projectcert.org/states/ga/
+Last verified: 2026-05-08 (verified-2026)
+
+Georgia does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 7.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Hawaii (HI)
+
+URL: https://projectcert.org/states/hi/
+Last verified: 2026-05-08 (verified-2026)
+
+Hawaii offers a standalone Bilingual Education certification; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 10.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: HTSB issues standalone 'Kaiapuni Hawaiʻi / Hawaiian Language Immersion' and 'ʻŌlelo Hawaiʻi / Hawaiian Language' license fields, which roll up under the canonical 'bilingual' umbrella as heritage/medium-of-instruction credentials. These primarily serve Native Hawaiian / Hawaiian-medium students rather than classified ELs in the Spanish/Asian-language sense; requirements are null pending direct citation of HTSB rules (HAR 8-54 series), which were not reachable from this verification session.
+
+ELD notes: HTSB issues a standalone 'Teaching English to Speakers of Other Languages' (TESOL) license field at P-3, K-6, 6-8, 6-12, P-12, and K-12 grade bands. Coursework and a content test are required (Praxis ESOL); program and practicum requirements are null because HTSB's content-area-specific rules pages were not reachable from this 2026 refresh session.
+
+History:
+- 2015-07-14: Hawaii adopts the State Seal of Biliteracy — Act 224 (SLH 2015 / SB 1394) authorizes a State Seal of Biliteracy for graduating high-school students who demonstrate proficiency in English plus one or more additional languages, including ʻŌlelo Hawaiʻi. Hawaii is among the early-adopter states.
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2021-10-01: NCES Fall 2021 EL count: 17,353 students (10.0%) — Per NCES Digest Table 204.20, Hawaii's classified-EL share of public-school enrollment rose to 10.0% in Fall 2021, up from 9.5% in Fall 2020 and 7.0% at its 2016 trough. The state remains a WIDA Consortium member and administers ACCESS for ELLs annually.
+- 2026-05-08: Refreshed against current SEA sources (verified-2026) — Re-verified HTSB license fields (TESOL + Hawaiian-medium fields), Hawaii Teacher Performance Standards, and NCES EL counts. Re-coded bilingual.offered to true to reflect HTSB's standalone Hawaiian Language Immersion / ʻŌlelo Hawaiʻi fields, which roll up under the canonical bilingual umbrella as heritage/medium-of-instruction credentials. ELD requirements left partially null where HTSB's content-area rule pages were not reachable.
+
+## Idaho (ID)
+
+URL: https://projectcert.org/states/id/
+Last verified: 2026-05-08 (verified-2026)
+
+Idaho offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2020.
+
+Bilingual notes: Bilingual Education (K-12) endorsement (code 7038). Issued via SBOE-approved EPP program (e.g., BSU, NNU) per the OSBE-approved endorsement programs matrix. IDAPA 08.02.02 §021 requires credit hours + a state-board-approved content/pedagogy/performance assessment + supervised clinical experience for any standard endorsement; the Institutional Recommendation form (Jan 2025) requires a Praxis content assessment per endorsement. Idaho Standards for Bilingual Education Teachers (in the 2018 Standards for Initial Certification doc, still operative for this discipline) Standard 4(a) requires program-verified L1 and L2 academic language proficiency.
+
+ELD notes: English as a Second Language (ESL) (K-12) endorsement (code 7126). The SDE *English Learner Program Manual* (2025) uses the term 'English as a New Language (ENL)' for the corresponding teaching assignment codes; both names refer to the same 7126 endorsement. Same IDAPA 08.02.02 §021 requirements (coursework + content assessment + supervised clinical experience) apply.
+
+SEI notes: No Idaho statute or SBOE rule mandates that all certified teachers obtain an EL/SEI endorsement. ESL/ENL and Bilingual remain voluntary specializations. The SDE EL Program Manual (2025) recommends professional development for all language and content teachers but does not impose an SEA-level mandate.
+
+## Illinois (IL)
+
+URL: https://projectcert.org/states/il/
+Last verified: 2026-05-08 (verified-2026)
+
+Illinois offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 12.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2013.
+
+ELD notes: Distinguishes ENL (English-only) from ESL (allows native-language support). 18 SH coursework + 100-hr practicum required for the subsequent endorsement.
+
+SEI notes: No SEI mandate. District-level TBE/TPI required under 105 ILCS 5/14C and 23 IAC 228 — TBE for attendance centers with 20+ same-language ELs, TPI for fewer. 23 IAC 24.140 takes effect 2026-07-01 and drops explicit ELL language from the IPTS; flag for next refresh.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Indiana (IN)
+
+URL: https://projectcert.org/states/in/
+Last verified: 2026-05-08 (verified-2026)
+
+Indiana does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 7.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: IDOE does not issue a bilingual / dual language teaching credential. World-language licenses (Spanish, French, German, Chinese, etc.) authorize the language as a content area but do not authorize content-area instruction in that language.
+
+ELD notes: The English as a New Language (ENL) Professional Educator License is the EL credential. It is issued via (a) completion of an IDOE-approved educator preparation program at a regionally-accredited university, plus (b) passage of a state-approved content exam — Indiana CORE 019 'English Learners' or Praxis 5362 'English to Speakers of Other Languages' (cut score 155). Both Indiana CORE and Praxis tables flag ENL as 'No — must complete approved educator preparation program', so test alone is not sufficient. Coursework is part of the approved program (varies by university; IDOE does not enumerate uniform credit hours). The temporary EL Teacher of Record (ToR) Rubric — an alternate path for already-licensed teachers based on SLA coursework, EL teaching years, and PD points — closed to new candidates on September 1, 2022. After that date, the only options to serve as an EL ToR are full ENL licensure or an ENL Emergency Permit (one-year, LEA-issued, requires demonstrated progress toward full licensure to renew). Practicum is set at the program/institution level rather than by a uniform IDOE rule, so the field is null. No partner-language proficiency exam is required (ENL is not a bilingual credential).
+
+SEI notes: There is no universal SEI / EL coursework mandate on all Indiana teachers. The federal-compliance structure IDOE imposes is per-LEA: every LEA must designate at least one qualified 'EL Teacher of Record' (ENL-licensed or ENL Emergency Permit holder) for its EL students. Non-ENL-licensed classroom teachers may serve ELs as a 'Teacher of Service' (ToS) under ToR oversight, with ongoing job-embedded EL training, but this does not require all teachers to obtain ENL coursework.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Iowa (IA)
+
+URL: https://projectcert.org/states/ia/
+Last verified: 2026-05-08 (verified-2026)
+
+Iowa does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 6.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2018.
+
+Bilingual notes: Iowa requires an 'Authorization' to teach in a non-English language.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Kansas (KS)
+
+URL: https://projectcert.org/states/ks/
+Last verified: 2026-05-08 (verified-2026)
+
+Kansas does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Kansas does not offer a bilingual-education teacher credential. Neither the KSDE 'Adding an Endorsement' page nor the Higher Education Teacher Preparation Standards index lists a bilingual endorsement; only an ESOL endorsement exists.
+
+ELD notes: ESOL endorsement (K.A.R. 91-1-203, updated March 2023) is an add-on to an existing Kansas teaching license, with two pathways: Option 1 — complete a state-approved ESOL program at a Kansas IHE plus pass the state-approved ESOL content exam; Option 2 ('Test Plus') — complete state-approved ESOL content-specific coursework at an approved KS institution (e.g., FHSU ESOL 884/885; KU C&T 330/331/491 or 820/825; K-State EDCI 420/431 or 720/742; McPherson CI 428/628; Newman EDUC 6133/6113; Washburn ED 650/624; Wichita State CI 775) plus pass the ESOL content exam. Practicum is included in some institutional pathways (FHSU, KU) but is not a statewide regulatory requirement, so coded null.
+
+SEI notes: Kansas has no statewide sheltered-English-instruction (SEI) mandate for all teachers. The Professional Education Standards (adopted 2015, revised 2016) embed EL-relevant competencies in Standard 2 (Learning Differences) — including 2.1.5PS on strategies for making content accessible to English language learners — but these are teacher-preparation program standards, not an SEI endorsement requirement.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Kentucky (KY)
+
+URL: https://projectcert.org/states/ky/
+Last verified: 2026-05-08 (verified-2026)
+
+Kentucky does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2021.
+
+ELD notes: ESL endorsement (Primary-Grade 12) is an add-on to a base KY teaching certificate. 16 KAR 2:200 requires admission to an EPSB-approved preparation program; goteachky.com requires passage of appropriate assessments for each endorsement. Practicum is set per program and not enumerated in regulation, so coded null.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Louisiana (LA)
+
+URL: https://projectcert.org/states/la/
+Last verified: 2026-05-08 (verified-2026)
+
+Louisiana offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
+- Uses ELPT (state-specific assessment).
+- Seal of Biliteracy adopted in 2014.
+
+Bilingual notes: Bulletin 746 (Title 28, Part CXXXI) §1343 Bilingual Specialist add-on. Available to elementary, secondary, or all-level certified foreign-language teachers; requires 6 semester hours (Bilingual Methods I and II). languageProficiency=true reflects the prerequisite that the candidate already hold a Louisiana foreign-language certification, which functions as a target-language proficiency gate. baseline-2019 coded bilingual.offered=false; the 2019 paper appears to have missed this small endorsement.
+
+ELD notes: Bulletin 746 §1359 English as a Second Language add-on. 12 semester hours / four 3-hour courses (Methods of Teaching ESL; Introduction to Language and Culture; Structure of the English Language; Curriculum Design for the Multicultural Classroom) on top of a valid OS, Type A/B/C, or Level 1/2/3 teaching certificate. No required exam, no separate practicum, no language-proficiency exam. program=null because the regulation prescribes coursework rather than a state-approved EPP pathway distinct from it.
+
+SEI notes: Structured English Immersion is one of several program models LEAs may operate (per the EL Program Handbook), not a statewide pre-certification training mandate. Bulletin 746 imposes no SEI training requirement on general-certification candidates.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Maine (ME)
+
+URL: https://projectcert.org/states/me/
+Last verified: 2026-05-08 (verified-2026)
+
+Maine does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2018.
+
+ELD notes: Endorsement 660 (ESOL) under Chapter 115 Part II §1.8. Pathway 1 = approved Maine ESOL preparation program; Pathway 3 = 24 SH coursework + one academic semester (≥15 weeks) student teaching; Pathway 5 = approved portfolio. The 5/14/2025 amendment dropped the conditional-cert and Pathway 2 floors from 24 to 15 SH. requirements.test is null because Chapter 115 Part II does not name a Praxis content test for 660; third-party sites cite Praxis 5362 but the binding rule does not.
+
+SEI notes: Sheltered instruction is one optional service component per the 10/9/2025 administrative letter and multilingual-services staffing guidance, not a statewide mandate.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Maryland (MD)
+
+URL: https://projectcert.org/states/md/
+Last verified: 2026-05-08 (verified-2026)
+
+Maryland does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Maryland's COMAR 13A.12.02 certification chapter has no separate bilingual-education credential track (no DBE/DLBE/TBE). EL instruction is delivered via the ESOL credential.
+
+ELD notes: ESOL Pre-K-12 (COMAR 13A.12.02.19). Approved program with 54 sem hrs of required coursework, 6 sh supervised ESOL student teaching (or 1 yr ESOL teaching experience), Praxis 5362, and 6 sh in a modern foreign language at the college level for the teacher candidate. The teacher-candidate language requirement is unusual nationally.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Massachusetts (MA)
+
+URL: https://projectcert.org/states/ma/
+Last verified: 2026-05-07 (verified-2026)
+
+Massachusetts offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is mandated for all teachers. As of 2021, 10.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2017.
+
+SEI notes: SEI endorsement required for core academic teachers, administrators, and (since July 1, 2021) vocational educators. Statutory backbone: LOOK Act (2017); endorsement framework codified at 603 CMR 7.14(1).
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-07: Re-verified against current DESE sources — Bilingual reclassified standalone → add-on; ESL reclassified add-on → standalone (DESE lists Bilingual only as an endorsement and ESL as an Academic PreK-12 license). SEI mandate scope confirmed extended to vocational educators effective July 2021 under the LOOK Act. elPercent updated 10.0 → 10.5 (NCES fall 2021).
+
+## Michigan (MI)
+
+URL: https://projectcert.org/states/mi/
+Last verified: 2026-05-08 (verified-2026)
+
+Michigan offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 6.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2018.
+
+Bilingual notes: Bilingual Education endorsement is language-specific (codes YA-YT, 17 languages). Standard 1.1 of the 2017 Bilingual Education Preparation Standards requires ACTFL Oral Proficiency Interview at Advanced Low or higher in both English and the target language. MTTC Bilingual Education exam also required.
+
+ELD notes: ESL endorsement (code NS). Earned via an approved Educator Preparation Provider as either the initial endorsement on a teaching certificate or as an add-on, plus passage of the MTTC ESL exam. ESL preparation standards (2017, rev. 2024) do not require a separate language-proficiency exam.
+
+SEI notes: Michigan does not mandate SEI training for all teachers. Per Michigan Law 380.1233(1) and the MDE ESL & Bilingual Placement Guide (2024), only teachers serving as the primary EL provider in ESL, sheltered English, bilingual, newcomer, or dual-language programs must hold the NS or Y_ endorsement.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Minnesota (MN)
+
+URL: https://projectcert.org/states/mn/
+Last verified: 2026-05-08 (verified-2026)
+
+Minnesota offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is not mandated for all teachers. As of 2021, 8.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2014.
+
+Bilingual notes: Rule 8710.4150 — bilingual/bicultural is an add-on requiring a prerequisite license (elementary or 5–12/7–12 in math, science, social studies, or health). Subp. 4 enumerates 9 competency areas. Subp. 3 requires ACTFL advanced oral + advanced written, or schooling conducted in the target language. MTLE Bilingual exists but is not uniformly required for completers of MN-state-approved programs (PELSB Compliance Manual FY25, effective 2023-08-01).
+
+ELD notes: Rule 8710.4400 — ESL is its own licensure field with its own student-teaching requirement. Subp. 3 enumerates 10 competency areas (A–J); subp. 3a requires ≥100 hrs field-based experience plus a 12-week full-time student-teaching placement spanning K–6, 5–8, and 9–12.
+
+SEI notes: Rule 8710.2000 Standard 4.A names the MN English Language Development Standards Framework; all licensed teachers must understand it, but this does not rise to a sheltered-instruction mandate of the AZ/CA/MA/NV kind.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Mississippi (MS)
+
+URL: https://projectcert.org/states/ms/
+Last verified: 2026-05-08 (verified-2026)
+
+Mississippi does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2019.
+
+Bilingual notes: MDE does not offer a bilingual education endorsement. Appendix A of the K-12 Educator Licensure Guidelines (Dec 2025) lists Praxis-route foreign-language endorsements (Spanish, French, etc.) but no bilingual-education credential.
+
+ELD notes: 177 — English as a Second Language (K-12) is added to a valid Mississippi license either by passing the Praxis Subject Assessment or by completing an MDE-approved program (Appendix A, K-12 Licensure Guidelines, Dec 2025). No standalone 18-hour coursework path exists for 177. The SEA does not impose a separate practicum on top of the approved-program route; practicum left null pending per-IHE program detail.
+
+SEI notes: Mississippi does not require SEI training of all teachers. Only educators pursuing the 177 ESL endorsement are required to complete EL-specific preparation.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Missouri (MO)
+
+URL: https://projectcert.org/states/mo/
+Last verified: 2026-05-08 (verified-2026)
+
+Missouri does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2017.
+
+ELD notes: ELL endorsement, K-12, per 5 CSR 20-400.570 (effective Aug 1, 2017): requires a valid Missouri permanent or professional teaching certificate, recommendation from a DESE-approved educator preparation program (per 5 CSR 20-400.500), 18 semester hours of content coursework (linguistics, language and culture, second language acquisition, methods, curriculum, assessment), 6 hours literacy, 3 hours psychology of the exceptional child, a 3-hour culminating clinical experience working with ELLs in elementary and secondary settings, and a qualifying score on the required exit assessment(s) per 5 CSR 20-400.310 and 5 CSR 20-400.440.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Montana (MT)
+
+URL: https://projectcert.org/states/mt/
+Last verified: 2026-05-08 (verified-2026)
+
+Montana does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2021.
+
+Bilingual notes: No bilingual-education endorsement on the FY2026 OPI endorsement code list. Montana offers world-language endorsements (06A ARA/ASL/CHI/FRE/GER/IRI/ITA/LAT/RUS/SPA) and tribal-language endorsements (06Z ASB/BLA/CHE/CHI/CRE/CRO/DAK/GV/KOO/SAL), plus a separate Class 7 American Indian Language and Culture Specialist license, but these are language-content credentials, not bilingual-education credentials.
+
+ELD notes: Endorsement code 06A ESL (English as a Second Language K-12), added to a Class 1 or Class 2 license per ARM 10.57.412. ARM 10.57.301 explicitly excludes ESL K-12 from the degree-major / portfolio / PRAXIS-only / National Board substitute pathway, so completion of an OPI-approved educator preparation program with supervised teaching experience is the operative pathway (program=true, practicum=true). The state rule does not specify a freestanding coursework-hour count or a required exam at the SEA-policy level; coded null per the project's ambiguity rule (absence-from-rule is not affirmative absence).
+
+SEI notes: Montana does not require sheltered English instruction (SEI) training for all teachers. ARM 10.58.501 (Teaching Standards) requires educator preparation programs to address ELLs and diverse cultures and languages, but does not impose a universal in-service SEI mandate.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Nebraska (NE)
+
+URL: https://projectcert.org/states/ne/
+Last verified: 2026-05-08 (verified-2026)
+
+Nebraska offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 7.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2020.
+
+Bilingual notes: 92 NAC 24 §006.09 Bilingual Education endorsement (PK-12 / PK-6 / 7-12). Supplemental endorsement that requires the holder to also hold (or earn concurrently) an ESL endorsement plus a subject or field endorsement. Rule 24 mandates a minimum of 12 semester hours of methodology, content instruction, and content literacy in bilingual education programs, of which 9 hours must be taught in the target language, plus a 45-clock-hour practicum in a bilingual education program taught in the target language. The June 2024 Rule 24 Guidelines further set ACTFL Advanced-Low target-language proficiency as Standard 1. Both an approved educator-preparation program (Rule 20) and a Praxis content-test add-on pathway are available.
+
+ELD notes: 92 NAC 24 §006.23 English As A Second Language endorsement (PK-12 / PK-6 / 7-12), Supplemental only — no standalone ESL/TESOL license. Rule 24 mandates 15 semester hours across Second Language Acquisition, English Language/Linguistics, Cross-Cultural Communication, Methods/Curriculum Design in ESL, and Assessment and Evaluation of ELLs, plus a 45-clock-hour practicum with ELL students. June 2024 Rule 24 Guidelines align the endorsement to TESOL standards. Per the NDE Educator Certification announcement of June 4, 2025, applicants who complete an approved educator preparation program are no longer required to pass the Praxis content test; a Praxis-test add-on pathway remains available for adding the endorsement. ESL is a prerequisite for the Bilingual Education endorsement.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Nevada (NV)
+
+URL: https://projectcert.org/states/nv/
+Last verified: 2026-05-07 (verified-2026)
+
+Nevada offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 13.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: NAC 391.242 (regulation T002-24, updated 2024-12-26): completion of a Department-approved bilingual preparation program OR 12 semester credits of coursework (second-language acquisition theory plus at least three of: native-language reading/language-arts methods, native-language content-area methods, second-language testing/evaluation, bilingual curriculum development, native language and culture, bilingual ed history/philosophy/theory). A Praxis language exam in the native language (e.g., Praxis Spanish) must be passed prior to issuance of the endorsement.
+
+ELD notes: Branded as ELAD (English Language Acquisition and Development) since the late-2010s rename from the prior TESL endorsement. NAC 391.237: 11 semester hours of credit (3 each in language acquisition theory, methods for English learners, and assessment of English learners; 2 in elementary or secondary EL policies) plus a 1-semester-hour practicum (≥25 classroom hours). No exam gate. A separate Specialist in ELAD endorsement adds coursework in cultural/linguistic diversity foundations and program leadership.
+
+SEI notes: The phase-in language reported in the 2019 baseline (early childhood/elementary 2020, middle/secondary 2021) did not produce a universal mandate. As of 2026 NAC Chapter 391 contains no general requirement that all teachers obtain ELAD or any EL-related endorsement; ELAD is a voluntary specialization.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-07: Re-verified against current NDE sources — Confirmed Nevada's rename of TESL → ELAD (English Language Acquisition and Development) under NAC 391.237. Bilingual.program null → true (NAC 391.242 names an approved program pathway); bilingual.test null → true (T002-24, effective 2024-12-26, requires a Praxis language exam prior to issuance). The 2019 'SEI phase-in' note retired — ELAD remains a voluntary specialization, not a universal mandate. elPercent 17.1 → 13.8 (NCES fall 2021; NCES flags NV's drop as the largest 2011–2021 negative change nationally).
+
+## New Hampshire (NH)
+
+URL: https://projectcert.org/states/nh/
+Last verified: 2026-05-08 (verified-2026)
+
+New Hampshire does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2020.
+
+Bilingual notes: NH has no bilingual / dual-language educator endorsement in Ed 506 or Ed 507. Bilingual and dual-language are referenced in Ed 507.17 only as Language Instruction Educational Program (LIEP) types an ESOL teacher must understand, not as separate NH credentials.
+
+ELD notes: Ed 507.17 (eff. 8-11-23) governs ESOL teacher licensure K-12. Candidates must hold a bachelor's degree, qualify through an approved program or an Ed 505.01–505.06 alternative, demonstrate oral and written English language proficiency for ELs, and provide evidence of second-language study (≥2 college semesters, ≥6 months residency abroad, or native/heritage speaker). Six competency domains (language as a system, language development, culture in student learning, methods, assessment, professionalism) are required via combined academic and supervised practical experiences. NH's competency-based system does not require a specific content-area test in rule; `test` left null.
+
+SEI notes: No statewide SEI training mandate for all teachers. NH places EL responsibility on ESOL-endorsed teachers per Ed 507.17 and on collaborative classroom practice.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2020-09-01: NH Seal of Biliteracy adopted — Commissioner of Education Frank Edelblut approved adoption of the Seal of Biliteracy in New Hampshire in September 2020, with State Board of Education support. Students became eligible to earn the seal beginning spring 2021; the award appears on the high school diploma along with a state-issued certificate.
+- 2023-08-11: Ed 507.17 ESOL Teacher rule readopted — NH State Board readopted Ed 507.17 effective 8-11-23, restructuring the ESOL teacher competencies into six domains (language as a system; language development; culture; methods; assessment; professionalism) and codifying explicit requirements for English language proficiency in oral/written domains plus second-language study experience. Approved-program or Ed 505.01–505.06 alternative pathway is required.
+- 2026-05-08: Refreshed against current SEA sources (verified-2026) — Re-verified against current Ed 500 administrative rules (Ed 505.03 professional standards; Ed 507.17 ESOL teacher), the NHED Seal of Biliteracy program page, NH/WIDA identification guidance, and NCES Table 204.20. Standards refresh added cultural and linguistic flags. ELD requirement flags moved from null to true for program/coursework/practicum/languageProficiency, reflecting Ed 507.17 text. Seal of Biliteracy confirmed adopted in 2020. EL share unchanged at 2.8% (NCES fall 2021).
+
+## New Jersey (NJ)
+
+URL: https://projectcert.org/states/nj/
+Last verified: 2026-05-08 (verified-2026)
+
+New Jersey offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Bilingual/Bicultural Education endorsement (code 1480) under N.J.A.C. 6A:9B-11.5. Add-on to a CE, CEAS, or standard NJ instructional certificate. CEAS path: complete a Department-approved bilingual/bicultural preparation program. CE path: 12 credit hours of formal instruction. Target-language proficiency required via a Department-approved nationally recognized oral/written test (or equivalent undergrad/graduate education in the target language).
+
+ELD notes: English as a Second Language endorsement (code 1475) under N.J.A.C. 6A:9B-11.6. Add-on to an underlying NJ instructional certificate. Path A: Department-approved NJ college/university preparation program. Path B: 15 credit hours of formal instruction across seven topic areas. Department-approved nationally recognized test of oral and written English proficiency required. languageProficiency=false because the ESL endorsement is not premised on a non-English target language; the proficiency requirement is English.
+
+SEI notes: No statewide SEI mandate for general classroom teachers. NJ requires ESL teachers to hold an ESL endorsement; LEAs serving 10+ multilingual learners must offer one period daily of ESL by a certified teacher (N.J.S.A. 18A:6-38; N.J.A.C. 6A:9B-11.6).
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## New Mexico (NM)
+
+URL: https://projectcert.org/states/nm/
+Last verified: 2026-05-07 (verified-2026)
+
+New Mexico offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 18.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+
+- Professional teaching standards explicitly reference: diverse, cultural.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2014.
+
+Bilingual notes: Under 6.64.10 NMAC: initial Level 1 candidates complete 24-36 semester hours in bilingual education AND pass the bilingual education licensure exam (6.60.5 NMAC); existing license holders add 12 semester hours plus the licensure exam. Native-language proficiency is regulated separately at 6.64.10.9 NMAC: at least an eighth-grade level of oral and written proficiency in the target non-English language. NMPED-facing materials describe the Spanish-language route as Prueba (the Praxis Spanish proficiency exam). Native American / Indigenous language teachers may instead pursue the 520 Native American Language and Culture (NALC) certificate under 6.63.14 NMAC, which substitutes tribal verification of language and cultural competence for the standard licensure exam.
+
+ELD notes: TESOL endorsement under 6.64.11 NMAC. Initial Level 1: 24 semester hours plus PRAXIS English to Speakers of Other Languages (5362). Existing license: pass PRAXIS plus 12 semester hours, OR 24 hours alone. The English language proficiency examination is required only for international reciprocal license holders (6.64.11.8.D); domestic candidates have no language-proficiency exam gate.
+
+SEI notes: NM does not have a universal SEI / EL-instruction endorsement mandate. The bilingual and TESOL endorsements remain voluntary specializations under NMAC Title 6. A 2019 bill to require all new teachers to hold bilingual or TESOL did not become law. Context: the consolidated Yazzie/Martinez v. State of New Mexico litigation (2014 filing, 2018 ruling that NM is failing to provide sufficient education to ELs and Native American students) has driven a multi-year remedial action plan; plaintiffs filed objections to the State's November 2025 Comprehensive Remedial Action Plan in February 2026, citing inter alia the persistent shortage of bilingual-endorsed teachers. As of 2026-05-07 no statutory or regulatory universal EL-teaching mandate has been enacted.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-07: Re-verified against current NMPED sources — Standards.linguistic and .el both corrected to false — 6.69.4 NMAC (the general teacher competencies) contains zero mentions of EL/ELL/English learner/second language/bilingual, and the word 'linguistic' does not appear. elPercent 16.3 → 18.8 (NCES fall 2021). Notes expanded with Yazzie/Martinez v. State of New Mexico litigation and remediation context through plaintiffs' February 2026 objections to the State's November 2025 remedial action plan.
+
+## New York (NY)
+
+URL: https://projectcert.org/states/ny/
+Last verified: 2026-05-08 (verified-2026)
+
+New York offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses NYSESLAT (state-specific assessment).
+- Seal of Biliteracy adopted in 2013.
+
+Bilingual notes: Bilingual Education Extension: add-on only, attached to a valid base certificate. Approved program requires coursework in six content areas, ≥50 clock hours of college-supervised field experience, and the Bilingual Education Assessment (BEA), which doubles as the language-proficiency instrument for the language other than English.
+
+ELD notes: Branded ESOL in OTI certification listings and TESOL in higher-ed program names. Standalone classroom-teacher certificate (CST 116 ESOL) plus supplementary pathway for already-certified teachers. Programs (Fall 2024+) require ≥100 clock hours of field experience and ≥70 school days of student teaching with ELL students. 12 LOTE semester hours required as coursework precondition but not as a target-language proficiency demonstration.
+
+SEI notes: No universal SEI/EL credential mandate. CR Part 154 requires general classroom teachers of ELLs to dedicate 15% of CTLE clock hours to language acquisition addressing the needs of ELLs — a continuing-education obligation, not a credential mandate.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## North Carolina (NC)
+
+URL: https://projectcert.org/states/nc/
+Last verified: 2026-05-08 (verified-2026)
+
+North Carolina offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: NC has no separate 'bilingual education' teaching license. The Elementary (K-6) Second Language add-on (valid for full-time assignments in grades 6 and below) and the K-12 'Other Second Languages' world-language licenses are the closest analogs. NC operates 300+ Dual Language/Immersion programs in 8 languages, staffed by teachers who hold content-area licenses plus appropriate language qualifications.
+
+ELD notes: ESL is offered both as a K-12 standalone license (Special Subjects) and as a K-6 add-on to Elementary licensure. Approved educator preparation program (traditional or alternative) is the route to licensure; Praxis II ESL has been the state-required licensure exam for this area since 2003 (current administration via Pearson/ETS per SBE policy LICN-003).
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## North Dakota (ND)
+
+URL: https://projectcert.org/states/nd/
+Last verified: 2026-05-08 (verified-2026)
+
+North Dakota offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2019.
+
+Bilingual notes: Bilingual education endorsement (NDAC code 24500) — ELD endorsement requirements plus methods of teaching bilingual education and 16 semester hours in a language other than English OR documented proficiency in a language other than English.
+
+ELD notes: English Learner (EL) Endorsement (NDAC code 24000) — 16 semester hours across foundations/multicultural ed, linguistics, methods of teaching ESL, assessment of culturally diverse students, and field experience. Praxis ESOL is an alternative pathway in lieu of full coursework. ND is a WIDA member; the state ELP assessment is WIDA ACCESS for ELLs. ND adopted the Seal of Biliteracy in 2019 (NDSB, operated by NDDPI). Schema does not currently have dedicated fields for ELP assessment or Seal of Biliteracy; these facts are recorded here and in sources/ND/2026-05-08/changes-from-baseline.md.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Ohio (OH)
+
+URL: https://projectcert.org/states/oh/
+Last verified: 2026-05-08 (verified-2026)
+
+Ohio offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses OELPA (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2017.
+
+Bilingual notes: Two standard routes: a Bilingual Education multi-age standalone license, or a Bilingual Education endorsement on a primary teaching license. Both require completion of an approved teacher-preparation program. No OAE content exam currently exists for Bilingual Education. A Bilingual Education supplemental license (no exam, no approved program) is available for up to 3 years as a bridge to the standard route.
+
+ELD notes: Two standard routes: a TESOL multi-age standalone license, or a TESOL endorsement on a primary teaching license. Both require an approved teacher-preparation program and the Ohio Assessments for Educators (OAE) TESOL content exam. A Supplemental TESOL license is also available (test only, no approved program), valid for 1 year and renewable up to 3 years total.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Oklahoma (OK)
+
+URL: https://projectcert.org/states/ok/
+Last verified: 2026-05-08 (verified-2026)
+
+Oklahoma does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2020.
+
+Bilingual notes: Oklahoma does not offer a Bilingual Education teacher credential. OSDE recognizes Transitional Bilingual (IS1) and Dual Language / Two-way Immersion (IS2) as LEA-level program delivery models, but neither is a teacher endorsement. The OSDE Full Competencies document lists ESL but no Bilingual Education subject-area competency.
+
+ELD notes: ESL (PK-12) endorsement, added via OSAT subject-area test 177. OSDE publishes ESL subject-matter competencies (Language, Culture, Planning/Implementation, Assessment, Professionalism). The candidate English-fluency expectation in competency E.5 is not a non-English language proficiency requirement. program/coursework/practicum coded null because OEQA does not publish per-endorsement approved-program or credit-hour requirements that we could verify directly.
+
+SEI notes: OEQA State Requirement 1 requires every EPP to choose one of two pathways for all candidates: novice-high foreign-language proficiency OR knowledge/skills to address Emergent Bilingual (English Learner) students. EPPs choose the pathway, not individual teachers, so this is not a per-teacher SEI mandate. OSDE EL FAQ 2025 also acknowledges that some LEAs operate without a dedicated EL teacher.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Oregon (OR)
+
+URL: https://projectcert.org/states/or/
+Last verified: 2026-05-08 (verified-2026)
+
+Oregon offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Two distinct add-ons: Bilingual Specialization (ACTFL OPI/OPIc Advanced Mid+ only) and Dual Language Specialization (Commission-approved program + transcripts + language proficiency exam). Schema rolls up to the broadest pathway (Bilingual Specialization), which is exam-only.
+
+ELD notes: ESOL is a PCR (Program Completion Report) pathway endorsement: approved program is the gating credential. ORELA ESOL test is the Commission-adopted subject-matter measure; Multiple Measures-ESOL worksheet (2024) lets EPPs document equivalent competency via coursework + clinical observations + partial test score, but does not remove the test as the default.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Pennsylvania (PA)
+
+URL: https://projectcert.org/states/pa/
+Last verified: 2026-05-08 (verified-2026)
+
+Pennsylvania does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2022.
+
+Bilingual notes: PDE does not issue a bilingual or dual-language certification. State regulation 22 Pa. Code § 4.26 names 'bilingual-bicultural' as one program type a district may operate, but no credential is awarded for it.
+
+ELD notes: ESL Program Specialist PK-12. Add-on to a PA Instructional I or II certificate (CSPG #68, rev. 7/1/2023). State-approved preparation program with field experience/student teaching with ESL students. No state ESL test (per PDE ESL FAQ).
+
+SEI notes: No SEI-style in-service mandate. However, 22 Pa. Code § 49.13(b)(4)(i) requires all teacher preparation programs to include at least 3 credits or 90 hours addressing the instructional needs of English language learners — a pre-service requirement, not the AZ/CA/MA SEI endorsement model.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Rhode Island (RI)
+
+URL: https://projectcert.org/states/ri/
+Last verified: 2026-05-08 (verified-2026)
+
+Rhode Island offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 12.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2016.
+
+Bilingual notes: Six standalone Bilingual / Dual Language Education certificates by grade band — Early Childhood PK-3 (§1.9.1.D), Elementary K-6 (§1.9.2.D), Middle 5-8 (§1.9.3.H), Secondary 6-12 (§1.9.4.M), and All Grades PK-12 (§1.9.5.R) — per the June 2025 RI Certification Regulations. Each requires (a) completion of a RI-Approved Program (or Credential Review / Reciprocity meeting equivalent competencies), (b) bachelor's degree from a regionally accredited institution, (c) 45 hours of practicum, (d) Praxis 5362 ESOL at 155 plus a language-specific test (e.g., Spanish 5195/168, French 5174/162, Mandarin 5665/164, ASL 0634/170, Latin 5601/161, German 5183/163; for all other world languages effective 2025-07-01, ACTFL OPI+WPT at Advanced Low), and (e) 'demonstrated proficiency in the first (1st) and second (2nd) languages of instruction.' Prerequisite: a valid certificate at the matching grade band, so bilingual functions as both a standalone area and an add-on layered onto base certification.
+
+ELD notes: Two pathways. Standalone: 'English to Speakers of Other Languages (ESOL)' All Grades PK-12 certificate per §1.9.5.S — requires approved program, bachelor's, one year of practical residency (or equivalent) plus 60 hours of field experience, 45-hour practicum, and Praxis 5362 ESOL at 155. Holders of only the ESOL certificate are restricted to ELD support roles unless also certified in the relevant content area. Add-on: the MLL (Multilingual Learner) Endorsement, available to educators holding any valid RI certificate via completion of an approved MLL proficiency program at one of seven approved providers (Brown, ExcEL Leadership Academy, Rhode Island College, Rhode Island School for Progressive Education, Roger Williams, URI, RI Federation of Teachers and Health Professionals); plus 'MLL Integrated Content Teacher' grade-band variants (§§1.9.X.C) that extend an existing certificate via specific coursework in second-language acquisition, linguistics, socio-cultural studies, MLL content-based instruction, and oracy/literacy development. No second-language proficiency requirement (ESOL is the English-language-teaching credential, not a bilingual one).
+
+SEI notes: No statewide sheltered-English-instruction mandate. RI uses content-based instruction terminology (CBI, CBI for Newcomers, CBI for SLIFE) rather than 'SEI' on the RIDE MLL/EL landing page; the 2025 Certification Regulations impose EL-instructional preparation only through specific certificates / endorsements (Bilingual/DL, ESOL, MLL Endorsement, MLL Integrated Content), not on all teachers. No requirement found analogous to AZ/CA/MA.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## South Carolina (SC)
+
+URL: https://projectcert.org/states/sc/
+Last verified: 2026-05-08 (verified-2026)
+
+South Carolina offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: cultural.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2018.
+
+Bilingual notes: On 2025-09-02 the SC State Board of Education approved a new add-on Dual Language Immersion (DLI) Teacher Endorsement (also DLI Coach and DLI Instructional Leadership endorsements). The DLI Teacher endorsement is added to an existing Initial, Professional, or Alternative Route certificate by completing two 3-semester-hour courses (Foundations of Dual Language Immersion; DLI Methods: Key Practices in Content-Based Language Instruction) with a grade of C or better. No practicum, no subject-area test, and no separately-stated language-proficiency exam are listed in the SBE-approved requirements (`languageProficiency` coded null because proficiency is implicit in the DLI role but the published endorsement requirements do not specify a proficiency screen). Coursework may be waived for completion of a comprehensive, extended sequence of professional learning approved by SCDE. There is no standalone bilingual education certification field; DLI is an add-on only.
+
+ELD notes: Two coexisting EL credentials: (1) the ESOL field certification (Grades PK-12) — a standalone certification field; per SCDE Add-On Guidelines Section G the ESOL field 'requires specialized preparation and may not be added by method of exam,' so candidates must complete an approved preparation program or the listed coursework pathway. The pedagogy exam is Praxis PLT 5625 PreK-12 and the subject-area exam is Praxis 5362 (English to Speakers of Other Languages, qualifying score 155, per the 2025-26 Required Assessments document). The coursework pathway requires Principles and Strategies for Teaching ESOL to PK-12 Learners, Linguistics, Teaching Reading and Writing to LEP Learners, and two electives — including a Practicum in the Instruction of ESOL that may be waived with one year of successful ESOL teaching experience. (2) The ESOL Endorsement, an add-on for already-certified educators, requires Cultural and Linguistic Diversity for ESOL Educators, Principles and Strategies for Teaching ESOL to PK-12 Learners, and a 15-hour ESOL practicum (which may be embedded in the coursework). Coursework for the endorsement may be waived for an SCDE-approved sequence of professional learning.
+
+SEI notes: South Carolina does not impose a universal Sheltered English Immersion / EL-instruction requirement on all teachers. EL-specific preparation obligations attach only to candidates seeking the ESOL field certification, the ESOL Endorsement, or the new DLI endorsements.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2025-09-02: SC SBE approves Dual Language Immersion (DLI) endorsements — South Carolina State Board of Education approves new add-on endorsements for Dual Language Immersion: DLI Teacher (two required 3-semester-hour courses), DLI Coach, and DLI Instructional Leadership. This is the first SCDE-issued bilingual-program credential. Promotes `bilingual.offered` from false to true and `bilingual.addOn` from false to true.
+- 2026-05-08: Phase 2 verification (verified-2026) — Refreshed against current SCDE sources: Add-On Guidelines (ESOL field cert + ESOL endorsement), the September 2025 DLI endorsements, the 2025-26 Required Assessments document (Praxis 5362 + PLT 5625), and the NIET Teaching Standards 4.0 rubric used in Expanded ADEPT. ELD requirements refined from baseline `null`s to the explicit values now documented (program, coursework, practicum, and test all required somewhere in the ESOL pathway). Professional standards mentions revised: the NIET 4.0 rubric has no explicit 'diverse,' 'linguistic,' or EL/ESOL references, only 'cultural.' EL-population figure updated to NCES Digest 2023 Table 204.20 (fall 2021).
+
+## South Dakota (SD)
+
+URL: https://projectcert.org/states/sd/
+Last verified: 2019-11-15 (baseline-2019)
+
+South Dakota does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2019, 4.1% of public-school students are classified English Learners (NCES). Coding from the 2019 Leider et al. baseline; not yet re-verified against current SEA sources.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2024.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Tennessee (TN)
+
+URL: https://projectcert.org/states/tn/
+Last verified: 2026-05-08 (in-progress)
+
+Tennessee does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 9.0% of public-school students are classified English Learners (NCES). Re-verification against current SEA sources is in progress.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy adopted in 2018.
+
+ELD notes: ESL endorsement codes 488 (K-8), 489 (6-12), 490 (PreK-12). Praxis 5362 required (Professional Assessments Policy 5.105). Two pathways: traditional EPP-approved program, or TDOE's no-cost Additional Endorsement Program for already-licensed teachers (asynchronous coursework + Praxis), authorized under Educator Licensure Policy 5.502 (revised July 2021). Practicum coded null because the public TDOE pages don't enumerate clinical/practicum hours separately — set by EPPs against Specialty Area Standards Policy 5.505. 2024 update: TDOE moved EL assessment from WIDA/ACCESS to ELPA21 effective July 1, 2024 (first ELPA21 Summative Feb 5, 2025) and adopted ELPA21 ELD Standards in place of WIDA 2020. EL share rose from 4.6% (2019 baseline) to ~9% (2024 TDOE figure, 93,433 students). Held at in-progress: the SEA professional teaching standards source (Educator Licensure Policy 5.502 / Specialty Area Standards Policy 5.505 / TEAM rubric) was not retrieved this round — Teacher Code of Ethics (T.C.A. 49-5-1001) was retrieved and is not the standards document; professionalStandardsMentions booleans carry forward from baseline-2019 pending standards-doc verification.
+
+SEI notes: Rule 0520-01-19-.03(8) requires annual ESL training only for teachers who provide Direct or Indirect ESL Services, not all teachers.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Texas (TX)
+
+URL: https://projectcert.org/states/tx/
+Last verified: 2026-05-08 (verified-2026)
+
+Texas offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2019, 18.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses TELPAS (state-specific assessment).
+- Seal of Biliteracy adopted in 2013.
+
+Bilingual notes: SBEC issues a Bilingual Education Supplemental certificate (19 TAC §233.6); a new Core/Bilingual Education Spanish with the Science of Teaching Reading: EC-Grade 6 base certificate becomes issuable Sept 1, 2028 (§233.2(f)). Required exams include the Bilingual Target Language Proficiency Test (BTLPT, #190), the Bilingual Supplemental (#164), Core Subjects EC-6 (or grade-band equivalent), and PPR or edTPA. Texas also recognizes a Bilingual Special Education Supplemental EC-12 effective Sept 1, 2027 (§233.8(a)). Practicum (clinical) experience left null as a separate flag because the EPP route bundles it; will revisit when the schema separates EPP-embedded vs. standalone practicum.
+
+ELD notes: SBEC issues an English as a Second Language Supplemental certificate (19 TAC §233.7), required for any teacher serving emergent bilingual students in an ESL program (TEC §29.061). A Core/ESL Supplemental with the Science of Teaching Reading: EC-Grade 6 base certificate becomes issuable Sept 1, 2028 (§233.2(g)). Required exam: ESL Supplemental (#154) plus PPR or edTPA. No target-language proficiency exam is required for ESL.
+
+SEI notes: Texas mandates bilingual or ESL services for emergent bilingual students (TEC Chapter 29 Subchapter B; 19 TAC §§89.1201, 89.1205, 89.1210), but those services are delivered by appropriately certified bilingual or ESL teachers — Texas does not impose an SEI training requirement on all classroom teachers.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Utah (UT)
+
+URL: https://projectcert.org/states/ut/
+Last verified: 2026-05-08 (verified-2026)
+
+Utah offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: USBE Dual Language Immersion (DLI) Endorsement attaches to a Professional or Associate Educator License (Elementary or Secondary) and authorizes K-12 DLI and Bridge classroom assignment. Three named requirement areas: (1) Foundations of DLI — satisfied by a USBE-approved DLI prep program/minor at one of five Utah universities (BYU, Utah, USU, UVU, Weber State), a Foundations of DLI university course, or six competency-based microcredential modules; (2) DLI Clinical Experience — satisfied via the same approved program OR ≥1 year teaching in an approved DLI/Bridge program; (3) World Language Oral Proficiency — ACTFL OPI Advanced-Mid, ACTFL OPIc Advanced-Low, or a bachelor's degree from a foreign university taught in the target language. No Praxis content exam is required.
+
+ELD notes: USBE English as a Second Language Endorsement (ADA-Compliant application 7/10/2023) is an add-on to a current Educator License, anchored to TESOL Pre-K-12 Teacher Preparation Standards. Five requirement areas — Language, Culture, Assessment, Instruction, and Family & Community Engagement (Professionalism) — each satisfied by ONE of four interchangeable demonstrations of competency: (a) university course, (b) competency-based USBE-approved LEA program, (c) Master's degree with ESL major or minor (or out-of-state ESL license), or (d) Praxis II 5362 (English to Speakers of Other Languages, passing score 149). The application does not list a practicum requirement; the underlying R277 administrative rule was not retrieved in this verification pass, so practicum is logged as unknown rather than false.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-08: Re-verified against current USBE sources — Re-coded both EL credentials against current USBE endorsement applications. Bilingual (DLI) Endorsement: coursework null → true and practicum null → true (DLI Clinical Experience is a named requirement area; coursework pathway is explicit on the application); test null → false (no Praxis content exam — language proficiency is via ACTFL OPI/OPIc, captured under languageProficiency). ESL Endorsement: coursework null → true and test null → true (USBE application lists university course and Praxis II 5362 score 149 as two of four demonstrations of competency for each of five TESOL-aligned standard areas). UETS (Aug 2023) reviewed: only 'diverse' is referenced; cultural, linguistic, and EL booleans remain false. elPercent 7.1 → 8.3 (NCES fall 2021).
+
+## Vermont (VT)
+
+URL: https://projectcert.org/states/vt/
+Last verified: 2026-05-08 (verified-2026)
+
+Vermont offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2020.
+
+Bilingual notes: VSBPE Rule 5440-39 Bilingual Education (revised June 2018). Add-on endorsement only, layered on a base endorsement (early childhood, elementary, middle grades, special ed, ELL, science, social studies, math, or English language arts). Knowledge Standard 1.1 requires 'measurable academic language proficiency in English and a second language including listening, speaking, reading and writing skills'; the rule does not name a specific proficiency exam. Practicum required in Bilingual/Dual Language Education at the PK-6 or 7-12 level (PK-12 authorization requires a practicum at both levels). Approved-program pathway is the standard route (endorsement 39 is not on the Transcript Review list at Rule 5230).
+
+ELD notes: VSBPE Rule 5440-40 English Language Multilingual Learner (revised August 2015, May 2022; abbreviated 'ELLML'). Five competency standards: Knowledge About Language; Multilingual Learners in the Sociocultural Context; Planning and Implementing Instruction; Assessment and Evaluation; Professionalism and Leadership. Approved Educator preparation program is the standard pathway (endorsement 40 is not on the Transcript Review list). Practicum required at PK-8 or 5-12 (PK-12 authorization requires both). Required test: Praxis II ESOL (test code 5362) per Rule 5246. Rule 5440-40 §1.2 explicitly aligns to WIDA English Language Development Standards.
+
+SEI notes: Vermont has no general SEI/sheltered-instruction mandate for all teachers. EL instruction is delivered by educators holding endorsement 40 (ELLML); the Core Teaching Standards (5235) reference linguistic diversity but do not require EL-specific competency from every license holder.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+
+## Virginia (VA)
+
+URL: https://projectcert.org/states/va/
+Last verified: 2026-05-08 (verified-2026)
+
+Virginia offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: Dual Language Endorsement adopted by VDOE effective 2025 (8VAC20-23-321 through -324). Four parallel sections cover Dual Language (English) preK-6 standalone and add-on, plus Dual Language (target language) preK-6 standalone and add-on. Approved teacher preparation program is one path; the alternate path requires specified semester hours plus elementary content / reading-for-educators assessments (English pathway) or 12 SH target language above intermediate level OR a qualifying language assessment (target-language pathway). VDOE introduced the endorsement via the August 7, 2025 webinar 'Introducing the Dual Language Endorsement and Data Management Updates.'
+
+ELD notes: ESL preK-12 endorsement under 8VAC20-23-350. Two paths: (1) approved teacher preparation program in ESL, or (2) 24 semester hours distributed across reading & writing (6), English linguistics (3), cross-cultural education (3), second language acquisition (3), ESL methods grounded in the WIDA English Language Development Standards (3), ESL assessment (3), and electives (3). VDOE requires the Praxis English to Speakers of Other Languages test for the add-on path. Practicum requirement embedded in approved-program path but not separately enumerated in -350; coded null.
+
+## Washington (WA)
+
+URL: https://projectcert.org/states/wa/
+Last verified: 2026-05-07 (verified-2026)
+
+Washington offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2014.
+
+Bilingual notes: Bilingual Education endorsement governed by PESB under WAC 181-82A. Added to a teaching certificate (no standalone license). Per WAC 181-82A-204(2)(a), the route is a state-approved endorsement program addressing PESB competencies plus the WEST-E content test; field experience is at the program provider's discretion. PESB endorsement competencies (Standard 1.A) require candidates to demonstrate 'a high level of oral and written language proficiency' in the additional language of instruction 'as demonstrated by performance on a standardized assessment of language proficiency.' Post-Fall 2021 candidates are evaluated against NDLETPS (National Dual Language Education Teacher Preparation Standards).
+
+ELD notes: English Language Learner (ELL) endorsement (PESB, 2015 competencies). Added to a teaching certificate (no standalone license). Same WAC 181-82A-204 route as Bilingual: state-approved endorsement program plus WEST-E content test; field experience at provider discretion. Unlike the Bilingual endorsement, no candidate language-proficiency gate. OSPI uses 'Multilingual/English Learner' branding in current program guidance; PESB retains the 'ELL' label on the endorsement itself.
+
+SEI notes: Washington has no universal SEI / sheltered-instruction endorsement mandate. The Transitional Bilingual Instruction Program (TBIP, RCW 28A.180) is an OSPI-administered district program serving identified multilingual/EL students; it does not require all certificated teachers to hold an EL-related endorsement.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-07: Re-verified against current OSPI/PESB sources — Bilingual.standalone and ELD.standalone both true → false — Washington's ELL and Bilingual credentials are PESB endorsements added to a teaching certificate, not standalone licenses (WAC 181-82A). Standards.diverse and .el corrected false → true (InTASC, adopted by PESB as the role standards, explicitly enumerates 'English language learners' across Standards 1, 2, 6, 8 and references linguistic diversity; 2022 CCDEI standards add the diverse and cultural framing). TBIP renamed to Multilingual Education in OSPI guidance.
+
+## West Virginia (WV)
+
+URL: https://projectcert.org/states/wv/
+Last verified: 2026-05-08 (verified-2026)
+
+West Virginia does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 0.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
+- Uses ELPA21 (ELPA21 consortium member).
+- Seal of Biliteracy not adopted.
+
+Bilingual notes: Policy 5202 (eff. 2025-01-11) lists no bilingual teaching specialization or endorsement; only ESL Pre-k-Adult appears as the EL-related credential.
+
+ELD notes: ESL Pre-k-Adult is a standalone teaching specialization in Policy 5202 (Tbl, eff. 2025-01-11). Issuance pathways: (1) completion of a WVBE-approved EPP aligned to TESOL national standards (Policy 5100 §6.6, eff. 2023-12-11) plus the Content Specialization Praxis (Policy 5202 §10.1.c.2.A.2); or (2) additional endorsement on an existing professional teaching certificate via passing the appropriate content-proficiency exam (Policy 5202 §21.1–§21.2). Field-based and yearlong-residency clinical experiences are required by Policy 5100 §6.7.b and §6.8. No language-proficiency exam is required for ESL (those requirements are limited to ASL and the modern foreign languages).
+
+SEI notes: No SEI mandate appears in Policy 5202, 5100, or 5310. WV relies on the ESL-endorsed specialist model rather than requiring all teachers to complete SEI coursework.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2023-10-16: WVPTS reaffirmed in revised Policy 5310 — WVBE Policy 5310 (Performance Evaluation of Professional Personnel and Athletic Coaches, 126CSR142) is amended; §13.1 continues to set the West Virginia Professional Teaching Standards as five summary elements that determine 80 percent of a teacher's summative rating. None of the five elements explicitly references diverse, cultural, linguistic, or English Learner content.
+- 2023-12-11: Educator preparation rules amended (Policy 5100) — WVBE Policy 5100 (Approval of Educator Preparation Programs, 126CSR114) is amended. EPPs leading to the ESL Pre-k-Adult specialization must align to the National Standards for Teachers of English to Speakers of Other Languages (TESOL) and to the current state-approved content standards, with field-based and yearlong-residency clinical experiences required for all initial-licensure programs.
+- 2025-01-11: Licensure rules amended (Policy 5202) — WVBE Policy 5202 (Minimum Requirements for the Licensure of Professional/Paraprofessional Personnel, 126CSR136) becomes effective. ESL Pre-k-Adult is retained as a teaching specialization; §18.10 articulates the ESL teacher's role with English Learners; §21.1–§21.2 allow an additional endorsement on an existing professional teaching certificate via the appropriate content-proficiency Praxis score.
+
+## Wisconsin (WI)
+
+URL: https://projectcert.org/states/wi/
+Last verified: 2026-05-08 (verified-2026)
+
+Wisconsin offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2015.
+
+Bilingual notes: Bilingual-Bicultural Education (subject 1023) is a supplemental license under PI 34.078 — it requires an underlying Tier II/III/IV teaching license and is not standalone. PI 34.078(2)(b) requires proficiency in English and the target language; PI 34.078(2)(c) requires an approved program with coursework in cultural studies, foundations, theory and methodology, contrastive language study (phonology/morphology/syntax), bilingual-bicultural field experiences, and a clinical program. No state-adopted bilingual content test exists; each EPP measures English and target-language proficiency (commonly via ACTFL). The underlying primary-license content test and edTPA gate the pathway.
+
+ELD notes: ESL (subject 1395) is a kindergarten through grade 12 teaching-area license under PI 34.047(3)(e) earned via an approved program plus assessments under PI 34.021(1)(c)-(d) (Praxis II ESOL #0360, passing 530, plus edTPA in Teaching Students of Other Languages). PI 34.052(6) creates an add-on pathway for holders of an elementary/middle school, special education, or equivalent license: the ESL credential may be added by passing the approved content knowledge test (no second approved program required). No language-proficiency exam is required of ESL candidates.
+
+SEI notes: Wisconsin does not mandate SEI-style training for all teachers. SEI/Sheltered English/Content-Based ESL is one of several Language Instruction Educational Program models (alongside pull-out ESL, push-in ESL, and bilingual program models) districts may run, taught by ESL-licensed (1395) staff.
+
+History:
+- 2015-10-01: Wisconsin Seal of Biliteracy initiated by DPI — DPI launched the Wisconsin Seal of Biliteracy in October 2015 to recognize graduating high-school students who demonstrate proficiency in English plus one or more additional languages. The program is administered by DPI rather than created by a standalone authorizing statute; districts opt in and award the seal locally.
+- 2017-09-15: DPI publishes ESL/Bilingual-Bicultural/World Languages license guidance — DPI's Teacher Education, Professional Development and Licensing team issued a one-stop guidance document mapping each WI language-instruction license (ESL 1395, Bilingual-Bicultural 1023, World Language) to the program models it can be used in (sheltered/SEI, pull-out/push-in ESL, transitional/two-way/maintenance bilingual, immersion) and the educator-preparation requirements for each — including Praxis II ESOL #0360 (passing 530), edTPA, and the EPP-administered language-proficiency check (commonly ACTFL) for bilingual candidates.
+- 2018-08-01: Chapter PI 34 (educator licenses) reorganized and renumbered — The Wisconsin administrative-rule re-number consolidated the educator licensing scheme. The bilingual-bicultural supplemental rule moved from PI 34.33(3) to PI 34.078; the ESL teaching-area subject moved from PI 34.30(g) to PI 34.047(3)(e); and the add-on-by-content-test pathway for ESL/world-languages was placed at PI 34.052(6). Substantive requirements (approved program, English + target-language proficiency for bilingual, content-area test for add-on) were preserved across the renumbering.
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.
+- 2026-05-08: Refresh against current SEA sources (verified-2026) — Re-verified Wisconsin's record against current DPI pages and Wisconsin Administrative Code Chapter PI 34. Corrections vs. baseline: bilingual is supplemental (not standalone) under PI 34.078; ESL is available both as a standalone PI 34.047(3)(e) license and as a PI 34.052(6) content-test add-on; the operative 10 Wisconsin Educator Standards do not literally mention 'linguistic' or 'English learner,' so those professionalStandardsMentions booleans flip to false; elPercent updated to 5.9% (NCES Fall 2021).
+
+## Wyoming (WY)
+
+URL: https://projectcert.org/states/wy/
+Last verified: 2026-05-08 (verified-2026)
+
+Wyoming does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+
+- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
+- Uses ACCESS for ELLs (WIDA Consortium member).
+- Seal of Biliteracy adopted in 2022.
+
+ELD notes: PTSB documents two pathways to add an ESL endorsement: Institutional Recommendation (requires an approved program with practicum) and Demonstration of Competency (15 SH coursework + Praxis II, no practicum). `program` and `practicum` are null because the two pathways genuinely diverge. PTSB also lists a Dual Language Immersion (K-12) endorsement that does not roll up to bilingual under our schema.
+
+History:
+- 2019-12-01: Baseline coding (Leider, Colombo & Nerlino, 2021) — Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.

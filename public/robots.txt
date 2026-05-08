@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Explicit allowlist for AI/LLM crawlers — defaults already permit
+# them, but explicit signals reduce the chance of an unintended block.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://projectcert.org/sitemap.xml
+Sitemap: https://projectcert.org/sitemap-index.xml

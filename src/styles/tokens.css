@@ -8,24 +8,15 @@
  * Palette: purple choropleth + green accent.
  * Targets: WCAG 2.1 AA minimum, AAA for body text.
  *
- * Adjacent bin contrasts (against each other and against the
- * white state border at 1px) are checked at build time by
- * `npm run check:contrast`. Do not change these values without
- * re-running that check.
+ * Per-layer categorical fills are checked at build time by
+ * `npm run check:contrast` against WCAG 2.1 SC 1.4.11 (≥3:1 between
+ * adjacent levels that convey different information). Do not change
+ * these values without re-running that check.
  *
- * Choropleth bin contrasts vs. white (border):
- *   bin-0 #f5e8ff  vs #fff = 1.13   (we use a darker outline for it)
- *   bin-1 #c9a0ff  vs #fff = 2.08   (uses #1f0a3a outline)
- *   bin-2 #7a3ed8  vs #fff = 5.06   (AA on white text)
- *   bin-3 #3d1971  vs #fff = 13.8   (AAA on white text)
- *
- * Adjacent bin contrasts:
- *   bin-0 vs bin-1 = 1.84 (boosted by hatched pattern overlay)
- *   bin-1 vs bin-2 = 2.43 (boosted by hatched pattern overlay)
- *   bin-2 vs bin-3 = 2.73 (boosted by hatched pattern overlay)
- *
- * Where adjacent fills don't clear 3:1 by hue alone, the legend
- * pattern fills + state-name labels carry the meaning.
+ * The elPercent purple ramp is a 4-stop sequential layer where adjacent
+ * 3:1 across all four solid stops is mathematically infeasible; it
+ * relies on the legend's text labels (SC 1.4.1: color is not the sole
+ * means of conveying the value).
  *
  * Body / muted text on white:
  *   ink         #16181f vs #fff = 17.0   (AAA)
@@ -48,32 +39,32 @@
    * encoded variable produces an obvious recolor of the map.
    * Naming mirrors --bin-N (0 = none/off, 2 = mid, 3 = full/on). */
 
-  /* Bilingual credential — green */
-  --bilingual-0: #e6f1e8;
-  --bilingual-2: #4f9c64;
-  --bilingual-3: #155026;
+  /* Bilingual credential — green (3-stop, adjacent ≥3:1) */
+  --bilingual-0: #e8f3ea;
+  --bilingual-2: #2f7a45;
+  --bilingual-3: #0a2814;
 
-  /* ELD credential — amber/orange */
+  /* ELD credential — amber/orange (3-stop, adjacent ≥3:1) */
   --eld-0: #fbecd2;
-  --eld-2: #d68a26;
-  --eld-3: #6e3d10;
+  --eld-2: #a55c10;
+  --eld-3: #3a1c08;
 
-  /* SEI mandate — teal */
+  /* SEI mandate — teal (binary, ≥3:1) */
   --sei-0: #dbeef1;
   --sei-3: #0e5a64;
 
-  /* Standards mention — rose */
+  /* Standards mention — rose (binary, ≥3:1) */
   --standards-0: #f5dde2;
   --standards-3: #821f37;
 
-  /* Seal of Biliteracy — indigo (binary + unverified-as-na) */
+  /* Seal of Biliteracy — indigo (binary + unverified-as-na, ≥3:1) */
   --seal-0: #dde3f5;
   --seal-3: #1f2c80;
 
-  /* ELP assessment — slate (3-category: state-specific / ELPA21 / WIDA) */
+  /* ELP assessment — slate (3-category, adjacent ≥3:1) */
   --elp-0: #e3e7ec;
-  --elp-2: #6b7689;
-  --elp-3: #2f3a4a;
+  --elp-2: #5d6a7e;
+  --elp-3: #161e2a;
 
   /* Green accent for UI */
   --accent: #14803c;
@@ -94,13 +85,47 @@
   --map-border: #ffffff;
   --map-border-dark: #1f0a3a;
 
+  /* Brand mark — used by the wordmark "cert" emphasis. Shifts lighter
+   * in dark mode so it stays readable against the dark surface. */
+  --brand: #3d1971;
+
   /* Focus ring */
-  --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px #fff;
+  --focus-ring: 0 0 0 3px var(--accent-ring), 0 0 0 5px var(--surface);
 }
 
+/*
+ * Dark theme.
+ *
+ * Choropleth bin palettes (--bin-N, --bilingual-N, --eld-N, etc.) are
+ * intentionally NOT remapped: those are data-encoding colors and the
+ * map should look the same regardless of OS theme. Only chrome (ink,
+ * surface, accents, the state-border) flips. Tile/border contrast is
+ * preserved by switching --map-border from #fff to the dark surface
+ * value so borders read against dark without re-tinting tiles.
+ */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* For v1 we ship light-only. Dark mode is post-launch. */
+    --ink: #e8eaf0;
+    --ink-muted: #b9bfca;
+    --ink-subtle: #8b91a0;
+
+    --surface: #14151a;
+    --surface-raised: #1d1f27;
+    --surface-warn: #3a2f10; /* dark amber, pairs with --ink */
+
+    /* Brighter green so links/buttons clear AA on the dark surface. */
+    --accent: #3acc6a;
+    --accent-hover: #5be089;
+    --accent-ring: #4ade80;
+
+    --map-border: #14151a;     /* match surface */
+    --map-border-dark: #0a0214;
+
+    --brand: #c9a0ff;
+  }
+
+  html {
+    color-scheme: dark;
   }
 }
 
