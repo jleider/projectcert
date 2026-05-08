@@ -1,28 +1,31 @@
 {
   "usps": "IN",
   "name": "Indiana",
-  "elPercent": 5.4,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 7.0,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "IDOE does not issue a bilingual / dual language teaching credential. World-language licenses (Spanish, French, German, Chinese, etc.) authorize the language as a content area but do not authorize content-area instruction in that language."
     },
     "eld": {
       "offered": true,
-      "standalone": false,
+      "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
+        "program": true,
+        "coursework": true,
         "practicum": null,
-        "test": null,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "The English as a New Language (ENL) Professional Educator License is the EL credential. It is issued via (a) completion of an IDOE-approved educator preparation program at a regionally-accredited university, plus (b) passage of a state-approved content exam — Indiana CORE 019 'English Learners' or Praxis 5362 'English to Speakers of Other Languages' (cut score 155). Both Indiana CORE and Praxis tables flag ENL as 'No — must complete approved educator preparation program', so test alone is not sufficient. Coursework is part of the approved program (varies by university; IDOE does not enumerate uniform credit hours). The temporary EL Teacher of Record (ToR) Rubric — an alternate path for already-licensed teachers based on SLA coursework, EL teaching years, and PD points — closed to new candidates on September 1, 2022. After that date, the only options to serve as an EL ToR are full ENL licensure or an ENL Emergency Permit (one-year, LEA-issued, requires demonstrated progress toward full licensure to renew). Practicum is set at the program/institution level rather than by a uniform IDOE rule, so the field is null. No partner-language proficiency exam is required (ENL is not a bilingual credential)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "There is no universal SEI / EL coursework mandate on all Indiana teachers. The federal-compliance structure IDOE imposes is per-LEA: every LEA must designate at least one qualified 'EL Teacher of Record' (ENL-licensed or ENL Emergency Permit holder) for its EL students. Non-ENL-licensed classroom teachers may serve ELs as a 'Teacher of Service' (ToS) under ToR oversight, with ongoing job-embedded EL training, but this does not require all teachers to obtain ENL coursework."
     }
   },
   "professionalStandardsMentions": {
@@ -53,8 +56,56 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "IDOE — Meeting English Learner Teacher of Record Requirements (EL ToR Rubric, alternate qualification path that closed 2022-09-01)",
+      "url": "https://www.in.gov/doe/files/Meeting-EL-ToR-Requirements.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "IDOE — English Learner Teacher of Record Frequently Asked Questions (Updated May 2024)",
+      "url": "https://www.in.gov/doe/files/EL-ToR-FAQ.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "IDOE — English Learner Program Staffing memorandum (August 9, 2019; defines EL Teacher of Record requirement)",
+      "url": "https://www.in.gov/doe/files/EL-Program-Staffing-Memo.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Indiana CORE Assessments for Educator Licensure — Required Tests by Licensure Content Area (lists ENL test 019 'English Learners')",
+      "url": "https://www.in.gov/doe/files/Indiana-CORE-Required-Tests.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "IDOE — License Areas, Corresponding Praxis Tests, and Test Fees (lists Praxis 5362 ESOL for ENL; updated 2026-02-26)",
+      "url": "https://www.in.gov/doe/files/License-Areas-Praxis-Tests-Fees.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Indiana Content Standards for Educators — English Learners (EL), Dec 2010 (current ENL credential standards: linguistics, language acquisition, culture, instruction, assessment, advocacy)",
+      "url": "https://www.in.gov/doe/files/IN-Content-Standards-EL.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "IDOE — English Learner Quick Start Guide (Feb 2024; onboarding reference for new EL staff, lists IDOE/WIDA/local resources)",
+      "url": "https://www.in.gov/doe/files/EL-Quick-Start-Guide.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 (Indiana: 7.0%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
