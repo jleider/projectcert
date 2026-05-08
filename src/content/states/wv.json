@@ -2,37 +2,40 @@
   "usps": "WV",
   "name": "West Virginia",
   "elPercent": 0.8,
-  "elPercentAsOf": "2019-10-01",
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Policy 5202 (eff. 2025-01-11) lists no bilingual teaching specialization or endorsement; only ESL Pre-k-Adult appears as the EL-related credential."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
-        "practicum": null,
-        "test": null,
+        "program": true,
+        "coursework": true,
+        "practicum": true,
+        "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "ESL Pre-k-Adult is a standalone teaching specialization in Policy 5202 (Tbl, eff. 2025-01-11). Issuance pathways: (1) completion of a WVBE-approved EPP aligned to TESOL national standards (Policy 5100 §6.6, eff. 2023-12-11) plus the Content Specialization Praxis (Policy 5202 §10.1.c.2.A.2); or (2) additional endorsement on an existing professional teaching certificate via passing the appropriate content-proficiency exam (Policy 5202 §21.1–§21.2). Field-based and yearlong-residency clinical experiences are required by Policy 5100 §6.7.b and §6.8. No language-proficiency exam is required for ESL (those requirements are limited to ASL and the modern foreign languages)."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No SEI mandate appears in Policy 5202, 5100, or 5310. WV relies on the ESL-endorsed specialist model rather than requiring all teachers to complete SEI coursework."
     }
   },
   "professionalStandardsMentions": {
-    "diverse": true,
-    "cultural": true,
-    "linguistic": true,
+    "diverse": false,
+    "cultural": false,
+    "linguistic": false,
     "el": false
   },
   "sealOfBiliteracy": {
-    "adopted": null,
+    "adopted": false,
     "year": null,
     "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
   },
@@ -53,10 +56,46 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "WVBE Policy 5202, Minimum Requirements for the Licensure of Professional/Paraprofessional Personnel (126CSR136), eff. 2025-01-11",
+      "url": "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=57801&Format=PDF",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WVBE Policy 5100, Approval of Educator Preparation Programs (126CSR114), eff. 2023-12-11",
+      "url": "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=56943&Format=PDF",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WVBE Policy 5310, Performance Evaluation of Professional Personnel and Athletic Coaches (126CSR142), eff. 2023-10-16 (houses the WVPTS at §13.1)",
+      "url": "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=56680&Format=PDF",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Condition of Education, English Learners in Public Schools (Fall 2021)",
+      "url": "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wikipedia, Seal of Biliteracy (state-by-state adoption table; WV not listed)",
+      "url": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Wikipedia, WIDA Consortium (member-state list; WV not listed, consistent with ELPA21 use)",
+      "url": "https://en.wikipedia.org/wiki/WIDA_Consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019",
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026",
   "history": [
     {
       "date": "2019-12-01",
@@ -64,6 +103,30 @@
       "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2023-10-16",
+      "title": "WVPTS reaffirmed in revised Policy 5310",
+      "description": "WVBE Policy 5310 (Performance Evaluation of Professional Personnel and Athletic Coaches, 126CSR142) is amended; §13.1 continues to set the West Virginia Professional Teaching Standards as five summary elements that determine 80 percent of a teacher's summative rating. None of the five elements explicitly references diverse, cultural, linguistic, or English Learner content.",
+      "sourceUrls": [
+        "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=56680&Format=PDF"
+      ]
+    },
+    {
+      "date": "2023-12-11",
+      "title": "Educator preparation rules amended (Policy 5100)",
+      "description": "WVBE Policy 5100 (Approval of Educator Preparation Programs, 126CSR114) is amended. EPPs leading to the ESL Pre-k-Adult specialization must align to the National Standards for Teachers of English to Speakers of Other Languages (TESOL) and to the current state-approved content standards, with field-based and yearlong-residency clinical experiences required for all initial-licensure programs.",
+      "sourceUrls": [
+        "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=56943&Format=PDF"
+      ]
+    },
+    {
+      "date": "2025-01-11",
+      "title": "Licensure rules amended (Policy 5202)",
+      "description": "WVBE Policy 5202 (Minimum Requirements for the Licensure of Professional/Paraprofessional Personnel, 126CSR136) becomes effective. ESL Pre-k-Adult is retained as a teaching specialization; §18.10 articulates the ESL teacher's role with English Learners; §21.1–§21.2 allow an additional endorsement on an existing professional teaching certificate via the appropriate content-proficiency Praxis score.",
+      "sourceUrls": [
+        "https://apps.sos.wv.gov/adlaw/csr/readfile.aspx?DocId=57801&Format=PDF"
       ]
     }
   ]
