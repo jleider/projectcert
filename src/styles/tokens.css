@@ -125,7 +125,7 @@
   :root {
     --ink: #e8eaf0;
     --ink-muted: #b9bfca;
-    --ink-subtle: #4a4f5a; /* lower value → hairline borders read softer */
+    --ink-subtle: #6c727f; /* lower value → hairline borders read softer */
 
     --surface: #262833;
     --surface-raised: #313340;
