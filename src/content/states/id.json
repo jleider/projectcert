@@ -126,5 +126,49 @@
     }
   ],
   "lastVerified": "2026-05-08",
-  "verificationStatus": "verified-2026"
+  "verificationStatus": "verified-2026",
+  "history": [
+    {
+      "date": "2019-12-01",
+      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
+      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "sourceUrls": [
+        "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2020-03-23",
+      "title": "Idaho adopts the State Seal of Biliteracy",
+      "description": "House Bill 433 (2020) authorized the Idaho Seal of Biliteracy on the high-school diploma for graduates demonstrating proficiency in English plus one or more world languages, administered through the Idaho SDE.",
+      "sourceUrls": [
+        "https://sealofbiliteracy.org/"
+      ]
+    },
+    {
+      "date": "2022-07-01",
+      "title": "Idaho updates Standards for Initial Certification (program-approval date)",
+      "description": "The 2024 edition of the *Idaho Standards for Initial Certification of Professional School Personnel* (program-approval date July 1, 2022) updates the Idaho Core Teaching Standards and adds Comprehensive Literacy Standards. The 2018 edition's discipline standards for Bilingual Education and ESL teachers remain operative for those endorsements.",
+      "sourceUrls": [
+        "https://boardofed.idaho.gov/resources/idaho-standards-for-initial-certification-of-professional-school-personnel/"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "title": "SDE issues updated English Learner Program Manual",
+      "description": "Idaho SDE published the 08/01/2025 update of the *English Learner Program Manual*. The 'Idaho ESL and Bilingual Teacher Certification' assignment-code table (pp. 40–42) confirms Bilingual (K-12) endorsement code 7038 and ESL/ENL (K-12) code 7126, and confirms Idaho's WIDA Consortium membership (ACCESS for ELLs / WIDA Screener).",
+      "sourceUrls": [
+        "https://www.sde.idaho.gov/federal-programs/el/files/program/English-Learner-Program-Manual.pdf"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "title": "Refreshed against current SEA sources (verified-2026)",
+      "description": "Re-verified IDAPA 08.02.02 §017/§021, the OSBE-approved EPP endorsement matrix, the 2018 and 2024 initial-certification standards, the 2025 EL Program Manual, the SDE Institutional Recommendation form, and NCES counts. Updated elPercent to 5.8% (NCES Fall 2021). Bilingual and ESL endorsements re-confirmed as standalone-endorsement-program credentials with content assessment + supervised clinical experience required by IDAPA §021.",
+      "sourceUrls": [
+        "https://adminrules.idaho.gov/rules/current/08/080202.pdf",
+        "https://boardofed.idaho.gov/resources/approved-educator-preparation-programs/",
+        "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      ]
+    }
+  ]
 }
