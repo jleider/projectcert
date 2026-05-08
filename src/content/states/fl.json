@@ -1,13 +1,14 @@
 {
   "usps": "FL",
   "name": "Florida",
-  "elPercent": 10.1,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 9.5,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Florida has no separate bilingual education certification or endorsement. Bilingual program delivery is staffed by ESOL-credentialed teachers, often paired with a World Language certification (e.g., Spanish K-12) where appropriate."
     },
     "eld": {
       "offered": true,
@@ -15,14 +16,16 @@
       "addOn": true,
       "requirements": {
         "program": null,
-        "coursework": null,
+        "coursework": true,
         "practicum": null,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "Florida offers two ESOL credentials: (1) the standalone ESOL K-12 certification under Rule 6A-4.0245 (FTCE 047 ESOL K-12 subject area exam, or major in ESOL); and (2) the ESOL academic endorsement under Rule 6A-4.0244, which requires 15 semester hours across five areas (Methods, Curriculum and Materials, Cross-Cultural Communication, Applied Linguistics, Testing and Evaluation) — or a Florida district's approved inservice add-on program. The State Board adopted new ESOL endorsement standards on 2025-08-20 under Rule 6A-4.02451 (effective Sep 2025); approved programs must submit revised matrices to FLDOE by 2026-06-01. No language-proficiency exam (LOTE) is required."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "Florida operates under the LULAC v. State Board of Education Consent Decree (1990-08-14), which mandates ESOL training scaled by teacher category: Category I (Language Arts/English/Reading/Elementary/ESE serving ELLs) needs the full ESOL endorsement (15 SH or 300 inservice points) or FTCE 047 plus 2 ESOL courses; Category II (math/science/social studies/computer literacy) needs 1 course or 60 inservice points; Category III (fine arts/electives, SLPs, OT/PT) needs 1 course or 18 inservice points; Category IV (school-based administrators and counselors) needs 1 course. Training is conditional on serving ELLs in covered roles, so this is not equivalent to the AZ/CA/MA model where SEI is mandated for all teachers regardless of student population."
     }
   },
   "professionalStandardsMentions": {
@@ -34,7 +37,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2016,
-    "sourceUrl": "https://sealofbiliteracy.org/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/fl/"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,8 +56,68 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "FLDOE — Florida Teacher Standards for ESOL Endorsement (Rule 6A-4.02451 hub; 2025 standards adopted 2025-08-20, effective Sep 2025)",
+      "url": "https://www.fldoe.org/academics/eng-language-learners/esol-endorse.stml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "FLDOE — 2025 Florida Teacher Standards for English for Speakers of Other Languages (ESOL) Endorsement (PDF; five strands: CU, AL, MT, CM, TE)",
+      "url": "https://www.fldoe.org/file/7582/ESOLEndorse25.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Rule 6A-4.0244, F.A.C. — ESOL endorsement specialization requirements (15 SH across five areas)",
+      "url": "https://www.fldoe.org/teaching/certification/certificate-subjects/administrative-rules/6a-4-0244.stml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Rule 6A-4.0245, F.A.C. — ESOL K-12 standalone certification specialization (major or FTCE 047)",
+      "url": "https://www.fldoe.org/teaching/certification/certificate-subjects/administrative-rules/6a-4-0245.stml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "FLDOE — LULAC v. State Board of Education Consent Decree (1990; ESOL training requirements by teacher category)",
+      "url": "https://www.fldoe.org/academics/eng-language-learners/consent-decree.stml",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Rule 6A-5.065, F.A.C. — Florida Educator Accomplished Practices (current; last amended 2023-08-22; cultural/linguistic/diversity references present, no explicit EL mention)",
+      "url": "https://flrules.org/gateway/readRefFile.asp?refId=16026&filename=6A-5.065+(For+6A-5.030).pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — Florida Fall 2021: 269,534 ELs (9.5%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Seal of Biliteracy — Florida state page (adopted 2016; F.S. § 1003.432)",
+      "url": "https://sealofbiliteracy.org/state/fl/",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — member states (Florida administers ACCESS for ELLs)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "FTCE ESOL K-12 (047) test page — Pearson/NESINC, the K-12 ESOL subject area examination",
+      "url": "https://www.fl.nesinc.com/prepPage.asp?test=047",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }

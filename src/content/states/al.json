@@ -1,28 +1,31 @@
 {
   "usps": "AL",
   "name": "Alabama",
-  "elPercent": 3.5,
-  "elPercentAsOf": "2019-10-01",
+  "elPercent": 4.7,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
       "standalone": false,
-      "addOn": false
+      "addOn": false,
+      "notes": "Alabama does not issue a bilingual education certificate or endorsement. The only appearance of 'bilingual' anywhere in Alabama Administrative Code Chapter 290-3-3 (Educator Preparation) is in the Pre-K curriculum's reference to 'bilingual/multilingual' linguistic domains (Rule 290-3-3-.06) — not a credential."
     },
     "eld": {
       "offered": true,
       "standalone": true,
       "addOn": true,
       "requirements": {
-        "program": null,
-        "coursework": null,
-        "practicum": null,
+        "program": true,
+        "coursework": true,
+        "practicum": true,
         "test": true,
         "languageProficiency": false
-      }
+      },
+      "notes": "Branded 'English for Speakers of Other Languages (ESOL)' (Grades P-12) under Alabama Admin. Code Rule 290-3-3-.43. Issued only at the Class A (master's-degree-level) level — there is no Class B (bachelor's-level) ESOL certificate, so every ESOL candidate must first hold a Class B Professional Educator Certificate in another teaching field. We code both `standalone: true` (ESOL is the named field of a Professional Educator Certificate, with a dedicated rule, TESOL-aligned program standards, and a Praxis subject test) and `addOn: true` (it can be earned only by candidates already certified in another field). Single pathway: completion of a State-approved Class A ESOL program (3.25 GPA min for candidates admitted on/after 2017-07-01), 300-clock-hour internship with an ESOL-certified cooperating teacher, and the AECAP Praxis ESL subject test. No second-language proficiency requirement. Most recent rule revision adopted 2021-08-12, effective 2021-10-15."
     },
     "sei": {
-      "mandatedForAllTeachers": false
+      "mandatedForAllTeachers": false,
+      "notes": "No universal SEI/EL training mandate for all teachers. Rule 290-3-3-.43(3)(b) and parallel rules in non-ESOL teaching fields require a 'survey of special education' or, alternatively, a diversity course — but the diversity course can be satisfied by any one of five topics (methods of accommodating students with exceptionalities; multicultural education; teaching English language learners; rural education; urban education). EL is a permitted but optional satisfier, not a required topic. The 2025-2026 ALSDE EL Guidebook does not impose new SEI obligations on non-ESL teachers."
     }
   },
   "professionalStandardsMentions": {
@@ -32,9 +35,9 @@
     "el": true
   },
   "sealOfBiliteracy": {
-    "adopted": null,
-    "year": null,
-    "sourceUrl": "https://en.wikipedia.org/wiki/Seal_of_Biliteracy"
+    "adopted": true,
+    "year": 2022,
+    "sourceUrl": "https://www.alabamaachieves.org/wp-content/uploads/2024/03/GR_20240323_Alabama-Seal-of-Biliteracy-Guidelines-for-Alabama-Public-Schools_V1.0.pdf"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -53,8 +56,50 @@
       "url": "https://doi.org/10.14507/epaa.29.5279",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
+    },
+    {
+      "label": "Alabama Administrative Code Chapter 290-3-3 (Educator Preparation), SUPP. NO. 21-4 — Rule 290-3-3-.43 (ESOL, Grades P-12) and Rule 290-3-3-.04 (Alabama Core Teaching Standards)",
+      "url": "https://www.alsde.edu/sec/tcert/Resources/EDUCATOR-PREP-Chapter%20290-3-3.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Alabama Administrative Code Chapter 290-3-2 (Educator Certification), SUPP. NO. 16-1 — IEC and certification-issuance rules",
+      "url": "https://www.alsde.edu/sec/tcert/Resources/EDUCATOR-CERTIFICATION-Chapter%20290-3-2.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ALSDE — Alabama EL Guidebook 2025-2026 (published 2025-12-10)",
+      "url": "https://www.alabamaachieves.org/wp-content/uploads/2025/12/EL_20251210_ELGuidebook2025-2026_v1.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "ALSDE — Alabama Seal of Biliteracy Overview and Guidelines for Public Schools (Act 2022-200, signed 2022-04-01)",
+      "url": "https://www.alabamaachieves.org/wp-content/uploads/2024/03/GR_20240323_Alabama-Seal-of-Biliteracy-Guidelines-for-Alabama-Public-Schools_V1.0.pdf",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Sealofbiliteracy.org — Alabama state record (adoption date 2022-04-06, ALSDE awarding entity)",
+      "url": "https://sealofbiliteracy.org/state/al",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "WIDA Consortium — member directory (Alabama listed; uses ACCESS for ELLs)",
+      "url": "https://wida.wisc.edu/about/consortium",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 (Alabama: 34,965 / 4.7%)",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+      "retrievedAt": "2026-05-08",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2019-11-15",
-  "verificationStatus": "baseline-2019"
+  "lastVerified": "2026-05-08",
+  "verificationStatus": "verified-2026"
 }
