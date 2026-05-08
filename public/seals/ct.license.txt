@@ -1,4 +1,6 @@
-Source: https://commons.wikimedia.org/wiki/File:Seal_of_Connecticut.svg
-Direct: https://upload.wikimedia.org/wikipedia/commons/4/48/Seal_of_Connecticut.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original
-Fetched: 2026-05-08T18:26:23.093Z
+Source: https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Connecticut.svg
+Direct: https://upload.wikimedia.org/wikipedia/commons/7/7c/Coat_of_arms_of_Connecticut.svg
+Note: Connecticut's official state seal is portrait by design (no naturally-square version exists).
+We use the state coat of arms (the heraldic shield central to the seal) for visual consistency
+across the 51-state grid. ViewBox padded vertically to a square 1:1 aspect.
 Usage: per Wikimedia Commons license metadata at the source page.
