@@ -77,6 +77,44 @@ For `elPercent`: prefer NCES "English Learners in Public Schools"
 table (current year) over an SEA-specific number, for cross-state
 comparability. Update `elPercentAsOf`.
 
+### 3a. Capture history events
+
+Each state record carries a `history[]` array — a chronological log of
+SEA-side policy events that shape the EL credentialing landscape. As
+you read sources, watch for events worth a row and append them.
+Examples worth filing:
+
+- A new statute or rule (e.g., a 2024 "Multilingual Learner Bill of
+  Rights"; a Seal of Biliteracy authorizing act with bill number).
+- A SEA reorganization or rename (ODE → ODEW, MA RETELL → SEI).
+- A new credential, endorsement, or pathway (e.g., a Dual Language
+  Immersion endorsement adopted in 2025).
+- A change in the ELP assessment (e.g., MS migrated LAS Links →
+  ELPA21; TN moved WIDA → ELPA21 effective 2024-07-01).
+- A standards revision that flips a `professionalStandardsMentions`
+  boolean.
+- An effective-date for a phase-in (NV's SEI mandate; CA's AB 1059
+  embedded prep).
+
+Each row:
+
+```json
+{
+  "date": "YYYY-MM-DD",          // event date, not retrieval date
+  "title": "Short headline",      // ~60 chars; what changed
+  "description": "One-paragraph why-it-matters with citation hooks.",
+  "sourceUrls": ["https://..."]   // 1-N URLs supporting the row
+}
+```
+
+Only file events you have a citable source for; the `sourceUrls`
+should resolve to the same documents you saved under
+`sources/<usps>/<date>/`. If you're filing a row about a baseline-era
+event you can corroborate (e.g., the 2014 LEAPS Act), cite the
+authoritative current page even if you didn't fetch the original
+bill text. Don't backfill speculative history — provenance still
+applies.
+
 ### 4. Document changes
 
 In `sources/<usps>/<YYYY-MM-DD>/changes-from-baseline.md`, list every
@@ -101,6 +139,10 @@ If nothing changed: note "No substantive changes from baseline-2019."
   `leider-2021` entries — they remain part of the audit trail).
   Each new entry: `retrievedBy: "projectcert-2026"`,
   `retrievedAt: <today>`.
+- **Append** history rows for any policy events you uncovered in §3a
+  (new credentials, statutes, SEA renames, ELP-assessment migrations,
+  standards revisions). Don't delete prior rows; the array is a
+  chronological log.
 - Update `notes` if the state has new quirks worth flagging.
 
 ### 6. Validate and commit

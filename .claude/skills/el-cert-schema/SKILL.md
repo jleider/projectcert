@@ -115,6 +115,44 @@ Rules:
 - Don't delete old `sources[]` entries on refresh — append, so the
   history of where we got each fact stays traceable.
 
+## `history[]` rules
+
+A chronological log of SEA-side policy events that shape this state's
+EL credentialing landscape. Each row:
+
+```json
+{
+  "date": "YYYY-MM-DD",
+  "title": "Short headline (what changed)",
+  "description": "One-paragraph why-it-matters with citation hooks.",
+  "sourceUrls": ["https://..."]
+}
+```
+
+What to log:
+
+- New statutes, rules, or BOE/SBE actions (Seal of Biliteracy
+  authorizing acts; LOOK Act-style EL legislation; new endorsement
+  rules with effective dates).
+- SEA reorganization or rename (e.g., ODE → ODEW, MA RETELL → SEI).
+- New credential, endorsement, or pathway introductions.
+- ELP-assessment migrations (e.g., MS LAS Links → ELPA21; TN WIDA →
+  ELPA21 effective 2024-07-01).
+- Standards revisions that flip a `professionalStandardsMentions`
+  boolean.
+- Phase-in milestones (NV's SEI mandate; CA's AB 1059 embedded prep).
+
+Rules:
+
+- Append-only. The array is a log; don't rewrite or remove prior rows.
+- One row per discrete event, sorted oldest → newest.
+- `date` is the event's effective/adopted date, not the day you
+  retrieved a source about it.
+- `sourceUrls` should resolve to documents you actually read; reuse
+  URLs from `sources[]` where they overlap.
+- Don't backfill speculative or undocumented events — provenance
+  applies here too.
+
 ## `verificationStatus` rules
 
 - `baseline-2019` — record is from the paper, not yet re-verified.
