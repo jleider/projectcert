@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { stateUrl, absoluteStateUrl } from "../src/lib/state-types";
 import { breadcrumbList, breadcrumbWithHome } from "../src/lib/jsonld";
+import type { LinkUrl } from "../src/lib/routes";
+
+// Test-only helper: bypass the compile-time LinkUrl brand. Production
+// code must go through absoluteRoute/absoluteStateUrl/withAnchor.
+const u = (s: string) => s as LinkUrl;
 
 describe("stateUrl", () => {
   it("returns root-relative path with lowercased usps", () => {
@@ -20,8 +25,8 @@ describe("absoluteStateUrl", () => {
 describe("breadcrumbList", () => {
   it("auto-numbers positions starting at 1", () => {
     const b = breadcrumbList([
-      { name: "A", url: "https://projectcert.org/" },
-      { name: "B", url: "/b/" },
+      { name: "A", url: u("https://projectcert.org/") },
+      { name: "B", url: u("/b/") },
     ]) as { itemListElement: Array<{ position: number; item: string; name: string }> };
     expect(b.itemListElement).toHaveLength(2);
     expect(b.itemListElement[0]!.position).toBe(1);
@@ -29,7 +34,7 @@ describe("breadcrumbList", () => {
   });
 
   it("resolves root-relative URLs against SITE_URL", () => {
-    const b = breadcrumbList([{ name: "X", url: "/x/" }]) as {
+    const b = breadcrumbList([{ name: "X", url: u("/x/") }]) as {
       itemListElement: Array<{ item: string }>;
     };
     expect(b.itemListElement[0]!.item).toMatch(/^https:\/\//);
@@ -38,7 +43,7 @@ describe("breadcrumbList", () => {
 
   it("preserves absolute URLs as-is", () => {
     const b = breadcrumbList([
-      { name: "Ext", url: "https://example.com/path/" },
+      { name: "Ext", url: u("https://example.com/path/") },
     ]) as { itemListElement: Array<{ item: string }> };
     expect(b.itemListElement[0]!.item).toBe("https://example.com/path/");
   });

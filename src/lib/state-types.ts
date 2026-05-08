@@ -32,12 +32,14 @@ export interface ChoroplethDatum {
   elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
 }
 
+import type { LinkUrl } from "./routes";
+
 /** Canonical per-state URL for internal navigation (root-relative). */
-export function stateUrl(usps: string): string {
-  return `/states/${usps.toLowerCase()}/`;
+export function stateUrl(usps: string): LinkUrl {
+  return `/states/${usps.toLowerCase()}/` as LinkUrl;
 }
 
 /** Absolute per-state URL — used in JSON-LD / sitemap contexts. */
-export function absoluteStateUrl(siteUrl: string, usps: string): string {
-  return `${siteUrl}${stateUrl(usps)}`;
+export function absoluteStateUrl(siteUrl: string, usps: string): LinkUrl {
+  return `${siteUrl}${stateUrl(usps)}` as LinkUrl;
 }
