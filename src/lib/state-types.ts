@@ -43,3 +43,13 @@ export function stateUrl(usps: string): LinkUrl {
 export function absoluteStateUrl(siteUrl: string, usps: string): LinkUrl {
   return `${siteUrl}${stateUrl(usps)}` as LinkUrl;
 }
+
+/** Per-state EL-percent history sub-page (root-relative). */
+export function elPercentHistoryUrl(usps: string): LinkUrl {
+  return `${stateUrl(usps)}el-percent-history/` as LinkUrl;
+}
+
+/** Absolute EL-percent history sub-page — for JSON-LD / breadcrumbs. */
+export function absoluteElPercentHistoryUrl(siteUrl: string, usps: string): LinkUrl {
+  return `${siteUrl}${elPercentHistoryUrl(usps)}` as LinkUrl;
+}

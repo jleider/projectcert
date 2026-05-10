@@ -9,6 +9,8 @@ export {
   type ChoroplethDatum,
   stateUrl,
   absoluteStateUrl,
+  elPercentHistoryUrl,
+  absoluteElPercentHistoryUrl,
 } from "./state-types";
 import type { ChoroplethDatum } from "./state-types";
 

@@ -78,8 +78,15 @@ breaks the build with "astro:content is server-only".
   on `<a>` (`no-restricted-syntax`); a renamed page surfaces as a
   typecheck failure rather than a silent broken link.
 - **State URLs**: `stateUrl(usps)` for root-relative,
-  `absoluteStateUrl(SITE_URL, usps)` for absolute. Never write
-  `` `/states/${s.usps.toLowerCase()}/` ``.
+  `absoluteStateUrl(SITE_URL, usps)` for absolute. Per-state sub-pages
+  (e.g., `/states/<usps>/el-percent-history/`) get their own helpers
+  (`elPercentHistoryUrl`, `absoluteElPercentHistoryUrl`) in
+  `@/lib/state-types`. Never write
+  `` `/states/${s.usps.toLowerCase()}/` `` and **never cast a
+  hand-concatenated string with `as LinkUrl`** to satisfy the route
+  type — add or extend the helper instead. The `LinkUrl` brand exists
+  so renames fail loud; bypassing it with a cast reintroduces the
+  silent-broken-link class of bug the brand is meant to prevent.
 - **State link rendering**: `<StateLink usps={s.usps}>{s.name}</StateLink>`
   in `.astro` pages. Pass `unstyled` + `class` for card-style links.
 - **Per-state seals**: `<StateSeal usps={s.usps} size={N} />`. Files
