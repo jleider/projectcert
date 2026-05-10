@@ -328,13 +328,34 @@ stays consistent.
 
 ### Attribution is enforced
 
-If anyone uses data from this site, they must cite both the seed paper
-(Leider, Colombo & Nerlino, 2021) **and** this site, plus the relevant
-per-state SEA source for any specific fact quoted. The "How to cite"
-section in `src/pages/about.astro` is the canonical citation block;
-the footer links to it from every page. When changing the about page
-or footer, do not remove or downgrade these — the authors made the
-catalog possible and citing only this site would obscure them.
+If anyone uses data from this site, they should cite the seed paper
+(Leider, Colombo & Nerlino, 2021) **and** this catalog (the specific
+page the fact was taken from). The SEA source linked from that page
+is conditional — required when quoting an SEA verbatim or when the
+claim is contested enough that a reader will want the primary source
+directly. The "How to cite" section in `src/pages/about.astro` is the
+canonical citation block; the footer links to it from every page.
+When changing the about page or footer, do not remove or downgrade
+these — the seed-paper authors made the catalog possible and citing
+only this site would obscure them.
+
+### Repository is dual-licensed
+
+The `LICENSE` file at the repo root documents the split:
+
+- **Site code** (Astro / Svelte / TypeScript source, build scripts,
+  styles) — **MIT**.
+- **Catalog data** (`src/content/states/*.json` and everything under
+  `sources/`) — **CC BY 4.0**.
+
+Both are attribution-required, otherwise unrestricted. Linked SEA
+source documents remain copyright their respective agencies and are
+referenced by URL only — never check a redistributable copy of an
+SEA PDF into `sources/` unless its own license permits it (most
+state regulatory text does; some agency-branded supplements do not).
+When adding a new file type or surface, decide which side of the
+split it falls under and update the README license section if the
+boundary becomes non-obvious.
 
 ### Machine-readable surfaces
 

@@ -19,7 +19,7 @@ verification.)
 
 ## 1. Domain & hosting (blocking)
 
-- [ ] Register the domain. If `projectcert.org` is taken, pick a
+- [x] Register the domain. If `projectcert.org` is taken, pick a
       replacement and **search the codebase for the old hostname**
       before changing — `astro.config.mjs`, `BaseLayout.astro`,
       `index.astro`, `lib/state-summary.ts`, every JSON-LD `@id`,
@@ -36,7 +36,9 @@ verification.)
 - [ ] Force HTTPS, enable HSTS at the host level
 - [ ] Test that all the routes that were in `dist/` after `npm run build`
       actually load on the live domain — especially `/states/<usps>/`
-      paths (65 pages total). The build now runs
+      paths (currently ~115 pages: 51 state pages + 51 per-state
+      `/el-percent-history/` sub-pages + topical/landing routes).
+      The build now runs
       `scripts/check-built-pages.ts` after `astro build`, which asserts
       every route in `src/lib/routes.ts` and every state JSON produced
       a `dist/.../index.html`, so this is mostly belt-and-suspenders.
@@ -268,11 +270,16 @@ SEO tweaks. Plan for the first 4–6 weeks post-launch.
 
 ## 11. Legal & policy (blocking before promotion)
 
+- [x] ~~Adopt an explicit license.~~ Done — `LICENSE` at the repo
+      root: MIT for the site code, CC BY 4.0 for the catalog data
+      under `src/content/states/` and `sources/`. README has a
+      "License" section that mirrors the same split.
 - [ ] Publish a `/privacy/` page covering: what GA collects, retention
       policy, contact email, opt-out instructions. Required by GA's
       ToS, GDPR Art. 13–14, CalOPPA
-- [ ] Publish a `/terms/` page (light — open data under CC-BY-4.0,
-      no warranty, link rot disclaimers)
+- [ ] Publish a `/terms/` page that links to the `LICENSE` file
+      (MIT for code, CC BY 4.0 for data — already documented there)
+      and adds a short "no warranty / link-rot disclaimer" note
 - [ ] Confirm fair-use posture for the SEA snapshots stored in
       `sources/`. They're regulatory text and government publications,
       so almost certainly fine in the US under §105/§107, but a one-
