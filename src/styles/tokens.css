@@ -220,18 +220,52 @@
   }
 }
 
-/* Base typography */
+/* Base typography
+ *
+ * IBM Plex Sans is the UI/data face (nav, tables, legends, buttons);
+ * IBM Plex Serif is the prose face (body text on content pages,
+ * citations, history rows, methodology, glossary); IBM Plex Mono is
+ * the code face (URL slugs, USPS codes inside <code>, code blocks).
+ *
+ * All three are self-hosted via @fontsource imports in BaseLayout
+ * (and EmbedLayout for the iframe surface); no external CDN call.
+ *
+ * The variable axis is exposed as font-variation-settings on body
+ * weight so the wght-axis stays consistent across the static serif
+ * + mono files and the variable sans file.
+ */
+:root {
+  --font-sans:
+    "IBM Plex Sans Variable", "IBM Plex Sans", ui-sans-serif,
+    system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif:
+    "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman",
+    Times, serif;
+  --font-mono:
+    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+}
+
 html {
   color: var(--ink);
   background: var(--surface);
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    "Inter",
-    sans-serif;
+  font-family: var(--font-sans);
   text-size-adjust: 100%;
+}
+
+/* Long-form prose surfaces opt into the serif face. Apply the
+ * `prose-serif` class on a content wrapper (state-page body,
+ * methodology page, glossary entry blocks, citation blocks).
+ */
+.prose-serif {
+  font-family: var(--font-serif);
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
 }
 
 body {

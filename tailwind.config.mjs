@@ -33,15 +33,36 @@ export default {
         },
       },
       fontFamily: {
+        // Self-hosted IBM Plex via @fontsource (BaseLayout/EmbedLayout
+        // imports). Plex Sans is variable; Plex Serif + Mono are
+        // static 400/700 + italics. See src/styles/tokens.css for the
+        // CSS-variable layer that defines these stacks.
         sans: [
+          "IBM Plex Sans Variable",
+          "IBM Plex Sans",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
           "Segoe UI",
-          "Inter",
           "sans-serif",
         ],
-        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        serif: [
+          "IBM Plex Serif",
+          "ui-serif",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "Times",
+          "serif",
+        ],
+        mono: [
+          "IBM Plex Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
       },
     },
   },
