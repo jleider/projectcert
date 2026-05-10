@@ -76,13 +76,23 @@ COLOR_LOGO = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" ro
       --ink: #16181f;
       --brand: #3d1971;
     }}
+    /*
+     * Dark-mode brand palette intentionally preserves the same
+     * luminance direction as light mode (dim 0 -> bright 3) rather
+     * than flipping it like the map choropleth does. The map flips
+     * because a dim tile on a dark surface reads as "low value";
+     * the brand mark is recognized as a shape, not a data encoding,
+     * so consistency of relative tile brightness across themes
+     * matters more than directional encoding. See CLAUDE.md
+     * "Dark theme" for the map-tile convention this departs from.
+     */
     @media (prefers-color-scheme: dark) {{
       svg {{
-        --bin-0: #3a2c54;
-        --bin-1: #5d3da0;
-        --bin-2: #7d4ad0;
-        --bin-3: #e1c5ff;
-        --check: #262833;
+        --bin-0: #ffffff;
+        --bin-1: #e1c5ff;
+        --bin-2: #c9a0ff;
+        --bin-3: #7a3ed8;
+        --check: #ffffff;
         --ink: #e8eaf0;
         --brand: #c9a0ff;
       }}

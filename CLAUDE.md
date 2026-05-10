@@ -489,9 +489,22 @@ The site supports `prefers-color-scheme: dark` via token overrides in
 - **Standalone SVGs in `public/` (favicon, logo) cannot inherit CSS
   custom properties from the embedding page.** They mirror the token
   palette internally and flip via `prefers-color-scheme` inside the
-  SVG `<style>`. If you change a brand or bin token in `tokens.css`,
-  also update the inline values in `public/favicon.svg` and
-  `public/logo.svg` to keep them in sync.
+  SVG `<style>`. Light-mode bin values match `tokens.css`. **Dark
+  mode deliberately diverges**: the brand SVGs keep the same
+  luminance direction as light mode (dim bin-0 → bright bin-3)
+  rather than flipping it like the map choropleth does. The map
+  flips because a dim tile on a dark surface reads as "low value";
+  the brand mark is recognized as a shape, not a data encoding, so
+  cross-theme consistency of *which tile is brightest* matters more
+  than directional encoding. If you change a brand-mark color,
+  update both `public/favicon.svg` and `public/logo.svg` (the
+  outline-logo script's COLOR_LOGO template) together.
+- **SVG optimization**: `svgo.config.mjs` disables `inlineStyles`.
+  Without that override, svgo would hoist light-mode CSS variable
+  declarations onto a `style=""` attribute on the root `<svg>`,
+  which beats the `@media (prefers-color-scheme: dark)` rule on
+  specificity (inline > any selector). Always run svgo with the
+  project config: `npx svgo public/<file>.svg`.
 - **Use the token-backed Tailwind utilities, not literal-color +
   `dark:` overrides.** Reach for `bg-surface`, `text-ink`,
   `text-ink-muted`, `text-ink-subtle`, `border-ink-subtle/30`,
