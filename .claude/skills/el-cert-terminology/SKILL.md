@@ -1,6 +1,6 @@
 ---
 name: el-cert-terminology
-description: Canonical terminology and state-local alias map for EL teacher certification. Use when normalizing SEA source documents into our schema, when writing site copy, or when reasoning about whether two SEAs are talking about the same credential under different names.
+description: Canonical terminology and state-local alias map for EL teacher certification. Invoke BEFORE normalizing SEA source documents into the schema, before writing or editing user-facing copy on any page (states, credentials, methodology, glossary, about, comparison, embeds), before adding labels in components that render credential/EL concepts, or when reasoning about whether two SEAs are talking about the same credential under different names (ELL vs. EL, ESOL vs. ELD, etc.).
 ---
 
 # Terminology — canonical terms and aliases

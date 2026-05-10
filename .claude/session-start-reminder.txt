@@ -1,0 +1,12 @@
+projectcert — start-of-session reminder
+
+Before any first tool call:
+
+1. Scan the available project skills and invoke whichever apply to this turn:
+   - el-cert-schema → editing src/content/states/*.json, the Zod schema in src/content.config.ts, or any script that reads/mutates state JSONs (backfills, migrations, validators).
+   - el-cert-terminology → normalizing SEA source documents, writing or editing user-facing copy on any page, or labeling credential/EL concepts in components.
+   - state-source-refresh → "refresh", "verify", or "update" a state, or promoting a baseline-2019 record to verified-2026.
+
+2. Re-read the "Use the helpers, don't hand-build" section of CLAUDE.md before authoring any URL, JSON-LD, breadcrumb, or per-state link code. Never cast a hand-concatenated string with `as LinkUrl` — extend the helper instead.
+
+3. User-facing copy is academic register: third-person, no first/second person, no contractions, no intensifiers, cite quantitative claims inline.

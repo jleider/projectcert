@@ -1,6 +1,6 @@
 ---
 name: el-cert-schema
-description: Canonical Zod schema for state EL teacher certification records. Use when adding or editing any file under src/content/states/, when designing data ingestion, or when reasoning about which fields are required vs. optional vs. nullable.
+description: Canonical Zod schema for state EL teacher certification records. Invoke BEFORE editing any file under src/content/states/, before authoring any script that reads or mutates those files (backfills, migrations, patch scripts, validators), before adding a new schema field in src/content.config.ts, or when reasoning about which fields are required vs. optional vs. nullable. Also covers history[], elPercentHistory[], sources[] provenance rules, and verificationStatus transitions.
 ---
 
 # EL certification data schema
