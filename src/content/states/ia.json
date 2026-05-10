@@ -129,8 +129,8 @@
     },
     {
       "date": "2019-12-01",
-      "title": "Baseline coding (Leider, Colombo & Nerlino, 2021)",
-      "description": "Initial coding of the SEA's bilingual, ELD/ESL, and SEI credentials, professional teaching standards, and EL-population data. Captured Oct–Dec 2019 for the EPAA 29(100) document analysis; this row is the as-of-2019 snapshot against which subsequent verifications are diffed.",
+      "title": "EPAA 29(100) document analysis (Leider, Colombo & Nerlino, 2021)",
+      "description": "Leider, Colombo & Nerlino published in Education Policy Analysis Archives 29(100) a comprehensive document analysis of every state and DC's bilingual, ELD/ESL, and SEI teacher-credentialing requirements, professional teaching standards mentions, and EL-percentage figures, based on primary SEA sources collected October–December 2019. The 2019 coding of Iowa's EL-credentialing landscape is preserved as a temporally-anchored research baseline against which the catalog's later verifications are framed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
       ]
@@ -138,7 +138,7 @@
     {
       "date": "2023-07-01",
       "title": "Iowa DOE rebrands to educate.iowa.gov domain",
-      "description": "The Iowa Department of Education migrated from educateiowa.gov to educate.iowa.gov, with redirects in place. The 2019 baseline citation pointed at the bare educateiowa.gov homepage; this refresh re-grounds field-level claims against the current primary documents.",
+      "description": "The Iowa Department of Education migrated its public-facing domain from educateiowa.gov to educate.iowa.gov, with redirects in place. Earlier citations against the prior domain may resolve through the redirect chain.",
       "sourceUrls": [
         "https://educate.iowa.gov/"
       ]
