@@ -99,11 +99,36 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "2018-06-01",
+      "title": "Rule 5440-39 revision (Bilingual endorsement)",
+      "description": "The Vermont Standards Board for Professional Educators revised Rule 5440-39, clarifying the Bilingual endorsement as an add-on credential and aligning its standards with current bilingual-instruction practice.",
+      "sourceUrls": [
+        "https://education.vermont.gov/educator-licensure/professional-standards/licensing-endorsement-areas"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "EPAA 29(100) document analysis (Leider, Colombo & Nerlino, 2021)",
       "description": "Leider, Colombo & Nerlino published in Education Policy Analysis Archives 29(100) a comprehensive document analysis of every state and DC's bilingual, ELD/ESL, and SEI teacher-credentialing requirements, professional teaching standards mentions, and EL-percentage figures, based on primary SEA sources collected October–December 2019. The 2019 coding of Vermont's EL-credentialing landscape is preserved as a temporally-anchored research baseline against which the catalog's later verifications are framed.",
       "sourceUrls": [
         "https://doi.org/10.14507/epaa.29.5279"
+      ]
+    },
+    {
+      "date": "2020-12-01",
+      "title": "Vermont Seal of Biliteracy adoption",
+      "description": "Vermont established the State Seal of Biliteracy, recognizing high-school graduates demonstrating proficiency in English and one or more additional languages. The seal is administered by the Agency of Education in coordination with the Vermont State Seal of Biliteracy Council.",
+      "sourceUrls": [
+        "https://www.vtsealofbiliteracy.org/",
+        "https://theglobalseal.com/vermont-seal-of-biliteracy"
+      ]
+    },
+    {
+      "date": "2022-05-01",
+      "title": "Rule 5440-40 revision: English Language Multilingual Learner endorsement",
+      "description": "Rule 5440-40 was revised to rename and restructure Vermont's ELD endorsement as the English Language Multilingual Learner (ELLML) endorsement, aligning naming conventions with current asset-based framing.",
+      "sourceUrls": [
+        "https://education.vermont.gov/educator-licensure/professional-standards/licensing-endorsement-areas"
       ]
     }
   ]

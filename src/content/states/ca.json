@@ -129,6 +129,15 @@
   "verificationStatus": "verified-2026",
   "history": [
     {
+      "date": "1974-01-21",
+      "title": "Lau v. Nichols decided (414 U.S. 563)",
+      "description": "The U.S. Supreme Court ruled unanimously that San Francisco USD's failure to provide language-acquisition supports to non-English-proficient Chinese students violated Title VI of the Civil Rights Act of 1964. The decision underpins California's modern bilingual and ELD credentialing infrastructure and frames every later state EL-program rule.",
+      "sourceUrls": [
+        "https://www.oyez.org/cases/1973/72-6520",
+        "https://supreme.justia.com/cases/federal/us/414/563/"
+      ]
+    },
+    {
       "date": "1976-09-21",
       "title": "Chacón-Moscone Bilingual-Bicultural Education Act enacted (AB 1329, Stats. 1976 ch. 978)",
       "description": "California's first comprehensive bilingual-education statute required districts to provide bilingual instruction wherever 10 or more EL students of the same primary language were enrolled in the same grade at a school. The act underwrote two decades of growth in California bilingual programs and bilingual-teacher credentialing infrastructure (the BCLAD pathway descends from it). The legislature allowed Chacón-Moscone to sunset in 1987, but the State Board of Education continued most of its requirements administratively until Proposition 227 (1998) overrode them.",
@@ -175,6 +184,30 @@
       "description": "Proposition 58 (the California Education for a Global Economy Initiative) repeals the English-only instruction restrictions of Proposition 227 (1998), restoring local authority to offer bilingual, dual-language, and structured English immersion programs and reinforcing demand for the Bilingual Authorization.",
       "sourceUrls": [
         "https://www.cde.ca.gov/ds/ad/cefelfacts.asp"
+      ]
+    },
+    {
+      "date": "2017-07-12",
+      "title": "California adopts the English Learner Roadmap",
+      "description": "The State Board of Education unanimously adopted the California English Learner Roadmap, a four-principle policy framework directing district programs and educator preparation toward asset-based, integrated, and rigorous approaches for ELs.",
+      "sourceUrls": [
+        "https://www.cde.ca.gov/sp/el/rm/"
+      ]
+    },
+    {
+      "date": "2018-01-01",
+      "title": "ELPAC replaces CELDT as California's ELP assessment",
+      "description": "California transitioned from the California English Language Development Test (CELDT) to the English Language Proficiency Assessments for California (ELPAC) for both initial-identification screening and annual summative assessment of ELs.",
+      "sourceUrls": [
+        "https://www.cde.ca.gov/ta/tg/ep/"
+      ]
+    },
+    {
+      "date": "2018-09-19",
+      "title": "AB 2735 mandates EL course access (effective 2019-20)",
+      "description": "California enacted AB 2735, requiring districts to provide ELs with full access to a broad course of study (including A–G coursework) and prohibiting placement in restrictive programs that delay course-of-study access. Effective with the 2019-20 school year.",
+      "sourceUrls": [
+        "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=201720180AB2735"
       ]
     },
     {

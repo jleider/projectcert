@@ -149,5 +149,23 @@
     }
   ],
   "lastVerified": "2026-05-08",
-  "verificationStatus": "verified-2026"
+  "verificationStatus": "verified-2026",
+  "history": [
+    {
+      "date": "2015-03-23",
+      "title": "Virginia Seal of Biliteracy authorized (HB 1822, 2015)",
+      "description": "HB 1822 (2015) amended the Code of Virginia to authorize school divisions to award a Seal of Biliteracy on the high-school diplomas of graduates demonstrating proficiency in English and at least one other language. The seal is codified under Va. Code § 22.1-212.1.",
+      "sourceUrls": [
+        "https://law.lis.virginia.gov/vacode/title22.1/chapter13.2/section22.1-212.1/"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "title": "Dual Language Endorsement effective (8VAC20-23-321 et seq.)",
+      "description": "Virginia's first dedicated bilingual licensure track took effect on January 1, 2026, under regulations 8VAC20-23-321 through 324. The endorsement provides four parallel pathways combining English- or target-language preparation with standalone or add-on options.",
+      "sourceUrls": [
+        "https://law.lis.virginia.gov/admincode/title8/agency20/chapter23/section321/"
+      ]
+    }
+  ]
 }

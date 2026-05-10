@@ -138,6 +138,14 @@
       ]
     },
     {
+      "date": "2018-06-26",
+      "title": "BESE adopts Bilingual Education Endorsement",
+      "description": "The Board of Elementary and Secondary Education promulgated regulations establishing the Bilingual Education Endorsement, the operational pathway implementing the LOOK Act's directive that DESE create bilingual program credentials.",
+      "sourceUrls": [
+        "https://www.doe.mass.edu/edprep/domains/instruction/bilingual-ed-endorsement.html"
+      ]
+    },
+    {
       "date": "2019-12-01",
       "title": "EPAA 29(100) document analysis (Leider, Colombo & Nerlino, 2021)",
       "description": "Leider, Colombo & Nerlino published in Education Policy Analysis Archives 29(100) a comprehensive document analysis of every state and DC's bilingual, ELD/ESL, and SEI teacher-credentialing requirements, professional teaching standards mentions, and EL-percentage figures, based on primary SEA sources collected October–December 2019. The 2019 coding of Massachusetts's EL-credentialing landscape is preserved as a temporally-anchored research baseline against which the catalog's later verifications are framed.",
@@ -151,6 +159,14 @@
       "description": "Effective 2021-07-01, MA DESE extended the SEI endorsement requirement (already binding on core-academic teachers and administrators of ELs) to vocational educators serving ELs. This expanded the operative scope of `sei.mandatedForAllTeachers = true` in MA without changing the underlying coding.",
       "sourceUrls": [
         "https://www.doe.mass.edu/licensure/endorsements/sei.html"
+      ]
+    },
+    {
+      "date": "2025-05-20",
+      "title": "603 CMR 7.00 amended (MTEL Alternatives and Other Updates)",
+      "description": "The Board of Elementary and Secondary Education amended 603 CMR 7.00 (Educator Licensure and Preparation Program Approval) under the heading \"MTEL Alternatives and Other Updates,\" with follow-on guidance on Communications & Literacy Skills MTEL waivers issued April 29, 2026.",
+      "sourceUrls": [
+        "https://www.doe.mass.edu/lawsregs/603cmr7.html"
       ]
     }
   ]
