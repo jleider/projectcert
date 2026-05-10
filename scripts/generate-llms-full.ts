@@ -36,6 +36,7 @@ interface State {
   lastVerified: string;
   verificationStatus: "baseline-2019" | "in-progress" | "verified-2026";
   history?: Array<{ date: string; title: string; description: string }>;
+  elPercentHistory?: Array<{ date: string; percent: number; source: { label: string; url: string } }>;
 }
 
 function bilingualClause(s: State): string {
@@ -130,6 +131,14 @@ function renderState(s: State): string {
     lines.push("History:");
     for (const ev of [...s.history].sort((a, b) => a.date.localeCompare(b.date))) {
       lines.push(`- ${ev.date}: ${ev.title} — ${ev.description}`);
+    }
+  }
+
+  if (s.elPercentHistory && s.elPercentHistory.length > 0) {
+    lines.push("");
+    lines.push("EL-percent time series:");
+    for (const obs of [...s.elPercentHistory].sort((a, b) => a.date.localeCompare(b.date))) {
+      lines.push(`- ${obs.date.slice(0, 4)}: ${obs.percent.toFixed(1)}% (${obs.source.label} — ${obs.source.url})`);
     }
   }
 

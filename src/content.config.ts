@@ -104,6 +104,24 @@ const HistoryEvent = z.object({
   sourceUrls: z.array(z.url()).min(1, "Every history event needs at least one sourceUrl"),
 });
 
+/**
+ * One observation in a state's EL-percentage time series.
+ *
+ * `date` is typically the snapshot date NCES Table 204.20 reports
+ * (fall enrollment, e.g. `YYYY-10-01`). `percent` is the share of
+ * public-school students classified as ELs. `source` carries one
+ * citable URL — NCES tables for canonical years, SEA dashboards for
+ * recent years NCES has not yet published.
+ */
+const ElPercentObservation = z.object({
+  date: isoDate,
+  percent: z.number().min(0).max(100),
+  source: z.object({
+    label: z.string().min(3),
+    url: z.url(),
+  }),
+});
+
 export const StateSchema = z
   .object({
     usps: z.string().length(2).regex(/^[A-Z]{2}$/),
@@ -120,6 +138,7 @@ export const StateSchema = z
     elpAssessment: ElpAssessment,
     sources: z.array(Source).min(1, "Provenance is required"),
     history: z.array(HistoryEvent).optional(),
+    elPercentHistory: z.array(ElPercentObservation).optional(),
     lastVerified: isoDate,
     verificationStatus: z.enum([
       "baseline-2019",
@@ -141,6 +160,17 @@ export const StateSchema = z
       return true;
     },
     { message: "history[] must be sorted oldest → newest by date", path: ["history"] },
+  )
+  .refine(
+    (s) => {
+      const h = s.elPercentHistory;
+      if (!h || h.length < 2) return true;
+      for (let i = 1; i < h.length; i++) {
+        if ((h[i]!.date) < (h[i - 1]!.date)) return false;
+      }
+      return true;
+    },
+    { message: "elPercentHistory[] must be sorted oldest → newest by date", path: ["elPercentHistory"] },
   );
 
 export type State = z.output<typeof StateSchema>;

@@ -13,6 +13,7 @@
     "seed": "tsx scripts/seed-from-paper.ts",
     "check:contrast": "tsx scripts/check-contrast.ts",
     "check:integrity": "tsx scripts/check-state-integrity.ts",
+    "check:links": "tsx scripts/check-external-links.ts",
     "lint": "eslint .",
     "validate": "astro check --minimumFailingSeverity hint && npm run check:contrast && npm run check:integrity",
     "test": "vitest run",
