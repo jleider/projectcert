@@ -102,7 +102,11 @@ function renderState(s: State): string {
   const lines: string[] = [];
   lines.push(`## ${s.name} (${s.usps})`);
   lines.push("");
-  lines.push(`URL: ${SITE_URL}/states/${s.usps.toLowerCase()}/`);
+  const stateUrl = `${SITE_URL}/states/${s.usps.toLowerCase()}/`;
+  lines.push(`URL: ${stateUrl}`);
+  if (s.elPercentHistory && s.elPercentHistory.length > 0) {
+    lines.push(`EL-percent history page: ${stateUrl}el-percent-history/`);
+  }
   lines.push(`Last verified: ${s.lastVerified} (${s.verificationStatus})`);
   lines.push("");
   lines.push(

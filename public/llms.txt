@@ -67,6 +67,12 @@ Each US state and DC has a canonical page at `/states/<usps>/` (e.g.,
 `/states/tx/`, `/states/dc/`, `/states/ma/`). All 51 are listed in the
 [sitemap](https://projectcert.org/sitemap-index.xml).
 
+Each per-state page also has a classified-EL share time-series
+sub-page at `/states/<usps>/el-percent-history/` (e.g.,
+`/states/tx/el-percent-history/`) charting the annual share of
+public-school students classified as English Learners from NCES
+Digest of Education Statistics 2023, Table 204.20 (fall 2011–2021).
+
 ## Machine-readable
 
 - [Sitemap](https://projectcert.org/sitemap-index.xml)
