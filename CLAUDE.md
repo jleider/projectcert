@@ -468,14 +468,26 @@ need to consider fill-vs-fill adjacency, not text-on-fill.
 The site supports `prefers-color-scheme: dark` via token overrides in
 `src/styles/tokens.css`. Two non-obvious decisions to preserve:
 
-- **Choropleth palettes are remapped, not just dimmed.** In dark mode
-  every layer's palette inverts luminance direction: light tile = low
-  value, bright/saturated tile = high value (opposite of the
-  light-mode "more = darker" convention). Hue per layer is held
-  constant so the variable encoding ("purple = % EL", "green =
-  bilingual", …) is recognizable across themes; only luminance flips
-  so tiles read against the dark surface. Don't "fix" this by
-  re-aligning the direction.
+- **The purple `--bin-*` ramp preserves direction across themes;
+  categorical layers flip.** In light mode the % EL ramp goes from
+  pale (low) to deep purple (high). In dark mode it goes from white
+  (low) to mid purple (high) — same *direction*, just shifted into
+  the bright half of the luminance range so every tile clears the
+  dark surface. This deliberately matches the brand mark in
+  `public/logo.svg` and `public/favicon.svg`. Trade-off: on dark
+  surfaces the lowest-value tile is the most luminance-salient
+  (pure white on near-black), which can read as "this tile stands
+  out" even though it encodes the lowest value; the legend's text
+  labels carry the meaning (SC 1.4.1).
+
+  Categorical layers (`bilingual`, `eld`, `sei`, `standards`,
+  `seal`, `elp`) still flip luminance direction in dark mode (their
+  "on" / standalone state is the brightest tile on the dark
+  surface). This is acceptable because the legend label, not
+  luminance order, carries the meaning for categorical encodings.
+  If you re-align the `--bin-*` ramp's direction, do not propagate
+  the change to the categorical palettes without a deliberate
+  review.
 - **Visibility of the low-end tile beats strict 3:1 adjacency** for
   categorical layers (`bilingual`, `elp`). On a dark surface the dim
   end of a 3-stop palette has to sit far enough above the surface to

@@ -152,17 +152,25 @@
 
     --brand: #c9a0ff;
 
-    /* Choropleth bin palettes — luminance-inverted for dark surface. */
-
-    /* Purple sequential (% EL). bin-0 sits just above surface; bin-3
-     * is a near-white pale-purple to maximize "more EL" salience.
-     * bin-2 is intentionally pulled below the border luminance so
-     * adjacent bin-2 states keep visible borders against the
-     * brighter dark-mode --map-border. */
-    --bin-0: #3a2c54;
-    --bin-1: #5d3da0;
-    --bin-2: #7d4ad0;
-    --bin-3: #e1c5ff;
+    /* Choropleth bin palettes.
+     *
+     * The purple --bin-* ramp preserves light-mode direction in
+     * dark mode (low value = lighter tile, high value = denser
+     * purple) instead of flipping it. The whole palette is shifted
+     * into the bright half of the luminance range so every tile
+     * remains visible against the dark surface (the literal
+     * light-mode #3d1971 would disappear against #262833). Trade-
+     * off: on dark surfaces the lowest-value tile is the most
+     * luminance-salient (it is pure white on near-black), which
+     * reads as "this tile stands out" even though it encodes the
+     * lowest value; the legend's text labels carry the meaning
+     * (SC 1.4.1). This matches the brand mark in public/logo.svg
+     * and public/favicon.svg so the encoding stays consistent
+     * across surfaces. */
+    --bin-0: #ffffff;
+    --bin-1: #e1c5ff;
+    --bin-2: #c9a0ff;
+    --bin-3: #7a3ed8;
     --bin-na: #484a55;
 
     /* Bilingual — green. Saturation and hue mirror the light-mode
