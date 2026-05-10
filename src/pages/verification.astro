@@ -26,21 +26,25 @@ const groups = {
     <ul class="mt-6 grid grid-cols-3 gap-3 text-sm">
       <li class="rounded border border-accent/30 bg-accent/5 p-3">
         <div class="text-2xl font-bold text-accent">{groups["verified-2026"].length}</div>
-        <div class="text-ink-muted">verified-2026</div>
+        <div class="text-ink-muted">verified against 2026 sources</div>
       </li>
       <li class="rounded border border-bin-2/40 bg-bin-1/20 p-3">
         <div class="text-2xl font-bold text-ink">{groups["in-progress"].length}</div>
-        <div class="text-ink-muted">in-progress</div>
+        <div class="text-ink-muted">re-verification in progress</div>
       </li>
       <li class="rounded border border-ink-subtle/30 bg-surface-warn p-3">
         <div class="text-2xl font-bold text-ink">{groups["baseline-2019"].length}</div>
-        <div class="text-ink-muted">baseline-2019</div>
+        <div class="text-ink-muted">2019 baseline pending re-verification</div>
       </li>
     </ul>
 
-    {(["verified-2026", "in-progress", "baseline-2019"] as const).map((status) => (
+    {([
+      { status: "verified-2026", heading: "Verified against 2026 sources" },
+      { status: "in-progress", heading: "Re-verification in progress" },
+      { status: "baseline-2019", heading: "2019 baseline pending re-verification" },
+    ] as const).map(({ status, heading }) => (
       <section class="mt-8">
-        <h2 class="text-lg font-semibold text-ink">{status}</h2>
+        <h2 class="text-lg font-semibold text-ink">{heading}</h2>
         {groups[status].length === 0 ? (
           <p class="mt-2 text-ink-muted">No states.</p>
         ) : (
@@ -59,15 +63,14 @@ const groups = {
     <section class="mt-10 rounded border border-ink-subtle/20 p-4 bg-surface-raised">
       <h2 class="text-base font-semibold text-ink">Verification procedure</h2>
       <p class="mt-2 text-sm text-ink-muted">
-        Each state passes through the <code>state-source-refresh</code>
-        workflow: current SEA documents are re-fetched from the URLs
-        in the state's <code>sources[]</code>, snapshots are stored
-        under <code>sources/&lt;usps&gt;/&lt;date&gt;/</code>, the
-        record is re-coded against the schema, divergences from the
-        2019 baseline are documented, and the
-        <code>verificationStatus</code> field is updated to
-        <code>verified-2026</code>. Original 2019 source citations are
-        retained as part of the audit trail.
+        Each state passes through a uniform refresh workflow: current
+        SEA documents are re-fetched from the cited source URLs, dated
+        snapshots are archived in the project repository, the record
+        is re-coded against the same coding scheme used for the 2019
+        baseline, divergences from that baseline are documented in a
+        per-state changes-from-baseline note, and the state is
+        promoted to the 2026 verified set. The original 2019 source
+        citations are retained as part of the audit trail.
       </p>
     </section>
   </article>

@@ -140,6 +140,38 @@ square and let the artwork center with transparent margins. Do
 *not* alter the underlying artwork dimensions — the official seal
 is the official seal.
 
+### Map topology
+
+The choropleth fetches `public/data/us-states-10m.json` (us-atlas
+10m TopoJSON, ~56 KB after optimization). The committed file is not
+the raw upstream — it is the output of
+`scripts/optimize-map-topology.ts`, which drops territories
+(PR/VI/GU/AS/MP and the `objects.nation` collection — both unused
+by `Choropleth.svelte`'s render loop), applies Visvalingam
+simplification, and re-quantizes onto a 5000×5000 integer grid. The
+combination roughly halves byte size versus the upstream 10m file
+with no perceptible change at the 975×610 render viewBox.
+
+When you bump the upstream us-atlas version (or change the render
+viewBox in a way that needs more precision), drop the raw file in
+place and re-run `npx tsx scripts/optimize-map-topology.ts`. The
+script is idempotent — running it on its own output is a no-op.
+
+Two non-obvious pitfalls the script handles, worth knowing if you
+ever rewrite it:
+
+- **`presimplify` dequantizes.** It removes the topology's integer
+  `transform` and writes absolute float coordinates so it can attach
+  effective-area weights. Without a follow-up `quantize`, the output
+  is ~4× the size of the input. Simplify-without-requantize is the
+  wrong operation here.
+- **`@types/topojson-simplify` and `@types/topojson-client` derive
+  `Topology` with mismatched generic defaults** (`Objects<{}>` vs
+  `Objects<GeoJsonProperties>`), so piping `presimplify → simplify →
+  quantize` produces a spurious type error at the boundary. The
+  script funnels the three functions through a single structural
+  alias once; don't chase the cross-package generic mismatch.
+
 ### Embed mode
 
 The map is embeddable via `/embed/map/?layer=<layer>`. Two prop
@@ -237,6 +269,21 @@ not marketing.
   state", not "Which states have credentials?". Questions in body
   text are fine when they introduce evidence; in navigation they
   read as marketing.
+- **No code or schema identifiers in user-facing copy.** Body prose,
+  badges, captions, page headings, button labels, and tooltip text
+  are read by researchers, journalists, and SEA staff — not by
+  contributors to this repo. Do not surface field names
+  (`verificationStatus`, `elPercentHistory`, `sources[]`,
+  `retrievedAt`), enum values (`baseline-2019`, `verified-2026`,
+  `in-progress`), file paths (`sources/<usps>/<date>/`,
+  `src/content/states/<usps>.json`), schema-array notation (`[]`),
+  or workflow/skill names (`state-source-refresh`) anywhere a reader
+  would encounter them. Rewrite into prose: "verified against
+  current 2026 sources" not `verified-2026`; "the cited source
+  documents" not `sources[]`; "the per-state archive in the project
+  repository" not `sources/<usps>/<date>/`. The exception is the
+  embed-integration page, where code snippets (`<iframe>` HTML,
+  `?layer=` query strings) *are* the documented API for developers.
 
 When editing existing copy, prefer trimming to rewriting. Tighter prose
 in the academic voice almost always emerges from removing intensifiers
