@@ -151,6 +151,10 @@ What **not** to log:
   promoted to verified-2026", and any framing that describes the
   catalog's QA workflow rather than an SEA-side event. The audit
   trail belongs in `sources/<USPS>/<date>/changes-from-baseline.md`.
+  **Documented exception**: the 2019-12-01 row "EPAA 29(100) document
+  analysis (Leider, Colombo & Nerlino, 2021)" is allowed across all
+  states; it documents a citable peer-reviewed publication
+  (DOI 10.14507/epaa.29.5279), not catalog QA.
 - Coding corrections without an underlying SEA action (e.g.,
   "bilingual reclassified standalone → add-on on refresh"). If a
   reclassification reflects an actual SEA policy change with an

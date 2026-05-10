@@ -136,6 +136,18 @@ following titles and the prose patterns behind them are **forbidden**:
   scope corrected on refresh", and any other framing that describes the
   catalog's QA workflow rather than an SEA-side event.
 
+**One documented exception**: every state carries a `2019-12-01` row
+titled "EPAA 29(100) document analysis (Leider, Colombo & Nerlino, 2021)"
+that anchors the catalog's seed dataset. This row points at a published
+peer-reviewed research event — Leider, Colombo & Nerlino's systematic
+coding of every state's EL-credentialing rules from primary SEA
+documents collected October–December 2019, published in *Education
+Policy Analysis Archives* 29(100). Because the row documents a citable
+academic milestone (with DOI) rather than the catalog's own QA workflow,
+it is allowed. Do not propose new rows that mimic this pattern for
+unrelated research unless they document an equivalently specific
+peer-reviewed publication with a citable DOI.
+
 The audit trail belongs in `sources/<USPS>/<date>/changes-from-baseline.md`,
 not in `history[]`. The site renders `history[]` as a public timeline of
 policy changes for researchers; meta-process rows clutter it and are
