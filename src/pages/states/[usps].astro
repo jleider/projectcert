@@ -15,7 +15,7 @@ import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
 import { SITE_URL } from "@/config/site";
 import { breadcrumbWithHome } from "@/lib/jsonld";
 import { ROUTES, ANCHORS, sameAnchor } from "@/lib/routes";
-import { absoluteStateUrl } from "@/lib/state-data";
+import { absoluteStateUrl, elPercentHistoryUrl } from "@/lib/state-data";
 
 export async function getStaticPaths() {
   const entries = await getCollection("states");
@@ -108,10 +108,19 @@ const stateJsonLd = [
     <p class="mt-5 text-base text-ink-muted max-w-3xl">{lead}</p>
 
     <section class="mt-6 grid sm:grid-cols-3 gap-4" aria-label="At a glance">
-      <div class="rounded border border-ink-subtle/20 p-4">
+      <a
+        href={elPercentHistoryUrl(s.usps)}
+        class="block rounded border border-ink-subtle/20 p-4 hover:border-accent/60 hover:bg-accent/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent transition-colors"
+        aria-label={`View ${s.name} classified-EL share over time`}
+      >
         <div class="text-2xl font-bold text-ink">{s.elPercent.toFixed(1)}%</div>
-        <div class="text-sm text-ink-muted">classified ELs ({s.elPercentAsOf})</div>
-      </div>
+        <div class="text-sm text-ink-muted">
+          classified ELs ({s.elPercentAsOf})
+        </div>
+        {s.elPercentHistory && s.elPercentHistory.length > 1 && (
+          <div class="mt-1 text-sm text-accent">view trend &rarr;</div>
+        )}
+      </a>
       <div class="rounded border border-ink-subtle/20 p-4">
         <div class="text-2xl font-bold text-ink">
           {[s.credentials.bilingual.offered ? "Bil" : null, s.credentials.eld.offered ? "ELD" : null, s.credentials.sei.mandatedForAllTeachers ? "SEI" : null].filter(Boolean).join(" + ") || "ELD only"}

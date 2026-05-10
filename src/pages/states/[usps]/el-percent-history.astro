@@ -1,0 +1,111 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ElPercentChart from "@/components/ElPercentChart.astro";
+import StateSeal from "@/components/StateSeal.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
+import { SITE_URL } from "@/config/site";
+import { breadcrumbWithHome } from "@/lib/jsonld";
+import { ROUTES } from "@/lib/routes";
+import { absoluteElPercentHistoryUrl, absoluteStateUrl, stateUrl } from "@/lib/state-data";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("states");
+  return entries.map((entry) => ({
+    params: { usps: entry.data.usps.toLowerCase() },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"states">;
+}
+
+const { entry } = Astro.props;
+const s = entry.data;
+
+const history = s.elPercentHistory ?? [];
+const stateAbs = absoluteStateUrl(SITE_URL, s.usps);
+const pageAbs = absoluteElPercentHistoryUrl(SITE_URL, s.usps);
+
+// Unique source labels for the citation footnote.
+const sourceMap = new Map<string, string>();
+for (const obs of history) {
+  if (!sourceMap.has(obs.source.url)) {
+    sourceMap.set(obs.source.url, obs.source.label);
+  }
+}
+
+const title = `${s.name}: classified-EL share over time | projectcert`;
+const description = `Annual share of public-school students classified as English Learners in ${s.name}, ${history[0]?.date.slice(0, 4) ?? ""}–${history[history.length - 1]?.date.slice(0, 4) ?? ""}, from NCES Digest of Education Statistics.`;
+
+const jsonLd = [
+  breadcrumbWithHome([
+    { name: "States", url: ROUTES.home },
+    { name: s.name, url: stateAbs },
+    { name: "Classified-EL share over time", url: pageAbs },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  modifiedTime={s.lastVerified}
+  jsonLd={jsonLd}
+>
+  <article class="max-w-4xl mx-auto px-4 py-8">
+    <p class="text-sm text-ink-muted">
+      <a href={ROUTES.home} class="text-accent hover:underline">All states</a> /
+      <a href={stateUrl(s.usps)} class="text-accent hover:underline">{s.name}</a> /
+      <span aria-current="page">Classified-EL share over time</span>
+    </p>
+
+    <div class="mt-2 flex items-center gap-5">
+      <StateSeal usps={s.usps} size={72} />
+      <div>
+        <h1 class="text-3xl font-bold text-ink">{s.name}: classified-EL share over time</h1>
+        <p class="mt-1 text-sm text-ink-muted">
+          Annual share of public-school students classified as English Learners.
+        </p>
+      </div>
+    </div>
+
+    {history.length > 0 ? (
+      <ElPercentChart data={history} stateName={s.name} />
+    ) : (
+      <p class="mt-6 text-sm text-ink-muted">
+        No historical observations are recorded for {s.name} yet.
+      </p>
+    )}
+
+    <section class="mt-8" aria-labelledby="about-figure">
+      <h2 id="about-figure" class="text-base font-semibold text-ink">About this figure</h2>
+      <p class="mt-2 text-sm text-ink-muted">
+        Each point is the fall-enrollment share of students classified as English Learners
+        in {s.name}'s public schools. The series ends in fall 2021 because the National
+        Center for Education Statistics (NCES) Digest, Table 204.20, is the canonical
+        national series and the most recent edition (2023) publishes through that year.
+        Per-SEA dashboards sometimes carry more recent figures, but they are not directly
+        comparable across states; the catalog uses NCES so cross-state comparisons stay
+        apples-to-apples.
+      </p>
+      {sourceMap.size > 0 && (
+        <p class="mt-3 text-sm text-ink-muted">
+          Source{sourceMap.size > 1 ? "s" : ""}:{" "}
+          {[...sourceMap.entries()].map(([url, label], i) => (
+            <>
+              {i > 0 && "; "}
+              <ExternalLink href={url} class="text-accent hover:underline">{label}</ExternalLink>
+            </>
+          ))}.
+        </p>
+      )}
+    </section>
+
+    <p class="mt-10 text-sm">
+      <a href={stateUrl(s.usps)} class="text-accent hover:underline">&larr; Back to {s.name}</a>
+    </p>
+  </article>
+</BaseLayout>

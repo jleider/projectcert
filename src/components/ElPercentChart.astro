@@ -1,0 +1,304 @@
+---
+/**
+ * Line chart of a state's classified-EL share over time.
+ *
+ * SSR-rendered SVG with a small vanilla-JS layer for interactive
+ * tooltips. Each datum has an enlarged transparent hit target plus a
+ * native <title> as a no-JS / screen-reader fallback. Color uses the
+ * elPercent layer's purple (--bin-3) so the visual encoding matches
+ * the map convention.
+ */
+
+import ExternalLink from "@/components/ExternalLink.astro";
+
+interface Datum {
+  date: string;
+  percent: number;
+  source: { label: string; url: string };
+}
+
+interface Props {
+  data: Datum[];
+  stateName: string;
+}
+
+const { data, stateName } = Astro.props;
+
+// Layout (viewBox units). Chart scales to container width via CSS.
+const VB_W = 720;
+const VB_H = 320;
+const M = { top: 16, right: 24, bottom: 36, left: 44 };
+const W = VB_W - M.left - M.right;
+const H = VB_H - M.top - M.bottom;
+
+const years = data.map((d) => Number(d.date.slice(0, 4)));
+const yMin = Math.min(...years);
+const yMax = Math.max(...years);
+const pMaxRaw = Math.max(...data.map((d) => d.percent));
+const pMax = Math.max(5, Math.ceil((pMaxRaw * 1.1) / 5) * 5);
+
+function xPos(year: number): number {
+  if (yMax === yMin) return W / 2;
+  return (W * (year - yMin)) / (yMax - yMin);
+}
+function yPos(p: number): number {
+  return H - (H * p) / pMax;
+}
+
+const pathPoints = data
+  .map((d) => `${xPos(Number(d.date.slice(0, 4))).toFixed(2)},${yPos(d.percent).toFixed(2)}`)
+  .join(" ");
+
+const yTicks: number[] = [];
+for (let i = 0; i <= 4; i++) yTicks.push((pMax * i) / 4);
+const xTicks = years;
+
+const firstObs = data[0]!;
+const lastObs = data[data.length - 1]!;
+const deltaPct = lastObs.percent - firstObs.percent;
+const directionWord =
+  Math.abs(deltaPct) < 0.05
+    ? "held steady"
+    : deltaPct > 0
+      ? "rose"
+      : "fell";
+const trendSentence = `Between ${firstObs.date.slice(0, 4)} and ${lastObs.date.slice(0, 4)}, the classified-EL share ${directionWord} from ${firstObs.percent.toFixed(1)}% to ${lastObs.percent.toFixed(1)}%.`;
+
+const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase()}`;
+---
+
+<figure class="mt-6" aria-describedby={captionId}>
+  <div class="relative rounded border border-ink-subtle/20 bg-white p-4 dark:bg-transparent" data-el-chart>
+    <svg
+      viewBox={`0 0 ${VB_W} ${VB_H}`}
+      role="img"
+      aria-label={`Line chart: classified-EL share of public-school enrollment in ${stateName}, ${yMin}–${yMax}.`}
+      class="block w-full h-auto"
+    >
+      <g transform={`translate(${M.left}, ${M.top})`}>
+        {yTicks.map((t) => (
+          <g>
+            <line
+              x1={0}
+              x2={W}
+              y1={yPos(t)}
+              y2={yPos(t)}
+              stroke="currentColor"
+              stroke-opacity="0.15"
+              stroke-width="1"
+            />
+            <text
+              x={-8}
+              y={yPos(t)}
+              text-anchor="end"
+              dominant-baseline="middle"
+              class="text-[11px] fill-ink-muted font-mono"
+            >
+              {t.toFixed(0)}%
+            </text>
+          </g>
+        ))}
+
+        <line x1={0} x2={W} y1={H} y2={H} stroke="currentColor" stroke-opacity="0.35" />
+
+        {xTicks.map((y) => (
+          <text
+            x={xPos(y)}
+            y={H + 20}
+            text-anchor="middle"
+            class="text-[11px] fill-ink-muted font-mono"
+          >
+            {y}
+          </text>
+        ))}
+
+        {/* Hover guideline — script toggles `data-x` to reveal */}
+        <line
+          data-el-chart-guide
+          x1={0}
+          x2={0}
+          y1={0}
+          y2={H}
+          stroke="var(--bin-3)"
+          stroke-opacity="0.35"
+          stroke-dasharray="3 3"
+          style="display: none;"
+        />
+
+        <polyline
+          points={pathPoints}
+          fill="none"
+          stroke="var(--bin-3)"
+          stroke-width="2.5"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
+
+        {data.map((d) => {
+          const cx = xPos(Number(d.date.slice(0, 4)));
+          const cy = yPos(d.percent);
+          return (
+            <circle
+              cx={cx}
+              cy={cy}
+              r={3.5}
+              fill="var(--bin-3)"
+              stroke="white"
+              stroke-width="1.5"
+            >
+              <title>{`${d.date.slice(0, 4)}: ${d.percent.toFixed(1)}%`}</title>
+            </circle>
+          );
+        })}
+
+        {/* Hit targets — larger transparent circles for easier hover/focus.
+            Rendered last so they sit on top and capture pointer events. */}
+        {data.map((d) => {
+          const year = d.date.slice(0, 4);
+          const cx = xPos(Number(year));
+          const cy = yPos(d.percent);
+          return (
+            <circle
+              class="el-chart-hit"
+              cx={cx}
+              cy={cy}
+              r={14}
+              fill="transparent"
+              stroke="transparent"
+              tabindex="0"
+              role="button"
+              aria-label={`${year}: ${d.percent.toFixed(1)}% classified ELs. Source: ${d.source.label}.`}
+              data-year={year}
+              data-percent={d.percent.toFixed(1)}
+              data-source-label={d.source.label}
+              data-cx={cx}
+              data-cy={cy}
+            />
+          );
+        })}
+      </g>
+    </svg>
+
+    <div
+      data-el-chart-tooltip
+      role="status"
+      aria-live="polite"
+      class="pointer-events-none absolute z-10 rounded border border-ink-subtle/30 bg-surface shadow-md px-3 py-2 text-xs text-ink"
+      style="display: none; transform: translate(-50%, -100%);"
+    >
+      <div class="font-mono font-semibold" data-el-chart-tt-year></div>
+      <div class="font-mono" data-el-chart-tt-percent></div>
+      <div class="mt-1 max-w-[16rem] text-ink-muted" data-el-chart-tt-source></div>
+    </div>
+  </div>
+
+  <figcaption id={captionId} class="mt-3 text-sm text-ink-muted">
+    {trendSentence}
+  </figcaption>
+
+  <details class="mt-4">
+    <summary class="cursor-pointer text-sm text-accent hover:underline">
+      Show data table
+    </summary>
+    <div class="mt-3 overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b border-ink-subtle/30">
+            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">Year</th>
+            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">% classified EL</th>
+            <th scope="col" class="py-2 text-left font-semibold text-ink">Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((d) => (
+            <tr class="border-b border-ink-subtle/10">
+              <td class="py-2 pr-4 font-mono text-ink">{d.date.slice(0, 4)}</td>
+              <td class="py-2 pr-4 font-mono text-ink">{d.percent.toFixed(1)}%</td>
+              <td class="py-2 text-ink-muted">
+                <ExternalLink href={d.source.url} class="text-accent hover:underline">
+                  {d.source.label}
+                </ExternalLink>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</figure>
+
+<style>
+  .el-chart-hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .el-chart-hit:focus-visible {
+    stroke: var(--bin-3);
+    stroke-opacity: 0.35;
+    stroke-width: 2;
+  }
+</style>
+
+<script>
+  type HitEl = SVGCircleElement & {
+    dataset: DOMStringMap & {
+      year: string;
+      percent: string;
+      sourceLabel: string;
+      cx: string;
+      cy: string;
+    };
+  };
+
+  function init(root: HTMLElement) {
+    const svg = root.querySelector("svg");
+    const tooltip = root.querySelector<HTMLElement>("[data-el-chart-tooltip]");
+    const guide = root.querySelector<SVGLineElement>("[data-el-chart-guide]");
+    const ttYear = root.querySelector<HTMLElement>("[data-el-chart-tt-year]");
+    const ttPercent = root.querySelector<HTMLElement>("[data-el-chart-tt-percent]");
+    const ttSource = root.querySelector<HTMLElement>("[data-el-chart-tt-source]");
+    if (!svg || !tooltip || !guide || !ttYear || !ttPercent || !ttSource) return;
+
+    function show(hit: HitEl) {
+      const { year, percent, sourceLabel, cx } = hit.dataset;
+      ttYear!.textContent = year;
+      ttPercent!.textContent = `${percent}% classified ELs`;
+      ttSource!.textContent = `Source: ${sourceLabel}`;
+
+      const hitRect = hit.getBoundingClientRect();
+      const rootRect = root.getBoundingClientRect();
+      const px = hitRect.left + hitRect.width / 2 - rootRect.left;
+      const py = hitRect.top - rootRect.top - 8;
+      tooltip!.style.left = `${px}px`;
+      tooltip!.style.top = `${py}px`;
+      tooltip!.style.display = "block";
+
+      guide!.setAttribute("x1", cx);
+      guide!.setAttribute("x2", cx);
+      guide!.style.display = "block";
+    }
+
+    function hide() {
+      tooltip!.style.display = "none";
+      guide!.style.display = "none";
+    }
+
+    const hits = root.querySelectorAll<HitEl>(".el-chart-hit");
+    hits.forEach((hit) => {
+      hit.addEventListener("mouseenter", () => show(hit));
+      hit.addEventListener("mouseleave", hide);
+      hit.addEventListener("focus", () => show(hit));
+      hit.addEventListener("blur", hide);
+    });
+
+    // Esc dismisses the tooltip when focus is on a hit target.
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        (document.activeElement as HTMLElement | null)?.blur();
+        hide();
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-el-chart]").forEach(init);
+</script>
