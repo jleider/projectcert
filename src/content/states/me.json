@@ -46,7 +46,7 @@
   "sources": [
     {
       "label": "Maine Department of Education",
-      "url": "https://www.maine.gov/doe/home",
+      "url": "https://www.maine.gov/doe",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -64,13 +64,13 @@
     },
     {
       "label": "Maine DOE — Multilingual Learner program hub",
-      "url": "https://www.maine.gov/doe/learning/multilingual",
+      "url": "https://www.maine.gov/doe/learning/multilinguallearner",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "Maine DOE — Multilingual Services staffing guidance",
-      "url": "https://www.maine.gov/doe/learning/multilingual/staffing",
+      "url": "https://www.maine.gov/doe/learning/multilinguallearner/services",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -131,7 +131,7 @@
       "title": "DOE administrative letter on multilingual-services staffing",
       "description": "Maine DOE issued an administrative letter and accompanying staffing guidance clarifying that sheltered instruction is one optional component of a district's multilingual-learner service model rather than a statewide mandate for all teachers. Confirms the schema's `sei.mandatedForAllTeachers: false` coding.",
       "sourceUrls": [
-        "https://www.maine.gov/doe/learning/multilingual/staffing"
+        "https://www.maine.gov/doe/learning/multilinguallearner/services"
       ]
     }
   ]

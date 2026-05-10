@@ -107,31 +107,19 @@
     },
     {
       "label": "NCDPI — High School Diploma Endorsements (Global Languages / Seal of Biliteracy)",
-      "url": "https://www.dpi.nc.gov/students-families/students/k-12-students/high-school/high-school-diploma-endorsements",
+      "url": "https://sealofbiliteracy.org/state/nc",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "NC Professional Teaching Standards (NC SBE, adopted 2007; current standards document)",
-      "url": "https://www.dpi.nc.gov/media/8932/open",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "NC SBE — Praxis Testing Requirements for the NC Professional Educator's License (ESL = code 110, Praxis II 0360, score 520)",
-      "url": "https://www.dpi.nc.gov/documents/licensure/praxis-testing-requirements/open",
+      "url": "https://www.ets.org/praxis/states/nc.html",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "16 NCAC 06C — North Carolina Administrative Code, educator licensure rules",
       "url": "http://reports.oah.state.nc.us/ncac/title%2016%20-%20education/chapter%2006%20-%20elementary%20and%20secondary%20education/subchapter%20c/subchapter%20c%20rules.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "ETS Praxis — North Carolina test requirements landing page",
-      "url": "https://www.ets.org/praxis/states/nc.html",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -162,7 +150,7 @@
       "title": "NC Professional Teaching Standards adopted (still operative)",
       "description": "The State Board of Education adopted the NC Professional Teaching Standards in 2007 (revised 2008) and they remain the operative standards document. Standard II (\"diverse population of students\"), Standard IV references to language proficiency, and pervasive cultural-diversity language ground the schema's `professionalStandardsMentions.{diverse, cultural, linguistic}: true`. The standards do not name \"English learner\" or \"EL\" explicitly, holding `el: false`.",
       "sourceUrls": [
-        "https://www.dpi.nc.gov/educators/educator-preparation/educator-preparation-policies/professional-teaching-standards"
+        "https://www.dpi.nc.gov/educators/educators-licensure"
       ]
     },
     {
@@ -170,7 +158,7 @@
       "title": "North Carolina adopts Seal of Biliteracy (Global Languages Endorsement)",
       "description": "NC adopted the Seal of Biliteracy in 2015, implemented as the Global Languages Endorsement on the high school diploma. Recognizes graduates who demonstrate proficiency in English and at least one other world language. Per the schema, this is a student-side credential and is recorded as context — the closest teacher-side analog (K-6 \"Second Language\" add-on) remains separate.",
       "sourceUrls": [
-        "https://www.dpi.nc.gov/students-families/student-supports/global-languages-endorsement"
+        "https://sealofbiliteracy.org/state/nc"
       ]
     },
     {

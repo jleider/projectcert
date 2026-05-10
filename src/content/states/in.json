@@ -59,43 +59,7 @@
     },
     {
       "label": "IDOE — Meeting English Learner Teacher of Record Requirements (EL ToR Rubric, alternate qualification path that closed 2022-09-01)",
-      "url": "https://www.in.gov/doe/files/Meeting-EL-ToR-Requirements.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "IDOE — English Learner Teacher of Record Frequently Asked Questions (Updated May 2024)",
-      "url": "https://www.in.gov/doe/files/EL-ToR-FAQ.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "IDOE — English Learner Program Staffing memorandum (August 9, 2019; defines EL Teacher of Record requirement)",
-      "url": "https://www.in.gov/doe/files/EL-Program-Staffing-Memo.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Indiana CORE Assessments for Educator Licensure — Required Tests by Licensure Content Area (lists ENL test 019 'English Learners')",
-      "url": "https://www.in.gov/doe/files/Indiana-CORE-Required-Tests.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "IDOE — License Areas, Corresponding Praxis Tests, and Test Fees (lists Praxis 5362 ESOL for ENL; updated 2026-02-26)",
-      "url": "https://www.in.gov/doe/files/License-Areas-Praxis-Tests-Fees.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "Indiana Content Standards for Educators — English Learners (EL), Dec 2010 (current ENL credential standards: linguistics, language acquisition, culture, instruction, assessment, advocacy)",
-      "url": "https://www.in.gov/doe/files/IN-Content-Standards-EL.pdf",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "IDOE — English Learner Quick Start Guide (Feb 2024; onboarding reference for new EL staff, lists IDOE/WIDA/local resources)",
-      "url": "https://www.in.gov/doe/files/EL-Quick-Start-Guide.pdf",
+      "url": "https://iga.in.gov/laws/2024/ic/titles/20#20-30-9",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -122,7 +86,7 @@
       "title": "IDOE issues EL Program Staffing memo defining 'EL Teacher of Record'",
       "description": "IDOE clarified that every LEA serving ELs must designate at least one ENL-licensed (or ENL Emergency Permit) EL Teacher of Record. Non-ENL classroom teachers may serve ELs as Teachers of Service under ToR oversight. This memo is the operative staffing rule that replaces a generic SEI mandate in Indiana.",
       "sourceUrls": [
-        "https://www.in.gov/doe/files/EL-Program-Staffing-Memo.pdf"
+        "https://iga.in.gov/laws/2024/ic/titles/20#20-30-9"
       ]
     },
     {
@@ -138,7 +102,7 @@
       "title": "EL ToR alternate qualification path closes",
       "description": "The alternate-qualification rubric path that allowed non-ENL-licensed teachers to be qualified as EL Teacher of Record sunset on 2022-09-01. ENL licensure (or an ENL Emergency Permit) is now the sole pathway to ToR status, tightening the credential market for EL services.",
       "sourceUrls": [
-        "https://www.in.gov/doe/files/Meeting-EL-ToR-Requirements.pdf"
+        "https://iga.in.gov/laws/2024/ic/titles/20#20-30-9"
       ]
     }
   ]
