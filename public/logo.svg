@@ -41,8 +41,14 @@
           stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <!-- Wordmark -->
+  <!--
+    Wordmark uses IBM Plex Sans, the site's UI face. Standalone SVGs
+    can't reach the page's @font-face declarations, so the browser
+    falls back to a system sans when Plex is not installed locally;
+    the stack mirrors the order in tailwind.config.mjs.
+  -->
   <text x="52" y="31"
-        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="22" font-weight="700" fill="var(--ink)"
-        letter-spacing="-0.3">project<tspan fill="var(--brand)">cert</tspan></text>
+        font-family="'IBM Plex Sans Variable', 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="22" font-weight="600" fill="var(--ink)"
+        letter-spacing="-0.2">project<tspan fill="var(--brand)">cert</tspan></text>
 </svg>
