@@ -1,7 +1,8 @@
 # 2026-05-10 audit — done and still-to-do
 
-This doc supersedes `summary.md` and `research-followups.md` for the
-"what's the state of play" question. Per-state audit reports remain at
+This doc consolidates the 2026-05-10 audit (the prior `summary.md` and
+`research-followups.md` were folded into the sections below and
+removed). Per-state audit reports remain at
 `sources/<usps>/2026-05-10/audit-report.md`; per-batch verifier
 reports at `sources/_verifier/2026-05-10/batches-{1-2,3-4,5-6,7-8,9-10}.md`.
 
