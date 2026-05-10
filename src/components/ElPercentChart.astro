@@ -68,7 +68,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
 ---
 
 <figure class="mt-6" aria-describedby={captionId}>
-  <div class="relative rounded border border-ink-subtle/20 bg-white p-4 dark:bg-transparent" data-el-chart>
+  <div class="relative rounded border border-ink-subtle/20 bg-surface p-4" data-el-chart>
     <svg
       viewBox={`0 0 ${VB_W} ${VB_H}`}
       role="img"
@@ -143,7 +143,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
               cy={cy}
               r={3.5}
               fill="var(--bin-3)"
-              stroke="white"
+              stroke="var(--surface)"
               stroke-width="1.5"
             >
               <title>{`${d.date.slice(0, 4)}: ${d.percent.toFixed(1)}%`}</title>
