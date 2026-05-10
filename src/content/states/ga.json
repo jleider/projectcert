@@ -139,5 +139,95 @@
         "https://www.gapsc.com/Certification/Documents/Certificate%20Field%20Codes.pdf"
       ]
     }
+  ],
+  "elPercentHistory": [
+    {
+      "date": "2011-10-01",
+      "percent": 5.4,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2012-10-01",
+      "percent": 5.5,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2013-10-01",
+      "percent": 5.7,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2014-10-01",
+      "percent": 6,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2015-10-01",
+      "percent": 6.3,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2016-10-01",
+      "percent": 6.3,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2017-10-01",
+      "percent": 7,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2018-10-01",
+      "percent": 6.8,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2019-10-01",
+      "percent": 7.3,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2020-10-01",
+      "percent": 7.3,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    },
+    {
+      "date": "2021-10-01",
+      "percent": 7.7,
+      "source": {
+        "label": "NCES Digest of Education Statistics 2023, Table 204.20",
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+      }
+    }
   ]
 }
