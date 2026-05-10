@@ -29,9 +29,9 @@
 
 :root {
   /* Choropleth bins (purple sequential — used for the % EL layer) */
-  --bin-0: #f5e8ff;
-  --bin-1: #c9a0ff;
-  --bin-2: #7a3ed8;
+  --bin-0: #e8cffa;
+  --bin-1: #bc92ea;
+  --bin-2: #6731b8;
   --bin-3: #3d1971;
   --bin-na: #e2e5ec; /* neutral for "no data" */
 
@@ -167,9 +167,9 @@
      * (SC 1.4.1). This matches the brand mark in public/logo.svg
      * and public/favicon.svg so the encoding stays consistent
      * across surfaces. */
-    --bin-0: #ffffff;
-    --bin-1: #e1c5ff;
-    --bin-2: #c9a0ff;
+    --bin-0: #f0e1ff;
+    --bin-1: #d2afef;
+    --bin-2: #b884f0;
     --bin-3: #7a3ed8;
     --bin-na: #484a55;
 

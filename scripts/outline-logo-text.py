@@ -68,9 +68,9 @@ COLOR_LOGO = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" ro
   -->
   <style>
     svg {{
-      --bin-0: #f5e8ff;
-      --bin-1: #c9a0ff;
-      --bin-2: #7a3ed8;
+      --bin-0: #e8cffa;
+      --bin-1: #bc92ea;
+      --bin-2: #6731b8;
       --bin-3: #3d1971;
       --check: #ffffff;
       --ink: #16181f;
@@ -88,9 +88,9 @@ COLOR_LOGO = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" ro
      */
     @media (prefers-color-scheme: dark) {{
       svg {{
-        --bin-0: #ffffff;
-        --bin-1: #e1c5ff;
-        --bin-2: #c9a0ff;
+        --bin-0: #f0e1ff;
+        --bin-1: #d2afef;
+        --bin-2: #b884f0;
         --bin-3: #7a3ed8;
         --check: #ffffff;
         --ink: #e8eaf0;
