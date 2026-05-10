@@ -1,8 +1,8 @@
 {
   "usps": "TN",
   "name": "Tennessee",
-  "elPercent": 9,
-  "elPercentAsOf": "2024-05-30",
+  "elPercent": 5.8,
+  "elPercentAsOf": "2021-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
