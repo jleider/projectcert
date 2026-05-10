@@ -46,7 +46,7 @@ The seed data is:
 ## Authoritative entry points
 
 - [Home / interactive map](https://projectcert.org/): national
-  choropleth, switchable across six layers (% EL, bilingual, ELD,
+  thematic map, switchable across six layers (% EL, bilingual, ELD,
   SEI, standards, ELP assessment)
 - [Methodology](https://projectcert.org/methodology/): how data is
   collected, normalized, and re-verified
