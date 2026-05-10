@@ -1,8 +1,11 @@
 ---
 /**
- * "Cite this page" block — three formats side-by-side (APA, BibTeX,
- * plain text) for both human researchers and LLM/RAG systems lifting
- * a citation verbatim.
+ * "Cite this page" block — APA + BibTeX side-by-side for both human
+ * researchers and LLM/RAG systems lifting a citation verbatim. A
+ * third "plain text" format was removed because it was either
+ * identical to APA (italics-stripped) or an ad-hoc style that did
+ * not match any recognized convention; researchers paste from APA
+ * and re-italicize in their word processor.
  *
  * Every block also surfaces the Leider et al. (2021) seed-paper
  * citation. The dataset extends that paper and any use of projectcert
@@ -30,31 +33,43 @@ const { title, dateModified, url, bibKey, doi } = Astro.props;
 
 const year = dateModified.slice(0, 4);
 
-function formatLongDate(iso: string): string {
-  const [y, m, d] = iso.split("-");
-  const date = new Date(Date.UTC(Number(y), Number(m) - 1, Number(d)));
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
+function isoToParts(iso: string): { monthLong: string; day: number; year: number } {
+  const [y, m, d] = iso.split("-").map(Number) as [number, number, number];
+  const date = new Date(Date.UTC(y, m - 1, d));
+  const monthLong = date.toLocaleDateString("en-US", { month: "long", timeZone: "UTC" });
+  return { monthLong, day: d, year: y };
 }
 
-const accessed = formatLongDate(dateModified);
+const parts = isoToParts(dateModified);
 
+// APA 7 date element: "(Year, Month Day)".
+const apaDate = `${parts.year}, ${parts.monthLong} ${parts.day}`;
+
+// APA 7 (§ 9.16, § 10.16): when a webpage has a specific
+// publication/modification date, put it in the date element
+// (Year, Month Day) rather than using a retrieval date. Retrieval
+// dates are reserved for content "designed to change ... and not
+// archived" (e.g. dictionaries, wikis) and should not co-occur with
+// a precise modification date. If a DOI exists, prefer that over
+// the page URL as the source element.
 const apaSelf = doi
-  ? `projectcert. (${year}). ${title}. https://doi.org/${doi}`
-  : `projectcert. (${year}). ${title}. Retrieved ${accessed}, from ${url}`;
+  ? `projectcert. (${apaDate}). ${title}. https://doi.org/${doi}`
+  : `projectcert. (${apaDate}). ${title}. ${url}`;
 
 const apaSeed = `Leider, C. M., Colombo, M. W., & Nerlino, E. (2021). Decentralization, teacher quality, and the education of English learners: Do state education agencies effectively prepare teachers of ELs? Education Policy Analysis Archives, 29(100). https://doi.org/10.14507/epaa.29.5279`;
 
+// BibTeX: double-brace the title to preserve case under styles that
+// would otherwise lowercase. `urldate` is the biblatex-standard
+// field for retrieval date; `note` carries the human-readable
+// "Last verified" string for plain BibTeX styles that ignore
+// urldate.
 const bibtexSelf = `@misc{${bibKey},
-  author = {{projectcert}},
-  title  = {{${title}}},
-  year   = {${year}},
-  url    = {${url}}${doi ? `,\n  doi    = {${doi}}` : ""},
-  note   = {Last verified ${dateModified}}
+  author  = {{projectcert}},
+  title   = {{${title}}},
+  year    = {${year}},
+  url     = {${url}},
+  urldate = {${dateModified}}${doi ? `,\n  doi     = {${doi}}` : ""},
+  note    = {Last verified ${dateModified}}
 }`;
 
 const bibtexSeed = `@article{leider2021decentralization,
@@ -67,8 +82,6 @@ const bibtexSeed = `@article{leider2021decentralization,
   doi     = {10.14507/epaa.29.5279}
 }`;
 
-const plainSelf = `projectcert. ${title}. Last verified ${dateModified}. ${url}${doi ? ` (doi:${doi})` : ""}`;
-const plainSeed = `Leider, Colombo & Nerlino. 2021. Decentralization, teacher quality, and the education of English learners. Education Policy Analysis Archives 29(100). doi:10.14507/epaa.29.5279`;
 ---
 
 <section
@@ -97,13 +110,6 @@ const plainSeed = `Leider, Colombo & Nerlino. 2021. Decentralization, teacher qu
       <dd class="mt-1 text-ink space-y-2">
         <pre class="overflow-x-auto whitespace-pre rounded bg-surface p-3 text-xs leading-relaxed">{bibtexSelf}</pre>
         <pre class="overflow-x-auto whitespace-pre rounded bg-surface p-3 text-xs leading-relaxed">{bibtexSeed}</pre>
-      </dd>
-    </div>
-    <div>
-      <dt class="text-xs font-mono uppercase tracking-wide text-ink-subtle">Plain text</dt>
-      <dd class="mt-1 text-ink space-y-2">
-        <pre class="whitespace-pre-wrap font-sans text-sm">{plainSelf}</pre>
-        <pre class="whitespace-pre-wrap font-sans text-sm">{plainSeed}</pre>
       </dd>
     </div>
   </dl>
