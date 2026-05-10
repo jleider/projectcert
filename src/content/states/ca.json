@@ -96,7 +96,7 @@
     },
     {
       "label": "CTC California Standards for the Teaching Profession (CSTP), April 2024",
-      "url": "https://www.ctc.ca.gov/educator-prep/standards/cstp-2024.pdf",
+      "url": "https://docs.ctc.ca.gov/Document/Download/30328",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -150,7 +150,7 @@
       "title": "Voters approve Proposition 227 — English-only mandate (English in Public Schools Initiative)",
       "description": "Funded by Ron Unz, Prop 227 passed roughly 61%–39% and rewrote California Education Code §§300-340 to require Sheltered English Immersion for nearly all EL students, capping it at \"normally not to exceed one year\" and narrowing parental waivers. Bilingual programs collapsed statewide and the BCLAD credential pipeline contracted sharply. Prop 227 remained in force until voters approved Proposition 58 in 2016, which restored district choice. The Unz model exported to Arizona (Prop 203, 2000) and Massachusetts (Question 2, 2002).",
       "sourceUrls": [
-        "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=EDC"
+        "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EDC&sectionNum=300."
       ]
     },
     {
@@ -183,7 +183,8 @@
       "title": "Voters approve Proposition 58 (CA Ed.G.E. Act)",
       "description": "Proposition 58 (the California Education for a Global Economy Initiative) repeals the English-only instruction restrictions of Proposition 227 (1998), restoring local authority to offer bilingual, dual-language, and structured English immersion programs and reinforcing demand for the Bilingual Authorization.",
       "sourceUrls": [
-        "https://www.cde.ca.gov/ds/ad/cefelfacts.asp"
+        "https://www.cde.ca.gov/ds/ad/cefelfacts.asp",
+        "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EDC&sectionNum=300."
       ]
     },
     {
