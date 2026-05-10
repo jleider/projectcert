@@ -477,6 +477,16 @@ The site supports `prefers-color-scheme: dark` via token overrides in
   SVG `<style>`. If you change a brand or bin token in `tokens.css`,
   also update the inline values in `public/favicon.svg` and
   `public/logo.svg` to keep them in sync.
+- **Use the token-backed Tailwind utilities, not literal-color +
+  `dark:` overrides.** Reach for `bg-surface`, `text-ink`,
+  `text-ink-muted`, `text-ink-subtle`, `border-ink-subtle/30`,
+  `bg-bin-3`, `text-accent`, etc. — these resolve to CSS custom
+  properties that flip automatically under `prefers-color-scheme:
+  dark`. Avoid pairing literal colors with `dark:` variants
+  (`bg-white dark:bg-bg`, `text-black dark:text-white`): Tailwind
+  will silently accept a typo like `dark:bg-bg` (no such utility),
+  shipping a tooltip that reads light-text-on-white in dark mode.
+  The token classes can't drift the same way.
 
 ### Parallel state refreshes via worktree subagents
 
