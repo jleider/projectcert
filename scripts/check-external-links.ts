@@ -148,7 +148,7 @@ async function fetchOne(
 }
 
 async function checkWithRetry(url: string): Promise<{ status: number | null; message?: string }> {
-  let host = "";
+  let host: string;
   try {
     host = new URL(url).host;
   } catch {

@@ -14,7 +14,7 @@
     "check:contrast": "tsx scripts/check-contrast.ts",
     "check:integrity": "tsx scripts/check-state-integrity.ts",
     "check:links": "tsx scripts/check-external-links.ts",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 0",
     "validate": "astro check --minimumFailingSeverity hint && npm run check:contrast && npm run check:integrity",
     "test": "vitest run",
     "test:e2e": "playwright test",
