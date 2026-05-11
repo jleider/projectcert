@@ -93,6 +93,25 @@
   };
 
   $: legendEntries = LEGENDS[layer];
+
+  // Mixed-vintage disclosure for the % classified ELs layer.
+  // NCES Digest Table 204.20's most recent edition publishes through
+  // fall 2021; per-state values dated later than that come from the
+  // state's own education agency (where the catalog has been able to
+  // verify them) and are recorded in each state's `elPercentHistory`
+  // with publisher "sea". The caption surfaces the mix when both are
+  // present so a reader does not silently compare a fall-2021 NCES
+  // figure to a fall-2024 SEA-self-reported figure as if they were
+  // produced under identical methodology.
+  $: seaStates = states.filter((s) => s.elPercentAsOf >= "2022-01-01");
+  $: showVintageCaption = layer === "elPercent" && seaStates.length > 0;
+  $: vintageRange = (() => {
+    if (!showVintageCaption) return null;
+    const years = seaStates.map((s) => Number(s.elPercentAsOf.slice(0, 4)));
+    const minY = Math.min(...years);
+    const maxY = Math.max(...years);
+    return { minY, maxY, count: seaStates.length };
+  })();
 </script>
 
 <fieldset class="border border-ink-subtle/20 rounded p-3">
@@ -127,6 +146,18 @@
 <div class="mt-4">
   <Choropleth {states} {layer} embedLinks={embedFooter} />
 </div>
+
+{#if showVintageCaption && vintageRange}
+  <p class="mt-3 text-xs text-ink-muted">
+    Each state's value reflects the most recent year for which a
+    citation could be verified. Figures dated fall {vintageRange.minY}{vintageRange.maxY !== vintageRange.minY ? ` to fall ${vintageRange.maxY}` : ""}
+    ({vintageRange.count} of {states.length} jurisdictions) come from the state's own education
+    agency rather than NCES, whose most recent Digest of Education
+    Statistics edition publishes per-state figures only through
+    fall&nbsp;2021. State-agency methodology may differ from NCES;
+    each state's classified-EL-share page records the difference.
+  </p>
+{/if}
 
 {#if embedFooter}
   <p class="mt-3 text-xs text-ink-subtle flex flex-wrap items-center justify-between gap-2">

@@ -161,7 +161,8 @@
       "percent": 10.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -169,7 +170,8 @@
       "percent": 10.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -177,7 +179,8 @@
       "percent": 10.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -185,7 +188,8 @@
       "percent": 9.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -193,7 +197,8 @@
       "percent": 9.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -201,7 +206,8 @@
       "percent": 10.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -209,7 +215,8 @@
       "percent": 9.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -217,7 +224,8 @@
       "percent": 9.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -225,7 +233,8 @@
       "percent": 9.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -233,7 +242,8 @@
       "percent": 9.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -241,7 +251,8 @@
       "percent": 9.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     }
   ]

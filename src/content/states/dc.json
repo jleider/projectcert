@@ -1,8 +1,8 @@
 {
   "usps": "DC",
   "name": "District of Columbia",
-  "elPercent": 11.3,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 14.1,
+  "elPercentAsOf": "2024-06-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -99,9 +99,15 @@
       "url": "https://sealofbiliteracy.org/state/dc/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "DC Office of the State Superintendent of Education, 2023-24 Enrollment Audit",
+      "url": "https://osse.dc.gov/page/2023-24-school-year-enrollment-audit-report-and-data",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -135,7 +141,8 @@
       "percent": 7.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -143,7 +150,8 @@
       "percent": 8.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -151,7 +159,8 @@
       "percent": 7.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -159,7 +168,8 @@
       "percent": 7.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -167,7 +177,8 @@
       "percent": 7.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -175,7 +186,8 @@
       "percent": 7.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -183,7 +195,8 @@
       "percent": 9.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -191,7 +204,8 @@
       "percent": 9.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -199,7 +213,8 @@
       "percent": 10.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -207,7 +222,8 @@
       "percent": 10.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -215,8 +231,19 @@
       "percent": 11.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2024-06-01",
+      "percent": 14.1,
+      "source": {
+        "label": "DC Office of the State Superintendent of Education, 2023-24 Enrollment Audit",
+        "url": "https://osse.dc.gov/page/2023-24-school-year-enrollment-audit-report-and-data",
+        "publisher": "sea"
+      },
+      "note": "Office of the State Superintendent of Education (OSSE), 2023-24 spring enrollment audit (approximately June 2024 — note that NCES uses an October fall snapshot, which may contribute to the gap). EL identification via OSSE Home Language Survey plus a WIDA-aligned placement assessment within 30 school days. Denominator is K-12 public enrollment (DCPS plus charters; approximately 13,910 of 98,652). The 2.8 percentage-point increase over NCES's fall 2021 figure (11.3%) reflects both documented enrollment growth (OSSE edscape: roughly 1,000 additional EL students across SY2023-24 and SY2024-25) and the spring-vs-fall snapshot-month difference."
     }
   ]
 }

@@ -7,6 +7,12 @@
  * native <title> as a no-JS / screen-reader fallback. Color uses the
  * elPercent layer's purple (--bin-3) so the visual encoding matches
  * the map convention.
+ *
+ * Observations carry `source.publisher` ("nces" or "sea"). NCES rows
+ * render as a solid line with filled markers; SEA rows render as a
+ * dashed line with hollow markers. When the series mixes the two,
+ * the visual style change marks the boundary so a reader can tell
+ * NCES-published years from SEA-self-reported years at a glance.
  */
 
 import ExternalLink from "@/components/ExternalLink.astro";
@@ -14,7 +20,8 @@ import ExternalLink from "@/components/ExternalLink.astro";
 interface Datum {
   date: string;
   percent: number;
-  source: { label: string; url: string };
+  source: { label: string; url: string; publisher: "nces" | "sea" };
+  note?: string;
 }
 
 interface Props {
@@ -45,9 +52,24 @@ function yPos(p: number): number {
   return H - (H * p) / pMax;
 }
 
-const pathPoints = data
-  .map((d) => `${xPos(Number(d.date.slice(0, 4))).toFixed(2)},${yPos(d.percent).toFixed(2)}`)
-  .join(" ");
+function pointsFor(rows: Datum[]): string {
+  return rows
+    .map((d) => `${xPos(Number(d.date.slice(0, 4))).toFixed(2)},${yPos(d.percent).toFixed(2)}`)
+    .join(" ");
+}
+
+// Split into NCES and SEA segments. To keep the line visually
+// continuous across the boundary, the SEA segment includes the last
+// NCES point as its first vertex (it is rendered without a marker so
+// the NCES marker remains the only visible glyph at that point).
+const ncesRows = data.filter((d) => d.source.publisher === "nces");
+const seaRows = data.filter((d) => d.source.publisher === "sea");
+const hasSea = seaRows.length > 0;
+const lastNces = ncesRows.length > 0 ? ncesRows[ncesRows.length - 1]! : null;
+const seaPathRows = hasSea && lastNces ? [lastNces, ...seaRows] : seaRows;
+
+const ncesPath = pointsFor(ncesRows);
+const seaPath = pointsFor(seaPathRows);
 
 const yTicks: number[] = [];
 for (let i = 0; i <= 4; i++) yTicks.push((pMax * i) / 4);
@@ -63,6 +85,16 @@ const directionWord =
       ? "rose"
       : "fell";
 const trendSentence = `Between ${firstObs.date.slice(0, 4)} and ${lastObs.date.slice(0, 4)}, the classified-EL share ${directionWord} from ${firstObs.percent.toFixed(1)}% to ${lastObs.percent.toFixed(1)}%.`;
+
+// Optional methodology caption: surfaces when SEA rows exist.
+const seaNotes = seaRows.map((d) => d.note).filter((n): n is string => Boolean(n));
+const dedupedNotes = [...new Set(seaNotes)];
+const ncesLastYear = lastNces?.date.slice(0, 4);
+const seaLastYear = hasSea ? seaRows[seaRows.length - 1]!.date.slice(0, 4) : null;
+const seaLabel = hasSea ? seaRows[0]!.source.label : null;
+const methodologySentence = hasSea
+  ? `Observations through fall ${ncesLastYear} are from NCES; observations for fall ${seaLastYear} are from the ${stateName} state education agency (${seaLabel}). State-agency methodology may differ from NCES; see the note${dedupedNotes.length > 1 ? "s" : ""} below.`
+  : null;
 
 const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase()}`;
 ---
@@ -125,28 +157,43 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
           style="display: none;"
         />
 
-        <polyline
-          points={pathPoints}
-          fill="none"
-          stroke="var(--bin-3)"
-          stroke-width="2.5"
-          stroke-linejoin="round"
-          stroke-linecap="round"
-        />
+        {ncesRows.length > 1 && (
+          <polyline
+            points={ncesPath}
+            fill="none"
+            stroke="var(--bin-3)"
+            stroke-width="2.5"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+        )}
+
+        {hasSea && seaPathRows.length > 1 && (
+          <polyline
+            points={seaPath}
+            fill="none"
+            stroke="var(--bin-3)"
+            stroke-width="2.5"
+            stroke-dasharray="6 4"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+        )}
 
         {data.map((d) => {
           const cx = xPos(Number(d.date.slice(0, 4)));
           const cy = yPos(d.percent);
+          const isSea = d.source.publisher === "sea";
           return (
             <circle
               cx={cx}
               cy={cy}
-              r={3.5}
-              fill="var(--bin-3)"
-              stroke="var(--surface)"
-              stroke-width="1.5"
+              r={isSea ? 4 : 3.5}
+              fill={isSea ? "var(--surface)" : "var(--bin-3)"}
+              stroke="var(--bin-3)"
+              stroke-width={isSea ? 2 : 1.5}
             >
-              <title>{`${d.date.slice(0, 4)}: ${d.percent.toFixed(1)}%`}</title>
+              <title>{`${d.date.slice(0, 4)}: ${d.percent.toFixed(1)}%${isSea ? " (state agency)" : ""}`}</title>
             </circle>
           );
         })}
@@ -171,6 +218,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
               data-year={year}
               data-percent={d.percent.toFixed(1)}
               data-source-label={d.source.label}
+              data-publisher={d.source.publisher}
               data-cx={cx}
               data-cy={cy}
             />
@@ -194,7 +242,40 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
 
   <figcaption id={captionId} class="mt-3 text-sm text-ink-muted">
     {trendSentence}
+    {methodologySentence && (
+      <span class="mt-2 block">{methodologySentence}</span>
+    )}
   </figcaption>
+
+  {hasSea && (
+    <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink-muted">
+      <span class="inline-flex items-center gap-2">
+        <svg width="28" height="10" aria-hidden="true">
+          <line x1="0" y1="5" x2="28" y2="5" stroke="var(--bin-3)" stroke-width="2.5" />
+          <circle cx="14" cy="5" r="3.5" fill="var(--bin-3)" />
+        </svg>
+        NCES Digest, Table 204.20
+      </span>
+      <span class="inline-flex items-center gap-2">
+        <svg width="28" height="10" aria-hidden="true">
+          <line x1="0" y1="5" x2="28" y2="5" stroke="var(--bin-3)" stroke-width="2.5" stroke-dasharray="6 4" />
+          <circle cx="14" cy="5" r="4" fill="var(--surface)" stroke="var(--bin-3)" stroke-width="2" />
+        </svg>
+        {stateName} state education agency
+      </span>
+    </div>
+  )}
+
+  {dedupedNotes.length > 0 && (
+    <div class="mt-4 rounded border border-ink-subtle/20 bg-bg p-3 text-sm text-ink-muted">
+      <p class="font-semibold text-ink">Methodology note{dedupedNotes.length > 1 ? "s" : ""}</p>
+      <ul class="mt-1 list-disc pl-5">
+        {dedupedNotes.map((n) => (
+          <li>{n}</li>
+        ))}
+      </ul>
+    </div>
+  )}
 
   <details class="mt-4">
     <summary class="cursor-pointer text-sm text-accent hover:underline">
@@ -206,6 +287,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
           <tr class="border-b border-ink-subtle/30">
             <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">Year</th>
             <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">% classified EL</th>
+            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">Publisher</th>
             <th scope="col" class="py-2 text-left font-semibold text-ink">Source</th>
           </tr>
         </thead>
@@ -214,6 +296,9 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
             <tr class="border-b border-ink-subtle/10">
               <td class="py-2 pr-4 font-mono text-ink">{d.date.slice(0, 4)}</td>
               <td class="py-2 pr-4 font-mono text-ink">{d.percent.toFixed(1)}%</td>
+              <td class="py-2 pr-4 text-ink-muted">
+                {d.source.publisher === "nces" ? "NCES" : "State agency"}
+              </td>
               <td class="py-2 text-ink-muted">
                 <ExternalLink href={d.source.url} class="text-accent hover:underline">
                   {d.source.label}
@@ -245,6 +330,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
       year: string;
       percent: string;
       sourceLabel: string;
+      publisher: string;
       cx: string;
       cy: string;
     };
@@ -260,9 +346,10 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
     if (!svg || !tooltip || !guide || !ttYear || !ttPercent || !ttSource) return;
 
     function show(hit: HitEl) {
-      const { year, percent, sourceLabel, cx } = hit.dataset;
+      const { year, percent, sourceLabel, publisher, cx } = hit.dataset;
       ttYear!.textContent = year;
-      ttPercent!.textContent = `${percent}% classified ELs`;
+      const publisherLabel = publisher === "sea" ? " (state agency)" : "";
+      ttPercent!.textContent = `${percent}% classified ELs${publisherLabel}`;
       ttSource!.textContent = `Source: ${sourceLabel}`;
 
       const hitRect = hit.getBoundingClientRect();

@@ -1,8 +1,8 @@
 {
   "usps": "CT",
   "name": "Connecticut",
-  "elPercent": 9.4,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 11.3,
+  "elPercentAsOf": "2024-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -105,9 +105,15 @@
       "url": "https://portal.ct.gov/SDE/English-Learners/Bilingual-Education",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Connecticut State Department of Education, The Condition of Education in Connecticut 2024-25",
+      "url": "https://portal.ct.gov/-/media/sde/board/boardmaterials040126/the_condition_of_education_in_connecticut_2024_25.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -149,7 +155,8 @@
       "percent": 5.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -157,7 +164,8 @@
       "percent": 5.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -165,7 +173,8 @@
       "percent": 6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -173,7 +182,8 @@
       "percent": 6.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -181,7 +191,8 @@
       "percent": 6.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -189,7 +200,8 @@
       "percent": 6.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -197,7 +209,8 @@
       "percent": 7.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -205,7 +218,8 @@
       "percent": 7.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -213,7 +227,8 @@
       "percent": 8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -221,7 +236,8 @@
       "percent": 7.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -229,8 +245,19 @@
       "percent": 9.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2024-10-01",
+      "percent": 11.3,
+      "source": {
+        "label": "Connecticut State Department of Education, The Condition of Education in Connecticut 2024-25",
+        "url": "https://portal.ct.gov/-/media/sde/board/boardmaterials040126/the_condition_of_education_in_connecticut_2024_25.pdf",
+        "publisher": "sea"
+      },
+      "note": "Connecticut State Department of Education, October fall snapshot. EL/Multilingual-Learner identification under Conn. Gen. Stat. § 10-17 et seq.: home language survey followed by LAS Links Placement Test 2nd Edition. Denominator is K-12 public enrollment (57,533 of 508,402). Connecticut does not publish historical figures for fall 2018-2021, so methodological continuity with the prior NCES series cannot be confirmed from overlapping observations; the trajectory above NCES's fall 2021 figure (9.4%) is consistent with documented growth through 2024-25."
     }
   ]
 }

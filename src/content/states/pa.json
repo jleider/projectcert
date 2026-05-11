@@ -1,8 +1,8 @@
 {
   "usps": "PA",
   "name": "Pennsylvania",
-  "elPercent": 4.6,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 5.3,
+  "elPercentAsOf": "2022-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -122,9 +122,15 @@
       "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Pennsylvania Department of Education, Enrollment data (FY 2022-23)",
+      "url": "https://www.pa.gov/agencies/education/data-and-reporting/enrollment",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -158,7 +164,8 @@
       "percent": 2.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -166,7 +173,8 @@
       "percent": 3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -174,7 +182,8 @@
       "percent": 2.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -182,7 +191,8 @@
       "percent": 3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -190,7 +200,8 @@
       "percent": 3.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -198,7 +209,8 @@
       "percent": 3.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -206,7 +218,8 @@
       "percent": 3.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -214,7 +227,8 @@
       "percent": 4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -222,7 +236,8 @@
       "percent": 4.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -230,7 +245,8 @@
       "percent": 4.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -238,8 +254,19 @@
       "percent": 4.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2022-10-01",
+      "percent": 5.3,
+      "source": {
+        "label": "Pennsylvania Department of Education, Enrollment data (FY 2022-23)",
+        "url": "https://www.pa.gov/agencies/education/data-and-reporting/enrollment",
+        "publisher": "sea"
+      },
+      "note": "Pennsylvania Department of Education, fall 2022 snapshot (87,717 EL students). EL identification under 22 Pa. Code § 4.26 (home language survey within 30 days of enrollment). The 0.7 percentage-point increase from NCES's fall 2021 value (4.6%) over one year is faster than the 0.0-0.4 percentage-point annual increments NCES recorded for Pennsylvania across 2018-2021. Pennsylvania does not publish a multi-year EL percentage table for fall 2018-2021 in directly accessible form, so methodological continuity with the prior NCES series cannot be confirmed from overlapping observations."
     }
   ]
 }

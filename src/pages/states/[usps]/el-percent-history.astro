@@ -36,8 +36,13 @@ for (const obs of history) {
   }
 }
 
+const ncesRows = history.filter((d) => d.source.publisher === "nces");
+const seaRows = history.filter((d) => d.source.publisher === "sea");
+const lastNcesYear = ncesRows.length > 0 ? ncesRows[ncesRows.length - 1]!.date.slice(0, 4) : null;
+const lastSeaYear = seaRows.length > 0 ? seaRows[seaRows.length - 1]!.date.slice(0, 4) : null;
+
 const title = `${s.name}: classified-EL share over time | projectcert`;
-const description = `Annual share of public-school students classified as English Learners in ${s.name}, ${history[0]?.date.slice(0, 4) ?? ""}–${history[history.length - 1]?.date.slice(0, 4) ?? ""}, from NCES Digest of Education Statistics.`;
+const description = `Annual share of public-school students classified as English Learners in ${s.name}, ${history[0]?.date.slice(0, 4) ?? ""}–${history[history.length - 1]?.date.slice(0, 4) ?? ""}.`;
 
 const jsonLd = [
   breadcrumbWithHome([
@@ -84,12 +89,25 @@ const jsonLd = [
       <h2 id="about-figure" class="text-base font-semibold text-ink">About this figure</h2>
       <p class="mt-2 text-sm text-ink-muted">
         Each point is the fall-enrollment share of students classified as English Learners
-        in {s.name}'s public schools. The series ends in fall 2021 because the National
-        Center for Education Statistics (NCES) Digest, Table 204.20, is the canonical
-        national series and the most recent edition (2023) publishes through that year.
-        Per-SEA dashboards sometimes carry more recent figures, but they are not directly
-        comparable across states; the catalog uses NCES so cross-state comparisons stay
-        apples-to-apples.
+        in {s.name}'s public schools. Observations through fall {lastNcesYear} are drawn
+        from the National Center for Education Statistics (NCES) Digest of Education
+        Statistics, Table 204.20, the canonical national series; NCES has not yet
+        republished this table for school years after 2021-22.
+        {lastSeaYear ? (
+          <>
+            For fall {lastSeaYear}, the catalog falls back to figures published directly
+            by the {s.name} state education agency. State-agency methodology may differ
+            from NCES — the methodology note above the data table records the difference,
+            and the dashed line and hollow markers in the chart mark the boundary.
+          </>
+        ) : (
+          <>
+            Per-state dashboards sometimes carry more recent figures, but they are not
+            directly comparable across states without methodology checks; the catalog
+            adds them only when the agency's definition and denominator can be
+            documented.
+          </>
+        )}
       </p>
       {sourceMap.size > 0 && (
         <p class="mt-3 text-sm text-ink-muted">

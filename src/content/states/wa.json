@@ -1,8 +1,8 @@
 {
   "usps": "WA",
   "name": "Washington",
-  "elPercent": 11.4,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 15.1,
+  "elPercentAsOf": "2024-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -153,9 +153,15 @@
       "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
       "retrievedAt": "2026-05-07",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "OSPI Transitional Bilingual Instruction Program (TBIP) Legislative Report, 2024-25",
+      "url": "https://ospi.k12.wa.us/sites/default/files/2026-01/tbip-legislative-report-2024-25.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-07",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -182,7 +188,8 @@
       "percent": 9.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -190,7 +197,8 @@
       "percent": 10.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -198,7 +206,8 @@
       "percent": 10.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -206,7 +215,8 @@
       "percent": 10.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -214,7 +224,8 @@
       "percent": 10.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -222,7 +233,8 @@
       "percent": 11.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -230,7 +242,8 @@
       "percent": 11.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -238,7 +251,8 @@
       "percent": 11.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -246,7 +260,8 @@
       "percent": 11.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -254,7 +269,8 @@
       "percent": 11.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -262,8 +278,19 @@
       "percent": 11.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2024-10-01",
+      "percent": 15.1,
+      "source": {
+        "label": "OSPI Transitional Bilingual Instruction Program (TBIP) Legislative Report, 2024-25",
+        "url": "https://ospi.k12.wa.us/sites/default/files/2026-01/tbip-legislative-report-2024-25.pdf",
+        "publisher": "sea"
+      },
+      "note": "Washington Office of Superintendent of Public Instruction, October 1 fall snapshot (167,665 Multilingual Learners). Washington's terminology shifted from \"English Learner\" to \"Multilingual Learner\" around 2022-23; OSPI guidance on whether the definitional change altered the counted population is not explicit in available sources. The 3.7 percentage-point increase from NCES's fall 2021 value (11.4%) is large; without a directly comparable OSPI-published series for the NCES overlap years, methodological continuity cannot be confirmed from overlapping observations. Part of the gap reflects documented enrollment growth from 2022-23 (13.4%) to 2024-25 (15.1%)."
     }
   ]
 }

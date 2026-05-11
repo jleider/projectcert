@@ -6,7 +6,7 @@
 > records — what you read here matches what users see on the live
 > per-state pages.
 
-Snapshot generated: 2026-05-10
+Snapshot generated: 2026-05-11
 States verified against current SEA sources: 51 / 51
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279
@@ -194,9 +194,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/ca/
 EL-percent history page: https://projectcert.org/states/ca/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-California offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is mandated for all teachers. As of 2021, 18.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+California offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is mandated for all teachers. As of 2024, 17.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ELPAC (state-specific assessment).
@@ -234,14 +234,15 @@ EL-percent time series:
 - 2019: 18.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 17.5% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 18.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 17.4% (California Department of Education, English Learners in California Schools (2024-25) — https://www.cde.ca.gov/ds/sg/englishlearner.asp)
 
 ## Colorado (CO)
 
 URL: https://projectcert.org/states/co/
 EL-percent history page: https://projectcert.org/states/co/el-percent-history/
-Last verified: 2026-05-07 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Colorado offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 10.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+Colorado offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 13.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -273,14 +274,15 @@ EL-percent time series:
 - 2019: 10.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 10.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 10.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 13.0% (Colorado Department of Education, October 2023 Pupil Membership and Multilingual Learner data — https://www.cde.state.co.us/communications/011724newsreleaseenrollment)
 
 ## Connecticut (CT)
 
 URL: https://projectcert.org/states/ct/
 EL-percent history page: https://projectcert.org/states/ct/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Connecticut offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Connecticut offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 11.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, el.
 - Uses LAS Links Online (state-specific assessment).
@@ -310,14 +312,15 @@ EL-percent time series:
 - 2019: 8.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 7.7% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 9.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 11.3% (Connecticut State Department of Education, The Condition of Education in Connecticut 2024-25 — https://portal.ct.gov/-/media/sde/board/boardmaterials040126/the_condition_of_education_in_connecticut_2024_25.pdf)
 
 ## Delaware (DE)
 
 URL: https://projectcert.org/states/de/
 EL-percent history page: https://projectcert.org/states/de/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Delaware offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Delaware offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 13.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -346,14 +349,15 @@ EL-percent time series:
 - 2019: 10.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 10.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 11.5% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 13.3% (Delaware Department of Education, Multilingual Learners in Delaware (March 2025) — https://education.delaware.gov/legacy/wp-content/uploads/sites/4/2025/03/delaware-design-hq-multilingual-education-3-2025.pdf)
 
 ## District of Columbia (DC)
 
 URL: https://projectcert.org/states/dc/
 EL-percent history page: https://projectcert.org/states/dc/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-District of Columbia offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+District of Columbia offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 14.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -382,6 +386,7 @@ EL-percent time series:
 - 2019: 10.5% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 10.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 11.3% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 14.1% (DC Office of the State Superintendent of Education, 2023-24 Enrollment Audit — https://osse.dc.gov/page/2023-24-school-year-enrollment-audit-report-and-data)
 
 ## Florida (FL)
 
@@ -528,9 +533,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/il/
 EL-percent history page: https://projectcert.org/states/il/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Illinois offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 12.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Illinois offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 16.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -558,6 +563,7 @@ EL-percent time series:
 - 2019: 11.8% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 11.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 12.8% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 16.4% (Illinois State Board of Education, 2024 Illinois Report Card (English Learner data) — https://www.illinoisreportcard.com/state.aspx?source2=lep&Stateid=IL)
 
 ## Indiana (IN)
 
@@ -600,9 +606,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/ia/
 EL-percent history page: https://projectcert.org/states/ia/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Iowa does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 6.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Iowa does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 7.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse.
 - Uses ELPA21 (ELPA21 consortium member).
@@ -627,6 +633,7 @@ EL-percent time series:
 - 2019: 6.1% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 6.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 6.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 7.0% (Iowa Department of Education, Comprehensive State Literacy Plan 2024-2032 — https://educate.iowa.gov/media/11390/download?inline=)
 
 ## Kansas (KS)
 
@@ -670,9 +677,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/ky/
 EL-percent history page: https://projectcert.org/states/ky/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Kentucky does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Kentucky does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 8.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -696,14 +703,15 @@ EL-percent time series:
 - 2019: 4.1% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 4.8% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 5.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 8.5% (Kentucky Department of Education, multilingual learner enrollment (2024-25) — https://www.kentuckyteacher.org/news/2026/02/kdes-school-counselor-advisory-council-discusses-efforts-to-help-multilingual-learners/)
 
 ## Louisiana (LA)
 
 URL: https://projectcert.org/states/la/
 EL-percent history page: https://projectcert.org/states/la/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Louisiana offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Louisiana offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 5.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
 - Uses ELPT (state-specific assessment).
@@ -734,6 +742,7 @@ EL-percent time series:
 - 2019: 4.1% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 3.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 4.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 5.3% (Louisiana Department of Education, English Learner Data Profile 2024-2025 — https://doe.louisiana.gov/docs/default-source/english-learners/el-data-profile-2024-2025.pdf?sfvrsn=bf00c2c4_3)
 
 ## Maine (ME)
 
@@ -774,9 +783,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/md/
 EL-percent history page: https://projectcert.org/states/md/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Maryland does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Maryland does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 12.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -802,14 +811,15 @@ EL-percent time series:
 - 2019: 10.3% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 10.1% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 11.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 12.6% (Maryland Department of Education, Office of Multilingual Education — 2023-24 EL Data — https://marylandpublicschools.org/programs/Documents/English-Learners/2023-2024-EL-Data-A.pdf)
 
 ## Massachusetts (MA)
 
 URL: https://projectcert.org/states/ma/
 EL-percent history page: https://projectcert.org/states/ma/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Massachusetts offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is mandated for all teachers. As of 2021, 10.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Massachusetts offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is mandated for all teachers. As of 2023, 13.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -840,6 +850,7 @@ EL-percent time series:
 - 2019: 10.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 10.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 10.5% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 13.1% (Massachusetts Department of Elementary and Secondary Education, Selected Populations Report (2023-24) — https://profiles.doe.mass.edu/profiles/student.aspx?orgcode=00000000&orgtypecode=0&leftNavId=305&fycode=2024)
 
 ## Michigan (MI)
 
@@ -883,9 +894,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/mn/
 EL-percent history page: https://projectcert.org/states/mn/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Minnesota offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is not mandated for all teachers. As of 2021, 8.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Minnesota offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is not mandated for all teachers. As of 2023, 9.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -916,6 +927,7 @@ EL-percent time series:
 - 2019: 8.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 8.3% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 8.8% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 9.6% (Minnesota Department of Education, English Learners in Minnesota Report 2023-24 — https://files.eric.ed.gov/fulltext/ED676212.pdf)
 
 ## Mississippi (MS)
 
@@ -1135,9 +1147,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/nj/
 EL-percent history page: https://projectcert.org/states/nj/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-New Jersey offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+New Jersey offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 10.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1166,6 +1178,7 @@ EL-percent time series:
 - 2019: 7.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 6.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 8.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 10.6% (New Jersey Department of Education, 2023-2024 School Performance Reports — State Detail — https://www.nj.gov/education/sprreports/202324/State-Detail/St.pdf)
 
 ## New Mexico (NM)
 
@@ -1209,9 +1222,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/ny/
 EL-percent history page: https://projectcert.org/states/ny/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-New York offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+New York offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 10.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses NYSESLAT (state-specific assessment).
@@ -1242,14 +1255,15 @@ EL-percent time series:
 - 2019: 8.7% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 9.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 9.7% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 10.7% (New York State Education Department Data Site, English Language Learners (2023-24) — https://data.nysed.gov/ell.php?year=2024&state=yes)
 
 ## North Carolina (NC)
 
 URL: https://projectcert.org/states/nc/
 EL-percent history page: https://projectcert.org/states/nc/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-North Carolina offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+North Carolina offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 11.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1276,6 +1290,7 @@ EL-percent time series:
 - 2019: 7.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 7.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 8.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 11.9% (North Carolina Department of Public Instruction, Report to the General Assembly: Headcount of English Learners (2024-25) — https://www.ednc.org/wp-content/uploads/2024/12/2024-2025-EL-Headcount-Report_417923nanxbabfysu4d5i51px321dl.pdf)
 
 ## North Dakota (ND)
 
@@ -1314,9 +1329,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/oh/
 EL-percent history page: https://projectcert.org/states/oh/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Ohio offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Ohio offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 4.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses OELPA (ELPA21 consortium member).
@@ -1344,6 +1359,7 @@ EL-percent time series:
 - 2019: 3.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 3.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 3.8% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 4.6% (Ohio Department of Education and Workforce, Ohio's Education Landscape 2023-2024 — https://education.ohio.gov/getattachment/Topics/Data/Frequently-Requested-Data/Facts-and-Figures/Ohios-Education-Landscape-2023-2024.pdf)
 
 ## Oklahoma (OK)
 
@@ -1384,9 +1400,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/or/
 EL-percent history page: https://projectcert.org/states/or/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Oregon offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Oregon offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 12.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ELPA21 (ELPA21 consortium member).
@@ -1415,14 +1431,15 @@ EL-percent time series:
 - 2019: 8.7% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 9.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 9.5% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 12.6% (Oregon Department of Education, ESEA Title III English Learner Collection (2024-25) — https://www.oregon.gov/ode/schools-and-districts/reportcards/pages/statewide-annual-report-card.aspx)
 
 ## Pennsylvania (PA)
 
 URL: https://projectcert.org/states/pa/
 EL-percent history page: https://projectcert.org/states/pa/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Pennsylvania does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Pennsylvania does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2022, 5.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1451,14 +1468,15 @@ EL-percent time series:
 - 2019: 4.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 4.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 4.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2022: 5.3% (Pennsylvania Department of Education, Enrollment data (FY 2022-23) — https://www.pa.gov/agencies/education/data-and-reporting/enrollment)
 
 ## Rhode Island (RI)
 
 URL: https://projectcert.org/states/ri/
 EL-percent history page: https://projectcert.org/states/ri/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Rhode Island offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 12.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Rhode Island offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 13.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1487,6 +1505,7 @@ EL-percent time series:
 - 2019: 11.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 12.0% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 12.5% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 13.5% (Rhode Island Department of Education, Strategy for Improving Outcomes for Multilingual Learners (March 2024) — https://ride.ri.gov/sites/g/files/xkgbur806/files/2024-03/Encl5a_MLL.pdf)
 
 ## South Carolina (SC)
 
@@ -1527,9 +1546,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/sd/
 EL-percent history page: https://projectcert.org/states/sd/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-South Dakota does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+South Dakota does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 3.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1553,6 +1572,7 @@ EL-percent time series:
 - 2019: 4.7% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 4.7% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 4.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2023: 3.0% (South Dakota Department of Education, Fall 2023 Public School Enrollment Census Count — https://asbsd.org/wp-content/uploads/2024/02/Fall-2023-Public-School-Enrollment-DOE.pdf)
 
 ## Tennessee (TN)
 
@@ -1591,9 +1611,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/tx/
 EL-percent history page: https://projectcert.org/states/tx/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Texas offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 20.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Texas offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 24.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses TELPAS (state-specific assessment).
@@ -1624,14 +1644,15 @@ EL-percent time series:
 - 2019: 18.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 19.3% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 20.2% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 24.3% (Texas Education Agency, Enrollment in Texas Public Schools 2024-25 — https://tea.texas.gov/reports-and-data/school-performance/accountability-research/enroll-2024-25.pdf)
 
 ## Utah (UT)
 
 URL: https://projectcert.org/states/ut/
 EL-percent history page: https://projectcert.org/states/ut/el-percent-history/
-Last verified: 2026-05-08 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Utah offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
+Utah offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 8.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1657,6 +1678,7 @@ EL-percent time series:
 - 2019: 7.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 7.9% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 8.3% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 8.7% (Utah State Board of Education, Fall Enrollment Count 2024-25 — https://schools.utah.gov/datastatistics/reports)
 
 ## Vermont (VT)
 
@@ -1731,9 +1753,9 @@ EL-percent time series:
 
 URL: https://projectcert.org/states/wa/
 EL-percent history page: https://projectcert.org/states/wa/el-percent-history/
-Last verified: 2026-05-07 (verified-2026)
+Last verified: 2026-05-10 (verified-2026)
 
-Washington offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 11.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
+Washington offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 15.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
 - Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
@@ -1761,6 +1783,7 @@ EL-percent time series:
 - 2019: 11.3% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2020: 11.6% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
 - 2021: 11.4% (NCES Digest of Education Statistics 2023, Table 204.20 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp)
+- 2024: 15.1% (OSPI Transitional Bilingual Instruction Program (TBIP) Legislative Report, 2024-25 — https://ospi.k12.wa.us/sites/default/files/2026-01/tbip-legislative-report-2024-25.pdf)
 
 ## West Virginia (WV)
 

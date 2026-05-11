@@ -1,8 +1,8 @@
 {
   "usps": "OR",
   "name": "Oregon",
-  "elPercent": 9.5,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 12.6,
+  "elPercentAsOf": "2024-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -110,9 +110,15 @@
       "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Oregon Department of Education, ESEA Title III English Learner Collection (2024-25)",
+      "url": "https://www.oregon.gov/ode/schools-and-districts/reportcards/pages/statewide-annual-report-card.aspx",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -162,7 +168,8 @@
       "percent": 10.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -170,7 +177,8 @@
       "percent": 9.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -178,7 +186,8 @@
       "percent": 9.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -186,7 +195,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -194,7 +204,8 @@
       "percent": 8.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -202,7 +213,8 @@
       "percent": 9.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -210,7 +222,8 @@
       "percent": 8.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -218,7 +231,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -226,7 +240,8 @@
       "percent": 8.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -234,7 +249,8 @@
       "percent": 9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -242,8 +258,19 @@
       "percent": 9.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2024-10-01",
+      "percent": 12.6,
+      "source": {
+        "label": "Oregon Department of Education, ESEA Title III English Learner Collection (2024-25)",
+        "url": "https://www.oregon.gov/ode/schools-and-districts/reportcards/pages/statewide-annual-report-card.aspx",
+        "publisher": "sea"
+      },
+      "note": "Oregon Department of Education, fall snapshot (68,038 EL students). Oregon-reported figures run roughly 0.5-1.0 percentage points above NCES across fall 2018-2020 (e.g., 2018-19 SEA 9.2% vs NCES 8.2%), with the gap narrowing to about 0.1 percentage points in 2020-21; the divergence likely reflects Oregon's inclusion of students in post-exit monitoring (NCES does not count them) or a snapshot-date difference. The 3.1 percentage-point increase from NCES's fall 2021 value (9.5%) to ODE's fall 2024 figure tracks documented enrollment growth, but the SEA series cannot be treated as methodologically continuous with NCES."
     }
   ]
 }

@@ -50,6 +50,7 @@ export async function getChoroplethData(): Promise<ChoroplethDatum[]> {
     usps: s.usps,
     name: s.name,
     elPercent: s.elPercent,
+    elPercentAsOf: s.elPercentAsOf,
     bilingual: {
       offered: s.credentials.bilingual.offered,
       standalone: s.credentials.bilingual.standalone,

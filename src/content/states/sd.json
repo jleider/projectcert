@@ -1,8 +1,8 @@
 {
   "usps": "SD",
   "name": "South Dakota",
-  "elPercent": 4.6,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 3.0,
+  "elPercentAsOf": "2023-09-29",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -72,9 +72,15 @@
       "url": "https://wida.wisc.edu/about/consortium",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "South Dakota Department of Education, Fall 2023 Public School Enrollment Census Count",
+      "url": "https://asbsd.org/wp-content/uploads/2024/02/Fall-2023-Public-School-Enrollment-DOE.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -100,7 +106,8 @@
       "percent": 4.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -108,7 +115,8 @@
       "percent": 4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -116,7 +124,8 @@
       "percent": 3.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -124,7 +133,8 @@
       "percent": 3.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -132,7 +142,8 @@
       "percent": 3.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -140,7 +151,8 @@
       "percent": 3.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -148,7 +160,8 @@
       "percent": 3.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -156,7 +169,8 @@
       "percent": 4.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -164,7 +178,8 @@
       "percent": 4.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -172,7 +187,8 @@
       "percent": 4.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -180,8 +196,19 @@
       "percent": 4.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2023-09-29",
+      "percent": 3.0,
+      "source": {
+        "label": "South Dakota Department of Education, Fall 2023 Public School Enrollment Census Count",
+        "url": "https://asbsd.org/wp-content/uploads/2024/02/Fall-2023-Public-School-Enrollment-DOE.pdf",
+        "publisher": "sea"
+      },
+      "note": "South Dakota Department of Education, last-Friday-in-September snapshot (4,230 EL students of 141,467 enrolled, hosted via the Associated School Boards of South Dakota). The figure is approximately 1.6 percentage points below NCES's fall 2021 value (4.6%); the cause is unclear from publicly available sources and could reflect a methodology change, a definitional refinement, or a genuine population decline. Without a SEA-published multi-year series, methodological continuity with the prior NCES series cannot be confirmed."
     }
   ]
 }

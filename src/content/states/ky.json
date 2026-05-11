@@ -1,8 +1,8 @@
 {
   "usps": "KY",
   "name": "Kentucky",
-  "elPercent": 5.4,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 8.5,
+  "elPercentAsOf": "2024-10-01",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -102,9 +102,15 @@
       "url": "https://education.ky.gov/curriculum/hsgradreq/Pages/Seal-of-Biliteracy.aspx",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Kentucky Department of Education, multilingual learner enrollment (2024-25)",
+      "url": "https://www.kentuckyteacher.org/news/2026/02/kdes-school-counselor-advisory-council-discusses-efforts-to-help-multilingual-learners/",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -131,7 +137,8 @@
       "percent": 2.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -139,7 +146,8 @@
       "percent": 3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -147,7 +155,8 @@
       "percent": 3.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -155,7 +164,8 @@
       "percent": 3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -163,7 +173,8 @@
       "percent": 3.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -171,7 +182,8 @@
       "percent": 3.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -179,7 +191,8 @@
       "percent": 3.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -187,7 +200,8 @@
       "percent": 4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -195,7 +209,8 @@
       "percent": 4.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -203,7 +218,8 @@
       "percent": 4.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -211,8 +227,19 @@
       "percent": 5.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2024-10-01",
+      "percent": 8.5,
+      "source": {
+        "label": "Kentucky Department of Education, multilingual learner enrollment (2024-25)",
+        "url": "https://www.kentuckyteacher.org/news/2026/02/kdes-school-counselor-advisory-council-discusses-efforts-to-help-multilingual-learners/",
+        "publisher": "sea"
+      },
+      "note": "Kentucky Department of Education, 2024-25 figure published via KDE's Kentucky Teacher outlet (54,252 EL students per ESSA §8101(20); WIDA Screener identification; K-12 public denominator). The figure runs approximately 3 percentage points above NCES's fall 2021 value (5.4%) over three years, consistent with KDE-documented growth. KDE does not publish historical figures for fall 2018-2021 in directly accessible form, so methodological continuity cannot be confirmed from overlapping observations. KDE also publishes a broader \"multilingual learners\" total (~84,000) that includes monitoring-period students; the 54,252 figure is the narrower EL classification count comparable to NCES."
     }
   ]
 }

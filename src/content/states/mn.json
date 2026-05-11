@@ -1,8 +1,8 @@
 {
   "usps": "MN",
   "name": "Minnesota",
-  "elPercent": 8.8,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 9.6,
+  "elPercentAsOf": "2023-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -111,9 +111,15 @@
       "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Minnesota Department of Education, English Learners in Minnesota Report 2023-24",
+      "url": "https://files.eric.ed.gov/fulltext/ED676212.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -164,7 +170,8 @@
       "percent": 8.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -172,7 +179,8 @@
       "percent": 8.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -180,7 +188,8 @@
       "percent": 8.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -188,7 +197,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -196,7 +206,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -204,7 +215,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -212,7 +224,8 @@
       "percent": 8.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -220,7 +233,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -228,7 +242,8 @@
       "percent": 8.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -236,7 +251,8 @@
       "percent": 8.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -244,8 +260,19 @@
       "percent": 8.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2023-10-01",
+      "percent": 9.6,
+      "source": {
+        "label": "Minnesota Department of Education, English Learners in Minnesota Report 2023-24",
+        "url": "https://files.eric.ed.gov/fulltext/ED676212.pdf",
+        "publisher": "sea"
+      },
+      "note": "Minnesota Department of Education, October 1 MARSS snapshot (84,050 EL students of 869,967 enrolled). Identification under Minn. Stat. 124D.59: parent-declared language plus valid English-proficiency assessment. The Minnesota denominator includes pre-K, which is broader than NCES's K-12 denominator and may account for a small portion of the 0.8 percentage-point gap from NCES's fall 2021 value (8.8%); the rest reflects documented growth. A single overlapping point (MDE fall 2020 = 8.5%, NCES = 8.6%) suggests methodological alignment within ~0.1 percentage point for that year."
     }
   ]
 }

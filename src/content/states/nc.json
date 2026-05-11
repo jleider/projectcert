@@ -1,8 +1,8 @@
 {
   "usps": "NC",
   "name": "North Carolina",
-  "elPercent": 8,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 11.9,
+  "elPercentAsOf": "2024-11-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -140,9 +140,15 @@
       "url": "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "North Carolina Department of Public Instruction, Report to the General Assembly: Headcount of English Learners (2024-25)",
+      "url": "https://www.ednc.org/wp-content/uploads/2024/12/2024-2025-EL-Headcount-Report_417923nanxbabfysu4d5i51px321dl.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -176,7 +182,8 @@
       "percent": 7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -184,7 +191,8 @@
       "percent": 6.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -192,7 +200,8 @@
       "percent": 6.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -200,7 +209,8 @@
       "percent": 6.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -208,7 +218,8 @@
       "percent": 6.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -216,7 +227,8 @@
       "percent": 6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -224,7 +236,8 @@
       "percent": 6.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -232,7 +245,8 @@
       "percent": 7.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -240,7 +254,8 @@
       "percent": 7.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -248,7 +263,8 @@
       "percent": 7.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -256,8 +272,19 @@
       "percent": 8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2024-11-01",
+      "percent": 11.9,
+      "source": {
+        "label": "North Carolina Department of Public Instruction, Report to the General Assembly: Headcount of English Learners (2024-25)",
+        "url": "https://www.ednc.org/wp-content/uploads/2024/12/2024-2025-EL-Headcount-Report_417923nanxbabfysu4d5i51px321dl.pdf",
+        "publisher": "sea"
+      },
+      "note": "North Carolina Department of Public Instruction, November 1 headcount (178,688 EL students of 1,504,424 ADM). In December 2024, the State Board of Education lowered the EL exit threshold from 4.8 to 4.5 and mandated a single statewide screener replacing district-by-district screening; the November 2024 figure reflects pending implementation of these changes, which limits direct comparability to NCES's fall 2021 figure (8.0%) beyond the documented enrollment growth. North Carolina does not publish a multi-year EL series for fall 2018-2021 in directly accessible form, so methodological continuity with the prior NCES series cannot be confirmed from overlapping observations."
     }
   ]
 }

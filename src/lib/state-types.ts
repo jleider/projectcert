@@ -24,6 +24,11 @@ export interface ChoroplethDatum {
   usps: string;
   name: string;
   elPercent: number;
+  /** Snapshot date for `elPercent` (YYYY-MM-DD). Used by the map
+   * caption to disclose mixed-vintage values: a fall-2021 figure from
+   * NCES Digest Table 204.20 vs. a fall-2023/2024 figure from the
+   * state's own education agency, where available. */
+  elPercentAsOf: string;
   bilingual: { offered: boolean; standalone: boolean; addOn: boolean };
   eld: { offered: boolean; standalone: boolean; addOn: boolean };
   seiMandated: boolean;

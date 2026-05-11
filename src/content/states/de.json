@@ -1,8 +1,8 @@
 {
   "usps": "DE",
   "name": "Delaware",
-  "elPercent": 11.5,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 13.3,
+  "elPercentAsOf": "2023-09-30",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -99,9 +99,15 @@
       "url": "https://nces.ed.gov/programs/coe/indicator/cgf/english-learners-in-public-schools",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Delaware Department of Education, Multilingual Learners in Delaware (March 2025)",
+      "url": "https://education.delaware.gov/legacy/wp-content/uploads/sites/4/2025/03/delaware-design-hq-multilingual-education-3-2025.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -135,7 +141,8 @@
       "percent": 5.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -143,7 +150,8 @@
       "percent": 5.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -151,7 +159,8 @@
       "percent": 6.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -159,7 +168,8 @@
       "percent": 6.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -167,7 +177,8 @@
       "percent": 7.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -175,7 +186,8 @@
       "percent": 7.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -183,7 +195,8 @@
       "percent": 9.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -191,7 +204,8 @@
       "percent": 10.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -199,7 +213,8 @@
       "percent": 10.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -207,7 +222,8 @@
       "percent": 10.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -215,8 +231,19 @@
       "percent": 11.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2023-09-30",
+      "percent": 13.3,
+      "source": {
+        "label": "Delaware Department of Education, Multilingual Learners in Delaware (March 2025)",
+        "url": "https://education.delaware.gov/legacy/wp-content/uploads/sites/4/2025/03/delaware-design-hq-multilingual-education-3-2025.pdf",
+        "publisher": "sea"
+      },
+      "note": "Delaware Department of Education, September 30 fall snapshot. Identification via the Alternative English Learner Identification Protocol (parent questionnaire, observation protocol, EL determination narrative) plus WIDA Screener for grades 1-12; Delaware is a founding WIDA Consortium member. Denominator is K-12 public enrollment (18,778 of 141,279). Delaware does not publish historical figures for fall 2018-2021, so methodological continuity with the prior NCES series cannot be confirmed; the 1.8 percentage-point increase over NCES's fall 2021 figure (11.5%) is consistent with the upward trajectory recorded by NCES across 2018-2021."
     }
   ]
 }

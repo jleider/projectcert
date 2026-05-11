@@ -107,11 +107,27 @@ const HistoryEvent = z.object({
 /**
  * One observation in a state's EL-percentage time series.
  *
- * `date` is typically the snapshot date NCES Table 204.20 reports
- * (fall enrollment, e.g. `YYYY-10-01`). `percent` is the share of
- * public-school students classified as ELs. `source` carries one
- * citable URL — NCES tables for canonical years, SEA dashboards for
- * recent years NCES has not yet published.
+ * `date` is typically the snapshot date the publisher reports (fall
+ * enrollment, e.g. `YYYY-10-01`). `percent` is the share of
+ * public-school students classified as ELs.
+ *
+ * `source.publisher` records *who* released the figure:
+ * - `"nces"` — NCES Digest of Education Statistics Table 204.20 (or
+ *   the underlying EDFacts/CCD pipeline as packaged by NCES). All
+ *   pre-2022 rows are NCES; this is the canonical reference.
+ * - `"sea"` — State Education Agency's own dashboard, annual report
+ *   card, or fact sheet. Used for school years NCES has not yet
+ *   published (typically fall 2022 onward). Methodology may differ
+ *   from NCES — when it does, `note` records the difference.
+ *
+ * `note` is an optional methodology caveat surfaced in the chart
+ * caption and data table. Conventional uses:
+ * - Explain a non-trivial methodology difference vs. NCES (different
+ *   denominator, different EL definition, different snapshot date).
+ * - Record a year-over-year comparison conclusion when the SEA
+ *   publishes overlapping years that match NCES's figures, signaling
+ *   that the SEA source can be treated as methodologically continuous
+ *   with the prior NCES series.
  */
 const ElPercentObservation = z.object({
   date: isoDate,
@@ -119,7 +135,9 @@ const ElPercentObservation = z.object({
   source: z.object({
     label: z.string().min(3),
     url: z.url(),
+    publisher: z.enum(["nces", "sea"]),
   }),
+  note: z.string().min(10).optional(),
 });
 
 export const StateSchema = z

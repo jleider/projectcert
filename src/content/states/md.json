@@ -1,8 +1,8 @@
 {
   "usps": "MD",
   "name": "Maryland",
-  "elPercent": 11.2,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 12.6,
+  "elPercentAsOf": "2023-09-30",
   "credentials": {
     "bilingual": {
       "offered": false,
@@ -85,9 +85,15 @@
       "url": "https://wida.wisc.edu/about/consortium",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Maryland Department of Education, Office of Multilingual Education — 2023-24 EL Data",
+      "url": "https://marylandpublicschools.org/programs/Documents/English-Learners/2023-2024-EL-Data-A.pdf",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -113,7 +119,8 @@
       "percent": 6.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -121,7 +128,8 @@
       "percent": 7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -129,7 +137,8 @@
       "percent": 7.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -137,7 +146,8 @@
       "percent": 6.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -145,7 +155,8 @@
       "percent": 7.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -153,7 +164,8 @@
       "percent": 7.8,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -161,7 +173,8 @@
       "percent": 8.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -169,7 +182,8 @@
       "percent": 9.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -177,7 +191,8 @@
       "percent": 10.3,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -185,7 +200,8 @@
       "percent": 10.1,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -193,8 +209,19 @@
       "percent": 11.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2023-09-30",
+      "percent": 12.6,
+      "source": {
+        "label": "Maryland Department of Education, Office of Multilingual Education — 2023-24 EL Data",
+        "url": "https://marylandpublicschools.org/programs/Documents/English-Learners/2023-2024-EL-Data-A.pdf",
+        "publisher": "sea"
+      },
+      "note": "Maryland Department of Education, September 30 fall snapshot (112,081 EL students). Maryland publishes a multi-year EL series whose fall 2020 and fall 2021 figures match NCES Digest Table 204.20 within 0.01 percentage points (MDE 88,834 / NCES 10.1% and MDE 98,566 / NCES 11.2%), so the Maryland series can be treated as methodologically continuous with the prior NCES series. The 1.4 percentage-point increase over NCES's fall 2021 value (11.2%) tracks the documented upward trajectory through 2023-24."
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "usps": "MA",
   "name": "Massachusetts",
-  "elPercent": 10.5,
-  "elPercentAsOf": "2021-10-01",
+  "elPercent": 13.1,
+  "elPercentAsOf": "2023-10-01",
   "credentials": {
     "bilingual": {
       "offered": true,
@@ -91,9 +91,15 @@
       "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
       "retrievedAt": "2026-05-07",
       "retrievedBy": "projectcert-2026"
+    },
+    {
+      "label": "Massachusetts Department of Elementary and Secondary Education, Selected Populations Report (2023-24)",
+      "url": "https://profiles.doe.mass.edu/profiles/student.aspx?orgcode=00000000&orgtypecode=0&leftNavId=305&fycode=2024",
+      "retrievedAt": "2026-05-10",
+      "retrievedBy": "projectcert-2026"
     }
   ],
-  "lastVerified": "2026-05-08",
+  "lastVerified": "2026-05-10",
   "verificationStatus": "verified-2026",
   "history": [
     {
@@ -177,7 +183,8 @@
       "percent": 7.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -185,7 +192,8 @@
       "percent": 7.4,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -193,7 +201,8 @@
       "percent": 7.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -201,7 +210,8 @@
       "percent": 8.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -209,7 +219,8 @@
       "percent": 8.6,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -217,7 +228,8 @@
       "percent": 9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -225,7 +237,8 @@
       "percent": 9.7,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -233,7 +246,8 @@
       "percent": 9.9,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -241,7 +255,8 @@
       "percent": 10.2,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -249,7 +264,8 @@
       "percent": 10,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
     },
     {
@@ -257,8 +273,19 @@
       "percent": 10.5,
       "source": {
         "label": "NCES Digest of Education Statistics 2023, Table 204.20",
-        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp"
+        "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp",
+        "publisher": "nces"
       }
+    },
+    {
+      "date": "2023-10-01",
+      "percent": 13.1,
+      "source": {
+        "label": "Massachusetts Department of Elementary and Secondary Education, Selected Populations Report (2023-24)",
+        "url": "https://profiles.doe.mass.edu/profiles/student.aspx?orgcode=00000000&orgtypecode=0&leftNavId=305&fycode=2024",
+        "publisher": "sea"
+      },
+      "note": "Massachusetts Department of Elementary and Secondary Education, October fall snapshot (119,859 EL students of 914,959 enrolled). Identification under M.G.L. c. 71A: home language survey plus WIDA screening. The 2.6 percentage-point increase over NCES's fall 2021 value (10.5%) is consistent with documented post-2021 enrollment growth. DESE does not publish a multi-year EL percentage table for fall 2018-2021 in directly accessible form, so methodological continuity with the prior NCES series cannot be confirmed from overlapping observations; whether DESE includes post-reclassification monitoring-period students (NCES does not) is not stated in the SEA documentation."
     }
   ]
 }
