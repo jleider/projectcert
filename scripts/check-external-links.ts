@@ -48,6 +48,34 @@ const GET_ONLY_HOSTS = new Set<string>([
 // written back into the source record.
 const SOFT_OK = new Set([405, 429]);
 
+// Hosts confirmed to block automated link checks — anti-bot 401/403,
+// connection resets / TLS failures against non-browser clients, or 5xx to
+// non-browser user agents — while serving the cited pages normally in a
+// browser. A non-OK result from one of these hosts is reported as
+// "allowlisted" rather than "broken": the cited URL is the canonical page
+// and simply cannot be re-verified programmatically. Re-confirm by hand
+// if a URL on one of these hosts is ever changed.
+const ALLOWLISTED_HOSTS = new Set<string>([
+  "www.azed.gov", // Arizona DE — Cloudflare 403 to bots
+  "azsbe.az.gov", // Arizona State Board of Education — 403 to bots
+  "apps.azsos.gov", // Arizona SOS Administrative Code — 403 to bots
+  "docs.ctc.ca.gov", // CA Commission on Teacher Credentialing docs — 403
+  "gc.nh.gov", // NH General Court rules — 403 to bots
+  "hawaiiteacherstandardsboard.org", // HTSB — 403 to bots
+  "www.capitol.hawaii.gov", // Hawaii Revised Statutes — 403 to bots
+  "law.justia.com", // Justia (codes/cases, endorsed for federal law) — 403
+  "supreme.justia.com", // Justia SCOTUS — 403
+  "www.oyez.org", // Oyez (SCOTUS audio/case) — 403
+  "dese.ade.arkansas.gov", // Arkansas DESE — connection reset to bots
+  "dese-admin.ade.arkansas.gov", // Arkansas DESE file host — connection reset
+  "www.ksde.gov", // Kansas SDE — connection reset to bots
+  "www.cga.ct.gov", // Connecticut General Assembly — connection reset
+  "www.legislature.ohio.gov", // Ohio Legislature — connection reset
+  "elpa21.org", // ELPA21 consortium — TLS failure to bots
+  "www.elpa21.org", // ELPA21 consortium — TLS failure to bots
+  "wyomingptsb.com", // Wyoming PTSB — 500 to bots
+]);
+
 interface CitedUrl {
   url: string;
   citation: string; // "AK / sources[2]" / "CA / history[5].sourceUrls[0]"
@@ -63,7 +91,8 @@ interface LinkResult {
     | "soft-ok"
     | "client-error"
     | "server-error"
-    | "network-error";
+    | "network-error"
+    | "allowlisted";
   finalUrl?: string;
   redirected?: boolean;
   message?: string;
@@ -207,11 +236,26 @@ if (!asJson) {
 
 const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise<LinkResult> => {
   const r = await checkWithRetry(url);
+  let classification = classify(r.status);
+  let host = "";
+  try {
+    host = new URL(url).host;
+  } catch {
+    /* invalid URL already classified as network-error */
+  }
+  if (
+    ALLOWLISTED_HOSTS.has(host) &&
+    (classification === "client-error" ||
+      classification === "server-error" ||
+      classification === "network-error")
+  ) {
+    classification = "allowlisted";
+  }
   return {
     url,
     citations: byUrl.get(url) ?? [],
     status: r.status,
-    classification: classify(r.status),
+    classification,
     finalUrl: r.finalUrl,
     redirected: r.redirected,
     message: r.message,
@@ -225,6 +269,7 @@ const buckets = {
   "client-error": 0,
   "server-error": 0,
   "network-error": 0,
+  allowlisted: 0,
 } satisfies Record<LinkResult["classification"], number>;
 
 for (const r of results) {
@@ -252,6 +297,7 @@ if (asJson) {
   process.stdout.write(`- Client error (4xx): ${buckets["client-error"]}\n`);
   process.stdout.write(`- Server error (5xx): ${buckets["server-error"]}\n`);
   process.stdout.write(`- Network error: ${buckets["network-error"]}\n`);
+  process.stdout.write(`- Allowlisted (host blocks automated checks; cited URL is canonical): ${buckets.allowlisted}\n`);
   process.stdout.write(`- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`);
 
   if (broken.length > 0) {

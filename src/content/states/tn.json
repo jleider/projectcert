@@ -41,7 +41,7 @@
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://www.tn.gov/education/families/student-supports-in-tn/english-as-a-second-language.html"
+    "sourceUrl": "https://www.tn.gov/education/families/student-support/english-learners.html"
   },
   "sources": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "label": "TDOE Additional Endorsement Programs (SPED, ESL, CS) — State Board presentation, 2023 (Praxis 5362; Policy 5.502 + 5.505 + 5.105 references)",
-      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/Additional_Endorsement_Programs_-_SPED_ESL_CS_Programs_Update.pdf",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2023-sbe-meetings/february-9,-2023-sbe-workshop/2-9-23%20SDE%20Additional%20Endorsement%20Programs%20Presentation.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -88,7 +88,7 @@
     },
     {
       "label": "TDOE / SBE workshop — ESL ELPA21 Transition (May 30, 2024): WIDA→ELPA21 effective July 1, 2024; first ELPA21 Summative Feb 5, 2025; new TN ELD Standards (10)",
-      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/2024-SBE-Meetings/may-30-2024-sbe-workshop/5-30-24%20IV%20A%20English%20as%20a%20Second%20Language%20ELPA21%20Transition%20Presentation.pdf",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2024-sbe-meetings/may-30,-2024-sbe-workshop/5-30-24%202%2030%20WIDA%20and%20%20ELPA%20Transition%20Presentation.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -100,7 +100,7 @@
     },
     {
       "label": "Tennessee Teacher Code of Ethics (T.C.A. 49-5-1001 et seq.) — statutory ethics code, not the teaching standards document",
-      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/policies/5000/5.504%20Teacher%20Code%20of%20Ethics%20Policy.pdf",
+      "url": "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/about/Tennessee%20Teacher%20Code%20of%20Ethics_2024.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -145,7 +145,7 @@
       "title": "ELP assessment migrated WIDA → ELPA21",
       "description": "Per the May 30, 2024 SBE workshop 'English as a Second Language ELPA21 Transition' presentation, Tennessee transitioned from the WIDA ACCESS for ELLs to ELPA21 effective July 1, 2024, with the first ELPA21 Summative administration on February 5, 2025. The transition also introduced new Tennessee ELD Standards (10) aligned to the ELPA21 framework. The TDOE EL Assessments page now references ELPA21 as the operative annual ELP measure.",
       "sourceUrls": [
-        "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/2024-SBE-Meetings/may-30-2024-sbe-workshop/5-30-24%20IV%20A%20English%20as%20a%20Second%20Language%20ELPA21%20Transition%20Presentation.pdf",
+        "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/2024-sbe-meetings/may-30,-2024-sbe-workshop/5-30-24%202%2030%20WIDA%20and%20%20ELPA%20Transition%20Presentation.pdf",
         "https://www.tn.gov/education/districts/lea-operations/assessment/english-learner-assessments.html"
       ]
     }

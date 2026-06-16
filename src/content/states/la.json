@@ -49,7 +49,7 @@
   "elpAssessment": {
     "name": "ELPT",
     "consortium": null,
-    "sourceUrl": "https://doe.louisiana.gov/resources/library/k-12-english-learners"
+    "sourceUrl": "https://doe.louisiana.gov/school-system-leaders/diverse-learners/english-learners/english-learners-resources"
   },
   "sources": [
     {
@@ -72,7 +72,7 @@
     },
     {
       "label": "LDOE — English as a Second Language Add-On Applicant Checklist (revised per Bulletin 746, Aug 2023 Emergency Rule).",
-      "url": "https://doe.louisiana.gov/docs/default-source/teaching/esl-add-on-checklist.pdf",
+      "url": "https://www.teachlouisiana.net/checklist/esl.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -84,13 +84,13 @@
     },
     {
       "label": "LDOE — Improving Outcomes for English Learners: Louisiana's Framework (2025-2026).",
-      "url": "https://doe.louisiana.gov/docs/default-source/english-learners/improving-outcomes-for-english-learners-louisianas-framework.pdf",
+      "url": "https://doe.louisiana.gov/docs/default-source/english-learners/el-framework---final.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "LDOE — English Learner Professional Development Guide (Oct 2022).",
-      "url": "https://doe.louisiana.gov/docs/default-source/english-learners/english-learner-professional-development-guide.pdf",
+      "url": "https://doe.louisiana.gov/docs/default-source/english-learners/english-learner-(el)-professional-development-guide.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -133,7 +133,7 @@
       "title": "Act 409 creates CODOFIL and authorizes French-language public-school instruction",
       "description": "Act 409 of the 1968 Louisiana Legislature established the Council for the Development of French in Louisiana (CODOFIL) and directed BESE to take whatever steps are necessary to encourage the teaching of French in the public schools, formally reversing decades of post-1916 English-only state policy that had suppressed Cajun and Creole French. CODOFIL's reciprocal teacher-recruitment programs with France, Belgium, and Quebec became the operational model for Louisiana French immersion programs (now ~30+ schools statewide), and Act 409 is the legal predicate for the BESE-approved French-immersion bilingual programs that Louisiana operates alongside its newer Spanish-immersion strands. The 1974 Louisiana Constitution (Article XII §4) further commits the State to preserve, foster, and promote its linguistic origins.",
       "sourceUrls": [
-        "https://www.crt.state.la.us/cultural-development/codofil/about/index"
+        "https://www.crt.state.la.us/cultural-development/codofil/"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "description": "BESE issued an August 2023 emergency rule updating Bulletin 746 §1359 (ESL add-on) and §1343 (Bilingual Specialist add-on) certification requirements. LDOE's published applicant checklists track the revised rule. This is the operative pathway document for ESL/Bilingual add-on candidates today.",
       "sourceUrls": [
         "https://bese.louisiana.gov/docs/default-source/policy-page/28v131-(2).pdf",
-        "https://doe.louisiana.gov/docs/default-source/teaching/esl-add-on-checklist.pdf"
+        "https://www.teachlouisiana.net/checklist/esl.pdf"
       ]
     },
     {

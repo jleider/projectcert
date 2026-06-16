@@ -71,25 +71,19 @@
     },
     {
       "label": "VDOE — Licensing Services (VALO portal, components of licensure)",
-      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/teacher-licensure/licensing-services",
-      "retrievedAt": "2026-05-08",
-      "retrievedBy": "projectcert-2026"
-    },
-    {
-      "label": "VDOE — Licensing Forms & Information (assessment requirements, reciprocity, adding endorsements)",
-      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/teacher-licensure/licensing-services/licensing-forms-information",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/licensure/licensing-services",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "VDOE — English Learner Education Related Programs and Resources (Title III, ESL endorsement via Praxis ESOL, links to 2021 Uniform Performance Standards)",
-      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/student-assessment/english-learner-education-related-programs",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/specialized-instruction/english-learner-education/related-programs-resources",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "VDOE — Dual Language Endorsement (introduced August 2025; cites 8VAC20-23-321 through -324 and -130)",
-      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/teaching-in-virginia/teacher-licensure/dual-language-endorsement",
+      "url": "https://www.doe.virginia.gov/teaching-learning-assessment/k-12-standards-instruction/world-language/dual-language-immersion-dl-i/dual-language-endorsement",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

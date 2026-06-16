@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Nevada Department of Education",
-      "url": "http://www.doe.nv.gov",
+      "url": "https://doe.nv.gov",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },

@@ -49,7 +49,7 @@
   "elpAssessment": {
     "name": "TELPAS",
     "consortium": null,
-    "sourceUrl": "https://tea.texas.gov/student-assessment/testing/telpas"
+    "sourceUrl": "https://tea.texas.gov/assessment-and-accountability/telpas"
   },
   "sources": [
     {
@@ -84,19 +84,19 @@
     },
     {
       "label": "19 TAC Chapter 233 — Categories of Classroom Teaching Certificates (May 2024 update); §§233.6 Bilingual Education Supplemental, 233.7 ESL Supplemental, 233.2(f)-(g), 233.8(a)",
-      "url": "https://tea.texas.gov/about-tea/laws-and-rules/sbec-rules-tac/sbec-tac-currently-in-effect/ch233.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/sbec-rules-tac/sbec-tac-currently-effect/ch233-4.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "TEA — Bilingual/ESL Certification Pathways (Emergency Permits, Intern, Probationary/Standard)",
-      "url": "https://tea.texas.gov/academics/special-student-populations/emergent-bilingual-support/eb-certification-pathways.pdf",
+      "url": "https://tea.texas.gov/special-populations-and-support/english-learner-support/eb-certification-pathways-0.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "TEA — Texas Examinations of Educator Standards (TExES) Required Tests Chart (BTLPT #190, Bilingual Supplemental #164, ESL Supplemental #154)",
-      "url": "https://tea.texas.gov/texas-educators/certification/educator-testing/required-tests-chart.pdf",
+      "url": "https://tea.texas.gov/educators/certification/educator-testing/required-and-replacement-test-chart-2.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -145,7 +145,7 @@
       "title": "TAC Ch. 89 Subch. BB amended (HB 3 implementation, 86th Leg.)",
       "description": "The Texas Education Agency amended 19 TAC Chapter 89 Subchapter BB (45 TexReg 2415) to implement HB 3 (86th Legislature, 2019), restructuring program-model definitions and emergent-bilingual accountability — the largest structural update to the bilingual/ESL program rules since the 1996 TAC recodification.",
       "sourceUrls": [
-        "https://tea.texas.gov/about-tea/laws-and-rules/sboe-rules-tac/sboe-rules-tac-april-2020/coversheet-9020.pdf"
+        "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf"
       ]
     },
     {
