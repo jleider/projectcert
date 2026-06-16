@@ -7,10 +7,13 @@
  *   tsx scripts/sync-link-reviews.ts --input /tmp/links.json --out /tmp/link-reviews.sql
  *   wrangler d1 execute projectcert-audit --remote --file /tmp/link-reviews.sql
  *
- * Pending rows that are no longer bot-blocked (recovered, or now a hard
- * error, or accepted-and-whitelisted) are removed; the current pending
- * set is upserted with ON CONFLICT that preserves the decision and
- * first_seen. Accepted rows are never touched here.
+ * The checker resolves the whitelist status-awarely: a URL accepted at an
+ * unchanged status classifies as `accepted` (NOT needs-review), so it
+ * never appears here and its accepted row is left untouched. A URL whose
+ * status CHANGED since acceptance classifies as `needs-review` and DOES
+ * appear here — the upsert resets it to `pending` (re-flag), clearing the
+ * stale acceptance. Pending rows no longer in the needs-review set
+ * (recovered to 2xx, or now a definitive 4xx-gone) are removed.
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -51,11 +54,16 @@ if (pending.length === 0) {
   for (const r of pending) {
     const status = r.status === null ? "NULL" : q(String(r.status));
     const citations = q(JSON.stringify(r.citations));
+    // A URL appearing here as needs-review is either new/still-pending or a
+    // previously-accepted URL whose status changed — in both cases the row
+    // must end up 'pending' with the acceptance cleared (re-flag). first_seen
+    // is preserved; status/classification/last_seen are refreshed.
     lines.push(
-      `INSERT INTO link_reviews (url, status, classification, citations, first_seen, last_seen) ` +
-        `VALUES (${q(r.url)}, ${status}, ${q(r.classification)}, ${citations}, ${q(seenAt)}, ${q(seenAt)}) ` +
+      `INSERT INTO link_reviews (url, status, classification, citations, first_seen, last_seen, decision) ` +
+        `VALUES (${q(r.url)}, ${status}, ${q(r.classification)}, ${citations}, ${q(seenAt)}, ${q(seenAt)}, 'pending') ` +
         `ON CONFLICT(url) DO UPDATE SET status = excluded.status, classification = excluded.classification, ` +
-        `citations = excluded.citations, last_seen = excluded.last_seen;`,
+        `citations = excluded.citations, last_seen = excluded.last_seen, ` +
+        `decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, accepted_status = NULL;`,
     );
   }
 }

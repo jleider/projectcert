@@ -406,14 +406,18 @@ Load-bearing rules:
   plus a builder line; the id is the D1 key, so renaming orphans rows
   (the snapshot test fails loud). Labels are user-facing
   academic-register prose, never schema identifiers.
-- **The link checker has a human-review loop.** Bot-blocked URLs
-  (401/403/405/429) classify as `needs-review`, land in the D1
-  `link_reviews` queue (weekly sweep), and a reviewer accepts them at
-  `/audit/links`; the nightly sync exports accepted URLs to
-  `src/data/link-whitelist.json`, which the checker then trusts
-  (`accepted`). Genuine breakage (404/5xx/network) stays `broken` and
-  feeds datapoint re-verification via `broken_links`. The classification
-  core is the pure, tested `src/lib/link-classify.ts`.
+- **The link checker has a status-aware human-review loop.** Anything
+  the checker cannot confirm — a bot-block (401/403/405/429), a
+  connection reset / TLS failure, or a 5xx — classifies as `needs-review`
+  and lands in the D1 `link_reviews` queue (weekly sweep). A reviewer
+  accepts each at `/audit/links`; acceptance records the **status it was
+  accepted at** (`accepted_status`). The nightly sync exports accepted
+  rows to `src/data/link-whitelist.json` as `{url: {status, ...}}`, and
+  the checker treats a URL as `accepted` only while its status is
+  unchanged — a changed response code **re-flags** it to `needs-review`.
+  Only a definitive 4xx-gone (404/410/…) is `broken`, feeding datapoint
+  re-verification via `broken_links`. The classification core is the
+  pure, tested `src/lib/link-classify.ts` (`resolveClassification`).
 
 TypeScript / test footguns (each cost real time once):
 
@@ -694,17 +698,25 @@ Prefer `.gov`, then `.edu`, then the authority's own non-gov domain
 `*.elaws.us`, Wikipedia, vendor/aggregator copies). `doi.org` and
 `justia`/`oyez` are deliberately kept as-is (permanent identifier /
 endorsed for law). Run `npm run check:links` (advisory; `-- --strict`
-to gate) to find broken links (4xx/5xx/network) and redirecting links;
-update a redirecting URL to its final non-redirecting target, which the
-report prints. **Bot-blocked URLs (401/403/405/429) are not "broken" —
-they are `needs-review`:** the host rejects automated requests but may
-serve the page in a browser. The checker surfaces them; a human confirms
-and accepts each one in the `/audit/links` console, which writes
-`src/data/link-whitelist.json` (the checker then treats them as
-`accepted`). There is no host-level allowlist in the script — acceptance
-is per-URL and reviewer-managed (see the `audit-console` skill). Do not
-change a `needs-review` URL on the assumption it is broken. See the
-`source-link-audit` skill for the canonical-URL workflow, the
+to gate) to find broken and redirecting links; update a redirecting URL
+to its final non-redirecting target, which the report prints. The
+classification model (in `src/lib/link-classify.ts`):
+
+- **Only a definitive 4xx-gone (404/410/…) is `broken`** — fix the URL;
+  broken links feed datapoint re-verification.
+- **Everything the checker cannot confirm — an anti-bot wall
+  (401/403/405/429), a connection reset / TLS failure, or a 5xx — is
+  `needs-review`, not broken.** There is no host-level allowlist;
+  acceptance is **per-URL, reviewer-managed, and status-aware**. A human
+  opens each in a real browser and accepts it in the `/audit/links`
+  console, which records it in `src/data/link-whitelist.json` *at the
+  status it was accepted for*. A later sweep keeps it `accepted` only
+  while that status holds; if the response code changes it re-flags as
+  `needs-review`, and if it recovers to 2xx it shows `ok`. Never
+  hand-edit the whitelist to mask a 404 — that needs a URL fix. See the
+  `audit-console` skill for the console/whitelist flow.
+
+See the `source-link-audit` skill for the canonical-URL workflow, the
 mirror→canonical map, and the bulk remediation-script pattern.
 
 ## Skills

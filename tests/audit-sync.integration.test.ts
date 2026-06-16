@@ -62,15 +62,19 @@ describe("sync-broken-links.ts", () => {
 });
 
 describe("sync-link-reviews.ts", () => {
-  it("reconciles pending rows while preserving accepted rows", () => {
+  it("reconciles pending rows, preserves unchanged accepted rows, and re-flags changed ones", () => {
     const dir = tmp();
     const input = join(dir, "links.json");
     const out = join(dir, "lr.sql");
+    // The checker (with the whitelist) resolves an accepted-but-changed URL
+    // to needs-review, so it appears in this set; an accepted-unchanged URL
+    // resolves to `accepted` and never appears here.
     writeFileSync(
       input,
       JSON.stringify({
         results: [
           { url: "https://azed.gov", citations: ["AZ / sources[0]"], status: 403, classification: "needs-review" },
+          { url: "https://changed.gov", citations: ["TX / sources[0]"], status: 404, classification: "needs-review" },
           { url: "https://dead", citations: ["CA / sources[0]"], status: 404, classification: "client-error" },
         ],
       }),
@@ -78,17 +82,22 @@ describe("sync-link-reviews.ts", () => {
     run("scripts/sync-link-reviews.ts", ["--input", input, "--out", out, "--seen-at", "2026-06-16T00:00:00.000Z"]);
 
     const db = freshDb();
-    // An accepted row not in the new pending set — must survive.
-    db.prepare(`INSERT INTO link_reviews (url,classification,citations,first_seen,last_seen,decision,reviewed_by) VALUES ('https://justia','needs-review','[]','2026-01-01','2026-01-01','accepted','a@b.org')`).run();
+    // Accepted + unchanged (not in the needs-review set) — must survive accepted.
+    db.prepare(`INSERT INTO link_reviews (url,classification,citations,first_seen,last_seen,decision,reviewed_by,accepted_status) VALUES ('https://justia','needs-review','[]','2026-01-01','2026-01-01','accepted','a@b.org','403')`).run();
+    // Accepted at 403, but its status changed → reappears as needs-review → must re-flag to pending and clear acceptance.
+    db.prepare(`INSERT INTO link_reviews (url,classification,citations,first_seen,last_seen,decision,reviewed_by,accepted_status) VALUES ('https://changed.gov','needs-review','[]','2025-12-01','2025-12-01','accepted','a@b.org','403')`).run();
     // A stale pending row — must be removed.
     db.prepare(`INSERT INTO link_reviews (url,classification,citations,first_seen,last_seen,decision) VALUES ('https://stale','needs-review','[]','2026-01-01','2026-01-01','pending')`).run();
 
     db.exec(readFileSync(out, "utf8"));
 
-    const rows = db.prepare(`SELECT url,decision FROM link_reviews ORDER BY url`).all() as Array<Record<string, unknown>>;
+    const rows = db.prepare(`SELECT url,decision,status,accepted_status,reviewed_by,first_seen FROM link_reviews ORDER BY url`).all() as Array<Record<string, unknown>>;
     expect(rows).toEqual([
-      { url: "https://azed.gov", decision: "pending" }, // new pending
-      { url: "https://justia", decision: "accepted" }, // preserved
+      { url: "https://azed.gov", decision: "pending", status: "403", accepted_status: null, reviewed_by: null, first_seen: "2026-06-16T00:00:00.000Z" },
+      // re-flagged: decision back to pending, acceptance cleared, but first_seen preserved
+      { url: "https://changed.gov", decision: "pending", status: "404", accepted_status: null, reviewed_by: null, first_seen: "2025-12-01" },
+      // untouched accepted row
+      { url: "https://justia", decision: "accepted", status: null, accepted_status: "403", reviewed_by: "a@b.org", first_seen: "2026-01-01" },
     ]);
   });
 });
@@ -140,18 +149,21 @@ describe("build-verification-ledger.ts", () => {
 });
 
 describe("build-link-whitelist.ts", () => {
-  it("exports accepted rows into the whitelist shape", () => {
+  it("exports accepted rows (with accepted status) into the whitelist shape", () => {
     const dir = tmp();
     const accepted = join(dir, "accepted.json");
     const out = join(dir, "whitelist.json");
     writeFileSync(accepted, JSON.stringify([{ results: [
-      { url: "https://azed.gov", reviewed_by: "jane@x.org", reviewed_at: "2026-06-16T10:00:00Z", note: "WAF blocks bots" },
-      { url: "https://justia.com", reviewed_by: "jane@x.org", reviewed_at: "2026-06-16T11:00:00Z", note: null },
+      { url: "https://azed.gov", accepted_status: "403", reviewed_by: "jane@x.org", reviewed_at: "2026-06-16T10:00:00Z", note: "WAF blocks bots" },
+      { url: "https://justia.com", accepted_status: "403", reviewed_by: "jane@x.org", reviewed_at: "2026-06-16T11:00:00Z", note: null },
+      { url: "https://reset.gov", accepted_status: null, reviewed_by: "jane@x.org", reviewed_at: "2026-06-16T12:00:00Z", note: "TLS reset to bots" },
     ] }]));
     run("scripts/build-link-whitelist.ts", ["--accepted", accepted, "--out", out]);
 
     const wl = JSON.parse(readFileSync(out, "utf8"));
-    expect(wl["https://azed.gov"]).toEqual({ acceptedBy: "jane@x.org", acceptedAt: "2026-06-16", note: "WAF blocks bots" });
-    expect(wl["https://justia.com"]).toEqual({ acceptedBy: "jane@x.org", acceptedAt: "2026-06-16" });
+    expect(wl["https://azed.gov"]).toEqual({ status: 403, acceptedBy: "jane@x.org", acceptedAt: "2026-06-16", note: "WAF blocks bots" });
+    expect(wl["https://justia.com"]).toEqual({ status: 403, acceptedBy: "jane@x.org", acceptedAt: "2026-06-16" });
+    // network-error acceptance records null status
+    expect(wl["https://reset.gov"]).toEqual({ status: null, acceptedBy: "jane@x.org", acceptedAt: "2026-06-16", note: "TLS reset to bots" });
   });
 });

@@ -68,14 +68,21 @@ collection). It is imported by the islands, the functions, and the scripts.
    **Never** writes a state JSON or `verificationStatus` — that stays
    human-curated (the integrity check requires an audit trail for
    `verified-2026`). `VerificationLedgerBadges.astro` renders the badge.
-2. **Bot-blocked link review** (weekly `external-link-check.yml`):
-   `check-external-links.ts` classifies via the pure `src/lib/link-classify.ts`.
-   Bot blocks (401/403/405/429) → `needs-review` → `sync-link-reviews.ts`
-   upserts them into `link_reviews`; a reviewer accepts at `/audit/links`;
-   the nightly sync whitelists accepted URLs, which the checker then treats as
-   `accepted`. Genuine breakage (404/5xx/network) → `broken` →
-   `sync-broken-links.ts` into `broken_links`, which flags the dependent
-   datapoint "needs re-verification".
+2. **Status-aware link review** (weekly `external-link-check.yml`):
+   `check-external-links.ts` classifies via the pure `src/lib/link-classify.ts`
+   (`resolveClassification`). Anything un-confirmable — a bot-block
+   (401/403/405/429), a connection reset / TLS failure, or a 5xx →
+   `needs-review` → `sync-link-reviews.ts` upserts into `link_reviews`; a
+   reviewer accepts at `/audit/links`, which snapshots the observed status
+   into `accepted_status`. The nightly `build-link-whitelist.ts` exports
+   accepted rows to `src/data/link-whitelist.json` as `{url: {status, …}}`.
+   The checker treats a whitelisted URL as `accepted` **only while its
+   status is unchanged**; a changed response code re-flags it to
+   `needs-review` (and `sync-link-reviews` resets the row to `pending`), and
+   recovery to 2xx shows `ok`. Only a definitive 4xx-gone (404/410/…) is
+   `broken` → `sync-broken-links.ts` into `broken_links`, flagging the
+   dependent datapoint "needs re-verification". (5xx/network do NOT feed
+   re-verification — they are review, not breakage.)
 
 ## Footguns (each cost real time once)
 

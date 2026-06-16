@@ -166,13 +166,15 @@ describe("/api/link-reviews", () => {
   it("accepts and reverts a URL", async () => {
     const accept = await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "accepted", note: "live in browser" } }));
     expect(accept.status).toBe(200);
-    let row = db.prepare(`SELECT decision, reviewed_by, note FROM link_reviews WHERE url = 'https://azed.gov'`).get() as Record<string, unknown>;
-    expect(row).toMatchObject({ decision: "accepted", reviewed_by: "reviewer@example.org", note: "live in browser" });
+    let row = db.prepare(`SELECT decision, reviewed_by, note, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`).get() as Record<string, unknown>;
+    // accepted_status snapshots the observed status ('403') so a later
+    // sweep can re-flag if the response code changes.
+    expect(row).toMatchObject({ decision: "accepted", reviewed_by: "reviewer@example.org", note: "live in browser", accepted_status: "403" });
 
     const revert = await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "pending" } }));
     expect(revert.status).toBe(200);
-    row = db.prepare(`SELECT decision, reviewed_by FROM link_reviews WHERE url = 'https://azed.gov'`).get() as Record<string, unknown>;
-    expect(row).toMatchObject({ decision: "pending", reviewed_by: null });
+    row = db.prepare(`SELECT decision, reviewed_by, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`).get() as Record<string, unknown>;
+    expect(row).toMatchObject({ decision: "pending", reviewed_by: null, accepted_status: null });
   });
 
   it("404s for an unknown URL and 400s for a bad decision", async () => {

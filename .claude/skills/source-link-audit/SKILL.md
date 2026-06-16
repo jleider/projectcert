@@ -70,29 +70,37 @@ the result. Flags:
 Classifications (the shared logic lives in `src/lib/link-classify.ts`):
 
 - **ok** (2xx).
-- **client-error / server-error / network-error** = broken.
-- **needs-review** — a bot-block status (401/403/405/429): the host
-  rejects automated requests but may serve the page fine in a browser, so
-  it cannot be confirmed *or* called broken. The checker surfaces these;
-  do **not** "fix" a `needs-review` URL on the assumption it is dead.
-  Acceptance is reviewer-managed — see "Bot-blocked URLs" below.
-- **accepted** — a `needs-review` URL a reviewer has accepted as live (it
-  is in `src/data/link-whitelist.json`). No longer flagged.
+- **broken** — *only* a definitive 4xx-gone (404/410/400/451). Fix the
+  URL (canonicalize / find the new page); broken links feed datapoint
+  re-verification.
+- **needs-review** — anything the checker cannot confirm but that is not
+  "gone": a bot-block (401/403/405/429), a connection reset / TLS failure,
+  or a 5xx. The page may serve fine in a browser. Do **not** "fix" a
+  `needs-review` URL on the assumption it is dead — it needs a human, not
+  a URL swap. Acceptance is reviewer-managed — see "Un-confirmable URLs"
+  below.
+- **accepted** — a `needs-review` URL a reviewer confirmed live (it is in
+  `src/data/link-whitelist.json`). Acceptance is **status-aware**: the
+  entry records the status it was accepted at, and the URL only stays
+  `accepted` while that status holds — a changed response code re-flags it
+  to `needs-review`, a recovery to 2xx shows `ok`.
 - **redirected** — the URL works but lands somewhere else; the report
   prints `cited → final`. Update the record to the **final
   non-redirecting** URL (the checker hands it to you). Exception: a `.gov`
   whose redirect target is a CDN/blob backend (e.g. Idaho `adminrules` →
   Azure blob) — keep the stable `.gov` entry, not the backend.
 
-### Bot-blocked URLs (`needs-review` → `accepted`)
+### Un-confirmable URLs (`needs-review` → `accepted`)
 
 There is **no host-level allowlist in the script.** Acceptance is
-**per-URL and reviewer-managed** through the gated `/audit/links` console
-(the `audit-console` skill): a reviewer opens each `needs-review` URL,
-confirms it loads in a browser, and accepts it; the nightly sync exports
-accepted URLs to `src/data/link-whitelist.json`, which the checker then
-treats as `accepted`. Do not hand-edit the whitelist to mask a genuine
-404 — a moved page needs its URL fixed (canonicalize), not whitelisted.
+**per-URL, reviewer-managed, and status-aware** through the gated
+`/audit/links` console (the `audit-console` skill): a reviewer opens each
+`needs-review` URL, confirms it loads in a browser, and accepts it; the
+nightly sync exports accepted URLs (with their accepted status) to
+`src/data/link-whitelist.json`, which the checker then treats as
+`accepted` until the status changes. Do not hand-edit the whitelist, and
+never accept to mask a genuine 404 — a moved page needs its URL fixed
+(canonicalize), not whitelisted.
 
 ### Reading the results
 

@@ -22,13 +22,14 @@ interface LinkReviewRow {
   decision: string;
   reviewed_by: string | null;
   reviewed_at: string | null;
+  accepted_status: string | null;
   note: string | null;
 }
 
 export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({ env }) => {
   const { results } = await env.DB.prepare(
     `SELECT url, status, classification, citations, first_seen, last_seen,
-            decision, reviewed_by, reviewed_at, note
+            decision, reviewed_by, reviewed_at, accepted_status, note
        FROM link_reviews ORDER BY decision, url`,
   ).all<LinkReviewRow>();
 
@@ -64,12 +65,14 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
   const result =
     decision === "accepted"
       ? await env.DB.prepare(
-          `UPDATE link_reviews SET decision = 'accepted', reviewed_by = ?2, reviewed_at = ?3, note = ?4 WHERE url = ?1`,
+          // Snapshot the current observed status as the accepted status, so
+          // a later sweep can re-flag the URL if its response code changes.
+          `UPDATE link_reviews SET decision = 'accepted', reviewed_by = ?2, reviewed_at = ?3, note = ?4, accepted_status = status WHERE url = ?1`,
         )
           .bind(url, data.userEmail, now, note)
           .run()
       : await env.DB.prepare(
-          `UPDATE link_reviews SET decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, note = NULL WHERE url = ?1`,
+          `UPDATE link_reviews SET decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, note = NULL, accepted_status = NULL WHERE url = ?1`,
         )
           .bind(url)
           .run();

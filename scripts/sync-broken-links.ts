@@ -31,7 +31,10 @@ interface CheckerResult {
   classification: string;
 }
 
-const BROKEN = new Set(["client-error", "server-error", "network-error"]);
+// Only a definitive 4xx-gone (404/410/…) is "broken" here. The checker
+// routes 5xx, connection resets, and bot-blocks to `needs-review` (human
+// review via /audit/links), not to datapoint re-verification.
+const BROKEN = new Set(["client-error"]);
 
 const inputPath = argValue("--input");
 const outPath = argValue("--out");

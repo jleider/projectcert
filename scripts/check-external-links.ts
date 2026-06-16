@@ -15,16 +15,17 @@
  * on their own schedule, so this is intentionally NOT wired into the
  * default `npm run validate` / build gate.
  *
- * Bot-blocked URLs (a host that rejects automated requests with
- * 401/403/405/429) are not genuine breakage, but they are also not
- * confirmed live — so they surface as `needs-review` for a human to
- * check. Acceptance is reviewer-managed through the /audit/links console
- * (see the `audit-console` skill): an accepted URL lands in
- * `src/data/link-whitelist.json`, and a whitelisted URL is reclassified
- * as `accepted` (any non-2xx result is trusted as a false positive). A
- * whitelisted URL that returns 2xx simply shows as `ok`. Non-whitelisted
- * hard errors (4xx other than the bot-block set, 5xx, network) remain
- * `broken`.
+ * Responses the checker cannot confirm as live — an anti-bot wall
+ * (401/403/405/429), a connection reset / TLS failure, or a 5xx — are
+ * not called broken: they surface as `needs-review` for a human to open
+ * in a real browser. Acceptance is reviewer-managed through the
+ * /audit/links console (see the `audit-console` skill) and is
+ * **status-aware**: an accepted URL is recorded at the status it was
+ * accepted for in `src/data/link-whitelist.json`. A later sweep keeps it
+ * `accepted` only while the status is unchanged; if the response code
+ * changes it re-flags as `needs-review`, and if it recovers to 2xx it
+ * shows as `ok`. Only a definitive 4xx-gone (404/410/…) is `broken`
+ * (fix the URL); broken links feed datapoint re-verification.
  *
  * Redirecting URLs are reported separately: the page works, but the
  * record should be updated to the final canonical URL the checker
@@ -39,19 +40,29 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { classify, applyWhitelist, type LinkClassification } from "../src/lib/link-classify";
+import { resolveClassification, type LinkClassification } from "../src/lib/link-classify";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
 const WHITELIST_PATH = resolve(__dirname, "../src/data/link-whitelist.json");
 
-/** URLs a human has reviewed and accepted as live despite a bot block. */
-function loadWhitelist(): Set<string> {
+/**
+ * URLs a human has reviewed and accepted as live despite a bot block,
+ * mapped to the HTTP status they were accepted at (null = a network-error
+ * acceptance). Acceptance only suppresses that same status; a changed
+ * response re-flags the URL for review.
+ */
+function loadWhitelist(): Map<string, number | null> {
   try {
-    const parsed = JSON.parse(readFileSync(WHITELIST_PATH, "utf8")) as Record<string, unknown>;
-    return new Set(Object.keys(parsed));
+    const parsed = JSON.parse(readFileSync(WHITELIST_PATH, "utf8")) as Record<
+      string,
+      { status?: number | null }
+    >;
+    const m = new Map<string, number | null>();
+    for (const [url, entry] of Object.entries(parsed)) m.set(url, entry?.status ?? null);
+    return m;
   } catch {
-    return new Set();
+    return new Map();
   }
 }
 const whitelist = loadWhitelist();
@@ -216,7 +227,7 @@ const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise
     url,
     citations: byUrl.get(url) ?? [],
     status: r.status,
-    classification: applyWhitelist(url, classify(r.status), whitelist),
+    classification: resolveClassification(url, r.status, whitelist),
     finalUrl: r.finalUrl,
     redirected: r.redirected,
     message: r.message,
@@ -238,9 +249,9 @@ for (const r of results) {
   buckets[r.classification]++;
 }
 
-const broken = results.filter(
-  (r) => r.classification === "client-error" || r.classification === "server-error" || r.classification === "network-error",
-);
+// After resolveClassification, 5xx and network errors become needs-review
+// (un-confirmable → human review); only a definitive 4xx-gone is broken.
+const broken = results.filter((r) => r.classification === "client-error");
 
 const needsReview = results.filter((r) => r.classification === "needs-review");
 
@@ -257,18 +268,18 @@ if (asJson) {
   process.stdout.write(`Total unique URLs: ${urls.length}\n`);
   process.stdout.write(`- OK (2xx): ${buckets.ok}\n`);
   process.stdout.write(`- Redirect (3xx, followed): ${buckets.redirect}\n`);
-  process.stdout.write(`- Accepted (whitelisted bot-blocks): ${buckets.accepted}\n`);
-  process.stdout.write(`- Needs review (bot-blocked, not yet accepted): ${buckets["needs-review"]}\n`);
-  process.stdout.write(`- Client error (4xx): ${buckets["client-error"]}\n`);
-  process.stdout.write(`- Server error (5xx): ${buckets["server-error"]}\n`);
-  process.stdout.write(`- Network error: ${buckets["network-error"]}\n`);
+  process.stdout.write(`- Accepted (reviewer-confirmed, status unchanged): ${buckets.accepted}\n`);
+  process.stdout.write(`- Needs review (un-confirmable: bot block / reset / 5xx): ${buckets["needs-review"]}\n`);
+  process.stdout.write(`- Broken (4xx gone — fix the URL): ${buckets["client-error"]}\n`);
   process.stdout.write(`- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`);
 
   if (needsReview.length > 0) {
-    process.stdout.write(`## Needs human review — blocked for bots (${needsReview.length})\n\n`);
+    process.stdout.write(`## Needs human review — could not be confirmed (${needsReview.length})\n\n`);
     process.stdout.write(
-      `A human should open each URL; if it is live, accept it in the /audit/links ` +
-        `console (which adds it to \`src/data/link-whitelist.json\`).\n\n`,
+      `Each URL is bot-blocked, reset, or 5xx, or its response changed since it ` +
+        `was accepted. Open each in a real browser; if it is live, accept it in the ` +
+        `/audit/links console (which records it in \`src/data/link-whitelist.json\` at its ` +
+        `current status).\n\n`,
     );
     for (const r of needsReview) {
       process.stdout.write(`- **${r.status}** — ${r.url}\n`);

@@ -48,15 +48,19 @@ CREATE INDEX IF NOT EXISTS idx_broken_links_usps ON broken_links (usps);
 -- exports accepted rows into src/data/link-whitelist.json, which the
 -- checker then trusts. Accepted rows are never auto-removed by the sweep.
 CREATE TABLE IF NOT EXISTS link_reviews (
-  url            TEXT PRIMARY KEY,
-  status         TEXT,            -- HTTP status string, or null
-  classification TEXT NOT NULL,
-  citations      TEXT NOT NULL,   -- JSON array of citation strings
-  first_seen     TEXT NOT NULL,
-  last_seen      TEXT NOT NULL,
-  decision       TEXT NOT NULL DEFAULT 'pending' CHECK (decision IN ('pending', 'accepted')),
-  reviewed_by    TEXT,
-  reviewed_at    TEXT,
-  note           TEXT
+  url             TEXT PRIMARY KEY,
+  status          TEXT,            -- current observed HTTP status, or null (network error)
+  classification  TEXT NOT NULL,
+  citations       TEXT NOT NULL,   -- JSON array of citation strings
+  first_seen      TEXT NOT NULL,
+  last_seen       TEXT NOT NULL,
+  decision        TEXT NOT NULL DEFAULT 'pending' CHECK (decision IN ('pending', 'accepted')),
+  reviewed_by     TEXT,
+  reviewed_at     TEXT,
+  -- The status this URL was accepted at. A later sweep keeps the row
+  -- accepted only while the observed status matches; a changed response
+  -- re-flags it to 'pending'.
+  accepted_status TEXT,
+  note            TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_link_reviews_decision ON link_reviews (decision);

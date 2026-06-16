@@ -3,13 +3,14 @@
  * `link_reviews` rows. Run by the nightly sync workflow:
  *
  *   wrangler d1 execute projectcert-audit --remote --json \
- *     --command "SELECT url, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'" \
+ *     --command "SELECT url, accepted_status, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'" \
  *     > /tmp/accepted-links.json
  *   tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
  *
- * The whitelist is what the link checker reads to treat a bot-blocked
- * URL as accepted. D1 is the source of truth; this file is the committed
- * cache the checker consumes.
+ * The whitelist is what the link checker reads to treat a reviewer-
+ * confirmed URL as accepted — but only while its status is unchanged. Each
+ * entry records the `status` the URL was accepted at. D1 is the source of
+ * truth; this file is the committed cache the checker consumes.
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
@@ -39,6 +40,7 @@ function readRows<T>(path: string | null): T[] {
 
 interface AcceptedRow {
   url: string;
+  accepted_status: string | null;
   reviewed_by: string | null;
   reviewed_at: string | null;
   note: string | null;
@@ -47,6 +49,8 @@ interface AcceptedRow {
 const rows = readRows<AcceptedRow>(argValue("--accepted"));
 
 interface WhitelistEntry {
+  /** HTTP status the URL was accepted at; null = a network-error acceptance. */
+  status: number | null;
   acceptedBy: string | null;
   acceptedAt: string | null;
   note?: string;
@@ -56,7 +60,10 @@ const entries = rows
   .slice()
   .sort((a, b) => a.url.localeCompare(b.url))
   .reduce<Record<string, WhitelistEntry>>((acc, r) => {
+    const status =
+      r.accepted_status === null || r.accepted_status === "" ? null : Number(r.accepted_status);
     const entry: WhitelistEntry = {
+      status: Number.isNaN(status as number) ? null : status,
       acceptedBy: r.reviewed_by,
       acceptedAt: r.reviewed_at ? r.reviewed_at.slice(0, 10) : null,
     };
