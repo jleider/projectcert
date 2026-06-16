@@ -44,7 +44,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2014,
-    "sourceUrl": "https://sealofbiliteracy.org/state/dc/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/dc"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -96,7 +96,7 @@
     },
     {
       "label": "Seal of Biliteracy — DC state page (adopted Dec 4, 2014)",
-      "url": "https://sealofbiliteracy.org/state/dc/",
+      "url": "https://sealofbiliteracy.org/state/dc",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -115,7 +115,7 @@
       "title": "DC adopts the State Seal of Biliteracy",
       "description": "The DC State Board of Education and OSSE established a Seal of Biliteracy for high-school graduates demonstrating proficiency in English plus one or more additional world languages, making DC one of the earliest adopters in the country.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/dc/"
+        "https://sealofbiliteracy.org/state/dc"
       ]
     },
     {

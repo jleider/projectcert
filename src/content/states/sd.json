@@ -35,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2024,
-    "sourceUrl": "https://sealofbiliteracy.org/state/sd/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/sd"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -63,7 +63,7 @@
     },
     {
       "label": "Seal of Biliteracy — South Dakota",
-      "url": "https://sealofbiliteracy.org/state/sd/",
+      "url": "https://sealofbiliteracy.org/state/sd",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -75,7 +75,7 @@
     },
     {
       "label": "South Dakota Department of Education, Fall 2023 Public School Enrollment Census Count",
-      "url": "https://asbsd.org/wp-content/uploads/2024/02/Fall-2023-Public-School-Enrollment-DOE.pdf",
+      "url": "https://doe.sd.gov/ofm/reports.aspx",
       "retrievedAt": "2026-05-10",
       "retrievedBy": "projectcert-2026"
     }
@@ -96,7 +96,7 @@
       "title": "Silver and Gold Seal of Biliteracy program launched",
       "description": "South Dakota implemented the Silver and Gold State Seal of Biliteracy in 2024 — among the most recent statewide adoptions, with two performance levels (Silver intermediate, Gold advanced).",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/sd/"
+        "https://sealofbiliteracy.org/state/sd"
       ]
     }
   ],
@@ -205,7 +205,7 @@
       "percent": 3.0,
       "source": {
         "label": "South Dakota Department of Education, Fall 2023 Public School Enrollment Census Count",
-        "url": "https://asbsd.org/wp-content/uploads/2024/02/Fall-2023-Public-School-Enrollment-DOE.pdf",
+        "url": "https://doe.sd.gov/ofm/reports.aspx",
         "publisher": "sea"
       },
       "note": "South Dakota Department of Education, last-Friday-in-September snapshot (4,230 EL students of 141,467 enrolled, hosted via the Associated School Boards of South Dakota). The figure is approximately 1.6 percentage points below NCES's fall 2021 value (4.6%); the cause is unclear from publicly available sources and could reflect a methodology change, a definitional refinement, or a genuine population decline. Without a SEA-published multi-year series, methodological continuity with the prior NCES series cannot be confirmed."

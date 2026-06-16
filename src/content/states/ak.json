@@ -48,7 +48,7 @@
   "elpAssessment": {
     "name": "ACCESS for ELLs",
     "consortium": "WIDA",
-    "sourceUrl": "https://education.alaska.gov/standards/elp"
+    "sourceUrl": "https://education.alaska.gov/standards/english-language-proficiency"
   },
   "sources": [
     {
@@ -71,7 +71,7 @@
     },
     {
       "label": "Alaska DEED — Teaching Certificates (Initial / Professional pathways; Alaska studies + multicultural coursework)",
-      "url": "https://education.alaska.gov/teachercertification/teaching-certificates",
+      "url": "https://education.alaska.gov/teachercertification/certification/teaching-certificates",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -83,13 +83,13 @@
     },
     {
       "label": "Alaska DEED — Alaska Teacher Content Standards Definitions and Framework Alignment (Danielson / CEL 5D+ / Marzano)",
-      "url": "https://education.alaska.gov/teachercertification/standards",
+      "url": "https://education.alaska.gov/akaccountability/educator/resources_sd/teacher_standards_framework_alignment.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "Alaska DEED — English Language Proficiency Standards (WIDA ELD Standards Framework 2020 adopted 2021-06-10)",
-      "url": "https://education.alaska.gov/standards/elp",
+      "url": "https://education.alaska.gov/standards/english-language-proficiency",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -150,7 +150,7 @@
       "title": "Alaska adopts WIDA ELD Standards Framework 2020",
       "description": "On 2021-06-10 the Alaska State Board of Education adopted the WIDA English Language Development Standards Framework, 2020 Edition (K–12) as Alaska's English Language Proficiency standards, in use since the 2021-22 school year. Cements Alaska's WIDA Consortium membership and ACCESS for ELLs assessment use.",
       "sourceUrls": [
-        "https://education.alaska.gov/standards/elp"
+        "https://education.alaska.gov/standards/english-language-proficiency"
       ]
     },
     {

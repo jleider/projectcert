@@ -40,12 +40,12 @@
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners/elpa21"
+    "sourceUrl": "https://educate.iowa.gov/pk-12/standards/instruction/english-learners/elpa21"
   },
   "sources": [
     {
-      "label": "Iowa Department of Education",
-      "url": "https://educateiowa.gov",
+      "label": "Iowa Department of Education (legacy domain educateiowa.gov; superseded by educate.iowa.gov in 2023)",
+      "url": "https://educate.iowa.gov/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -63,7 +63,7 @@
     },
     {
       "label": "Iowa DOE — endorsements list",
-      "url": "https://educate.iowa.gov/educator-licensure/endorsements-list",
+      "url": "https://educate.iowa.gov/educator-licensure/endorsements",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -81,19 +81,19 @@
     },
     {
       "label": "Iowa Admin. Code r. 282-13.28(20) — ESL endorsement minimum content",
-      "url": "https://www.law.cornell.edu/regulations/iowa/Iowa-Admin-Code-r-282-13-28",
+      "url": "https://www.legis.iowa.gov/docs/iac/rule/282.13.28.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "Iowa DOE — English Learners hub",
-      "url": "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners",
+      "url": "https://educate.iowa.gov/pk-12/standards/instruction/english-learners",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "Iowa DOE — ELPA21 page",
-      "url": "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners/elpa21",
+      "url": "https://educate.iowa.gov/pk-12/standards/instruction/english-learners/elpa21",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

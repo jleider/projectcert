@@ -53,8 +53,8 @@
   },
   "sources": [
     {
-      "label": "New Mexico Public Education Department",
-      "url": "https://webnew.ped.state.nm.us",
+      "label": "New Mexico Public Education Department (cited domain webnew.ped.state.nm.us superseded; current domain is web.ped.nm.gov)",
+      "url": "https://web.ped.nm.gov",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -153,8 +153,7 @@
       "title": "New Mexico State Seal of Bilingualism-Biliteracy enacted",
       "description": "NM Laws 2014, ch. 46 (House Bill 330) created the State Seal of Bilingualism-Biliteracy. NMPED rules at 6.32.3 NMAC implement the program; first awards issued to the high school class of 2016.",
       "sourceUrls": [
-        "https://web.ped.nm.gov/bureaus/languageandculture/state-seal-of-bilingualism-biliteracy/",
-        "https://theglobalseal.com/new-mexico-seal-of-biliteracy"
+        "https://web.ped.nm.gov/bureaus/languageandculture/state-seal-of-bilingualism-biliteracy/"
       ]
     },
     {

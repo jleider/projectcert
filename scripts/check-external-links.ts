@@ -8,23 +8,27 @@
  *   - `elpAssessment.sourceUrl`
  *   - `elPercentHistory[].source.url`
  *
- * Each URL is fetched (HEAD, with a GET fallback for hosts that
- * reject HEAD) and classified as OK / REDIRECT / SOFT_OK /
- * CLIENT_ERROR / SERVER_ERROR / NETWORK_ERROR. The script prints a
- * markdown report and exits 0 in advisory mode (the default), or
- * non-zero with `--strict`. Per CLAUDE.md, SEA pages drift on their
- * own schedule, so this is intentionally NOT wired into the default
- * `npm run validate` / build gate.
+ * Each URL is fetched (HEAD, with a GET fallback for hosts that reject
+ * HEAD), redirects are followed, and the result is classified. The
+ * script prints a markdown report and exits 0 in advisory mode (the
+ * default), or non-zero with `--strict`. Per CLAUDE.md, SEA pages drift
+ * on their own schedule, so this is intentionally NOT wired into the
+ * default `npm run validate` / build gate.
  *
  * Bot-blocked URLs (a host that rejects automated requests with
  * 401/403/405/429) are not genuine breakage, but they are also not
- * confirmed live — so they are surfaced as `needs-review` for a human
- * to check. Once a reviewer accepts a URL it is added to
- * `src/data/link-whitelist.json`; a whitelisted URL is reclassified as
- * `accepted` (any non-2xx result is trusted as a false positive) and
- * no longer flagged. A whitelisted URL that returns 2xx simply shows
- * as `ok`. Non-whitelisted hard errors (4xx other than the bot-block
- * set, 5xx, network) remain `broken`.
+ * confirmed live — so they surface as `needs-review` for a human to
+ * check. Acceptance is reviewer-managed through the /audit/links console
+ * (see the `audit-console` skill): an accepted URL lands in
+ * `src/data/link-whitelist.json`, and a whitelisted URL is reclassified
+ * as `accepted` (any non-2xx result is trusted as a false positive). A
+ * whitelisted URL that returns 2xx simply shows as `ok`. Non-whitelisted
+ * hard errors (4xx other than the bot-block set, 5xx, network) remain
+ * `broken`.
+ *
+ * Redirecting URLs are reported separately: the page works, but the
+ * record should be updated to the final canonical URL the checker
+ * resolves (see the `source-link-audit` skill).
  *
  * Usage:
  *   npm run check:links              # advisory, exits 0 on broken links
@@ -61,6 +65,7 @@ const GET_ONLY_HOSTS = new Set<string>([
   "supreme.justia.com",
   "law.justia.com",
 ]);
+
 interface CitedUrl {
   url: string;
   citation: string; // "AK / sources[2]" / "CA / history[5].sourceUrls[0]"
@@ -71,6 +76,9 @@ interface LinkResult {
   citations: string[];
   status: number | null;
   classification: LinkClassification;
+  /** Final URL after following redirects (when it differs from `url`). */
+  finalUrl?: string;
+  redirected?: boolean;
   message?: string;
 }
 
@@ -121,7 +129,7 @@ for (const c of cited) {
 async function fetchOne(
   url: string,
   method: "HEAD" | "GET",
-): Promise<{ status: number | null; message?: string }> {
+): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
@@ -140,7 +148,9 @@ async function fetchOne(
         "Accept-Language": "en-US,en;q=0.9",
       },
     });
-    return { status: res.status };
+    // `res.url` is the final URL after following redirects; `res.redirected`
+    // is true when at least one 3xx hop was followed.
+    return { status: res.status, finalUrl: res.url, redirected: res.redirected };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return { status: null, message };
@@ -149,7 +159,9 @@ async function fetchOne(
   }
 }
 
-async function checkWithRetry(url: string): Promise<{ status: number | null; message?: string }> {
+async function checkWithRetry(
+  url: string,
+): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
   let host: string;
   try {
     host = new URL(url).host;
@@ -205,6 +217,8 @@ const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise
     citations: byUrl.get(url) ?? [],
     status: r.status,
     classification: applyWhitelist(url, classify(r.status), whitelist),
+    finalUrl: r.finalUrl,
+    redirected: r.redirected,
     message: r.message,
   };
 });
@@ -218,7 +232,7 @@ const buckets = {
   "client-error": 0,
   "server-error": 0,
   "network-error": 0,
-} satisfies Record<LinkResult["classification"], number>;
+} satisfies Record<LinkClassification, number>;
 
 for (const r of results) {
   buckets[r.classification]++;
@@ -229,6 +243,12 @@ const broken = results.filter(
 );
 
 const needsReview = results.filter((r) => r.classification === "needs-review");
+
+// Cited URLs that resolve only after following a redirect. The page works,
+// but the record should be updated to the final canonical URL.
+const redirectedResults = results.filter(
+  (r) => r.redirected === true && typeof r.finalUrl === "string" && r.finalUrl !== r.url,
+);
 
 if (asJson) {
   process.stdout.write(JSON.stringify({ buckets, results }, null, 2) + "\n");
@@ -241,13 +261,14 @@ if (asJson) {
   process.stdout.write(`- Needs review (bot-blocked, not yet accepted): ${buckets["needs-review"]}\n`);
   process.stdout.write(`- Client error (4xx): ${buckets["client-error"]}\n`);
   process.stdout.write(`- Server error (5xx): ${buckets["server-error"]}\n`);
-  process.stdout.write(`- Network error: ${buckets["network-error"]}\n\n`);
+  process.stdout.write(`- Network error: ${buckets["network-error"]}\n`);
+  process.stdout.write(`- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`);
 
   if (needsReview.length > 0) {
     process.stdout.write(`## Needs human review — blocked for bots (${needsReview.length})\n\n`);
     process.stdout.write(
-      `A human should open each URL; if it is live, accept it by adding it to ` +
-        `\`src/data/link-whitelist.json\`.\n\n`,
+      `A human should open each URL; if it is live, accept it in the /audit/links ` +
+        `console (which adds it to \`src/data/link-whitelist.json\`).\n\n`,
     );
     for (const r of needsReview) {
       process.stdout.write(`- **${r.status}** — ${r.url}\n`);
@@ -269,6 +290,16 @@ if (asJson) {
     }
   } else {
     process.stdout.write(`No broken links detected.\n`);
+  }
+
+  if (redirectedResults.length > 0) {
+    process.stdout.write(`\n## Redirected — update source URL to canonical (${redirectedResults.length})\n\n`);
+    for (const r of redirectedResults) {
+      process.stdout.write(`- ${r.url}\n    -> ${r.finalUrl}\n`);
+      for (const c of r.citations) {
+        process.stdout.write(`    - ${c}\n`);
+      }
+    }
   }
 }
 

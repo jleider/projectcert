@@ -37,7 +37,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2016,
-    "sourceUrl": "https://sealofbiliteracy.org/state/fl/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/fl"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -47,7 +47,7 @@
   "sources": [
     {
       "label": "Florida Department of Education",
-      "url": "http://www.fldoe.org",
+      "url": "https://www.fldoe.org/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -101,7 +101,7 @@
     },
     {
       "label": "Seal of Biliteracy — Florida state page (adopted 2016; F.S. § 1003.432)",
-      "url": "https://sealofbiliteracy.org/state/fl/",
+      "url": "https://sealofbiliteracy.org/state/fl",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -134,7 +134,7 @@
       "title": "Florida adopts the State Seal of Biliteracy",
       "description": "Florida Statute § 1003.432 (HB 7029, 2016) authorizes a Gold and Silver Seal of Biliteracy on the high-school diploma for graduates demonstrating proficiency in English plus one or more world languages.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/fl/"
+        "https://sealofbiliteracy.org/state/fl"
       ]
     },
     {

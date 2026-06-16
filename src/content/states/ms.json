@@ -37,12 +37,12 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2019,
-    "sourceUrl": "https://www.mdek12.org/OAE/OEAS/EnglishLearners"
+    "sourceUrl": "https://mdek12.org/elementaryedu/english-learners/"
   },
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://www.mdek12.org/OAE/OEAS/EnglishLearners"
+    "sourceUrl": "https://mdek12.org/elementaryedu/english-learners/"
   },
   "sources": [
     {
@@ -59,19 +59,19 @@
     },
     {
       "label": "MDE — K-12 Educator Licensure Guidelines (Dec 2025), Appendix A",
-      "url": "https://www.mdek12.org/OEL/OEL",
+      "url": "https://mdek12.org/licensure/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "MDE — English Learner Services / EL services page",
-      "url": "https://www.mdek12.org/OAE/OEAS/EnglishLearners",
+      "url": "https://mdek12.org/elementaryedu/english-learners/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "MDE — ELPT (English Language Proficiency Test) page (now references ELPA 21)",
-      "url": "https://www.mdek12.org/OSA/Operations/ELPT",
+      "url": "https://mdek12.org/studentassessment/elpt/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -83,7 +83,7 @@
     },
     {
       "label": "MDE — PGS Teacher Growth Rubric (July 2018)",
-      "url": "https://www.mdek12.org/OEEM/PGS",
+      "url": "https://mdek12.org/educatoreffectiveness/teacher-2/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -102,7 +102,7 @@
       "title": "Mississippi Seal of Biliteracy adopted",
       "description": "MDE adopted the Mississippi Seal of Biliteracy in 2019, recognizing high school graduates who demonstrate proficiency in English and one or more world languages. The MDE EL services page continues to link to the Seal policy.",
       "sourceUrls": [
-        "https://www.mdek12.org/OAE/EL"
+        "https://mdek12.org/elementaryedu/english-learners/"
       ]
     },
     {
@@ -118,7 +118,7 @@
       "title": "ELP assessment migration: LAS Links → ELPA21 Summative",
       "description": "Mississippi migrated its annual English Language Proficiency assessment from LAS Links to ELPA21 during the 2024-25 school year. The MDE ELPT page now references ELPA 21 as the contact and ties to the February 2026 Mississippi Testing Accommodations Manual; the MDE EL services page lists \"Interpreting ELPA21 Score Reports\" as a webinar topic. ELPA21's Spring 2025 Insider newsletter named Mississippi the consortium's \"newest partner state\" at AMTESOL 2025. This flips `elpAssessment.name` from \"LAS Links\" to \"ELPA21 Summative\" and `elpAssessment.consortium` from null to \"ELPA21\".",
       "sourceUrls": [
-        "https://www.mdek12.org/OSA/ELPT",
+        "https://mdek12.org/studentassessment/elpt/",
         "https://elpa21.org/elpa21-insider-newsletter-spring-2025/"
       ]
     }

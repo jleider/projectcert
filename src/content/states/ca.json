@@ -44,7 +44,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2011,
-    "sourceUrl": "https://sealofbiliteracy.org/state/ca/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/ca"
   },
   "elpAssessment": {
     "name": "ELPAC",
@@ -66,19 +66,19 @@
     },
     {
       "label": "CTC Bilingual Authorizations leaflet (CL-628B)",
-      "url": "https://www.ctc.ca.gov/credentials/leaflets/bilingual-authorizations-(cl-628b)",
+      "url": "https://www.ctc.ca.gov/credentials/leaflets/cl-628b/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "CTC English Learner Authorization & CLAD Certificate leaflet (CL-628C)",
-      "url": "https://www.ctc.ca.gov/credentials/leaflets/english-learner-auth-clad-certificate-(cl-628c)",
+      "url": "https://www.ctc.ca.gov/credentials/leaflets/cl-628c/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "CTC Serving English Learners leaflet (CL-622)",
-      "url": "https://www.ctc.ca.gov/credentials/leaflets/serving-english-learners-(cl-622)",
+      "url": "https://www.ctc.ca.gov/credentials/leaflets/cl-622/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -90,7 +90,7 @@
     },
     {
       "label": "CTC English Learner Authorization (educator-prep framework)",
-      "url": "https://www.ctc.ca.gov/educator-prep/ela",
+      "url": "https://www.ctc.ca.gov/program-sponsors/prep-programs/ela/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -120,7 +120,7 @@
     },
     {
       "label": "Seal of Biliteracy — California state page",
-      "url": "https://sealofbiliteracy.org/state/ca/",
+      "url": "https://sealofbiliteracy.org/state/ca",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -164,8 +164,8 @@
       "title": "AB 1059 EL preparation embedded in every preliminary credential",
       "description": "Effective 2002-07-01 (AB 1059, 1999), every Multiple Subject and Single Subject preliminary teaching credential issued by California must embed EL preparation, making CA's universal EL-credentialing mandate functionally one-course-plus EL preparation required of every newly-credentialed classroom teacher.",
       "sourceUrls": [
-        "https://www.ctc.ca.gov/credentials/leaflets/english-learner-auth-clad-certificate-(cl-628c)",
-        "https://www.ctc.ca.gov/educator-prep/ela"
+        "https://www.ctc.ca.gov/credentials/leaflets/cl-628c/",
+        "https://www.ctc.ca.gov/program-sponsors/prep-programs/ela/"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "title": "AB 1871 establishes current Bilingual Authorization (CL-628B)",
       "description": "AB 1871 (2008) restructured California's bilingual credentialing into the current Bilingual Authorization issued under CL-628B. Pathways: a Commission-approved bilingual program, CSET World Languages Tests II/III + IV + V, or program + CSET equivalency. Successor to the BCLAD/Bilingual Crosscultural Specialist Credential lineage.",
       "sourceUrls": [
-        "https://www.ctc.ca.gov/credentials/leaflets/bilingual-authorizations-(cl-628b)"
+        "https://www.ctc.ca.gov/credentials/leaflets/cl-628b/"
       ]
     },
     {
@@ -181,7 +181,7 @@
       "title": "California State Seal of Biliteracy enacted (AB 815)",
       "description": "Governor signed AB 815 establishing the California State Seal of Biliteracy — the nation's first state-level Seal — recognizing high school graduates who attain proficiency in English and one or more world languages.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/ca/"
+        "https://sealofbiliteracy.org/state/ca"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "title": "California adopts the English Learner Roadmap",
       "description": "The State Board of Education unanimously adopted the California English Learner Roadmap, a four-principle policy framework directing district programs and educator preparation toward asset-based, integrated, and rigorous approaches for ELs.",
       "sourceUrls": [
-        "https://www.cde.ca.gov/sp/el/rm/"
+        "https://www.cde.ca.gov/sp/ml/roadmap.asp"
       ]
     },
     {
@@ -230,7 +230,7 @@
       "title": "CTC adopts revised California Standards for the Teaching Profession (CSTP)",
       "description": "CTC adopted the April 2024 revision of the California Standards for the Teaching Profession; standards continue to reference EL/cultural/linguistic diversity explicitly and bind all California teachers.",
       "sourceUrls": [
-        "https://www.ctc.ca.gov/educator-prep/standards/cstp-2024.pdf"
+        "https://docs.ctc.ca.gov/Document/Download/30328"
       ]
     }
   ],

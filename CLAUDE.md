@@ -686,9 +686,30 @@ Verifications scale by spawning one subagent per state with
 - "Approved program" vs. "test only" is the most analytically
   important distinction in ELD/bilingual requirements. Preserve it.
 
+### Source URLs and link checking
+
+Cited URLs must be canonical (the authoritative publisher) and live.
+Prefer `.gov`, then `.edu`, then the authority's own non-gov domain
+(many SEAs have no `.gov`); never a third-party mirror (Cornell LII,
+`*.elaws.us`, Wikipedia, vendor/aggregator copies). `doi.org` and
+`justia`/`oyez` are deliberately kept as-is (permanent identifier /
+endorsed for law). Run `npm run check:links` (advisory; `-- --strict`
+to gate) to find broken links (4xx/5xx/network) and redirecting links;
+update a redirecting URL to its final non-redirecting target, which the
+report prints. **Bot-blocked URLs (401/403/405/429) are not "broken" —
+they are `needs-review`:** the host rejects automated requests but may
+serve the page in a browser. The checker surfaces them; a human confirms
+and accepts each one in the `/audit/links` console, which writes
+`src/data/link-whitelist.json` (the checker then treats them as
+`accepted`). There is no host-level allowlist in the script — acceptance
+is per-URL and reviewer-managed (see the `audit-console` skill). Do not
+change a `needs-review` URL on the assumption it is broken. See the
+`source-link-audit` skill for the canonical-URL workflow, the
+mirror→canonical map, and the bulk remediation-script pattern.
+
 ## Skills
 
-Four project skills under `.claude/skills/`:
+Five project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -697,6 +718,10 @@ Four project skills under `.claude/skills/`:
 - **`state-source-refresh`** — Phase 2 verification workflow. Triggered
   by phrases like "refresh `<state>`", "verify `<state>`", "update
   `<state>` data".
+- **`source-link-audit`** — keeping cited source URLs canonical and
+  unbroken. Triggered by "check/fix the links", running `check:links`,
+  replacing a mirror with an official source, or editing
+  `scripts/check-external-links.ts`.
 - **`audit-console`** — the gated `/audit/*` reviewer tool (Pages
   Functions + D1 + Cloudflare Access), the `verification-datapoints`
   descriptor, and the link-review/whitelist flow. Triggered when editing

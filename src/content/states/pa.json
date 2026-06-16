@@ -47,7 +47,7 @@
   "sources": [
     {
       "label": "Pennsylvania Department of Education",
-      "url": "https://www.education.pa.gov/Pages/default.aspx",
+      "url": "https://www.pa.gov/agencies/education",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -59,31 +59,31 @@
     },
     {
       "label": "PDE — ESL Program Specialist (Current PA Educators)",
-      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/current-pa-educators/esl-program-specialist.html",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/current-pa-educators/esl-program-specialist",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "PDE — CSPG #68: ESL Program Specialist PK-12 (Certification Staffing Policy Guidelines, rev. 7/1/2023)",
-      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-68-english-as-a-second-language-esl-program-specialist-pk-12.html",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-68-english-as-a-second-language-esl-program-specialist-pk-12",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "PDE — ESL Frequently Asked Questions",
-      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/help/certification-faqs/english-as-a-second-language.html",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/help/certification-faqs/english-as-a-second-language",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "PDE — Basic Education Circular: Educating Students Who Are English Learners",
-      "url": "https://www.pa.gov/agencies/education/policy-funding/basic-education-circulars/purdons-statutes/educating-students-who-are-english-learners.html",
+      "url": "https://www.pa.gov/agencies/education/resources/policies-acts-and-laws/basic-education-circulars-becs/pa-code/educating-english-learners-els",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "PDE — Educating English Learners (program overview)",
-      "url": "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/educating-english-learners.html",
+      "url": "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/curriculum/educating-english-learners",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -113,7 +113,7 @@
     },
     {
       "label": "WIDA — Pennsylvania member page",
-      "url": "https://wida.wisc.edu/memberships/consortium/pa",
+      "url": "https://wida.wisc.edu/about/consortium/pa",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -154,7 +154,7 @@
       "title": "PDE CSPG #68 ESL Program Specialist policy revised",
       "description": "PDE issued the current revision of Certification Staffing Policy Guideline #68 effective 2023-07-01, clarifying that to teach ESL in a PA public school an educator must hold a PA Instructional I or II certificate plus the ESL Program Specialist PK-12 add-on (or a comparable out-of-state ESL certificate earned via a full instructional program with student teaching).",
       "sourceUrls": [
-        "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-68-english-as-a-second-language-esl-program-specialist-pk-12.html"
+        "https://www.pa.gov/agencies/education/programs-and-services/educators/certification/certification-staffing/staffing-guidelines/cspg-68-english-as-a-second-language-esl-program-specialist-pk-12"
       ]
     }
   ],

@@ -35,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2022,
-    "sourceUrl": "https://sealofbiliteracy.org/state/wy/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/wy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -99,7 +99,7 @@
     },
     {
       "label": "Seal of Biliteracy — Wyoming state page (Approved State Seal, 2022-03-21)",
-      "url": "https://sealofbiliteracy.org/state/wy/",
+      "url": "https://sealofbiliteracy.org/state/wy",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

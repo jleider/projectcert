@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Colorado Department of Education",
-      "url": "https://www.cde.state.co.us",
+      "url": "https://ed.cde.state.co.us/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -108,7 +108,7 @@
     },
     {
       "label": "CDE — Seal of Biliteracy / Diploma Endorsement for Biliteracy (SB17-123)",
-      "url": "https://www.cde.state.co.us/cde_english/high-school-diploma-endorsement-for-biliteracy",
+      "url": "https://ed.cde.state.co.us/clde/high-school-diploma-endorsement-for-biliteracy",
       "retrievedAt": "2026-05-07",
       "retrievedBy": "projectcert-2026"
     },
@@ -163,7 +163,7 @@
       "title": "Diploma Endorsement for Biliteracy enacted (SB17-123)",
       "description": "Governor signed SB17-123 establishing Colorado's High School Diploma Endorsement for Biliteracy (Seal of Biliteracy), recognizing graduates proficient in English and one or more world languages.",
       "sourceUrls": [
-        "https://www.cde.state.co.us/cde_english/high-school-diploma-endorsement-for-biliteracy"
+        "https://ed.cde.state.co.us/clde/high-school-diploma-endorsement-for-biliteracy"
       ]
     },
     {
