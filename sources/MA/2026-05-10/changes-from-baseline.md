@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://profiles.doe.mass.edu/profiles/student.aspx?orgcode=00000000&orgtypecode=0&leftNavId=305&fycode=2024>
 
 Full worker write-up and supporting research for this pass:
-`sources/ma/2026-05-10/audit-report.md` and
-`sources/ma/2026-05-10/sea-el-research.md`.
+`sources/MA/2026-05-10/audit-report.md` and
+`sources/MA/2026-05-10/sea-el-research.md`.

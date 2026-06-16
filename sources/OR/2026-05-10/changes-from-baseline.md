@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.oregon.gov/ode/schools-and-districts/reportcards/pages/statewide-annual-report-card.aspx>
 
 Full worker write-up and supporting research for this pass:
-`sources/or/2026-05-10/audit-report.md` and
-`sources/or/2026-05-10/sea-el-research.md`.
+`sources/OR/2026-05-10/audit-report.md` and
+`sources/OR/2026-05-10/sea-el-research.md`.

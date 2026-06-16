@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.pa.gov/agencies/education/data-and-reporting/enrollment>
 
 Full worker write-up and supporting research for this pass:
-`sources/pa/2026-05-10/audit-report.md` and
-`sources/pa/2026-05-10/sea-el-research.md`.
+`sources/PA/2026-05-10/audit-report.md` and
+`sources/PA/2026-05-10/sea-el-research.md`.

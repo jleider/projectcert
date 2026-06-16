@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.kentuckyteacher.org/news/2026/02/kdes-school-counselor-advisory-council-discusses-efforts-to-help-multilingual-learners/>
 
 Full worker write-up and supporting research for this pass:
-`sources/ky/2026-05-10/audit-report.md` and
-`sources/ky/2026-05-10/sea-el-research.md`.
+`sources/KY/2026-05-10/audit-report.md` and
+`sources/KY/2026-05-10/sea-el-research.md`.

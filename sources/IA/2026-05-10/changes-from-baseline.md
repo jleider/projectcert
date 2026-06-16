@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://educate.iowa.gov/media/11390/download?inline=>
 
 Full worker write-up and supporting research for this pass:
-`sources/ia/2026-05-10/audit-report.md` and
-`sources/ia/2026-05-10/sea-el-research.md`.
+`sources/IA/2026-05-10/audit-report.md` and
+`sources/IA/2026-05-10/sea-el-research.md`.

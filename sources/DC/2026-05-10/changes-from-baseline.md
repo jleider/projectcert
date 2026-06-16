@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://osse.dc.gov/page/2023-24-school-year-enrollment-audit-report-and-data>
 
 Full worker write-up and supporting research for this pass:
-`sources/dc/2026-05-10/audit-report.md` and
-`sources/dc/2026-05-10/sea-el-research.md`.
+`sources/DC/2026-05-10/audit-report.md` and
+`sources/DC/2026-05-10/sea-el-research.md`.

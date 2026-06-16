@@ -2,7 +2,7 @@
 
 Re-audit of the 2026-05-07 verification, focused on §3a history-event
 capture (LOOK Act, Seal of Biliteracy authorization, vocational SEI
-extension). Original snapshot is at `sources/ma/2026-05-07/`.
+extension). Original snapshot is at `sources/MA/2026-05-07/`.
 
 ## Coding changes
 

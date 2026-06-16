@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://asbsd.org/wp-content/uploads/2024/02/Fall-2023-Public-School-Enrollment-DOE.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/sd/2026-05-10/audit-report.md` and
-`sources/sd/2026-05-10/sea-el-research.md`.
+`sources/SD/2026-05-10/audit-report.md` and
+`sources/SD/2026-05-10/sea-el-research.md`.

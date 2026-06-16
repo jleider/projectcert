@@ -2,7 +2,7 @@
 
 Auditor: projectcert-2026 (subagent)
 State file: `src/content/states/nm.json`
-Prior verification: `sources/nm/2026-05-07/changes-from-baseline.md`
+Prior verification: `sources/NM/2026-05-07/changes-from-baseline.md`
 Current `verificationStatus`: `verified-2026` (set 2026-05-07)
 
 ---

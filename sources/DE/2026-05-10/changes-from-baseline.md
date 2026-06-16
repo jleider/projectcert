@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://education.delaware.gov/legacy/wp-content/uploads/sites/4/2025/03/delaware-design-hq-multilingual-education-3-2025.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/de/2026-05-10/audit-report.md` and
-`sources/de/2026-05-10/sea-el-research.md`.
+`sources/DE/2026-05-10/audit-report.md` and
+`sources/DE/2026-05-10/sea-el-research.md`.

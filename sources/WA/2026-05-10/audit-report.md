@@ -171,7 +171,7 @@ No orphan URLs or missing labels. All load-bearing claims (TBIP, endorsement rou
 - **lastVerified:** 2026-05-07 (date audited on 2026-05-10; freshness is 3 days)
 - **verificationStatus:** verified-2026 ✓
 - **Schema check:** elPercentAsOf (2021-10-01) ≤ lastVerified (2026-05-07) ✓
-- **Audit trail:** sources/wa/2026-05-07/changes-from-baseline.md exists and documents all substantive corrections from the 2019 baseline. ✓
+- **Audit trail:** sources/WA/2026-05-07/changes-from-baseline.md exists and documents all substantive corrections from the 2019 baseline. ✓
 
 ---
 

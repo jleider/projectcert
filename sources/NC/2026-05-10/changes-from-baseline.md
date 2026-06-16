@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.ednc.org/wp-content/uploads/2024/12/2024-2025-EL-Headcount-Report_417923nanxbabfysu4d5i51px321dl.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/nc/2026-05-10/audit-report.md` and
-`sources/nc/2026-05-10/sea-el-research.md`.
+`sources/NC/2026-05-10/audit-report.md` and
+`sources/NC/2026-05-10/sea-el-research.md`.

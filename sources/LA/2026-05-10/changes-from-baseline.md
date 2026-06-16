@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://doe.louisiana.gov/docs/default-source/english-learners/el-data-profile-2024-2025.pdf?sfvrsn=bf00c2c4_3>
 
 Full worker write-up and supporting research for this pass:
-`sources/la/2026-05-10/audit-report.md` and
-`sources/la/2026-05-10/sea-el-research.md`.
+`sources/LA/2026-05-10/audit-report.md` and
+`sources/LA/2026-05-10/sea-el-research.md`.
