@@ -1,8 +1,8 @@
 <script lang="ts">
   import Choropleth from "./Choropleth.svelte";
-  import { BINS } from "@/data/bins";
   import { SITE_URL } from "@/config/site";
   import { LAYERS as LAYER_KEYS, type Layer, type ChoroplethDatum } from "@/lib/state-types";
+  import { LEGENDS } from "@/lib/legends";
 
   export let states: ChoroplethDatum[];
   /** Optional initial layer override. Used by /embed/map/?layer=...
@@ -57,35 +57,6 @@
     { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
     { value: "elpAssessment", label: "ELP assessment" },
   ];
-
-  type LegendEntry = { color: string; label: string };
-
-  const LEGENDS: Record<Layer, LegendEntry[]> = {
-    elPercent: BINS.map((b) => ({ color: `var(${b.cssVar})`, label: b.label })),
-    bilingual: [
-      { color: "var(--bilingual-0)", label: "Not offered" },
-      { color: "var(--bilingual-2)", label: "Add-on only" },
-      { color: "var(--bilingual-3)", label: "Standalone offered" },
-    ],
-    eld: [
-      { color: "var(--eld-0)", label: "Not offered" },
-      { color: "var(--eld-2)", label: "Add-on only" },
-      { color: "var(--eld-3)", label: "Standalone offered" },
-    ],
-    sei: [
-      { color: "var(--sei-0)", label: "Not mandated" },
-      { color: "var(--sei-3)", label: "Mandated for all teachers" },
-    ],
-    sealOfBiliteracy: [
-      { color: "var(--seal-3)", label: "Adopted" },
-      { color: "var(--seal-0)", label: "Not adopted" },
-    ],
-    elpAssessment: [
-      { color: "var(--elp-3)", label: "WIDA · ACCESS for ELLs" },
-      { color: "var(--elp-2)", label: "ELPA21 consortium" },
-      { color: "var(--elp-0)", label: "State-specific (AZELLA, ELPAC, TELPAS, etc.)" },
-    ],
-  };
 
   $: legendEntries = LEGENDS[layer];
 
