@@ -83,7 +83,7 @@
     },
     {
       "label": "23 IAC 24.130 — Illinois Professional Teaching Standards (operative through 2026-06-30)",
-      "url": "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130",
+      "url": "https://www.ilga.gov/commission/jcar/admincode/023/023000240001300R.html",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -144,7 +144,7 @@
       "title": "23 IAC 24.140 supersedes 24.130 as Illinois Professional Teaching Standards",
       "description": "ISBE's revised Illinois Professional Teaching Standards (23 IAC 24.140) take effect 2026-07-01, replacing 23 IAC 24.130. The new standards drop the explicit 'English language learners' phrasing that 24.130 carried, shifting EL-relevant competencies under broader 'diverse learners' language. Flag for re-coding `professionalStandardsMentions.el` after the transition.",
       "sourceUrls": [
-        "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130"
+        "https://www.ilga.gov/commission/jcar/admincode/023/023000240001300R.html"
       ]
     }
   ],

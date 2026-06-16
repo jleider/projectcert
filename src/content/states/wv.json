@@ -42,7 +42,7 @@
   "elpAssessment": {
     "name": "ELPA21",
     "consortium": "ELPA21",
-    "sourceUrl": "https://en.wikipedia.org/wiki/ELPA21"
+    "sourceUrl": "https://www.elpa21.org/"
   },
   "sources": [
     {
@@ -88,8 +88,8 @@
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "Wikipedia, WIDA Consortium (member-state list; WV not listed, consistent with ELPA21 use)",
-      "url": "https://en.wikipedia.org/wiki/WIDA_Consortium",
+      "label": "WIDA Consortium — member-state roster (WV not listed, consistent with ELPA21 use)",
+      "url": "https://wida.wisc.edu/about/consortium",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     }

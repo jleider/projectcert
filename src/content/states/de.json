@@ -53,7 +53,7 @@
   },
   "sources": [
     {
-      "label": "Delaware Department of Education",
+      "label": "Delaware Department of Education (legacy domain doe.k12.de.us; superseded by education.delaware.gov)",
       "url": "https://www.doe.k12.de.us",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
@@ -89,8 +89,8 @@
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "Delaware Professional Teaching Standards (14 DE Admin Code 393)",
-      "url": "http://www1.udel.edu/educ/whitson/897s05/files/393%20DE%20Teaching%20Standards%203-03-03r.htm",
+      "label": "Delaware Professional Teaching Standards (14 DE Admin Code 1597; renumbered from 393)",
+      "url": "https://regulations.delaware.gov/AdminCode/title14/1500/1597.shtml",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

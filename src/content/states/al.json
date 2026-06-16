@@ -46,7 +46,7 @@
   },
   "sources": [
     {
-      "label": "Alabama State Dept. of Education",
+      "label": "Alabama State Dept. of Education (legacy domain alsde.edu, retired 2022; superseded by alabamaachieves.org)",
       "url": "https://www.alsde.edu",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
@@ -59,13 +59,13 @@
     },
     {
       "label": "Alabama Administrative Code Chapter 290-3-3 (Educator Preparation), SUPP. NO. 21-4 — Rule 290-3-3-.43 (ESOL, Grades P-12) and Rule 290-3-3-.04 (Alabama Core Teaching Standards)",
-      "url": "https://www.alsde.edu/sec/tcert/Resources/EDUCATOR-PREP-Chapter%20290-3-3.pdf",
+      "url": "https://www.alabamaachieves.org/wp-content/uploads/2021/08/2021-Educator-Preparation-Chapter-adopted-08-12-2021.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "Alabama Administrative Code Chapter 290-3-2 (Educator Certification), SUPP. NO. 16-1 — IEC and certification-issuance rules",
-      "url": "https://www.alsde.edu/sec/tcert/Resources/EDUCATOR-CERTIFICATION-Chapter%20290-3-2.pdf",
+      "url": "https://www.alabamaachieves.org/wp-content/uploads/2021/02/290-3-2-Educator-Certification-Chapter-Effective-4-24-16.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

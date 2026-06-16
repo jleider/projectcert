@@ -44,7 +44,7 @@
   },
   "sources": [
     {
-      "label": "Iowa Department of Education",
+      "label": "Iowa Department of Education (legacy domain educateiowa.gov; superseded by educate.iowa.gov in 2023)",
       "url": "https://educateiowa.gov",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
@@ -81,7 +81,7 @@
     },
     {
       "label": "Iowa Admin. Code r. 282-13.28(20) — ESL endorsement minimum content",
-      "url": "https://www.law.cornell.edu/regulations/iowa/Iowa-Admin-Code-r-282-13-28",
+      "url": "https://www.legis.iowa.gov/docs/iac/rule/282.13.28.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
