@@ -1,0 +1,26 @@
+---
+import AuditLayout from "@/layouts/AuditLayout.astro";
+import AuditOverview from "@/components/AuditOverview.svelte";
+import { getAllStates } from "@/lib/state-data";
+import { auditStateUrl } from "@/lib/state-types";
+import { DATAPOINT_COUNT } from "@/lib/verification-datapoints";
+
+const states = (await getAllStates()).map((s) => ({
+  usps: s.usps,
+  name: s.name,
+  auditUrl: auditStateUrl(s.usps),
+}));
+---
+
+<AuditLayout title="All states">
+  <h1 class="text-2xl font-bold text-ink">Review console</h1>
+  <p class="mt-2 text-sm text-ink-muted max-w-3xl">
+    Each of the {states.length} jurisdictions carries {DATAPOINT_COUNT} datapoints.
+    A datapoint counts as reviewed once a single reviewer confirms it against
+    current sources, provided the value has not changed since and no cited
+    source has gone unreachable. Suggested corrections are listed below for a
+    maintainer to action.
+  </p>
+
+  <AuditOverview client:load states={states} totalDatapoints={DATAPOINT_COUNT} />
+</AuditLayout>

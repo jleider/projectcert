@@ -1,0 +1,80 @@
+name: Audit ledger sync (nightly)
+
+# Exports the review console's checkmark ledger from D1 into the repo so
+# the public per-state pages can show a "datapoints reviewed" badge. This
+# workflow NEVER edits state JSON or verificationStatus — it only writes
+# src/data/verification-ledger.json and opens a PR when it changes.
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # daily 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-ledger:
+    name: Export D1 ledger
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Export verifications from D1
+        run: |
+          npx wrangler d1 execute projectcert-audit --remote --json \
+            --command "SELECT usps, datapoint_id, verified_by, verified_at, content_hash FROM verifications" \
+            > /tmp/verifications.json
+
+      - name: Export broken links from D1
+        run: |
+          npx wrangler d1 execute projectcert-audit --remote --json \
+            --command "SELECT usps, datapoint_id FROM broken_links" \
+            > /tmp/broken.json
+
+      - name: Build ledger
+        run: |
+          npx tsx scripts/build-verification-ledger.ts \
+            --verifications /tmp/verifications.json \
+            --broken /tmp/broken.json
+
+      - name: Export accepted link reviews from D1
+        run: |
+          npx wrangler d1 execute projectcert-audit --remote --json \
+            --command "SELECT url, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'" \
+            > /tmp/accepted-links.json
+
+      - name: Build link whitelist
+        run: npx tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
+
+      - name: Open PR if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/audit-store-sync
+          base: main
+          commit-message: "Sync verification ledger and link whitelist from audit store"
+          title: "Sync verification ledger and link whitelist from audit store"
+          body: |
+            Automated nightly export from the review console's data store:
+
+            - `src/data/verification-ledger.json` — public "datapoints
+              reviewed" badges.
+            - `src/data/link-whitelist.json` — bot-blocked URLs a reviewer
+              accepted as live, which the link checker then trusts.
+
+            This does not modify any state record or `verificationStatus`.
+          add-paths: |
+            src/data/verification-ledger.json
+            src/data/link-whitelist.json
+          delete-branch: true

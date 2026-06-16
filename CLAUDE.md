@@ -24,7 +24,10 @@ be re-verified against current SEA sources before public launch.
 - **Tailwind CSS** + custom design-token layer at `src/styles/tokens.css`.
 - **Zod** for content schema validation.
 - **Vitest** for schema/utility tests; **Playwright + axe-core** for a11y.
-- Static deploy (target: Cloudflare Pages or Netlify).
+- Static deploy to **Cloudflare Pages**. The one non-static piece is the
+  gated reviewer console (`/audit/*`): **Pages Functions** + **D1** +
+  **Cloudflare Access**, alongside the static site. See "The audit /
+  review console" below.
 
 ## Commands
 
@@ -376,6 +379,67 @@ Every state has `verificationStatus`: `baseline-2019` | `in-progress` |
 without a concrete reason** (e.g., the SEA explicitly changed
 something) — and record that reason in the commit.
 
+### The audit / review console (`/audit/*`)
+
+A gated reviewer tool lives at `/audit/` (overview), `/audit/<usps>`
+(per-state datapoint checklist), and `/audit/links` (bot-blocked link
+review). It is the only part of the deployment that is **not** static:
+it is backed by Cloudflare **Pages Functions** (`functions/api/*`), a
+**D1** database (`schema/d1/`), and **Cloudflare Access** (email-allowlist
+gating, configured in the dashboard — setup in `docs/audit-setup.md`).
+The public site stays static; the console is a separate layer.
+
+Load-bearing rules:
+
+- **The checkbox ledger is separate from `verificationStatus`.** A
+  reviewer confirming all datapoints does **not** promote a state to
+  `verified-2026` — that requires the archived-snapshot audit trail the
+  integrity check enforces. The nightly sync Action writes only
+  `src/data/verification-ledger.json` (a public "datapoints reviewed"
+  badge) and `src/data/link-whitelist.json` — never a state JSON or the
+  enum. Do not wire auto-promotion.
+- **`src/lib/verification-datapoints.ts` is the single source of truth**
+  for what a reviewer checks: a fixed 32-entry skeleton, same id set for
+  every state (constant denominator). Keep it Svelte-safe *and*
+  Workers-safe — no `astro:content`, no Node APIs, a local structural
+  `StateData` type. Adding a datapoint = add an id to `DATAPOINT_IDS`
+  plus a builder line; the id is the D1 key, so renaming orphans rows
+  (the snapshot test fails loud). Labels are user-facing
+  academic-register prose, never schema identifiers.
+- **The link checker has a human-review loop.** Bot-blocked URLs
+  (401/403/405/429) classify as `needs-review`, land in the D1
+  `link_reviews` queue (weekly sweep), and a reviewer accepts them at
+  `/audit/links`; the nightly sync exports accepted URLs to
+  `src/data/link-whitelist.json`, which the checker then trusts
+  (`accepted`). Genuine breakage (404/5xx/network) stays `broken` and
+  feeds datapoint re-verification via `broken_links`. The classification
+  core is the pure, tested `src/lib/link-classify.ts`.
+
+TypeScript / test footguns (each cost real time once):
+
+- **`functions/` has its own `tsconfig.json`** with
+  `types: ["@cloudflare/workers-types"]` and, critically,
+  `"exclude": []`. Extending the root config otherwise inherits its
+  `exclude: [...,"functions"]`, which excludes the functions' own
+  directory and makes `tsc` silently check *nothing*. `npm run
+  typecheck` runs both the root project and `functions/tsconfig.json`.
+- **Functions use relative imports** (`../../src/lib/...`), never the
+  `@/` alias — the alias does not resolve in Cloudflare's function
+  bundler.
+- **A test that imports `functions/api/*` must be excluded from the root
+  `tsconfig`** (see `tests/audit-api.integration.test.ts`). Importing
+  Workers-typed modules into the root DOM/Node program pulls them in via
+  import resolution — past `exclude` — and fails the typecheck. Such
+  tests still run under Vitest and are linted.
+- **Integration tests use Node's built-in `node:sqlite`** as a
+  D1-compatible shim over the real `schema/d1/0001_init.sql` (no new
+  dependency). `node:sqlite` binds `?1..?N` positionally, matching D1.
+- **Local dev:** `npm run dev` does not run the Functions, so the
+  console renders read-only. Use `npm run dev:pages` (wrangler) with a
+  `DEV_REVIEWER_EMAIL` var to exercise the API; that var bypasses the
+  mandatory Access-JWT verification in `functions/api/_middleware.ts`
+  and must never be set in production.
+
 ### Adding/updating a state is a one-file edit
 
 Edit `src/content/states/<usps>.json` and run `npm run validate`. Use
@@ -454,6 +518,13 @@ If you also add a *schema field* that should be LLM-discoverable
 (something a researcher would cite), surface it in
 `generate-llms-full.ts`. Otherwise the field is on the page but not
 in the RAG-friendly export, and AI search engines miss it.
+
+**Exception — gated pages.** The review console (`/audit/*`) is
+access-gated and `noindex,nofollow`; it must be *excluded* from all
+three surfaces, not added. The `sitemap()` filter in `astro.config.ts`
+drops `/audit/`; do not list it in `public/llms.txt`; do not emit it
+from `generate-llms-full.ts`. Verify `/audit/` does not appear in
+`dist/sitemap-0.xml` after build.
 
 ### External links open in new tabs
 
@@ -617,7 +688,7 @@ Verifications scale by spawning one subagent per state with
 
 ## Skills
 
-Three project skills under `.claude/skills/`:
+Four project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -626,6 +697,11 @@ Three project skills under `.claude/skills/`:
 - **`state-source-refresh`** — Phase 2 verification workflow. Triggered
   by phrases like "refresh `<state>`", "verify `<state>`", "update
   `<state>` data".
+- **`audit-console`** — the gated `/audit/*` reviewer tool (Pages
+  Functions + D1 + Cloudflare Access), the `verification-datapoints`
+  descriptor, and the link-review/whitelist flow. Triggered when editing
+  `functions/`, `src/lib/verification-datapoints.ts`, the audit pages,
+  `schema/d1/`, or the audit sync scripts/workflows.
 
 ## Source paper
 

@@ -9,12 +9,22 @@
  *   - `elPercentHistory[].source.url`
  *
  * Each URL is fetched (HEAD, with a GET fallback for hosts that
- * reject HEAD) and classified as OK / REDIRECT / CLIENT_ERROR /
- * SERVER_ERROR / NETWORK_ERROR. The script prints a markdown report
- * and exits 0 in advisory mode (the default), or non-zero with
- * `--strict`. Per CLAUDE.md, SEA pages drift on their own schedule,
- * so this is intentionally NOT wired into the default `npm run
- * validate` / build gate.
+ * reject HEAD) and classified as OK / REDIRECT / SOFT_OK /
+ * CLIENT_ERROR / SERVER_ERROR / NETWORK_ERROR. The script prints a
+ * markdown report and exits 0 in advisory mode (the default), or
+ * non-zero with `--strict`. Per CLAUDE.md, SEA pages drift on their
+ * own schedule, so this is intentionally NOT wired into the default
+ * `npm run validate` / build gate.
+ *
+ * Bot-blocked URLs (a host that rejects automated requests with
+ * 401/403/405/429) are not genuine breakage, but they are also not
+ * confirmed live — so they are surfaced as `needs-review` for a human
+ * to check. Once a reviewer accepts a URL it is added to
+ * `src/data/link-whitelist.json`; a whitelisted URL is reclassified as
+ * `accepted` (any non-2xx result is trusted as a false positive) and
+ * no longer flagged. A whitelisted URL that returns 2xx simply shows
+ * as `ok`. Non-whitelisted hard errors (4xx other than the bot-block
+ * set, 5xx, network) remain `broken`.
  *
  * Usage:
  *   npm run check:links              # advisory, exits 0 on broken links
@@ -25,9 +35,22 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { classify, applyWhitelist, type LinkClassification } from "../src/lib/link-classify";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
+const WHITELIST_PATH = resolve(__dirname, "../src/data/link-whitelist.json");
+
+/** URLs a human has reviewed and accepted as live despite a bot block. */
+function loadWhitelist(): Set<string> {
+  try {
+    const parsed = JSON.parse(readFileSync(WHITELIST_PATH, "utf8")) as Record<string, unknown>;
+    return new Set(Object.keys(parsed));
+  } catch {
+    return new Set();
+  }
+}
+const whitelist = loadWhitelist();
 
 const TIMEOUT_MS = 20_000;
 const CONCURRENCY = 8;
@@ -38,11 +61,6 @@ const GET_ONLY_HOSTS = new Set<string>([
   "supreme.justia.com",
   "law.justia.com",
 ]);
-// Status codes we treat as success even though they're not 2xx.
-// 403/429 are common from anti-bot SEAs but the page exists.
-// 405 means the host rejected the method; we'll have already retried as GET.
-const SOFT_OK = new Set([301, 302, 307, 308, 401, 403, 405, 429]);
-
 interface CitedUrl {
   url: string;
   citation: string; // "AK / sources[2]" / "CA / history[5].sourceUrls[0]"
@@ -52,13 +70,7 @@ interface LinkResult {
   url: string;
   citations: string[];
   status: number | null;
-  classification:
-    | "ok"
-    | "redirect"
-    | "soft-ok"
-    | "client-error"
-    | "server-error"
-    | "network-error";
+  classification: LinkClassification;
   message?: string;
 }
 
@@ -104,16 +116,6 @@ for (const c of cited) {
   const list = byUrl.get(c.url) ?? [];
   list.push(c.citation);
   byUrl.set(c.url, list);
-}
-
-function classify(status: number | null): LinkResult["classification"] {
-  if (status === null) return "network-error";
-  if (status >= 200 && status < 300) return "ok";
-  if (status >= 300 && status < 400) return "redirect";
-  if (SOFT_OK.has(status)) return "soft-ok";
-  if (status >= 400 && status < 500) return "client-error";
-  if (status >= 500) return "server-error";
-  return "network-error";
 }
 
 async function fetchOne(
@@ -202,7 +204,7 @@ const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise
     url,
     citations: byUrl.get(url) ?? [],
     status: r.status,
-    classification: classify(r.status),
+    classification: applyWhitelist(url, classify(r.status), whitelist),
     message: r.message,
   };
 });
@@ -211,6 +213,8 @@ const buckets = {
   ok: 0,
   redirect: 0,
   "soft-ok": 0,
+  accepted: 0,
+  "needs-review": 0,
   "client-error": 0,
   "server-error": 0,
   "network-error": 0,
@@ -224,6 +228,8 @@ const broken = results.filter(
   (r) => r.classification === "client-error" || r.classification === "server-error" || r.classification === "network-error",
 );
 
+const needsReview = results.filter((r) => r.classification === "needs-review");
+
 if (asJson) {
   process.stdout.write(JSON.stringify({ buckets, results }, null, 2) + "\n");
 } else {
@@ -231,10 +237,26 @@ if (asJson) {
   process.stdout.write(`Total unique URLs: ${urls.length}\n`);
   process.stdout.write(`- OK (2xx): ${buckets.ok}\n`);
   process.stdout.write(`- Redirect (3xx, followed): ${buckets.redirect}\n`);
-  process.stdout.write(`- Soft-OK (401/403/405/429): ${buckets["soft-ok"]}\n`);
+  process.stdout.write(`- Accepted (whitelisted bot-blocks): ${buckets.accepted}\n`);
+  process.stdout.write(`- Needs review (bot-blocked, not yet accepted): ${buckets["needs-review"]}\n`);
   process.stdout.write(`- Client error (4xx): ${buckets["client-error"]}\n`);
   process.stdout.write(`- Server error (5xx): ${buckets["server-error"]}\n`);
   process.stdout.write(`- Network error: ${buckets["network-error"]}\n\n`);
+
+  if (needsReview.length > 0) {
+    process.stdout.write(`## Needs human review — blocked for bots (${needsReview.length})\n\n`);
+    process.stdout.write(
+      `A human should open each URL; if it is live, accept it by adding it to ` +
+        `\`src/data/link-whitelist.json\`.\n\n`,
+    );
+    for (const r of needsReview) {
+      process.stdout.write(`- **${r.status}** — ${r.url}\n`);
+      for (const c of r.citations) {
+        process.stdout.write(`    - ${c}\n`);
+      }
+    }
+    process.stdout.write(`\n`);
+  }
 
   if (broken.length > 0) {
     process.stdout.write(`## Broken (${broken.length})\n\n`);

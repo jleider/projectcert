@@ -11,5 +11,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "node_modules"]
+  "comment:exclude": "functions/ is typechecked by functions/tsconfig.json under @cloudflare/workers-types. The API integration test imports those modules, so it must be excluded here too — otherwise import resolution pulls Workers-typed code into this DOM/Node program. It is typechecked at runtime by Vitest and linted by ESLint.",
+  "exclude": ["dist", "node_modules", "functions", "tests/audit-api.integration.test.ts"]
 }

@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import AuditLayout from "@/layouts/AuditLayout.astro";
+import AuditReviewer from "@/components/AuditReviewer.svelte";
+import { datapointsFor } from "@/lib/verification-datapoints";
+import { stateUrl } from "@/lib/state-types";
+import { ROUTES } from "@/lib/routes";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("states");
+  return entries.map((entry) => ({
+    params: { usps: entry.data.usps.toLowerCase() },
+    props: { state: entry.data },
+  }));
+}
+
+const { state } = Astro.props;
+const datapoints = datapointsFor(state);
+const publicUrl = stateUrl(state.usps);
+---
+
+<AuditLayout title={`Review ${state.name}`}>
+  <nav class="text-sm text-ink-muted">
+    <a href={ROUTES.audit} class="hover:text-accent">All states</a>
+    <span aria-hidden="true"> / </span>
+    <span class="text-ink">{state.name}</span>
+  </nav>
+
+  <h1 class="mt-2 text-2xl font-bold text-ink">Review: {state.name}</h1>
+  <p class="mt-2 text-sm text-ink-muted max-w-3xl">
+    Confirm each datapoint against current State Education Agency sources. A
+    single confirmation marks a datapoint reviewed for the whole team. Where a
+    value is wrong, leave a suggested correction instead of confirming.
+    <a class="text-accent hover:underline" href={publicUrl}>View the public page for {state.name}</a>.
+  </p>
+
+  <AuditReviewer client:load usps={state.usps} stateName={state.name} datapoints={datapoints} />
+</AuditLayout>
