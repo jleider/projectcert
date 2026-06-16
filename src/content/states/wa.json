@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Washington Office of Superintendent of Public Instruction (legacy domain; superseded by ospi.k12.wa.us)",
-      "url": "https://www.k12.wa.us",
+      "url": "https://ospi.k12.wa.us/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },

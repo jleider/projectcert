@@ -44,7 +44,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2020,
-    "sourceUrl": "https://sealofbiliteracy.org/states/"
+    "sourceUrl": "https://sealofbiliteracy.org/states"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -84,7 +84,7 @@
     },
     {
       "label": "Seal of Biliteracy — state listing for Vermont (Approved State Seal, Adoption Date 2020-12-01)",
-      "url": "https://sealofbiliteracy.org/states/",
+      "url": "https://sealofbiliteracy.org/states",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

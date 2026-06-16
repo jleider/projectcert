@@ -66,19 +66,19 @@
     },
     {
       "label": "19 TAC §89.1201 — Policy (State Plan for Educating Emergent Bilingual Students)",
-      "url": "https://tea.texas.gov/about-tea/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "19 TAC §89.1205 — Required Bilingual Education and English as a Second Language Programs",
-      "url": "https://tea.texas.gov/about-tea/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "19 TAC §89.1210 — Program Content and Design",
-      "url": "https://tea.texas.gov/about-tea/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -108,7 +108,7 @@
     },
     {
       "label": "Texas Education Agency, Enrollment in Texas Public Schools 2024-25",
-      "url": "https://tea.texas.gov/reports-and-data/school-performance/accountability-research/enroll-2024-25.pdf",
+      "url": "https://tea.texas.gov/data-reports/school-performance/accountability-research/enroll-2024-25.pdf",
       "retrievedAt": "2026-05-10",
       "retrievedBy": "projectcert-2026"
     }
@@ -262,7 +262,7 @@
       "percent": 24.3,
       "source": {
         "label": "Texas Education Agency, Enrollment in Texas Public Schools 2024-25",
-        "url": "https://tea.texas.gov/reports-and-data/school-performance/accountability-research/enroll-2024-25.pdf",
+        "url": "https://tea.texas.gov/data-reports/school-performance/accountability-research/enroll-2024-25.pdf",
         "publisher": "sea"
       },
       "note": "Texas Education Agency, PEIMS last-Friday-in-October snapshot. Reflects Emergent Bilingual (EB) classification under Texas Education Code §§29.051-29.064; SB 2066 (2021) replaced the term \"English Learner\" with \"Emergent Bilingual\" for the same student population. The figure runs approximately 4 percentage points above NCES's fall 2021 value (20.2%) and is consistent with the upward trajectory NCES recorded across 2018-2021. TEA reports EB classification (LPAC identification), not bilingual/ESL program enrollment."

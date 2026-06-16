@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Delaware Department of Education (legacy domain doe.k12.de.us; superseded by education.delaware.gov)",
-      "url": "https://www.doe.k12.de.us",
+      "url": "https://education.delaware.gov/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },

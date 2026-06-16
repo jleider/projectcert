@@ -35,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2017,
-    "sourceUrl": "https://dese.mo.gov/college-career-readiness/curriculum/english-language-development/missouri-seal-biliteracy"
+    "sourceUrl": "https://dese.mo.gov/college-career-readiness/curriculum/missouri-seal-biliteracy"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -69,7 +69,7 @@
     },
     {
       "label": "DESE — Missouri Seal of Biliteracy",
-      "url": "https://dese.mo.gov/college-career-readiness/curriculum/english-language-development/missouri-seal-biliteracy",
+      "url": "https://dese.mo.gov/college-career-readiness/curriculum/missouri-seal-biliteracy",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -93,7 +93,7 @@
     },
     {
       "label": "Seal of Biliteracy adoption-by-year list (sealofbiliteracy.org / Wikipedia mirror); confirms Missouri among 2017 adopters",
-      "url": "https://sealofbiliteracy.org/states/",
+      "url": "https://sealofbiliteracy.org/states",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     }

@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Louisiana Department of Education (legacy domain louisianabelieves.com; superseded by doe.louisiana.gov in 2025)",
-      "url": "https://www.louisianabelieves.com",
+      "url": "https://doe.louisiana.gov/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -114,7 +114,7 @@
     },
     {
       "label": "Seal of Biliteracy — Louisiana state profile (adopted 2014-05-16).",
-      "url": "https://sealofbiliteracy.org/state/la/",
+      "url": "https://sealofbiliteracy.org/state/la",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -141,7 +141,7 @@
       "title": "Louisiana adopts State Seal of Biliteracy",
       "description": "Louisiana adopted the State Seal of Biliteracy on 2014-05-16, recognizing high-school graduates proficient in English plus one or more world languages. LDOE administers the program with district-level participation.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/la/"
+        "https://sealofbiliteracy.org/state/la"
       ]
     },
     {

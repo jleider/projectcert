@@ -53,7 +53,7 @@
   "sources": [
     {
       "label": "North Carolina Public Schools (legacy domain ncpublicschools.org; superseded by dpi.nc.gov)",
-      "url": "http://www.ncpublicschools.org",
+      "url": "https://www.dpi.nc.gov/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -95,7 +95,7 @@
     },
     {
       "label": "NCDPI — English Language Development (2020 K-12 ELD Standard Course of Study)",
-      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/standard-course-study/english-language-development",
+      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/office-teaching-and-learning/standard-course-study/english-language-development",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -125,7 +125,7 @@
     },
     {
       "label": "WIDA Consortium — member states (NC listed; ACCESS for ELLs is the ELP assessment)",
-      "url": "https://wida.wisc.edu/memberships/consortium",
+      "url": "https://wida.wisc.edu/about/consortium",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },

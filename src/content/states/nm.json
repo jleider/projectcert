@@ -53,8 +53,8 @@
   },
   "sources": [
     {
-      "label": "New Mexico Public Education Department (legacy domain webnew.ped.state.nm.us; superseded by web.ped.nm.gov)",
-      "url": "https://webnew.ped.state.nm.us",
+      "label": "New Mexico Public Education Department (cited domain webnew.ped.state.nm.us superseded; current domain is web.ped.nm.gov)",
+      "url": "https://web.ped.nm.gov",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },

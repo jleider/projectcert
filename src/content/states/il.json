@@ -43,7 +43,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2013,
-    "sourceUrl": "https://sealofbiliteracy.org/state/il/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/il"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -95,7 +95,7 @@
     },
     {
       "label": "Seal of Biliteracy — Illinois (sealofbiliteracy.org)",
-      "url": "https://sealofbiliteracy.org/state/il/",
+      "url": "https://sealofbiliteracy.org/state/il",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -128,7 +128,7 @@
       "title": "Illinois adopts State Seal of Biliteracy (PA 098-0560)",
       "description": "Illinois became one of the first states to authorize a State Seal of Biliteracy on high-school diplomas, certifying graduates' proficiency in English and one or more world languages. ISBE administers the program with district-level participation; the affordance is now embedded in graduation pathways and feeds into the Bilingual/ESL teacher pipeline.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/il/"
+        "https://sealofbiliteracy.org/state/il"
       ]
     },
     {

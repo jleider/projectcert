@@ -37,7 +37,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2021,
-    "sourceUrl": "https://sealofbiliteracy.org/state/wv/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/wv"
   },
   "elpAssessment": {
     "name": "ELPA21",
@@ -83,7 +83,7 @@
     },
     {
       "label": "Seal of Biliteracy — West Virginia state page (adopted 2021-03-18)",
-      "url": "https://sealofbiliteracy.org/state/wv/",
+      "url": "https://sealofbiliteracy.org/state/wv",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -110,7 +110,7 @@
       "title": "West Virginia adopts the Seal of Biliteracy",
       "description": "Per the national Seal of Biliteracy state tracker, West Virginia adopted the Seal of Biliteracy on 2021-03-18, recognizing high school graduates who attain proficiency in English and one or more additional languages. Prior to this verification the record had `adopted: false` based on a now-stale Wikipedia table; the SoB national page confirms WV adoption.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/wv/"
+        "https://sealofbiliteracy.org/state/wv"
       ]
     },
     {

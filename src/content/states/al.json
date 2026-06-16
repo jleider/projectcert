@@ -46,8 +46,8 @@
   },
   "sources": [
     {
-      "label": "Alabama State Dept. of Education (legacy domain alsde.edu, retired 2022; superseded by alabamaachieves.org)",
-      "url": "https://www.alsde.edu",
+      "label": "Alabama State Dept. of Education (cited domain alsde.edu retired 2022; current domain is alabamaachieves.org)",
+      "url": "https://www.alabamaachieves.org",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -116,7 +116,7 @@
       "title": "Class A ESOL rule (290-3-3-.43) revision effective",
       "description": "Most recent revision of Alabama Admin. Code Rule 290-3-3-.43 (English for Speakers of Other Languages, P-12) adopted 2021-08-12 and effective 2021-10-15, codifying the Class A approved-program pathway with 300-clock-hour internship under an ESOL-certified cooperating teacher and the AECAP Praxis ESL subject test as the sole route to the ESOL Professional Educator Certificate.",
       "sourceUrls": [
-        "https://www.alsde.edu/sec/tcert/Resources/EDUCATOR-PREP-Chapter%20290-3-3.pdf"
+        "https://www.alabamaachieves.org/wp-content/uploads/2021/08/2021-Educator-Preparation-Chapter-adopted-08-12-2021.pdf"
       ]
     },
     {

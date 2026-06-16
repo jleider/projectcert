@@ -35,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2024,
-    "sourceUrl": "https://sealofbiliteracy.org/state/sd/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/sd"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -63,7 +63,7 @@
     },
     {
       "label": "Seal of Biliteracy — South Dakota",
-      "url": "https://sealofbiliteracy.org/state/sd/",
+      "url": "https://sealofbiliteracy.org/state/sd",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -96,7 +96,7 @@
       "title": "Silver and Gold Seal of Biliteracy program launched",
       "description": "South Dakota implemented the Silver and Gold State Seal of Biliteracy in 2024 — among the most recent statewide adoptions, with two performance levels (Silver intermediate, Gold advanced).",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/sd/"
+        "https://sealofbiliteracy.org/state/sd"
       ]
     }
   ],

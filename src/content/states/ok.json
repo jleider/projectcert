@@ -42,12 +42,12 @@
   "elpAssessment": {
     "name": "ACCESS for ELLs",
     "consortium": "WIDA",
-    "sourceUrl": "https://wida.wisc.edu/memberships/consortium/ok"
+    "sourceUrl": "https://wida.wisc.edu/about/consortium/ok"
   },
   "sources": [
     {
       "label": "Oklahoma State Dept. of Education",
-      "url": "https://sde.ok.gov",
+      "url": "https://oklahoma.gov/education.html",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
