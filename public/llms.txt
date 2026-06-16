@@ -18,8 +18,6 @@ record:
   add-on)
 - Whether **SEI training is mandated for all teachers** (rare —
   AZ, CA, MA, with NV phasing in)
-- Whether the state's **professional teaching standards** explicitly
-  reference ELs / linguistic / cultural / diverse populations
 - The state's **classified EL population** (% of public school
   students, NCES Table 204.20)
 - Whether the state has adopted the **Seal of Biliteracy** and which
@@ -47,7 +45,7 @@ The seed data is:
 
 - [Home / interactive map](https://projectcert.org/): national
   thematic map, switchable across six layers (% EL, bilingual, ELD,
-  SEI, standards, ELP assessment)
+  SEI, Seal of Biliteracy, ELP assessment)
 - [Methodology](https://projectcert.org/methodology/): how data is
   collected, normalized, and re-verified
 - [Glossary](https://projectcert.org/glossary/): canonical terminology

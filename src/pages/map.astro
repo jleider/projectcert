@@ -19,7 +19,7 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
 
 <BaseLayout
   title="Map — full-screen exploration"
-  description="Interactive U.S. map across seven layers: classified-EL share, bilingual credential, ELD credential, SEI mandate, standards mention of ELs, Seal of Biliteracy, and ELP assessment."
+  description="Interactive U.S. map across six layers: classified-EL share, bilingual credential, ELD credential, SEI mandate, Seal of Biliteracy, and ELP assessment."
 >
   <section class="max-w-6xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">Map</h1>
@@ -49,8 +49,8 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
         <table class="w-full text-sm">
           <caption class="sr-only">
             U.S. state EL teacher certification data: % classified ELs,
-            bilingual credential, ELD credential, SEI mandate, standards
-            mention of ELs, Seal of Biliteracy, and ELP assessment used.
+            bilingual credential, ELD credential, SEI mandate, Seal of
+            Biliteracy, and ELP assessment used.
           </caption>
           <thead class="bg-surface-raised text-ink text-left">
             <tr>
@@ -59,7 +59,6 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
               <th scope="col" class="px-3 py-2 font-semibold" data-col="bilingual">Bilingual</th>
               <th scope="col" class="px-3 py-2 font-semibold" data-col="eld">ELD</th>
               <th scope="col" class="px-3 py-2 font-semibold" data-col="sei">SEI mandate</th>
-              <th scope="col" class="px-3 py-2 font-semibold" data-col="standardsMentionsEl">Standards mention ELs</th>
               <th scope="col" class="px-3 py-2 font-semibold" data-col="sealOfBiliteracy">Seal of Biliteracy</th>
               <th scope="col" class="px-3 py-2 font-semibold" data-col="elpAssessment">ELP assessment</th>
             </tr>
@@ -74,7 +73,6 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
                 <td class="px-3 py-2" data-col="bilingual">{credCell(s.bilingual)}</td>
                 <td class="px-3 py-2" data-col="eld">{credCell(s.eld)}</td>
                 <td class="px-3 py-2" data-col="sei">{s.seiMandated ? "Mandated" : "—"}</td>
-                <td class="px-3 py-2" data-col="standardsMentionsEl">{s.standardsMentionsEl ? "Yes" : "—"}</td>
                 <td class="px-3 py-2 whitespace-nowrap" data-col="sealOfBiliteracy">
                   {s.sealOfBiliteracy.adopted === true
                     ? (s.sealOfBiliteracy.year ? `Adopted (${s.sealOfBiliteracy.year})` : "Adopted")

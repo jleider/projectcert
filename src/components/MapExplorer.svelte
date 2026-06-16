@@ -54,7 +54,6 @@
     { value: "bilingual", label: "Bilingual credential" },
     { value: "eld", label: "ELD credential" },
     { value: "sei", label: "SEI mandate" },
-    { value: "standardsMentionsEl", label: "Standards mention ELs" },
     { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
     { value: "elpAssessment", label: "ELP assessment" },
   ];
@@ -76,10 +75,6 @@
     sei: [
       { color: "var(--sei-0)", label: "Not mandated" },
       { color: "var(--sei-3)", label: "Mandated for all teachers" },
-    ],
-    standardsMentionsEl: [
-      { color: "var(--standards-0)", label: "ELs not mentioned" },
-      { color: "var(--standards-3)", label: "ELs mentioned" },
     ],
     sealOfBiliteracy: [
       { color: "var(--seal-3)", label: "Adopted" },

@@ -21,7 +21,6 @@ export const ROUTES = {
   about: "/about/",
   methodology: "/methodology/",
   glossary: "/glossary/",
-  standards: "/standards/",
   verification: "/verification/",
   embed: "/embed/",
   embedMap: "/embed/map/",

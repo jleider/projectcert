@@ -6,7 +6,6 @@
     bilingual: { offered: boolean; standalone: boolean; addOn: boolean; requirements: Record<string, boolean | null> | undefined };
     eld: { offered: boolean; standalone: boolean; addOn: boolean; requirements: Record<string, boolean | null> | undefined };
     seiMandated: boolean;
-    standards: { diverse: boolean; cultural: boolean; linguistic: boolean; el: boolean };
   }
 
   export let states: CompareState[];
@@ -163,37 +162,6 @@
           explain:
             "State requires SEI training of every classroom teacher, not only those with an EL specialty.",
           get: (s) => s.seiMandated,
-          kind: "bool",
-        },
-      ],
-    },
-    {
-      title: "Professional teaching standards — EL references",
-      explain:
-        "Whether the state's professional teaching standards document explicitly references each category. Gives a sense of how mainstream-teacher accountability for EL learners is framed.",
-      rows: [
-        {
-          label: "References diverse / all students",
-          explain: "Standards document uses words like diverse, diversity, all, each, or every student.",
-          get: (s) => s.standards.diverse,
-          kind: "bool",
-        },
-        {
-          label: "References culture or cultural",
-          explain: "Standards document uses culture or cultural in an instructional sense.",
-          get: (s) => s.standards.cultural,
-          kind: "bool",
-        },
-        {
-          label: "References language or linguistic",
-          explain: "Standards document uses language or linguistic (excluding 'academic language').",
-          get: (s) => s.standards.linguistic,
-          kind: "bool",
-        },
-        {
-          label: "Explicitly references ELs / English language",
-          explain: "Standards document names ELs (or ELL/ESL/LEP) or English language explicitly.",
-          get: (s) => s.standards.el,
           kind: "bool",
         },
       ],

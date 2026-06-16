@@ -6,7 +6,7 @@
 > records — what you read here matches what users see on the live
 > per-state pages.
 
-Snapshot generated: 2026-05-11
+Snapshot generated: 2026-06-16
 States verified against current SEA sources: 51 / 51
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279
@@ -19,10 +19,6 @@ Canonical site: https://projectcert.org/
   certification) flags.
 - **sei.mandatedForAllTeachers** is rare — historically AZ, CA, MA;
   NV phasing in. Default state is false.
-- **professionalStandardsMentions** asks whether the SEA's professional
-  teaching standards document explicitly references each of: diverse
-  populations, cultural responsiveness, linguistic considerations,
-  English learners specifically.
 - **elpAssessment.consortium** is one of "WIDA", "ELPA21", or null
   (state-specific assessment such as TELPAS, ELPAC, AZELLA, LAS
   Links, ELPT).
@@ -45,7 +41,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Alabama does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 4.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2022.
 
@@ -82,7 +77,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Alaska offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 10.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2022.
 
@@ -121,7 +115,6 @@ Last verified: 2026-05-07 (verified-2026)
 
 Arizona offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is mandated for all teachers. As of 2021, 8.2% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses AZELLA (state-specific assessment).
 - Seal of Biliteracy adopted in 2016.
 
@@ -161,7 +154,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Arkansas does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2018.
 
@@ -198,7 +190,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 California offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is mandated for all teachers. As of 2024, 17.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ELPAC (state-specific assessment).
 - Seal of Biliteracy adopted in 2011.
 
@@ -244,7 +235,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Colorado offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 13.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2017.
 
@@ -284,7 +274,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Connecticut offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 11.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, el.
 - Uses LAS Links Online (state-specific assessment).
 - Seal of Biliteracy adopted in 2017.
 
@@ -322,7 +311,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Delaware offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 13.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2017.
 
@@ -359,7 +347,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 District of Columbia offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 14.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2014.
 
@@ -396,7 +383,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Florida does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -433,7 +419,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Georgia does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 7.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -464,7 +449,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Hawaii offers a standalone Bilingual Education certification; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 10.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -500,7 +484,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Idaho offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2020.
 
@@ -537,7 +520,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Illinois offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 16.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2013.
 
@@ -573,7 +555,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Indiana does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 7.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -610,7 +591,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Iowa does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 7.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2018.
 
@@ -643,7 +623,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Kansas does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 8.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -681,7 +660,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Kentucky does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 8.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2021.
 
@@ -713,7 +691,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Louisiana offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 5.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
 - Uses ELPT (state-specific assessment).
 - Seal of Biliteracy adopted in 2014.
 
@@ -752,7 +729,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Maine does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2018.
 
@@ -787,7 +763,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Maryland does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 12.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -821,7 +796,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Massachusetts offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is mandated for all teachers. As of 2023, 13.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2017.
 
@@ -860,7 +834,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Michigan offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 6.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2018.
 
@@ -898,7 +871,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Minnesota offers Bilingual Education as an add-on endorsement; ELD/ESL is a standalone teaching license. SEI training is not mandated for all teachers. As of 2023, 9.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2014.
 
@@ -937,7 +909,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Mississippi does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2019.
 
@@ -973,7 +944,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Missouri does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2017.
 
@@ -1006,7 +976,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Montana does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2021.
 
@@ -1043,7 +1012,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Nebraska offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 7.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2020.
 
@@ -1078,7 +1046,6 @@ Last verified: 2026-05-07 (verified-2026)
 
 Nevada offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 13.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -1115,7 +1082,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 New Hampshire does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2020.
 
@@ -1151,7 +1117,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 New Jersey offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 10.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -1188,7 +1153,6 @@ Last verified: 2026-05-07 (verified-2026)
 
 New Mexico offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 18.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-07.
 
-- Professional teaching standards explicitly reference: diverse, cultural.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2014.
 
@@ -1226,7 +1190,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 New York offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 10.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses NYSESLAT (state-specific assessment).
 - Seal of Biliteracy adopted in 2013.
 
@@ -1265,7 +1228,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 North Carolina offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 11.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -1300,7 +1262,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 North Dakota offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 3.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2019.
 
@@ -1333,7 +1294,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Ohio offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 4.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses OELPA (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2017.
 
@@ -1369,7 +1329,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Oklahoma does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2020.
 
@@ -1404,7 +1363,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Oregon offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 12.6% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -1441,7 +1399,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Pennsylvania does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2022, 5.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2022.
 
@@ -1478,7 +1435,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Rhode Island offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 13.5% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2016.
 
@@ -1515,7 +1471,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 South Carolina offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: cultural.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2018.
 
@@ -1550,7 +1505,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 South Dakota does not offer a bilingual education credential; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2023, 3.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2024.
 
@@ -1582,7 +1536,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Tennessee does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2018.
 
@@ -1615,7 +1568,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Texas offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 24.3% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses TELPAS (state-specific assessment).
 - Seal of Biliteracy adopted in 2013.
 
@@ -1654,7 +1606,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Utah offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 8.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -1688,7 +1639,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Vermont offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.0% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2020.
 
@@ -1724,7 +1674,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Virginia offers Bilingual Education both as a standalone certification and as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 9.4% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -1757,7 +1706,6 @@ Last verified: 2026-05-10 (verified-2026)
 
 Washington offers Bilingual Education as an add-on endorsement; ELD/ESL is an add-on endorsement. SEI training is not mandated for all teachers. As of 2024, 15.1% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-10.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2014.
 
@@ -1793,7 +1741,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 West Virginia does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 0.8% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.
 - Uses ELPA21 (ELPA21 consortium member).
 - Seal of Biliteracy adopted in 2021.
 
@@ -1831,7 +1778,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Wisconsin offers Bilingual Education as an add-on endorsement; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 5.9% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2015.
 
@@ -1869,7 +1815,6 @@ Last verified: 2026-05-08 (verified-2026)
 
 Wyoming does not offer a bilingual education credential; ELD/ESL is available both as a standalone license and as an add-on endorsement. SEI training is not mandated for all teachers. As of 2021, 2.7% of public-school students are classified English Learners (NCES). Re-verified against current SEA sources on 2026-05-08.
 
-- Professional teaching standards explicitly reference: diverse, cultural, linguistic, el.
 - Uses ACCESS for ELLs (WIDA Consortium member).
 - Seal of Biliteracy adopted in 2022.
 

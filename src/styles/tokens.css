@@ -56,10 +56,6 @@
   --sei-0: #dbeef1;
   --sei-3: #0e5a64;
 
-  /* Standards mention — rose (binary, ≥3:1) */
-  --standards-0: #f5dde2;
-  --standards-3: #821f37;
-
   /* Seal of Biliteracy — indigo (binary + unverified-as-na, ≥3:1) */
   --seal-0: #dde3f5;
   --seal-3: #1f2c80;
@@ -188,10 +184,6 @@
     /* SEI — teal (binary) */
     --sei-0: #4a7178;
     --sei-3: #5fc3cf;
-
-    /* Standards — rose (binary) */
-    --standards-0: #784651;
-    --standards-3: #e08099;
 
     /* Seal of Biliteracy — indigo */
     --seal-0: #4d5876;

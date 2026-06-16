@@ -21,7 +21,6 @@
    * - elPercent: sequential by % EL (default)
    * - bilingual / eld: categorical (none / add-on only / standalone)
    * - sei: binary (mandated / not)
-   * - standardsMentionsEl: binary
    */
   export let layer: Layer = "elPercent";
 
@@ -81,9 +80,6 @@
     if (l === "sei") {
       return datum.seiMandated ? "var(--sei-3)" : "var(--sei-0)";
     }
-    if (l === "standardsMentionsEl") {
-      return datum.standardsMentionsEl ? "var(--standards-3)" : "var(--standards-0)";
-    }
     if (l === "sealOfBiliteracy") {
       return datum.sealOfBiliteracy.adopted ? "var(--seal-3)" : "var(--seal-0)";
     }
@@ -116,10 +112,6 @@
       return datum.seiMandated
         ? "SEI endorsement mandated for all teachers"
         : "SEI not mandated for all teachers";
-    if (l === "standardsMentionsEl")
-      return datum.standardsMentionsEl
-        ? "Professional teaching standards mention ELs"
-        : "Professional teaching standards do not mention ELs";
     if (l === "sealOfBiliteracy") {
       const seal = datum.sealOfBiliteracy;
       if (!seal.adopted) return "Seal of Biliteracy not adopted";

@@ -67,8 +67,6 @@ const tokens = {
   eld3: extractToken(css, "eld-3"),
   sei0: extractToken(css, "sei-0"),
   sei3: extractToken(css, "sei-3"),
-  standards0: extractToken(css, "standards-0"),
-  standards3: extractToken(css, "standards-3"),
   seal0: extractToken(css, "seal-0"),
   seal3: extractToken(css, "seal-3"),
   elp0: extractToken(css, "elp-0"),
@@ -126,7 +124,6 @@ const adjacencyChecks: { layer: string; pair: [string, string]; min: number; inf
   { layer: "eld none↔add-on", pair: [tokens.eld0, tokens.eld2], min: 3 },
   { layer: "eld add-on↔standalone", pair: [tokens.eld2, tokens.eld3], min: 3 },
   { layer: "sei not-mandated↔mandated", pair: [tokens.sei0, tokens.sei3], min: 3 },
-  { layer: "standards absent↔present", pair: [tokens.standards0, tokens.standards3], min: 3 },
   { layer: "seal not-adopted↔adopted", pair: [tokens.seal0, tokens.seal3], min: 3 },
   { layer: "elp state-specific↔ELPA21", pair: [tokens.elp0, tokens.elp2], min: 3 },
   // Same justification as bilingual: lime hue at level-3 darker than

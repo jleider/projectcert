@@ -30,7 +30,6 @@ interface State {
     eld: { offered: boolean; standalone: boolean; addOn: boolean; notes?: string };
     sei: { mandatedForAllTeachers: boolean; notes?: string };
   };
-  professionalStandardsMentions: { diverse: boolean; cultural: boolean; linguistic: boolean; el: boolean };
   sealOfBiliteracy: { adopted: boolean | null; year: number | null };
   elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null };
   lastVerified: string;
@@ -61,13 +60,6 @@ function seiClause(s: State): string {
   return s.credentials.sei.mandatedForAllTeachers
     ? "SEI training is mandated for all teachers"
     : "SEI training is not mandated for all teachers";
-}
-
-function standardsClause(s: State): string {
-  const m = s.professionalStandardsMentions;
-  const flagged = Object.entries(m).filter(([, v]) => v).map(([k]) => k);
-  if (flagged.length === 0) return "Professional teaching standards do not explicitly reference any of: diverse, cultural, linguistic, or English learner.";
-  return `Professional teaching standards explicitly reference: ${flagged.join(", ")}.`;
 }
 
 function elpClause(s: State): string {
@@ -113,7 +105,6 @@ function renderState(s: State): string {
     `${s.name} ${bilingualClause(s)}; ${eldClause(s)}. ${seiClause(s)}. As of ${s.elPercentAsOf.slice(0, 4)}, ${s.elPercent.toFixed(1)}% of public-school students are classified English Learners (NCES). ${verificationClause(s)}`,
   );
   lines.push("");
-  lines.push(`- ${standardsClause(s)}`);
   lines.push(`- ${elpClause(s)}`);
   lines.push(`- ${sealClause(s)}`);
 
@@ -180,10 +171,6 @@ Canonical site: ${SITE_URL}/
   certification) flags.
 - **sei.mandatedForAllTeachers** is rare — historically AZ, CA, MA;
   NV phasing in. Default state is false.
-- **professionalStandardsMentions** asks whether the SEA's professional
-  teaching standards document explicitly references each of: diverse
-  populations, cultural responsiveness, linguistic considerations,
-  English learners specifically.
 - **elpAssessment.consortium** is one of "WIDA", "ELPA21", or null
   (state-specific assessment such as TELPAS, ELPAC, AZELLA, LAS
   Links, ELPT).

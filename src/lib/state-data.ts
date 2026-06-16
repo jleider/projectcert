@@ -62,7 +62,6 @@ export async function getChoroplethData(): Promise<ChoroplethDatum[]> {
       addOn: s.credentials.eld.addOn,
     },
     seiMandated: s.credentials.sei.mandatedForAllTeachers,
-    standardsMentionsEl: s.professionalStandardsMentions.el,
     sealOfBiliteracy: s.sealOfBiliteracy,
     elpAssessment: s.elpAssessment,
   }));

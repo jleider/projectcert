@@ -17,7 +17,6 @@ const meanEl = totalEls / states.length;
 const bilingualOffered = states.filter((s) => s.credentials.bilingual.offered).length;
 const eldStandalone = states.filter((s) => s.credentials.eld.standalone).length;
 const seiMandated = states.filter((s) => s.credentials.sei.mandatedForAllTeachers).length;
-const standardsMentionEl = states.filter((s) => s.professionalStandardsMentions.el).length;
 
 /** Build a typed `/map/?layer=…` URL. Compile-time check ensures the
  * layer key is one the map page actually accepts. */
@@ -77,7 +76,7 @@ const homeJsonLd = {
       A 51-jurisdiction atlas of teacher certification requirements for instructing classified English Learners.
     </h1>
     <p class="mt-4 text-lg text-ink-muted max-w-3xl">
-      State education agencies (SEAs) implement identical federal civil-rights protections through divergent credentialing regimes. This catalog records the resulting variation: which credentials each SEA offers, the requirements attached to those credentials, and whether the state's professional teaching standards explicitly reference English Learners.
+      State education agencies (SEAs) implement identical federal civil-rights protections through divergent credentialing regimes. This catalog records the resulting variation: which credentials each SEA offers and the requirements attached to those credentials.
     </p>
     <p class="mt-3">
       <a
@@ -96,7 +95,7 @@ const homeJsonLd = {
       </p>
     </div>
 
-    <ul class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" aria-label="Key statistics">
+    <ul class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4" aria-label="Key statistics">
       <li>
         <a
           href={mapLayerUrl("bilingual")}
@@ -124,21 +123,12 @@ const homeJsonLd = {
           <div class="text-sm text-ink-muted">mandate SEI training for all teachers</div>
         </a>
       </li>
-      <li>
-        <a
-          href={mapLayerUrl("standardsMentionsEl")}
-          class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
-        >
-          <div class="text-2xl font-bold text-ink">{standardsMentionEl}<span class="text-ink-subtle">/51</span></div>
-          <div class="text-sm text-ink-muted">teaching standards explicitly reference ELs</div>
-        </a>
-      </li>
     </ul>
 
     <nav class="mt-10 grid sm:grid-cols-3 gap-4" aria-label="Explore">
       <a href={ROUTES.map} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
         <h2 class="font-semibold text-ink">Interactive map</h2>
-        <p class="text-sm text-ink-muted mt-1">Color-coded map across seven layers: EL population, bilingual, ELD, SEI, standards, Seal of Biliteracy, and ELP assessment.</p>
+        <p class="text-sm text-ink-muted mt-1">Color-coded map across six layers: EL population, bilingual, ELD, SEI, Seal of Biliteracy, and ELP assessment.</p>
       </a>
       <a href={ROUTES.credentials.bilingual} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
         <h2 class="font-semibold text-ink">Credential reports</h2>
@@ -157,7 +147,7 @@ const homeJsonLd = {
     <section class="mt-12" aria-labelledby="all-states-heading">
       <h2 id="all-states-heading" class="text-xl font-semibold text-ink">All 51 jurisdictions</h2>
       <p class="mt-1 text-sm text-ink-muted">
-        Each card links to the full per-state record with credentials, standards, sources, and policy timeline.
+        Each card links to the full per-state record with credentials, sources, and policy timeline.
       </p>
       <ul class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
         {states.map((s) => (
