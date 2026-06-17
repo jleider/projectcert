@@ -8,11 +8,12 @@
     GeometryObject,
   } from "topojson-specification";
   import type { Feature, FeatureCollection } from "geojson";
-  import { BINS, binFor } from "@/data/bins";
+  import { binFor } from "@/data/bins";
   import { FIPS_TO_USPS } from "@/data/states-meta";
   import { SITE_URL } from "@/config/site";
   import type { Layer, ChoroplethDatum } from "@/lib/state-types";
   import { stateUrl } from "@/lib/state-types";
+  import { legendColor, NO_DATA_COLOR } from "@/lib/legends";
 
   type StateDatum = ChoroplethDatum;
 
@@ -21,7 +22,6 @@
    * - elPercent: sequential by % EL (default)
    * - bilingual / eld: categorical (none / add-on only / standalone)
    * - sei: binary (mandated / not)
-   * - standardsMentionsEl: binary
    */
   export let layer: Layer = "elPercent";
 
@@ -63,37 +63,33 @@
 
   $: stateById = new Map(states.map((s) => [s.usps, s]));
 
-  function fillFor(datum: StateDatum | undefined, l: Layer): string {
-    if (!datum) return "var(--bin-na)";
-    if (l === "elPercent") {
-      return `var(${binFor(datum.elPercent).cssVar})`;
-    }
-    if (l === "bilingual") {
-      if (!datum.bilingual.offered) return "var(--bilingual-0)";
-      if (datum.bilingual.standalone) return "var(--bilingual-3)";
-      return "var(--bilingual-2)"; // add-on only
-    }
-    if (l === "eld") {
-      if (datum.eld.standalone) return "var(--eld-3)";
-      if (datum.eld.addOn) return "var(--eld-2)";
-      return "var(--eld-0)";
-    }
-    if (l === "sei") {
-      return datum.seiMandated ? "var(--sei-3)" : "var(--sei-0)";
-    }
-    if (l === "standardsMentionsEl") {
-      return datum.standardsMentionsEl ? "var(--standards-3)" : "var(--standards-0)";
-    }
-    if (l === "sealOfBiliteracy") {
-      return datum.sealOfBiliteracy.adopted ? "var(--seal-3)" : "var(--seal-0)";
-    }
+  // Map a datum to its legend key for the active layer; the actual
+  // color comes from the shared LEGENDS table via legendColor() so the
+  // fill always matches the legend swatch. Returns null when the layer
+  // is unknown (defensive — Layer is exhaustively handled below).
+  function legendKeyFor(datum: StateDatum, l: Layer): string | null {
+    if (l === "elPercent") return String(binFor(datum.elPercent).index);
+    if (l === "bilingual")
+      return !datum.bilingual.offered
+        ? "none"
+        : datum.bilingual.standalone
+          ? "standalone"
+          : "addOn";
+    if (l === "eld")
+      return datum.eld.standalone ? "standalone" : datum.eld.addOn ? "addOn" : "none";
+    if (l === "sei") return datum.seiMandated ? "on" : "off";
+    if (l === "sealOfBiliteracy") return datum.sealOfBiliteracy.adopted ? "on" : "off";
     if (l === "elpAssessment") {
       const c = datum.elpAssessment.consortium;
-      if (c === "WIDA") return "var(--elp-3)";
-      if (c === "ELPA21") return "var(--elp-2)";
-      return "var(--elp-0)"; // state-specific
+      return c === "WIDA" ? "wida" : c === "ELPA21" ? "elpa21" : "state";
     }
-    return "var(--bin-na)";
+    return null;
+  }
+
+  function fillFor(datum: StateDatum | undefined, l: Layer): string {
+    if (!datum) return NO_DATA_COLOR;
+    const key = legendKeyFor(datum, l);
+    return key === null ? NO_DATA_COLOR : legendColor(l, key);
   }
 
   function describe(datum: StateDatum | undefined, l: Layer): string {
@@ -116,10 +112,6 @@
       return datum.seiMandated
         ? "SEI endorsement mandated for all teachers"
         : "SEI not mandated for all teachers";
-    if (l === "standardsMentionsEl")
-      return datum.standardsMentionsEl
-        ? "Professional teaching standards mention ELs"
-        : "Professional teaching standards do not mention ELs";
     if (l === "sealOfBiliteracy") {
       const seal = datum.sealOfBiliteracy;
       if (!seal.adopted) return "Seal of Biliteracy not adopted";
