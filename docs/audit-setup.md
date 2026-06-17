@@ -107,10 +107,25 @@ Both sync workflows skip gracefully when the secrets are absent.
 full tool locally:
 
 ```sh
-npm run build
-npm run d1:migrate:local
-npx wrangler pages dev dist --d1 DB=projectcert-audit --var DEV_REVIEWER_EMAIL:you@example.com
+npm run build              # produces dist/ (Pages Functions live in functions/)
+npm run d1:migrate:local   # applies schema/d1/ to a local SQLite under .wrangler/state
+npm run dev:pages          # wrangler pages dev dist --binding DEV_REVIEWER_EMAIL=dev@local
+# → open http://localhost:8788/audit/
 ```
 
-`DEV_REVIEWER_EMAIL` bypasses JWT verification and stands in for the
-authenticated reviewer.
+The D1 binding (`DB`) and `compatibility_date` come from `wrangler.toml`,
+so they don't need command-line flags. `DEV_REVIEWER_EMAIL` (passed via
+`--binding`, *not* `--var`, which `wrangler pages dev` does not accept)
+bypasses the Access JWT check and stands in for the authenticated
+reviewer; it must never be set in production. The local D1 lives under
+`.wrangler/state` and is independent of the remote database — local
+checkmarks/suggestions stay local.
+
+To populate the `/audit/links` queue locally, run a sweep into the local
+D1:
+
+```sh
+npm run check:links -- --json > /tmp/links.json
+npx tsx scripts/sync-link-reviews.ts --input /tmp/links.json --out /tmp/lr.sql
+npx wrangler d1 execute projectcert-audit --local --file /tmp/lr.sql
+```

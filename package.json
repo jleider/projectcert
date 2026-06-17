@@ -19,7 +19,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "typecheck": "astro sync && tsc --noEmit && tsc -p functions/tsconfig.json",
-    "dev:pages": "wrangler pages dev dist --d1 DB=projectcert-audit",
+    "dev:pages": "wrangler pages dev dist --binding DEV_REVIEWER_EMAIL=dev@local",
     "d1:migrate:local": "wrangler d1 migrations apply projectcert-audit --local",
     "d1:migrate:remote": "wrangler d1 migrations apply projectcert-audit --remote"
   },
