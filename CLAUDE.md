@@ -615,9 +615,26 @@ Verifications scale by spawning one subagent per state with
 - "Approved program" vs. "test only" is the most analytically
   important distinction in ELD/bilingual requirements. Preserve it.
 
+### Source URLs and link checking
+
+Cited URLs must be canonical (the authoritative publisher) and live.
+Prefer `.gov`, then `.edu`, then the authority's own non-gov domain
+(many SEAs have no `.gov`); never a third-party mirror (Cornell LII,
+`*.elaws.us`, Wikipedia, vendor/aggregator copies). `doi.org` and
+`justia`/`oyez` are deliberately kept as-is (permanent identifier /
+endorsed for law). Run `npm run check:links` (advisory; `-- --strict`
+to gate) to find broken links (4xx/5xx/network — **401/403 count as
+broken, not soft-OK**) and redirecting links; update a redirecting URL
+to its final non-redirecting target, which the report prints. Hosts that
+block automated checks but serve the page in a browser live in
+`ALLOWLISTED_HOSTS` in `scripts/check-external-links.ts` and report as
+"allowlisted" rather than broken — do not change those URLs. See the
+`source-link-audit` skill for the full workflow, the mirror→canonical
+map, and the bulk remediation-script pattern.
+
 ## Skills
 
-Three project skills under `.claude/skills/`:
+Four project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -626,6 +643,10 @@ Three project skills under `.claude/skills/`:
 - **`state-source-refresh`** — Phase 2 verification workflow. Triggered
   by phrases like "refresh `<state>`", "verify `<state>`", "update
   `<state>` data".
+- **`source-link-audit`** — keeping cited source URLs canonical and
+  unbroken. Triggered by "check/fix the links", running `check:links`,
+  replacing a mirror with an official source, or editing
+  `scripts/check-external-links.ts`.
 
 ## Source paper
 

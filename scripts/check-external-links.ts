@@ -39,9 +39,42 @@ const GET_ONLY_HOSTS = new Set<string>([
   "law.justia.com",
 ]);
 // Status codes we treat as success even though they're not 2xx.
-// 403/429 are common from anti-bot SEAs but the page exists.
-// 405 means the host rejected the method; we'll have already retried as GET.
-const SOFT_OK = new Set([301, 302, 307, 308, 401, 403, 405, 429]);
+// 429 is rate-limiting and 405 means the host rejected the method
+// (we'll have already retried as GET); both indicate the page exists.
+// 401/403 are NOT soft-OK: an authorization wall means the cited page
+// cannot be confirmed to serve the claim, so it must surface as broken.
+// 3xx redirects are followed (redirect: "follow"); a cited URL that
+// redirects is reported separately so its canonical target can be
+// written back into the source record.
+const SOFT_OK = new Set([405, 429]);
+
+// Hosts confirmed to block automated link checks — anti-bot 401/403,
+// connection resets / TLS failures against non-browser clients, or 5xx to
+// non-browser user agents — while serving the cited pages normally in a
+// browser. A non-OK result from one of these hosts is reported as
+// "allowlisted" rather than "broken": the cited URL is the canonical page
+// and simply cannot be re-verified programmatically. Re-confirm by hand
+// if a URL on one of these hosts is ever changed.
+const ALLOWLISTED_HOSTS = new Set<string>([
+  "www.azed.gov", // Arizona DE — Cloudflare 403 to bots
+  "azsbe.az.gov", // Arizona State Board of Education — 403 to bots
+  "apps.azsos.gov", // Arizona SOS Administrative Code — 403 to bots
+  "docs.ctc.ca.gov", // CA Commission on Teacher Credentialing docs — 403
+  "gc.nh.gov", // NH General Court rules — 403 to bots
+  "hawaiiteacherstandardsboard.org", // HTSB — 403 to bots
+  "www.capitol.hawaii.gov", // Hawaii Revised Statutes — 403 to bots
+  "law.justia.com", // Justia (codes/cases, endorsed for federal law) — 403
+  "supreme.justia.com", // Justia SCOTUS — 403
+  "www.oyez.org", // Oyez (SCOTUS audio/case) — 403
+  "dese.ade.arkansas.gov", // Arkansas DESE — connection reset to bots
+  "dese-admin.ade.arkansas.gov", // Arkansas DESE file host — connection reset
+  "www.ksde.gov", // Kansas SDE — connection reset to bots
+  "www.cga.ct.gov", // Connecticut General Assembly — connection reset
+  "www.legislature.ohio.gov", // Ohio Legislature — connection reset
+  "elpa21.org", // ELPA21 consortium — TLS failure to bots
+  "www.elpa21.org", // ELPA21 consortium — TLS failure to bots
+  "wyomingptsb.com", // Wyoming PTSB — 500 to bots
+]);
 
 interface CitedUrl {
   url: string;
@@ -58,7 +91,10 @@ interface LinkResult {
     | "soft-ok"
     | "client-error"
     | "server-error"
-    | "network-error";
+    | "network-error"
+    | "allowlisted";
+  finalUrl?: string;
+  redirected?: boolean;
   message?: string;
 }
 
@@ -119,7 +155,7 @@ function classify(status: number | null): LinkResult["classification"] {
 async function fetchOne(
   url: string,
   method: "HEAD" | "GET",
-): Promise<{ status: number | null; message?: string }> {
+): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
@@ -138,7 +174,9 @@ async function fetchOne(
         "Accept-Language": "en-US,en;q=0.9",
       },
     });
-    return { status: res.status };
+    // `res.url` is the final URL after following redirects; `res.redirected`
+    // is true when at least one 3xx hop was followed.
+    return { status: res.status, finalUrl: res.url, redirected: res.redirected };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return { status: null, message };
@@ -147,7 +185,7 @@ async function fetchOne(
   }
 }
 
-async function checkWithRetry(url: string): Promise<{ status: number | null; message?: string }> {
+async function checkWithRetry(url: string): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
   let host: string;
   try {
     host = new URL(url).host;
@@ -198,11 +236,28 @@ if (!asJson) {
 
 const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise<LinkResult> => {
   const r = await checkWithRetry(url);
+  let classification = classify(r.status);
+  let host = "";
+  try {
+    host = new URL(url).host;
+  } catch {
+    /* invalid URL already classified as network-error */
+  }
+  if (
+    ALLOWLISTED_HOSTS.has(host) &&
+    (classification === "client-error" ||
+      classification === "server-error" ||
+      classification === "network-error")
+  ) {
+    classification = "allowlisted";
+  }
   return {
     url,
     citations: byUrl.get(url) ?? [],
     status: r.status,
-    classification: classify(r.status),
+    classification,
+    finalUrl: r.finalUrl,
+    redirected: r.redirected,
     message: r.message,
   };
 });
@@ -214,6 +269,7 @@ const buckets = {
   "client-error": 0,
   "server-error": 0,
   "network-error": 0,
+  allowlisted: 0,
 } satisfies Record<LinkResult["classification"], number>;
 
 for (const r of results) {
@@ -222,6 +278,12 @@ for (const r of results) {
 
 const broken = results.filter(
   (r) => r.classification === "client-error" || r.classification === "server-error" || r.classification === "network-error",
+);
+
+// Cited URLs that resolve only after following a redirect. The page works,
+// but the record should be updated to the final canonical URL.
+const redirectedResults = results.filter(
+  (r) => r.redirected === true && typeof r.finalUrl === "string" && r.finalUrl !== r.url,
 );
 
 if (asJson) {
@@ -234,7 +296,9 @@ if (asJson) {
   process.stdout.write(`- Soft-OK (401/403/405/429): ${buckets["soft-ok"]}\n`);
   process.stdout.write(`- Client error (4xx): ${buckets["client-error"]}\n`);
   process.stdout.write(`- Server error (5xx): ${buckets["server-error"]}\n`);
-  process.stdout.write(`- Network error: ${buckets["network-error"]}\n\n`);
+  process.stdout.write(`- Network error: ${buckets["network-error"]}\n`);
+  process.stdout.write(`- Allowlisted (host blocks automated checks; cited URL is canonical): ${buckets.allowlisted}\n`);
+  process.stdout.write(`- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`);
 
   if (broken.length > 0) {
     process.stdout.write(`## Broken (${broken.length})\n\n`);
@@ -247,6 +311,16 @@ if (asJson) {
     }
   } else {
     process.stdout.write(`No broken links detected.\n`);
+  }
+
+  if (redirectedResults.length > 0) {
+    process.stdout.write(`\n## Redirected — update source URL to canonical (${redirectedResults.length})\n\n`);
+    for (const r of redirectedResults) {
+      process.stdout.write(`- ${r.url}\n    -> ${r.finalUrl}\n`);
+      for (const c of r.citations) {
+        process.stdout.write(`    - ${c}\n`);
+      }
+    }
   }
 }
 

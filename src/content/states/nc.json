@@ -52,8 +52,8 @@
   },
   "sources": [
     {
-      "label": "North Carolina Public Schools",
-      "url": "http://www.ncpublicschools.org",
+      "label": "North Carolina Public Schools (legacy domain ncpublicschools.org; superseded by dpi.nc.gov)",
+      "url": "https://www.dpi.nc.gov/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -77,43 +77,43 @@
     },
     {
       "label": "NCDPI — ML/Title III (multilingual learner program team)",
-      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/multilingual-learnertitle-iii",
+      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/programs-and-initiatives/mltitle-iii",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "NCDPI — ML Program Compliance (LIEP types per 16 NCAC 06D .0106)",
-      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/multilingual-learnertitle-iii/ml-program-compliance",
+      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/office-teaching-and-learning/standard-course-study/english-language-development/ml-program-compliance",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "NCDPI — Legislation & Policy (federal EL guidance and SBE policy index)",
-      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/multilingual-learnertitle-iii/legislation-policy",
+      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/standard-course-study/english-language-development/legislation-policy",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "NCDPI — English Language Development (2020 K-12 ELD Standard Course of Study)",
-      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/standard-course-study/english-language-development",
+      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/office-teaching-and-learning/standard-course-study/english-language-development",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "NCDPI — Dual Language/Immersion (300+ DL/I programs, 8 languages)",
-      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/academic-standards/standard-course-study/dual-language-immersion",
+      "url": "https://www.dpi.nc.gov/districts-schools/classroom-resources/office-teaching-and-learning/programs-and-initiatives/dual-language-immersion",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "NCDPI — High School Diploma Endorsements (Global Languages / Seal of Biliteracy)",
+      "label": "Seal of Biliteracy — North Carolina Global Languages Endorsement (sealofbiliteracy.org national tracker)",
       "url": "https://sealofbiliteracy.org/state/nc",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "NC Professional Teaching Standards (NC SBE, adopted 2007; current standards document)",
-      "url": "https://www.ets.org/praxis/states/nc.html",
+      "url": "https://www.dpi.nc.gov/north-carolina-professional-teaching-standards-2/download",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -125,7 +125,7 @@
     },
     {
       "label": "WIDA Consortium — member states (NC listed; ACCESS for ELLs is the ELP assessment)",
-      "url": "https://wida.wisc.edu/memberships/consortium",
+      "url": "https://wida.wisc.edu/about/consortium",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -143,7 +143,7 @@
     },
     {
       "label": "North Carolina Department of Public Instruction, Report to the General Assembly: Headcount of English Learners (2024-25)",
-      "url": "https://www.ednc.org/wp-content/uploads/2024/12/2024-2025-EL-Headcount-Report_417923nanxbabfysu4d5i51px321dl.pdf",
+      "url": "https://webservices.ncleg.gov/ViewDocSiteFile/116216",
       "retrievedAt": "2026-05-10",
       "retrievedBy": "projectcert-2026"
     }
@@ -281,7 +281,7 @@
       "percent": 11.9,
       "source": {
         "label": "North Carolina Department of Public Instruction, Report to the General Assembly: Headcount of English Learners (2024-25)",
-        "url": "https://www.ednc.org/wp-content/uploads/2024/12/2024-2025-EL-Headcount-Report_417923nanxbabfysu4d5i51px321dl.pdf",
+        "url": "https://webservices.ncleg.gov/ViewDocSiteFile/116216",
         "publisher": "sea"
       },
       "note": "North Carolina Department of Public Instruction, November 1 headcount (178,688 EL students of 1,504,424 ADM). In December 2024, the State Board of Education lowered the EL exit threshold from 4.8 to 4.5 and mandated a single statewide screener replacing district-by-district screening; the November 2024 figure reflects pending implementation of these changes, which limits direct comparability to NCES's fall 2021 figure (8.0%) beyond the documented enrollment growth. North Carolina does not publish a multi-year EL series for fall 2018-2021 in directly accessible form, so methodological continuity with the prior NCES series cannot be confirmed from overlapping observations."

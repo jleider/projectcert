@@ -36,7 +36,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2018,
-    "sourceUrl": "https://sealofbiliteracy.org/state/me/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/me"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -46,7 +46,7 @@
   "sources": [
     {
       "label": "Maine Department of Education",
-      "url": "https://www.maine.gov/doe",
+      "url": "https://www.maine.gov/doe/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -82,7 +82,7 @@
     },
     {
       "label": "Maine Initial Teacher Standards (InTASC, Rev. 8/2016)",
-      "url": "https://ccsso.org/sites/default/files/2017-12/2013_INTASC_Learning_Progressions_for_Teachers.pdf",
+      "url": "https://learning.ccsso.org/intasc-model-core-teaching-standards-and-learning-progressions-for-teachers",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -94,7 +94,7 @@
     },
     {
       "label": "Seal of Biliteracy — Maine (sealofbiliteracy.org)",
-      "url": "https://sealofbiliteracy.org/state/me/",
+      "url": "https://sealofbiliteracy.org/state/me",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     }
@@ -107,7 +107,7 @@
       "title": "Maine adopts Seal of Biliteracy",
       "description": "Maine joined the Seal of Biliteracy program in October 2018, recognizing high school graduates who demonstrate proficiency in English and one or more world languages. Administered through the Maine DOE.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/me/"
+        "https://sealofbiliteracy.org/state/me"
       ]
     },
     {

@@ -35,7 +35,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2021,
-    "sourceUrl": "https://sealofbiliteracy.org/state/ky/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/ky"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -87,19 +87,19 @@
     },
     {
       "label": "Go Teach KY — Kentucky Teacher Performance Standards (KTPS): Standard 1 'linguistic', Standard 2 'diverse cultures'; no explicit EL references.",
-      "url": "https://goteachky.com/about/kentucky-teacher-performance-standards/",
+      "url": "https://goteachky.com/resources/educator-preparation/epp-resources/kentucky-teacher-performance-standards/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "Seal of Biliteracy — Kentucky adopted April 1, 2021.",
-      "url": "https://sealofbiliteracy.org/state/ky/",
+      "url": "https://sealofbiliteracy.org/state/ky",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "KDE — Seal of Biliteracy guidance for districts.",
-      "url": "https://education.ky.gov/curriculum/hsgradreq/Pages/Seal-of-Biliteracy.aspx",
+      "url": "https://www.education.ky.gov/curriculum/hsgradreq/Documents/Kentucky_Guidelines_for_Establishing_a_Local_Seal_of_Biliteracy.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -126,8 +126,8 @@
       "title": "Kentucky adopts State Seal of Biliteracy",
       "description": "Kentucky's State Seal of Biliteracy was authorized in 2021 and is administered by KDE for high-school graduates proficient in English plus one or more world languages. Adoption postdates the Leider 2019 baseline and so was not captured there.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/ky/",
-        "https://education.ky.gov/curriculum/hsgradreq/Pages/Seal-of-Biliteracy.aspx"
+        "https://sealofbiliteracy.org/state/ky",
+        "https://www.education.ky.gov/curriculum/hsgradreq/Documents/Kentucky_Guidelines_for_Establishing_a_Local_Seal_of_Biliteracy.pdf"
       ]
     }
   ],

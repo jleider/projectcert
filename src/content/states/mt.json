@@ -71,13 +71,13 @@
     },
     {
       "label": "ARM 10.57.412 — Class 1 and 2 Endorsements (Montana)",
-      "url": "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.57.412",
+      "url": "https://rules.mt.gov/gateway/ruleno.asp?RN=10.57.412",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "ARM 10.58.501 — Teaching Standards (Montana)",
-      "url": "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.58.501",
+      "url": "https://rules.mt.gov/gateway/ruleno.asp?RN=10.58.501",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -130,7 +130,7 @@
       "title": "ARM 10.58.501 (Educator Preparation Standards) revised to enumerate ELL",
       "description": "Montana's revised educator preparation/teaching standards rule (ARM 10.58.501) explicitly names \"English Language Learners (ELL)\" within the diversity standard, replacing the 2014-era predecessor standards that did not enumerate ELL. Grounds the `professionalStandardsMentions.el: false → true` flip.",
       "sourceUrls": [
-        "https://www.law.cornell.edu/regulations/montana/Mont-Admin-r-10.58.501"
+        "https://rules.mt.gov/gateway/ruleno.asp?RN=10.58.501"
       ]
     },
     {

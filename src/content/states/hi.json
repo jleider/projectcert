@@ -53,7 +53,7 @@
   "sources": [
     {
       "label": "Hawaii Public Schools / HTSB",
-      "url": "http://www.hawaiipublicschools.org",
+      "url": "https://hawaiipublicschools.org/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -89,7 +89,7 @@
     },
     {
       "label": "Seal of Biliteracy — Hawaii state profile; Seal adopted in 2015 (Act 224, SLH 2015 / SB 1394).",
-      "url": "https://sealofbiliteracy.org/state/hawaii/",
+      "url": "https://sealofbiliteracy.org/state/hawaii",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     }
@@ -118,7 +118,7 @@
       "title": "Hawaii adopts the State Seal of Biliteracy",
       "description": "Act 224 (SLH 2015 / SB 1394) authorizes a State Seal of Biliteracy for graduating high-school students who demonstrate proficiency in English plus one or more additional languages, including ʻŌlelo Hawaiʻi. Hawaii is among the early-adopter states.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/hawaii/"
+        "https://sealofbiliteracy.org/state/hawaii"
       ]
     },
     {

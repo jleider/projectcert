@@ -43,7 +43,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2016,
-    "sourceUrl": "https://sealofbiliteracy.org/state/or/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/or"
   },
   "elpAssessment": {
     "name": "ELPA21",
@@ -101,7 +101,7 @@
     },
     {
       "label": "Seal of Biliteracy — Oregon state page",
-      "url": "https://sealofbiliteracy.org/state/or/",
+      "url": "https://sealofbiliteracy.org/state/or",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -126,7 +126,7 @@
       "title": "Oregon Seal of Biliteracy adopted",
       "description": "Oregon adopted a State Seal of Biliteracy on 2016-04-14 (per sealofbiliteracy.org/state/or/). Awarded to graduating high school students who demonstrate proficiency in English plus one or more additional languages.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/or/"
+        "https://sealofbiliteracy.org/state/or"
       ]
     },
     {
@@ -150,7 +150,7 @@
       "title": "TSPC endorsement and specialization rules effective",
       "description": "Teacher Standards and Practices Commission rules governing Adding Endorsements and Adding Specializations took effect 2023-11-01. ESOL remains a Program Completion Report endorsement; Bilingual Specialization continues as the broadest pathway requiring ACTFL OPI/OPIc Advanced Mid+ but no approved program; Dual Language Specialization requires an approved program.",
       "sourceUrls": [
-        "https://www.oregon.gov/tspc/"
+        "https://www.oregon.gov/tspc/Pages/index.aspx"
       ]
     },
     {
@@ -158,7 +158,7 @@
       "title": "Multiple Measures-ESOL endorsement testing option approved",
       "description": "TSPC approved a Multiple Measures-ESOL Endorsement Testing Option Worksheet (Commission approval June 2024, rev. 9/13/2024) documenting equivalent competency pathways: at least 20 semester / 30 quarter hours aligned with ESOL standards plus practicum or completion of a TSPC-approved ESOL program.",
       "sourceUrls": [
-        "https://www.oregon.gov/tspc/"
+        "https://www.oregon.gov/tspc/Pages/index.aspx"
       ]
     }
   ],

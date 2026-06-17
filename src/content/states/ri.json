@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Rhode Island Dept. of Elementary and Secondary Education",
-      "url": "https://www.ride.ri.gov",
+      "url": "https://ride.ri.gov/",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -90,7 +90,7 @@
     },
     {
       "label": "sealofbiliteracy.org — Rhode Island state page (RI Board of Education adopted standards including a Seal of Biliteracy on 2016-06-17).",
-      "url": "https://sealofbiliteracy.org/state/ri/",
+      "url": "https://sealofbiliteracy.org/state/ri",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -115,7 +115,7 @@
       "title": "Rhode Island Seal of Biliteracy adopted",
       "description": "Rhode Island Board of Education adopted a State Seal of Biliteracy on 2016-06-17 (per sealofbiliteracy.org/state/ri/), awarded to graduating high school students demonstrating proficiency in English and one or more additional languages.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/ri/"
+        "https://sealofbiliteracy.org/state/ri"
       ]
     },
     {

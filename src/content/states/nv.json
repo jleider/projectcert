@@ -54,7 +54,7 @@
   "sources": [
     {
       "label": "Nevada Department of Education",
-      "url": "http://www.doe.nv.gov",
+      "url": "https://doe.nv.gov",
       "retrievedAt": "2019-11-15",
       "retrievedBy": "leider-2021"
     },
@@ -65,14 +65,14 @@
       "retrievedBy": "leider-2021"
     },
     {
-      "label": "NDE — ELAD (English Language Acquisition and Development) endorsement requirements one-pager",
-      "url": "https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/English_Language_Acquisition_Development_ELAD_22f6394114.pdf",
+      "label": "NDE — Special Licenses & Endorsements (English Language Acquisition and Development / ELAD endorsement one-pager)",
+      "url": "https://doe.nv.gov/educator-licensure/special-licenses-endorsements",
       "retrievedAt": "2026-05-07",
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "NDE — Bilingual Education endorsement requirements one-pager",
-      "url": "https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/Bilingual_Education_90148d04bc.pdf",
+      "label": "NDE — Special Licenses & Endorsements (Bilingual Education endorsement one-pager)",
+      "url": "https://doe.nv.gov/educator-licensure/special-licenses-endorsements",
       "retrievedAt": "2026-05-07",
       "retrievedBy": "projectcert-2026"
     },
@@ -89,8 +89,8 @@
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "Nevada Educator Performance Framework (NEPF) Evaluation System 2024-25 — School Administrator and Teacher Protocols",
-      "url": "https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/sa_tch_nepf_protocols_2024_25_final_32f2285a6e.pdf",
+      "label": "Nevada Educator Performance Framework (NEPF) — Teacher Tools and Protocols",
+      "url": "https://doe.nv.gov/offices/office-of-educator-development-and-support/nepf",
       "retrievedAt": "2026-05-07",
       "retrievedBy": "projectcert-2026"
     },
@@ -109,7 +109,7 @@
       "title": "Nevada Seal of Biliteracy enacted (AB 224, 2015)",
       "description": "Nevada Assembly Bill 224 (2015 session, signed 2015-06-09) created the State Seal of Biliteracy under NRS 388.5965, recognizing high school graduates proficient in English plus one or more additional languages.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/nevada/"
+        "https://sealofbiliteracy.org/state/nevada"
       ]
     },
     {

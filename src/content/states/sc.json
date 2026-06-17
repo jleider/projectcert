@@ -66,25 +66,25 @@
     },
     {
       "label": "SCDE — Guidelines and Requirements for Adding Certification Fields and Endorsements (Updated September 10, 2019; current document on SCDE Educator Services as of 2026-05-08). Defines the ESOL field certification (p. 12) and the ESOL Endorsement (p. 35).",
-      "url": "https://ed.sc.gov/educators/certification/educator-services-tasks/add-a-certification-field-or-endorsement/sc-guidelines-and-requirements-for-adding-certification-fields-and-endorsements/",
+      "url": "https://ed.sc.gov/educators/certification/certification-legislation-and-policy/certification-regulations/add-on-guidelines/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "SCDE — Endorsements for Dual Language Immersion (DLI) for Teachers, Coaches and Instructional Leaders (approved by SC State Board of Education 2025-09-02).",
-      "url": "https://ed.sc.gov/educators/certification/state-board-approved-actions/",
+      "url": "https://ed.sc.gov/educators/certification/certification-legislation-and-policy/certification-regulations/dual-language-endorsements/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "SCDE — South Carolina Certification Assessment Program: Required Assessments, 2025-26 Academic Year (posted July 2025). Praxis 5362 ESOL (qualifying score 155); Praxis PLT 5625 PreK-12.",
-      "url": "https://ed.sc.gov/educators/certification/educator-services-tasks/passing-test-scores-for-certification-purposes/",
+      "url": "https://ed.sc.gov/educators/certification/required-examinations/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "SCDE — Expanded ADEPT Support and Evaluation System: Teacher Standards Rubric Handbook (NIET Teaching Standards 4.0). Adopted by SCDE for ADEPT teacher evaluation; rubric does not mention 'diverse,' 'linguistic,' 'English learner,' 'ELL,' 'ESL,' 'ESOL,' or 'LEP'; references 'cultural heritage,' 'cultural centers,' and 'Respectful Culture.'",
-      "url": "https://ed.sc.gov/educators/educator-effectiveness/expanded-adept/",
+      "url": "https://ed.sc.gov/educators/educator-effectiveness/expanded-adept-resources/",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -117,7 +117,7 @@
       "title": "SC SBE approves Dual Language Immersion (DLI) endorsements",
       "description": "South Carolina State Board of Education approves new add-on endorsements for Dual Language Immersion: DLI Teacher (two required 3-semester-hour courses), DLI Coach, and DLI Instructional Leadership. This is the first SCDE-issued bilingual-program credential. Promotes `bilingual.offered` from false to true and `bilingual.addOn` from false to true.",
       "sourceUrls": [
-        "https://ed.sc.gov/educators/certification/state-board-approved-actions/"
+        "https://ed.sc.gov/educators/certification/certification-legislation-and-policy/certification-regulations/dual-language-endorsements/"
       ]
     }
   ],

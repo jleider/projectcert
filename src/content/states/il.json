@@ -43,7 +43,7 @@
   "sealOfBiliteracy": {
     "adopted": true,
     "year": 2013,
-    "sourceUrl": "https://sealofbiliteracy.org/state/il/"
+    "sourceUrl": "https://sealofbiliteracy.org/state/il"
   },
   "elpAssessment": {
     "name": "ACCESS for ELLs",
@@ -83,7 +83,7 @@
     },
     {
       "label": "23 IAC 24.130 — Illinois Professional Teaching Standards (operative through 2026-06-30)",
-      "url": "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130",
+      "url": "https://www.ilga.gov/commission/jcar/admincode/023/023000240001300R.html",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -95,7 +95,7 @@
     },
     {
       "label": "Seal of Biliteracy — Illinois (sealofbiliteracy.org)",
-      "url": "https://sealofbiliteracy.org/state/il/",
+      "url": "https://sealofbiliteracy.org/state/il",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -128,7 +128,7 @@
       "title": "Illinois adopts State Seal of Biliteracy (PA 098-0560)",
       "description": "Illinois became one of the first states to authorize a State Seal of Biliteracy on high-school diplomas, certifying graduates' proficiency in English and one or more world languages. ISBE administers the program with district-level participation; the affordance is now embedded in graduation pathways and feeds into the Bilingual/ESL teacher pipeline.",
       "sourceUrls": [
-        "https://sealofbiliteracy.org/state/il/"
+        "https://sealofbiliteracy.org/state/il"
       ]
     },
     {
@@ -144,7 +144,7 @@
       "title": "23 IAC 24.140 supersedes 24.130 as Illinois Professional Teaching Standards",
       "description": "ISBE's revised Illinois Professional Teaching Standards (23 IAC 24.140) take effect 2026-07-01, replacing 23 IAC 24.130. The new standards drop the explicit 'English language learners' phrasing that 24.130 carried, shifting EL-relevant competencies under broader 'diverse learners' language. Flag for re-coding `professionalStandardsMentions.el` after the transition.",
       "sourceUrls": [
-        "https://www.law.cornell.edu/regulations/illinois/Ill-Admin-Code-tit-23-SS-24.130"
+        "https://www.ilga.gov/commission/jcar/admincode/023/023000240001300R.html"
       ]
     }
   ],
