@@ -1,7 +1,11 @@
 <script lang="ts">
   import Choropleth from "./Choropleth.svelte";
   import { SITE_URL } from "@/config/site";
-  import { LAYERS as LAYER_KEYS, type Layer, type ChoroplethDatum } from "@/lib/state-types";
+  import {
+    LAYERS as LAYER_KEYS,
+    type Layer,
+    type ChoroplethDatum,
+  } from "@/lib/state-types";
   import { LEGENDS } from "@/lib/legends";
 
   export let states: ChoroplethDatum[];
@@ -34,7 +38,9 @@
   // Broadcast layer changes so non-Svelte parts of the page (e.g. the
   // /map/ data table) can react. Skips during SSR.
   $: if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent("projectcert:layer-change", { detail: { layer } }));
+    window.dispatchEvent(
+      new CustomEvent("projectcert:layer-change", { detail: { layer } }),
+    );
   }
 
   // Sync the encoded layer to the page URL so refreshes, deep-links,
@@ -115,21 +121,31 @@
 
 {#if showVintageCaption && vintageRange}
   <p class="mt-3 text-xs text-ink-muted">
-    Each state's value reflects the most recent year for which a
-    citation could be verified. Figures dated fall {vintageRange.minY}{vintageRange.maxY !== vintageRange.minY ? ` to fall ${vintageRange.maxY}` : ""}
-    ({vintageRange.count} of {states.length} jurisdictions) come from the state's own education
-    agency rather than NCES, whose most recent Digest of Education
-    Statistics edition publishes per-state figures only through
-    fall&nbsp;2021. State-agency methodology may differ from NCES;
-    each state's classified-EL-share page records the difference.
+    Each state's value reflects the most recent year for which a citation could
+    be verified. Figures dated fall {vintageRange.minY}{vintageRange.maxY !==
+    vintageRange.minY
+      ? ` to fall ${vintageRange.maxY}`
+      : ""}
+    ({vintageRange.count} of {states.length} jurisdictions) come from the state's
+    own education agency rather than NCES, whose most recent Digest of Education Statistics
+    edition publishes per-state figures only through fall&nbsp;2021. State-agency
+    methodology may differ from NCES; each state's classified-EL-share page records
+    the difference.
   </p>
 {/if}
 
 {#if embedFooter}
-  <p class="mt-3 text-xs text-ink-subtle flex flex-wrap items-center justify-between gap-2">
+  <p
+    class="mt-3 text-xs text-ink-subtle flex flex-wrap items-center justify-between gap-2"
+  >
     <span>
       Source:
-      <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline">
+      <a
+        href={backUrl}
+        target="_blank"
+        rel="noopener"
+        class="text-accent hover:underline"
+      >
         projectcert.org
       </a>
       · Data:
@@ -138,9 +154,15 @@
         target="_blank"
         rel="noopener"
         class="text-accent hover:underline"
-      >Leider, Colombo &amp; Nerlino (2021)</a>
+        >Leider, Colombo &amp; Nerlino (2021)</a
+      >
     </span>
-    <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline">
+    <a
+      href={backUrl}
+      target="_blank"
+      rel="noopener"
+      class="text-accent hover:underline"
+    >
       Open full atlas →
     </a>
   </p>

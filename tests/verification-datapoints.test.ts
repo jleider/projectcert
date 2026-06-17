@@ -20,28 +20,76 @@ const rich = {
       offered: true,
       standalone: true,
       addOn: true,
-      requirements: { program: true, coursework: false, practicum: true, test: true, languageProficiency: true },
+      requirements: {
+        program: true,
+        coursework: false,
+        practicum: true,
+        test: true,
+        languageProficiency: true,
+      },
     },
     eld: {
       offered: true,
       standalone: false,
       addOn: true,
-      requirements: { program: false, coursework: true, practicum: null, test: true, languageProficiency: false },
+      requirements: {
+        program: false,
+        coursework: true,
+        practicum: null,
+        test: true,
+        languageProficiency: false,
+      },
     },
     sei: { mandatedForAllTeachers: true },
   },
-  professionalStandardsMentions: { diverse: true, cultural: true, linguistic: true, el: true },
-  sealOfBiliteracy: { adopted: true, year: 2011, sourceUrl: "https://example.org/seal" },
-  elpAssessment: { name: "ELPAC", consortium: null, sourceUrl: "https://example.org/elpac" },
+  professionalStandardsMentions: {
+    diverse: true,
+    cultural: true,
+    linguistic: true,
+    el: true,
+  },
+  sealOfBiliteracy: {
+    adopted: true,
+    year: 2011,
+    sourceUrl: "https://example.org/seal",
+  },
+  elpAssessment: {
+    name: "ELPAC",
+    consortium: null,
+    sourceUrl: "https://example.org/elpac",
+  },
   sources: [
-    { label: "CTC leaflet", url: "https://example.org/a", retrievedAt: "2026-05-10", retrievedBy: "projectcert-2026" },
-    { label: "CDE page", url: "https://example.org/b", retrievedAt: "2026-05-10", retrievedBy: "projectcert-2026" },
+    {
+      label: "CTC leaflet",
+      url: "https://example.org/a",
+      retrievedAt: "2026-05-10",
+      retrievedBy: "projectcert-2026",
+    },
+    {
+      label: "CDE page",
+      url: "https://example.org/b",
+      retrievedAt: "2026-05-10",
+      retrievedBy: "projectcert-2026",
+    },
   ],
   history: [
-    { date: "1976-01-01", title: "AB 1329", description: "Bilingual Education Act.", sourceUrls: ["https://example.org/h1"] },
+    {
+      date: "1976-01-01",
+      title: "AB 1329",
+      description: "Bilingual Education Act.",
+      sourceUrls: ["https://example.org/h1"],
+    },
   ],
   elPercentHistory: [
-    { date: "2019-10-01", percent: 19.3, source: { label: "NCES 204.20", url: "https://example.org/n", publisher: "nces" } },
+    {
+      date: "2019-10-01",
+      percent: 19.3,
+      source: {
+        label: "NCES 204.20",
+        url: "https://example.org/n",
+        publisher: "nces",
+      },
+    },
   ],
 };
 
@@ -55,10 +103,30 @@ const sparse = {
     eld: { offered: false, standalone: false, addOn: false },
     sei: { mandatedForAllTeachers: false },
   },
-  professionalStandardsMentions: { diverse: false, cultural: false, linguistic: false, el: false },
-  sealOfBiliteracy: { adopted: false, year: null, sourceUrl: "https://example.org/seal" },
-  elpAssessment: { name: "WIDA ACCESS", consortium: "WIDA" as const, sourceUrl: null },
-  sources: [{ label: "WY DoE", url: "https://example.org/wy", retrievedAt: "2019-11-01", retrievedBy: "leider-2021" }],
+  professionalStandardsMentions: {
+    diverse: false,
+    cultural: false,
+    linguistic: false,
+    el: false,
+  },
+  sealOfBiliteracy: {
+    adopted: false,
+    year: null,
+    sourceUrl: "https://example.org/seal",
+  },
+  elpAssessment: {
+    name: "WIDA ACCESS",
+    consortium: "WIDA" as const,
+    sourceUrl: null,
+  },
+  sources: [
+    {
+      label: "WY DoE",
+      url: "https://example.org/wy",
+      retrievedAt: "2019-11-01",
+      retrievedBy: "leider-2021",
+    },
+  ],
   // history and elPercentHistory intentionally absent
 };
 
@@ -75,34 +143,60 @@ describe("datapointsFor", () => {
   });
 
   it("formats tri-state requirement flags, including absent blocks", () => {
-    const by = Object.fromEntries(datapointsFor(rich).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
-    expect(by["credentials.bilingual.requirements.program"]!.displayValue).toBe("Required");
-    expect(by["credentials.bilingual.requirements.coursework"]!.displayValue).toBe("Not required");
-    expect(by["credentials.eld.requirements.practicum"]!.displayValue).toBe("Not specified in public sources");
+    const by = Object.fromEntries(
+      datapointsFor(rich).map((d) => [d.id, d] as const),
+    ) as Record<string, Datapoint>;
+    expect(by["credentials.bilingual.requirements.program"]!.displayValue).toBe(
+      "Required",
+    );
+    expect(
+      by["credentials.bilingual.requirements.coursework"]!.displayValue,
+    ).toBe("Not required");
+    expect(by["credentials.eld.requirements.practicum"]!.displayValue).toBe(
+      "Not specified in public sources",
+    );
 
     // Sparse state has no requirements block at all → "not specified".
-    const bySparse = Object.fromEntries(datapointsFor(sparse).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
-    expect(bySparse["credentials.bilingual.requirements.program"]!.displayValue).toBe("Not specified in public sources");
+    const bySparse = Object.fromEntries(
+      datapointsFor(sparse).map((d) => [d.id, d] as const),
+    ) as Record<string, Datapoint>;
+    expect(
+      bySparse["credentials.bilingual.requirements.program"]!.displayValue,
+    ).toBe("Not specified in public sources");
   });
 
   it("marks grouped datapoints and renders their rows", () => {
-    const by = Object.fromEntries(datapointsFor(rich).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    const by = Object.fromEntries(
+      datapointsFor(rich).map((d) => [d.id, d] as const),
+    ) as Record<string, Datapoint>;
     for (const id of ["history", "elPercentHistory", "sources"]) {
       expect(by[id]!.grouped).toBe(true);
     }
     expect(by["sources"]!.rows).toHaveLength(2);
-    expect(by["history"]!.rows[0]).toEqual({ label: "1976-01-01", value: "AB 1329" });
-    expect(by["elPercentHistory"]!.rows[0]).toEqual({ label: "2019", value: "19.3% — NCES 204.20" });
+    expect(by["history"]!.rows[0]).toEqual({
+      label: "1976-01-01",
+      value: "AB 1329",
+    });
+    expect(by["elPercentHistory"]!.rows[0]).toEqual({
+      label: "2019",
+      value: "19.3% — NCES 204.20",
+    });
   });
 
   it("treats absent and empty optional arrays identically (hash + display)", () => {
-    const bySparse = Object.fromEntries(datapointsFor(sparse).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    const bySparse = Object.fromEntries(
+      datapointsFor(sparse).map((d) => [d.id, d] as const),
+    ) as Record<string, Datapoint>;
     expect(bySparse["history"]!.displayValue).toBe("No events recorded");
     expect(bySparse["history"]!.rows).toHaveLength(0);
     // undefined history hashes the same as an explicit empty array.
     const sparseWithEmpty = { ...sparse, history: [] };
-    const byEmpty = Object.fromEntries(datapointsFor(sparseWithEmpty).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
-    expect(byEmpty["history"]!.contentHash).toBe(bySparse["history"]!.contentHash);
+    const byEmpty = Object.fromEntries(
+      datapointsFor(sparseWithEmpty).map((d) => [d.id, d] as const),
+    ) as Record<string, Datapoint>;
+    expect(byEmpty["history"]!.contentHash).toBe(
+      bySparse["history"]!.contentHash,
+    );
   });
 
   it("scalar datapoints are not flagged grouped", () => {
@@ -123,8 +217,12 @@ describe("contentHashFor", () => {
   });
 
   it("a content edit invalidates the prior datapoint hash", () => {
-    const before = datapointsFor(rich).find((d) => d.id === "elPercent")!.contentHash;
-    const after = datapointsFor({ ...rich, elPercent: 19.0 }).find((d) => d.id === "elPercent")!.contentHash;
+    const before = datapointsFor(rich).find(
+      (d) => d.id === "elPercent",
+    )!.contentHash;
+    const after = datapointsFor({ ...rich, elPercent: 19.0 }).find(
+      (d) => d.id === "elPercent",
+    )!.contentHash;
     expect(after).not.toBe(before);
   });
 });
@@ -132,10 +230,18 @@ describe("contentHashFor", () => {
 describe("datapointIdForCitation", () => {
   it("maps the link-checker citation shapes to datapoint ids", () => {
     expect(datapointIdForCitation("CA / sources[2]")).toBe("sources");
-    expect(datapointIdForCitation("CA / history[5].sourceUrls[0]")).toBe("history");
-    expect(datapointIdForCitation("CA / elPercentHistory[3].source.url")).toBe("elPercentHistory");
-    expect(datapointIdForCitation("CA / sealOfBiliteracy.sourceUrl")).toBe("sealOfBiliteracy.sourceUrl");
-    expect(datapointIdForCitation("CA / elpAssessment.sourceUrl")).toBe("elpAssessment.sourceUrl");
+    expect(datapointIdForCitation("CA / history[5].sourceUrls[0]")).toBe(
+      "history",
+    );
+    expect(datapointIdForCitation("CA / elPercentHistory[3].source.url")).toBe(
+      "elPercentHistory",
+    );
+    expect(datapointIdForCitation("CA / sealOfBiliteracy.sourceUrl")).toBe(
+      "sealOfBiliteracy.sourceUrl",
+    );
+    expect(datapointIdForCitation("CA / elpAssessment.sourceUrl")).toBe(
+      "elpAssessment.sourceUrl",
+    );
   });
 
   it("returns null for unrecognized citation shapes", () => {

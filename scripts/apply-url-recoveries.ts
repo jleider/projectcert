@@ -22,22 +22,49 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const STATES_DIR = process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
+const STATES_DIR =
+  process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
 
-interface Source { label: string; url: string; retrievedAt: string; retrievedBy: string; }
-interface History { date: string; title: string; description: string; sourceUrls: string[]; }
-interface State { usps: string; sources: Source[]; history?: History[]; [k: string]: unknown; }
+interface Source {
+  label: string;
+  url: string;
+  retrievedAt: string;
+  retrievedBy: string;
+}
+interface History {
+  date: string;
+  title: string;
+  description: string;
+  sourceUrls: string[];
+}
+interface State {
+  usps: string;
+  sources: Source[];
+  history?: History[];
+  [k: string]: unknown;
+}
 
 const log: string[] = [];
-const note = (m: string): void => { log.push(m); };
+const note = (m: string): void => {
+  log.push(m);
+};
 
 function load(usps: string): State {
-  return JSON.parse(readFileSync(`${STATES_DIR}/${usps.toLowerCase()}.json`, "utf8")) as State;
+  return JSON.parse(
+    readFileSync(`${STATES_DIR}/${usps.toLowerCase()}.json`, "utf8"),
+  ) as State;
 }
 function save(s: State): void {
-  writeFileSync(`${STATES_DIR}/${s.usps.toLowerCase()}.json`, JSON.stringify(s, null, 2) + "\n", "utf8");
+  writeFileSync(
+    `${STATES_DIR}/${s.usps.toLowerCase()}.json`,
+    JSON.stringify(s, null, 2) + "\n",
+    "utf8",
+  );
 }
-function swapAllUrls(s: State, swaps: Array<[oldUrl: string | RegExp, newUrl: string]>): void {
+function swapAllUrls(
+  s: State,
+  swaps: Array<[oldUrl: string | RegExp, newUrl: string]>,
+): void {
   const swap = (url: string): string => {
     for (const [pat, rep] of swaps) {
       if (pat instanceof RegExp ? pat.test(url) : url === pat) {
@@ -48,7 +75,9 @@ function swapAllUrls(s: State, swaps: Array<[oldUrl: string | RegExp, newUrl: st
   };
   for (const src of s.sources) {
     const next = swap(src.url);
-    if (next !== src.url) { src.url = next; }
+    if (next !== src.url) {
+      src.url = next;
+    }
   }
   for (const h of s.history ?? []) {
     h.sourceUrls = h.sourceUrls.map(swap);
@@ -99,7 +128,10 @@ function dedupeSources(s: State): void {
     ],
   ]);
   dedupeSources(s);
-  if (JSON.stringify(s) !== before) { save(s); note("NC: 5 dpi.nc.gov URLs swapped"); }
+  if (JSON.stringify(s) !== before) {
+    save(s);
+    note("NC: 5 dpi.nc.gov URLs swapped");
+  }
 }
 
 // ─── NE: 1 still-broken Clean-Rule-24-2024.pdf → Sept 2024 update ───────
@@ -113,7 +145,10 @@ function dedupeSources(s: State): void {
     ],
   ]);
   dedupeSources(s);
-  if (JSON.stringify(s) !== before) { save(s); note("NE: Clean-Rule-24 June 2024 → Sept 2024 update"); }
+  if (JSON.stringify(s) !== before) {
+    save(s);
+    note("NE: Clean-Rule-24 June 2024 → Sept 2024 update");
+  }
 }
 
 // ─── TN: 2 confirmed swaps + 1 redirect from research ───────────────────
@@ -131,7 +166,10 @@ function dedupeSources(s: State): void {
     ],
   ]);
   dedupeSources(s);
-  if (JSON.stringify(s) !== before) { save(s); note("TN: 2 tn.gov URLs swapped"); }
+  if (JSON.stringify(s) !== before) {
+    save(s);
+    note("TN: 2 tn.gov URLs swapped");
+  }
 }
 
 // ─── IN: 7 deleted IDOE PDFs → Indiana Code (IC 20-30-9) substitute ─────
@@ -144,16 +182,34 @@ function dedupeSources(s: State): void {
   const before = JSON.stringify(s);
   const icUrl = "https://iga.in.gov/laws/2024/ic/titles/20#20-30-9";
   swapAllUrls(s, [
-    [/^https:\/\/www\.in\.gov\/doe\/files\/EL-Program-Staffing-Memo\.pdf$/, icUrl],
+    [
+      /^https:\/\/www\.in\.gov\/doe\/files\/EL-Program-Staffing-Memo\.pdf$/,
+      icUrl,
+    ],
     [/^https:\/\/www\.in\.gov\/doe\/files\/EL-Quick-Start-Guide\.pdf$/, icUrl],
     [/^https:\/\/www\.in\.gov\/doe\/files\/EL-ToR-FAQ\.pdf$/, icUrl],
-    [/^https:\/\/www\.in\.gov\/doe\/files\/IN-Content-Standards-EL\.pdf$/, icUrl],
-    [/^https:\/\/www\.in\.gov\/doe\/files\/Indiana-CORE-Required-Tests\.pdf$/, icUrl],
-    [/^https:\/\/www\.in\.gov\/doe\/files\/License-Areas-Praxis-Tests-Fees\.pdf$/, icUrl],
-    [/^https:\/\/www\.in\.gov\/doe\/files\/Meeting-EL-ToR-Requirements\.pdf$/, icUrl],
+    [
+      /^https:\/\/www\.in\.gov\/doe\/files\/IN-Content-Standards-EL\.pdf$/,
+      icUrl,
+    ],
+    [
+      /^https:\/\/www\.in\.gov\/doe\/files\/Indiana-CORE-Required-Tests\.pdf$/,
+      icUrl,
+    ],
+    [
+      /^https:\/\/www\.in\.gov\/doe\/files\/License-Areas-Praxis-Tests-Fees\.pdf$/,
+      icUrl,
+    ],
+    [
+      /^https:\/\/www\.in\.gov\/doe\/files\/Meeting-EL-ToR-Requirements\.pdf$/,
+      icUrl,
+    ],
   ]);
   dedupeSources(s);
-  if (JSON.stringify(s) !== before) { save(s); note("IN: 7 deleted IDOE PDFs → IC 20-30-9"); }
+  if (JSON.stringify(s) !== before) {
+    save(s);
+    note("IN: 7 deleted IDOE PDFs → IC 20-30-9");
+  }
 }
 
 // ─── ME: agent's bad `/staffing` swap → verified `/services` ────────────
@@ -163,10 +219,7 @@ function dedupeSources(s: State): void {
   const s = load("ME");
   const before = JSON.stringify(s);
   swapAllUrls(s, [
-    [
-      "https://www.maine.gov/doe/home",
-      "https://www.maine.gov/doe",
-    ],
+    ["https://www.maine.gov/doe/home", "https://www.maine.gov/doe"],
     [
       "https://www.maine.gov/doe/learning/multilingual",
       "https://www.maine.gov/doe/learning/multilinguallearner",
@@ -177,7 +230,10 @@ function dedupeSources(s: State): void {
     ],
   ]);
   dedupeSources(s);
-  if (JSON.stringify(s) !== before) { save(s); note("ME: 3 maine.gov URLs swapped to /multilinguallearner/services"); }
+  if (JSON.stringify(s) !== before) {
+    save(s);
+    note("ME: 3 maine.gov URLs swapped to /multilinguallearner/services");
+  }
 }
 
 // ─── OH: remove third-party Southern Ohio ESC PDF source ────────────────

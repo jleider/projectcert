@@ -17,15 +17,14 @@ interface Props {
 const { href, class: className = "", hideIcon = false } = Astro.props;
 ---
 
-<a
-  href={href}
-  target="_blank"
-  rel="noopener noreferrer"
-  class={className}
->
+<a href={href} target="_blank" rel="noopener noreferrer" class={className}>
   <slot />
-  {!hideIcon && (
-    <span aria-hidden="true" class="inline-block ml-0.5 text-xs">↗</span>
-  )}
+  {
+    !hideIcon && (
+      <span aria-hidden="true" class="inline-block ml-0.5 text-xs">
+        ↗
+      </span>
+    )
+  }
   <span class="sr-only"> (opens in a new tab)</span>
 </a>

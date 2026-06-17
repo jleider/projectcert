@@ -25,7 +25,9 @@ let jwksDomain: string | null = null;
 
 function getJwks(teamDomain: string): ReturnType<typeof createRemoteJWKSet> {
   if (!jwksCache || jwksDomain !== teamDomain) {
-    jwksCache = createRemoteJWKSet(new URL(`https://${teamDomain}/cdn-cgi/access/certs`));
+    jwksCache = createRemoteJWKSet(
+      new URL(`https://${teamDomain}/cdn-cgi/access/certs`),
+    );
     jwksDomain = teamDomain;
   }
   return jwksCache;
@@ -41,7 +43,9 @@ function readCookie(request: Request, name: string): string | null {
   return null;
 }
 
-export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (context) => {
+export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (
+  context,
+) => {
   const { request, env, next, data } = context;
 
   // Local-dev bypass — only when explicitly configured.
@@ -51,18 +55,26 @@ export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (cont
   }
 
   if (!env.ACCESS_TEAM_DOMAIN || !env.ACCESS_AUD) {
-    return jsonResponse({ error: "Audit API is not configured for authentication." }, 500);
+    return jsonResponse(
+      { error: "Audit API is not configured for authentication." },
+      500,
+    );
   }
 
   const token =
-    request.headers.get("Cf-Access-Jwt-Assertion") ?? readCookie(request, "CF_Authorization");
+    request.headers.get("Cf-Access-Jwt-Assertion") ??
+    readCookie(request, "CF_Authorization");
   if (!token) return jsonResponse({ error: "Unauthorized" }, 401);
 
   try {
-    const { payload } = await jwtVerify(token, getJwks(env.ACCESS_TEAM_DOMAIN), {
-      issuer: `https://${env.ACCESS_TEAM_DOMAIN}`,
-      audience: env.ACCESS_AUD,
-    });
+    const { payload } = await jwtVerify(
+      token,
+      getJwks(env.ACCESS_TEAM_DOMAIN),
+      {
+        issuer: `https://${env.ACCESS_TEAM_DOMAIN}`,
+        audience: env.ACCESS_AUD,
+      },
+    );
     const email = typeof payload.email === "string" ? payload.email : null;
     if (!email) return jsonResponse({ error: "Unauthorized" }, 401);
     data.userEmail = email;

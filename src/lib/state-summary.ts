@@ -15,7 +15,8 @@ function bilingualClause(state: State): string {
   if (!b.offered) return "does not offer a bilingual education credential";
   if (b.standalone && b.addOn)
     return "offers Bilingual Education both as a standalone certification and as an add-on endorsement";
-  if (b.standalone) return "offers a standalone Bilingual Education certification";
+  if (b.standalone)
+    return "offers a standalone Bilingual Education certification";
   return "offers Bilingual Education as an add-on endorsement";
 }
 
@@ -71,8 +72,14 @@ export function metaDescription(state: State): string {
   } else {
     credParts.push("no bilingual credential");
   }
-  credParts.push(e.standalone ? "ELD standalone" : e.addOn ? "ELD add-on" : "no ELD");
-  credParts.push(state.credentials.sei.mandatedForAllTeachers ? "SEI mandated" : "SEI not mandated");
+  credParts.push(
+    e.standalone ? "ELD standalone" : e.addOn ? "ELD add-on" : "no ELD",
+  );
+  credParts.push(
+    state.credentials.sei.mandatedForAllTeachers
+      ? "SEI mandated"
+      : "SEI not mandated",
+  );
 
   const credSummary = credParts.join(", ");
   const year = state.elPercentAsOf.slice(0, 4);

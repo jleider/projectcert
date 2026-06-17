@@ -27,7 +27,9 @@ describe("breadcrumbList", () => {
     const b = breadcrumbList([
       { name: "A", url: u("https://projectcert.org/") },
       { name: "B", url: u("/b/") },
-    ]) as { itemListElement: Array<{ position: number; item: string; name: string }> };
+    ]) as {
+      itemListElement: Array<{ position: number; item: string; name: string }>;
+    };
     expect(b.itemListElement).toHaveLength(2);
     expect(b.itemListElement[0]!.position).toBe(1);
     expect(b.itemListElement[1]!.position).toBe(2);

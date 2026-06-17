@@ -36,42 +36,50 @@ function hostnameOf(url: string): string {
 }
 ---
 
-{sorted.length > 0 && (
-  <section class="mt-10" aria-labelledby="history-heading">
-    <h2 id="history-heading" class="text-xl font-semibold text-ink">History of licensure</h2>
-    <p class="mt-1 text-sm text-ink-muted">
-      Dated policy and verification events shaping this state's EL teacher credentials.
-    </p>
+{
+  sorted.length > 0 && (
+    <section class="mt-10" aria-labelledby="history-heading">
+      <h2 id="history-heading" class="text-xl font-semibold text-ink">
+        History of licensure
+      </h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Dated policy and verification events shaping this state's EL teacher
+        credentials.
+      </p>
 
-    <ol class="mt-4 border-l border-ink-subtle/30">
-      {sorted.map((event) => (
-        <li class="relative pl-5 pb-6 last:pb-0">
-          <span
-            class="absolute -left-[5px] top-1.5 block h-2.5 w-2.5 rounded-full bg-accent"
-            aria-hidden="true"
-          ></span>
-          <time
-            datetime={event.date}
-            class="text-xs font-mono uppercase tracking-wide text-ink-subtle"
-          >
-            {formatDate(event.date)}
-          </time>
-          <h3 class="mt-1 text-base font-semibold text-ink">{event.title}</h3>
-          <p class="mt-1 text-sm text-ink-muted">{event.description}</p>
-          {event.sourceUrls && event.sourceUrls.length > 0 && (
-            <p class="mt-2 text-xs text-ink-subtle">
-              {event.sourceUrls.map((url, i) => (
-                <>
-                  {i > 0 && " · "}
-                  <ExternalLink class="text-accent hover:underline" href={url}>
-                    {hostnameOf(url)}
-                  </ExternalLink>
-                </>
-              ))}
-            </p>
-          )}
-        </li>
-      ))}
-    </ol>
-  </section>
-)}
+      <ol class="mt-4 border-l border-ink-subtle/30">
+        {sorted.map((event) => (
+          <li class="relative pl-5 pb-6 last:pb-0">
+            <span
+              class="absolute -left-[5px] top-1.5 block h-2.5 w-2.5 rounded-full bg-accent"
+              aria-hidden="true"
+            />
+            <time
+              datetime={event.date}
+              class="text-xs font-mono uppercase tracking-wide text-ink-subtle"
+            >
+              {formatDate(event.date)}
+            </time>
+            <h3 class="mt-1 text-base font-semibold text-ink">{event.title}</h3>
+            <p class="mt-1 text-sm text-ink-muted">{event.description}</p>
+            {event.sourceUrls && event.sourceUrls.length > 0 && (
+              <p class="mt-2 text-xs text-ink-subtle">
+                {event.sourceUrls.map((url, i) => (
+                  <>
+                    {i > 0 && " · "}
+                    <ExternalLink
+                      class="text-accent hover:underline"
+                      href={url}
+                    >
+                      {hostnameOf(url)}
+                    </ExternalLink>
+                  </>
+                ))}
+              </p>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  )
+}

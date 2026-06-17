@@ -28,18 +28,42 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const STATES_DIR = process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
+const STATES_DIR =
+  process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
 
-interface Source { label: string; url: string; retrievedAt: string; retrievedBy: string; }
-interface H { date: string; title: string; description: string; sourceUrls: string[]; }
-interface S { usps: string; sources: Source[]; history?: H[]; [k: string]: unknown; }
+interface Source {
+  label: string;
+  url: string;
+  retrievedAt: string;
+  retrievedBy: string;
+}
+interface H {
+  date: string;
+  title: string;
+  description: string;
+  sourceUrls: string[];
+}
+interface S {
+  usps: string;
+  sources: Source[];
+  history?: H[];
+  [k: string]: unknown;
+}
 
 const log: string[] = [];
-const note = (m: string): void => { log.push(m); };
+const note = (m: string): void => {
+  log.push(m);
+};
 const load = (u: string): S =>
-  JSON.parse(readFileSync(`${STATES_DIR}/${u.toLowerCase()}.json`, "utf8")) as S;
+  JSON.parse(
+    readFileSync(`${STATES_DIR}/${u.toLowerCase()}.json`, "utf8"),
+  ) as S;
 const save = (s: S): void =>
-  writeFileSync(`${STATES_DIR}/${s.usps.toLowerCase()}.json`, JSON.stringify(s, null, 2) + "\n", "utf8");
+  writeFileSync(
+    `${STATES_DIR}/${s.usps.toLowerCase()}.json`,
+    JSON.stringify(s, null, 2) + "\n",
+    "utf8",
+  );
 
 // CA: Prop 227 + Prop 58 + CSTP 2024
 {
@@ -50,21 +74,27 @@ const save = (s: S): void =>
   for (const r of s.history ?? []) {
     if (r.date === "1998-06-02" && /Prop(?:osition)?\s*227/i.test(r.title)) {
       r.sourceUrls = r.sourceUrls.map((u) =>
-        /tocCode=EDC/i.test(u) || /codes_displayexpandedbranch/i.test(u) ? edcUrl : u,
+        /tocCode=EDC/i.test(u) || /codes_displayexpandedbranch/i.test(u)
+          ? edcUrl
+          : u,
       );
       if (!r.sourceUrls.includes(edcUrl)) r.sourceUrls.push(edcUrl);
       note("CA: history[Prop 227] sourceUrl → EDC § 300");
     }
     if (r.date === "2016-11-08" && /Prop(?:osition)?\s*58/i.test(r.title)) {
       r.sourceUrls = r.sourceUrls.map((u) =>
-        /cde\.ca\.gov\/sp\/el\/.*facts/i.test(u) || /facts-about-el/i.test(u) ? edcUrl : u,
+        /cde\.ca\.gov\/sp\/el\/.*facts/i.test(u) || /facts-about-el/i.test(u)
+          ? edcUrl
+          : u,
       );
       if (!r.sourceUrls.includes(edcUrl)) r.sourceUrls.push(edcUrl);
       note("CA: history[Prop 58] sourceUrl → EDC § 300");
     }
   }
   for (const src of s.sources) {
-    if (/ctc\.ca\.gov\/educator-prep\/standards\/cstp-2024\.pdf/i.test(src.url)) {
+    if (
+      /ctc\.ca\.gov\/educator-prep\/standards\/cstp-2024\.pdf/i.test(src.url)
+    ) {
       src.url = cstpDoc;
       note("CA: sources[] CSTP 2024 PDF → CTC docs repository");
     }
@@ -117,7 +147,9 @@ const save = (s: S): void =>
           /^https?:\/\/(www\.)?ride\.ri\.gov\/?$/i.test(u) ? ridePdf : u,
         );
         if (!r.sourceUrls.includes(ridePdf)) r.sourceUrls.push(ridePdf);
-        note("RI: history[2025-06-01] sourceUrl → Certification-Regulations-2025 PDF");
+        note(
+          "RI: history[2025-06-01] sourceUrl → Certification-Regulations-2025 PDF",
+        );
       }
     }
   }
@@ -128,7 +160,10 @@ const save = (s: S): void =>
 {
   const s = load("KS");
   for (const src of s.sources) {
-    if (src.url === "https://www.ksde.org" || src.url === "https://www.ksde.org/") {
+    if (
+      src.url === "https://www.ksde.org" ||
+      src.url === "https://www.ksde.org/"
+    ) {
       src.url = "https://www.ksde.gov/";
       note("KS: sources[].url ksde.org → ksde.gov");
     }
@@ -144,7 +179,9 @@ const save = (s: S): void =>
   const ilgaPattern =
     /ilga\.gov\/legislation\/ilcs\/ilcs4\.asp\?DocName=010500050HArt%2E\+14C/i;
   for (const r of s.history ?? []) {
-    r.sourceUrls = r.sourceUrls.map((u) => (ilgaPattern.test(u) ? justiaArt14c : u));
+    r.sourceUrls = r.sourceUrls.map((u) =>
+      ilgaPattern.test(u) ? justiaArt14c : u,
+    );
   }
   for (const src of s.sources) {
     if (ilgaPattern.test(src.url)) src.url = justiaArt14c;

@@ -31,8 +31,16 @@ export interface ChoroplethDatum {
   bilingual: { offered: boolean; standalone: boolean; addOn: boolean };
   eld: { offered: boolean; standalone: boolean; addOn: boolean };
   seiMandated: boolean;
-  sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
-  elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
+  sealOfBiliteracy: {
+    adopted: boolean;
+    year: number | null;
+    sourceUrl: string;
+  };
+  elpAssessment: {
+    name: string;
+    consortium: "WIDA" | "ELPA21" | null;
+    sourceUrl: string | null;
+  };
 }
 
 import type { LinkUrl } from "./routes";
@@ -53,7 +61,10 @@ export function elPercentHistoryUrl(usps: string): LinkUrl {
 }
 
 /** Absolute EL-percent history sub-page — for JSON-LD / breadcrumbs. */
-export function absoluteElPercentHistoryUrl(siteUrl: string, usps: string): LinkUrl {
+export function absoluteElPercentHistoryUrl(
+  siteUrl: string,
+  usps: string,
+): LinkUrl {
   return `${siteUrl}${elPercentHistoryUrl(usps)}` as LinkUrl;
 }
 

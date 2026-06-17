@@ -36,10 +36,44 @@ interface ElpEntry {
 }
 
 const WIDA_MEMBERS = new Set([
-  "AK", "AL", "CO", "DC", "DE", "FL", "GA", "HI", "ID", "IL",
-  "IN", "KS", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "MT",
-  "NC", "ND", "NH", "NJ", "NM", "NV", "NY", "OK", "PA", "RI",
-  "SC", "SD", "UT", "VA", "VT", "WA", "WI", "WY",
+  "AK",
+  "AL",
+  "CO",
+  "DC",
+  "DE",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "KS",
+  "KY",
+  "MA",
+  "MD",
+  "ME",
+  "MI",
+  "MN",
+  "MO",
+  "MT",
+  "NC",
+  "ND",
+  "NH",
+  "NJ",
+  "NM",
+  "NV",
+  "NY",
+  "OK",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "UT",
+  "VA",
+  "VT",
+  "WA",
+  "WI",
+  "WY",
 ]);
 
 // Non-WIDA states. sourceUrl prefers the SEA's own page where a stable
@@ -64,7 +98,8 @@ const NON_WIDA: Record<string, ElpEntry> = {
   CT: {
     name: "LAS Links Online",
     consortium: null,
-    sourceUrl: "https://portal.ct.gov/sde/student-assessment/lasla-las-links-online",
+    sourceUrl:
+      "https://portal.ct.gov/sde/student-assessment/lasla-las-links-online",
   },
   IA: {
     name: "ELPA21",
@@ -74,7 +109,8 @@ const NON_WIDA: Record<string, ElpEntry> = {
   LA: {
     name: "ELPT",
     consortium: null,
-    sourceUrl: "https://doe.louisiana.gov/resources/library/k-12-english-learners",
+    sourceUrl:
+      "https://doe.louisiana.gov/resources/library/k-12-english-learners",
   },
   MS: {
     name: "LAS Links",
@@ -89,7 +125,8 @@ const NON_WIDA: Record<string, ElpEntry> = {
   OH: {
     name: "OELPA",
     consortium: "ELPA21",
-    sourceUrl: "https://education.ohio.gov/Topics/Testing/Testing-Materials/English-Language-Proficiency-Assessment",
+    sourceUrl:
+      "https://education.ohio.gov/Topics/Testing/Testing-Materials/English-Language-Proficiency-Assessment",
   },
   OR: {
     name: "ELPA21",
@@ -99,7 +136,8 @@ const NON_WIDA: Record<string, ElpEntry> = {
   TN: {
     name: "WIDA ACCESS for ELLs",
     consortium: "WIDA",
-    sourceUrl: "https://www.tn.gov/education/families/student-supports-in-tn/english-as-a-second-language.html",
+    sourceUrl:
+      "https://www.tn.gov/education/families/student-supports-in-tn/english-as-a-second-language.html",
   },
   TX: {
     name: "TELPAS",
@@ -123,7 +161,11 @@ for (const file of readdirSync(STATES_DIR).sort()) {
   // Build the new elpAssessment.
   const elp: ElpEntry = WIDA_MEMBERS.has(usps)
     ? { name: "ACCESS for ELLs", consortium: "WIDA", sourceUrl: WIDA_URL }
-    : NON_WIDA[usps] ?? { name: "Unknown", consortium: null, sourceUrl: null };
+    : (NON_WIDA[usps] ?? {
+        name: "Unknown",
+        consortium: null,
+        sourceUrl: null,
+      });
 
   // Augment sealOfBiliteracy with a sourceUrl (sealofbiliteracy.org
   // when adopted; Wikipedia article for unverified rows).

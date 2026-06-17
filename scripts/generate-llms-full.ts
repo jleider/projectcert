@@ -26,8 +26,18 @@ interface State {
   elPercent: number;
   elPercentAsOf: string;
   credentials: {
-    bilingual: { offered: boolean; standalone: boolean; addOn: boolean; notes?: string };
-    eld: { offered: boolean; standalone: boolean; addOn: boolean; notes?: string };
+    bilingual: {
+      offered: boolean;
+      standalone: boolean;
+      addOn: boolean;
+      notes?: string;
+    };
+    eld: {
+      offered: boolean;
+      standalone: boolean;
+      addOn: boolean;
+      notes?: string;
+    };
     sei: { mandatedForAllTeachers: boolean; notes?: string };
   };
   sealOfBiliteracy: { adopted: boolean | null; year: number | null };
@@ -35,7 +45,11 @@ interface State {
   lastVerified: string;
   verificationStatus: "baseline-2019" | "in-progress" | "verified-2026";
   history?: Array<{ date: string; title: string; description: string }>;
-  elPercentHistory?: Array<{ date: string; percent: number; source: { label: string; url: string } }>;
+  elPercentHistory?: Array<{
+    date: string;
+    percent: number;
+    source: { label: string; url: string };
+  }>;
 }
 
 function bilingualClause(s: State): string {
@@ -43,7 +57,8 @@ function bilingualClause(s: State): string {
   if (!b.offered) return "does not offer a bilingual education credential";
   if (b.standalone && b.addOn)
     return "offers Bilingual Education both as a standalone certification and as an add-on endorsement";
-  if (b.standalone) return "offers a standalone Bilingual Education certification";
+  if (b.standalone)
+    return "offers a standalone Bilingual Education certification";
   return "offers Bilingual Education as an add-on endorsement";
 }
 
@@ -64,8 +79,10 @@ function seiClause(s: State): string {
 
 function elpClause(s: State): string {
   const e = s.elpAssessment;
-  if (e.consortium === "WIDA") return `Uses ${e.name} (WIDA Consortium member).`;
-  if (e.consortium === "ELPA21") return `Uses ${e.name} (ELPA21 consortium member).`;
+  if (e.consortium === "WIDA")
+    return `Uses ${e.name} (WIDA Consortium member).`;
+  if (e.consortium === "ELPA21")
+    return `Uses ${e.name} (ELPA21 consortium member).`;
   return `Uses ${e.name} (state-specific assessment).`;
 }
 
@@ -124,7 +141,9 @@ function renderState(s: State): string {
   if (s.history && s.history.length > 0) {
     lines.push("");
     lines.push("History:");
-    for (const ev of [...s.history].sort((a, b) => a.date.localeCompare(b.date))) {
+    for (const ev of [...s.history].sort((a, b) =>
+      a.date.localeCompare(b.date),
+    )) {
       lines.push(`- ${ev.date}: ${ev.title} — ${ev.description}`);
     }
   }
@@ -132,8 +151,12 @@ function renderState(s: State): string {
   if (s.elPercentHistory && s.elPercentHistory.length > 0) {
     lines.push("");
     lines.push("EL-percent time series:");
-    for (const obs of [...s.elPercentHistory].sort((a, b) => a.date.localeCompare(b.date))) {
-      lines.push(`- ${obs.date.slice(0, 4)}: ${obs.percent.toFixed(1)}% (${obs.source.label} — ${obs.source.url})`);
+    for (const obs of [...s.elPercentHistory].sort((a, b) =>
+      a.date.localeCompare(b.date),
+    )) {
+      lines.push(
+        `- ${obs.date.slice(0, 4)}: ${obs.percent.toFixed(1)}% (${obs.source.label} — ${obs.source.url})`,
+      );
     }
   }
 
@@ -141,13 +164,17 @@ function renderState(s: State): string {
   return lines.join("\n");
 }
 
-const files = readdirSync(STATES_DIR).filter((f) => f.endsWith(".json")).sort();
+const files = readdirSync(STATES_DIR)
+  .filter((f) => f.endsWith(".json"))
+  .sort();
 const states: State[] = files.map((f) =>
   JSON.parse(readFileSync(join(STATES_DIR, f), "utf8")),
 );
 states.sort((a, b) => a.name.localeCompare(b.name));
 
-const verifiedCount = states.filter((s) => s.verificationStatus === "verified-2026").length;
+const verifiedCount = states.filter(
+  (s) => s.verificationStatus === "verified-2026",
+).length;
 const today = new Date().toISOString().slice(0, 10);
 
 const header = `# projectcert — full state data (LLM-readable snapshot)
@@ -190,4 +217,6 @@ include the \`lastVerified\` date as the as-of date for the claim.
 const body = states.map(renderState).join("\n");
 
 writeFileSync(OUT_PATH, header + body);
-console.log(`Wrote ${OUT_PATH} (${states.length} states, verified ${verifiedCount}/${states.length}).`);
+console.log(
+  `Wrote ${OUT_PATH} (${states.length} states, verified ${verifiedCount}/${states.length}).`,
+);

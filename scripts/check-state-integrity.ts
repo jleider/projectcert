@@ -56,7 +56,9 @@ for (const f of files) {
   // Filename and `usps` must agree.
   const expectedFile = `${usps.toLowerCase()}.json`;
   if (f !== expectedFile) {
-    errors.push(`${f}: filename does not match usps "${usps}" (expected ${expectedFile})`);
+    errors.push(
+      `${f}: filename does not match usps "${usps}" (expected ${expectedFile})`,
+    );
   }
 
   if (seenUsps.has(usps)) {
@@ -73,7 +75,11 @@ for (const f of files) {
     try {
       const dates = readdirSync(stateSourcesDir);
       for (const dateDir of dates) {
-        const candidate = join(stateSourcesDir, dateDir, "changes-from-baseline.md");
+        const candidate = join(
+          stateSourcesDir,
+          dateDir,
+          "changes-from-baseline.md",
+        );
         try {
           if (statSync(candidate).isFile()) {
             foundChangesDoc = true;
@@ -109,15 +115,20 @@ for (const f of files) {
       // the source to skip the per-state-snapshot rule if a
       // top-level topic dir exists for its retrievedAt date. This
       // is permissive but keeps us honest on per-SEA documents.
-      const isCrossState = ["nces", "wida", "elp-assessments", "seal-of-biliteracy"].some(
-        (topic) => {
-          try {
-            return statSync(join(SOURCES_DIR, topic, src.retrievedAt)).isDirectory();
-          } catch {
-            return false;
-          }
-        },
-      );
+      const isCrossState = [
+        "nces",
+        "wida",
+        "elp-assessments",
+        "seal-of-biliteracy",
+      ].some((topic) => {
+        try {
+          return statSync(
+            join(SOURCES_DIR, topic, src.retrievedAt),
+          ).isDirectory();
+        } catch {
+          return false;
+        }
+      });
       if (!isCrossState) {
         errors.push(
           `${usps}: projectcert-2026 source "${src.url}" claims retrievedAt=${src.retrievedAt} but no snapshot at sources/${usps}/${src.retrievedAt}/`,
@@ -133,4 +144,6 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`State integrity check PASSED (${files.length} files, ${seenUsps.size} unique USPS codes).`);
+console.log(
+  `State integrity check PASSED (${files.length} files, ${seenUsps.size} unique USPS codes).`,
+);

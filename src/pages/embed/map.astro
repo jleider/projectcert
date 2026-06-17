@@ -6,10 +6,11 @@ import { getChoroplethData, LAYERS, type Layer } from "@/lib/state-data";
 const data = await getChoroplethData();
 
 const requested = Astro.url.searchParams.get("layer");
-const initialLayer: Layer = (LAYERS as readonly string[]).includes(requested ?? "")
+const initialLayer: Layer = (LAYERS as readonly string[]).includes(
+  requested ?? "",
+)
   ? (requested as Layer)
   : "elPercent";
-
 ---
 
 <EmbedLayout

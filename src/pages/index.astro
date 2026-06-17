@@ -5,7 +5,12 @@ import ChoroplethLegend from "@/components/ChoroplethLegend.astro";
 import CitationBlock from "@/components/CitationBlock.astro";
 import StateLink from "@/components/StateLink.astro";
 import StateSeal from "@/components/StateSeal.astro";
-import { getChoroplethData, getAllStates, absoluteStateUrl, type Layer } from "@/lib/state-data";
+import {
+  getChoroplethData,
+  getAllStates,
+  absoluteStateUrl,
+  type Layer,
+} from "@/lib/state-data";
 import { ROUTES, ANCHORS, sameAnchor, absoluteRoute } from "@/lib/routes";
 import { SITE_URL } from "@/config/site";
 
@@ -14,18 +19,23 @@ const states = await getAllStates();
 
 const totalEls = states.reduce((sum, s) => sum + s.elPercent, 0);
 const meanEl = totalEls / states.length;
-const bilingualOffered = states.filter((s) => s.credentials.bilingual.offered).length;
+const bilingualOffered = states.filter(
+  (s) => s.credentials.bilingual.offered,
+).length;
 const eldStandalone = states.filter((s) => s.credentials.eld.standalone).length;
-const seiMandated = states.filter((s) => s.credentials.sei.mandatedForAllTeachers).length;
+const seiMandated = states.filter(
+  (s) => s.credentials.sei.mandatedForAllTeachers,
+).length;
 
 /** Build a typed `/map/?layer=…` URL. Compile-time check ensures the
  * layer key is one the map page actually accepts. */
 const mapLayerUrl = (layer: Layer): string => `/map/?layer=${layer}`;
 
-const latestVerified = states
-  .map((s) => s.lastVerified)
-  .sort()
-  .at(-1) ?? "2026-01-01";
+const latestVerified =
+  states
+    .map((s) => s.lastVerified)
+    .sort()
+    .at(-1) ?? "2026-01-01";
 
 const homeJsonLd = {
   "@context": "https://schema.org",
@@ -73,16 +83,21 @@ const homeJsonLd = {
 >
   <section class="max-w-6xl mx-auto px-4 py-10">
     <h1 class="text-3xl sm:text-4xl font-bold text-ink max-w-3xl">
-      A 51-jurisdiction atlas of teacher certification requirements for instructing classified English Learners.
+      A 51-jurisdiction atlas of teacher certification requirements for
+      instructing classified English Learners.
     </h1>
     <p class="mt-4 text-lg text-ink-muted max-w-3xl">
-      State education agencies (SEAs) implement identical federal civil-rights protections through divergent credentialing regimes. This catalog records the resulting variation: which credentials each SEA offers and the requirements attached to those credentials.
+      State education agencies (SEAs) implement identical federal civil-rights
+      protections through divergent credentialing regimes. This catalog records
+      the resulting variation: which credentials each SEA offers and the
+      requirements attached to those credentials.
     </p>
     <p class="mt-3">
       <a
         href={sameAnchor(ANCHORS.citeThisPage)}
         class="text-sm text-accent hover:underline focus-visible:underline"
-      >Cite this site &darr;</a>
+        >Cite this site &darr;</a
+      >
     </p>
 
     <div class="mt-8">
@@ -91,18 +106,26 @@ const homeJsonLd = {
         <ChoroplethLegend layer="elPercent" />
       </div>
       <p class="mt-2 text-sm text-ink-subtle">
-        Hover or focus a state for a summary; click to open the full per-state record.
+        Hover or focus a state for a summary; click to open the full per-state
+        record.
       </p>
     </div>
 
-    <ul class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4" aria-label="Key statistics">
+    <ul
+      class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4"
+      aria-label="Key statistics"
+    >
       <li>
         <a
           href={mapLayerUrl("bilingual")}
           class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
         >
-          <div class="text-2xl font-bold text-ink">{bilingualOffered}<span class="text-ink-subtle">/51</span></div>
-          <div class="text-sm text-ink-muted">states offer a bilingual education credential</div>
+          <div class="text-2xl font-bold text-ink">
+            {bilingualOffered}<span class="text-ink-subtle">/51</span>
+          </div>
+          <div class="text-sm text-ink-muted">
+            states offer a bilingual education credential
+          </div>
         </a>
       </li>
       <li>
@@ -110,8 +133,12 @@ const homeJsonLd = {
           href={mapLayerUrl("eld")}
           class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
         >
-          <div class="text-2xl font-bold text-ink">{eldStandalone}<span class="text-ink-subtle">/51</span></div>
-          <div class="text-sm text-ink-muted">offer ELD as a standalone certification</div>
+          <div class="text-2xl font-bold text-ink">
+            {eldStandalone}<span class="text-ink-subtle">/51</span>
+          </div>
+          <div class="text-sm text-ink-muted">
+            offer ELD as a standalone certification
+          </div>
         </a>
       </li>
       <li>
@@ -119,52 +146,83 @@ const homeJsonLd = {
           href={mapLayerUrl("sei")}
           class="block h-full rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent focus-visible:border-accent"
         >
-          <div class="text-2xl font-bold text-ink">{seiMandated}<span class="text-ink-subtle">/51</span></div>
-          <div class="text-sm text-ink-muted">mandate SEI training for all teachers</div>
+          <div class="text-2xl font-bold text-ink">
+            {seiMandated}<span class="text-ink-subtle">/51</span>
+          </div>
+          <div class="text-sm text-ink-muted">
+            mandate SEI training for all teachers
+          </div>
         </a>
       </li>
     </ul>
 
     <nav class="mt-10 grid sm:grid-cols-3 gap-4" aria-label="Explore">
-      <a href={ROUTES.map} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
+      <a
+        href={ROUTES.map}
+        class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent"
+      >
         <h2 class="font-semibold text-ink">Interactive map</h2>
-        <p class="text-sm text-ink-muted mt-1">Color-coded map across six layers: EL population, bilingual, ELD, SEI, Seal of Biliteracy, and ELP assessment.</p>
+        <p class="text-sm text-ink-muted mt-1">
+          Color-coded map across six layers: EL population, bilingual, ELD, SEI,
+          Seal of Biliteracy, and ELP assessment.
+        </p>
       </a>
-      <a href={ROUTES.credentials.bilingual} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
+      <a
+        href={ROUTES.credentials.bilingual}
+        class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent"
+      >
         <h2 class="font-semibold text-ink">Credential reports</h2>
-        <p class="text-sm text-ink-muted mt-1">Cross-state analyses of bilingual, ELD, and SEI credentialing patterns.</p>
+        <p class="text-sm text-ink-muted mt-1">
+          Cross-state analyses of bilingual, ELD, and SEI credentialing
+          patterns.
+        </p>
       </a>
-      <a href={ROUTES.compare} class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent">
+      <a
+        href={ROUTES.compare}
+        class="rounded border border-ink-subtle/20 p-4 hover:bg-surface-raised hover:border-accent"
+      >
         <h2 class="font-semibold text-ink">State comparison</h2>
-        <p class="text-sm text-ink-muted mt-1">Two-to-four-state side-by-side view of credentials and requirements.</p>
+        <p class="text-sm text-ink-muted mt-1">
+          Two-to-four-state side-by-side view of credentials and requirements.
+        </p>
       </a>
     </nav>
 
     <p class="mt-10 text-sm text-ink-subtle">
-      National mean: {meanEl.toFixed(1)}% classified ELs (51-SEA average; see per-state records for as-of dates and sources).
+      National mean: {meanEl.toFixed(1)}% classified ELs (51-SEA average; see
+      per-state records for as-of dates and sources).
     </p>
 
     <section class="mt-12" aria-labelledby="all-states-heading">
-      <h2 id="all-states-heading" class="text-xl font-semibold text-ink">All 51 jurisdictions</h2>
+      <h2 id="all-states-heading" class="text-xl font-semibold text-ink">
+        All 51 jurisdictions
+      </h2>
       <p class="mt-1 text-sm text-ink-muted">
-        Each card links to the full per-state record with credentials, sources, and policy timeline.
+        Each card links to the full per-state record with credentials, sources,
+        and policy timeline.
       </p>
       <ul class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-        {states.map((s) => (
-          <li>
-            <StateLink
-              usps={s.usps}
-              unstyled
-              class="flex items-center gap-3 rounded border border-ink-subtle/20 px-3 py-2 hover:bg-surface-raised hover:border-accent"
-            >
-              <StateSeal usps={s.usps} size={36} />
-              <span class="flex-1 min-w-0">
-                <span class="block font-medium text-ink truncate">{s.name}</span>
-                <span class="block text-xs text-ink-subtle">{s.usps} · {s.elPercent.toFixed(1)}% EL</span>
-              </span>
-            </StateLink>
-          </li>
-        ))}
+        {
+          states.map((s) => (
+            <li>
+              <StateLink
+                usps={s.usps}
+                unstyled
+                class="flex items-center gap-3 rounded border border-ink-subtle/20 px-3 py-2 hover:bg-surface-raised hover:border-accent"
+              >
+                <StateSeal usps={s.usps} size={36} />
+                <span class="flex-1 min-w-0">
+                  <span class="block font-medium text-ink truncate">
+                    {s.name}
+                  </span>
+                  <span class="block text-xs text-ink-subtle">
+                    {s.usps} · {s.elPercent.toFixed(1)}% EL
+                  </span>
+                </span>
+              </StateLink>
+            </li>
+          ))
+        }
       </ul>
     </section>
 

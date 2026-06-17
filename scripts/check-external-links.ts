@@ -40,7 +40,10 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { resolveClassification, type LinkClassification } from "../src/lib/link-classify";
+import {
+  resolveClassification,
+  type LinkClassification,
+} from "../src/lib/link-classify";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
@@ -59,7 +62,8 @@ function loadWhitelist(): Map<string, number | null> {
       { status?: number | null }
     >;
     const m = new Map<string, number | null>();
-    for (const [url, entry] of Object.entries(parsed)) m.set(url, entry?.status ?? null);
+    for (const [url, entry] of Object.entries(parsed))
+      m.set(url, entry?.status ?? null);
     return m;
   } catch {
     return new Map();
@@ -122,7 +126,10 @@ for (const file of files) {
       pushUrl(u, `${code} / history[${i}].sourceUrls[${j}]`);
     }
   }
-  pushUrl(s.sealOfBiliteracy?.sourceUrl, `${code} / sealOfBiliteracy.sourceUrl`);
+  pushUrl(
+    s.sealOfBiliteracy?.sourceUrl,
+    `${code} / sealOfBiliteracy.sourceUrl`,
+  );
   pushUrl(s.elpAssessment?.sourceUrl, `${code} / elpAssessment.sourceUrl`);
   for (const [i, obs] of (s.elPercentHistory ?? []).entries()) {
     pushUrl(obs.source?.url, `${code} / elPercentHistory[${i}].source.url`);
@@ -140,7 +147,12 @@ for (const c of cited) {
 async function fetchOne(
   url: string,
   method: "HEAD" | "GET",
-): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
+): Promise<{
+  status: number | null;
+  finalUrl?: string;
+  redirected?: boolean;
+  message?: string;
+}> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
@@ -154,14 +166,18 @@ async function fetchOne(
         // Cloudflare-protected pages that reject the previous string.
         "User-Agent":
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-        "Accept":
+        Accept:
           "text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
       },
     });
     // `res.url` is the final URL after following redirects; `res.redirected`
     // is true when at least one 3xx hop was followed.
-    return { status: res.status, finalUrl: res.url, redirected: res.redirected };
+    return {
+      status: res.status,
+      finalUrl: res.url,
+      redirected: res.redirected,
+    };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return { status: null, message };
@@ -170,20 +186,28 @@ async function fetchOne(
   }
 }
 
-async function checkWithRetry(
-  url: string,
-): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
+async function checkWithRetry(url: string): Promise<{
+  status: number | null;
+  finalUrl?: string;
+  redirected?: boolean;
+  message?: string;
+}> {
   let host: string;
   try {
     host = new URL(url).host;
   } catch {
     return { status: null, message: "invalid URL" };
   }
-  const initialMethod: "HEAD" | "GET" = GET_ONLY_HOSTS.has(host) ? "GET" : "HEAD";
+  const initialMethod: "HEAD" | "GET" = GET_ONLY_HOSTS.has(host)
+    ? "GET"
+    : "HEAD";
 
   let last = await fetchOne(url, initialMethod);
   // Some hosts reject HEAD; fall back to GET on 405/501.
-  if (initialMethod === "HEAD" && (last.status === 405 || last.status === 501)) {
+  if (
+    initialMethod === "HEAD" &&
+    (last.status === 405 || last.status === 501)
+  ) {
     last = await fetchOne(url, "GET");
   }
   for (let i = 0; i < RETRY_COUNT && last.status === null; i++) {
@@ -200,13 +224,16 @@ async function runWithConcurrency<T, R>(
 ): Promise<R[]> {
   const out: R[] = new Array(items.length);
   let next = 0;
-  const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
-    while (true) {
-      const i = next++;
-      if (i >= items.length) return;
-      out[i] = await worker(items[i]!);
-    }
-  });
+  const runners = Array.from(
+    { length: Math.min(limit, items.length) },
+    async () => {
+      while (true) {
+        const i = next++;
+        if (i >= items.length) return;
+        out[i] = await worker(items[i]!);
+      }
+    },
+  );
   await Promise.all(runners);
   return out;
 }
@@ -218,21 +245,27 @@ const strict = argv.includes("--strict");
 const asJson = argv.includes("--json");
 
 if (!asJson) {
-  process.stderr.write(`Checking ${urls.length} unique URLs across ${files.length} state files…\n`);
+  process.stderr.write(
+    `Checking ${urls.length} unique URLs across ${files.length} state files…\n`,
+  );
 }
 
-const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise<LinkResult> => {
-  const r = await checkWithRetry(url);
-  return {
-    url,
-    citations: byUrl.get(url) ?? [],
-    status: r.status,
-    classification: resolveClassification(url, r.status, whitelist),
-    finalUrl: r.finalUrl,
-    redirected: r.redirected,
-    message: r.message,
-  };
-});
+const results = await runWithConcurrency(
+  urls,
+  CONCURRENCY,
+  async (url): Promise<LinkResult> => {
+    const r = await checkWithRetry(url);
+    return {
+      url,
+      citations: byUrl.get(url) ?? [],
+      status: r.status,
+      classification: resolveClassification(url, r.status, whitelist),
+      finalUrl: r.finalUrl,
+      redirected: r.redirected,
+      message: r.message,
+    };
+  },
+);
 
 const buckets = {
   ok: 0,
@@ -258,23 +291,38 @@ const needsReview = results.filter((r) => r.classification === "needs-review");
 // Cited URLs that resolve only after following a redirect. The page works,
 // but the record should be updated to the final canonical URL.
 const redirectedResults = results.filter(
-  (r) => r.redirected === true && typeof r.finalUrl === "string" && r.finalUrl !== r.url,
+  (r) =>
+    r.redirected === true &&
+    typeof r.finalUrl === "string" &&
+    r.finalUrl !== r.url,
 );
 
 if (asJson) {
   process.stdout.write(JSON.stringify({ buckets, results }, null, 2) + "\n");
 } else {
-  process.stdout.write(`# External link check — ${new Date().toISOString().slice(0, 10)}\n\n`);
+  process.stdout.write(
+    `# External link check — ${new Date().toISOString().slice(0, 10)}\n\n`,
+  );
   process.stdout.write(`Total unique URLs: ${urls.length}\n`);
   process.stdout.write(`- OK (2xx): ${buckets.ok}\n`);
   process.stdout.write(`- Redirect (3xx, followed): ${buckets.redirect}\n`);
-  process.stdout.write(`- Accepted (reviewer-confirmed, status unchanged): ${buckets.accepted}\n`);
-  process.stdout.write(`- Needs review (un-confirmable: bot block / reset / 5xx): ${buckets["needs-review"]}\n`);
-  process.stdout.write(`- Broken (4xx gone — fix the URL): ${buckets["client-error"]}\n`);
-  process.stdout.write(`- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`);
+  process.stdout.write(
+    `- Accepted (reviewer-confirmed, status unchanged): ${buckets.accepted}\n`,
+  );
+  process.stdout.write(
+    `- Needs review (un-confirmable: bot block / reset / 5xx): ${buckets["needs-review"]}\n`,
+  );
+  process.stdout.write(
+    `- Broken (4xx gone — fix the URL): ${buckets["client-error"]}\n`,
+  );
+  process.stdout.write(
+    `- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`,
+  );
 
   if (needsReview.length > 0) {
-    process.stdout.write(`## Needs human review — could not be confirmed (${needsReview.length})\n\n`);
+    process.stdout.write(
+      `## Needs human review — could not be confirmed (${needsReview.length})\n\n`,
+    );
     process.stdout.write(
       `Each URL is bot-blocked, reset, or 5xx, or its response changed since it ` +
         `was accepted. Open each in a real browser; if it is live, accept it in the ` +
@@ -293,7 +341,8 @@ if (asJson) {
   if (broken.length > 0) {
     process.stdout.write(`## Broken (${broken.length})\n\n`);
     for (const r of broken) {
-      const status = r.status === null ? r.message ?? "no response" : String(r.status);
+      const status =
+        r.status === null ? (r.message ?? "no response") : String(r.status);
       process.stdout.write(`- **${status}** — ${r.url}\n`);
       for (const c of r.citations) {
         process.stdout.write(`    - ${c}\n`);
@@ -304,7 +353,9 @@ if (asJson) {
   }
 
   if (redirectedResults.length > 0) {
-    process.stdout.write(`\n## Redirected — update source URL to canonical (${redirectedResults.length})\n\n`);
+    process.stdout.write(
+      `\n## Redirected — update source URL to canonical (${redirectedResults.length})\n\n`,
+    );
     for (const r of redirectedResults) {
       process.stdout.write(`- ${r.url}\n    -> ${r.finalUrl}\n`);
       for (const c of r.citations) {

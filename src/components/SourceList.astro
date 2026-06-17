@@ -12,15 +12,20 @@ const { sources } = Astro.props;
 <section aria-labelledby="sources-heading" class="mt-8">
   <h2 id="sources-heading" class="text-lg font-semibold text-ink">Sources</h2>
   <ol class="mt-2 space-y-2 text-sm text-ink-muted">
-    {sources.map((s, i) => (
-      <li>
-        <span class="text-ink-subtle">[{i + 1}]</span>{" "}
-        <ExternalLink class="text-accent hover:underline" href={s.url}>{s.label}</ExternalLink>
-        <span class="text-ink-subtle">
-          {" — retrieved "}{s.retrievedAt}
-          {s.retrievedBy === "leider-2021" && " (via Leider et al. 2021)"}
-        </span>
-      </li>
-    ))}
+    {
+      sources.map((s, i) => (
+        <li>
+          <span class="text-ink-subtle">[{i + 1}]</span>{" "}
+          <ExternalLink class="text-accent hover:underline" href={s.url}>
+            {s.label}
+          </ExternalLink>
+          <span class="text-ink-subtle">
+            {" — retrieved "}
+            {s.retrievedAt}
+            {s.retrievedBy === "leider-2021" && " (via Leider et al. 2021)"}
+          </span>
+        </li>
+      ))
+    }
   </ol>
 </section>

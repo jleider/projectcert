@@ -62,7 +62,9 @@ declare const __linkUrlBrand: unique symbol;
 export type LinkUrl = string & { readonly [__linkUrlBrand]: true };
 
 /** All routes as a flat list — used by build-time presence checks. */
-export const ALL_ROUTES: readonly Route[] = (function flatten(o: unknown): Route[] {
+export const ALL_ROUTES: readonly Route[] = (function flatten(
+  o: unknown,
+): Route[] {
   if (typeof o === "string") return [o as Route];
   if (o && typeof o === "object") return Object.values(o).flatMap(flatten);
   return [];

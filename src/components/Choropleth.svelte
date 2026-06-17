@@ -49,16 +49,17 @@
   let tooltipX = 0;
   let tooltipY = 0;
 
-  const projection = geoAlbersUsa().scale(1280).translate([VIEWBOX_W / 2, VIEWBOX_H / 2]);
+  const projection = geoAlbersUsa()
+    .scale(1280)
+    .translate([VIEWBOX_W / 2, VIEWBOX_H / 2]);
   const pathFn = geoPath(projection);
 
   onMount(async () => {
     const res = await fetch("/data/us-states-10m.json");
     topology = (await res.json()) as Topology;
     const states = topology.objects.states as GeometryCollection;
-    features = (
-      feature(topology, states) as unknown as FeatureCollection
-    ).features as Feature[];
+    features = (feature(topology, states) as unknown as FeatureCollection)
+      .features as Feature[];
   });
 
   $: stateById = new Map(states.map((s) => [s.usps, s]));
@@ -76,9 +77,14 @@
           ? "standalone"
           : "addOn";
     if (l === "eld")
-      return datum.eld.standalone ? "standalone" : datum.eld.addOn ? "addOn" : "none";
+      return datum.eld.standalone
+        ? "standalone"
+        : datum.eld.addOn
+          ? "addOn"
+          : "none";
     if (l === "sei") return datum.seiMandated ? "on" : "off";
-    if (l === "sealOfBiliteracy") return datum.sealOfBiliteracy.adopted ? "on" : "off";
+    if (l === "sealOfBiliteracy")
+      return datum.sealOfBiliteracy.adopted ? "on" : "off";
     if (l === "elpAssessment") {
       const c = datum.elpAssessment.consortium;
       return c === "WIDA" ? "wida" : c === "ELPA21" ? "elpa21" : "state";
@@ -131,7 +137,9 @@
   function handleMove(e: MouseEvent, datum: StateDatum | undefined) {
     if (!datum) return;
     hovered = datum;
-    const rect = (e.currentTarget as Element).closest("svg")?.getBoundingClientRect();
+    const rect = (e.currentTarget as Element)
+      .closest("svg")
+      ?.getBoundingClientRect();
     if (rect) {
       tooltipX = e.clientX - rect.left;
       tooltipY = e.clientY - rect.top;
@@ -197,18 +205,64 @@
       <pattern id="pat-0" patternUnits="userSpaceOnUse" width="6" height="6">
         <rect width="6" height="6" fill="var(--bin-0)" />
       </pattern>
-      <pattern id="pat-1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <pattern
+        id="pat-1"
+        patternUnits="userSpaceOnUse"
+        width="6"
+        height="6"
+        patternTransform="rotate(45)"
+      >
         <rect width="6" height="6" fill="var(--bin-1)" />
-        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--map-border-dark)" stroke-width="0.5" />
+        <line
+          x1="0"
+          y1="0"
+          x2="0"
+          y2="6"
+          stroke="var(--map-border-dark)"
+          stroke-width="0.5"
+        />
       </pattern>
-      <pattern id="pat-2" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <pattern
+        id="pat-2"
+        patternUnits="userSpaceOnUse"
+        width="6"
+        height="6"
+        patternTransform="rotate(45)"
+      >
         <rect width="6" height="6" fill="var(--bin-2)" />
-        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
+        <line
+          x1="0"
+          y1="0"
+          x2="0"
+          y2="6"
+          stroke="var(--pattern-stroke-dark-end)"
+          stroke-width="0.8"
+        />
       </pattern>
-      <pattern id="pat-3" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(135)">
+      <pattern
+        id="pat-3"
+        patternUnits="userSpaceOnUse"
+        width="6"
+        height="6"
+        patternTransform="rotate(135)"
+      >
         <rect width="6" height="6" fill="var(--bin-3)" />
-        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
-        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
+        <line
+          x1="0"
+          y1="0"
+          x2="6"
+          y2="0"
+          stroke="var(--pattern-stroke-dark-end)"
+          stroke-width="0.8"
+        />
+        <line
+          x1="0"
+          y1="0"
+          x2="0"
+          y2="6"
+          stroke="var(--pattern-stroke-dark-end)"
+          stroke-width="0.8"
+        />
       </pattern>
     </defs>
 
@@ -296,8 +350,8 @@
         font-weight="600"
         fill="var(--ink)"
         pointer-events="none"
-        aria-hidden="true"
-      >DC</text>
+        aria-hidden="true">DC</text
+      >
     {/if}
   </svg>
 

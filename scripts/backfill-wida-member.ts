@@ -17,10 +17,44 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
 
 const MEMBERS = new Set([
-  "AK", "AL", "CO", "DC", "DE", "FL", "GA", "HI", "ID", "IL",
-  "IN", "KS", "KY", "MA", "MD", "ME", "MI", "MN", "MO", "MT",
-  "NC", "ND", "NH", "NJ", "NM", "NV", "NY", "OK", "PA", "RI",
-  "SC", "SD", "UT", "VA", "VT", "WA", "WI", "WY",
+  "AK",
+  "AL",
+  "CO",
+  "DC",
+  "DE",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "KS",
+  "KY",
+  "MA",
+  "MD",
+  "ME",
+  "MI",
+  "MN",
+  "MO",
+  "MT",
+  "NC",
+  "ND",
+  "NH",
+  "NJ",
+  "NM",
+  "NV",
+  "NY",
+  "OK",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "UT",
+  "VA",
+  "VT",
+  "WA",
+  "WI",
+  "WY",
 ]);
 
 let updated = 0;
@@ -44,4 +78,6 @@ for (const file of readdirSync(STATES_DIR).sort()) {
   updated++;
 }
 
-console.log(`Updated ${updated} state files (${MEMBERS.size} WIDA members coded true).`);
+console.log(
+  `Updated ${updated} state files (${MEMBERS.size} WIDA members coded true).`,
+);

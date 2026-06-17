@@ -31,8 +31,15 @@ const publicUrl = stateUrl(state.usps);
     Confirm each datapoint against current State Education Agency sources. A
     single confirmation marks a datapoint reviewed for the whole team. Where a
     value is wrong, leave a suggested correction instead of confirming.
-    <a class="text-accent hover:underline" href={publicUrl}>View the public page for {state.name}</a>.
+    <a class="text-accent hover:underline" href={publicUrl}
+      >View the public page for {state.name}</a
+    >.
   </p>
 
-  <AuditReviewer client:load usps={state.usps} stateName={state.name} datapoints={datapoints} />
+  <AuditReviewer
+    client:load
+    usps={state.usps}
+    stateName={state.name}
+    datapoints={datapoints}
+  />
 </AuditLayout>

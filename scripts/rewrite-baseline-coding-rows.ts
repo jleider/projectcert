@@ -41,7 +41,8 @@ interface StateFile {
   [key: string]: unknown;
 }
 
-const NEW_TITLE = "EPAA 29(100) document analysis (Leider, Colombo & Nerlino, 2021)";
+const NEW_TITLE =
+  "EPAA 29(100) document analysis (Leider, Colombo & Nerlino, 2021)";
 const NEW_DESCRIPTION_TMPL = (name: string): string =>
   `Leider, Colombo & Nerlino published in Education Policy Analysis Archives 29(100) a comprehensive document analysis of every state and DC's bilingual, ELD/ESL, and SEI teacher-credentialing requirements, professional teaching standards mentions, and EL-percentage figures, based on primary SEA sources collected October–December 2019. The 2019 coding of ${name}'s EL-credentialing landscape is preserved as a temporally-anchored research baseline against which the catalog's later verifications are framed.`;
 const PAPER_DOI = "https://doi.org/10.14507/epaa.29.5279";

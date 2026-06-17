@@ -42,7 +42,13 @@ for (const file of files) {
   };
 
   const existing = json.history ?? [];
-  if (existing.some((e) => e.date === BASELINE_EVENT.date && (e as { title?: string }).title?.startsWith("Baseline coding"))) {
+  if (
+    existing.some(
+      (e) =>
+        e.date === BASELINE_EVENT.date &&
+        (e as { title?: string }).title?.startsWith("Baseline coding"),
+    )
+  ) {
     skipped++;
     continue;
   }
@@ -53,4 +59,6 @@ for (const file of files) {
   added++;
 }
 
-console.log(`Added baseline history entry to ${added} states; skipped ${skipped} already populated.`);
+console.log(
+  `Added baseline history entry to ${added} states; skipped ${skipped} already populated.`,
+);

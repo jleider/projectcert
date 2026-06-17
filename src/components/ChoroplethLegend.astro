@@ -10,15 +10,21 @@ const { layer } = Astro.props;
 const entries = LEGENDS[layer];
 ---
 
-<div class="flex flex-wrap gap-3 items-center text-sm" role="group" aria-label="Map legend">
-  {entries.map((entry) => (
-    <div class="flex items-center gap-2">
-      <span
-        class="inline-block w-5 h-5 border border-ink-subtle/40"
-        style={`background: ${entry.color};`}
-        aria-hidden="true"
-      />
-      <span>{entry.label}</span>
-    </div>
-  ))}
+<div
+  class="flex flex-wrap gap-3 items-center text-sm"
+  role="group"
+  aria-label="Map legend"
+>
+  {
+    entries.map((entry) => (
+      <div class="flex items-center gap-2">
+        <span
+          class="inline-block w-5 h-5 border border-ink-subtle/40"
+          style={`background: ${entry.color};`}
+          aria-hidden="true"
+        />
+        <span>{entry.label}</span>
+      </div>
+    ))
+  }
 </div>

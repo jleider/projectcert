@@ -89,4 +89,6 @@ for (const [usps, event] of Object.entries(ENTRIES)) {
   added++;
 }
 
-console.log(`Added 2026 verification entries to ${added} states; skipped ${skipped}.`);
+console.log(
+  `Added 2026 verification entries to ${added} states; skipped ${skipped}.`,
+);

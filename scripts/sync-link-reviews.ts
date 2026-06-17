@@ -33,14 +33,20 @@ interface CheckerResult {
 const inputPath = argValue("--input");
 const outPath = argValue("--out");
 if (!inputPath || !outPath) {
-  console.error("Usage: sync-link-reviews.ts --input <links.json> --out <link-reviews.sql>");
+  console.error(
+    "Usage: sync-link-reviews.ts --input <links.json> --out <link-reviews.sql>",
+  );
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as { results: CheckerResult[] };
+const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+  results: CheckerResult[];
+};
 const seenAt = argValue("--seen-at") ?? new Date().toISOString();
 
-const pending = (report.results ?? []).filter((r) => r.classification === "needs-review");
+const pending = (report.results ?? []).filter(
+  (r) => r.classification === "needs-review",
+);
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`;
 
@@ -50,7 +56,9 @@ if (pending.length === 0) {
   lines.push("DELETE FROM link_reviews WHERE decision = 'pending';");
 } else {
   const urls = pending.map((r) => q(r.url)).join(", ");
-  lines.push(`DELETE FROM link_reviews WHERE decision = 'pending' AND url NOT IN (${urls});`);
+  lines.push(
+    `DELETE FROM link_reviews WHERE decision = 'pending' AND url NOT IN (${urls});`,
+  );
   for (const r of pending) {
     const status = r.status === null ? "NULL" : q(String(r.status));
     const citations = q(JSON.stringify(r.citations));

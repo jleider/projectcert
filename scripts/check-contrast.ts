@@ -82,19 +82,64 @@ const tokens = {
 
 const checks: Check[] = [
   // Body text on white — AAA (>= 7)
-  { label: "ink on surface (body text, AAA)", fg: tokens.ink, bg: tokens.surface, min: 7 },
-  { label: "ink-muted on surface (AAA)", fg: tokens.inkMuted, bg: tokens.surface, min: 7 },
+  {
+    label: "ink on surface (body text, AAA)",
+    fg: tokens.ink,
+    bg: tokens.surface,
+    min: 7,
+  },
+  {
+    label: "ink-muted on surface (AAA)",
+    fg: tokens.inkMuted,
+    bg: tokens.surface,
+    min: 7,
+  },
   // Subtle on surface — AA (>= 4.5)
-  { label: "ink-subtle on surface (AA)", fg: tokens.inkSubtle, bg: tokens.surface, min: 4.5 },
+  {
+    label: "ink-subtle on surface (AA)",
+    fg: tokens.inkSubtle,
+    bg: tokens.surface,
+    min: 4.5,
+  },
   // Accent (links) — AA
-  { label: "accent on surface (AA)", fg: tokens.accent, bg: tokens.surface, min: 4.5 },
-  { label: "accent-hover on surface (AA)", fg: tokens.accentHover, bg: tokens.surface, min: 4.5 },
+  {
+    label: "accent on surface (AA)",
+    fg: tokens.accent,
+    bg: tokens.surface,
+    min: 4.5,
+  },
+  {
+    label: "accent-hover on surface (AA)",
+    fg: tokens.accentHover,
+    bg: tokens.surface,
+    min: 4.5,
+  },
   // Top bin must support white text (used for state labels on dark fill)
-  { label: "white on bin-3 (state label on dark fill, AA)", fg: "#ffffff", bg: tokens.bin3, min: 4.5 },
-  { label: "white on bin-2 (state label, AA)", fg: "#ffffff", bg: tokens.bin2, min: 4.5 },
+  {
+    label: "white on bin-3 (state label on dark fill, AA)",
+    fg: "#ffffff",
+    bg: tokens.bin3,
+    min: 4.5,
+  },
+  {
+    label: "white on bin-2 (state label, AA)",
+    fg: "#ffffff",
+    bg: tokens.bin2,
+    min: 4.5,
+  },
   // Light bins must support dark text on top (state labels on light fill)
-  { label: "ink on bin-0 (state label on light fill, AAA)", fg: tokens.ink, bg: tokens.bin0, min: 7 },
-  { label: "ink on bin-1 (state label, AAA)", fg: tokens.ink, bg: tokens.bin1, min: 7 },
+  {
+    label: "ink on bin-0 (state label on light fill, AAA)",
+    fg: tokens.ink,
+    bg: tokens.bin0,
+    min: 7,
+  },
+  {
+    label: "ink on bin-1 (state label, AAA)",
+    fg: tokens.ink,
+    bg: tokens.bin1,
+    min: 7,
+  },
 ];
 
 let failed = 0;
@@ -102,7 +147,9 @@ for (const c of checks) {
   const ratio = contrast(c.fg, c.bg);
   const ok = ratio >= c.min;
   const tag = ok ? "PASS" : "FAIL";
-  console.log(`${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`);
+  console.log(
+    `${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`,
+  );
   if (!ok) failed++;
 }
 
@@ -112,20 +159,60 @@ for (const c of checks) {
 // 3:1 is mathematically infeasible across four solid stops; the legend's
 // text labels (per SC 1.4.1, color is not the sole means) carry the
 // meaning, so adjacent bins there are informational only.
-const adjacencyChecks: { layer: string; pair: [string, string]; min: number; informational?: boolean }[] = [
-  { layer: "elPercent bin0↔bin1", pair: [tokens.bin0, tokens.bin1], min: 3, informational: true },
-  { layer: "elPercent bin1↔bin2", pair: [tokens.bin1, tokens.bin2], min: 3, informational: true },
-  { layer: "elPercent bin2↔bin3", pair: [tokens.bin2, tokens.bin3], min: 3, informational: true },
-  { layer: "bilingual none↔add-on", pair: [tokens.bilingual0, tokens.bilingual2], min: 3 },
+const adjacencyChecks: {
+  layer: string;
+  pair: [string, string];
+  min: number;
+  informational?: boolean;
+}[] = [
+  {
+    layer: "elPercent bin0↔bin1",
+    pair: [tokens.bin0, tokens.bin1],
+    min: 3,
+    informational: true,
+  },
+  {
+    layer: "elPercent bin1↔bin2",
+    pair: [tokens.bin1, tokens.bin2],
+    min: 3,
+    informational: true,
+  },
+  {
+    layer: "elPercent bin2↔bin3",
+    pair: [tokens.bin2, tokens.bin3],
+    min: 3,
+    informational: true,
+  },
+  {
+    layer: "bilingual none↔add-on",
+    pair: [tokens.bilingual0, tokens.bilingual2],
+    min: 3,
+  },
   // Relaxed from 3.0 because pure-luminance 3:1 between two adjacent
   // green stops forces level-3 to near-black. Hue + saturation + the
   // legend label provide the additional differentiation.
-  { layer: "bilingual add-on↔standalone", pair: [tokens.bilingual2, tokens.bilingual3], min: 2 },
+  {
+    layer: "bilingual add-on↔standalone",
+    pair: [tokens.bilingual2, tokens.bilingual3],
+    min: 2,
+  },
   { layer: "eld none↔add-on", pair: [tokens.eld0, tokens.eld2], min: 3 },
   { layer: "eld add-on↔standalone", pair: [tokens.eld2, tokens.eld3], min: 3 },
-  { layer: "sei not-mandated↔mandated", pair: [tokens.sei0, tokens.sei3], min: 3 },
-  { layer: "seal not-adopted↔adopted", pair: [tokens.seal0, tokens.seal3], min: 3 },
-  { layer: "elp state-specific↔ELPA21", pair: [tokens.elp0, tokens.elp2], min: 3 },
+  {
+    layer: "sei not-mandated↔mandated",
+    pair: [tokens.sei0, tokens.sei3],
+    min: 3,
+  },
+  {
+    layer: "seal not-adopted↔adopted",
+    pair: [tokens.seal0, tokens.seal3],
+    min: 3,
+  },
+  {
+    layer: "elp state-specific↔ELPA21",
+    pair: [tokens.elp0, tokens.elp2],
+    min: 3,
+  },
   // Same justification as bilingual: lime hue at level-3 darker than
   // ~L=0.04 starts reading as black. Hue + the legend label provide
   // the additional differentiation.
@@ -137,12 +224,16 @@ for (const a of adjacencyChecks) {
   const ratio = contrast(a.pair[0], a.pair[1]);
   const ok = a.informational || ratio >= a.min;
   const tag = a.informational ? "INFO" : ok ? "PASS" : "FAIL";
-  console.log(`${tag}  ${ratio.toFixed(2).padStart(5)} >= ${a.min.toFixed(1)}  ${a.layer}  (${a.pair[0]} vs ${a.pair[1]})`);
+  console.log(
+    `${tag}  ${ratio.toFixed(2).padStart(5)} >= ${a.min.toFixed(1)}  ${a.layer}  (${a.pair[0]} vs ${a.pair[1]})`,
+  );
   if (!ok) failed++;
 }
 
 if (failed > 0) {
-  console.error(`\n${failed} contrast check(s) failed. Adjust src/styles/tokens.css.`);
+  console.error(
+    `\n${failed} contrast check(s) failed. Adjust src/styles/tokens.css.`,
+  );
   process.exit(1);
 }
 console.log(`\nAll ${checks.length} required contrast checks passed.`);

@@ -31,7 +31,10 @@ export interface CredentialBreakdown {
   notOffered: State[];
 }
 
-export function breakdownFor(states: State[], type: "bilingual" | "eld"): CredentialBreakdown {
+export function breakdownFor(
+  states: State[],
+  type: "bilingual" | "eld",
+): CredentialBreakdown {
   const offered = states.filter((s) => s.credentials[type].offered);
   const standalone = offered.filter((s) => s.credentials[type].standalone);
   const addOnOnly = offered.filter(

@@ -17,7 +17,9 @@ export interface BreadcrumbItem {
   url: Route | LinkUrl;
 }
 
-export function breadcrumbList(items: BreadcrumbItem[]): Record<string, unknown> {
+export function breadcrumbList(
+  items: BreadcrumbItem[],
+): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -31,7 +33,9 @@ export function breadcrumbList(items: BreadcrumbItem[]): Record<string, unknown>
 }
 
 /** Convenience: prepend the standard "Home" item. */
-export function breadcrumbWithHome(rest: BreadcrumbItem[]): Record<string, unknown> {
+export function breadcrumbWithHome(
+  rest: BreadcrumbItem[],
+): Record<string, unknown> {
   return breadcrumbList([
     { name: "Home", url: absoluteRoute(SITE_URL, ROUTES.home) },
     ...rest,

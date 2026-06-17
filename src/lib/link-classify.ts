@@ -40,7 +40,9 @@ export function classify(status: number | null): LinkClassification {
  * review queue rather than being silently passed or called broken.
  */
 function isUnconfirmable(base: LinkClassification): boolean {
-  return base === "soft-ok" || base === "server-error" || base === "network-error";
+  return (
+    base === "soft-ok" || base === "server-error" || base === "network-error"
+  );
 }
 
 /**

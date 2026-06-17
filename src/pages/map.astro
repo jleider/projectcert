@@ -8,7 +8,11 @@ import { ROUTES } from "@/lib/routes";
 const data = await getChoroplethData();
 const tableRows = [...data].sort((a, b) => a.name.localeCompare(b.name));
 
-function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }): string {
+function credCell(c: {
+  offered: boolean;
+  standalone: boolean;
+  addOn: boolean;
+}): string {
   if (!c.offered) return "—";
   if (c.standalone && c.addOn) return "Standalone + add-on";
   if (c.standalone) return "Standalone";
@@ -24,7 +28,9 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
   <section class="max-w-6xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">Map</h1>
     <p class="mt-2 text-ink-muted max-w-3xl">
-      Switching the encoded variable surfaces distinct distributions across the same fifty-one jurisdictions. Each layer is documented separately on its corresponding credential or policy page.
+      Switching the encoded variable surfaces distinct distributions across the
+      same fifty-one jurisdictions. Each layer is documented separately on its
+      corresponding credential or policy page.
     </p>
 
     <div class="mt-6">
@@ -32,7 +38,8 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
     </div>
 
     <p class="mt-4 text-sm text-ink-subtle">
-      Hover or focus a state for a summary; click to open the full per-state record.
+      Hover or focus a state for a summary; click to open the full per-state
+      record.
     </p>
     <p class="mt-2 text-sm text-ink-subtle">
       Embed instructions for third-party sites are available at
@@ -40,9 +47,12 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
     </p>
 
     <section class="mt-12" aria-labelledby="data-table-heading">
-      <h2 id="data-table-heading" class="text-xl font-semibold text-ink">Tabular data</h2>
+      <h2 id="data-table-heading" class="text-xl font-semibold text-ink">
+        Tabular data
+      </h2>
       <p class="mt-1 text-sm text-ink-muted">
-        Every variable encoded above in tabular form. State names link to the full per-state record and source list.
+        Every variable encoded above in tabular form. State names link to the
+        full per-state record and source list.
       </p>
 
       <div class="mt-4 overflow-x-auto rounded border border-ink-subtle/20">
@@ -55,39 +65,86 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
           <thead class="bg-surface-raised text-ink text-left">
             <tr>
               <th scope="col" class="px-3 py-2 font-semibold">State</th>
-              <th scope="col" class="px-3 py-2 font-semibold text-right" data-col="elPercent">% ELs</th>
-              <th scope="col" class="px-3 py-2 font-semibold" data-col="bilingual">Bilingual</th>
-              <th scope="col" class="px-3 py-2 font-semibold" data-col="eld">ELD</th>
-              <th scope="col" class="px-3 py-2 font-semibold" data-col="sei">SEI mandate</th>
-              <th scope="col" class="px-3 py-2 font-semibold" data-col="sealOfBiliteracy">Seal of Biliteracy</th>
-              <th scope="col" class="px-3 py-2 font-semibold" data-col="elpAssessment">ELP assessment</th>
+              <th
+                scope="col"
+                class="px-3 py-2 font-semibold text-right"
+                data-col="elPercent">% ELs</th
+              >
+              <th
+                scope="col"
+                class="px-3 py-2 font-semibold"
+                data-col="bilingual">Bilingual</th
+              >
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="eld"
+                >ELD</th
+              >
+              <th scope="col" class="px-3 py-2 font-semibold" data-col="sei"
+                >SEI mandate</th
+              >
+              <th
+                scope="col"
+                class="px-3 py-2 font-semibold"
+                data-col="sealOfBiliteracy">Seal of Biliteracy</th
+              >
+              <th
+                scope="col"
+                class="px-3 py-2 font-semibold"
+                data-col="elpAssessment">ELP assessment</th
+              >
             </tr>
           </thead>
           <tbody>
-            {tableRows.map((s) => (
-              <tr class="border-t border-ink-subtle/20 align-top">
-                <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap text-left">
-                  <StateLink usps={s.usps}>{s.name}</StateLink>
-                </th>
-                <td class="px-3 py-2 text-right tabular-nums" data-col="elPercent">{s.elPercent.toFixed(1)}%</td>
-                <td class="px-3 py-2" data-col="bilingual">{credCell(s.bilingual)}</td>
-                <td class="px-3 py-2" data-col="eld">{credCell(s.eld)}</td>
-                <td class="px-3 py-2" data-col="sei">{s.seiMandated ? "Mandated" : "—"}</td>
-                <td class="px-3 py-2 whitespace-nowrap" data-col="sealOfBiliteracy">
-                  {s.sealOfBiliteracy.adopted === true
-                    ? (s.sealOfBiliteracy.year ? `Adopted (${s.sealOfBiliteracy.year})` : "Adopted")
-                    : s.sealOfBiliteracy.adopted === false
-                      ? "Not adopted"
-                      : "—"}
-                </td>
-                <td class="px-3 py-2 whitespace-nowrap" data-col="elpAssessment">
-                  {s.elpAssessment.name}
-                  {s.elpAssessment.consortium && (
-                    <span class="text-ink-subtle"> · {s.elpAssessment.consortium}</span>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {
+              tableRows.map((s) => (
+                <tr class="border-t border-ink-subtle/20 align-top">
+                  <th
+                    scope="row"
+                    class="px-3 py-2 font-medium text-ink whitespace-nowrap text-left"
+                  >
+                    <StateLink usps={s.usps}>{s.name}</StateLink>
+                  </th>
+                  <td
+                    class="px-3 py-2 text-right tabular-nums"
+                    data-col="elPercent"
+                  >
+                    {s.elPercent.toFixed(1)}%
+                  </td>
+                  <td class="px-3 py-2" data-col="bilingual">
+                    {credCell(s.bilingual)}
+                  </td>
+                  <td class="px-3 py-2" data-col="eld">
+                    {credCell(s.eld)}
+                  </td>
+                  <td class="px-3 py-2" data-col="sei">
+                    {s.seiMandated ? "Mandated" : "—"}
+                  </td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap"
+                    data-col="sealOfBiliteracy"
+                  >
+                    {s.sealOfBiliteracy.adopted === true
+                      ? s.sealOfBiliteracy.year
+                        ? `Adopted (${s.sealOfBiliteracy.year})`
+                        : "Adopted"
+                      : s.sealOfBiliteracy.adopted === false
+                        ? "Not adopted"
+                        : "—"}
+                  </td>
+                  <td
+                    class="px-3 py-2 whitespace-nowrap"
+                    data-col="elpAssessment"
+                  >
+                    {s.elpAssessment.name}
+                    {s.elpAssessment.consortium && (
+                      <span class="text-ink-subtle">
+                        {" "}
+                        · {s.elpAssessment.consortium}
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
@@ -111,7 +168,9 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
         });
       };
       apply(new URLSearchParams(location.search).get("layer") || "elPercent");
-      window.addEventListener("projectcert:layer-change", (e) => apply(e.detail.layer));
+      window.addEventListener("projectcert:layer-change", (e) =>
+        apply(e.detail.layer),
+      );
     })();
   </script>
 </BaseLayout>

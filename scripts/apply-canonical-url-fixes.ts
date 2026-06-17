@@ -39,7 +39,10 @@ const PAIRS: Array<[string, string]> = [
   ],
   // --- Agency homepages / legacy baseline domains -> current canonical ---
   ["http://education.ohio.gov", "https://education.ohio.gov/"],
-  ["http://marylandpublicschools.org", "https://marylandpublicschools.org/Pages/Default.aspx"],
+  [
+    "http://marylandpublicschools.org",
+    "https://marylandpublicschools.org/Pages/Default.aspx",
+  ],
   ["http://www.doe.mass.edu", "https://www.doe.mass.edu/"],
   ["http://www.fldoe.org", "https://www.fldoe.org/"],
   ["http://www.hawaiipublicschools.org", "https://hawaiipublicschools.org/"],
@@ -56,32 +59,92 @@ const PAIRS: Array<[string, string]> = [
   ["https://www.ride.ri.gov", "https://ride.ri.gov/"],
   ["https://www.gadoe.org", "https://gadoe.org/"],
   ["https://www.maine.gov/doe", "https://www.maine.gov/doe/"],
-  ["https://www.education.pa.gov/Pages/default.aspx", "https://www.pa.gov/agencies/education"],
+  [
+    "https://www.education.pa.gov/Pages/default.aspx",
+    "https://www.pa.gov/agencies/education",
+  ],
   [
     "https://www.gencourt.state.nh.us/rules/state_agencies/ed500.html",
     "https://gc.nh.gov/rules/state_agencies/ed500.html",
   ],
   // --- Seal of Biliteracy tracker: drop redirecting trailing slash ---
-  ["https://sealofbiliteracy.org/state/ca/", "https://sealofbiliteracy.org/state/ca"],
-  ["https://sealofbiliteracy.org/state/dc/", "https://sealofbiliteracy.org/state/dc"],
-  ["https://sealofbiliteracy.org/state/fl/", "https://sealofbiliteracy.org/state/fl"],
-  ["https://sealofbiliteracy.org/state/hawaii/", "https://sealofbiliteracy.org/state/hawaii"],
-  ["https://sealofbiliteracy.org/state/il/", "https://sealofbiliteracy.org/state/il"],
-  ["https://sealofbiliteracy.org/state/ky/", "https://sealofbiliteracy.org/state/ky"],
-  ["https://sealofbiliteracy.org/state/la/", "https://sealofbiliteracy.org/state/la"],
-  ["https://sealofbiliteracy.org/state/me/", "https://sealofbiliteracy.org/state/me"],
-  ["https://sealofbiliteracy.org/state/nevada/", "https://sealofbiliteracy.org/state/nevada"],
-  ["https://sealofbiliteracy.org/state/north-dakota/", "https://sealofbiliteracy.org/state/north-dakota"],
-  ["https://sealofbiliteracy.org/state/ohio/", "https://sealofbiliteracy.org/state/ohio"],
-  ["https://sealofbiliteracy.org/state/or/", "https://sealofbiliteracy.org/state/or"],
-  ["https://sealofbiliteracy.org/state/ri/", "https://sealofbiliteracy.org/state/ri"],
-  ["https://sealofbiliteracy.org/state/sd/", "https://sealofbiliteracy.org/state/sd"],
-  ["https://sealofbiliteracy.org/state/wv/", "https://sealofbiliteracy.org/state/wv"],
-  ["https://sealofbiliteracy.org/state/wy/", "https://sealofbiliteracy.org/state/wy"],
-  ["https://sealofbiliteracy.org/states/", "https://sealofbiliteracy.org/states"],
+  [
+    "https://sealofbiliteracy.org/state/ca/",
+    "https://sealofbiliteracy.org/state/ca",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/dc/",
+    "https://sealofbiliteracy.org/state/dc",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/fl/",
+    "https://sealofbiliteracy.org/state/fl",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/hawaii/",
+    "https://sealofbiliteracy.org/state/hawaii",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/il/",
+    "https://sealofbiliteracy.org/state/il",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/ky/",
+    "https://sealofbiliteracy.org/state/ky",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/la/",
+    "https://sealofbiliteracy.org/state/la",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/me/",
+    "https://sealofbiliteracy.org/state/me",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/nevada/",
+    "https://sealofbiliteracy.org/state/nevada",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/north-dakota/",
+    "https://sealofbiliteracy.org/state/north-dakota",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/ohio/",
+    "https://sealofbiliteracy.org/state/ohio",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/or/",
+    "https://sealofbiliteracy.org/state/or",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/ri/",
+    "https://sealofbiliteracy.org/state/ri",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/sd/",
+    "https://sealofbiliteracy.org/state/sd",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/wv/",
+    "https://sealofbiliteracy.org/state/wv",
+  ],
+  [
+    "https://sealofbiliteracy.org/state/wy/",
+    "https://sealofbiliteracy.org/state/wy",
+  ],
+  [
+    "https://sealofbiliteracy.org/states/",
+    "https://sealofbiliteracy.org/states",
+  ],
   // --- WIDA: /memberships/consortium -> /about/consortium ---
-  ["https://wida.wisc.edu/memberships/consortium/ok", "https://wida.wisc.edu/about/consortium/ok"],
-  ["https://wida.wisc.edu/memberships/consortium/pa", "https://wida.wisc.edu/about/consortium/pa"],
+  [
+    "https://wida.wisc.edu/memberships/consortium/ok",
+    "https://wida.wisc.edu/about/consortium/ok",
+  ],
+  [
+    "https://wida.wisc.edu/memberships/consortium/pa",
+    "https://wida.wisc.edu/about/consortium/pa",
+  ],
   // --- IA: /standards/specialized-instruction/ -> /standards/instruction/ (longest first) ---
   [
     "https://educate.iowa.gov/pk-12/standards/specialized-instruction/english-learners/elpa21",
@@ -106,7 +169,10 @@ const PAIRS: Array<[string, string]> = [
     "https://dese.mo.gov/college-career-readiness/curriculum/missouri-seal-biliteracy",
   ],
   // --- CA: CTC leaflet + roadmap canonicalizations ---
-  ["https://www.cde.ca.gov/sp/el/rm/", "https://www.cde.ca.gov/sp/ml/roadmap.asp"],
+  [
+    "https://www.cde.ca.gov/sp/el/rm/",
+    "https://www.cde.ca.gov/sp/ml/roadmap.asp",
+  ],
   [
     "https://www.ctc.ca.gov/credentials/leaflets/bilingual-authorizations-(cl-628b)",
     "https://www.ctc.ca.gov/credentials/leaflets/cl-628b/",
@@ -119,7 +185,10 @@ const PAIRS: Array<[string, string]> = [
     "https://www.ctc.ca.gov/credentials/leaflets/serving-english-learners-(cl-622)",
     "https://www.ctc.ca.gov/credentials/leaflets/cl-622/",
   ],
-  ["https://www.ctc.ca.gov/educator-prep/ela", "https://www.ctc.ca.gov/program-sponsors/prep-programs/ela/"],
+  [
+    "https://www.ctc.ca.gov/educator-prep/ela",
+    "https://www.ctc.ca.gov/program-sponsors/prep-programs/ela/",
+  ],
   // --- CO biliteracy diploma endorsement (moved to ed.cde subdomain /clde/) ---
   [
     "https://www.cde.state.co.us/cde_english/high-school-diploma-endorsement-for-biliteracy",
@@ -136,7 +205,10 @@ const PAIRS: Array<[string, string]> = [
     "https://www.michigan.gov/mde/services/ed-serv/ed-cert/cert-guidance/adding-an-endorsement",
   ],
   // --- OR TSPC home ---
-  ["https://www.oregon.gov/tspc/", "https://www.oregon.gov/tspc/Pages/index.aspx"],
+  [
+    "https://www.oregon.gov/tspc/",
+    "https://www.oregon.gov/tspc/Pages/index.aspx",
+  ],
   // --- PA: drop redirecting .html suffix ---
   [
     "https://www.pa.gov/agencies/education/policy-funding/basic-education-circulars/purdons-statutes/educating-students-who-are-english-learners.html",
@@ -190,5 +262,7 @@ for (const [oldUrl, count] of totals) {
     process.stdout.write(`${count.toString().padStart(3)} x  ${oldUrl}\n`);
   }
 }
-process.stdout.write(`\nApplied ${PAIRS.length - missing}/${PAIRS.length} replacement pairs.\n`);
+process.stdout.write(
+  `\nApplied ${PAIRS.length - missing}/${PAIRS.length} replacement pairs.\n`,
+);
 if (missing > 0) process.exitCode = 1;

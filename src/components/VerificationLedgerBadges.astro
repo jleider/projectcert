@@ -24,7 +24,10 @@ const ledger = ledgerData as Record<string, LedgerEntry>;
 const entry = ledger[usps];
 
 const dates = entry ? Object.values(entry.verifiedAt) : [];
-const lastReviewed = dates.length > 0 ? dates.reduce((a, b) => (a > b ? a : b)).slice(0, 10) : null;
+const lastReviewed =
+  dates.length > 0
+    ? dates.reduce((a, b) => (a > b ? a : b)).slice(0, 10)
+    : null;
 ---
 
 {

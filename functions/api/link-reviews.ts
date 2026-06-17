@@ -26,7 +26,9 @@ interface LinkReviewRow {
   note: string | null;
 }
 
-export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({ env }) => {
+export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
+  env,
+}) => {
   const { results } = await env.DB.prepare(
     `SELECT url, status, classification, citations, first_seen, last_seen,
             decision, reviewed_by, reviewed_at, accepted_status, note
@@ -49,16 +51,25 @@ function safeParseCitations(raw: string): string[] {
   }
 }
 
-export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { url?: string; decision?: string; note?: string }
-    | null;
+export const onRequestPost: PagesFunction<
+  AuditEnv,
+  string,
+  AuditData
+> = async ({ request, env, data }) => {
+  const body = (await request.json().catch(() => null)) as {
+    url?: string;
+    decision?: string;
+    note?: string;
+  } | null;
   const url = typeof body?.url === "string" ? body.url : null;
   const decision = body?.decision;
   const note = typeof body?.note === "string" ? body.note : null;
 
   if (!url || (decision !== "accepted" && decision !== "pending")) {
-    return jsonResponse({ error: "url and decision ('accepted'|'pending') are required." }, 400);
+    return jsonResponse(
+      { error: "url and decision ('accepted'|'pending') are required." },
+      400,
+    );
   }
 
   const now = new Date().toISOString();
@@ -80,5 +91,10 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
   if (result.meta.changes === 0) {
     return jsonResponse({ error: "No review row for that URL." }, 404);
   }
-  return jsonResponse({ url, decision, reviewed_by: decision === "accepted" ? data.userEmail : null, reviewed_at: decision === "accepted" ? now : null });
+  return jsonResponse({
+    url,
+    decision,
+    reviewed_by: decision === "accepted" ? data.userEmail : null,
+    reviewed_at: decision === "accepted" ? now : null,
+  });
 };

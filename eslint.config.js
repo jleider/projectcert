@@ -2,6 +2,7 @@
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import astro from "eslint-plugin-astro";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
   {
@@ -66,4 +67,7 @@ export default [
       ],
     },
   },
+  // Must come last: turns off ESLint stylistic rules that would conflict
+  // with Prettier. Formatting is owned by Prettier (`npm run check:format`).
+  eslintConfigPrettier,
 ];

@@ -39,12 +39,16 @@ const BROKEN = new Set(["client-error"]);
 const inputPath = argValue("--input");
 const outPath = argValue("--out");
 if (!inputPath || !outPath) {
-  console.error("Usage: sync-broken-links.ts --input <links.json> --out <broken.sql>");
+  console.error(
+    "Usage: sync-broken-links.ts --input <links.json> --out <broken.sql>",
+  );
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as { results: CheckerResult[] };
-const detectedAt = (argValue("--detected-at") ?? new Date().toISOString());
+const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+  results: CheckerResult[];
+};
+const detectedAt = argValue("--detected-at") ?? new Date().toISOString();
 
 interface BrokenRow {
   usps: string;
@@ -85,7 +89,9 @@ const current = [...rows.values()];
 if (current.length === 0) {
   lines.push("DELETE FROM broken_links;");
 } else {
-  const tuples = current.map((r) => `(${q(r.usps)}, ${q(r.datapointId)}, ${q(r.url)})`).join(", ");
+  const tuples = current
+    .map((r) => `(${q(r.usps)}, ${q(r.datapointId)}, ${q(r.url)})`)
+    .join(", ");
   lines.push(
     `DELETE FROM broken_links WHERE (usps, datapoint_id, url) NOT IN (VALUES ${tuples});`,
   );

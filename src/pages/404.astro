@@ -23,30 +23,48 @@ const stateIndex = states.map((s) => ({
     </p>
 
     <section class="mt-8" aria-labelledby="suggestions-heading">
-      <h2 id="suggestions-heading" class="text-sm font-semibold text-ink-muted uppercase tracking-wide">
+      <h2
+        id="suggestions-heading"
+        class="text-sm font-semibold text-ink-muted uppercase tracking-wide"
+      >
         Did you mean…
       </h2>
       <ul
         id="suggestions"
         class="mt-3 flex flex-wrap justify-center gap-3 text-sm"
         aria-live="polite"
-      ></ul>
+      >
+      </ul>
     </section>
 
-    <nav class="mt-10 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm" aria-label="Top destinations">
+    <nav
+      class="mt-10 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm"
+      aria-label="Top destinations"
+    >
       <a class="text-accent hover:underline" href={ROUTES.home}>Home</a>
       <a class="text-accent hover:underline" href={ROUTES.map}>Map</a>
-      <a class="text-accent hover:underline" href={ROUTES.credentials.bilingual}>Credentials</a>
+      <a class="text-accent hover:underline" href={ROUTES.credentials.bilingual}
+        >Credentials</a
+      >
       <a class="text-accent hover:underline" href={ROUTES.glossary}>Glossary</a>
-      <a class="text-accent hover:underline" href={ROUTES.methodology}>Methodology</a>
+      <a class="text-accent hover:underline" href={ROUTES.methodology}
+        >Methodology</a
+      >
     </nav>
   </article>
 
-  <script is:inline type="application/json" id="state-index" set:html={JSON.stringify(stateIndex)}></script>
+  <script
+    is:inline
+    type="application/json"
+    id="state-index"
+    set:html={JSON.stringify(stateIndex)}
+  />
 
   <script is:inline>
     (() => {
-      const idx = JSON.parse(document.getElementById("state-index").textContent || "[]");
+      const idx = JSON.parse(
+        document.getElementById("state-index").textContent || "[]",
+      );
 
       // Pull candidate tokens out of the URL — segment by segment plus
       // a normalized full path. We treat each non-empty path segment
@@ -59,16 +77,20 @@ const stateIndex = states.map((s) => ({
       // a near-miss for a 2-letter code or a state name.
       function dist(a, b) {
         if (a === b) return 0;
-        const m = a.length, n = b.length;
+        const m = a.length,
+          n = b.length;
         if (Math.abs(m - n) > 8) return 9;
-        const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+        const dp = Array.from({ length: m + 1 }, () =>
+          new Array(n + 1).fill(0),
+        );
         for (let i = 0; i <= m; i++) dp[i][0] = i;
         for (let j = 0; j <= n; j++) dp[0][j] = j;
         for (let i = 1; i <= m; i++) {
           for (let j = 1; j <= n; j++) {
-            dp[i][j] = a[i - 1] === b[j - 1]
-              ? dp[i - 1][j - 1]
-              : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
+            dp[i][j] =
+              a[i - 1] === b[j - 1]
+                ? dp[i - 1][j - 1]
+                : 1 + Math.min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]);
           }
         }
         return dp[m][n];
@@ -78,15 +100,21 @@ const stateIndex = states.map((s) => ({
       // Strong bonuses for substring matches on the USPS code or
       // state name; otherwise fall back to character-level distance
       // against the longest URL segment.
-      const longest = segments.reduce((a, b) => (b.length > a.length ? b : a), "");
+      const longest = segments.reduce(
+        (a, b) => (b.length > a.length ? b : a),
+        "",
+      );
       function score(state) {
         const usps = state.usps.toLowerCase();
         const name = state.name.toLowerCase();
         if (path.includes(`/${usps}/`) || path.includes(`/${usps}`)) return 0;
         if (path.includes(name.replace(/\s+/g, "-"))) return 1;
-        if (longest && (longest.startsWith(usps) || longest.includes(usps))) return 2;
+        if (longest && (longest.startsWith(usps) || longest.includes(usps)))
+          return 2;
         if (longest && name.startsWith(longest)) return 3;
-        const d = longest ? Math.min(dist(longest, usps), dist(longest, name)) : 9;
+        const d = longest
+          ? Math.min(dist(longest, usps), dist(longest, name))
+          : 9;
         return 5 + d;
       }
 

@@ -26,9 +26,15 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const STATES_DIR = process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
+const STATES_DIR =
+  process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
 
-interface H { date: string; title: string; description: string; sourceUrls: string[]; }
+interface H {
+  date: string;
+  title: string;
+  description: string;
+  sourceUrls: string[];
+}
 interface S {
   usps: string;
   elPercent: number;
@@ -39,11 +45,19 @@ interface S {
 }
 
 const log: string[] = [];
-const note = (m: string): void => { log.push(m); };
+const note = (m: string): void => {
+  log.push(m);
+};
 const load = (u: string): S =>
-  JSON.parse(readFileSync(`${STATES_DIR}/${u.toLowerCase()}.json`, "utf8")) as S;
+  JSON.parse(
+    readFileSync(`${STATES_DIR}/${u.toLowerCase()}.json`, "utf8"),
+  ) as S;
 const save = (s: S): void =>
-  writeFileSync(`${STATES_DIR}/${s.usps.toLowerCase()}.json`, JSON.stringify(s, null, 2) + "\n", "utf8");
+  writeFileSync(
+    `${STATES_DIR}/${s.usps.toLowerCase()}.json`,
+    JSON.stringify(s, null, 2) + "\n",
+    "utf8",
+  );
 
 // AZ: HB 2435 → SB 1014
 {
@@ -54,7 +68,8 @@ const save = (s: S): void =>
       r.description = r.description
         .replace(/HB\s*2435/g, "SB 1014")
         .replace(/House Bill 2435/g, "Senate Bill 1014");
-      const u = "https://www.azleg.gov/legtext/54leg/1R/summary/S.1014ED_ASPASSEDCOMMITTEE.DOCX.htm";
+      const u =
+        "https://www.azleg.gov/legtext/54leg/1R/summary/S.1014ED_ASPASSEDCOMMITTEE.DOCX.htm";
       if (!r.sourceUrls.includes(u)) r.sourceUrls.push(u);
       note("AZ: history[2019-07-09] HB 2435 → SB 1014");
     }

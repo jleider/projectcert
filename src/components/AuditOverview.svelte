@@ -45,14 +45,21 @@
         ...s,
         verified,
         brokenCount,
-        pct: totalDatapoints > 0 ? Math.round((verified / totalDatapoints) * 100) : 0,
+        pct:
+          totalDatapoints > 0
+            ? Math.round((verified / totalDatapoints) * 100)
+            : 0,
       };
     })
     .sort((a, b) => a.pct - b.pct || a.name.localeCompare(b.name));
 
   $: totalPossible = states.length * totalDatapoints;
-  $: totalVerified = states.reduce((sum, s) => sum + (counts[s.usps]?.verifiedCount ?? 0), 0);
-  $: overallPct = totalPossible > 0 ? Math.round((totalVerified / totalPossible) * 100) : 0;
+  $: totalVerified = states.reduce(
+    (sum, s) => sum + (counts[s.usps]?.verifiedCount ?? 0),
+    0,
+  );
+  $: overallPct =
+    totalPossible > 0 ? Math.round((totalVerified / totalPossible) * 100) : 0;
   $: unreviewed = rows.filter((r) => r.verified < totalDatapoints);
   $: nameByUsps = Object.fromEntries(states.map((s) => [s.usps, s.name]));
 
@@ -83,7 +90,9 @@
     <p class="text-ink-muted">Loading review progress…</p>
   {:else}
     {#if offline}
-      <p class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
+      <p
+        class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink"
+      >
         The review service is unavailable. Progress counts cannot be shown.
       </p>
     {/if}
@@ -91,9 +100,17 @@
     <div class="rounded border border-ink-subtle/20 bg-surface-raised p-4">
       <div class="flex items-center justify-between text-sm">
         <span class="font-semibold text-ink">Overall progress</span>
-        <span class="text-ink-muted tabular-nums">{totalVerified} / {totalPossible} ({overallPct}%)</span>
+        <span class="text-ink-muted tabular-nums"
+          >{totalVerified} / {totalPossible} ({overallPct}%)</span
+        >
       </div>
-      <div class="mt-2 h-2 rounded bg-surface overflow-hidden" role="progressbar" aria-valuenow={overallPct} aria-valuemin={0} aria-valuemax={100}>
+      <div
+        class="mt-2 h-2 rounded bg-surface overflow-hidden"
+        role="progressbar"
+        aria-valuenow={overallPct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <div class="h-full bg-accent" style={`width: ${overallPct}%`}></div>
       </div>
     </div>
@@ -104,16 +121,26 @@
         <table class="min-w-full text-sm border-collapse">
           <thead class="text-left bg-surface-raised">
             <tr>
-              <th scope="col" class="px-3 py-2 font-semibold text-ink">State</th>
-              <th scope="col" class="px-3 py-2 font-semibold text-ink text-right">Reviewed</th>
-              <th scope="col" class="px-3 py-2 font-semibold text-ink text-right">Needs attention</th>
+              <th scope="col" class="px-3 py-2 font-semibold text-ink">State</th
+              >
+              <th
+                scope="col"
+                class="px-3 py-2 font-semibold text-ink text-right">Reviewed</th
+              >
+              <th
+                scope="col"
+                class="px-3 py-2 font-semibold text-ink text-right"
+                >Needs attention</th
+              >
             </tr>
           </thead>
           <tbody>
             {#each rows as r (r.usps)}
               <tr class="border-t border-ink-subtle/20">
                 <th scope="row" class="px-3 py-2 text-left font-medium">
-                  <a class="text-accent hover:underline" href={r.auditUrl}>{r.name}</a>
+                  <a class="text-accent hover:underline" href={r.auditUrl}
+                    >{r.name}</a
+                  >
                 </th>
                 <td class="px-3 py-2 text-right tabular-nums text-ink-muted">
                   {r.verified} / {totalDatapoints} ({r.pct}%)
@@ -146,11 +173,15 @@
           {#each suggestions as sug (sug.id)}
             <li class="rounded border border-ink-subtle/20 p-3 text-sm">
               <div class="text-ink">
-                <span class="font-medium">{nameByUsps[sug.usps] ?? sug.usps}</span>
+                <span class="font-medium"
+                  >{nameByUsps[sug.usps] ?? sug.usps}</span
+                >
                 <span class="text-ink-subtle"> · {sug.datapoint_id}</span>
               </div>
               <div class="mt-1 text-ink-muted">{sug.body}</div>
-              <div class="mt-1 text-xs text-ink-subtle">{sug.submitted_by} · {sug.submitted_at.slice(0, 10)}</div>
+              <div class="mt-1 text-xs text-ink-subtle">
+                {sug.submitted_by} · {sug.submitted_at.slice(0, 10)}
+              </div>
             </li>
           {/each}
         </ul>
@@ -173,11 +204,15 @@
           {#each brokenLinks as link (link.usps + link.datapoint_id + link.url)}
             <li class="rounded border border-ink-subtle/20 p-3 text-sm">
               <div class="text-ink">
-                <span class="font-medium">{nameByUsps[link.usps] ?? link.usps}</span>
+                <span class="font-medium"
+                  >{nameByUsps[link.usps] ?? link.usps}</span
+                >
                 <span class="text-ink-subtle"> · {link.datapoint_id}</span>
               </div>
               <div class="mt-1 break-all text-ink-muted">{link.url}</div>
-              <div class="mt-1 text-xs text-ink-subtle">{link.status ?? link.classification}</div>
+              <div class="mt-1 text-xs text-ink-subtle">
+                {link.status ?? link.classification}
+              </div>
             </li>
           {/each}
         </ul>

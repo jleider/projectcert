@@ -101,7 +101,9 @@ const HistoryEvent = z.object({
   }),
   title: z.string().min(3),
   description: z.string().min(10),
-  sourceUrls: z.array(z.url()).min(1, "Every history event needs at least one sourceUrl"),
+  sourceUrls: z
+    .array(z.url())
+    .min(1, "Every history event needs at least one sourceUrl"),
 });
 
 /**
@@ -142,7 +144,10 @@ const ElPercentObservation = z.object({
 
 export const StateSchema = z
   .object({
-    usps: z.string().length(2).regex(/^[A-Z]{2}$/),
+    usps: z
+      .string()
+      .length(2)
+      .regex(/^[A-Z]{2}$/),
     name: z.string().min(2),
     elPercent: z.number().min(0).max(100),
     elPercentAsOf: isoDate,
@@ -173,22 +178,28 @@ export const StateSchema = z
       const h = s.history;
       if (!h || h.length < 2) return true;
       for (let i = 1; i < h.length; i++) {
-        if ((h[i]!.date) < (h[i - 1]!.date)) return false;
+        if (h[i]!.date < h[i - 1]!.date) return false;
       }
       return true;
     },
-    { message: "history[] must be sorted oldest → newest by date", path: ["history"] },
+    {
+      message: "history[] must be sorted oldest → newest by date",
+      path: ["history"],
+    },
   )
   .refine(
     (s) => {
       const h = s.elPercentHistory;
       if (!h || h.length < 2) return true;
       for (let i = 1; i < h.length; i++) {
-        if ((h[i]!.date) < (h[i - 1]!.date)) return false;
+        if (h[i]!.date < h[i - 1]!.date) return false;
       }
       return true;
     },
-    { message: "elPercentHistory[] must be sorted oldest → newest by date", path: ["elPercentHistory"] },
+    {
+      message: "elPercentHistory[] must be sorted oldest → newest by date",
+      path: ["elPercentHistory"],
+    },
   );
 
 export type State = z.output<typeof StateSchema>;

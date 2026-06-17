@@ -42,39 +42,54 @@ const responsiveSnippet = `<div style="position: relative; width: 100%; padding-
     <h1 class="text-3xl font-bold text-ink">Map embed</h1>
 
     <p class="mt-3 text-ink-muted">
-      The map at <a href={ROUTES.map} class="text-accent hover:underline">projectcert.org/map/</a>
+      The map at <a href={ROUTES.map} class="text-accent hover:underline"
+        >projectcert.org/map/</a
+      >
       is distributed for embedding via <code>&lt;iframe&gt;</code>. The embedded
       view includes an attribution line linking to projectcert.org and to the
       seed paper. Distribution terms are governed by
-      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="text-accent hover:underline">CC BY 4.0</a>;
-      attribution must remain visible.
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        rel="noopener"
+        class="text-accent hover:underline">CC BY 4.0</a
+      >; attribution must remain visible.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Fixed-height snippet</h2>
     <p class="mt-2 text-sm text-ink-muted">
-      Renders at full container width with a fixed pixel height. Suitable for desktop-first layouts.
+      Renders at full container width with a fixed pixel height. Suitable for
+      desktop-first layouts.
     </p>
-    <pre class="mt-3 rounded border border-ink-subtle/20 bg-surface-raised p-3 overflow-x-auto text-xs"><code>{basicSnippet}</code></pre>
+    <pre
+      class="mt-3 rounded border border-ink-subtle/20 bg-surface-raised p-3 overflow-x-auto text-xs"><code>{basicSnippet}</code></pre>
 
-    <h2 class="mt-8 text-xl font-semibold text-ink">Responsive snippet (recommended)</h2>
+    <h2 class="mt-8 text-xl font-semibold text-ink">
+      Responsive snippet (recommended)
+    </h2>
     <p class="mt-2 text-sm text-ink-muted">
-      Maintains a roughly 10:9 aspect ratio so the map remains legible on small viewports.
+      Maintains a roughly 10:9 aspect ratio so the map remains legible on small
+      viewports.
     </p>
-    <pre class="mt-3 rounded border border-ink-subtle/20 bg-surface-raised p-3 overflow-x-auto text-xs"><code>{responsiveSnippet}</code></pre>
+    <pre
+      class="mt-3 rounded border border-ink-subtle/20 bg-surface-raised p-3 overflow-x-auto text-xs"><code>{responsiveSnippet}</code></pre>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Layer-locked variants</h2>
     <p class="mt-2 text-sm text-ink-muted">
-      Appending <code>?layer=&lt;name&gt;</code> sets the initial encoded variable. The layer selector inside the embed remains active.
+      Appending <code>?layer=&lt;name&gt;</code> sets the initial encoded variable.
+      The layer selector inside the embed remains active.
     </p>
     <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-      {layers.map((l) => (
-        <li class="rounded border border-ink-subtle/20 px-3 py-2">
-          <strong class="text-ink">{l.label}</strong>
-          <div class="mt-1 text-xs font-mono text-ink-muted break-all">
-            {SITE_URL}/embed/map/?layer={l.value}
-          </div>
-        </li>
-      ))}
+      {
+        layers.map((l) => (
+          <li class="rounded border border-ink-subtle/20 px-3 py-2">
+            <strong class="text-ink">{l.label}</strong>
+            <div class="mt-1 text-xs font-mono text-ink-muted break-all">
+              {SITE_URL}/embed/map/?layer={l.value}
+            </div>
+          </li>
+        ))
+      }
     </ul>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Preview</h2>
@@ -94,10 +109,31 @@ const responsiveSnippet = `<div style="position: relative; width: 100%; padding-
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Notes</h2>
     <ul class="mt-2 text-sm text-ink-muted list-disc pl-5 space-y-1">
-      <li>The embed honors the user agent's <code>prefers-color-scheme</code> and adapts to light or dark host pages.</li>
-      <li>Hovering or focusing a state surfaces summary details within the iframe; clicking opens the corresponding per-state page in a new tab on projectcert.org.</li>
-      <li>Static high-resolution SVG renderings of any map layer are available on request.</li>
-      <li>Citation: cite both <a class="text-accent hover:underline" href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>projectcert</a> and the <a class="text-accent hover:underline" target="_blank" rel="noopener" href="https://doi.org/10.14507/epaa.29.5279">seed paper (Leider, Colombo &amp; Nerlino, 2021)</a> in any publication that reproduces the figure.</li>
+      <li>
+        The embed honors the user agent's <code>prefers-color-scheme</code> and adapts
+        to light or dark host pages.
+      </li>
+      <li>
+        Hovering or focusing a state surfaces summary details within the iframe;
+        clicking opens the corresponding per-state page in a new tab on
+        projectcert.org.
+      </li>
+      <li>
+        Static high-resolution SVG renderings of any map layer are available on
+        request.
+      </li>
+      <li>
+        Citation: cite both <a
+          class="text-accent hover:underline"
+          href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>projectcert</a
+        > and the <a
+          class="text-accent hover:underline"
+          target="_blank"
+          rel="noopener"
+          href="https://doi.org/10.14507/epaa.29.5279"
+          >seed paper (Leider, Colombo &amp; Nerlino, 2021)</a
+        > in any publication that reproduces the figure.
+      </li>
     </ul>
   </article>
 </BaseLayout>

@@ -1,6 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { SECTION_LABELS, type Datapoint, type DatapointSection } from "@/lib/verification-datapoints";
+  import {
+    SECTION_LABELS,
+    type Datapoint,
+    type DatapointSection,
+  } from "@/lib/verification-datapoints";
 
   export let usps: string;
   export let stateName: string;
@@ -47,7 +51,10 @@
   }
 
   $: verifiedCount = datapoints.filter(isCurrent).length;
-  $: pct = datapoints.length > 0 ? Math.round((verifiedCount / datapoints.length) * 100) : 0;
+  $: pct =
+    datapoints.length > 0
+      ? Math.round((verifiedCount / datapoints.length) * 100)
+      : 0;
 
   // Group datapoints by section, preserving descriptor order.
   $: sections = (() => {
@@ -60,7 +67,11 @@
       }
       bySection[d.section]!.push(d);
     }
-    return order.map((section) => ({ section, label: SECTION_LABELS[section], items: bySection[section]! }));
+    return order.map((section) => ({
+      section,
+      label: SECTION_LABELS[section],
+      items: bySection[section]!,
+    }));
   })();
 
   onMount(async () => {
@@ -76,7 +87,9 @@
       const b = (await bRes.json()) as { brokenLinks: BrokenRow[] };
       const s = (await sRes.json()) as { suggestions: SuggestionRow[] };
 
-      verifications = Object.fromEntries(v.verifications.map((r) => [r.datapoint_id, r]));
+      verifications = Object.fromEntries(
+        v.verifications.map((r) => [r.datapoint_id, r]),
+      );
       broken = groupBy(b.brokenLinks, (r) => r.datapoint_id);
       suggestions = groupBy(s.suggestions, (r) => r.datapoint_id);
     } catch {
@@ -113,7 +126,11 @@
         const res = await fetch(`/api/verifications`, {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ usps, datapoint_id: d.id, content_hash: d.contentHash }),
+          body: JSON.stringify({
+            usps,
+            datapoint_id: d.id,
+            content_hash: d.contentHash,
+          }),
         });
         if (!res.ok) throw new Error("post");
         const row = (await res.json()) as VerificationRow;
@@ -138,7 +155,10 @@
       });
       if (!res.ok) throw new Error("suggest");
       const row = (await res.json()) as SuggestionRow;
-      suggestions = { ...suggestions, [d.id]: [row, ...(suggestions[d.id] ?? [])] };
+      suggestions = {
+        ...suggestions,
+        [d.id]: [row, ...(suggestions[d.id] ?? [])],
+      };
       draft = { ...draft, [d.id]: "" };
       showSuggest = { ...showSuggest, [d.id]: false };
     } catch {
@@ -154,7 +174,9 @@
     <p class="text-ink-muted">Loading review state…</p>
   {:else}
     {#if offline}
-      <p class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
+      <p
+        class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink"
+      >
         The review service is unavailable, so confirmations cannot be saved. The
         datapoints below are shown read-only.
       </p>
@@ -163,16 +185,28 @@
     <div class="rounded border border-ink-subtle/20 bg-surface-raised p-4">
       <div class="flex items-center justify-between text-sm">
         <span class="font-semibold text-ink">{stateName} review progress</span>
-        <span class="text-ink-muted tabular-nums">{verifiedCount} / {datapoints.length} ({pct}%)</span>
+        <span class="text-ink-muted tabular-nums"
+          >{verifiedCount} / {datapoints.length} ({pct}%)</span
+        >
       </div>
-      <div class="mt-2 h-2 rounded bg-surface overflow-hidden" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
+      <div
+        class="mt-2 h-2 rounded bg-surface overflow-hidden"
+        role="progressbar"
+        aria-valuenow={pct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <div class="h-full bg-accent" style={`width: ${pct}%`}></div>
       </div>
     </div>
 
     {#each sections as group}
       <section>
-        <h2 class="text-lg font-semibold text-ink border-b border-ink-subtle/20 pb-1">{group.label}</h2>
+        <h2
+          class="text-lg font-semibold text-ink border-b border-ink-subtle/20 pb-1"
+        >
+          {group.label}
+        </h2>
         <ul class="mt-3 space-y-3">
           {#each group.items as d (d.id)}
             {@const checkedNow = Boolean(verifications[d.id])}
@@ -192,7 +226,9 @@
                   <div class="text-ink">{d.label}</div>
                   {#if d.displayValue !== null}
                     <div class="mt-0.5 text-sm text-ink-muted">
-                      Current value: <span class="font-medium text-ink">{d.displayValue}</span>
+                      Current value: <span class="font-medium text-ink"
+                        >{d.displayValue}</span
+                      >
                     </div>
                   {/if}
 
@@ -201,8 +237,13 @@
                       <tbody>
                         {#each d.rows as row}
                           <tr class="border-t border-ink-subtle/10">
-                            <td class="py-1 pr-3 text-ink-subtle align-top whitespace-nowrap">{row.label}</td>
-                            <td class="py-1 text-ink-muted break-words">{row.value}</td>
+                            <td
+                              class="py-1 pr-3 text-ink-subtle align-top whitespace-nowrap"
+                              >{row.label}</td
+                            >
+                            <td class="py-1 text-ink-muted break-words"
+                              >{row.value}</td
+                            >
                           </tr>
                         {/each}
                       </tbody>
@@ -211,20 +252,26 @@
 
                   {#if checkedNow && !stale && !brk}
                     <div class="mt-1 text-xs text-accent">
-                      Reviewed by {verifications[d.id]!.verified_by} on {verifications[d.id]!.verified_at.slice(0, 10)}
+                      Reviewed by {verifications[d.id]!.verified_by} on {verifications[
+                        d.id
+                      ]!.verified_at.slice(0, 10)}
                     </div>
                   {/if}
                   {#if stale}
                     <div class="mt-1 text-xs text-ink">
-                      ⚠ The value changed since this was last confirmed — please re-review.
+                      ⚠ The value changed since this was last confirmed — please
+                      re-review.
                     </div>
                   {/if}
                   {#if brk}
                     <div class="mt-1 text-xs text-ink">
-                      ⚠ A cited source is unreachable — re-verify against current sources:
+                      ⚠ A cited source is unreachable — re-verify against
+                      current sources:
                       <ul class="mt-1 list-disc pl-5 text-ink-muted">
                         {#each broken[d.id] ?? [] as link}
-                          <li class="break-all">{link.url} ({link.status ?? link.classification})</li>
+                          <li class="break-all">
+                            {link.url} ({link.status ?? link.classification})
+                          </li>
                         {/each}
                       </ul>
                     </div>
@@ -236,7 +283,10 @@
                       <ul class="mt-1 space-y-1">
                         {#each suggestions[d.id] ?? [] as sug}
                           <li class="text-ink-muted">
-                            <span class="text-ink-subtle">{sug.submitted_by}:</span> {sug.body}
+                            <span class="text-ink-subtle"
+                              >{sug.submitted_by}:</span
+                            >
+                            {sug.body}
                           </li>
                         {/each}
                       </ul>
@@ -250,13 +300,13 @@
                           class="w-full rounded border border-ink-subtle/30 bg-surface p-2 text-sm text-ink"
                           rows="2"
                           placeholder="Describe the correction and cite a source…"
-                          bind:value={draft[d.id]}
-                        ></textarea>
+                          bind:value={draft[d.id]}></textarea>
                         <div class="mt-1 flex gap-2">
                           <button
                             type="button"
                             class="rounded border border-accent bg-accent px-2.5 py-1 text-xs font-medium text-white hover:bg-accent-hover disabled:opacity-50"
-                            disabled={busy[d.id] || (draft[d.id] ?? '').trim().length === 0}
+                            disabled={busy[d.id] ||
+                              (draft[d.id] ?? "").trim().length === 0}
                             on:click={() => submitSuggestion(d)}
                           >
                             Submit suggestion
@@ -264,7 +314,8 @@
                           <button
                             type="button"
                             class="rounded border border-ink-subtle/40 px-2.5 py-1 text-xs text-ink-muted hover:text-accent"
-                            on:click={() => (showSuggest = { ...showSuggest, [d.id]: false })}
+                            on:click={() =>
+                              (showSuggest = { ...showSuggest, [d.id]: false })}
                           >
                             Cancel
                           </button>
@@ -274,7 +325,8 @@
                       <button
                         type="button"
                         class="mt-2 text-xs text-accent hover:underline"
-                        on:click={() => (showSuggest = { ...showSuggest, [d.id]: true })}
+                        on:click={() =>
+                          (showSuggest = { ...showSuggest, [d.id]: true })}
                       >
                         Suggest a change
                       </button>

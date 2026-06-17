@@ -98,7 +98,9 @@ async function resolveDirectUrl(commonsTitle: string): Promise<{
   api.searchParams.set("format", "json");
   api.searchParams.set("origin", "*");
   const res = await fetch(api, {
-    headers: { "User-Agent": "projectcert-seal-fetcher/1.0 (https://projectcert.org)" },
+    headers: {
+      "User-Agent": "projectcert-seal-fetcher/1.0 (https://projectcert.org)",
+    },
   });
   if (!res.ok) throw new Error(`Commons API ${res.status} for ${commonsTitle}`);
   const data = (await res.json()) as CommonsImageInfo;
@@ -111,7 +113,9 @@ async function resolveDirectUrl(commonsTitle: string): Promise<{
 async function downloadOne(usps: string, commonsTitle: string): Promise<void> {
   const { directUrl, pageUrl } = await resolveDirectUrl(commonsTitle);
   const res = await fetch(directUrl, {
-    headers: { "User-Agent": "projectcert-seal-fetcher/1.0 (https://projectcert.org)" },
+    headers: {
+      "User-Agent": "projectcert-seal-fetcher/1.0 (https://projectcert.org)",
+    },
   });
   if (!res.ok) throw new Error(`Download ${res.status} for ${directUrl}`);
   const svg = await res.text();
@@ -156,4 +160,6 @@ for (const [usps, title] of entries) {
   }
   await new Promise((r) => setTimeout(r, 800));
 }
-console.log(`\nDone: ${ok} ok, ${skip} skipped (already downloaded), ${fail} failed.`);
+console.log(
+  `\nDone: ${ok} ok, ${skip} skipped (already downloaded), ${fail} failed.`,
+);

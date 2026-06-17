@@ -25,8 +25,16 @@ const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
     <meta name="robots" content="noindex, follow" />
-    <meta name="theme-color" content="#3d1971" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#262833" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="theme-color"
+      content="#3d1971"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#262833"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="min-h-screen bg-surface text-ink">

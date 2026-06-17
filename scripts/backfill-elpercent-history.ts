@@ -17,12 +17,14 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const STATES_DIR = process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
+const STATES_DIR =
+  process.env.STATES_DIR ?? resolve(__dirname, "../src/content/states");
 const TSV_PATH = resolve(
   __dirname,
   "../sources/_consolidated/2026-05-10/nces-d23-table-204-20.tsv",
 );
-const NCES_URL = "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp";
+const NCES_URL =
+  "https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp";
 const SOURCE_LABEL = "NCES Digest of Education Statistics 2023, Table 204.20";
 
 interface ElObs {

@@ -24,13 +24,19 @@ function argValue(flag: string): string | null {
   return i >= 0 && i + 1 < process.argv.length ? process.argv[i + 1]! : null;
 }
 
-const OUT_PATH = argValue("--out") ?? resolve(__dirname, "../src/data/link-whitelist.json");
+const OUT_PATH =
+  argValue("--out") ?? resolve(__dirname, "../src/data/link-whitelist.json");
 
 function readRows<T>(path: string | null): T[] {
   if (!path) return [];
   const parsed = JSON.parse(readFileSync(path, "utf8"));
   if (Array.isArray(parsed)) {
-    if (parsed.length > 0 && parsed[0] && typeof parsed[0] === "object" && "results" in parsed[0]) {
+    if (
+      parsed.length > 0 &&
+      parsed[0] &&
+      typeof parsed[0] === "object" &&
+      "results" in parsed[0]
+    ) {
       return (parsed[0].results ?? []) as T[];
     }
     return parsed as T[];
@@ -61,7 +67,9 @@ const entries = rows
   .sort((a, b) => a.url.localeCompare(b.url))
   .reduce<Record<string, WhitelistEntry>>((acc, r) => {
     const status =
-      r.accepted_status === null || r.accepted_status === "" ? null : Number(r.accepted_status);
+      r.accepted_status === null || r.accepted_status === ""
+        ? null
+        : Number(r.accepted_status);
     const entry: WhitelistEntry = {
       status: Number.isNaN(status as number) ? null : status,
       acceptedBy: r.reviewed_by,

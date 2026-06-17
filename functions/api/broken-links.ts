@@ -19,7 +19,10 @@ interface BrokenLinkRow {
   detected_at: string;
 }
 
-export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env }) => {
+export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
+  request,
+  env,
+}) => {
   const usps = normalizeUsps(new URL(request.url).searchParams.get("usps"));
 
   const query = usps

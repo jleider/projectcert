@@ -27,12 +27,27 @@ const PAIRS: Array<[string, string]> = [
   // NV baseline (no-www, https)
   ["http://www.doe.nv.gov", "https://doe.nv.gov"],
   // Mississippi (mdek12.org reorganization)
-  ["https://www.mdek12.org/OAE/OEAS/EnglishLearners", "https://mdek12.org/elementaryedu/english-learners/"],
+  [
+    "https://www.mdek12.org/OAE/OEAS/EnglishLearners",
+    "https://mdek12.org/elementaryedu/english-learners/",
+  ],
   ["https://www.mdek12.org/OEL/OEL", "https://mdek12.org/licensure/"],
-  ["https://www.mdek12.org/OSA/Operations/ELPT", "https://mdek12.org/studentassessment/elpt/"],
-  ["https://www.mdek12.org/OEEM/PGS", "https://mdek12.org/educatoreffectiveness/teacher-2/"],
-  ["https://www.mdek12.org/OAE/EL", "https://mdek12.org/elementaryedu/english-learners/"],
-  ["https://www.mdek12.org/OSA/ELPT", "https://mdek12.org/studentassessment/elpt/"],
+  [
+    "https://www.mdek12.org/OSA/Operations/ELPT",
+    "https://mdek12.org/studentassessment/elpt/",
+  ],
+  [
+    "https://www.mdek12.org/OEEM/PGS",
+    "https://mdek12.org/educatoreffectiveness/teacher-2/",
+  ],
+  [
+    "https://www.mdek12.org/OAE/EL",
+    "https://mdek12.org/elementaryedu/english-learners/",
+  ],
+  [
+    "https://www.mdek12.org/OSA/ELPT",
+    "https://mdek12.org/studentassessment/elpt/",
+  ],
   // Texas (TEA URL scheme change)
   [
     "https://tea.texas.gov/about-tea/laws-and-rules/sbec-rules-tac/sbec-tac-currently-in-effect/ch233.pdf",
@@ -46,7 +61,10 @@ const PAIRS: Array<[string, string]> = [
     "https://tea.texas.gov/academics/special-student-populations/emergent-bilingual-support/eb-certification-pathways.pdf",
     "https://tea.texas.gov/special-populations-and-support/english-learner-support/eb-certification-pathways-0.pdf",
   ],
-  ["https://tea.texas.gov/student-assessment/testing/telpas", "https://tea.texas.gov/assessment-and-accountability/telpas"],
+  [
+    "https://tea.texas.gov/student-assessment/testing/telpas",
+    "https://tea.texas.gov/assessment-and-accountability/telpas",
+  ],
   [
     "https://tea.texas.gov/texas-educators/certification/educator-testing/required-tests-chart.pdf",
     "https://tea.texas.gov/educators/certification/educator-testing/required-and-replacement-test-chart-2.pdf",
@@ -120,7 +138,10 @@ const PAIRS: Array<[string, string]> = [
     "https://www.sde.idaho.gov/wp-content/uploads/2025/09/English-Learner-Manual.pdf",
   ],
   // Nebraska (NDE /tcert/ reorg; rule PDFs; Rule 24 now .docx)
-  ["https://www.education.ne.gov/educatorprep/endorsements-offered-in-nebraska/", "https://www.education.ne.gov/tcert/endorsements/"],
+  [
+    "https://www.education.ne.gov/educatorprep/endorsements-offered-in-nebraska/",
+    "https://www.education.ne.gov/tcert/endorsements/",
+  ],
   [
     "https://www.education.ne.gov/wp-content/uploads/2017/07/Clean_Rule_20_2024.pdf",
     "https://www.education.ne.gov/wp-content/uploads/2024/05/Web-Rule-20.pdf",
@@ -134,8 +155,14 @@ const PAIRS: Array<[string, string]> = [
     "https://www.education.ne.gov/wp-content/uploads/2025/10/GUIDELINES-RECOMMENDED-FOR-USE-WITH-RULE-24-ENDORSEMENTS-UPDATED.docx",
   ],
   // Utah (USBE: drop www + path moves)
-  ["https://www.schools.utah.gov/curr/licensing/endorsements", "https://schools.utah.gov/licensing/endorsements"],
-  ["https://www.schools.utah.gov/educatoreffectiveness", "https://schools.utah.gov/curr/educatordevelopment/classroomteachers"],
+  [
+    "https://www.schools.utah.gov/curr/licensing/endorsements",
+    "https://schools.utah.gov/licensing/endorsements",
+  ],
+  [
+    "https://www.schools.utah.gov/educatoreffectiveness",
+    "https://schools.utah.gov/curr/educatordevelopment/classroomteachers",
+  ],
   // Alaska (DEED path moves)
   [
     "https://education.alaska.gov/teachercertification/teaching-certificates",
@@ -145,7 +172,10 @@ const PAIRS: Array<[string, string]> = [
     "https://education.alaska.gov/teachercertification/standards",
     "https://education.alaska.gov/akaccountability/educator/resources_sd/teacher_standards_framework_alignment.pdf",
   ],
-  ["https://education.alaska.gov/standards/elp", "https://education.alaska.gov/standards/english-language-proficiency"],
+  [
+    "https://education.alaska.gov/standards/elp",
+    "https://education.alaska.gov/standards/english-language-proficiency",
+  ],
   // Tennessee (SBE per-year meeting dirs; policy + EL page moves)
   [
     "https://www.tn.gov/content/dam/tn/stateboardofeducation/documents/meetingfiles/Additional_Endorsement_Programs_-_SPED_ESL_CS_Programs_Update.pdf",
@@ -173,7 +203,10 @@ const PAIRS: Array<[string, string]> = [
     "https://education.vermont.gov/sites/aoe/files/documents/edu-educator-quality-core-teaching-and-leadership-standards-for-vermont-educators.pdf",
   ],
   // Louisiana (LDOE doc renames; checklist -> teachlouisiana.net; CODOFIL root)
-  ["https://doe.louisiana.gov/docs/default-source/teaching/esl-add-on-checklist.pdf", "https://www.teachlouisiana.net/checklist/esl.pdf"],
+  [
+    "https://doe.louisiana.gov/docs/default-source/teaching/esl-add-on-checklist.pdf",
+    "https://www.teachlouisiana.net/checklist/esl.pdf",
+  ],
   [
     "https://doe.louisiana.gov/docs/default-source/english-learners/improving-outcomes-for-english-learners-louisianas-framework.pdf",
     "https://doe.louisiana.gov/docs/default-source/english-learners/el-framework---final.pdf",
@@ -186,7 +219,10 @@ const PAIRS: Array<[string, string]> = [
     "https://doe.louisiana.gov/resources/library/k-12-english-learners",
     "https://doe.louisiana.gov/school-system-leaders/diverse-learners/english-learners/english-learners-resources",
   ],
-  ["https://www.crt.state.la.us/cultural-development/codofil/about/index", "https://www.crt.state.la.us/cultural-development/codofil/"],
+  [
+    "https://www.crt.state.la.us/cultural-development/codofil/about/index",
+    "https://www.crt.state.la.us/cultural-development/codofil/",
+  ],
   // Ohio (standards PDF moved to SBOE DAM CDN)
   [
     "https://education.ohio.gov/getattachment/Topics/Teaching/Educator-Evaluation-System/Ohio-s-Teacher-Evaluation-System/Ohio-Standards-for-the-Teaching-Profession.pdf",
@@ -198,14 +234,20 @@ const PAIRS: Array<[string, string]> = [
     "https://www.education.ky.gov/curriculum/hsgradreq/Documents/Kentucky_Guidelines_for_Establishing_a_Local_Seal_of_Biliteracy.pdf",
   ],
   // Oklahoma (/educators/ -> /services/)
-  ["https://oklahoma.gov/education/educators/teacher-certification.html", "https://oklahoma.gov/education/services/teacher-certification.html"],
+  [
+    "https://oklahoma.gov/education/educators/teacher-certification.html",
+    "https://oklahoma.gov/education/services/teacher-certification.html",
+  ],
   // Massachusetts (bilingual endorsement moved to Licensure Office)
   [
     "https://www.doe.mass.edu/edprep/domains/instruction/bilingual-ed-endorsement.html",
     "https://www.doe.mass.edu/licensure/endorsements/bilingual-ed.html",
   ],
   // California (CSTP 2024 PDF moved to CTC document server)
-  ["https://www.ctc.ca.gov/educator-prep/standards/cstp-2024.pdf", "https://docs.ctc.ca.gov/Document/Download/30328"],
+  [
+    "https://www.ctc.ca.gov/educator-prep/standards/cstp-2024.pdf",
+    "https://docs.ctc.ca.gov/Document/Download/30328",
+  ],
   // Michigan (prep standards PDF renamed)
   [
     "https://www.michigan.gov/-/media/Project/Websites/mde/educator_services/prep/standards/professional_knowledge_skills.pdf",
@@ -257,5 +299,7 @@ for (const [oldUrl, count] of totals) {
     process.stdout.write(`${count.toString().padStart(3)} x  ${oldUrl}\n`);
   }
 }
-process.stdout.write(`\nApplied ${PAIRS.length - missing}/${PAIRS.length} replacement pairs.\n`);
+process.stdout.write(
+  `\nApplied ${PAIRS.length - missing}/${PAIRS.length} replacement pairs.\n`,
+);
 if (missing > 0) process.exitCode = 1;

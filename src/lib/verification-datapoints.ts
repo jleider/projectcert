@@ -91,10 +91,28 @@ interface StateData {
     linguistic: boolean;
     el: boolean;
   };
-  sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
-  elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
-  sources: Array<{ label: string; url: string; retrievedAt: string; retrievedBy: string }>;
-  history?: Array<{ date: string; title: string; description: string; sourceUrls: string[] }>;
+  sealOfBiliteracy: {
+    adopted: boolean;
+    year: number | null;
+    sourceUrl: string;
+  };
+  elpAssessment: {
+    name: string;
+    consortium: "WIDA" | "ELPA21" | null;
+    sourceUrl: string | null;
+  };
+  sources: Array<{
+    label: string;
+    url: string;
+    retrievedAt: string;
+    retrievedBy: string;
+  }>;
+  history?: Array<{
+    date: string;
+    title: string;
+    description: string;
+    sourceUrls: string[];
+  }>;
   elPercentHistory?: Array<{
     date: string;
     percent: number;
@@ -153,7 +171,15 @@ function scalar(
   displayValue: string | null,
   canonical: unknown,
 ): Datapoint {
-  return { id, label, section, displayValue, grouped: false, rows: [], contentHash: contentHashFor(canonical) };
+  return {
+    id,
+    label,
+    section,
+    displayValue,
+    grouped: false,
+    rows: [],
+    contentHash: contentHashFor(canonical),
+  };
 }
 
 function group(
@@ -166,7 +192,15 @@ function group(
 ): Datapoint {
   // Normalize absent (undefined) optional arrays to [] so "absent" and
   // "empty" hash identically — both mean "no rows to verify".
-  return { id, label, section, displayValue, grouped: true, rows, contentHash: contentHashFor(canonical ?? []) };
+  return {
+    id,
+    label,
+    section,
+    displayValue,
+    grouped: true,
+    rows,
+    contentHash: contentHashFor(canonical ?? []),
+  };
 }
 
 /** Fixed ordered id set — the constant audit denominator. */
@@ -215,11 +249,41 @@ function credentialReqDatapoints(
 ): Datapoint[] {
   const r = cred.requirements;
   return [
-    scalar(`${prefix}.requirements.program`, `${noun} credential requires completion of an approved preparation program`, section, formatRequirement(r?.program), r?.program),
-    scalar(`${prefix}.requirements.coursework`, `${noun} credential requires specific coursework`, section, formatRequirement(r?.coursework), r?.coursework),
-    scalar(`${prefix}.requirements.practicum`, `${noun} credential requires a supervised practicum`, section, formatRequirement(r?.practicum), r?.practicum),
-    scalar(`${prefix}.requirements.test`, `${noun} credential requires a content or subject-matter examination`, section, formatRequirement(r?.test), r?.test),
-    scalar(`${prefix}.requirements.languageProficiency`, `${noun} credential requires demonstrated proficiency in a language other than English`, section, formatRequirement(r?.languageProficiency), r?.languageProficiency),
+    scalar(
+      `${prefix}.requirements.program`,
+      `${noun} credential requires completion of an approved preparation program`,
+      section,
+      formatRequirement(r?.program),
+      r?.program,
+    ),
+    scalar(
+      `${prefix}.requirements.coursework`,
+      `${noun} credential requires specific coursework`,
+      section,
+      formatRequirement(r?.coursework),
+      r?.coursework,
+    ),
+    scalar(
+      `${prefix}.requirements.practicum`,
+      `${noun} credential requires a supervised practicum`,
+      section,
+      formatRequirement(r?.practicum),
+      r?.practicum,
+    ),
+    scalar(
+      `${prefix}.requirements.test`,
+      `${noun} credential requires a content or subject-matter examination`,
+      section,
+      formatRequirement(r?.test),
+      r?.test,
+    ),
+    scalar(
+      `${prefix}.requirements.languageProficiency`,
+      `${noun} credential requires demonstrated proficiency in a language other than English`,
+      section,
+      formatRequirement(r?.languageProficiency),
+      r?.languageProficiency,
+    ),
   ];
 }
 
@@ -238,39 +302,165 @@ export function datapointsFor(state: StateData): Datapoint[] {
   const sources = state.sources;
 
   return [
-    scalar("elPercent", "Share of public-school students classified as English Learners", "el-population", `${state.elPercent.toFixed(1)}%`, state.elPercent),
-    scalar("elPercentAsOf", "As-of date for the classified English-Learner share", "el-population", state.elPercentAsOf, state.elPercentAsOf),
+    scalar(
+      "elPercent",
+      "Share of public-school students classified as English Learners",
+      "el-population",
+      `${state.elPercent.toFixed(1)}%`,
+      state.elPercent,
+    ),
+    scalar(
+      "elPercentAsOf",
+      "As-of date for the classified English-Learner share",
+      "el-population",
+      state.elPercentAsOf,
+      state.elPercentAsOf,
+    ),
 
-    scalar("credentials.bilingual.offered", "Bilingual education credential is offered", "bilingual-credential", formatBool(b.offered), b.offered),
-    scalar("credentials.bilingual.standalone", "Bilingual education available as a standalone certification", "bilingual-credential", formatBool(b.standalone), b.standalone),
-    scalar("credentials.bilingual.addOn", "Bilingual education available as an add-on endorsement", "bilingual-credential", formatBool(b.addOn), b.addOn),
-    ...credentialReqDatapoints("credentials.bilingual", "Bilingual education", "bilingual-credential", b),
+    scalar(
+      "credentials.bilingual.offered",
+      "Bilingual education credential is offered",
+      "bilingual-credential",
+      formatBool(b.offered),
+      b.offered,
+    ),
+    scalar(
+      "credentials.bilingual.standalone",
+      "Bilingual education available as a standalone certification",
+      "bilingual-credential",
+      formatBool(b.standalone),
+      b.standalone,
+    ),
+    scalar(
+      "credentials.bilingual.addOn",
+      "Bilingual education available as an add-on endorsement",
+      "bilingual-credential",
+      formatBool(b.addOn),
+      b.addOn,
+    ),
+    ...credentialReqDatapoints(
+      "credentials.bilingual",
+      "Bilingual education",
+      "bilingual-credential",
+      b,
+    ),
 
-    scalar("credentials.eld.offered", "English language development credential is offered", "eld-credential", formatBool(e.offered), e.offered),
-    scalar("credentials.eld.standalone", "English language development available as a standalone certification", "eld-credential", formatBool(e.standalone), e.standalone),
-    scalar("credentials.eld.addOn", "English language development available as an add-on endorsement", "eld-credential", formatBool(e.addOn), e.addOn),
-    ...credentialReqDatapoints("credentials.eld", "English language development", "eld-credential", e),
+    scalar(
+      "credentials.eld.offered",
+      "English language development credential is offered",
+      "eld-credential",
+      formatBool(e.offered),
+      e.offered,
+    ),
+    scalar(
+      "credentials.eld.standalone",
+      "English language development available as a standalone certification",
+      "eld-credential",
+      formatBool(e.standalone),
+      e.standalone,
+    ),
+    scalar(
+      "credentials.eld.addOn",
+      "English language development available as an add-on endorsement",
+      "eld-credential",
+      formatBool(e.addOn),
+      e.addOn,
+    ),
+    ...credentialReqDatapoints(
+      "credentials.eld",
+      "English language development",
+      "eld-credential",
+      e,
+    ),
 
-    scalar("credentials.sei.mandatedForAllTeachers", "Sheltered English instruction training is mandated for all teachers", "sei-mandate", formatBool(state.credentials.sei.mandatedForAllTeachers), state.credentials.sei.mandatedForAllTeachers),
+    scalar(
+      "credentials.sei.mandatedForAllTeachers",
+      "Sheltered English instruction training is mandated for all teachers",
+      "sei-mandate",
+      formatBool(state.credentials.sei.mandatedForAllTeachers),
+      state.credentials.sei.mandatedForAllTeachers,
+    ),
 
-    scalar("professionalStandardsMentions.diverse", "Professional teaching standards reference diverse learners", "professional-standards", formatBool(psm.diverse), psm.diverse),
-    scalar("professionalStandardsMentions.cultural", "Professional teaching standards reference cultural competency", "professional-standards", formatBool(psm.cultural), psm.cultural),
-    scalar("professionalStandardsMentions.linguistic", "Professional teaching standards reference linguistic diversity", "professional-standards", formatBool(psm.linguistic), psm.linguistic),
-    scalar("professionalStandardsMentions.el", "Professional teaching standards explicitly reference English Learners", "professional-standards", formatBool(psm.el), psm.el),
+    scalar(
+      "professionalStandardsMentions.diverse",
+      "Professional teaching standards reference diverse learners",
+      "professional-standards",
+      formatBool(psm.diverse),
+      psm.diverse,
+    ),
+    scalar(
+      "professionalStandardsMentions.cultural",
+      "Professional teaching standards reference cultural competency",
+      "professional-standards",
+      formatBool(psm.cultural),
+      psm.cultural,
+    ),
+    scalar(
+      "professionalStandardsMentions.linguistic",
+      "Professional teaching standards reference linguistic diversity",
+      "professional-standards",
+      formatBool(psm.linguistic),
+      psm.linguistic,
+    ),
+    scalar(
+      "professionalStandardsMentions.el",
+      "Professional teaching standards explicitly reference English Learners",
+      "professional-standards",
+      formatBool(psm.el),
+      psm.el,
+    ),
 
-    scalar("sealOfBiliteracy.adopted", "State Seal of Biliteracy has been adopted", "seal-of-biliteracy", formatBool(seal.adopted), seal.adopted),
-    scalar("sealOfBiliteracy.year", "Year the State Seal of Biliteracy was adopted", "seal-of-biliteracy", seal.year !== null ? String(seal.year) : "Not applicable", seal.year),
-    scalar("sealOfBiliteracy.sourceUrl", "Citation for the State Seal of Biliteracy status", "seal-of-biliteracy", seal.sourceUrl, seal.sourceUrl),
+    scalar(
+      "sealOfBiliteracy.adopted",
+      "State Seal of Biliteracy has been adopted",
+      "seal-of-biliteracy",
+      formatBool(seal.adopted),
+      seal.adopted,
+    ),
+    scalar(
+      "sealOfBiliteracy.year",
+      "Year the State Seal of Biliteracy was adopted",
+      "seal-of-biliteracy",
+      seal.year !== null ? String(seal.year) : "Not applicable",
+      seal.year,
+    ),
+    scalar(
+      "sealOfBiliteracy.sourceUrl",
+      "Citation for the State Seal of Biliteracy status",
+      "seal-of-biliteracy",
+      seal.sourceUrl,
+      seal.sourceUrl,
+    ),
 
-    scalar("elpAssessment.name", "Name of the annual English language proficiency assessment", "elp-assessment", elp.name, elp.name),
-    scalar("elpAssessment.consortium", "Assessment consortium for the English language proficiency test", "elp-assessment", elp.consortium ?? "State-specific assessment", elp.consortium),
-    scalar("elpAssessment.sourceUrl", "Citation for the English language proficiency assessment", "elp-assessment", elp.sourceUrl ?? "No citation recorded", elp.sourceUrl),
+    scalar(
+      "elpAssessment.name",
+      "Name of the annual English language proficiency assessment",
+      "elp-assessment",
+      elp.name,
+      elp.name,
+    ),
+    scalar(
+      "elpAssessment.consortium",
+      "Assessment consortium for the English language proficiency test",
+      "elp-assessment",
+      elp.consortium ?? "State-specific assessment",
+      elp.consortium,
+    ),
+    scalar(
+      "elpAssessment.sourceUrl",
+      "Citation for the English language proficiency assessment",
+      "elp-assessment",
+      elp.sourceUrl ?? "No citation recorded",
+      elp.sourceUrl,
+    ),
 
     group(
       "history",
       "Licensure history timeline",
       "provenance",
-      history.length > 0 ? `${history.length} event${history.length === 1 ? "" : "s"}` : "No events recorded",
+      history.length > 0
+        ? `${history.length} event${history.length === 1 ? "" : "s"}`
+        : "No events recorded",
       history.map((ev) => ({ label: ev.date, value: ev.title })),
       state.history,
     ),
@@ -278,8 +468,13 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "elPercentHistory",
       "English-Learner share time series",
       "provenance",
-      elPercentHistory.length > 0 ? `${elPercentHistory.length} observation${elPercentHistory.length === 1 ? "" : "s"}` : "No observations recorded",
-      elPercentHistory.map((obs) => ({ label: obs.date.slice(0, 4), value: `${obs.percent.toFixed(1)}% — ${obs.source.label}` })),
+      elPercentHistory.length > 0
+        ? `${elPercentHistory.length} observation${elPercentHistory.length === 1 ? "" : "s"}`
+        : "No observations recorded",
+      elPercentHistory.map((obs) => ({
+        label: obs.date.slice(0, 4),
+        value: `${obs.percent.toFixed(1)}% — ${obs.source.label}`,
+      })),
       state.elPercentHistory,
     ),
     group(
@@ -320,7 +515,8 @@ export function datapointIdForCitation(citation: string): string | null {
   if (path.startsWith("sources[")) return "sources";
   if (path.startsWith("history[")) return "history";
   if (path.startsWith("elPercentHistory[")) return "elPercentHistory";
-  if (path === "sealOfBiliteracy.sourceUrl") return "sealOfBiliteracy.sourceUrl";
+  if (path === "sealOfBiliteracy.sourceUrl")
+    return "sealOfBiliteracy.sourceUrl";
   if (path === "elpAssessment.sourceUrl") return "elpAssessment.sourceUrl";
   return null;
 }
