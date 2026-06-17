@@ -53,7 +53,7 @@ The Wyoming JSON validates against `StateSchema` with no conflicts. The 2026-05-
 
 ## Sources reviewed
 
-- `sources/wy/2026-05-08/` — all local snapshots from the 2026-05-08 refresh
+- `sources/WY/2026-05-08/` — all local snapshots from the 2026-05-08 refresh
 - PTSB site (https://wyomingptsb.com) — live verification on 2026-05-10
 - NCES Digest Table 204.20 Fall 2021 snapshot
 - Wyoming Seal of Biliteracy record (sealofbiliteracy.org/state/wy/)

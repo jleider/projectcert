@@ -24,7 +24,7 @@ South Carolina record (verificationStatus: verified-2026) was thoroughly re-veri
 - Forbidden pattern: "Baseline coding (Leider, Colombo & Nerlino, 2021)"
 - Correct location for audit provenance: `sources/<USPS>/<date>/changes-from-baseline.md`
 
-The audit trail (what changed from baseline) belongs in `sources/sc/2026-05-10/changes-from-baseline.md`, not in the public `history[]` timeline. The site renders history as a researcher-facing chronology of SEA policy events, not verification metadata.
+The audit trail (what changed from baseline) belongs in `sources/SC/2026-05-10/changes-from-baseline.md`, not in the public `history[]` timeline. The site renders history as a researcher-facing chronology of SEA policy events, not verification metadata.
 
 ---
 
@@ -203,7 +203,7 @@ The SC record has evolved substantively since the Oct–Dec 2019 baseline:
 
 3. *Optional:* Strengthen the Seal of Biliteracy source URL by locating the SC legislative enabling authority (Act 25 / S 245, or equivalent) and replacing the generic sealofbiliteracy.org reference with a scstatehouse.gov or SCDE policy link.
 
-4. Document this audit in `sources/sc/2026-05-10/changes-from-baseline.md` per the integrity check requirement.
+4. Document this audit in `sources/SC/2026-05-10/changes-from-baseline.md` per the integrity check requirement.
 
 ---
 

@@ -17,7 +17,7 @@ Appended fall-2024 EB observation to `elPercentHistory[]` and bumped
   classification (LPAC identification), not bilingual/ESL program
   enrollment.
 
-See `sources/tx/2026-05-10/sea-el-research.md` for the full agent
+See `sources/TX/2026-05-10/sea-el-research.md` for the full agent
 write-up.
 
 No other fields changed.

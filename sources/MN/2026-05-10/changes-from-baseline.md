@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://files.eric.ed.gov/fulltext/ED676212.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/mn/2026-05-10/audit-report.md` and
-`sources/mn/2026-05-10/sea-el-research.md`.
+`sources/MN/2026-05-10/audit-report.md` and
+`sources/MN/2026-05-10/sea-el-research.md`.

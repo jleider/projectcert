@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://marylandpublicschools.org/programs/Documents/English-Learners/2023-2024-EL-Data-A.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/md/2026-05-10/audit-report.md` and
-`sources/md/2026-05-10/sea-el-research.md`.
+`sources/MD/2026-05-10/audit-report.md` and
+`sources/MD/2026-05-10/sea-el-research.md`.

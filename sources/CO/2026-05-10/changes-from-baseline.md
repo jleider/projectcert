@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.cde.state.co.us/communications/011724newsreleaseenrollment>
 
 Full worker write-up and supporting research for this pass:
-`sources/co/2026-05-10/audit-report.md` and
-`sources/co/2026-05-10/sea-el-research.md`.
+`sources/CO/2026-05-10/audit-report.md` and
+`sources/CO/2026-05-10/sea-el-research.md`.

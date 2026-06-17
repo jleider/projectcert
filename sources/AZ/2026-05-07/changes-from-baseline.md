@@ -1,32 +1,113 @@
 # AZ — changes from baseline-2019
 
-Refresh date: 2026-05-07. This file is an audit-trail reconstruction.
-The cherry-pick from the per-state worktree branch landed the JSON
-edits but did not carry over the original sources/AZ/2026-05-07/ snapshot
-directory. Below are the projectcert-2026 sources cited in the
-state record at the time of refresh; each was visited and read
-during the original verification.
+Refreshed 2026-05-07 against current ADE pages, R7-2-615 / R7-2-602
+(via Cornell LII mirror; ADE pages via Wayback raw because
+`www.azed.gov` returns Cloudflare bot challenges to non-browser
+clients), NCES Table 204.20, WIDA Consortium roster, and
+sealofbiliteracy.org.
 
-## Sources cited at refresh
+## elPercent
 
-- ADE OELAS — SEI Endorsement (mandate language for all teachers of ELs) — https://www.azed.gov/oelas/sei-endorsement
-- ADE Educator Certification — Structured English Immersion, PreK-12 endorsement — https://www.azed.gov/educator-certification/structured-english-immersion-prek-12
-- ADE Educator Certification — Bilingual Education, PreK-12 endorsement — https://www.azed.gov/educator-certification/bilingual-education-prek-12
-- ADE Educator Certification — English as a Second Language, PreK-12 endorsement — https://www.azed.gov/educator-certification/english-second-language-prek-12
-- Ariz. Admin. Code R7-2-615 — Endorsements (J Bilingual, K ESL, L SEI), via Cornell LII mirror — https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R7-2-615
-- Ariz. Admin. Code R7-2-602 — Professional Teaching Standards, via Cornell LII mirror — https://www.law.cornell.edu/regulations/arizona/Ariz-Admin-Code-SS-R7-2-602
-- Sealofbiliteracy.org — Arizona state page (A.R.S. § 15-258, SB 1239 signed 2016-05-12) — https://sealofbiliteracy.org/state/az
-- WIDA Consortium member roster (Arizona is not a member; AZ uses AZELLA) — https://wida.wisc.edu/about/consortium
-- NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp
+- 8.1 → 8.2 (NCES Table 204.20, fall 2021, AZ row).
+- elPercentAsOf: "2019-10-01" → "2021-10-01".
+- Baseline 8.1 appears to have come from an ADE internal source;
+  switching to NCES per project policy. Net change essentially
+  noise (+0.1).
 
-## Coding decisions
+## Bilingual credential
 
-See the corresponding history[] row in src/content/states/az.json
-for an enumerated description of what was re-verified versus
-carried forward from the 2019 baseline.
+- bilingual.requirements.program: null → true.
+  Reason: R7-2-615(J)(4)(b) and the ADE page both list "Completion of
+  a bilingual education program from an accredited institution" as
+  Option A, alongside the 21-semester-hour coursework Option B. The
+  baseline's null appears to reflect uncertainty; the regulation is
+  unambiguous.
+- bilingual.requirements.coursework: true → true. Unchanged.
+- bilingual.requirements.practicum: true → true. Unchanged.
+- bilingual.requirements.test: false → false. Unchanged.
+  (Foreign-language exam options are *language-proficiency*
+  verifications, not subject-knowledge exams.)
+- bilingual.requirements.languageProficiency: true → true. Unchanged.
+- bilingual.standalone: false. Unchanged. AZ has no standalone
+  bilingual teacher license; it remains an endorsement.
+- bilingual.addOn: true. Unchanged.
 
-## Note
+## ELD (ESL) credential
 
-If a follow-up sweep wants byte-exact provenance for AZ, re-fetch
-the URLs above and save under sources/AZ/<today>/, then update
-sources[].retrievedAt accordingly.
+- eld.requirements.program: null → true.
+  Reason: R7-2-615(K)(3)(b) lists "Completion of an ESL education
+  program from an accredited institution" as Option A. The baseline
+  null appears to reflect uncertainty; the regulation is explicit.
+- eld.requirements.coursework: true → true. Unchanged.
+- eld.requirements.practicum: true → true. Unchanged.
+- eld.requirements.test: false → false. Unchanged.
+- eld.requirements.languageProficiency: false → false. Unchanged.
+  The ESL endorsement requires a "second language learning
+  experience" (multiple non-proficiency-based options), distinct
+  from a verified-proficiency mandate.
+- eld.standalone: false. Unchanged.
+- eld.addOn: true. Unchanged.
+
+## SEI mandate
+
+- mandatedForAllTeachers: true → true. Unchanged.
+  Verified verbatim against (1) ADE OELAS page: "All Public School
+  teachers working with English learners delivering required minutes
+  of the SEI models are required to have an ESL, BLE, or SEI
+  Endorsement (AZ Board Rule, 7 A.A.C. 2.L)"; and (2) R7-2-615(L):
+  "A Provisional or full Structured English Immersion (SEI)
+  endorsement, or an English as a Second Language or Bilingual
+  endorsement, shall be required of a teacher who is instructing
+  students in a sheltered English immersion or structured English
+  immersion model."
+- 2019 policy churn confirmed but does **not** change the schema flag:
+  the 2019 legislation (analyzed by Lillie/UCLA Civil Rights Project)
+  reduced the daily ELD instructional block from 4 hours to 2 hours
+  and re-opened broader access to dual-language and bilingual
+  programming. The teacher-credential mandate itself was not repealed.
+  Notes field updated to record this nuance.
+
+## Bilingual education access (historical concern, no schema change)
+
+The Leider 2021 baseline correctly observed that AZ was the
+post-Prop-203 paradigm of "bilingual eliminated." That eliminated-by-
+default posture has substantially loosened since 2019: the
+legislature reduced the SEI block, and ADE now actively maintains and
+issues the Bilingual, PreK-12 endorsement (with seven language-
+proficiency pathways including the ASU/UA Spanish Proficiency Exam,
+American Indian language tribal verification, and ACTFL OPI). No
+statutory rollback of Prop 203 itself, but the practical pathway to
+bilingual instruction is operative again.
+
+## Professional standards mentions
+
+- professionalStandardsMentions.diverse: true. Unchanged.
+- professionalStandardsMentions.cultural: true. Unchanged.
+- professionalStandardsMentions.linguistic: true. Unchanged.
+- professionalStandardsMentions.el: false → **true**.
+  Reason: R7-2-602 explicitly references "English language learners"
+  in Standard 2 ("strategies for making content accessible to English
+  language learners"), plus references second-language acquisition
+  processes and diverse languages/dialects. The baseline appears to
+  have coded this as false against an earlier draft of the rule;
+  the current text is unambiguous.
+
+## Seal of Biliteracy
+
+- adopted: true. Unchanged.
+- year: 2016. Unchanged. (SB 1239, signed 2016-05-12, codified at
+  A.R.S. § 15-258. Note: program sunsets July 1, 2026 per § 41-3102
+  unless reauthorized — flag for mid-2026 review.)
+
+## WIDA membership
+
+- widaMember: false. Unchanged. AZ uses AZELLA, not WIDA ACCESS.
+
+## Source URL hygiene
+
+The baseline-2019 source list pointed to the bare ADE root
+(`www.azed.gov`). That URL still resolves but is behind a
+Cloudflare bot challenge that blocks scripted access; it is retained
+in `sources[]` as audit trail per the skill rules. New entries point
+to specific Educator Certification subpages (snapshots taken via
+Wayback Machine raw, content verified by hand).

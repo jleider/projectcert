@@ -198,7 +198,7 @@ The source URL in the JSON points to `https://nces.ed.gov/programs/digest/d23/ta
 ## Commit & Verification
 
 - **Worktree branch:** (run `git branch --show-current` to confirm)
-- **Report path:** sources/il/2026-05-10/audit-report.md
+- **Report path:** sources/IL/2026-05-10/audit-report.md
 - **State JSON:** NOT MODIFIED per orchestrator instruction
 - **Status:** Ready for orchestrator review and decision on recommended actions
 

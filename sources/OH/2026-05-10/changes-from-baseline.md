@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://education.ohio.gov/getattachment/Topics/Data/Frequently-Requested-Data/Facts-and-Figures/Ohios-Education-Landscape-2023-2024.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/oh/2026-05-10/audit-report.md` and
-`sources/oh/2026-05-10/sea-el-research.md`.
+`sources/OH/2026-05-10/audit-report.md` and
+`sources/OH/2026-05-10/sea-el-research.md`.

@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.nj.gov/education/sprreports/202324/State-Detail/St.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/nj/2026-05-10/audit-report.md` and
-`sources/nj/2026-05-10/sea-el-research.md`.
+`sources/NJ/2026-05-10/audit-report.md` and
+`sources/NJ/2026-05-10/sea-el-research.md`.
