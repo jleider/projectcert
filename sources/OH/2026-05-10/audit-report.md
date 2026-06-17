@@ -110,7 +110,7 @@ Ohio's reorganization under HB 33 (signed July 4, 2023) renamed the Ohio Departm
 
 ## Action Items
 
-1. **Remove or demote** the "Baseline coding" history row (2019-12-01 entry). It is a meta-process violation per the skill guide. Archive its context to `sources/oh/2026-05-10/changes-from-baseline.md` if needed for internal tracking.
+1. **Remove or demote** the "Baseline coding" history row (2019-12-01 entry). It is a meta-process violation per the skill guide. Archive its context to `sources/OH/2026-05-10/changes-from-baseline.md` if needed for internal tracking.
 
 2. **Replace or remove** the broken Southern Ohio ESC PDF URL (source line 86). Search ODEW for an equivalent official guidance document on TESOL/Bilingual licensure pathways. If no equivalent exists on ODEW, remove the source entry and verify that the remaining sources (lines 73–82) are sufficient to ground the credential requirements.
 

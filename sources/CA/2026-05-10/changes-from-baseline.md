@@ -12,7 +12,7 @@ Appended fall-2024 EL observation to `elPercentHistory[]` and bumped
   fall 2018 figure (19.1%) within 0.2 percentage points, suggesting the
   CDE series is methodologically continuous with the prior NCES table.
 
-See `sources/ca/2026-05-10/sea-el-research.md` for the full agent
+See `sources/CA/2026-05-10/sea-el-research.md` for the full agent
 write-up that supported this update.
 
 No other fields changed.

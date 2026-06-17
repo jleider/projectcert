@@ -4,7 +4,7 @@ Auditor: projectcert orchestrator subagent (Sonnet 4.6)
 Worktree branch: `worktree-agent-a1bc488dad710e206`
 State file: `src/content/states/ma.json`
 Prior verification: `verified-2026` (lastVerified 2026-05-08)
-Prior audit trail: `sources/ma/2026-05-07/` and `sources/MA/2026-05-08-reaudit/`
+Prior audit trail: `sources/MA/2026-05-07/` and `sources/MA/2026-05-08-reaudit/`
 
 ---
 

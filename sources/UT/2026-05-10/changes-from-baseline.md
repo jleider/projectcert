@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://schools.utah.gov/datastatistics/reports>
 
 Full worker write-up and supporting research for this pass:
-`sources/ut/2026-05-10/audit-report.md` and
-`sources/ut/2026-05-10/sea-el-research.md`.
+`sources/UT/2026-05-10/audit-report.md` and
+`sources/UT/2026-05-10/sea-el-research.md`.

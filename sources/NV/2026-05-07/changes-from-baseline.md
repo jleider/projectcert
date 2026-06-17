@@ -1,29 +1,50 @@
-# NV — changes from baseline-2019
+# Nevada — changes from baseline-2019 (refreshed 2026-05-07)
 
-Refresh date: 2026-05-07. This file is an audit-trail reconstruction.
-The cherry-pick from the per-state worktree branch landed the JSON
-edits but did not carry over the original sources/NV/2026-05-07/ snapshot
-directory. Below are the projectcert-2026 sources cited in the
-state record at the time of refresh; each was visited and read
-during the original verification.
+## Source pulls (this folder)
 
-## Sources cited at refresh
+- `nepf-protocols-2024-25.pdf` — Nevada Educator Performance Framework, 2024–25 School Administrator and Teacher Protocols.
+- `elad-endorsement.pdf` — NDE ELAD endorsement requirements one-pager.
+- `bilingual-endorsement.pdf` — NDE Bilingual Education endorsement requirements one-pager.
 
-- NDE — ELAD (English Language Acquisition and Development) endorsement requirements one-pager — https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/English_Language_Acquisition_Development_ELAD_22f6394114.pdf
-- NDE — Bilingual Education endorsement requirements one-pager — https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/Bilingual_Education_90148d04bc.pdf
-- NAC 391.237 — Endorsements to teach English language acquisition and development; ESL; ELAD specialist — https://www.leg.state.nv.us/nac/nac-391.html
-- NAC 391.242 — Endorsements to teach in a program of bilingual education (and NAC 391.059 language-proficiency exam) — https://www.leg.state.nv.us/nac/nac-391.html
-- Nevada Educator Performance Framework (NEPF) Evaluation System 2024-25 — School Administrator and Teacher Protocols — https://webapp-strapi-paas-prod-nde-001.azurewebsites.net/uploads/sa_tch_nepf_protocols_2024_25_final_32f2285a6e.pdf
-- NCES Digest of Education Statistics 2023, Table 204.20 — English learners enrolled in public schools by state, fall 2021 — https://nces.ed.gov/programs/digest/d23/tables/dt23_204.20.asp
+Underlying regulations (not snapshotted as PDF — public NAC):
 
-## Coding decisions
+- NAC 391.237 — ELAD endorsements (and related ESL / specialist endorsements).
+- NAC 391.242 — Bilingual education endorsements.
+- NAC 391.059 — Language proficiency assessment for bilingual program teachers.
 
-See the corresponding history[] row in src/content/states/nv.json
-for an enumerated description of what was re-verified versus
-carried forward from the 2019 baseline.
+## Substantive diffs
 
-## Note
+### Terminology: TESL → ELAD
 
-If a follow-up sweep wants byte-exact provenance for NV, re-fetch
-the URLs above and save under sources/NV/<today>/, then update
-sources[].retrievedAt accordingly.
+Between ~2018 and 2019 Nevada formally renamed its English-language credential from **TESL** to **ELAD** (English Language Acquisition and Development). The 2019 baseline note's reference to a "SEI-equivalent endorsement being phased in" is the same credential. Codified under NAC 391.237.
+
+### `credentials.bilingual.requirements.program: null → true`
+
+NAC 391.242 explicitly offers an approved bilingual teacher preparation program path: "completion of an approved bilingual teacher preparation program" OR ≥12 semester hours of qualifying coursework. Baseline left this `null`; current source is unambiguous.
+
+### `credentials.bilingual.requirements.test: null → true`
+
+NDE Bilingual Education one-pager (regulation T002-24, updated 2024-12-26 under NAC 391.242) requires a Praxis language exam in the native language — passed *prior to issuance* of the endorsement. Baseline `null`; now positively confirmed. (An older Cornell LII summary of NAC 391.242 referenced a two-year post-issuance window — superseded by the 2024 regulation update.)
+
+### `credentials.eld.requirements.test: null → false`
+
+NAC 391.237 specifies the ELAD endorsement requirements as coursework + practicum only. There is no test gate. Baseline `null` (unknown); now positively confirmed *not* required.
+
+### `credentials.sei` — phase-in did not become a universal mandate
+
+Baseline-2019 note read: "SEI-equivalent endorsement is being phased in: required for early childhood/elementary (2020) and middle/secondary (2021)." As of 2026, NAC Chapter 391 contains **no general mandate** that all teachers obtain the ELAD (or any EL) endorsement. ELAD is a voluntary specialization in the same category as reading specialist, gifted/talented, etc. `mandatedForAllTeachers` remains `false` — but the phase-in language is no longer accurate and the note is rewritten.
+
+### `professionalStandardsMentions.el: false → true`
+
+The 2024–25 NEPF Protocols document explicitly references "English Learners" (Step 2 Pre-Evaluation Conference Conversation, p. 10) and defines "Diverse Learners" in the Glossary (p. 18) to include "limited English proficiency." Borderline call: the Teacher Instructional Practice Standards/Indicators in Appendix B do not name ELs directly — they use "all students" and "diverse learners" — but the document as a whole now meets the schema's threshold for an explicit reference. Other three flags (`diverse`, `cultural`, `linguistic`) remain `true`.
+
+### `elPercent: 17.1 → 13.8`, `elPercentAsOf: 2019-10-01 → 2021-10-01`
+
+NCES Digest of Education Statistics 2023, Table 204.20: Nevada fall 2021 = 13.8% (down from 17.1% in 2019). NCES highlights Nevada as the largest negative percentage-point change between fall 2011 and fall 2021. Most recent NCES table available is fall 2021; will refresh again when fall 2022/2023 publishes.
+
+## No change
+
+- `credentials.bilingual` `offered`, `standalone`, `addOn`, `requirements.coursework`, `requirements.practicum`, `requirements.languageProficiency`.
+- `credentials.eld` `offered`, `standalone`, `addOn`, `requirements.program`, `requirements.coursework`, `requirements.practicum`, `requirements.languageProficiency`.
+- `professionalStandardsMentions.diverse / cultural / linguistic`.
+- `name`, `usps`.

@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://www.illinoisreportcard.com/state.aspx?source2=lep&Stateid=IL>
 
 Full worker write-up and supporting research for this pass:
-`sources/il/2026-05-10/audit-report.md` and
-`sources/il/2026-05-10/sea-el-research.md`.
+`sources/IL/2026-05-10/audit-report.md` and
+`sources/IL/2026-05-10/sea-el-research.md`.
