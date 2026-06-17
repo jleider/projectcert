@@ -29,10 +29,18 @@ export type DatapointSection =
   | "elp-assessment"
   | "provenance";
 
+/** A cited source the reviewer can open to verify a datapoint. */
+export interface SourceLink {
+  label: string;
+  url: string;
+}
+
 /** One underlying row of a grouped datapoint (history / time series / sources). */
 export interface DatapointRow {
   label: string;
   value: string;
+  /** Source URL backing this row, if any (rendered as a link). */
+  url?: string;
 }
 
 export interface Datapoint {
@@ -47,6 +55,13 @@ export interface Datapoint {
   grouped: boolean;
   /** Underlying rows for grouped datapoints; empty for scalar ones. */
   rows: DatapointRow[];
+  /**
+   * Field-specific source(s) the reviewer opens to verify this datapoint.
+   * Empty for fields the schema does not source individually (credential
+   * flags, standards, SEI, population) — those are verified against the
+   * state's full cited-source list shown alongside the checklist.
+   */
+  sourceUrls: SourceLink[];
   /** Hash of the canonical value at descriptor-build time, for drift detection. */
   contentHash: string;
 }
@@ -152,8 +167,9 @@ function scalar(
   section: DatapointSection,
   displayValue: string | null,
   canonical: unknown,
+  sourceUrls: SourceLink[] = [],
 ): Datapoint {
-  return { id, label, section, displayValue, grouped: false, rows: [], contentHash: contentHashFor(canonical) };
+  return { id, label, section, displayValue, grouped: false, rows: [], sourceUrls, contentHash: contentHashFor(canonical) };
 }
 
 function group(
@@ -163,10 +179,24 @@ function group(
   displayValue: string | null,
   rows: DatapointRow[],
   canonical: unknown,
+  sourceUrls: SourceLink[] = [],
 ): Datapoint {
   // Normalize absent (undefined) optional arrays to [] so "absent" and
   // "empty" hash identically — both mean "no rows to verify".
-  return { id, label, section, displayValue, grouped: true, rows, contentHash: contentHashFor(canonical ?? []) };
+  return { id, label, section, displayValue, grouped: true, rows, sourceUrls, contentHash: contentHashFor(canonical ?? []) };
+}
+
+/** Deduplicate source links by URL, preserving first-seen label/order. */
+function uniqueSources(links: SourceLink[]): SourceLink[] {
+  const seen = new Set<string>();
+  const out: SourceLink[] = [];
+  for (const l of links) {
+    if (l.url && !seen.has(l.url)) {
+      seen.add(l.url);
+      out.push(l);
+    }
+  }
+  return out;
 }
 
 /** Fixed ordered id set — the constant audit denominator. */
@@ -237,6 +267,14 @@ export function datapointsFor(state: StateData): Datapoint[] {
   const elPercentHistory = state.elPercentHistory ?? [];
   const sources = state.sources;
 
+  // Field-specific sources the schema does carry.
+  const sealSource: SourceLink[] = seal.sourceUrl
+    ? [{ label: "State Seal of Biliteracy source", url: seal.sourceUrl }]
+    : [];
+  const elpSource: SourceLink[] = elp.sourceUrl
+    ? [{ label: "ELP assessment source", url: elp.sourceUrl }]
+    : [];
+
   return [
     scalar("elPercent", "Share of public-school students classified as English Learners", "el-population", `${state.elPercent.toFixed(1)}%`, state.elPercent),
     scalar("elPercentAsOf", "As-of date for the classified English-Learner share", "el-population", state.elPercentAsOf, state.elPercentAsOf),
@@ -258,37 +296,40 @@ export function datapointsFor(state: StateData): Datapoint[] {
     scalar("professionalStandardsMentions.linguistic", "Professional teaching standards reference linguistic diversity", "professional-standards", formatBool(psm.linguistic), psm.linguistic),
     scalar("professionalStandardsMentions.el", "Professional teaching standards explicitly reference English Learners", "professional-standards", formatBool(psm.el), psm.el),
 
-    scalar("sealOfBiliteracy.adopted", "State Seal of Biliteracy has been adopted", "seal-of-biliteracy", formatBool(seal.adopted), seal.adopted),
-    scalar("sealOfBiliteracy.year", "Year the State Seal of Biliteracy was adopted", "seal-of-biliteracy", seal.year !== null ? String(seal.year) : "Not applicable", seal.year),
-    scalar("sealOfBiliteracy.sourceUrl", "Citation for the State Seal of Biliteracy status", "seal-of-biliteracy", seal.sourceUrl, seal.sourceUrl),
+    scalar("sealOfBiliteracy.adopted", "State Seal of Biliteracy has been adopted", "seal-of-biliteracy", formatBool(seal.adopted), seal.adopted, sealSource),
+    scalar("sealOfBiliteracy.year", "Year the State Seal of Biliteracy was adopted", "seal-of-biliteracy", seal.year !== null ? String(seal.year) : "Not applicable", seal.year, sealSource),
+    scalar("sealOfBiliteracy.sourceUrl", "Citation for the State Seal of Biliteracy status", "seal-of-biliteracy", seal.sourceUrl, seal.sourceUrl, sealSource),
 
-    scalar("elpAssessment.name", "Name of the annual English language proficiency assessment", "elp-assessment", elp.name, elp.name),
-    scalar("elpAssessment.consortium", "Assessment consortium for the English language proficiency test", "elp-assessment", elp.consortium ?? "State-specific assessment", elp.consortium),
-    scalar("elpAssessment.sourceUrl", "Citation for the English language proficiency assessment", "elp-assessment", elp.sourceUrl ?? "No citation recorded", elp.sourceUrl),
+    scalar("elpAssessment.name", "Name of the annual English language proficiency assessment", "elp-assessment", elp.name, elp.name, elpSource),
+    scalar("elpAssessment.consortium", "Assessment consortium for the English language proficiency test", "elp-assessment", elp.consortium ?? "State-specific assessment", elp.consortium, elpSource),
+    scalar("elpAssessment.sourceUrl", "Citation for the English language proficiency assessment", "elp-assessment", elp.sourceUrl ?? "No citation recorded", elp.sourceUrl, elpSource),
 
     group(
       "history",
       "Licensure history timeline",
       "provenance",
       history.length > 0 ? `${history.length} event${history.length === 1 ? "" : "s"}` : "No events recorded",
-      history.map((ev) => ({ label: ev.date, value: ev.title })),
+      history.map((ev) => ({ label: ev.date, value: ev.title, url: ev.sourceUrls[0] })),
       state.history,
+      uniqueSources(history.flatMap((ev) => ev.sourceUrls.map((url) => ({ label: ev.title, url })))),
     ),
     group(
       "elPercentHistory",
       "English-Learner share time series",
       "provenance",
       elPercentHistory.length > 0 ? `${elPercentHistory.length} observation${elPercentHistory.length === 1 ? "" : "s"}` : "No observations recorded",
-      elPercentHistory.map((obs) => ({ label: obs.date.slice(0, 4), value: `${obs.percent.toFixed(1)}% — ${obs.source.label}` })),
+      elPercentHistory.map((obs) => ({ label: obs.date.slice(0, 4), value: `${obs.percent.toFixed(1)}% — ${obs.source.label}`, url: obs.source.url })),
       state.elPercentHistory,
+      uniqueSources(elPercentHistory.map((obs) => ({ label: obs.source.label, url: obs.source.url }))),
     ),
     group(
       "sources",
       "Source citations",
       "provenance",
       `${sources.length} citation${sources.length === 1 ? "" : "s"}`,
-      sources.map((src) => ({ label: src.label, value: src.url })),
+      sources.map((src) => ({ label: src.label, value: src.url, url: src.url })),
       sources,
+      sources.map((src) => ({ label: src.label, url: src.url })),
     ),
   ];
 }

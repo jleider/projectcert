@@ -91,8 +91,28 @@ describe("datapointsFor", () => {
       expect(by[id]!.grouped).toBe(true);
     }
     expect(by["sources"]!.rows).toHaveLength(2);
-    expect(by["history"]!.rows[0]).toEqual({ label: "1976-01-01", value: "AB 1329" });
-    expect(by["elPercentHistory"]!.rows[0]).toEqual({ label: "2019", value: "19.3% — NCES 204.20" });
+    expect(by["history"]!.rows[0]).toEqual({ label: "1976-01-01", value: "AB 1329", url: "https://example.org/h1" });
+    expect(by["elPercentHistory"]!.rows[0]).toEqual({ label: "2019", value: "19.3% — NCES 204.20", url: "https://example.org/n" });
+  });
+
+  it("exposes field-specific source links where the schema carries them", () => {
+    const by = Object.fromEntries(datapointsFor(rich).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    // Seal + ELP fields point at their own source URL.
+    expect(by["sealOfBiliteracy.adopted"]!.sourceUrls).toEqual([{ label: "State Seal of Biliteracy source", url: "https://example.org/seal" }]);
+    expect(by["elpAssessment.name"]!.sourceUrls).toEqual([{ label: "ELP assessment source", url: "https://example.org/elpac" }]);
+    // Grouped items carry deduped source links.
+    expect(by["sources"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/a", "https://example.org/b"]);
+    expect(by["history"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/h1"]);
+    // Fields the schema does not source individually have none (verified
+    // against the state's cited-source list instead).
+    expect(by["credentials.bilingual.standalone"]!.sourceUrls).toEqual([]);
+    expect(by["professionalStandardsMentions.el"]!.sourceUrls).toEqual([]);
+    expect(by["elPercent"]!.sourceUrls).toEqual([]);
+  });
+
+  it("omits the ELP source link when the state has no ELP source URL", () => {
+    const by = Object.fromEntries(datapointsFor(sparse).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    expect(by["elpAssessment.name"]!.sourceUrls).toEqual([]); // sparse fixture: elpAssessment.sourceUrl is null
   });
 
   it("treats absent and empty optional arrays identically (hash + display)", () => {

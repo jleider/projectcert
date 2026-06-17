@@ -9,6 +9,7 @@ export default [
       "dist/**",
       "node_modules/**",
       ".astro/**",
+      ".wrangler/**",
       ".claude/**",
       "public/**",
       "playwright-report/**",

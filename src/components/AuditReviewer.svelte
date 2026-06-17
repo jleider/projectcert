@@ -5,6 +5,7 @@
   export let usps: string;
   export let stateName: string;
   export let datapoints: Datapoint[];
+  export let citedSources: { label: string; url: string }[] = [];
 
   interface VerificationRow {
     datapoint_id: string;
@@ -46,7 +47,16 @@
     return Boolean(verifications[d.id]) && !isStale(d) && !isBroken(d);
   }
 
-  $: verifiedCount = datapoints.filter(isCurrent).length;
+  // Inline the predicate (rather than calling isCurrent) so Svelte sees
+  // `verifications` and `broken` as dependencies of this reactive
+  // statement — a bare isCurrent() call hides those reads inside a
+  // function, so the count would never recompute when a checkbox toggles.
+  $: verifiedCount = datapoints.filter(
+    (d) =>
+      Boolean(verifications[d.id]) &&
+      verifications[d.id]!.content_hash === d.contentHash &&
+      (broken[d.id]?.length ?? 0) === 0,
+  ).length;
   $: pct = datapoints.length > 0 ? Math.round((verifiedCount / datapoints.length) * 100) : 0;
 
   // Group datapoints by section, preserving descriptor order.
@@ -170,6 +180,26 @@
       </div>
     </div>
 
+    {#if citedSources.length > 0}
+      <details class="rounded border border-ink-subtle/20 bg-surface-raised p-4" open>
+        <summary class="cursor-pointer text-sm font-semibold text-ink">
+          Cited sources for {stateName} ({citedSources.length})
+        </summary>
+        <p class="mt-1 text-xs text-ink-subtle">
+          Open these to verify the credential, standards, sheltered-instruction,
+          and population claims below — the catalog does not record a separate
+          source for each of those fields.
+        </p>
+        <ol class="mt-2 list-decimal space-y-1 pl-5 text-sm">
+          {#each citedSources as src}
+            <li>
+              <a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a>
+            </li>
+          {/each}
+        </ol>
+      </details>
+    {/if}
+
     {#each sections as group}
       <section>
         <h2 class="text-lg font-semibold text-ink border-b border-ink-subtle/20 pb-1">{group.label}</h2>
@@ -196,13 +226,34 @@
                     </div>
                   {/if}
 
+                  {#if !d.grouped}
+                    {#if d.sourceUrls.length > 0}
+                      <div class="mt-1 text-xs">
+                        <span class="text-ink-subtle">Source{d.sourceUrls.length > 1 ? "s" : ""} to verify:</span>
+                        <ul class="mt-0.5 list-disc pl-5">
+                          {#each d.sourceUrls as src}
+                            <li><a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a></li>
+                          {/each}
+                        </ul>
+                      </div>
+                    {:else}
+                      <div class="mt-1 text-xs text-ink-subtle">Verify against the cited sources above.</div>
+                    {/if}
+                  {/if}
+
                   {#if d.grouped && d.rows.length > 0}
                     <table class="mt-2 w-full text-xs border-collapse">
                       <tbody>
                         {#each d.rows as row}
                           <tr class="border-t border-ink-subtle/10">
                             <td class="py-1 pr-3 text-ink-subtle align-top whitespace-nowrap">{row.label}</td>
-                            <td class="py-1 text-ink-muted break-words">{row.value}</td>
+                            <td class="py-1 text-ink-muted break-words">
+                              {#if row.url}
+                                <a class="text-accent hover:underline break-words" href={row.url} target="_blank" rel="noopener noreferrer">{row.value || row.url} ↗</a>
+                              {:else}
+                                {row.value}
+                              {/if}
+                            </td>
                           </tr>
                         {/each}
                       </tbody>
