@@ -5,14 +5,20 @@
  * `getStaticPaths()` filter mistake or a renamed page leaves nothing
  * pointing at the omission.
  *
+ * Also validates anchor targets: every value in `ANCHORS` must resolve
+ * to a matching `id="<value>"` in at least one built page. The offline
+ * link check excludes `#fragment` links (lychee `--exclude '%23'`), so
+ * without this a `sameAnchor(ANCHORS.x)` pointing at a renamed or absent
+ * anchor would be a silent broken in-page link.
+ *
  * Runs after `astro build` (wired into npm `build`). Fails the build
- * with a non-zero exit if any expected page is missing.
+ * with a non-zero exit if any expected page or anchor is missing.
  */
 
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ALL_ROUTES } from "../src/lib/routes";
+import { ALL_ROUTES, ANCHORS } from "../src/lib/routes";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "../dist");
@@ -39,14 +45,33 @@ for (const f of stateFiles) {
   if (!existsSync(file)) missing.push(`/states/${usps}/  →  ${file}`);
 }
 
-if (missing.length > 0) {
-  console.error("Built-pages check FAILED — missing expected output:");
-  for (const m of missing) console.error("  " + m);
-  console.error(`\n${missing.length} route(s) missing.`);
+// Anchor-target validation: collect every id="..." across built pages,
+// then confirm each ANCHORS value resolves somewhere.
+function htmlFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) return htmlFiles(full);
+    return entry.name.endsWith(".html") ? [full] : [];
+  });
+}
+
+const presentIds = new Set<string>();
+for (const file of htmlFiles(DIST)) {
+  const html = readFileSync(file, "utf8");
+  for (const m of html.matchAll(/\sid="([^"]+)"/g)) presentIds.add(m[1]!);
+}
+
+const missingAnchors = Object.values(ANCHORS).filter((a) => !presentIds.has(a));
+
+if (missing.length > 0 || missingAnchors.length > 0) {
+  console.error("Built-pages check FAILED:");
+  for (const m of missing) console.error(`  missing page: ${m}`);
+  for (const a of missingAnchors)
+    console.error(`  ANCHORS.${a} has no matching id="${a}" in any built page`);
   process.exit(1);
 }
 
 const total = ALL_ROUTES.length + stateFiles.length;
 console.log(
-  `Built-pages check PASSED (${ALL_ROUTES.length} routes + ${stateFiles.length} state pages = ${total} files present).`,
+  `Built-pages check PASSED (${ALL_ROUTES.length} routes + ${stateFiles.length} state pages = ${total} files present; ${Object.keys(ANCHORS).length} anchors resolved).`,
 );

@@ -230,10 +230,79 @@ for (const a of adjacencyChecks) {
   if (!ok) failed++;
 }
 
+// Dark-mode text contrast. CLAUDE.md notes the script historically
+// audited light mode only and dark pairings were eyeballed. Readable
+// text is non-negotiable in both themes, so the text-on-surface
+// pairings are now enforced for dark mode too. Categorical fill
+// adjacency is deliberately NOT re-checked here: in dark mode those
+// palettes flip luminance direction and relax adjacency on purpose
+// (the legend label carries meaning, per CLAUDE.md "Dark theme"), so
+// re-applying the light-mode thresholds would false-fail.
+const darkStart = css.indexOf("@media (prefers-color-scheme: dark)");
+if (darkStart < 0) {
+  console.error("\nDark-mode token block not found in tokens.css.");
+  process.exit(1);
+}
+const darkCss = css.slice(darkStart);
+const dark = {
+  ink: extractToken(darkCss, "ink"),
+  inkMuted: extractToken(darkCss, "ink-muted"),
+  inkSubtle: extractToken(darkCss, "ink-subtle"),
+  accent: extractToken(darkCss, "accent"),
+  accentHover: extractToken(darkCss, "accent-hover"),
+  surface: extractToken(darkCss, "surface"),
+};
+
+const darkChecks: Check[] = [
+  {
+    label: "ink on surface (dark, AAA)",
+    fg: dark.ink,
+    bg: dark.surface,
+    min: 7,
+  },
+  {
+    label: "ink-muted on surface (dark, AAA)",
+    fg: dark.inkMuted,
+    bg: dark.surface,
+    min: 7,
+  },
+  {
+    label: "ink-subtle on surface (dark, AA)",
+    fg: dark.inkSubtle,
+    bg: dark.surface,
+    min: 4.5,
+  },
+  {
+    label: "accent on surface (dark, AA)",
+    fg: dark.accent,
+    bg: dark.surface,
+    min: 4.5,
+  },
+  {
+    label: "accent-hover on surface (dark, AA)",
+    fg: dark.accentHover,
+    bg: dark.surface,
+    min: 4.5,
+  },
+];
+
+console.log("\nDark-mode text contrast:");
+for (const c of darkChecks) {
+  const ratio = contrast(c.fg, c.bg);
+  const ok = ratio >= c.min;
+  const tag = ok ? "PASS" : "FAIL";
+  console.log(
+    `${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`,
+  );
+  if (!ok) failed++;
+}
+
 if (failed > 0) {
   console.error(
     `\n${failed} contrast check(s) failed. Adjust src/styles/tokens.css.`,
   );
   process.exit(1);
 }
-console.log(`\nAll ${checks.length} required contrast checks passed.`);
+console.log(
+  `\nAll ${checks.length + darkChecks.length} required contrast checks passed (light + dark text).`,
+);
