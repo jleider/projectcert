@@ -287,10 +287,13 @@
                   {/if}
 
                   {#if !d.grouped}
-                    {@const confirmedCount = attributions[d.id]?.length ?? 0}
+                    <!-- Source counts as confirmed once the reviewer either
+                         picks a source explicitly OR checks the datapoint
+                         itself (verifying it endorses the shown source). -->
+                    {@const isConfirmed = (attributions[d.id]?.length ?? 0) > 0 || checkedNow}
                     <div class="mt-1 text-xs">
                       {#if shownSources(d).length > 0}
-                        <span class="text-ink-subtle">{confirmedCount > 0 ? `Confirmed source${confirmedCount > 1 ? "s" : ""}:` : "Likely source (unconfirmed):"}</span>
+                        <span class="text-ink-subtle">{isConfirmed ? `Confirmed source${shownSources(d).length > 1 ? "s" : ""}:` : "Likely source (unconfirmed):"}</span>
                         <ul class="mt-0.5 list-disc pl-5">
                           {#each shownSources(d) as src}
                             <li><a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a></li>
