@@ -127,6 +127,15 @@ try {
   await sleep(1200);
   assert((await li.getByText("Likely source (unconfirmed):").count()) > 0, "reverts to 'Likely source (unconfirmed)' when unchecked");
 
+  step("4. Adding a new source URL fetches its title and makes it the current source");
+  await page.locator('input[type="url"]').first().fill("https://example.com/");
+  await page.getByRole("button", { name: /Add URL|Fetching/ }).first().click();
+  await sleep(5000); // server-side fetch + title parse
+  const addedHref = await li.locator("ul.list-disc a").first().getAttribute("href");
+  assert(addedHref === "https://example.com/", `added URL is now the shown source (href=${addedHref})`);
+  const addedText = (await li.locator("ul.list-disc a").first().innerText()).trim();
+  assert(/example/i.test(addedText), `shown label reflects the fetched title/host ("${addedText}")`);
+
   assert(apiErrors.length === 0, `no 4xx/5xx API responses (${apiErrors.join(", ") || "none"})`);
 
   await browser.close();

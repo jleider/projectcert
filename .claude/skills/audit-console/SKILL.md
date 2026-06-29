@@ -27,10 +27,13 @@ All use `AuditLayout.astro` (`noindex,nofollow`). Routes live in
 - **Cloudflare Access** gates `/audit/*` and `/api/*` by email allowlist
   (dashboard config — see `docs/audit-setup.md`).
 - **Pages Functions** in top-level `functions/api/*` provide the API:
-  `verifications.ts`, `suggestions.ts`, `overview.ts`, `broken-links.ts`,
-  `link-reviews.ts`, and `_middleware.ts` (auth).
-- **D1** (`schema/d1/0001_init.sql`): tables `verifications`, `suggestions`,
-  `broken_links`, `link_reviews`, `datapoint_sources`. Binding `DB`, configured
+  `verifications.ts`, `suggestions.ts` (GET/POST/**PATCH** to resolve),
+  `overview.ts`, `broken-links.ts`, `link-reviews.ts`, `datapoint-sources.ts`,
+  `added-sources.ts` (POST fetches a URL's title server-side), and
+  `_middleware.ts` (auth).
+- **D1** (`schema/d1/0001_init.sql`): tables `verifications`, `suggestions`
+  (+`resolved_by/at`), `broken_links`, `link_reviews`, `datapoint_sources`,
+  `added_sources`. Binding `DB`, configured
   in the dashboard (authoritative for Pages) and mirrored in `wrangler.toml`
   for local dev.
 
@@ -60,8 +63,21 @@ single-select; one source of truth per datapoint), stored in the
 `datapoint_sources` D1 table (PK `(usps, datapoint_id)`, via
 `functions/api/datapoint-sources.ts`) and rendered as the confirmed source,
 overriding the seed. Checking the datapoint's own verification box also flips
-its source to confirmed. Do not treat the heuristic as provenance — it is a
-starting point for human attribution.
+its source to confirmed; unchecking reverts it to unconfirmed (the label
+tracks the checkbox, the radio only picks WHICH source). Do not treat the
+heuristic as provenance — it is a starting point for human attribution.
+
+A reviewer can also **type a source URL not in the list**: `POST
+/api/added-sources` fetches the page title server-side (`extractTitle` over
+og:title / `<title>`, hostname fallback when bot-blocked), stores it in
+`added_sources`, and selects it as the current (unconfirmed) source. Added
+URLs become candidates in the picker with their fetched title.
+
+**Suggestions** are filed per datapoint, ordered oldest→newest, and resolved
+in the console (`PATCH /api/suggestions {id, status}` → `resolved`, stamping
+`resolved_by/at`); the overview's "Open suggestions" report and each
+datapoint's list both have a Resolve action. They are never auto-applied to
+the catalog.
 
 Keep this module **Svelte-safe and Workers-safe**: no `astro:content`, no Node
 APIs, a local structural `StateData` type (not an import from the content
@@ -140,10 +156,11 @@ migrates a local D1, builds, boots `wrangler pages dev` with the
 `DEV_REVIEWER_EMAIL` bypass, and drives a headless browser against
 `/audit/<usps>`. It is the only way to exercise the gated, Functions-backed
 UI end-to-end (plain `astro dev` has no Functions; the public-page a11y suite
-doesn't cover `/audit/*`). It guards the two Svelte reactivity traps that
-have regressed: checking a datapoint must move the progress bar, and picking
-an alternative source radio must update the shown "Confirmed source". When
-the audit UI changes, run this. It is deliberately NOT in `npm run verify`
+doesn't cover `/audit/*`). It asserts the behaviours that have regressed or
+are easy to break: checking a datapoint moves the progress bar; picking an
+alternative source radio updates the shown source (and only one shows);
+unchecking reverts the label to unconfirmed; and adding a source URL fetches
+its title and makes it the current source. When the audit UI changes, run this. It is deliberately NOT in `npm run verify`
 (needs wrangler + a chromium browser, `npx playwright install chromium`); the
 `.mjs` is excluded from lint/typecheck for the same reason. Use `SKIP_BUILD=1`
 to reuse the current `dist/`.

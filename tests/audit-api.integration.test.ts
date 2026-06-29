@@ -9,10 +9,11 @@
 
 import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { onRequestGet as verGet, onRequestPost as verPost, onRequestDelete as verDel } from "../functions/api/verifications";
-import { onRequestGet as sugGet, onRequestPost as sugPost } from "../functions/api/suggestions";
+import { onRequestGet as sugGet, onRequestPost as sugPost, onRequestPatch as sugPatch } from "../functions/api/suggestions";
+import { onRequestGet as asGet, onRequestPost as asPost } from "../functions/api/added-sources";
 import { onRequestGet as ovGet } from "../functions/api/overview";
 import { onRequestGet as brkGet } from "../functions/api/broken-links";
 import { onRequestGet as lrGet, onRequestPost as lrPost } from "../functions/api/link-reviews";
@@ -116,6 +117,65 @@ describe("/api/suggestions", () => {
 
   it("rejects an empty body", async () => {
     expect((await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "   " } }))).status).toBe(400);
+  });
+
+  it("resolves and reopens a suggestion", async () => {
+    const created = await (await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "fix it" } }))).json();
+    const resolve = await sugPatch(ctx({ method: "PATCH", body: { id: created.id, status: "resolved" } }));
+    expect(resolve.status).toBe(200);
+    expect((await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json()).suggestions).toHaveLength(0);
+    const resolved = (await (await sugGet(ctx({ url: "https://x.org/api?status=resolved" }))).json()).suggestions;
+    expect(resolved).toHaveLength(1);
+    expect(resolved[0]).toMatchObject({ status: "resolved", resolved_by: "reviewer@example.org" });
+    // reopen
+    await sugPatch(ctx({ method: "PATCH", body: { id: created.id, status: "open" } }));
+    expect((await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json()).suggestions).toHaveLength(1);
+  });
+
+  it("orders open suggestions oldest → newest", async () => {
+    await sugPost(ctx({ method: "POST", body: { usps: "NV", datapoint_id: "sources", body: "first" } }));
+    await sugPost(ctx({ method: "POST", body: { usps: "NV", datapoint_id: "sources", body: "second" } }));
+    const list = (await (await sugGet(ctx({ url: "https://x.org/api?usps=NV&status=open" }))).json()).suggestions;
+    expect(list.map((s: { body: string }) => s.body)).toEqual(["first", "second"]);
+  });
+
+  it("404s an unknown id and 400s a bad status", async () => {
+    expect((await sugPatch(ctx({ method: "PATCH", body: { id: 99999, status: "resolved" } }))).status).toBe(404);
+    expect((await sugPatch(ctx({ method: "PATCH", body: { id: 1, status: "nope" } }))).status).toBe(400);
+  });
+});
+
+describe("/api/added-sources", () => {
+  it("fetches the title server-side, stores the source, and selects it", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("<title>AZ Bilingual Endorsement — ADE</title>", { status: 200 })));
+    try {
+      const post = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x" } }));
+      expect(post.status).toBe(200);
+      expect(await post.json()).toMatchObject({ url: "https://www.azed.gov/x", title: "AZ Bilingual Endorsement — ADE" });
+
+      const added = (await (await asGet(ctx({ url: "https://x.org/api?usps=AZ" }))).json()).sources;
+      expect(added).toEqual([expect.objectContaining({ datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x", title: "AZ Bilingual Endorsement — ADE", added_by: "reviewer@example.org" })]);
+
+      // It also becomes the datapoint's selected (unconfirmed) source.
+      const sel = (await (await dsGet(ctx({ url: "https://x.org/api?usps=AZ" }))).json()).sources;
+      expect(sel[0]).toMatchObject({ datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x" });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it("falls back to the hostname when the page can't be fetched", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("blocked", { status: 403 })));
+    try {
+      const post = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "https://blocked.example/p" } }));
+      expect((await post.json()).title).toBe("blocked.example");
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it("rejects a non-http(s) url", async () => {
+    expect((await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "ftp://x/y" } }))).status).toBe(400);
   });
 });
 

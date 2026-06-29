@@ -23,7 +23,11 @@ CREATE TABLE IF NOT EXISTS suggestions (
   body          TEXT NOT NULL,
   submitted_by  TEXT NOT NULL,
   submitted_at  TEXT NOT NULL,
-  status        TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'resolved'))
+  status        TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'resolved')),
+  -- Who closed it and when (a maintainer marks a suggestion resolved once
+  -- they have actioned it via the curated JSON workflow). Null while open.
+  resolved_by   TEXT,
+  resolved_at   TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_suggestions_usps ON suggestions (usps);
 CREATE INDEX IF NOT EXISTS idx_suggestions_status ON suggestions (status);
@@ -78,3 +82,17 @@ CREATE TABLE IF NOT EXISTS datapoint_sources (
   PRIMARY KEY (usps, datapoint_id)
 );
 CREATE INDEX IF NOT EXISTS idx_datapoint_sources_usps ON datapoint_sources (usps);
+
+-- Source URLs a reviewer typed in (not among the state's cited sources),
+-- with the title fetched server-side. These become candidate sources for the
+-- datapoint; selecting one writes datapoint_sources like any other candidate.
+CREATE TABLE IF NOT EXISTS added_sources (
+  usps         TEXT NOT NULL,
+  datapoint_id TEXT NOT NULL,
+  url          TEXT NOT NULL,
+  title        TEXT NOT NULL,
+  added_by     TEXT NOT NULL,
+  added_at     TEXT NOT NULL,
+  PRIMARY KEY (usps, datapoint_id, url)
+);
+CREATE INDEX IF NOT EXISTS idx_added_sources_usps ON added_sources (usps);

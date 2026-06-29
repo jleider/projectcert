@@ -39,22 +39,39 @@
   // datapoint_id -> the one confirmed source URL (reviewer attribution).
   let attributions: Record<string, string> = {};
   let showSources: Record<string, boolean> = {};
+  // datapoint_id -> reviewer-added source URLs (with fetched titles).
+  let added: Record<string, { url: string; title: string }[]> = {};
+  let newUrl: Record<string, string> = {};
 
-  // url -> human label, from the state's cited sources and any field-specific
-  // descriptor sources, so confirmed URLs render with a readable label.
+  // url -> human label, from the state's cited sources, field-specific
+  // descriptor sources, and reviewer-added sources, so a selected URL renders
+  // with a readable label.
   $: urlLabel = (() => {
     const m = new Map<string, string>();
     for (const s of citedSources) m.set(s.url, s.label);
     for (const d of datapoints) for (const s of d.sourceUrls) if (!m.has(s.url)) m.set(s.url, s.label);
+    for (const list of Object.values(added)) for (const s of list) m.set(s.url, s.title);
     return m;
   })();
 
-  /** Candidate sources to offer for a datapoint: its heuristic matches first,
-   *  then the rest of the state's cited sources. */
-  function candidateSources(d: Datapoint): { label: string; url: string }[] {
-    const seen = new Set(d.sourceUrls.map((s) => s.url));
-    const rest = citedSources.filter((s) => !seen.has(s.url));
-    return [...d.sourceUrls, ...rest];
+  /** Candidate sources to offer for a datapoint: its heuristic matches and any
+   *  reviewer-added URLs first, then the rest of the state's cited sources.
+   *  `add` is passed in so Svelte tracks `added` as a template dependency. */
+  function candidateSources(d: Datapoint, add: Record<string, { url: string; title: string }[]>): { label: string; url: string }[] {
+    const out: { label: string; url: string }[] = [];
+    const seen = new Set<string>();
+    const all = [
+      ...d.sourceUrls,
+      ...(add[d.id] ?? []).map((a) => ({ label: a.title, url: a.url })),
+      ...citedSources,
+    ];
+    for (const s of all) {
+      if (!seen.has(s.url)) {
+        seen.add(s.url);
+        out.push(s);
+      }
+    }
+    return out;
   }
 
   /** The one source shown as "the source to verify": the confirmed
@@ -110,23 +127,26 @@
 
   onMount(async () => {
     try {
-      const [vRes, bRes, sRes, dsRes] = await Promise.all([
+      const [vRes, bRes, sRes, dsRes, asRes] = await Promise.all([
         fetch(`/api/verifications?usps=${usps}`),
         fetch(`/api/broken-links?usps=${usps}`),
         fetch(`/api/suggestions?usps=${usps}&status=open`),
         fetch(`/api/datapoint-sources?usps=${usps}`),
+        fetch(`/api/added-sources?usps=${usps}`),
       ]);
-      if (!vRes.ok || !bRes.ok || !sRes.ok || !dsRes.ok) throw new Error("api");
+      if (!vRes.ok || !bRes.ok || !sRes.ok || !dsRes.ok || !asRes.ok) throw new Error("api");
 
       const v = (await vRes.json()) as { verifications: VerificationRow[] };
       const b = (await bRes.json()) as { brokenLinks: BrokenRow[] };
       const s = (await sRes.json()) as { suggestions: SuggestionRow[] };
       const ds = (await dsRes.json()) as { sources: { datapoint_id: string; url: string }[] };
+      const as = (await asRes.json()) as { sources: { datapoint_id: string; url: string; title: string }[] };
 
       verifications = Object.fromEntries(v.verifications.map((r) => [r.datapoint_id, r]));
       broken = groupBy(b.brokenLinks, (r) => r.datapoint_id);
       suggestions = groupBy(s.suggestions, (r) => r.datapoint_id);
       attributions = Object.fromEntries(ds.sources.map((r) => [r.datapoint_id, r.url]));
+      added = groupBy(as.sources, (r) => r.datapoint_id);
     } catch {
       offline = true;
     } finally {
@@ -217,6 +237,34 @@
     }
   }
 
+  /** Add a reviewer-typed source URL: the server fetches its title, stores it
+   *  as a candidate, and it becomes the current (unconfirmed) source. */
+  async function addSourceUrl(d: Datapoint) {
+    const url = (newUrl[d.id] ?? "").trim();
+    const key = `src:${d.id}`;
+    if (offline || busy[key] || url.length === 0) return;
+    busy = { ...busy, [key]: true };
+    try {
+      const res = await fetch(`/api/added-sources`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ usps, datapoint_id: d.id, url }),
+      });
+      if (!res.ok) throw new Error("add");
+      const row = (await res.json()) as { url: string; title: string };
+      added = {
+        ...added,
+        [d.id]: [...(added[d.id] ?? []).filter((a) => a.url !== row.url), { url: row.url, title: row.title }],
+      };
+      attributions = { ...attributions, [d.id]: row.url }; // current (unconfirmed) source
+      newUrl = { ...newUrl, [d.id]: "" };
+    } catch {
+      actionError = "Could not add the source URL — check it and retry.";
+    } finally {
+      busy = { ...busy, [key]: false };
+    }
+  }
+
   async function submitSuggestion(d: Datapoint) {
     const text = (draft[d.id] ?? "").trim();
     if (offline || busy[d.id] || text.length === 0) return;
@@ -229,13 +277,28 @@
       });
       if (!res.ok) throw new Error("suggest");
       const row = (await res.json()) as SuggestionRow;
-      suggestions = { ...suggestions, [d.id]: [row, ...(suggestions[d.id] ?? [])] };
+      suggestions = { ...suggestions, [d.id]: [...(suggestions[d.id] ?? []), row] };
       draft = { ...draft, [d.id]: "" };
       showSuggest = { ...showSuggest, [d.id]: false };
     } catch {
       actionError = "Could not save your change — check your connection and retry.";
     } finally {
       busy = { ...busy, [d.id]: false };
+    }
+  }
+
+  async function resolveSuggestion(d: Datapoint, id: number) {
+    if (offline) return;
+    try {
+      const res = await fetch(`/api/suggestions`, {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ id, status: "resolved" }),
+      });
+      if (!res.ok) throw new Error("resolve");
+      suggestions = { ...suggestions, [d.id]: (suggestions[d.id] ?? []).filter((s) => s.id !== id) };
+    } catch {
+      actionError = "Could not resolve the suggestion — please retry.";
     }
   }
 </script>
@@ -342,7 +405,7 @@
                         {#if showSources[d.id]}
                           <p class="mt-1 text-ink-subtle">Select the one cited source this fact came from:</p>
                           <ul class="mt-1 space-y-1">
-                            {#each candidateSources(d) as src}
+                            {#each candidateSources(d, added) as src}
                               <li class="flex items-start gap-2">
                                 <input
                                   type="radio"
@@ -363,6 +426,23 @@
                               Clear selection
                             </button>
                           {/if}
+                          <div class="mt-2 flex flex-wrap items-center gap-2">
+                            <input
+                              type="url"
+                              class="min-w-0 flex-1 rounded border border-ink-subtle/30 bg-surface px-2 py-1 text-xs text-ink"
+                              placeholder="Add a source URL not listed above…"
+                              bind:value={newUrl[d.id]}
+                              disabled={busy[`src:${d.id}`]}
+                            />
+                            <button
+                              type="button"
+                              class="rounded border border-accent bg-accent px-2.5 py-1 text-xs font-medium text-white hover:bg-accent-hover disabled:opacity-50"
+                              disabled={busy[`src:${d.id}`] || (newUrl[d.id] ?? '').trim().length === 0}
+                              on:click={() => addSourceUrl(d)}
+                            >
+                              {busy[`src:${d.id}`] ? "Fetching…" : "Add URL"}
+                            </button>
+                          </div>
                         {/if}
                       {/if}
                     </div>
@@ -411,10 +491,16 @@
                   {#if (suggestions[d.id]?.length ?? 0) > 0}
                     <div class="mt-2 rounded bg-surface-raised p-2 text-xs">
                       <div class="font-semibold text-ink">Open suggestions</div>
-                      <ul class="mt-1 space-y-1">
+                      <ul class="mt-1 space-y-1.5">
                         {#each suggestions[d.id] ?? [] as sug}
-                          <li class="text-ink-muted">
-                            <span class="text-ink-subtle">{sug.submitted_by}:</span> {sug.body}
+                          <li class="flex items-start justify-between gap-2">
+                            <div class="min-w-0">
+                              <div class="text-ink-muted">{sug.body}</div>
+                              <div class="text-ink-subtle">{sug.submitted_by} · {sug.submitted_at.replace("T", " ").slice(0, 16)} UTC</div>
+                            </div>
+                            {#if !offline}
+                              <button type="button" class="shrink-0 text-ink-subtle hover:text-accent" on:click={() => resolveSuggestion(d, sug.id)}>Resolve</button>
+                            {/if}
                           </li>
                         {/each}
                       </ul>

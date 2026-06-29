@@ -31,3 +31,41 @@ const DATAPOINT_ID_SET = new Set(DATAPOINT_IDS);
 export function isDatapointId(id: unknown): id is string {
   return typeof id === "string" && DATAPOINT_ID_SET.has(id);
 }
+
+/** True for a well-formed http(s) URL. */
+export function isHttpUrl(value: unknown): value is string {
+  if (typeof value !== "string") return false;
+  try {
+    const u = new URL(value);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+const ENTITIES: Record<string, string> = {
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&quot;": '"',
+  "&#39;": "'",
+  "&apos;": "'",
+  "&nbsp;": " ",
+};
+
+/**
+ * Extract a human title from fetched HTML — prefer `og:title`, fall back to
+ * `<title>`. Returns null if neither is present. Pure (regex-based, no DOM)
+ * so it runs in the Workers runtime and is unit-testable.
+ */
+export function extractTitle(html: string): string | null {
+  const og = html.match(/<meta[^>]+(?:property|name)=["']og:title["'][^>]*\bcontent=["']([^"']+)["']/i);
+  const raw = og?.[1] ?? html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1];
+  if (!raw) return null;
+  const text = raw
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&[a-z]+;|&#39;/gi, (m) => ENTITIES[m.toLowerCase()] ?? m)
+    .replace(/\s+/g, " ")
+    .trim();
+  return text.length > 0 ? text : null;
+}

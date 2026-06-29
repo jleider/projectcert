@@ -32,9 +32,29 @@
 
   let loading = true;
   let offline = false;
+  let actionError = "";
+  let resolving: Record<number, boolean> = {};
   let counts: Record<string, OverviewRow> = {};
   let suggestions: SuggestionRow[] = [];
   let brokenLinks: BrokenRow[] = [];
+
+  async function resolveSuggestion(id: number) {
+    if (resolving[id]) return;
+    resolving = { ...resolving, [id]: true };
+    try {
+      const res = await fetch(`/api/suggestions`, {
+        method: "PATCH",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ id, status: "resolved" }),
+      });
+      if (!res.ok) throw new Error("resolve");
+      suggestions = suggestions.filter((s) => s.id !== id);
+    } catch {
+      actionError = "Could not resolve the suggestion — please retry.";
+    } finally {
+      resolving = { ...resolving, [id]: false };
+    }
+  }
 
   $: rows = states
     .map((s) => {
@@ -86,6 +106,13 @@
       <p class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
         The review service is unavailable. Progress counts cannot be shown.
       </p>
+    {/if}
+
+    {#if actionError}
+      <div class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
+        <span>{actionError}</span>
+        <button type="button" class="shrink-0 text-ink-subtle hover:text-accent" aria-label="Dismiss" on:click={() => (actionError = "")}>×</button>
+      </div>
     {/if}
 
     <div class="rounded border border-ink-subtle/20 bg-surface-raised p-4">
@@ -145,12 +172,24 @@
         <ul class="mt-3 space-y-2">
           {#each suggestions as sug (sug.id)}
             <li class="rounded border border-ink-subtle/20 p-3 text-sm">
-              <div class="text-ink">
-                <span class="font-medium">{nameByUsps[sug.usps] ?? sug.usps}</span>
-                <span class="text-ink-subtle"> · {sug.datapoint_id}</span>
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <div class="text-ink">
+                    <span class="font-medium">{nameByUsps[sug.usps] ?? sug.usps}</span>
+                    <span class="text-ink-subtle"> · {sug.datapoint_id}</span>
+                  </div>
+                  <div class="mt-1 text-ink-muted">{sug.body}</div>
+                  <div class="mt-1 text-xs text-ink-subtle">{sug.submitted_by} · {sug.submitted_at.replace("T", " ").slice(0, 16)} UTC</div>
+                </div>
+                <button
+                  type="button"
+                  class="shrink-0 rounded border border-ink-subtle/40 px-2.5 py-1 text-xs text-ink-muted hover:text-accent disabled:opacity-50"
+                  disabled={resolving[sug.id]}
+                  on:click={() => resolveSuggestion(sug.id)}
+                >
+                  Resolve
+                </button>
               </div>
-              <div class="mt-1 text-ink-muted">{sug.body}</div>
-              <div class="mt-1 text-xs text-ink-subtle">{sug.submitted_by} · {sug.submitted_at.slice(0, 10)}</div>
             </li>
           {/each}
         </ul>
