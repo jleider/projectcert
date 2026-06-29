@@ -468,6 +468,14 @@ TypeScript / test footguns (each cost real time once):
   `DEV_REVIEWER_EMAIL` var to exercise the API; that var bypasses the
   mandatory Access-JWT verification in `functions/api/_middleware.ts`
   and must never be set in production.
+- **End-to-end the gated UI with `npm run e2e:audit`**
+  (`tests/e2e/audit-console.e2e.mjs`): boots `wrangler pages dev` + a
+  fresh local D1 + the auth bypass and drives a headless browser. Run it
+  after changing the audit islands — it catches the Svelte
+  dependency-tracking traps (a value read inside a function isn't tracked
+  by the template) that have regressed the progress bar and the shown
+  source. Not in `npm run verify` (needs wrangler + chromium). See the
+  `audit-console` skill.
 
 ### Adding/updating a state is a one-file edit
 

@@ -131,4 +131,19 @@ read-only (they degrade gracefully on `/api` fetch failure).
 `tests/verification-datapoints.test.ts`, `tests/audit-shared.test.ts`,
 `tests/link-classify.test.ts` (unit); `tests/audit-api.integration.test.ts`
 (handlers vs real SQLite), `tests/audit-sync.integration.test.ts` (scripts as
-subprocesses + generated SQL executed against SQLite).
+subprocesses + generated SQL executed against SQLite). All run under
+`npm run verify`.
+
+**End-to-end (browser):** `npm run e2e:audit`
+(`tests/e2e/audit-console.e2e.mjs`) — a standalone script that resets +
+migrates a local D1, builds, boots `wrangler pages dev` with the
+`DEV_REVIEWER_EMAIL` bypass, and drives a headless browser against
+`/audit/<usps>`. It is the only way to exercise the gated, Functions-backed
+UI end-to-end (plain `astro dev` has no Functions; the public-page a11y suite
+doesn't cover `/audit/*`). It guards the two Svelte reactivity traps that
+have regressed: checking a datapoint must move the progress bar, and picking
+an alternative source radio must update the shown "Confirmed source". When
+the audit UI changes, run this. It is deliberately NOT in `npm run verify`
+(needs wrangler + a chromium browser, `npx playwright install chromium`); the
+`.mjs` is excluded from lint/typecheck for the same reason. Use `SKIP_BUILD=1`
+to reuse the current `dist/`.

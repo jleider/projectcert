@@ -19,6 +19,9 @@ export default [
       // type errors there until we do.
       "**/*.svelte",
       "src/env.d.ts",
+      // Standalone Playwright e2e harness for the gated console — run via
+      // `node` (needs wrangler + a browser), not part of the lint/type gate.
+      "tests/e2e/**/*.mjs",
     ],
   },
   js.configs.recommended,
