@@ -2,11 +2,7 @@
   import { onMount } from "svelte";
   import { geoPath, geoAlbersUsa } from "d3-geo";
   import { feature } from "topojson-client";
-  import type {
-    Topology,
-    GeometryCollection,
-    GeometryObject,
-  } from "topojson-specification";
+  import type { Topology, GeometryCollection } from "topojson-specification";
   import type { Feature, FeatureCollection } from "geojson";
   import { binFor } from "@/data/bins";
   import { FIPS_TO_USPS } from "@/data/states-meta";
@@ -187,7 +183,7 @@
   // labelled square callout offset to the east with a leader line to
   // its actual projected location.
   $: dcDatum = stateById.get("DC");
-  $: dcPoint = projection([-77.0369, 38.9072]);
+  const dcPoint = projection([-77.0369, 38.9072]);
   const DC_CALLOUT_X = 935;
   const DC_CALLOUT_Y = 245;
   const DC_CALLOUT_SIZE = 22;

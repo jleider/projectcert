@@ -81,7 +81,7 @@ function trimTerritories(t: Topology): Topology {
   return {
     ...t,
     objects: {
-      states: { ...states, geometries: filtered } as GeometryCollection,
+      states: { ...states, geometries: filtered },
     },
   };
 }

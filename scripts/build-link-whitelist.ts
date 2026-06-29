@@ -71,7 +71,7 @@ const entries = rows
         ? null
         : Number(r.accepted_status);
     const entry: WhitelistEntry = {
-      status: Number.isNaN(status as number) ? null : status,
+      status: Number.isNaN(status) ? null : status,
       acceptedBy: r.reviewed_by,
       acceptedAt: r.reviewed_at ? r.reviewed_at.slice(0, 10) : null,
     };

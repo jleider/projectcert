@@ -34,8 +34,6 @@
     .map((u) => states.find((s) => s.usps === u))
     .filter((s): s is CompareState => Boolean(s));
 
-  type Cell = { value: boolean | null | undefined; label: string };
-
   /** Symbol + accessible description for a tri-state requirement flag. */
   function cellFor(
     value: boolean | null | undefined,
