@@ -101,9 +101,7 @@ const HistoryEvent = z.object({
   }),
   title: z.string().min(3),
   description: z.string().min(10),
-  sourceUrls: z
-    .array(z.url())
-    .min(1, "Every history event needs at least one sourceUrl"),
+  sourceUrls: z.array(z.url()).min(1, "Every history event needs at least one sourceUrl"),
 });
 
 /**
@@ -163,11 +161,7 @@ export const StateSchema = z
     history: z.array(HistoryEvent).optional(),
     elPercentHistory: z.array(ElPercentObservation).optional(),
     lastVerified: isoDate,
-    verificationStatus: z.enum([
-      "baseline-2019",
-      "in-progress",
-      "verified-2026",
-    ]),
+    verificationStatus: z.enum(["baseline-2019", "in-progress", "verified-2026"]),
   })
   .refine((s) => s.elPercentAsOf <= s.lastVerified, {
     message: "elPercentAsOf must not be later than lastVerified",

@@ -89,10 +89,7 @@ export default [
       // up only deliberately at JSON-LD boundaries.
       "@typescript-eslint/no-explicit-any": "warn",
       // Unused vars are noisy during refactors; keep as warnings.
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
-      ],
+      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
       // Inline scripts in .astro pages legitimately use `var` patterns.
       "no-empty": ["warn", { allowEmptyCatch: true }],
     },
@@ -118,8 +115,7 @@ export default [
       "no-restricted-syntax": [
         "error",
         {
-          selector:
-            "JSXOpeningElement[name.name='a'] > JSXAttribute[name.name='href'] > Literal[value=/^[/#]/u]",
+          selector: "JSXOpeningElement[name.name='a'] > JSXAttribute[name.name='href'] > Literal[value=/^[/#]/u]",
           message:
             "Bare-string href on <a>. Use href={ROUTES.x} or href={sameAnchor(ANCHORS.x)} from @/lib/routes; per-state URLs come from stateUrl(usps).",
         },

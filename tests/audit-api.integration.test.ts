@@ -16,16 +16,10 @@ import {
   onRequestPost as verPost,
   onRequestDelete as verDel,
 } from "../functions/api/verifications";
-import {
-  onRequestGet as sugGet,
-  onRequestPost as sugPost,
-} from "../functions/api/suggestions";
+import { onRequestGet as sugGet, onRequestPost as sugPost } from "../functions/api/suggestions";
 import { onRequestGet as ovGet } from "../functions/api/overview";
 import { onRequestGet as brkGet } from "../functions/api/broken-links";
-import {
-  onRequestGet as lrGet,
-  onRequestPost as lrPost,
-} from "../functions/api/link-reviews";
+import { onRequestGet as lrGet, onRequestPost as lrPost } from "../functions/api/link-reviews";
 import { onRequest as middleware } from "../functions/api/_middleware";
 
 const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
@@ -107,9 +101,7 @@ describe("/api/verifications", () => {
     );
     expect(post.status).toBe(200);
 
-    let list = await (
-      await verGet(ctx({ url: "https://x.org/api?usps=CA" }))
-    ).json();
+    let list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
     expect(list.verifications).toHaveLength(1);
     expect(list.verifications[0]).toMatchObject({
       datapoint_id: "elPercent",
@@ -125,9 +117,7 @@ describe("/api/verifications", () => {
         data: { userEmail: "other@example.org" },
       }),
     );
-    list = await (
-      await verGet(ctx({ url: "https://x.org/api?usps=CA" }))
-    ).json();
+    list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
     expect(list.verifications).toHaveLength(1);
     expect(list.verifications[0]).toMatchObject({
       verified_by: "other@example.org",
@@ -141,9 +131,7 @@ describe("/api/verifications", () => {
       }),
     );
     expect(del.status).toBe(200);
-    list = await (
-      await verGet(ctx({ url: "https://x.org/api?usps=CA" }))
-    ).json();
+    list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
     expect(list.verifications).toHaveLength(0);
   });
 
@@ -176,9 +164,7 @@ describe("/api/suggestions", () => {
     );
     expect(post.status).toBe(200);
 
-    const byState = await (
-      await sugGet(ctx({ url: "https://x.org/api?usps=TX&status=open" }))
-    ).json();
+    const byState = await (await sugGet(ctx({ url: "https://x.org/api?usps=TX&status=open" }))).json();
     expect(byState.suggestions).toHaveLength(1);
     expect(byState.suggestions[0]).toMatchObject({
       usps: "TX",
@@ -186,9 +172,7 @@ describe("/api/suggestions", () => {
       status: "open",
     });
 
-    const siteWide = await (
-      await sugGet(ctx({ url: "https://x.org/api?status=open" }))
-    ).json();
+    const siteWide = await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json();
     expect(siteWide.suggestions).toHaveLength(1);
   });
 
@@ -238,9 +222,7 @@ describe("/api/broken-links", () => {
     db.prepare(
       `INSERT INTO broken_links (usps, datapoint_id, url, citation, status, classification, detected_at) VALUES ('NV','history','https://x','NV / history[0].sourceUrls[0]','404','client-error','2026-06-16')`,
     ).run();
-    const byState = await (
-      await brkGet(ctx({ url: "https://x.org/api?usps=NV" }))
-    ).json();
+    const byState = await (await brkGet(ctx({ url: "https://x.org/api?usps=NV" }))).json();
     expect(byState.brokenLinks).toHaveLength(1);
     expect(byState.brokenLinks[0]).toMatchObject({
       usps: "NV",
@@ -280,9 +262,7 @@ describe("/api/link-reviews", () => {
     );
     expect(accept.status).toBe(200);
     let row = db
-      .prepare(
-        `SELECT decision, reviewed_by, note, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`,
-      )
+      .prepare(`SELECT decision, reviewed_by, note, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`)
       .get() as Record<string, unknown>;
     // accepted_status snapshots the observed status ('403') so a later
     // sweep can re-flag if the response code changes.
@@ -301,9 +281,7 @@ describe("/api/link-reviews", () => {
     );
     expect(revert.status).toBe(200);
     row = db
-      .prepare(
-        `SELECT decision, reviewed_by, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`,
-      )
+      .prepare(`SELECT decision, reviewed_by, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`)
       .get() as Record<string, unknown>;
     expect(row).toMatchObject({
       decision: "pending",
@@ -356,9 +334,7 @@ describe("/api/_middleware auth", () => {
   });
 
   it("returns 500 when auth is unconfigured", async () => {
-    const res = await middleware(
-      ctx({ env: { DB }, next: async () => new Response("ok") }),
-    );
+    const res = await middleware(ctx({ env: { DB }, next: async () => new Response("ok") }));
     expect(res.status).toBe(500);
   });
 

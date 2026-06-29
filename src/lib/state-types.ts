@@ -9,14 +9,7 @@ export const CREDENTIAL_TYPES = ["bilingual", "eld", "sei"] as const;
 export type CredentialType = (typeof CREDENTIAL_TYPES)[number];
 
 /** Map layer keys — every encoded variable on the choropleth. */
-export const LAYERS = [
-  "elPercent",
-  "bilingual",
-  "eld",
-  "sei",
-  "sealOfBiliteracy",
-  "elpAssessment",
-] as const;
+export const LAYERS = ["elPercent", "bilingual", "eld", "sei", "sealOfBiliteracy", "elpAssessment"] as const;
 export type Layer = (typeof LAYERS)[number];
 
 export interface ChoroplethDatum {
@@ -61,10 +54,7 @@ export function elPercentHistoryUrl(usps: string): LinkUrl {
 }
 
 /** Absolute EL-percent history sub-page — for JSON-LD / breadcrumbs. */
-export function absoluteElPercentHistoryUrl(
-  siteUrl: string,
-  usps: string,
-): LinkUrl {
+export function absoluteElPercentHistoryUrl(siteUrl: string, usps: string): LinkUrl {
   return `${siteUrl}${elPercentHistoryUrl(usps)}` as LinkUrl;
 }
 

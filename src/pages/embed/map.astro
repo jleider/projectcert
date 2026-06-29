@@ -6,9 +6,7 @@ import { getChoroplethData, LAYERS, type Layer } from "@/lib/state-data";
 const data = await getChoroplethData();
 
 const requested = Astro.url.searchParams.get("layer");
-const initialLayer: Layer = (LAYERS as readonly string[]).includes(
-  requested ?? "",
-)
+const initialLayer: Layer = (LAYERS as readonly string[]).includes(requested ?? "")
   ? (requested as Layer)
   : "elPercent";
 ---
@@ -17,10 +15,5 @@ const initialLayer: Layer = (LAYERS as readonly string[]).includes(
   title="EL teacher certification map"
   description="Embeddable map of U.S. state EL teacher certification data."
 >
-  <MapExplorer
-    client:only="svelte"
-    states={data}
-    initialLayer={initialLayer}
-    embedFooter={true}
-  />
+  <MapExplorer client:only="svelte" states={data} initialLayer={initialLayer} embedFooter={true} />
 </EmbedLayout>

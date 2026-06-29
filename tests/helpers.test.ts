@@ -16,9 +16,7 @@ describe("stateUrl", () => {
 
 describe("absoluteStateUrl", () => {
   it("prepends the site origin", () => {
-    expect(absoluteStateUrl("https://projectcert.org", "TX")).toBe(
-      "https://projectcert.org/states/tx/",
-    );
+    expect(absoluteStateUrl("https://projectcert.org", "TX")).toBe("https://projectcert.org/states/tx/");
   });
 });
 
@@ -44,9 +42,9 @@ describe("breadcrumbList", () => {
   });
 
   it("preserves absolute URLs as-is", () => {
-    const b = breadcrumbList([
-      { name: "Ext", url: u("https://example.com/path/") },
-    ]) as { itemListElement: Array<{ item: string }> };
+    const b = breadcrumbList([{ name: "Ext", url: u("https://example.com/path/") }]) as {
+      itemListElement: Array<{ item: string }>;
+    };
     expect(b.itemListElement[0]!.item).toBe("https://example.com/path/");
   });
 });

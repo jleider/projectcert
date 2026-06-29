@@ -147,9 +147,7 @@ for (const c of checks) {
   const ratio = contrast(c.fg, c.bg);
   const ok = ratio >= c.min;
   const tag = ok ? "PASS" : "FAIL";
-  console.log(
-    `${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`,
-  );
+  console.log(`${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`);
   if (!ok) failed++;
 }
 
@@ -291,18 +289,12 @@ for (const c of darkChecks) {
   const ratio = contrast(c.fg, c.bg);
   const ok = ratio >= c.min;
   const tag = ok ? "PASS" : "FAIL";
-  console.log(
-    `${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`,
-  );
+  console.log(`${tag}  ${ratio.toFixed(2).padStart(5)} >= ${c.min.toFixed(1)}  ${c.label}  (${c.fg} on ${c.bg})`);
   if (!ok) failed++;
 }
 
 if (failed > 0) {
-  console.error(
-    `\n${failed} contrast check(s) failed. Adjust src/styles/tokens.css.`,
-  );
+  console.error(`\n${failed} contrast check(s) failed. Adjust src/styles/tokens.css.`);
   process.exit(1);
 }
-console.log(
-  `\nAll ${checks.length + darkChecks.length} required contrast checks passed (light + dark text).`,
-);
+console.log(`\nAll ${checks.length + darkChecks.length} required contrast checks passed (light + dark text).`);

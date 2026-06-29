@@ -5,13 +5,9 @@ import { getAllStates } from "@/lib/state-data";
 
 const states = await getAllStates();
 const groups = {
-  "verified-2026": states.filter(
-    (s) => s.verificationStatus === "verified-2026",
-  ),
+  "verified-2026": states.filter((s) => s.verificationStatus === "verified-2026"),
   "in-progress": states.filter((s) => s.verificationStatus === "in-progress"),
-  "baseline-2019": states.filter(
-    (s) => s.verificationStatus === "baseline-2019",
-  ),
+  "baseline-2019": states.filter((s) => s.verificationStatus === "baseline-2019"),
 };
 ---
 
@@ -22,9 +18,8 @@ const groups = {
   <article class="max-w-4xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">Verification progress</h1>
     <p class="mt-2 text-ink-muted max-w-3xl">
-      Public release is contingent on completion of per-state re-verification
-      against current SEA sources, superseding the 2019 baseline. This page
-      records progress per jurisdiction.
+      Public release is contingent on completion of per-state re-verification against current SEA sources, superseding
+      the 2019 baseline. This page records progress per jurisdiction.
     </p>
 
     <ul class="mt-6 grid grid-cols-3 gap-3 text-sm">
@@ -77,17 +72,13 @@ const groups = {
       ))
     }
 
-    <section
-      class="mt-10 rounded border border-ink-subtle/20 p-4 bg-surface-raised"
-    >
+    <section class="mt-10 rounded border border-ink-subtle/20 p-4 bg-surface-raised">
       <h2 class="text-base font-semibold text-ink">Verification procedure</h2>
       <p class="mt-2 text-sm text-ink-muted">
-        Each state passes through a uniform refresh workflow: current SEA
-        documents are re-fetched from the cited source URLs, dated snapshots are
-        archived in the project repository, the record is re-coded against the
-        same coding scheme used for the 2019 baseline, divergences from that
-        baseline are documented in a per-state changes-from-baseline note, and
-        the state is promoted to the 2026 verified set. The original 2019 source
+        Each state passes through a uniform refresh workflow: current SEA documents are re-fetched from the cited source
+        URLs, dated snapshots are archived in the project repository, the record is re-coded against the same coding
+        scheme used for the 2019 baseline, divergences from that baseline are documented in a per-state
+        changes-from-baseline note, and the state is promoted to the 2026 verified set. The original 2019 source
         citations are retained as part of the audit trail.
       </p>
     </section>

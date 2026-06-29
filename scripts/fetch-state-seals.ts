@@ -79,10 +79,7 @@ const SEALS: Record<string, string> = {
 
 interface CommonsImageInfo {
   query?: {
-    pages?: Record<
-      string,
-      { imageinfo?: Array<{ url?: string; descriptionurl?: string }> }
-    >;
+    pages?: Record<string, { imageinfo?: Array<{ url?: string; descriptionurl?: string }> }>;
   };
 }
 
@@ -160,6 +157,4 @@ for (const [usps, title] of entries) {
   }
   await new Promise((r) => setTimeout(r, 800));
 }
-console.log(
-  `\nDone: ${ok} ok, ${skip} skipped (already downloaded), ${fail} failed.`,
-);
+console.log(`\nDone: ${ok} ok, ${skip} skipped (already downloaded), ${fail} failed.`);

@@ -48,11 +48,8 @@ const llms = readFileSync(LLMS, "utf8");
 const llmsFull = readFileSync(LLMS_FULL, "utf8");
 
 // Absolute URLs present in the sitemap.
-const sitemapUrls = new Set(
-  [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!),
-);
-const inSitemap = (route: string): boolean =>
-  sitemapUrls.has(`${SITE_URL}${route}`);
+const sitemapUrls = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!));
+const inSitemap = (route: string): boolean => sitemapUrls.has(`${SITE_URL}${route}`);
 
 const stateUspsList = readdirSync(STATES_DIR)
   .filter((f) => f.endsWith(".json"))
@@ -66,32 +63,23 @@ for (const route of ALL_ROUTES) {
   if (!inSitemap(route)) errors.push(`route missing from sitemap: ${route}`);
 }
 for (const usps of stateUspsList) {
-  for (const path of [
-    `/states/${usps}/`,
-    `/states/${usps}/el-percent-history/`,
-  ]) {
-    if (!inSitemap(path))
-      errors.push(`state page missing from sitemap: ${path}`);
+  for (const path of [`/states/${usps}/`, `/states/${usps}/el-percent-history/`]) {
+    if (!inSitemap(path)) errors.push(`state page missing from sitemap: ${path}`);
   }
 }
 
 // (2) The gated console must never leak into a discovery surface.
 for (const url of sitemapUrls) {
-  if (url.includes("/audit"))
-    errors.push(`gated /audit URL present in sitemap: ${url}`);
+  if (url.includes("/audit")) errors.push(`gated /audit URL present in sitemap: ${url}`);
 }
 if (/\/audit\b/.test(llmsFull)) {
-  errors.push(
-    "gated /audit reference present in llms-full.txt (must be excluded)",
-  );
+  errors.push("gated /audit reference present in llms-full.txt (must be excluded)");
 }
 
 if (errors.length > 0) fail(errors);
 
 // (3) Advisory: non-gated routes absent from the curated llms.txt.
-const llmsGaps = ALL_ROUTES.filter(
-  (r) => !isGated(r) && r !== "/" && !llms.includes(r),
-);
+const llmsGaps = ALL_ROUTES.filter((r) => !isGated(r) && r !== "/" && !llms.includes(r));
 if (llmsGaps.length > 0) {
   console.warn(
     "Discovery-surface WARNING — routes not referenced in public/llms.txt " +

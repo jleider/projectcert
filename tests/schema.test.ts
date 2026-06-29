@@ -35,9 +35,7 @@ describe("state content collection", () => {
   }
 
   it("covers every USPS code in states-meta", () => {
-    const filenames = new Set(
-      files.map((f) => f.replace(/\.json$/, "").toUpperCase()),
-    );
+    const filenames = new Set(files.map((f) => f.replace(/\.json$/, "").toUpperCase()));
     for (const meta of STATES) {
       expect(filenames.has(meta.usps), `${meta.usps} missing`).toBe(true);
     }

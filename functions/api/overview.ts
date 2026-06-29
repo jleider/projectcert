@@ -14,9 +14,7 @@ interface CountRow {
   n: number;
 }
 
-export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
-  env,
-}) => {
+export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({ env }) => {
   // Exclude datapoints whose cited source is currently unreachable, so
   // the dashboard count agrees with the per-state page and public ledger.
   // (Content-drift staleness needs the live JSON hashes and is reflected
@@ -41,10 +39,7 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
   const brokenByUsps = new Map<string, number>();
   for (const r of broken.results ?? []) brokenByUsps.set(r.usps, r.n);
 
-  const uspsSet = new Set<string>([
-    ...verifiedByUsps.keys(),
-    ...brokenByUsps.keys(),
-  ]);
+  const uspsSet = new Set<string>([...verifiedByUsps.keys(), ...brokenByUsps.keys()]);
   const perState = [...uspsSet].sort().map((usps) => ({
     usps,
     verifiedCount: verifiedByUsps.get(usps) ?? 0,

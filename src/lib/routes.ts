@@ -41,11 +41,7 @@ export const ANCHORS = {
   main: "main",
 } as const;
 
-type LeafValues<T> = T extends string
-  ? T
-  : T extends Record<string, unknown>
-    ? LeafValues<T[keyof T]>
-    : never;
+type LeafValues<T> = T extends string ? T : T extends Record<string, unknown> ? LeafValues<T[keyof T]> : never;
 
 /** String-literal union of every route declared in ROUTES. */
 export type Route = LeafValues<typeof ROUTES>;
@@ -62,9 +58,7 @@ declare const __linkUrlBrand: unique symbol;
 export type LinkUrl = string & { readonly [__linkUrlBrand]: true };
 
 /** All routes as a flat list — used by build-time presence checks. */
-export const ALL_ROUTES: readonly Route[] = (function flatten(
-  o: unknown,
-): Route[] {
+export const ALL_ROUTES: readonly Route[] = (function flatten(o: unknown): Route[] {
   if (typeof o === "string") return [o as Route];
   if (o && typeof o === "object") return Object.values(o).flatMap(flatten);
   return [];

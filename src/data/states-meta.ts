@@ -63,10 +63,6 @@ export const STATES: ReadonlyArray<StateMeta> = [
   { usps: "WY", name: "Wyoming", fips: "56" },
 ];
 
-export const FIPS_TO_USPS: Record<string, string> = Object.fromEntries(
-  STATES.map((s) => [s.fips, s.usps]),
-);
+export const FIPS_TO_USPS: Record<string, string> = Object.fromEntries(STATES.map((s) => [s.fips, s.usps]));
 
-export const USPS_TO_NAME: Record<string, string> = Object.fromEntries(
-  STATES.map((s) => [s.usps, s.name]),
-);
+export const USPS_TO_NAME: Record<string, string> = Object.fromEntries(STATES.map((s) => [s.usps, s.name]));

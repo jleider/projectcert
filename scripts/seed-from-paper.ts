@@ -41,8 +41,7 @@ type Reqs = {
 
 function parseBilReqs(s: string): Reqs {
   const [P, C, R, T, L] = s.split("");
-  const f = (c: string | undefined): CredReq =>
-    c === "1" ? true : c === "0" ? false : null;
+  const f = (c: string | undefined): CredReq => (c === "1" ? true : c === "0" ? false : null);
   return {
     program: f(P),
     coursework: f(C),
@@ -54,8 +53,7 @@ function parseBilReqs(s: string): Reqs {
 
 function parseEldReqs(s: string): Reqs {
   const [P, C, R, T] = s.split("");
-  const f = (c: string | undefined): CredReq =>
-    c === "1" ? true : c === "0" ? false : null;
+  const f = (c: string | undefined): CredReq => (c === "1" ? true : c === "0" ? false : null);
   return {
     program: f(P),
     coursework: f(C),
@@ -121,8 +119,7 @@ const ROWS: Row[] = [
     seaUrl: "https://education.alaska.gov/TeacherCertification",
     seaLabel: "Alaska DEED Teacher Certification",
     notes: {
-      bilingual:
-        "Approved program courses required to include Native American/multicultural education.",
+      bilingual: "Approved program courses required to include Native American/multicultural education.",
     },
   },
   {
@@ -223,8 +220,7 @@ const ROWS: Row[] = [
     bilReqs: "----1",
     eldReqs: "---1",
     stds: [true, true, true, true],
-    seaUrl:
-      "https://osse.dc.gov/service/educator-credentialing-and-certification",
+    seaUrl: "https://osse.dc.gov/service/educator-credentialing-and-certification",
     seaLabel: "DC Office of the State Superintendent of Education",
   },
   {
@@ -321,8 +317,7 @@ const ROWS: Row[] = [
     seaUrl: "https://educateiowa.gov",
     seaLabel: "Iowa Department of Education",
     notes: {
-      bilingual:
-        "Iowa requires an 'Authorization' to teach in a non-English language.",
+      bilingual: "Iowa requires an 'Authorization' to teach in a non-English language.",
     },
   },
   {
@@ -548,8 +543,7 @@ const ROWS: Row[] = [
     seaUrl: "https://webnew.ped.state.nm.us",
     seaLabel: "New Mexico Public Education Department",
     notes: {
-      bilingual:
-        "Includes Native American/Indigenous language endorsement pathway.",
+      bilingual: "Includes Native American/Indigenous language endorsement pathway.",
     },
   },
   {
@@ -729,8 +723,7 @@ const ROWS: Row[] = [
     seaUrl: "https://www.schools.utah.gov",
     seaLabel: "Utah State Board of Education",
     notes: {
-      bilingual:
-        "Two pathways: state-approved program OR university courses + Utah Dual Language Institute.",
+      bilingual: "Two pathways: state-approved program OR university courses + Utah Dual Language Institute.",
     },
   },
   {
@@ -877,8 +870,7 @@ for (const row of ROWS) {
         retrievedBy: "leider-2021" as const,
       },
       {
-        label:
-          "Leider, Colombo & Nerlino (2021), EPAA 29(100). Tables 2-5 + Appendix A.",
+        label: "Leider, Colombo & Nerlino (2021), EPAA 29(100). Tables 2-5 + Appendix A.",
         url: "https://doi.org/10.14507/epaa.29.5279",
         retrievedAt: RETRIEVED_AT,
         retrievedBy: "leider-2021" as const,

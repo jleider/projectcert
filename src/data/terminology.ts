@@ -23,8 +23,7 @@ export const CANONICAL_TERMS: ReadonlyArray<CanonicalTerm> = [
   {
     canonical: "credential",
     aliases: ["license", "licensure", "authorization"],
-    notes:
-      "Umbrella covering both standalone certifications and add-on endorsements.",
+    notes: "Umbrella covering both standalone certifications and add-on endorsements.",
   },
   {
     canonical: "certification",
@@ -67,11 +66,7 @@ export const CANONICAL_TERMS: ReadonlyArray<CanonicalTerm> = [
   },
   {
     canonical: "sei",
-    aliases: [
-      "Sheltered English Instruction",
-      "Sheltered English Immersion",
-      "SIOP endorsement",
-    ],
+    aliases: ["Sheltered English Instruction", "Sheltered English Immersion", "SIOP endorsement"],
   },
 ];
 
@@ -105,10 +100,7 @@ export const STUDENT_TERM_ALIASES = [
  * Re-verified entries (verificationStatus: verified-2026) should
  * supersede these with the SEA's current local naming.
  */
-export const STATE_LOCAL_NAMES: Record<
-  string,
-  Record<CredentialType, string | null>
-> = {
+export const STATE_LOCAL_NAMES: Record<string, Record<CredentialType, string | null>> = {
   AL: { bilingual: null, eld: "ESL Endorsement", sei: null, mainstream: null },
   AK: {
     bilingual: "Bilingual Education Endorsement",
@@ -251,8 +243,7 @@ export const STATE_LOCAL_NAMES: Record<
     mainstream: null,
   },
   NM: {
-    bilingual:
-      "Bilingual Education Endorsement (incl. Native American/Indigenous languages)",
+    bilingual: "Bilingual Education Endorsement (incl. Native American/Indigenous languages)",
     eld: "TESOL Endorsement",
     sei: null,
     mainstream: null,
@@ -283,8 +274,7 @@ export const STATE_LOCAL_NAMES: Record<
   },
   OK: { bilingual: null, eld: "ESL Endorsement", sei: null, mainstream: null },
   OR: {
-    bilingual:
-      "Bilingual Specialization + Dual Language (separate endorsements)",
+    bilingual: "Bilingual Specialization + Dual Language (separate endorsements)",
     eld: "English for Speakers of Other Languages (ESOL) Endorsement",
     sei: null,
     mainstream: null,

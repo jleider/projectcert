@@ -66,8 +66,7 @@ const missingAnchors = Object.values(ANCHORS).filter((a) => !presentIds.has(a));
 if (missing.length > 0 || missingAnchors.length > 0) {
   console.error("Built-pages check FAILED:");
   for (const m of missing) console.error(`  missing page: ${m}`);
-  for (const a of missingAnchors)
-    console.error(`  ANCHORS.${a} has no matching id="${a}" in any built page`);
+  for (const a of missingAnchors) console.error(`  ANCHORS.${a} has no matching id="${a}" in any built page`);
   process.exit(1);
 }
 

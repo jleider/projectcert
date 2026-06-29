@@ -1,9 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  jsonResponse,
-  normalizeUsps,
-  isDatapointId,
-} from "../src/lib/audit-shared";
+import { jsonResponse, normalizeUsps, isDatapointId } from "../src/lib/audit-shared";
 import { DATAPOINT_IDS } from "../src/lib/verification-datapoints";
 
 describe("normalizeUsps", () => {

@@ -39,9 +39,7 @@ const BROKEN = new Set(["client-error"]);
 const inputPath = argValue("--input");
 const outPath = argValue("--out");
 if (!inputPath || !outPath) {
-  console.error(
-    "Usage: sync-broken-links.ts --input <links.json> --out <broken.sql>",
-  );
+  console.error("Usage: sync-broken-links.ts --input <links.json> --out <broken.sql>");
   process.exit(2);
 }
 
@@ -89,12 +87,8 @@ const current = [...rows.values()];
 if (current.length === 0) {
   lines.push("DELETE FROM broken_links;");
 } else {
-  const tuples = current
-    .map((r) => `(${q(r.usps)}, ${q(r.datapointId)}, ${q(r.url)})`)
-    .join(", ");
-  lines.push(
-    `DELETE FROM broken_links WHERE (usps, datapoint_id, url) NOT IN (VALUES ${tuples});`,
-  );
+  const tuples = current.map((r) => `(${q(r.usps)}, ${q(r.datapointId)}, ${q(r.url)})`).join(", ");
+  lines.push(`DELETE FROM broken_links WHERE (usps, datapoint_id, url) NOT IN (VALUES ${tuples});`);
   for (const r of current) {
     const status = r.status === "" ? "NULL" : q(r.status);
     lines.push(

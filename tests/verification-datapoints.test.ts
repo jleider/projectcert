@@ -143,32 +143,23 @@ describe("datapointsFor", () => {
   });
 
   it("formats tri-state requirement flags, including absent blocks", () => {
-    const by = Object.fromEntries(
-      datapointsFor(rich).map((d) => [d.id, d] as const),
-    ) as Record<string, Datapoint>;
-    expect(by["credentials.bilingual.requirements.program"]!.displayValue).toBe(
-      "Required",
-    );
-    expect(
-      by["credentials.bilingual.requirements.coursework"]!.displayValue,
-    ).toBe("Not required");
-    expect(by["credentials.eld.requirements.practicum"]!.displayValue).toBe(
-      "Not specified in public sources",
-    );
+    const by = Object.fromEntries(datapointsFor(rich).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    expect(by["credentials.bilingual.requirements.program"]!.displayValue).toBe("Required");
+    expect(by["credentials.bilingual.requirements.coursework"]!.displayValue).toBe("Not required");
+    expect(by["credentials.eld.requirements.practicum"]!.displayValue).toBe("Not specified in public sources");
 
     // Sparse state has no requirements block at all → "not specified".
-    const bySparse = Object.fromEntries(
-      datapointsFor(sparse).map((d) => [d.id, d] as const),
-    ) as Record<string, Datapoint>;
-    expect(
-      bySparse["credentials.bilingual.requirements.program"]!.displayValue,
-    ).toBe("Not specified in public sources");
+    const bySparse = Object.fromEntries(datapointsFor(sparse).map((d) => [d.id, d] as const)) as Record<
+      string,
+      Datapoint
+    >;
+    expect(bySparse["credentials.bilingual.requirements.program"]!.displayValue).toBe(
+      "Not specified in public sources",
+    );
   });
 
   it("marks grouped datapoints and renders their rows", () => {
-    const by = Object.fromEntries(
-      datapointsFor(rich).map((d) => [d.id, d] as const),
-    ) as Record<string, Datapoint>;
+    const by = Object.fromEntries(datapointsFor(rich).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
     for (const id of ["history", "elPercentHistory", "sources"]) {
       expect(by[id]!.grouped).toBe(true);
     }
@@ -184,19 +175,19 @@ describe("datapointsFor", () => {
   });
 
   it("treats absent and empty optional arrays identically (hash + display)", () => {
-    const bySparse = Object.fromEntries(
-      datapointsFor(sparse).map((d) => [d.id, d] as const),
-    ) as Record<string, Datapoint>;
+    const bySparse = Object.fromEntries(datapointsFor(sparse).map((d) => [d.id, d] as const)) as Record<
+      string,
+      Datapoint
+    >;
     expect(bySparse["history"]!.displayValue).toBe("No events recorded");
     expect(bySparse["history"]!.rows).toHaveLength(0);
     // undefined history hashes the same as an explicit empty array.
     const sparseWithEmpty = { ...sparse, history: [] };
-    const byEmpty = Object.fromEntries(
-      datapointsFor(sparseWithEmpty).map((d) => [d.id, d] as const),
-    ) as Record<string, Datapoint>;
-    expect(byEmpty["history"]!.contentHash).toBe(
-      bySparse["history"]!.contentHash,
-    );
+    const byEmpty = Object.fromEntries(datapointsFor(sparseWithEmpty).map((d) => [d.id, d] as const)) as Record<
+      string,
+      Datapoint
+    >;
+    expect(byEmpty["history"]!.contentHash).toBe(bySparse["history"]!.contentHash);
   });
 
   it("scalar datapoints are not flagged grouped", () => {
@@ -217,12 +208,8 @@ describe("contentHashFor", () => {
   });
 
   it("a content edit invalidates the prior datapoint hash", () => {
-    const before = datapointsFor(rich).find(
-      (d) => d.id === "elPercent",
-    )!.contentHash;
-    const after = datapointsFor({ ...rich, elPercent: 19.0 }).find(
-      (d) => d.id === "elPercent",
-    )!.contentHash;
+    const before = datapointsFor(rich).find((d) => d.id === "elPercent")!.contentHash;
+    const after = datapointsFor({ ...rich, elPercent: 19.0 }).find((d) => d.id === "elPercent")!.contentHash;
     expect(after).not.toBe(before);
   });
 });
@@ -230,18 +217,10 @@ describe("contentHashFor", () => {
 describe("datapointIdForCitation", () => {
   it("maps the link-checker citation shapes to datapoint ids", () => {
     expect(datapointIdForCitation("CA / sources[2]")).toBe("sources");
-    expect(datapointIdForCitation("CA / history[5].sourceUrls[0]")).toBe(
-      "history",
-    );
-    expect(datapointIdForCitation("CA / elPercentHistory[3].source.url")).toBe(
-      "elPercentHistory",
-    );
-    expect(datapointIdForCitation("CA / sealOfBiliteracy.sourceUrl")).toBe(
-      "sealOfBiliteracy.sourceUrl",
-    );
-    expect(datapointIdForCitation("CA / elpAssessment.sourceUrl")).toBe(
-      "elpAssessment.sourceUrl",
-    );
+    expect(datapointIdForCitation("CA / history[5].sourceUrls[0]")).toBe("history");
+    expect(datapointIdForCitation("CA / elPercentHistory[3].source.url")).toBe("elPercentHistory");
+    expect(datapointIdForCitation("CA / sealOfBiliteracy.sourceUrl")).toBe("sealOfBiliteracy.sourceUrl");
+    expect(datapointIdForCitation("CA / elpAssessment.sourceUrl")).toBe("elpAssessment.sourceUrl");
   });
 
   it("returns null for unrecognized citation shapes", () => {

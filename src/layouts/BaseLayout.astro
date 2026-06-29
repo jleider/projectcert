@@ -55,16 +55,7 @@ interface Props {
   citation?: CitationMeta;
 }
 
-const {
-  title,
-  description,
-  type = "website",
-  modifiedTime,
-  publishedTime,
-  image,
-  jsonLd,
-  citation,
-} = Astro.props;
+const { title, description, type = "website", modifiedTime, publishedTime, image, jsonLd, citation } = Astro.props;
 
 const fullTitle = `${title} — ${SITE_NAME}`;
 const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).toString();
@@ -101,25 +92,10 @@ const siteJsonLd = [
     <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
     <link rel="canonical" href={canonicalUrl} />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1"
-    />
-    <meta
-      name="theme-color"
-      content="#3d1971"
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content="#262833"
-      media="(prefers-color-scheme: dark)"
-    />
-    <link
-      rel="license"
-      href="https://creativecommons.org/licenses/by/4.0/"
-      title="CC BY 4.0"
-    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#3d1971" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#262833" media="(prefers-color-scheme: dark)" />
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" title="CC BY 4.0" />
 
     <!-- Open Graph -->
     <meta property="og:site_name" content={SITE_NAME} />
@@ -129,16 +105,8 @@ const siteJsonLd = [
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="en_US" />
-    {
-      publishedTime && (
-        <meta property="article:published_time" content={publishedTime} />
-      )
-    }
-    {
-      modifiedTime && (
-        <meta property="article:modified_time" content={modifiedTime} />
-      )
-    }
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -155,14 +123,8 @@ const siteJsonLd = [
           {(citation.authors ?? ["projectcert"]).map((a) => (
             <meta name="citation_author" content={a} />
           ))}
-          <meta
-            name="citation_publication_date"
-            content={citation.publicationDate}
-          />
-          <meta
-            name="citation_public_url"
-            content={citation.publicUrl ?? canonicalUrl}
-          />
+          <meta name="citation_publication_date" content={citation.publicationDate} />
+          <meta name="citation_public_url" content={citation.publicUrl ?? canonicalUrl} />
           {citation.doi && <meta name="citation_doi" content={citation.doi} />}
         </>
       )
@@ -172,53 +134,20 @@ const siteJsonLd = [
     {jsonLd && <JsonLd data={jsonLd} />}
   </head>
   <body class="min-h-screen flex flex-col">
-    <a href={sameAnchor(ANCHORS.main)} class="skip-link">Skip to main content</a
-    >
+    <a href={sameAnchor(ANCHORS.main)} class="skip-link">Skip to main content</a>
 
     <header class="border-b border-ink-subtle/15 bg-surface">
-      <div
-        class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3"
-      >
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-3">
         <a
           href={ROUTES.home}
           class="flex items-center gap-2 font-semibold text-ink hover:text-accent"
           aria-label="projectcert — home"
         >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 32 32"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <rect
-              x="2"
-              y="2"
-              width="13"
-              height="13"
-              rx="2.5"
-              fill="var(--bin-0)"></rect>
-            <rect
-              x="17"
-              y="2"
-              width="13"
-              height="13"
-              rx="2.5"
-              fill="var(--bin-1)"></rect>
-            <rect
-              x="2"
-              y="17"
-              width="13"
-              height="13"
-              rx="2.5"
-              fill="var(--bin-2)"></rect>
-            <rect
-              x="17"
-              y="17"
-              width="13"
-              height="13"
-              rx="2.5"
-              fill="var(--bin-3)"></rect>
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect x="2" y="2" width="13" height="13" rx="2.5" fill="var(--bin-0)"></rect>
+            <rect x="17" y="2" width="13" height="13" rx="2.5" fill="var(--bin-1)"></rect>
+            <rect x="2" y="17" width="13" height="13" rx="2.5" fill="var(--bin-2)"></rect>
+            <rect x="17" y="17" width="13" height="13" rx="2.5" fill="var(--bin-3)"></rect>
             <path
               d="M20.25 24.25 L23 27 L27.75 21.5"
               fill="none"
@@ -232,42 +161,22 @@ const siteJsonLd = [
         <nav aria-label="Primary">
           <ul class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-ink-muted">
             <li>
-              <a
-                href={ROUTES.map}
-                class="hover:text-accent focus-visible:text-accent">Map</a
-              >
+              <a href={ROUTES.map} class="hover:text-accent focus-visible:text-accent">Map</a>
             </li>
             <li>
-              <a
-                href={ROUTES.credentials.bilingual}
-                class="hover:text-accent focus-visible:text-accent"
-                >Credentials</a
-              >
+              <a href={ROUTES.credentials.bilingual} class="hover:text-accent focus-visible:text-accent">Credentials</a>
             </li>
             <li>
-              <a
-                href={ROUTES.compare}
-                class="hover:text-accent focus-visible:text-accent">Compare</a
-              >
+              <a href={ROUTES.compare} class="hover:text-accent focus-visible:text-accent">Compare</a>
             </li>
             <li>
-              <a
-                href={ROUTES.methodology}
-                class="hover:text-accent focus-visible:text-accent"
-                >Methodology</a
-              >
+              <a href={ROUTES.methodology} class="hover:text-accent focus-visible:text-accent">Methodology</a>
             </li>
             <li>
-              <a
-                href={ROUTES.glossary}
-                class="hover:text-accent focus-visible:text-accent">Glossary</a
-              >
+              <a href={ROUTES.glossary} class="hover:text-accent focus-visible:text-accent">Glossary</a>
             </li>
             <li>
-              <a
-                href={ROUTES.about}
-                class="hover:text-accent focus-visible:text-accent">About</a
-              >
+              <a href={ROUTES.about} class="hover:text-accent focus-visible:text-accent">About</a>
             </li>
           </ul>
         </nav>
@@ -278,36 +187,22 @@ const siteJsonLd = [
       <slot />
     </main>
 
-    <footer
-      class="mt-16 border-t border-ink-subtle/15 bg-surface-raised text-sm text-ink-muted"
-    >
-      <div
-        class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4 justify-between"
-      >
+    <footer class="mt-16 border-t border-ink-subtle/15 bg-surface-raised text-sm text-ink-muted">
+      <div class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap gap-4 justify-between">
         <p>
-          Seed data: <ExternalLink
-            class="text-accent hover:underline"
-            href="https://doi.org/10.14507/epaa.29.5279"
+          Seed data: <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279"
             >Leider, Colombo &amp; Nerlino (2021), <em>EPAA</em> 29(100)</ExternalLink
           >. If you use data from this site, please <a
             class="text-accent hover:underline"
-            href={withAnchor(ROUTES.about, ANCHORS.howToCite)}
-            >cite the authors</a
+            href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>cite the authors</a
           >.
         </p>
         <p>
-          <a class="text-accent hover:underline" href={ROUTES.verification}
-            >Verification status</a
-          >
+          <a class="text-accent hover:underline" href={ROUTES.verification}>Verification status</a>
           {" · "}
-          <a
-            class="text-accent hover:underline"
-            href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>How to cite</a
-          >
+          <a class="text-accent hover:underline" href={withAnchor(ROUTES.about, ANCHORS.howToCite)}>How to cite</a>
           {" · "}
-          <a class="text-accent hover:underline" href={ROUTES.methodology}
-            >Methodology</a
-          >
+          <a class="text-accent hover:underline" href={ROUTES.methodology}>Methodology</a>
           {
             FEEDBACK_FORM.baseUrl && (
               <>

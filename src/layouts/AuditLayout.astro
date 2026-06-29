@@ -23,36 +23,18 @@ const fullTitle = `${title} — ${SITE_NAME} review console`;
     <title>{fullTitle}</title>
     <!-- Gated internal tool: keep out of search indexes entirely. -->
     <meta name="robots" content="noindex, nofollow" />
-    <meta
-      name="theme-color"
-      content="#3d1971"
-      media="(prefers-color-scheme: light)"
-    />
-    <meta
-      name="theme-color"
-      content="#262833"
-      media="(prefers-color-scheme: dark)"
-    />
+    <meta name="theme-color" content="#3d1971" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#262833" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="min-h-screen bg-surface text-ink">
     <header class="border-b border-ink-subtle/20 bg-surface-raised">
-      <div
-        class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4"
-      >
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         <div class="flex items-center gap-4">
-          <a
-            href={ROUTES.audit}
-            class="font-semibold text-ink hover:text-accent">Review console</a
-          >
-          <a
-            href={ROUTES.auditLinks}
-            class="text-sm text-ink-muted hover:text-accent">Link review</a
-          >
+          <a href={ROUTES.audit} class="font-semibold text-ink hover:text-accent">Review console</a>
+          <a href={ROUTES.auditLinks} class="text-sm text-ink-muted hover:text-accent">Link review</a>
         </div>
-        <a href={ROUTES.home} class="text-sm text-ink-muted hover:text-accent"
-          >Back to the atlas</a
-        >
+        <a href={ROUTES.home} class="text-sm text-ink-muted hover:text-accent">Back to the atlas</a>
       </div>
     </header>
     <main class="max-w-5xl mx-auto px-4 py-8">

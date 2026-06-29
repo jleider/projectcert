@@ -10,11 +10,7 @@
  * curated workflow.
  */
 
-import {
-  jsonResponse,
-  normalizeUsps,
-  isDatapointId,
-} from "../../src/lib/audit-shared";
+import { jsonResponse, normalizeUsps, isDatapointId } from "../../src/lib/audit-shared";
 
 interface SuggestionRow {
   id: number;
@@ -28,15 +24,11 @@ interface SuggestionRow {
 
 const MAX_BODY = 4000;
 
-export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
-  request,
-  env,
-}) => {
+export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env }) => {
   const params = new URL(request.url).searchParams;
   const usps = normalizeUsps(params.get("usps"));
   const statusRaw = params.get("status");
-  const status =
-    statusRaw === "open" || statusRaw === "resolved" ? statusRaw : null;
+  const status = statusRaw === "open" || statusRaw === "resolved" ? statusRaw : null;
 
   const clauses: string[] = [];
   const binds: string[] = [];
@@ -60,11 +52,7 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
   return jsonResponse({ suggestions: results ?? [] });
 };
 
-export const onRequestPost: PagesFunction<
-  AuditEnv,
-  string,
-  AuditData
-> = async ({ request, env, data }) => {
+export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
   const json = (await request.json().catch(() => null)) as {
     usps?: string;
     datapoint_id?: string;
@@ -75,16 +63,10 @@ export const onRequestPost: PagesFunction<
   const text = typeof json?.body === "string" ? json.body.trim() : "";
 
   if (!usps || !isDatapointId(datapointId) || text.length === 0) {
-    return jsonResponse(
-      { error: "usps, datapoint_id, and a non-empty body are required." },
-      400,
-    );
+    return jsonResponse({ error: "usps, datapoint_id, and a non-empty body are required." }, 400);
   }
   if (text.length > MAX_BODY) {
-    return jsonResponse(
-      { error: `Suggestion exceeds ${MAX_BODY} characters.` },
-      400,
-    );
+    return jsonResponse({ error: `Suggestion exceeds ${MAX_BODY} characters.` }, 400);
   }
 
   const submittedAt = new Date().toISOString();

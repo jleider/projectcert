@@ -236,13 +236,9 @@
  */
 :root {
   --font-sans:
-    "IBM Plex Sans Variable", "IBM Plex Sans", ui-sans-serif, system-ui,
-    -apple-system, "Segoe UI", sans-serif;
-  --font-serif:
-    "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times,
-    serif;
-  --font-mono:
-    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    "IBM Plex Sans Variable", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 html {

@@ -72,9 +72,7 @@
     <p class="text-ink-muted">Loading link review queue…</p>
   {:else}
     {#if offline}
-      <p
-        class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink"
-      >
+      <p class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
         The review service is unavailable, so decisions cannot be saved.
       </p>
     {/if}
@@ -84,9 +82,7 @@
         Awaiting review ({pending.length})
       </h2>
       {#if pending.length === 0}
-        <p class="mt-2 text-sm text-ink-muted">
-          No bot-blocked URLs are awaiting review.
-        </p>
+        <p class="mt-2 text-sm text-ink-muted">No bot-blocked URLs are awaiting review.</p>
       {:else}
         <ul class="mt-3 space-y-3">
           {#each pending as row (row.url)}
@@ -100,10 +96,7 @@
                     rel="noopener noreferrer">{row.url}</a
                   >
                   <div class="mt-1 text-xs text-ink-subtle">
-                    Status {row.status ?? row.classification} · first seen {row.first_seen.slice(
-                      0,
-                      10,
-                    )}
+                    Status {row.status ?? row.classification} · first seen {row.first_seen.slice(0, 10)}
                   </div>
                   {#if row.citations.length > 0}
                     <ul class="mt-1 text-xs text-ink-muted">
@@ -132,9 +125,7 @@
       <h2 class="text-lg font-semibold text-ink">
         Accepted ({accepted.length})
       </h2>
-      <p class="mt-1 text-sm text-ink-muted">
-        Whitelisted on the next nightly sync. The checker treats these as live.
-      </p>
+      <p class="mt-1 text-sm text-ink-muted">Whitelisted on the next nightly sync. The checker treats these as live.</p>
       {#if accepted.length === 0}
         <p class="mt-2 text-sm text-ink-muted">No accepted URLs yet.</p>
       {:else}
@@ -151,9 +142,7 @@
                   >
                   {#if row.reviewed_by}
                     <div class="mt-1 text-xs text-ink-subtle">
-                      Accepted by {row.reviewed_by}{row.reviewed_at
-                        ? ` on ${row.reviewed_at.slice(0, 10)}`
-                        : ""}
+                      Accepted by {row.reviewed_by}{row.reviewed_at ? ` on ${row.reviewed_at.slice(0, 10)}` : ""}
                     </div>
                   {/if}
                 </div>

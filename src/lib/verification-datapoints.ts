@@ -338,12 +338,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       formatBool(b.addOn),
       b.addOn,
     ),
-    ...credentialReqDatapoints(
-      "credentials.bilingual",
-      "Bilingual education",
-      "bilingual-credential",
-      b,
-    ),
+    ...credentialReqDatapoints("credentials.bilingual", "Bilingual education", "bilingual-credential", b),
 
     scalar(
       "credentials.eld.offered",
@@ -366,12 +361,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       formatBool(e.addOn),
       e.addOn,
     ),
-    ...credentialReqDatapoints(
-      "credentials.eld",
-      "English language development",
-      "eld-credential",
-      e,
-    ),
+    ...credentialReqDatapoints("credentials.eld", "English language development", "eld-credential", e),
 
     scalar(
       "credentials.sei.mandatedForAllTeachers",
@@ -458,9 +448,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "history",
       "Licensure history timeline",
       "provenance",
-      history.length > 0
-        ? `${history.length} event${history.length === 1 ? "" : "s"}`
-        : "No events recorded",
+      history.length > 0 ? `${history.length} event${history.length === 1 ? "" : "s"}` : "No events recorded",
       history.map((ev) => ({ label: ev.date, value: ev.title })),
       state.history,
     ),
@@ -515,8 +503,7 @@ export function datapointIdForCitation(citation: string): string | null {
   if (path.startsWith("sources[")) return "sources";
   if (path.startsWith("history[")) return "history";
   if (path.startsWith("elPercentHistory[")) return "elPercentHistory";
-  if (path === "sealOfBiliteracy.sourceUrl")
-    return "sealOfBiliteracy.sourceUrl";
+  if (path === "sealOfBiliteracy.sourceUrl") return "sealOfBiliteracy.sourceUrl";
   if (path === "elpAssessment.sourceUrl") return "elpAssessment.sourceUrl";
   return null;
 }

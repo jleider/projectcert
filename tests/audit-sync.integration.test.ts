@@ -53,14 +53,7 @@ describe("sync-broken-links.ts", () => {
         ],
       }),
     );
-    run("scripts/sync-broken-links.ts", [
-      "--input",
-      input,
-      "--out",
-      out,
-      "--detected-at",
-      "2026-06-16T00:00:00.000Z",
-    ]);
+    run("scripts/sync-broken-links.ts", ["--input", input, "--out", out, "--detected-at", "2026-06-16T00:00:00.000Z"]);
 
     const db = freshDb();
     // A previously-broken link that has recovered (not in the new set).
@@ -75,19 +68,12 @@ describe("sync-broken-links.ts", () => {
     db.exec(readFileSync(out, "utf8"));
 
     const rows = db
-      .prepare(
-        `SELECT usps,datapoint_id,url,detected_at FROM broken_links ORDER BY datapoint_id`,
-      )
+      .prepare(`SELECT usps,datapoint_id,url,detected_at FROM broken_links ORDER BY datapoint_id`)
       .all() as Array<Record<string, unknown>>;
     // Recovered TX row gone; two CA datapoints present; OK link never added.
-    expect(rows.map((r) => `${r.usps}:${r.datapoint_id}`)).toEqual([
-      "CA:sealOfBiliteracy.sourceUrl",
-      "CA:sources",
-    ]);
+    expect(rows.map((r) => `${r.usps}:${r.datapoint_id}`)).toEqual(["CA:sealOfBiliteracy.sourceUrl", "CA:sources"]);
     // Still-broken row kept its original detected_at (ON CONFLICT DO NOTHING).
-    expect(rows.find((r) => r.datapoint_id === "sources")!.detected_at).toBe(
-      "2026-01-01",
-    );
+    expect(rows.find((r) => r.datapoint_id === "sources")!.detected_at).toBe("2026-01-01");
   });
 });
 
@@ -124,14 +110,7 @@ describe("sync-link-reviews.ts", () => {
         ],
       }),
     );
-    run("scripts/sync-link-reviews.ts", [
-      "--input",
-      input,
-      "--out",
-      out,
-      "--seen-at",
-      "2026-06-16T00:00:00.000Z",
-    ]);
+    run("scripts/sync-link-reviews.ts", ["--input", input, "--out", out, "--seen-at", "2026-06-16T00:00:00.000Z"]);
 
     const db = freshDb();
     // Accepted + unchanged (not in the needs-review set) — must survive accepted.
@@ -150,9 +129,7 @@ describe("sync-link-reviews.ts", () => {
     db.exec(readFileSync(out, "utf8"));
 
     const rows = db
-      .prepare(
-        `SELECT url,decision,status,accepted_status,reviewed_by,first_seen FROM link_reviews ORDER BY url`,
-      )
+      .prepare(`SELECT url,decision,status,accepted_status,reviewed_by,first_seen FROM link_reviews ORDER BY url`)
       .all() as Array<Record<string, unknown>>;
     expect(rows).toEqual([
       {
@@ -189,9 +166,7 @@ describe("build-verification-ledger.ts", () => {
   it("counts a matching-hash checkmark as verified and a drifted one as stale", () => {
     const dir = tmp();
     const ca = JSON.parse(readFileSync("src/content/states/ca.json", "utf8"));
-    const correctHash = datapointsFor(ca).find(
-      (d) => d.id === "elPercent",
-    )!.contentHash;
+    const correctHash = datapointsFor(ca).find((d) => d.id === "elPercent")!.contentHash;
 
     const verifications = join(dir, "v.json");
     const broken = join(dir, "b.json");
@@ -220,14 +195,7 @@ describe("build-verification-ledger.ts", () => {
       ]),
     );
     writeFileSync(broken, JSON.stringify([{ results: [] }]));
-    run("scripts/build-verification-ledger.ts", [
-      "--verifications",
-      verifications,
-      "--broken",
-      broken,
-      "--out",
-      out,
-    ]);
+    run("scripts/build-verification-ledger.ts", ["--verifications", verifications, "--broken", broken, "--out", out]);
 
     const ledger = JSON.parse(readFileSync(out, "utf8"));
     expect(ledger.CA.verified).toEqual(["elPercent"]);
@@ -239,9 +207,7 @@ describe("build-verification-ledger.ts", () => {
   it("treats a broken-linked datapoint as stale even with a matching hash", () => {
     const dir = tmp();
     const ca = JSON.parse(readFileSync("src/content/states/ca.json", "utf8"));
-    const correctHash = datapointsFor(ca).find(
-      (d) => d.id === "sources",
-    )!.contentHash;
+    const correctHash = datapointsFor(ca).find((d) => d.id === "sources")!.contentHash;
 
     const verifications = join(dir, "v.json");
     const broken = join(dir, "b.json");
@@ -262,18 +228,8 @@ describe("build-verification-ledger.ts", () => {
         },
       ]),
     );
-    writeFileSync(
-      broken,
-      JSON.stringify([{ results: [{ usps: "CA", datapoint_id: "sources" }] }]),
-    );
-    run("scripts/build-verification-ledger.ts", [
-      "--verifications",
-      verifications,
-      "--broken",
-      broken,
-      "--out",
-      out,
-    ]);
+    writeFileSync(broken, JSON.stringify([{ results: [{ usps: "CA", datapoint_id: "sources" }] }]));
+    run("scripts/build-verification-ledger.ts", ["--verifications", verifications, "--broken", broken, "--out", out]);
 
     const ledger = JSON.parse(readFileSync(out, "utf8"));
     expect(ledger.CA.verified).toEqual([]);
@@ -316,12 +272,7 @@ describe("build-link-whitelist.ts", () => {
         },
       ]),
     );
-    run("scripts/build-link-whitelist.ts", [
-      "--accepted",
-      accepted,
-      "--out",
-      out,
-    ]);
+    run("scripts/build-link-whitelist.ts", ["--accepted", accepted, "--out", out]);
 
     const wl = JSON.parse(readFileSync(out, "utf8"));
     expect(wl["https://azed.gov"]).toEqual({

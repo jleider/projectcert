@@ -29,21 +29,14 @@ import { fileURLToPath } from "node:url";
 // generic defaults (`Objects<{}>` vs `Objects<GeoJsonProperties>`),
 // so the pipeline below threads through a structural alias to avoid
 // false-positive cross-package generic mismatches.
-import {
-  presimplify as _presimplify,
-  simplify as _simplify,
-} from "topojson-simplify";
+import { presimplify as _presimplify, simplify as _simplify } from "topojson-simplify";
 import { quantize as _quantize } from "topojson-client";
 const presimplify = _presimplify as (t: Topology) => Topology;
 const simplify = _simplify as (t: Topology, minWeight: number) => Topology;
 const quantize = _quantize as (t: Topology, n: number) => Topology;
 import { STATES } from "../src/data/states-meta";
 
-import type {
-  Topology,
-  GeometryCollection,
-  GeometryObject,
-} from "topojson-specification";
+import type { Topology, GeometryCollection, GeometryObject } from "topojson-specification";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PATH = resolve(__dirname, "../public/data/us-states-10m.json");
@@ -69,13 +62,8 @@ const validFips = new Set(STATES.map((s) => s.fips));
 
 function trimTerritories(t: Topology): Topology {
   const states = t.objects.states as GeometryCollection;
-  const filtered: GeometryObject[] = (
-    states.geometries as GeometryObject[]
-  ).filter((g) => {
-    const fips = String((g as { id?: number | string }).id ?? "").padStart(
-      2,
-      "0",
-    );
+  const filtered: GeometryObject[] = (states.geometries as GeometryObject[]).filter((g) => {
+    const fips = String((g as { id?: number | string }).id ?? "").padStart(2, "0");
     return validFips.has(fips);
   });
   return {
@@ -95,8 +83,7 @@ writeFileSync(PATH, JSON.stringify(requantized));
 
 const after = statSync(PATH).size;
 const pct = ((1 - after / before) * 100).toFixed(1);
-const stateCount = (requantized.objects.states as GeometryCollection).geometries
-  .length;
+const stateCount = (requantized.objects.states as GeometryCollection).geometries.length;
 console.log(
   `us-states-10m.json: ${(before / 1024).toFixed(1)} KB → ${(after / 1024).toFixed(1)} KB (-${pct}%) | ${stateCount} features`,
 );

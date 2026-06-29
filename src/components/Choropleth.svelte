@@ -54,8 +54,7 @@
     const res = await fetch("/data/us-states-10m.json");
     topology = (await res.json()) as Topology;
     const states = topology.objects.states as GeometryCollection;
-    features = (feature(topology, states) as unknown as FeatureCollection)
-      .features as Feature[];
+    features = (feature(topology, states) as unknown as FeatureCollection).features as Feature[];
   });
 
   $: stateById = new Map(states.map((s) => [s.usps, s]));
@@ -67,20 +66,10 @@
   function legendKeyFor(datum: StateDatum, l: Layer): string | null {
     if (l === "elPercent") return String(binFor(datum.elPercent).index);
     if (l === "bilingual")
-      return !datum.bilingual.offered
-        ? "none"
-        : datum.bilingual.standalone
-          ? "standalone"
-          : "addOn";
-    if (l === "eld")
-      return datum.eld.standalone
-        ? "standalone"
-        : datum.eld.addOn
-          ? "addOn"
-          : "none";
+      return !datum.bilingual.offered ? "none" : datum.bilingual.standalone ? "standalone" : "addOn";
+    if (l === "eld") return datum.eld.standalone ? "standalone" : datum.eld.addOn ? "addOn" : "none";
     if (l === "sei") return datum.seiMandated ? "on" : "off";
-    if (l === "sealOfBiliteracy")
-      return datum.sealOfBiliteracy.adopted ? "on" : "off";
+    if (l === "sealOfBiliteracy") return datum.sealOfBiliteracy.adopted ? "on" : "off";
     if (l === "elpAssessment") {
       const c = datum.elpAssessment.consortium;
       return c === "WIDA" ? "wida" : c === "ELPA21" ? "elpa21" : "state";
@@ -96,8 +85,7 @@
 
   function describe(datum: StateDatum | undefined, l: Layer): string {
     if (!datum) return "no data";
-    if (l === "elPercent")
-      return `${datum.elPercent.toFixed(1)}% classified ELs`;
+    if (l === "elPercent") return `${datum.elPercent.toFixed(1)}% classified ELs`;
     if (l === "bilingual")
       return datum.bilingual.offered
         ? datum.bilingual.standalone
@@ -111,15 +99,11 @@
           ? "ELD add-on endorsement only"
           : "No ELD credential offered";
     if (l === "sei")
-      return datum.seiMandated
-        ? "SEI endorsement mandated for all teachers"
-        : "SEI not mandated for all teachers";
+      return datum.seiMandated ? "SEI endorsement mandated for all teachers" : "SEI not mandated for all teachers";
     if (l === "sealOfBiliteracy") {
       const seal = datum.sealOfBiliteracy;
       if (!seal.adopted) return "Seal of Biliteracy not adopted";
-      return seal.year
-        ? `Seal of Biliteracy adopted in ${seal.year}`
-        : "Seal of Biliteracy adopted";
+      return seal.year ? `Seal of Biliteracy adopted in ${seal.year}` : "Seal of Biliteracy adopted";
     }
     if (l === "elpAssessment") {
       const e = datum.elpAssessment;
@@ -133,9 +117,7 @@
   function handleMove(e: MouseEvent, datum: StateDatum | undefined) {
     if (!datum) return;
     hovered = datum;
-    const rect = (e.currentTarget as Element)
-      .closest("svg")
-      ?.getBoundingClientRect();
+    const rect = (e.currentTarget as Element).closest("svg")?.getBoundingClientRect();
     if (rect) {
       tooltipX = e.clientX - rect.left;
       tooltipY = e.clientY - rect.top;
@@ -160,8 +142,7 @@
     // When embedded in an iframe, break out to a new tab on
     // projectcert.org so the click doesn't navigate the host page or
     // get trapped inside the embed.
-    const inIframe =
-      typeof window !== "undefined" && window.self !== window.top;
+    const inIframe = typeof window !== "undefined" && window.self !== window.top;
     if (inIframe) {
       window.open(`${SITE_URL}${path}`, "_blank", "noopener");
       return;
@@ -207,64 +188,18 @@
       <pattern id="pat-0" patternUnits="userSpaceOnUse" width="6" height="6">
         <rect width="6" height="6" fill="var(--bin-0)" />
       </pattern>
-      <pattern
-        id="pat-1"
-        patternUnits="userSpaceOnUse"
-        width="6"
-        height="6"
-        patternTransform="rotate(45)"
-      >
+      <pattern id="pat-1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
         <rect width="6" height="6" fill="var(--bin-1)" />
-        <line
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="6"
-          stroke="var(--map-border-dark)"
-          stroke-width="0.5"
-        />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--map-border-dark)" stroke-width="0.5" />
       </pattern>
-      <pattern
-        id="pat-2"
-        patternUnits="userSpaceOnUse"
-        width="6"
-        height="6"
-        patternTransform="rotate(45)"
-      >
+      <pattern id="pat-2" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
         <rect width="6" height="6" fill="var(--bin-2)" />
-        <line
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="6"
-          stroke="var(--pattern-stroke-dark-end)"
-          stroke-width="0.8"
-        />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
       </pattern>
-      <pattern
-        id="pat-3"
-        patternUnits="userSpaceOnUse"
-        width="6"
-        height="6"
-        patternTransform="rotate(135)"
-      >
+      <pattern id="pat-3" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(135)">
         <rect width="6" height="6" fill="var(--bin-3)" />
-        <line
-          x1="0"
-          y1="0"
-          x2="6"
-          y2="0"
-          stroke="var(--pattern-stroke-dark-end)"
-          stroke-width="0.8"
-        />
-        <line
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="6"
-          stroke="var(--pattern-stroke-dark-end)"
-          stroke-width="0.8"
-        />
+        <line x1="0" y1="0" x2="6" y2="0" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--pattern-stroke-dark-end)" stroke-width="0.8" />
       </pattern>
     </defs>
 
@@ -294,21 +229,10 @@
           on:keydown={(e) => handleKey(e, datum)}
           style="cursor: pointer; outline-offset: 2px;"
         >
-          <path
-            {d}
-            fill={fillFor(datum, layer)}
-            stroke="var(--map-border)"
-            stroke-width="1"
-            aria-hidden="true"
-          />
+          <path {d} fill={fillFor(datum, layer)} stroke="var(--map-border)" stroke-width="1" aria-hidden="true" />
         </a>
       {:else}
-        <path
-          {d}
-          fill="var(--bin-na)"
-          stroke="var(--map-border)"
-          stroke-width="1"
-        />
+        <path {d} fill="var(--bin-na)" stroke="var(--map-border)" stroke-width="1" />
       {/if}
     {/each}
 

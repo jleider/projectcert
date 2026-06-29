@@ -9,11 +9,7 @@
  * POST overwrites who/when/hash, and one row = verified for everyone.
  */
 
-import {
-  jsonResponse,
-  normalizeUsps,
-  isDatapointId,
-} from "../../src/lib/audit-shared";
+import { jsonResponse, normalizeUsps, isDatapointId } from "../../src/lib/audit-shared";
 
 interface VerificationRow {
   datapoint_id: string;
@@ -22,10 +18,7 @@ interface VerificationRow {
   content_hash: string;
 }
 
-export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
-  request,
-  env,
-}) => {
+export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env }) => {
   const usps = normalizeUsps(new URL(request.url).searchParams.get("usps"));
   if (!usps) return jsonResponse({ error: "Valid ?usps= is required." }, 400);
 
@@ -39,11 +32,7 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
   return jsonResponse({ usps, verifications: results ?? [] });
 };
 
-export const onRequestPost: PagesFunction<
-  AuditEnv,
-  string,
-  AuditData
-> = async ({ request, env, data }) => {
+export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
   const body = (await request.json().catch(() => null)) as {
     usps?: string;
     datapoint_id?: string;
@@ -54,10 +43,7 @@ export const onRequestPost: PagesFunction<
   const contentHash = body?.content_hash;
 
   if (!usps || !isDatapointId(datapointId) || typeof contentHash !== "string") {
-    return jsonResponse(
-      { error: "usps, datapoint_id, and content_hash are required." },
-      400,
-    );
+    return jsonResponse({ error: "usps, datapoint_id, and content_hash are required." }, 400);
   }
 
   const verifiedAt = new Date().toISOString();
@@ -81,11 +67,7 @@ export const onRequestPost: PagesFunction<
   });
 };
 
-export const onRequestDelete: PagesFunction<
-  AuditEnv,
-  string,
-  AuditData
-> = async ({ request, env }) => {
+export const onRequestDelete: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env }) => {
   const body = (await request.json().catch(() => null)) as {
     usps?: string;
     datapoint_id?: string;
@@ -97,11 +79,7 @@ export const onRequestDelete: PagesFunction<
     return jsonResponse({ error: "usps and datapoint_id are required." }, 400);
   }
 
-  await env.DB.prepare(
-    `DELETE FROM verifications WHERE usps = ?1 AND datapoint_id = ?2`,
-  )
-    .bind(usps, datapointId)
-    .run();
+  await env.DB.prepare(`DELETE FROM verifications WHERE usps = ?1 AND datapoint_id = ?2`).bind(usps, datapointId).run();
 
   return jsonResponse({ ok: true });
 };

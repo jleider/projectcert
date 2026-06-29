@@ -53,12 +53,7 @@ function yPos(p: number): number {
 }
 
 function pointsFor(rows: Datum[]): string {
-  return rows
-    .map(
-      (d) =>
-        `${xPos(Number(d.date.slice(0, 4))).toFixed(2)},${yPos(d.percent).toFixed(2)}`,
-    )
-    .join(" ");
+  return rows.map((d) => `${xPos(Number(d.date.slice(0, 4))).toFixed(2)},${yPos(d.percent).toFixed(2)}`).join(" ");
 }
 
 // Split into NCES and SEA segments. To keep the line visually
@@ -81,19 +76,14 @@ const xTicks = years;
 const firstObs = data[0]!;
 const lastObs = data[data.length - 1]!;
 const deltaPct = lastObs.percent - firstObs.percent;
-const directionWord =
-  Math.abs(deltaPct) < 0.05 ? "held steady" : deltaPct > 0 ? "rose" : "fell";
+const directionWord = Math.abs(deltaPct) < 0.05 ? "held steady" : deltaPct > 0 ? "rose" : "fell";
 const trendSentence = `Between ${firstObs.date.slice(0, 4)} and ${lastObs.date.slice(0, 4)}, the classified-EL share ${directionWord} from ${firstObs.percent.toFixed(1)}% to ${lastObs.percent.toFixed(1)}%.`;
 
 // Optional methodology caption: surfaces when SEA rows exist.
-const seaNotes = seaRows
-  .map((d) => d.note)
-  .filter((n): n is string => Boolean(n));
+const seaNotes = seaRows.map((d) => d.note).filter((n): n is string => Boolean(n));
 const dedupedNotes = [...new Set(seaNotes)];
 const ncesLastYear = lastNces?.date.slice(0, 4);
-const seaLastYear = hasSea
-  ? seaRows[seaRows.length - 1]!.date.slice(0, 4)
-  : null;
+const seaLastYear = hasSea ? seaRows[seaRows.length - 1]!.date.slice(0, 4) : null;
 const seaLabel = hasSea ? seaRows[0]!.source.label : null;
 const methodologySentence = hasSea
   ? `Observations through fall ${ncesLastYear} are from NCES; observations for fall ${seaLastYear} are from the ${stateName} state education agency (${seaLabel}). State-agency methodology may differ from NCES; see the note${dedupedNotes.length > 1 ? "s" : ""} below.`
@@ -103,10 +93,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
 ---
 
 <figure class="mt-6" aria-describedby={captionId}>
-  <div
-    class="relative rounded border border-ink-subtle/20 bg-surface p-4"
-    data-el-chart
-  >
+  <div class="relative rounded border border-ink-subtle/20 bg-surface p-4" data-el-chart>
     <svg
       viewBox={`0 0 ${VB_W} ${VB_H}`}
       role="img"
@@ -139,22 +126,11 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
           ))
         }
 
-        <line
-          x1={0}
-          x2={W}
-          y1={H}
-          y2={H}
-          stroke="currentColor"
-          stroke-opacity="0.35"></line>
+        <line x1={0} x2={W} y1={H} y2={H} stroke="currentColor" stroke-opacity="0.35"></line>
 
         {
           xTicks.map((y) => (
-            <text
-              x={xPos(y)}
-              y={H + 20}
-              text-anchor="middle"
-              class="text-[11px] fill-ink-muted font-mono"
-            >
+            <text x={xPos(y)} y={H + 20} text-anchor="middle" class="text-[11px] fill-ink-muted font-mono">
               {y}
             </text>
           ))
@@ -261,18 +237,13 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
     >
       <div class="font-mono font-semibold" data-el-chart-tt-year></div>
       <div class="font-mono" data-el-chart-tt-percent></div>
-      <div class="mt-1 max-w-[16rem] text-ink-muted" data-el-chart-tt-source>
-      </div>
+      <div class="mt-1 max-w-[16rem] text-ink-muted" data-el-chart-tt-source></div>
     </div>
   </div>
 
   <figcaption id={captionId} class="mt-3 text-sm text-ink-muted">
     {trendSentence}
-    {
-      methodologySentence && (
-        <span class="mt-2 block">{methodologySentence}</span>
-      )
-    }
+    {methodologySentence && <span class="mt-2 block">{methodologySentence}</span>}
   </figcaption>
 
   {
@@ -280,37 +251,15 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
       <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink-muted">
         <span class="inline-flex items-center gap-2">
           <svg width="28" height="10" aria-hidden="true">
-            <line
-              x1="0"
-              y1="5"
-              x2="28"
-              y2="5"
-              stroke="var(--bin-3)"
-              stroke-width="2.5"
-            />
+            <line x1="0" y1="5" x2="28" y2="5" stroke="var(--bin-3)" stroke-width="2.5" />
             <circle cx="14" cy="5" r="3.5" fill="var(--bin-3)" />
           </svg>
           NCES Digest, Table 204.20
         </span>
         <span class="inline-flex items-center gap-2">
           <svg width="28" height="10" aria-hidden="true">
-            <line
-              x1="0"
-              y1="5"
-              x2="28"
-              y2="5"
-              stroke="var(--bin-3)"
-              stroke-width="2.5"
-              stroke-dasharray="6 4"
-            />
-            <circle
-              cx="14"
-              cy="5"
-              r="4"
-              fill="var(--surface)"
-              stroke="var(--bin-3)"
-              stroke-width="2"
-            />
+            <line x1="0" y1="5" x2="28" y2="5" stroke="var(--bin-3)" stroke-width="2.5" stroke-dasharray="6 4" />
+            <circle cx="14" cy="5" r="4" fill="var(--surface)" stroke="var(--bin-3)" stroke-width="2" />
           </svg>
           {stateName} state education agency
         </span>
@@ -321,9 +270,7 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
   {
     dedupedNotes.length > 0 && (
       <div class="mt-4 rounded border border-ink-subtle/20 bg-bg p-3 text-sm text-ink-muted">
-        <p class="font-semibold text-ink">
-          Methodology note{dedupedNotes.length > 1 ? "s" : ""}
-        </p>
+        <p class="font-semibold text-ink">Methodology note{dedupedNotes.length > 1 ? "s" : ""}</p>
         <ul class="mt-1 list-disc pl-5">
           {dedupedNotes.map((n) => (
             <li>{n}</li>
@@ -334,45 +281,26 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
   }
 
   <details class="mt-4">
-    <summary class="cursor-pointer text-sm text-accent hover:underline">
-      Show data table
-    </summary>
+    <summary class="cursor-pointer text-sm text-accent hover:underline"> Show data table </summary>
     <div class="mt-3 overflow-x-auto">
       <table class="w-full text-sm">
         <thead>
           <tr class="border-b border-ink-subtle/30">
-            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink"
-              >Year</th
-            >
-            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink"
-              >% classified EL</th
-            >
-            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink"
-              >Publisher</th
-            >
-            <th scope="col" class="py-2 text-left font-semibold text-ink"
-              >Source</th
-            >
+            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">Year</th>
+            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">% classified EL</th>
+            <th scope="col" class="py-2 pr-4 text-left font-semibold text-ink">Publisher</th>
+            <th scope="col" class="py-2 text-left font-semibold text-ink">Source</th>
           </tr>
         </thead>
         <tbody>
           {
             data.map((d) => (
               <tr class="border-b border-ink-subtle/10">
-                <td class="py-2 pr-4 font-mono text-ink">
-                  {d.date.slice(0, 4)}
-                </td>
-                <td class="py-2 pr-4 font-mono text-ink">
-                  {d.percent.toFixed(1)}%
-                </td>
-                <td class="py-2 pr-4 text-ink-muted">
-                  {d.source.publisher === "nces" ? "NCES" : "State agency"}
-                </td>
+                <td class="py-2 pr-4 font-mono text-ink">{d.date.slice(0, 4)}</td>
+                <td class="py-2 pr-4 font-mono text-ink">{d.percent.toFixed(1)}%</td>
+                <td class="py-2 pr-4 text-ink-muted">{d.source.publisher === "nces" ? "NCES" : "State agency"}</td>
                 <td class="py-2 text-ink-muted">
-                  <ExternalLink
-                    href={d.source.url}
-                    class="text-accent hover:underline"
-                  >
+                  <ExternalLink href={d.source.url} class="text-accent hover:underline">
                     {d.source.label}
                   </ExternalLink>
                 </td>
@@ -414,14 +342,9 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
     const tooltip = root.querySelector<HTMLElement>("[data-el-chart-tooltip]");
     const guide = root.querySelector<SVGLineElement>("[data-el-chart-guide]");
     const ttYear = root.querySelector<HTMLElement>("[data-el-chart-tt-year]");
-    const ttPercent = root.querySelector<HTMLElement>(
-      "[data-el-chart-tt-percent]",
-    );
-    const ttSource = root.querySelector<HTMLElement>(
-      "[data-el-chart-tt-source]",
-    );
-    if (!svg || !tooltip || !guide || !ttYear || !ttPercent || !ttSource)
-      return;
+    const ttPercent = root.querySelector<HTMLElement>("[data-el-chart-tt-percent]");
+    const ttSource = root.querySelector<HTMLElement>("[data-el-chart-tt-source]");
+    if (!svg || !tooltip || !guide || !ttYear || !ttPercent || !ttSource) return;
 
     function show(hit: HitEl) {
       const { year, percent, sourceLabel, publisher, cx } = hit.dataset;

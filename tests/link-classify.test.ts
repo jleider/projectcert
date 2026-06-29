@@ -47,12 +47,8 @@ describe("resolveClassification — whitelisted (status-aware)", () => {
 
   it("re-flags as needs-review when the response code changes", () => {
     const wl = new Map<string, number | null>([["https://azed.gov", 403]]);
-    expect(resolveClassification("https://azed.gov", 404, wl)).toBe(
-      "needs-review",
-    );
-    expect(resolveClassification("https://azed.gov", 500, wl)).toBe(
-      "needs-review",
-    );
+    expect(resolveClassification("https://azed.gov", 404, wl)).toBe("needs-review");
+    expect(resolveClassification("https://azed.gov", 500, wl)).toBe("needs-review");
   });
 
   it("shows ok when an accepted URL recovers to 2xx", () => {
@@ -62,19 +58,13 @@ describe("resolveClassification — whitelisted (status-aware)", () => {
 
   it("handles a network-error acceptance (null status)", () => {
     const wl = new Map<string, number | null>([["https://reset.gov", null]]);
-    expect(resolveClassification("https://reset.gov", null, wl)).toBe(
-      "accepted",
-    ); // still resetting
-    expect(resolveClassification("https://reset.gov", 403, wl)).toBe(
-      "needs-review",
-    ); // now responds → changed
+    expect(resolveClassification("https://reset.gov", null, wl)).toBe("accepted"); // still resetting
+    expect(resolveClassification("https://reset.gov", 403, wl)).toBe("needs-review"); // now responds → changed
   });
 
   it("re-flags a 5xx acceptance when the exact code changes", () => {
     const wl = new Map<string, number | null>([["https://ptsb.com", 500]]);
     expect(resolveClassification("https://ptsb.com", 500, wl)).toBe("accepted");
-    expect(resolveClassification("https://ptsb.com", 503, wl)).toBe(
-      "needs-review",
-    );
+    expect(resolveClassification("https://ptsb.com", 503, wl)).toBe("needs-review");
   });
 });

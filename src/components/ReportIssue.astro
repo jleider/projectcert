@@ -10,13 +10,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  state,
-  pageType,
-  verificationStatus,
-  variant = "footer",
-  class: className = "",
-} = Astro.props;
+const { state, pageType, verificationStatus, variant = "footer", class: className = "" } = Astro.props;
 
 const pageUrl = Astro.url.toString();
 const href = buildFeedbackUrl({ pageUrl, state, pageType, verificationStatus });
@@ -24,10 +18,7 @@ const href = buildFeedbackUrl({ pageUrl, state, pageType, verificationStatus });
 
 {
   href && variant === "footer" && (
-    <ExternalLink
-      class={`text-accent hover:underline ${className}`}
-      href={href}
-    >
+    <ExternalLink class={`text-accent hover:underline ${className}`} href={href}>
       Report a data issue
     </ExternalLink>
   )
@@ -35,17 +26,12 @@ const href = buildFeedbackUrl({ pageUrl, state, pageType, verificationStatus });
 
 {
   href && variant === "inline" && (
-    <aside
-      class={`mt-8 rounded border border-ink-subtle/20 bg-surface-raised p-4 ${className}`}
-    >
-      <h2 class="text-base font-semibold text-ink">
-        Spot something incorrect?
-      </h2>
+    <aside class={`mt-8 rounded border border-ink-subtle/20 bg-surface-raised p-4 ${className}`}>
+      <h2 class="text-base font-semibold text-ink">Spot something incorrect?</h2>
       <p class="mt-1 text-sm text-ink-muted">
-        We re-verify every state against current SEA sources, but agencies
-        update their pages regularly. If a fact, citation, or terminology choice
-        on this page looks wrong, please flag it &mdash; corrections from
-        researchers, practitioners, and SEA staff are welcome.
+        We re-verify every state against current SEA sources, but agencies update their pages regularly. If a fact,
+        citation, or terminology choice on this page looks wrong, please flag it &mdash; corrections from researchers,
+        practitioners, and SEA staff are welcome.
       </p>
       <p class="mt-3 text-sm">
         <ExternalLink
