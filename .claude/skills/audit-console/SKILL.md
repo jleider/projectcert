@@ -134,6 +134,20 @@ collection). It is imported by the islands, the functions, and the scripts.
   (no dependency). It binds `?1..?N` positionally, matching D1.
 - **`/audit/*` is excluded from sitemap / llms.txt / llms-full** — the
   exception to the "update all discovery surfaces" rule.
+- **Svelte reactivity trap (bit these islands 3×).** A value read inside a
+  helper function is NOT tracked by the `$:`/template expression that calls
+  it, so the UI goes stale when that state changes. Inline the read or pass
+  the state in as an argument (`shownSources(d, attributions)`,
+  `candidateSources(d, added)`); reassign maps, never mutate. See CLAUDE.md
+  "Svelte reactivity". `astro check`/Vitest miss this — `npm run e2e:audit`
+  is the guard.
+- **An interrupted build leaves a corrupt `dist/`** — Astro then fails with
+  `Cannot find module dist/.prerender/…`. Fix: `rm -rf dist .astro` and
+  rebuild. (`npm run e2e:audit` rebuilds from clean each run.)
+- **`new URL()` accepts single-label hosts** (`new URL("https://dsfsda")`
+  parses), and is more lenient in the browser than in Node. Validate source
+  URLs with `normalizeSourceUrl` (requires a dotted domain + alpha TLD), not
+  a bare protocol check.
 
 ## Local development
 
