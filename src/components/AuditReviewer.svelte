@@ -28,7 +28,8 @@
   }
 
   let loading = true;
-  let offline = false;
+  let offline = false; // set only when the initial load fails (read-only mode)
+  let actionError = ""; // a single failed write — surfaced inline, stays interactive
   let verifications: Record<string, VerificationRow> = {};
   let broken: Record<string, BrokenRow[]> = {};
   let suggestions: Record<string, SuggestionRow[]> = {};
@@ -161,7 +162,7 @@
         verifications = { ...verifications, [d.id]: row };
       }
     } catch {
-      offline = true;
+      actionError = "Could not save your change — check your connection and retry.";
     } finally {
       busy = { ...busy, [d.id]: false };
     }
@@ -183,7 +184,7 @@
       if (!res.ok) throw new Error("source");
       attributions = { ...attributions, [d.id]: url };
     } catch {
-      offline = true;
+      actionError = "Could not save your change — check your connection and retry.";
     } finally {
       busy = { ...busy, [key]: false };
     }
@@ -204,7 +205,7 @@
       delete next[d.id];
       attributions = next;
     } catch {
-      offline = true;
+      actionError = "Could not save your change — check your connection and retry.";
     } finally {
       busy = { ...busy, [key]: false };
     }
@@ -226,7 +227,7 @@
       draft = { ...draft, [d.id]: "" };
       showSuggest = { ...showSuggest, [d.id]: false };
     } catch {
-      offline = true;
+      actionError = "Could not save your change — check your connection and retry.";
     } finally {
       busy = { ...busy, [d.id]: false };
     }
@@ -242,6 +243,13 @@
         The review service is unavailable, so confirmations cannot be saved. The
         datapoints below are shown read-only.
       </p>
+    {/if}
+
+    {#if actionError}
+      <div class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
+        <span>{actionError}</span>
+        <button type="button" class="shrink-0 text-ink-subtle hover:text-accent" aria-label="Dismiss" on:click={() => (actionError = "")}>×</button>
+      </div>
     {/if}
 
     <div class="rounded border border-ink-subtle/20 bg-surface-raised p-4">
