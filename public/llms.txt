@@ -98,3 +98,6 @@ on a state page is traceable to a `sources[]` entry with a `url`,
 - Not a replacement for the Leider et al. (2021) paper. The paper is
   the analytical baseline; this site is its current-day extension and
   a structured-data layer on top.
+- The site also hosts an access-controlled internal review console
+  (under `/audit/`). It is gated, `noindex`, and intentionally excluded
+  from this file and the sitemap; it contains no public content.

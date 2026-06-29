@@ -1,6 +1,6 @@
 ---
 name: source-link-audit
-description: How to keep cited source URLs in src/content/states/*.json canonical and unbroken. Invoke when asked to check, fix, canonicalize, or de-duplicate source links; when "run the url/link check tool" or "fix broken/redirecting URLs"; when replacing a mirror or vendor URL with an official source; when editing scripts/check-external-links.ts or its allowlist; or when a verification turns up a 404/redirect on a sources[].url, history[].sourceUrls[], sealOfBiliteracy.sourceUrl, elpAssessment.sourceUrl, or elPercentHistory[].source.url.
+description: How to keep cited source URLs in src/content/states/*.json canonical and unbroken. Invoke when asked to check, fix, canonicalize, or de-duplicate source links; when "run the url/link check tool" or "fix broken/redirecting URLs"; when replacing a mirror or vendor URL with an official source; when editing scripts/check-external-links.ts; or when a verification turns up a 404/redirect on a sources[].url, history[].sourceUrls[], sealOfBiliteracy.sourceUrl, elpAssessment.sourceUrl, or elPercentHistory[].source.url. For the per-URL bot-blocked-link review/whitelist flow, see the audit-console skill.
 ---
 
 # Source-link audit and canonicalization
@@ -67,31 +67,40 @@ the result. Flags:
   non-blocking weekly sweep, not the build gate).
 - `-- --json` — machine-readable output.
 
-Classifications:
+Classifications (the shared logic lives in `src/lib/link-classify.ts`):
 
-- **ok** (2xx) and **soft-ok** (405/429 — method rejected / rate-limited;
-  the page exists).
-- **client-error / server-error / network-error** = broken.
-- **401/403 are broken, NOT soft-ok** — an auth/anti-bot wall means the
-  page can't be confirmed, so it must surface (don't silently pass it).
+- **ok** (2xx).
+- **broken** — *only* a definitive 4xx-gone (404/410/400/451). Fix the
+  URL (canonicalize / find the new page); broken links feed datapoint
+  re-verification.
+- **needs-review** — anything the checker cannot confirm but that is not
+  "gone": a bot-block (401/403/405/429), a connection reset / TLS failure,
+  or a 5xx. The page may serve fine in a browser. Do **not** "fix" a
+  `needs-review` URL on the assumption it is dead — it needs a human, not
+  a URL swap. Acceptance is reviewer-managed — see "Un-confirmable URLs"
+  below.
+- **accepted** — a `needs-review` URL a reviewer confirmed live (it is in
+  `src/data/link-whitelist.json`). Acceptance is **status-aware**: the
+  entry records the status it was accepted at, and the URL only stays
+  `accepted` while that status holds — a changed response code re-flags it
+  to `needs-review`, a recovery to 2xx shows `ok`.
 - **redirected** — the URL works but lands somewhere else; the report
   prints `cited → final`. Update the record to the **final
   non-redirecting** URL (the checker hands it to you). Exception: a `.gov`
   whose redirect target is a CDN/blob backend (e.g. Idaho `adminrules` →
   Azure blob) — keep the stable `.gov` entry, not the backend.
-- **allowlisted** — see below.
 
-### ALLOWLISTED_HOSTS
+### Un-confirmable URLs (`needs-review` → `accepted`)
 
-Some hosts block automated checks (anti-bot 401/403, TLS/connection
-resets, or 5xx to non-browser clients) while serving the page fine in a
-browser. A non-OK result from a host in `ALLOWLISTED_HOSTS` is reported as
-*allowlisted*, not broken. These URLs are canonical and correct — do not
-"fix" them by changing the URL. To confirm one by hand, open it in a real
-browser. Add a host to the set only after confirming it consistently
-blocks bots on *valid* pages (and document why inline). Do not allowlist a
-whole host that returns genuine 404s for moved pages — that would mask
-real breakage.
+There is **no host-level allowlist in the script.** Acceptance is
+**per-URL, reviewer-managed, and status-aware** through the gated
+`/audit/links` console (the `audit-console` skill): a reviewer opens each
+`needs-review` URL, confirms it loads in a browser, and accepts it; the
+nightly sync exports accepted URLs (with their accepted status) to
+`src/data/link-whitelist.json`, which the checker then treats as
+`accepted` until the status changes. Do not hand-edit the whitelist, and
+never accept to mask a genuine 404 — a moved page needs its URL fixed
+(canonicalize), not whitelisted.
 
 ### Reading the results
 
@@ -133,13 +142,13 @@ After applying: re-run `npm run check:links`, then `npm run validate`
 
 ## Related: the audit/review console
 
-The gated `/audit/*` reviewer console has its own, online counterpart to
-this offline check — link classification (`src/lib/link-classify.ts`), a
-broken-link sync (`sync-broken-links`), and a reviewer-managed
-bot-blocked-link whitelist (`build-link-whitelist`). See the
-`audit-console` skill. When touching the `ALLOWLISTED_HOSTS` set here,
-check whether the same host belongs in the console's whitelist flow so the
-two stay consistent rather than diverging.
+This offline checker and the gated `/audit/*` console share one model:
+classification in `src/lib/link-classify.ts`, a broken-link sync
+(`sync-broken-links` → datapoint re-verification), and the
+reviewer-managed bot-blocked-link whitelist (`sync-link-reviews` +
+`build-link-whitelist` → `src/data/link-whitelist.json`). Bot-block
+acceptance happens **only** in the console — this script has no separate
+allowlist to keep in sync. See the `audit-console` skill.
 
 ## Worktree caveat
 

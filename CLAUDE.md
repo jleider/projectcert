@@ -24,7 +24,10 @@ be re-verified against current SEA sources before public launch.
 - **Tailwind CSS** + custom design-token layer at `src/styles/tokens.css`.
 - **Zod** for content schema validation.
 - **Vitest** for schema/utility tests; **Playwright + axe-core** for a11y.
-- Static deploy (target: Cloudflare Pages or Netlify).
+- Static deploy to **Cloudflare Pages**. The one non-static piece is the
+  gated reviewer console (`/audit/*`): **Pages Functions** + **D1** +
+  **Cloudflare Access**, alongside the static site. See "The audit /
+  review console" below.
 
 ## Commands
 
@@ -391,6 +394,89 @@ Every state has `verificationStatus`: `baseline-2019` | `in-progress` |
 without a concrete reason** (e.g., the SEA explicitly changed
 something) — and record that reason in the commit.
 
+### The audit / review console (`/audit/*`)
+
+A gated reviewer tool lives at `/audit/` (overview), `/audit/<usps>`
+(per-state datapoint checklist), and `/audit/links` (bot-blocked link
+review). It is the only part of the deployment that is **not** static:
+it is backed by Cloudflare **Pages Functions** (`functions/api/*`), a
+**D1** database (`schema/d1/`), and **Cloudflare Access** (email-allowlist
+gating, configured in the dashboard — setup in `docs/audit-setup.md`).
+The public site stays static; the console is a separate layer.
+
+Load-bearing rules:
+
+- **The checkbox ledger is separate from `verificationStatus`.** A
+  reviewer confirming all datapoints does **not** promote a state to
+  `verified-2026` — that requires the archived-snapshot audit trail the
+  integrity check enforces. The nightly sync Action writes only
+  `src/data/verification-ledger.json` (a public "datapoints reviewed"
+  badge) and `src/data/link-whitelist.json` — never a state JSON or the
+  enum. Do not wire auto-promotion.
+- **`src/lib/verification-datapoints.ts` is the single source of truth**
+  for what a reviewer checks: a fixed 32-entry skeleton, same id set for
+  every state (constant denominator). Keep it Svelte-safe *and*
+  Workers-safe — no `astro:content`, no Node APIs, a local structural
+  `StateData` type. Adding a datapoint = add an id to `DATAPOINT_IDS`
+  plus a builder line; the id is the D1 key, so renaming orphans rows
+  (the snapshot test fails loud). Labels are user-facing
+  academic-register prose, never schema identifiers.
+- **Per-datapoint sources are seeded, then human-confirmed.** Each
+  datapoint carries `sourceUrls` so a reviewer can open the source a fact
+  came from. The schema has no per-field provenance, so the descriptor
+  seeds these heuristically (`SECTION_SOURCE_KEYWORDS` matched against the
+  state's flat `sources[]`, with Seal/ELP/grouped using their own URLs);
+  the seed is approximate. A reviewer confirms the one real source in the
+  console (single-select — one source of truth per datapoint) — stored in
+  the `datapoint_sources` table — which overrides the seed; checking the
+  datapoint also flips its source to confirmed. Never treat the heuristic
+  as provenance.
+- **The link checker has a status-aware human-review loop.** Anything
+  the checker cannot confirm — a bot-block (401/403/405/429), a
+  connection reset / TLS failure, or a 5xx — classifies as `needs-review`
+  and lands in the D1 `link_reviews` queue (weekly sweep). A reviewer
+  accepts each at `/audit/links`; acceptance records the **status it was
+  accepted at** (`accepted_status`). The nightly sync exports accepted
+  rows to `src/data/link-whitelist.json` as `{url: {status, ...}}`, and
+  the checker treats a URL as `accepted` only while its status is
+  unchanged — a changed response code **re-flags** it to `needs-review`.
+  Only a definitive 4xx-gone (404/410/…) is `broken`, feeding datapoint
+  re-verification via `broken_links`. The classification core is the
+  pure, tested `src/lib/link-classify.ts` (`resolveClassification`).
+
+TypeScript / test footguns (each cost real time once):
+
+- **`functions/` has its own `tsconfig.json`** with
+  `types: ["@cloudflare/workers-types"]` and, critically,
+  `"exclude": []`. Extending the root config otherwise inherits its
+  `exclude: [...,"functions"]`, which excludes the functions' own
+  directory and makes `tsc` silently check *nothing*. `npm run
+  typecheck` runs both the root project and `functions/tsconfig.json`.
+- **Functions use relative imports** (`../../src/lib/...`), never the
+  `@/` alias — the alias does not resolve in Cloudflare's function
+  bundler.
+- **A test that imports `functions/api/*` must be excluded from the root
+  `tsconfig`** (see `tests/audit-api.integration.test.ts`). Importing
+  Workers-typed modules into the root DOM/Node program pulls them in via
+  import resolution — past `exclude` — and fails the typecheck. Such
+  tests still run under Vitest and are linted.
+- **Integration tests use Node's built-in `node:sqlite`** as a
+  D1-compatible shim over the real `schema/d1/0001_init.sql` (no new
+  dependency). `node:sqlite` binds `?1..?N` positionally, matching D1.
+- **Local dev:** `npm run dev` does not run the Functions, so the
+  console renders read-only. Use `npm run dev:pages` (wrangler) with a
+  `DEV_REVIEWER_EMAIL` var to exercise the API; that var bypasses the
+  mandatory Access-JWT verification in `functions/api/_middleware.ts`
+  and must never be set in production.
+- **End-to-end the gated UI with `npm run e2e:audit`**
+  (`tests/e2e/audit-console.e2e.mjs`): boots `wrangler pages dev` + a
+  fresh local D1 + the auth bypass and drives a headless browser. Run it
+  after changing the audit islands — it catches the Svelte
+  dependency-tracking traps (a value read inside a function isn't tracked
+  by the template) that have regressed the progress bar and the shown
+  source. Not in `npm run verify` (needs wrangler + chromium). See the
+  `audit-console` skill.
+
 ### Adding/updating a state is a one-file edit
 
 Edit `src/content/states/<usps>.json` and run `npm run validate`. Use
@@ -469,6 +555,13 @@ If you also add a *schema field* that should be LLM-discoverable
 (something a researcher would cite), surface it in
 `generate-llms-full.ts`. Otherwise the field is on the page but not
 in the RAG-friendly export, and AI search engines miss it.
+
+**Exception — gated pages.** The review console (`/audit/*`) is
+access-gated and `noindex,nofollow`; it must be *excluded* from all
+three surfaces, not added. The `sitemap()` filter in `astro.config.ts`
+drops `/audit/`; do not list it in `public/llms.txt`; do not emit it
+from `generate-llms-full.ts`. Verify `/audit/` does not appear in
+`dist/sitemap-0.xml` after build.
 
 ### External links open in new tabs
 
@@ -638,18 +731,30 @@ Prefer `.gov`, then `.edu`, then the authority's own non-gov domain
 `*.elaws.us`, Wikipedia, vendor/aggregator copies). `doi.org` and
 `justia`/`oyez` are deliberately kept as-is (permanent identifier /
 endorsed for law). Run `npm run check:links` (advisory; `-- --strict`
-to gate) to find broken links (4xx/5xx/network — **401/403 count as
-broken, not soft-OK**) and redirecting links; update a redirecting URL
-to its final non-redirecting target, which the report prints. Hosts that
-block automated checks but serve the page in a browser live in
-`ALLOWLISTED_HOSTS` in `scripts/check-external-links.ts` and report as
-"allowlisted" rather than broken — do not change those URLs. See the
-`source-link-audit` skill for the full workflow, the mirror→canonical
-map, and the bulk remediation-script pattern.
+to gate) to find broken and redirecting links; update a redirecting URL
+to its final non-redirecting target, which the report prints. The
+classification model (in `src/lib/link-classify.ts`):
+
+- **Only a definitive 4xx-gone (404/410/…) is `broken`** — fix the URL;
+  broken links feed datapoint re-verification.
+- **Everything the checker cannot confirm — an anti-bot wall
+  (401/403/405/429), a connection reset / TLS failure, or a 5xx — is
+  `needs-review`, not broken.** There is no host-level allowlist;
+  acceptance is **per-URL, reviewer-managed, and status-aware**. A human
+  opens each in a real browser and accepts it in the `/audit/links`
+  console, which records it in `src/data/link-whitelist.json` *at the
+  status it was accepted for*. A later sweep keeps it `accepted` only
+  while that status holds; if the response code changes it re-flags as
+  `needs-review`, and if it recovers to 2xx it shows `ok`. Never
+  hand-edit the whitelist to mask a 404 — that needs a URL fix. See the
+  `audit-console` skill for the console/whitelist flow.
+
+See the `source-link-audit` skill for the canonical-URL workflow, the
+mirror→canonical map, and the bulk remediation-script pattern.
 
 ## Skills
 
-Four project skills under `.claude/skills/`:
+Five project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -662,6 +767,11 @@ Four project skills under `.claude/skills/`:
   unbroken. Triggered by "check/fix the links", running `check:links`,
   replacing a mirror with an official source, or editing
   `scripts/check-external-links.ts`.
+- **`audit-console`** — the gated `/audit/*` reviewer tool (Pages
+  Functions + D1 + Cloudflare Access), the `verification-datapoints`
+  descriptor, and the link-review/whitelist flow. Triggered when editing
+  `functions/`, `src/lib/verification-datapoints.ts`, the audit pages,
+  `schema/d1/`, or the audit sync scripts/workflows.
 
 ## Source paper
 

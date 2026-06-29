@@ -8,13 +8,28 @@
  *   - `elpAssessment.sourceUrl`
  *   - `elPercentHistory[].source.url`
  *
- * Each URL is fetched (HEAD, with a GET fallback for hosts that
- * reject HEAD) and classified as OK / REDIRECT / CLIENT_ERROR /
- * SERVER_ERROR / NETWORK_ERROR. The script prints a markdown report
- * and exits 0 in advisory mode (the default), or non-zero with
- * `--strict`. Per CLAUDE.md, SEA pages drift on their own schedule,
- * so this is intentionally NOT wired into the default `npm run
- * validate` / build gate.
+ * Each URL is fetched (HEAD, with a GET fallback for hosts that reject
+ * HEAD), redirects are followed, and the result is classified. The
+ * script prints a markdown report and exits 0 in advisory mode (the
+ * default), or non-zero with `--strict`. Per CLAUDE.md, SEA pages drift
+ * on their own schedule, so this is intentionally NOT wired into the
+ * default `npm run validate` / build gate.
+ *
+ * Responses the checker cannot confirm as live — an anti-bot wall
+ * (401/403/405/429), a connection reset / TLS failure, or a 5xx — are
+ * not called broken: they surface as `needs-review` for a human to open
+ * in a real browser. Acceptance is reviewer-managed through the
+ * /audit/links console (see the `audit-console` skill) and is
+ * **status-aware**: an accepted URL is recorded at the status it was
+ * accepted for in `src/data/link-whitelist.json`. A later sweep keeps it
+ * `accepted` only while the status is unchanged; if the response code
+ * changes it re-flags as `needs-review`, and if it recovers to 2xx it
+ * shows as `ok`. Only a definitive 4xx-gone (404/410/…) is `broken`
+ * (fix the URL); broken links feed datapoint re-verification.
+ *
+ * Redirecting URLs are reported separately: the page works, but the
+ * record should be updated to the final canonical URL the checker
+ * resolves (see the `source-link-audit` skill).
  *
  * Usage:
  *   npm run check:links              # advisory, exits 0 on broken links
@@ -25,9 +40,32 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { resolveClassification, type LinkClassification } from "../src/lib/link-classify";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
+const WHITELIST_PATH = resolve(__dirname, "../src/data/link-whitelist.json");
+
+/**
+ * URLs a human has reviewed and accepted as live despite a bot block,
+ * mapped to the HTTP status they were accepted at (null = a network-error
+ * acceptance). Acceptance only suppresses that same status; a changed
+ * response re-flags the URL for review.
+ */
+function loadWhitelist(): Map<string, number | null> {
+  try {
+    const parsed = JSON.parse(readFileSync(WHITELIST_PATH, "utf8")) as Record<
+      string,
+      { status?: number | null }
+    >;
+    const m = new Map<string, number | null>();
+    for (const [url, entry] of Object.entries(parsed)) m.set(url, entry?.status ?? null);
+    return m;
+  } catch {
+    return new Map();
+  }
+}
+const whitelist = loadWhitelist();
 
 const TIMEOUT_MS = 20_000;
 const CONCURRENCY = 8;
@@ -37,43 +75,6 @@ const GET_ONLY_HOSTS = new Set<string>([
   "nces.ed.gov",
   "supreme.justia.com",
   "law.justia.com",
-]);
-// Status codes we treat as success even though they're not 2xx.
-// 429 is rate-limiting and 405 means the host rejected the method
-// (we'll have already retried as GET); both indicate the page exists.
-// 401/403 are NOT soft-OK: an authorization wall means the cited page
-// cannot be confirmed to serve the claim, so it must surface as broken.
-// 3xx redirects are followed (redirect: "follow"); a cited URL that
-// redirects is reported separately so its canonical target can be
-// written back into the source record.
-const SOFT_OK = new Set([405, 429]);
-
-// Hosts confirmed to block automated link checks — anti-bot 401/403,
-// connection resets / TLS failures against non-browser clients, or 5xx to
-// non-browser user agents — while serving the cited pages normally in a
-// browser. A non-OK result from one of these hosts is reported as
-// "allowlisted" rather than "broken": the cited URL is the canonical page
-// and simply cannot be re-verified programmatically. Re-confirm by hand
-// if a URL on one of these hosts is ever changed.
-const ALLOWLISTED_HOSTS = new Set<string>([
-  "www.azed.gov", // Arizona DE — Cloudflare 403 to bots
-  "azsbe.az.gov", // Arizona State Board of Education — 403 to bots
-  "apps.azsos.gov", // Arizona SOS Administrative Code — 403 to bots
-  "docs.ctc.ca.gov", // CA Commission on Teacher Credentialing docs — 403
-  "gc.nh.gov", // NH General Court rules — 403 to bots
-  "hawaiiteacherstandardsboard.org", // HTSB — 403 to bots
-  "www.capitol.hawaii.gov", // Hawaii Revised Statutes — 403 to bots
-  "law.justia.com", // Justia (codes/cases, endorsed for federal law) — 403
-  "supreme.justia.com", // Justia SCOTUS — 403
-  "www.oyez.org", // Oyez (SCOTUS audio/case) — 403
-  "dese.ade.arkansas.gov", // Arkansas DESE — connection reset to bots
-  "dese-admin.ade.arkansas.gov", // Arkansas DESE file host — connection reset
-  "www.ksde.gov", // Kansas SDE — connection reset to bots
-  "www.cga.ct.gov", // Connecticut General Assembly — connection reset
-  "www.legislature.ohio.gov", // Ohio Legislature — connection reset
-  "elpa21.org", // ELPA21 consortium — TLS failure to bots
-  "www.elpa21.org", // ELPA21 consortium — TLS failure to bots
-  "wyomingptsb.com", // Wyoming PTSB — 500 to bots
 ]);
 
 interface CitedUrl {
@@ -85,14 +86,8 @@ interface LinkResult {
   url: string;
   citations: string[];
   status: number | null;
-  classification:
-    | "ok"
-    | "redirect"
-    | "soft-ok"
-    | "client-error"
-    | "server-error"
-    | "network-error"
-    | "allowlisted";
+  classification: LinkClassification;
+  /** Final URL after following redirects (when it differs from `url`). */
   finalUrl?: string;
   redirected?: boolean;
   message?: string;
@@ -142,16 +137,6 @@ for (const c of cited) {
   byUrl.set(c.url, list);
 }
 
-function classify(status: number | null): LinkResult["classification"] {
-  if (status === null) return "network-error";
-  if (status >= 200 && status < 300) return "ok";
-  if (status >= 300 && status < 400) return "redirect";
-  if (SOFT_OK.has(status)) return "soft-ok";
-  if (status >= 400 && status < 500) return "client-error";
-  if (status >= 500) return "server-error";
-  return "network-error";
-}
-
 async function fetchOne(
   url: string,
   method: "HEAD" | "GET",
@@ -185,7 +170,9 @@ async function fetchOne(
   }
 }
 
-async function checkWithRetry(url: string): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
+async function checkWithRetry(
+  url: string,
+): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
   let host: string;
   try {
     host = new URL(url).host;
@@ -236,26 +223,11 @@ if (!asJson) {
 
 const results = await runWithConcurrency(urls, CONCURRENCY, async (url): Promise<LinkResult> => {
   const r = await checkWithRetry(url);
-  let classification = classify(r.status);
-  let host = "";
-  try {
-    host = new URL(url).host;
-  } catch {
-    /* invalid URL already classified as network-error */
-  }
-  if (
-    ALLOWLISTED_HOSTS.has(host) &&
-    (classification === "client-error" ||
-      classification === "server-error" ||
-      classification === "network-error")
-  ) {
-    classification = "allowlisted";
-  }
   return {
     url,
     citations: byUrl.get(url) ?? [],
     status: r.status,
-    classification,
+    classification: resolveClassification(url, r.status, whitelist),
     finalUrl: r.finalUrl,
     redirected: r.redirected,
     message: r.message,
@@ -266,19 +238,22 @@ const buckets = {
   ok: 0,
   redirect: 0,
   "soft-ok": 0,
+  accepted: 0,
+  "needs-review": 0,
   "client-error": 0,
   "server-error": 0,
   "network-error": 0,
-  allowlisted: 0,
-} satisfies Record<LinkResult["classification"], number>;
+} satisfies Record<LinkClassification, number>;
 
 for (const r of results) {
   buckets[r.classification]++;
 }
 
-const broken = results.filter(
-  (r) => r.classification === "client-error" || r.classification === "server-error" || r.classification === "network-error",
-);
+// After resolveClassification, 5xx and network errors become needs-review
+// (un-confirmable → human review); only a definitive 4xx-gone is broken.
+const broken = results.filter((r) => r.classification === "client-error");
+
+const needsReview = results.filter((r) => r.classification === "needs-review");
 
 // Cited URLs that resolve only after following a redirect. The page works,
 // but the record should be updated to the final canonical URL.
@@ -293,12 +268,27 @@ if (asJson) {
   process.stdout.write(`Total unique URLs: ${urls.length}\n`);
   process.stdout.write(`- OK (2xx): ${buckets.ok}\n`);
   process.stdout.write(`- Redirect (3xx, followed): ${buckets.redirect}\n`);
-  process.stdout.write(`- Soft-OK (401/403/405/429): ${buckets["soft-ok"]}\n`);
-  process.stdout.write(`- Client error (4xx): ${buckets["client-error"]}\n`);
-  process.stdout.write(`- Server error (5xx): ${buckets["server-error"]}\n`);
-  process.stdout.write(`- Network error: ${buckets["network-error"]}\n`);
-  process.stdout.write(`- Allowlisted (host blocks automated checks; cited URL is canonical): ${buckets.allowlisted}\n`);
+  process.stdout.write(`- Accepted (reviewer-confirmed, status unchanged): ${buckets.accepted}\n`);
+  process.stdout.write(`- Needs review (un-confirmable: bot block / reset / 5xx): ${buckets["needs-review"]}\n`);
+  process.stdout.write(`- Broken (4xx gone — fix the URL): ${buckets["client-error"]}\n`);
   process.stdout.write(`- Redirected (cited URL is non-canonical): ${redirectedResults.length}\n\n`);
+
+  if (needsReview.length > 0) {
+    process.stdout.write(`## Needs human review — could not be confirmed (${needsReview.length})\n\n`);
+    process.stdout.write(
+      `Each URL is bot-blocked, reset, or 5xx, or its response changed since it ` +
+        `was accepted. Open each in a real browser; if it is live, accept it in the ` +
+        `/audit/links console (which records it in \`src/data/link-whitelist.json\` at its ` +
+        `current status).\n\n`,
+    );
+    for (const r of needsReview) {
+      process.stdout.write(`- **${r.status}** — ${r.url}\n`);
+      for (const c of r.citations) {
+        process.stdout.write(`    - ${c}\n`);
+      }
+    }
+    process.stdout.write(`\n`);
+  }
 
   if (broken.length > 0) {
     process.stdout.write(`## Broken (${broken.length})\n\n`);

@@ -56,3 +56,9 @@ export function elPercentHistoryUrl(usps: string): LinkUrl {
 export function absoluteElPercentHistoryUrl(siteUrl: string, usps: string): LinkUrl {
   return `${siteUrl}${elPercentHistoryUrl(usps)}` as LinkUrl;
 }
+
+/** Per-state gated audit page (root-relative). The one sanctioned place
+ *  a `/audit/<usps>/` path is built — never hand-concatenate elsewhere. */
+export function auditStateUrl(usps: string): LinkUrl {
+  return `/audit/${usps.toLowerCase()}/` as LinkUrl;
+}

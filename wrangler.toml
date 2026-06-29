@@ -1,0 +1,21 @@
+# Cloudflare Pages configuration for projectcert.
+#
+# The site itself is a static Astro build (output: "static") served from
+# dist/. The top-level functions/ directory is compiled into Pages
+# Functions and served on the same origin to back the gated /audit/ tool.
+#
+# IMPORTANT: the production D1 binding is configured in the Pages
+# dashboard, which is authoritative (dashboard bindings win over
+# wrangler.toml for Pages). This block exists mainly so `wrangler pages
+# dev` can emulate the binding locally. See docs/audit-setup.md.
+
+name = "projectcert"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "projectcert-audit"
+# Filled in from the dashboard after the database is created:
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "schema/d1"

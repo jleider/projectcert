@@ -16,30 +16,36 @@
     "check:links": "tsx scripts/check-external-links.ts",
     "lint": "eslint . --max-warnings 0",
     "validate": "astro check --minimumFailingSeverity hint && npm run check:contrast && npm run check:integrity",
-    "test": "vitest run",
+    "verify": "npm run lint && npm run typecheck && npm run validate && npm run test && npm run build",
+    "test": "NODE_OPTIONS=--disable-warning=ExperimentalWarning vitest run",
     "test:e2e": "playwright test",
-    "typecheck": "astro sync && tsc --noEmit"
+    "e2e:audit": "node tests/e2e/audit-console.e2e.mjs",
+    "typecheck": "astro sync && tsc --noEmit && tsc -p functions/tsconfig.json",
+    "dev:pages": "wrangler pages dev dist --binding DEV_REVIEWER_EMAIL=dev@local",
+    "d1:migrate:local": "wrangler d1 migrations apply projectcert-audit --local",
+    "d1:migrate:remote": "wrangler d1 migrations apply projectcert-audit --remote"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/svelte": "^8.1.0",
+    "@astrojs/svelte": "^8.1.2",
     "@fontsource-variable/ibm-plex-sans": "^5.2.8",
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/ibm-plex-serif": "^5.2.7",
-    "astro": "^6.3.1",
+    "astro": "^6.4.7",
     "autoprefixer": "^10.5.0",
     "d3-geo": "^3.1.1",
     "postcss": "^8.5.14",
     "svelte": "^5.55.5",
     "tailwindcss": "^3.4.19",
     "topojson-client": "^3.1.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "us-atlas": "^3.0.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
+    "@cloudflare/workers-types": "^4.20260616.1",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.59.1",
     "@types/d3-geo": "^3.1.0",
@@ -50,10 +56,12 @@
     "eslint": "^10.3.0",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-svelte": "^3.17.1",
+    "jose": "^6.2.3",
     "svelte-eslint-parser": "^1.6.1",
     "topojson-simplify": "^3.0.3",
     "tsx": "^4.21.0",
     "typescript-eslint": "^8.59.2",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.5",
+    "wrangler": "^4.101.0"
   }
 }

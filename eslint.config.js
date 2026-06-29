@@ -9,6 +9,7 @@ export default [
       "dist/**",
       "node_modules/**",
       ".astro/**",
+      ".wrangler/**",
       ".claude/**",
       "public/**",
       "playwright-report/**",
@@ -18,6 +19,9 @@ export default [
       // type errors there until we do.
       "**/*.svelte",
       "src/env.d.ts",
+      // Standalone Playwright e2e harness for the gated console — run via
+      // `node` (needs wrangler + a browser), not part of the lint/type gate.
+      "tests/e2e/**/*.mjs",
     ],
   },
   js.configs.recommended,
@@ -25,16 +29,15 @@ export default [
   ...astro.configs.recommended,
   {
     rules: {
-      // We rely on Astro's content-collection types; explicit `any` shows
-      // up only deliberately at JSON-LD boundaries.
-      "@typescript-eslint/no-explicit-any": "warn",
-      // Unused vars are noisy during refactors; keep as warnings.
+      // Warnings are errors. Every rule below is blocking (also enforced
+      // by `--max-warnings 0`). `any` is permitted only with an explicit
+      // inline eslint-disable at the rare JSON-LD boundary that needs it.
+      "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/no-unused-vars": [
-        "warn",
+        "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
-      // Inline scripts in .astro pages legitimately use `var` patterns.
-      "no-empty": ["warn", { allowEmptyCatch: true }],
+      "no-empty": ["error", { allowEmptyCatch: true }],
     },
   },
   {

@@ -10,6 +10,7 @@ import ReportIssue from "@/components/ReportIssue.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import HistoryTimeline from "@/components/HistoryTimeline.astro";
 import CitationBlock from "@/components/CitationBlock.astro";
+import VerificationLedgerBadges from "@/components/VerificationLedgerBadges.astro";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
 import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
 import { SITE_URL } from "@/config/site";
@@ -97,6 +98,7 @@ const stateJsonLd = [
 
     <div class="mt-3 flex flex-wrap gap-3 items-center">
       <VerificationBadge status={s.verificationStatus} lastVerified={s.lastVerified} />
+      <VerificationLedgerBadges usps={s.usps} />
       <a
         href={sameAnchor(ANCHORS.citeThisPage)}
         class="text-xs text-accent hover:underline focus-visible:underline"
