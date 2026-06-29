@@ -426,9 +426,11 @@ Load-bearing rules:
   came from. The schema has no per-field provenance, so the descriptor
   seeds these heuristically (`SECTION_SOURCE_KEYWORDS` matched against the
   state's flat `sources[]`, with Seal/ELP/grouped using their own URLs);
-  the seed is approximate. A reviewer confirms the real source(s) in the
-  console — stored in the `datapoint_sources` table — which overrides the
-  seed. Never treat the heuristic as provenance.
+  the seed is approximate. A reviewer confirms the one real source in the
+  console (single-select — one source of truth per datapoint) — stored in
+  the `datapoint_sources` table — which overrides the seed; checking the
+  datapoint also flips its source to confirmed. Never treat the heuristic
+  as provenance.
 - **The link checker has a status-aware human-review loop.** Anything
   the checker cannot confirm — a bot-block (401/403/405/429), a
   connection reset / TLS failure, or a 5xx — classifies as `needs-review`

@@ -55,10 +55,13 @@ provenance (only a flat per-state `sources[]`), so `datapointsFor` SEEDS this
 heuristically: Seal/ELP use their own `sourceUrl`; grouped items use their
 rows' sources; the rest are matched by keyword (`SECTION_SOURCE_KEYWORDS`)
 against the cited sources, falling back to the full list. The seed is
-approximate. A reviewer confirms the real source(s) in the console, stored in
-the `datapoint_sources` D1 table (via `functions/api/datapoint-sources.ts`)
-and rendered as the confirmed source, overriding the seed. Do not treat the
-heuristic as provenance — it is a starting point for human attribution.
+approximate. A reviewer confirms the one real source in the console (a
+single-select; one source of truth per datapoint), stored in the
+`datapoint_sources` D1 table (PK `(usps, datapoint_id)`, via
+`functions/api/datapoint-sources.ts`) and rendered as the confirmed source,
+overriding the seed. Checking the datapoint's own verification box also flips
+its source to confirmed. Do not treat the heuristic as provenance — it is a
+starting point for human attribution.
 
 Keep this module **Svelte-safe and Workers-safe**: no `astro:content`, no Node
 APIs, a local structural `StateData` type (not an import from the content

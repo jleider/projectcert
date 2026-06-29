@@ -185,16 +185,22 @@ describe("/api/link-reviews", () => {
 });
 
 describe("/api/datapoint-sources", () => {
-  it("confirms, lists, and un-confirms a source for a datapoint", async () => {
-    const post = await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "credentials.bilingual.standalone", url: "https://x/bil" } }));
-    expect(post.status).toBe(200);
+  it("sets, replaces (single source of truth), lists, and clears a datapoint's source", async () => {
+    const dp = "credentials.bilingual.standalone";
+    expect((await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: dp, url: "https://x/bil-1" } }))).status).toBe(200);
 
     let list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
     expect(list.sources).toHaveLength(1);
-    expect(list.sources[0]).toMatchObject({ datapoint_id: "credentials.bilingual.standalone", url: "https://x/bil", set_by: "reviewer@example.org" });
+    expect(list.sources[0]).toMatchObject({ datapoint_id: dp, url: "https://x/bil-1", set_by: "reviewer@example.org" });
 
-    const del = await dsDel(ctx({ method: "DELETE", body: { usps: "CA", datapoint_id: "credentials.bilingual.standalone", url: "https://x/bil" } }));
-    expect(del.status).toBe(200);
+    // Selecting a different source replaces the first — exactly one row remains.
+    await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: dp, url: "https://x/bil-2" } }));
+    list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    expect(list.sources).toHaveLength(1);
+    expect(list.sources[0].url).toBe("https://x/bil-2");
+
+    // Clear by datapoint (no url needed).
+    expect((await dsDel(ctx({ method: "DELETE", body: { usps: "CA", datapoint_id: dp } }))).status).toBe(200);
     list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
     expect(list.sources).toHaveLength(0);
   });

@@ -35,8 +35,8 @@
   let busy: Record<string, boolean> = {};
   let draft: Record<string, string> = {};
   let showSuggest: Record<string, boolean> = {};
-  // datapoint_id -> confirmed source URLs (reviewer attributions).
-  let attributions: Record<string, string[]> = {};
+  // datapoint_id -> the one confirmed source URL (reviewer attribution).
+  let attributions: Record<string, string> = {};
   let showSources: Record<string, boolean> = {};
 
   // url -> human label, from the state's cited sources and any field-specific
@@ -56,11 +56,11 @@
     return [...d.sourceUrls, ...rest];
   }
 
-  /** Sources shown as "the source(s) to verify": confirmed if any, else the
-   *  heuristic seed. */
+  /** The one source shown as "the source to verify": the confirmed
+   *  attribution if set, else the heuristic seed. */
   function shownSources(d: Datapoint): { label: string; url: string }[] {
-    const confirmed = attributions[d.id] ?? [];
-    if (confirmed.length > 0) return confirmed.map((url) => ({ url, label: urlLabel.get(url) ?? url }));
+    const url = attributions[d.id];
+    if (url) return [{ url, label: urlLabel.get(url) ?? url }];
     return d.sourceUrls;
   }
 
@@ -119,9 +119,7 @@
       verifications = Object.fromEntries(v.verifications.map((r) => [r.datapoint_id, r]));
       broken = groupBy(b.brokenLinks, (r) => r.datapoint_id);
       suggestions = groupBy(s.suggestions, (r) => r.datapoint_id);
-      const attr: Record<string, string[]> = {};
-      for (const r of ds.sources) (attr[r.datapoint_id] ??= []).push(r.url);
-      attributions = attr;
+      attributions = Object.fromEntries(ds.sources.map((r) => [r.datapoint_id, r.url]));
     } catch {
       offline = true;
     } finally {
@@ -169,26 +167,42 @@
     }
   }
 
-  function isConfirmedSource(d: Datapoint, url: string): boolean {
-    return (attributions[d.id] ?? []).includes(url);
-  }
-
-  async function toggleSource(d: Datapoint, url: string) {
+  /** Select THE source for a datapoint (single source of truth) — replaces
+   *  any prior selection and updates the confirmed source shown above. */
+  async function setSource(d: Datapoint, url: string) {
     if (offline) return;
     const key = `src:${d.id}`;
-    if (busy[key]) return;
+    if (busy[key] || attributions[d.id] === url) return;
     busy = { ...busy, [key]: true };
-    const confirmed = isConfirmedSource(d, url);
     try {
       const res = await fetch(`/api/datapoint-sources`, {
-        method: confirmed ? "DELETE" : "POST",
+        method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ usps, datapoint_id: d.id, url }),
       });
       if (!res.ok) throw new Error("source");
-      const current = attributions[d.id] ?? [];
-      const next = confirmed ? current.filter((u) => u !== url) : [...current, url];
-      attributions = { ...attributions, [d.id]: next };
+      attributions = { ...attributions, [d.id]: url };
+    } catch {
+      offline = true;
+    } finally {
+      busy = { ...busy, [key]: false };
+    }
+  }
+
+  async function clearSource(d: Datapoint) {
+    if (offline || busy[`src:${d.id}`] || !attributions[d.id]) return;
+    const key = `src:${d.id}`;
+    busy = { ...busy, [key]: true };
+    try {
+      const res = await fetch(`/api/datapoint-sources`, {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ usps, datapoint_id: d.id }),
+      });
+      if (!res.ok) throw new Error("source");
+      const next = { ...attributions };
+      delete next[d.id];
+      attributions = next;
     } catch {
       offline = true;
     } finally {
@@ -287,13 +301,13 @@
                   {/if}
 
                   {#if !d.grouped}
-                    <!-- Source counts as confirmed once the reviewer either
-                         picks a source explicitly OR checks the datapoint
-                         itself (verifying it endorses the shown source). -->
-                    {@const isConfirmed = (attributions[d.id]?.length ?? 0) > 0 || checkedNow}
+                    <!-- Source is confirmed once the reviewer picks one
+                         explicitly OR checks the datapoint itself (verifying
+                         endorses the shown source). One source per datapoint. -->
+                    {@const isConfirmed = Boolean(attributions[d.id]) || checkedNow}
                     <div class="mt-1 text-xs">
                       {#if shownSources(d).length > 0}
-                        <span class="text-ink-subtle">{isConfirmed ? `Confirmed source${shownSources(d).length > 1 ? "s" : ""}:` : "Likely source (unconfirmed):"}</span>
+                        <span class="text-ink-subtle">{isConfirmed ? "Confirmed source:" : "Likely source (unconfirmed):"}</span>
                         <ul class="mt-0.5 list-disc pl-5">
                           {#each shownSources(d) as src}
                             <li><a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a></li>
@@ -311,22 +325,29 @@
                           {showSources[d.id] ? "Hide sources" : "Set source"}
                         </button>
                         {#if showSources[d.id]}
-                          <p class="mt-1 text-ink-subtle">Check the cited source(s) this fact actually came from:</p>
+                          <p class="mt-1 text-ink-subtle">Select the one cited source this fact came from:</p>
                           <ul class="mt-1 space-y-1">
                             {#each candidateSources(d) as src}
                               <li class="flex items-start gap-2">
                                 <input
-                                  type="checkbox"
+                                  type="radio"
+                                  name={`src-${d.id}`}
                                   class="mt-0.5 shrink-0"
-                                  checked={isConfirmedSource(d, src.url)}
+                                  value={src.url}
+                                  checked={attributions[d.id] === src.url}
                                   disabled={busy[`src:${d.id}`]}
                                   aria-label={`Confirm source for ${d.label}: ${src.label}`}
-                                  on:change={() => toggleSource(d, src.url)}
+                                  on:change={() => setSource(d, src.url)}
                                 />
                                 <a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a>
                               </li>
                             {/each}
                           </ul>
+                          {#if attributions[d.id]}
+                            <button type="button" class="mt-1 text-ink-subtle hover:text-accent" disabled={busy[`src:${d.id}`]} on:click={() => clearSource(d)}>
+                              Clear selection
+                            </button>
+                          {/if}
                         {/if}
                       {/if}
                     </div>
