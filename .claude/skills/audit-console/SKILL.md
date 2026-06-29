@@ -89,12 +89,16 @@ collection). It is imported by the islands, the functions, and the scripts.
 - **`functions/tsconfig.json` sets `"exclude": []`.** Extending the root config
   inherits its `exclude: [...,"functions"]`, which excludes the functions' own
   directory — `tsc` then silently checks nothing and passes vacuously.
-  `npm run typecheck` runs the root project *and* `functions/tsconfig.json`.
+  `npm run typecheck` runs the root project, `functions/tsconfig.json`, *and*
+  `tsconfig.tests.json`.
 - **Functions use relative imports** (`../../src/lib/...`), not the `@/` alias.
 - **Tests importing `functions/api/*` are excluded from the root tsconfig**
   (`tests/audit-api.integration.test.ts`). Importing Workers-typed modules into
   the root DOM/Node program drags them in past `exclude` and breaks the
-  typecheck. They still run under Vitest and are linted.
+  typecheck. Such a test is type-checked instead by `tsconfig.tests.json`
+  (Workers types + `@types/node`, `skipLibCheck` absorbing the duplicate
+  `fetch`/`Request` globals), wired into `npm run typecheck`; it still runs
+  under Vitest and is linted.
 - **Integration tests use `node:sqlite`** as a D1 shim over the real schema
   (no dependency). It binds `?1..?N` positionally, matching D1.
 - **`/audit/*` is excluded from sitemap / llms.txt / llms-full** — the

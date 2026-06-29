@@ -73,7 +73,6 @@ interface CtxOpts {
   next?: () => Promise<Response>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ctx(opts: CtxOpts): any {
   const {
     url = "https://x.org/api",
@@ -101,7 +100,7 @@ describe("/api/verifications", () => {
     );
     expect(post.status).toBe(200);
 
-    let list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    let list: any = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
     expect(list.verifications).toHaveLength(1);
     expect(list.verifications[0]).toMatchObject({
       datapoint_id: "elPercent",
@@ -164,7 +163,7 @@ describe("/api/suggestions", () => {
     );
     expect(post.status).toBe(200);
 
-    const byState = await (await sugGet(ctx({ url: "https://x.org/api?usps=TX&status=open" }))).json();
+    const byState: any = await (await sugGet(ctx({ url: "https://x.org/api?usps=TX&status=open" }))).json();
     expect(byState.suggestions).toHaveLength(1);
     expect(byState.suggestions[0]).toMatchObject({
       usps: "TX",
@@ -172,7 +171,7 @@ describe("/api/suggestions", () => {
       status: "open",
     });
 
-    const siteWide = await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json();
+    const siteWide: any = await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json();
     expect(siteWide.suggestions).toHaveLength(1);
   });
 
@@ -208,7 +207,7 @@ describe("/api/overview", () => {
       `INSERT INTO broken_links (usps, datapoint_id, url, citation, classification, detected_at) VALUES ('CA','sources','https://x','CA / sources[0]','client-error','2026-06-16')`,
     ).run();
 
-    const ov = await (await ovGet(ctx({}))).json();
+    const ov: any = await (await ovGet(ctx({}))).json();
     expect(ov.totalDatapoints).toBe(32);
     const ca = ov.perState.find((r: { usps: string }) => r.usps === "CA");
     // elPercent + sources verified, but sources has a broken link, so it
@@ -222,7 +221,7 @@ describe("/api/broken-links", () => {
     db.prepare(
       `INSERT INTO broken_links (usps, datapoint_id, url, citation, status, classification, detected_at) VALUES ('NV','history','https://x','NV / history[0].sourceUrls[0]','404','client-error','2026-06-16')`,
     ).run();
-    const byState = await (await brkGet(ctx({ url: "https://x.org/api?usps=NV" }))).json();
+    const byState: any = await (await brkGet(ctx({ url: "https://x.org/api?usps=NV" }))).json();
     expect(byState.brokenLinks).toHaveLength(1);
     expect(byState.brokenLinks[0]).toMatchObject({
       usps: "NV",
@@ -230,7 +229,7 @@ describe("/api/broken-links", () => {
       status: "404",
     });
 
-    const all = await (await brkGet(ctx({}))).json();
+    const all: any = await (await brkGet(ctx({}))).json();
     expect(all.brokenLinks).toHaveLength(1);
   });
 });
@@ -243,7 +242,7 @@ describe("/api/link-reviews", () => {
   });
 
   it("lists rows with parsed citations", async () => {
-    const list = await (await lrGet(ctx({}))).json();
+    const list: any = await (await lrGet(ctx({}))).json();
     expect(list.reviews).toHaveLength(1);
     expect(list.reviews[0].citations).toEqual(["AZ / sources[0]"]);
     expect(list.reviews[0].decision).toBe("pending");

@@ -102,6 +102,15 @@ export default [
     },
   },
   {
+    files: ["tests/**/*.ts"],
+    rules: {
+      // Tests parse dynamic JSON response bodies and assert on their
+      // shape; reading them as `any` is the pragmatic, conventional
+      // choice and keeps the assertions legible.
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  {
     // Prevent bare-string internal hrefs on <a>. Every internal route
     // must come from ROUTES / ANCHORS / stateUrl in @/lib/routes (and
     // @/lib/state-types) so a renamed page surfaces as a typecheck

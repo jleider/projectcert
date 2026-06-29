@@ -243,9 +243,16 @@ host page automatically.
   helper as `ts(6387)`, which fails `astro check --minimumFailingSeverity
   hint`. The file is excluded in `tsconfig.json` (ESLint lints it every
   run regardless; it never ships). Keep type-aware ESLint scoped to
-  `**/*.ts` with `tests/**` excluded — the project service cannot type
-  `tests/audit-api.integration.test.ts` (itself outside the root
-  tsconfig) and the fixtures lean on `any`.
+  `**/*.ts` with `tests/**` excluded — the fixtures lean on `any`
+  (`no-explicit-any` is off for `tests/**`).
+- **Type-checking tests.** Six of the seven test files are checked by
+  the root `tsc --noEmit`. The seventh,
+  `tests/audit-api.integration.test.ts`, imports Workers-typed
+  `functions/api/*`, which cannot coexist with the root DOM/Node program
+  — so it has its own `tsconfig.tests.json` (Workers types + `@types/node`,
+  `skipLibCheck` absorbing the duplicate `fetch`/`Request` globals).
+  `npm run typecheck` runs all three projects: root, `functions/`, and
+  `tsconfig.tests.json`.
 - **Weekly external link sweep**
   (`.github/workflows/external-link-check.yml`): non-blocking,
   uploads a markdown report. Don't fail PRs on external SEA links —
@@ -457,8 +464,10 @@ TypeScript / test footguns (each cost real time once):
 - **A test that imports `functions/api/*` must be excluded from the root
   `tsconfig`** (see `tests/audit-api.integration.test.ts`). Importing
   Workers-typed modules into the root DOM/Node program pulls them in via
-  import resolution — past `exclude` — and fails the typecheck. Such
-  tests still run under Vitest and are linted.
+  import resolution — past `exclude` — and fails the typecheck. Such a
+  test is instead type-checked by its own `tsconfig.tests.json` (Workers
+  types + `@types/node`), wired into `npm run typecheck`; it still runs
+  under Vitest and is linted.
 - **Integration tests use Node's built-in `node:sqlite`** as a
   D1-compatible shim over the real `schema/d1/0001_init.sql` (no new
   dependency). `node:sqlite` binds `?1..?N` positionally, matching D1.
