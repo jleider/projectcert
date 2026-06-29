@@ -58,9 +58,13 @@
   }
 
   /** The one source shown as "the source to verify": the confirmed
-   *  attribution if set, else the heuristic seed. */
-  function shownSources(d: Datapoint): { label: string; url: string }[] {
-    const url = attributions[d.id];
+   *  attribution if set, else the heuristic seed. `attr` is passed in (not
+   *  read from the closure) so Svelte tracks `attributions` as a dependency
+   *  of the template expression and re-renders the shown source when a radio
+   *  changes it — a bare `shownSources(d)` would hide that read in a function
+   *  and never update. */
+  function shownSources(d: Datapoint, attr: Record<string, string>): { label: string; url: string }[] {
+    const url = attr[d.id];
     if (url) return [{ url, label: urlLabel.get(url) ?? url }];
     return d.sourceUrls;
   }
@@ -314,10 +318,10 @@
                          endorses the shown source). One source per datapoint. -->
                     {@const isConfirmed = Boolean(attributions[d.id]) || checkedNow}
                     <div class="mt-1 text-xs">
-                      {#if shownSources(d).length > 0}
+                      {#if shownSources(d, attributions).length > 0}
                         <span class="text-ink-subtle">{isConfirmed ? "Confirmed source:" : "Likely source (unconfirmed):"}</span>
                         <ul class="mt-0.5 list-disc pl-5">
-                          {#each shownSources(d) as src}
+                          {#each shownSources(d, attributions) as src}
                             <li><a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a></li>
                           {/each}
                         </ul>
