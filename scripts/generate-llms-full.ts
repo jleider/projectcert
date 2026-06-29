@@ -175,7 +175,13 @@ states.sort((a, b) => a.name.localeCompare(b.name));
 const verifiedCount = states.filter(
   (s) => s.verificationStatus === "verified-2026",
 ).length;
-const today = new Date().toISOString().slice(0, 10);
+// Derive the snapshot date from the data, not the build clock, so the
+// generated file is deterministic — rebuilding only changes it when the
+// underlying records change. It is the most recent per-state
+// verification date.
+const snapshotDate = states
+  .map((s) => s.lastVerified)
+  .reduce((a, b) => (a > b ? a : b));
 
 const header = `# projectcert — full state data (LLM-readable snapshot)
 
@@ -185,7 +191,7 @@ const header = `# projectcert — full state data (LLM-readable snapshot)
 > records — what you read here matches what users see on the live
 > per-state pages.
 
-Snapshot generated: ${today}
+Snapshot generated: ${snapshotDate}
 States verified against current SEA sources: ${verifiedCount} / ${states.length}
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279
