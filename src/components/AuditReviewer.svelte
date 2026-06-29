@@ -66,7 +66,9 @@
   function shownSources(d: Datapoint, attr: Record<string, string>): { label: string; url: string }[] {
     const url = attr[d.id];
     if (url) return [{ url, label: urlLabel.get(url) ?? url }];
-    return d.sourceUrls;
+    // Single source of truth: show only the top heuristic candidate as the
+    // likely source. The full candidate list is in the "Set source" picker.
+    return d.sourceUrls.slice(0, 1);
   }
 
   function isStale(d: Datapoint): boolean {
@@ -313,10 +315,11 @@
                   {/if}
 
                   {#if !d.grouped}
-                    <!-- Source is confirmed once the reviewer picks one
-                         explicitly OR checks the datapoint itself (verifying
-                         endorses the shown source). One source per datapoint. -->
-                    {@const isConfirmed = Boolean(attributions[d.id]) || checkedNow}
+                    <!-- The source is "confirmed" exactly while the datapoint's
+                         own checkbox is checked (verifying endorses the shown
+                         source); unchecking reverts it to unconfirmed. The radio
+                         only controls WHICH source is shown, not this label. -->
+                    {@const isConfirmed = checkedNow}
                     <div class="mt-1 text-xs">
                       {#if shownSources(d, attributions).length > 0}
                         <span class="text-ink-subtle">{isConfirmed ? "Confirmed source:" : "Likely source (unconfirmed):"}</span>

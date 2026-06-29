@@ -95,9 +95,11 @@ try {
   assert(after.verified === before.verified + 1, `verified count ${before.verified} -> ${after.verified}`);
 
   step("2. Picking an alternative source radio updates the shown source");
-  // The first datapoint (also the one verified above). Its shown source is
-  // the first `ul.list-disc` link; the cited-sources panel is an <ol>.
-  const shownBefore = (await page.locator("ul.list-disc a").first().innerText()).trim();
+  // The first datapoint (also the one verified above). Its shown source is the
+  // `ul.list-disc` link; the cited-sources panel is an <ol>. Radio interaction
+  // is page-level (only this datapoint's picker is open).
+  const li = page.locator("section ul > li").first();
+  const shownBefore = (await li.locator("ul.list-disc a").first().innerText()).trim();
   await page.getByRole("button", { name: "Set source" }).first().click();
   const radios = page.getByRole("radio");
   await radios.first().waitFor({ timeout: 10000 });
@@ -113,10 +115,17 @@ try {
   }
   assert(targetLabel !== "", `found an alternative source to pick (had ${n} candidates)`);
   await sleep(1200);
-  const shownAfter = (await page.locator("ul.list-disc a").first().innerText()).trim();
+  const shownAfter = (await li.locator("ul.list-disc a").first().innerText()).trim();
   assert(shownAfter !== shownBefore, `shown source changed from "${shownBefore.slice(0, 40)}…"`);
   assert(shownAfter === targetLabel, `shown source now equals the picked radio "${targetLabel.slice(0, 40)}…"`);
   assert((await radios.first().isVisible()) === true, "source picker stays open after a pick");
+  assert((await li.locator("ul.list-disc a").count()) === 1, "exactly one source shown (single source of truth)");
+
+  step("3. Unchecking the datapoint reverts its source label to unconfirmed");
+  assert((await li.getByText("Confirmed source:").count()) > 0, "labeled 'Confirmed source' while checked");
+  await page.getByRole("checkbox").first().uncheck();
+  await sleep(1200);
+  assert((await li.getByText("Likely source (unconfirmed):").count()) > 0, "reverts to 'Likely source (unconfirmed)' when unchecked");
 
   assert(apiErrors.length === 0, `no 4xx/5xx API responses (${apiErrors.join(", ") || "none"})`);
 
