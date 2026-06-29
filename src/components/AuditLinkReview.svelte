@@ -107,7 +107,7 @@
                   </div>
                   {#if row.citations.length > 0}
                     <ul class="mt-1 text-xs text-ink-muted">
-                      {#each row.citations as c}
+                      {#each row.citations as c (c)}
                         <li>{c}</li>
                       {/each}
                     </ul>

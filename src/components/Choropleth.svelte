@@ -262,7 +262,7 @@
       </pattern>
     </defs>
 
-    {#each features as feat}
+    {#each features as feat (feat.id)}
       {@const fips = String(feat.id).padStart(2, "0")}
       {@const usps = FIPS_TO_USPS[fips]}
       {@const datum = usps ? stateById.get(usps) : undefined}

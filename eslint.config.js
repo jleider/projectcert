@@ -80,10 +80,6 @@ export default [
       // Reactive ($:) assignments consumed only in the template read as
       // "useless" to the core rule, which cannot see template usage.
       "no-useless-assignment": "off",
-      // TODO: keyed {#each} blocks are a correctness improvement not yet
-      // applied across the audit / compare / map components. Re-enable
-      // once each list has a stable key.
-      "svelte/require-each-key": "off",
     },
   },
 

@@ -220,7 +220,7 @@
   <fieldset class="rounded border border-ink-subtle/20 p-3">
     <legend class="text-sm font-semibold text-ink px-2">Pick 2–4 states</legend>
     <div class="flex flex-wrap gap-2 text-sm" role="group">
-      {#each states as s}
+      {#each states as s (s.usps)}
         {@const isSelected = selected.includes(s.usps)}
         {@const isDisabled = !isSelected && selected.length >= 4}
         <button
@@ -264,7 +264,7 @@
               class="px-3 py-2 font-semibold text-ink min-w-[18rem]"
               >Requirement</th
             >
-            {#each chosen as s}
+            {#each chosen as s (s.usps)}
               <th scope="col" class="px-3 py-2 font-semibold text-ink">
                 <a
                   class="text-accent hover:underline"
@@ -283,7 +283,7 @@
             >
               % classified ELs
             </th>
-            {#each chosen as s}
+            {#each chosen as s (s.usps)}
               <td
                 class="px-3 py-2"
                 title={`${s.name}: ${s.elPercent.toFixed(1)}% classified ELs`}
@@ -293,7 +293,7 @@
             {/each}
           </tr>
 
-          {#each SECTIONS as section}
+          {#each SECTIONS as section (section.title)}
             <tr class="border-t border-ink-subtle/20">
               <th
                 scope="colgroup"
@@ -304,7 +304,7 @@
                 {section.title}
               </th>
             </tr>
-            {#each section.rows as row}
+            {#each section.rows as row (row.label)}
               <tr
                 class="border-t border-ink-subtle/20 hover:bg-surface-raised/40"
               >
@@ -315,7 +315,7 @@
                 >
                   {row.label}
                 </th>
-                {#each chosen as s}
+                {#each chosen as s (s.usps)}
                   {@const v = row.get(s)}
                   {@const cell =
                     row.kind === "tri"

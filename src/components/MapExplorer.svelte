@@ -89,7 +89,7 @@
 <fieldset class="border border-ink-subtle/20 rounded p-3">
   <legend class="text-sm font-semibold text-ink px-2">Layer</legend>
   <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-    {#each LAYERS as opt}
+    {#each LAYERS as opt (opt.value)}
       <label class="flex items-center gap-2">
         <input type="radio" name="layer" value={opt.value} bind:group={layer} />
         {opt.label}
@@ -103,7 +103,7 @@
   role="group"
   aria-label="Map legend"
 >
-  {#each legendEntries as entry}
+  {#each legendEntries as entry (entry.label)}
     <div class="flex items-center gap-2">
       <span
         class="inline-block w-5 h-5 border border-ink-subtle/40"

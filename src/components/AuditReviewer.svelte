@@ -200,7 +200,7 @@
       </div>
     </div>
 
-    {#each sections as group}
+    {#each sections as group (group.label)}
       <section>
         <h2
           class="text-lg font-semibold text-ink border-b border-ink-subtle/20 pb-1"
@@ -235,7 +235,7 @@
                   {#if d.grouped && d.rows.length > 0}
                     <table class="mt-2 w-full text-xs border-collapse">
                       <tbody>
-                        {#each d.rows as row}
+                        {#each d.rows as row (row.label)}
                           <tr class="border-t border-ink-subtle/10">
                             <td
                               class="py-1 pr-3 text-ink-subtle align-top whitespace-nowrap"
@@ -268,7 +268,7 @@
                       ⚠ A cited source is unreachable — re-verify against
                       current sources:
                       <ul class="mt-1 list-disc pl-5 text-ink-muted">
-                        {#each broken[d.id] ?? [] as link}
+                        {#each broken[d.id] ?? [] as link (link.url)}
                           <li class="break-all">
                             {link.url} ({link.status ?? link.classification})
                           </li>
@@ -281,7 +281,7 @@
                     <div class="mt-2 rounded bg-surface-raised p-2 text-xs">
                       <div class="font-semibold text-ink">Open suggestions</div>
                       <ul class="mt-1 space-y-1">
-                        {#each suggestions[d.id] ?? [] as sug}
+                        {#each suggestions[d.id] ?? [] as sug (sug.id)}
                           <li class="text-ink-muted">
                             <span class="text-ink-subtle"
                               >{sug.submitted_by}:</span
