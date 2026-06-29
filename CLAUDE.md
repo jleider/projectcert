@@ -361,14 +361,21 @@ integrity check) live at `sources/<USPS>/<retrievedAt>/` —
 `changes-from-baseline.md` file in the most recent snapshot dir is
 what every `verified-2026` state must carry.
 
-Audit-pass artifacts (worker write-ups + verifier reviews + the
-consolidated review) live alongside but with a different layout, so
-they never collide with the integrity-checked snapshots:
+Audit-pass artifacts (worker write-ups + supporting research +
+captured source files) live in that **same uppercase** per-state
+snapshot directory, so everything for one state's verification pass
+sits together:
 
-- `sources/<usps>/<YYYY-MM-DD>/audit-report.md` (lowercase USPS) —
-  one per state, the worker agent's write-up of what it found
-  re-verifying that record. Raw, unreconciled. Not referenced by
-  any JSON.
+- `sources/<USPS>/<YYYY-MM-DD>/audit-report.md` — one per state, the
+  worker agent's write-up of what it found re-verifying that record.
+  Raw, unreconciled. Not referenced by any JSON.
+- `sources/<USPS>/<YYYY-MM-DD>/sea-el-research.md` and the captured
+  source documents (HTML/PDF) sit in the same dir as
+  `changes-from-baseline.md`.
+
+Cross-state reviews are the exception and use a topic-dir layout
+(not per-state):
+
 - `sources/_verifier/<YYYY-MM-DD>/batches-{N-M}.md` — reviewer
   passes that read the worker reports, web-fetched cited URLs, and
   reconciled disputed findings across batches of states.
@@ -378,10 +385,18 @@ they never collide with the integrity-checked snapshots:
   audit. Cached supporting data (e.g., `nces-d23-table-204-20.tsv`)
   sits alongside it.
 
-When adding a new audit pass, follow the same three-tier layout
-(worker → verifier → consolidated) and keep `done-and-todo.md` as
-the single entry point so prior summary / research-followup files
-do not need to be retained separately.
+**Always use uppercase USPS for per-state paths.** Earlier passes
+wrote some worker artifacts to a lowercase `sources/<usps>/` sibling;
+on case-insensitive macOS that silently coexisted with the uppercase
+snapshot dir, but case-sensitive Linux CI treats `sources/co/` and
+`sources/CO/` as different directories, which broke the integrity
+check (`check-state-integrity.ts` builds the path from the uppercase
+`usps` field). The two cases have since been consolidated to
+uppercase; do not reintroduce a lowercase variant.
+
+When adding a new audit pass, keep `done-and-todo.md` as the single
+entry point so prior summary / research-followup files do not need to
+be retained separately.
 
 ### Terminology is canonical, not copied
 
@@ -437,6 +452,16 @@ Load-bearing rules:
   plus a builder line; the id is the D1 key, so renaming orphans rows
   (the snapshot test fails loud). Labels are user-facing
   academic-register prose, never schema identifiers.
+- **Per-datapoint sources are seeded, then human-confirmed.** Each
+  datapoint carries `sourceUrls` so a reviewer can open the source a fact
+  came from. The schema has no per-field provenance, so the descriptor
+  seeds these heuristically (`SECTION_SOURCE_KEYWORDS` matched against the
+  state's flat `sources[]`, with Seal/ELP/grouped using their own URLs);
+  the seed is approximate. A reviewer confirms the one real source in the
+  console (single-select — one source of truth per datapoint) — stored in
+  the `datapoint_sources` table — which overrides the seed; checking the
+  datapoint also flips its source to confirmed. Never treat the heuristic
+  as provenance.
 - **The link checker has a status-aware human-review loop.** Anything
   the checker cannot confirm — a bot-block (401/403/405/429), a
   connection reset / TLS failure, or a 5xx — classifies as `needs-review`
@@ -476,6 +501,14 @@ TypeScript / test footguns (each cost real time once):
   `DEV_REVIEWER_EMAIL` var to exercise the API; that var bypasses the
   mandatory Access-JWT verification in `functions/api/_middleware.ts`
   and must never be set in production.
+- **End-to-end the gated UI with `npm run e2e:audit`**
+  (`tests/e2e/audit-console.e2e.mjs`): boots `wrangler pages dev` + a
+  fresh local D1 + the auth bypass and drives a headless browser. Run it
+  after changing the audit islands — it catches the Svelte
+  dependency-tracking traps (a value read inside a function isn't tracked
+  by the template) that have regressed the progress bar and the shown
+  source. Not in `npm run verify` (needs wrangler + chromium). See the
+  `audit-console` skill.
 
 ### Adding/updating a state is a one-file edit
 

@@ -29,10 +29,18 @@ export type DatapointSection =
   | "elp-assessment"
   | "provenance";
 
+/** A cited source the reviewer can open to verify a datapoint. */
+export interface SourceLink {
+  label: string;
+  url: string;
+}
+
 /** One underlying row of a grouped datapoint (history / time series / sources). */
 export interface DatapointRow {
   label: string;
   value: string;
+  /** Source URL backing this row, if any (rendered as a link). */
+  url?: string;
 }
 
 export interface Datapoint {
@@ -47,6 +55,13 @@ export interface Datapoint {
   grouped: boolean;
   /** Underlying rows for grouped datapoints; empty for scalar ones. */
   rows: DatapointRow[];
+  /**
+   * Field-specific source(s) the reviewer opens to verify this datapoint.
+   * Empty for fields the schema does not source individually (credential
+   * flags, standards, SEI, population) — those are verified against the
+   * state's full cited-source list shown alongside the checklist.
+   */
+  sourceUrls: SourceLink[];
   /** Hash of the canonical value at descriptor-build time, for drift detection. */
   contentHash: string;
 }
@@ -91,28 +106,10 @@ interface StateData {
     linguistic: boolean;
     el: boolean;
   };
-  sealOfBiliteracy: {
-    adopted: boolean;
-    year: number | null;
-    sourceUrl: string;
-  };
-  elpAssessment: {
-    name: string;
-    consortium: "WIDA" | "ELPA21" | null;
-    sourceUrl: string | null;
-  };
-  sources: Array<{
-    label: string;
-    url: string;
-    retrievedAt: string;
-    retrievedBy: string;
-  }>;
-  history?: Array<{
-    date: string;
-    title: string;
-    description: string;
-    sourceUrls: string[];
-  }>;
+  sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
+  elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
+  sources: Array<{ label: string; url: string; retrievedAt: string; retrievedBy: string }>;
+  history?: Array<{ date: string; title: string; description: string; sourceUrls: string[] }>;
   elPercentHistory?: Array<{
     date: string;
     percent: number;
@@ -170,6 +167,7 @@ function scalar(
   section: DatapointSection,
   displayValue: string | null,
   canonical: unknown,
+  sourceUrls: SourceLink[] = [],
 ): Datapoint {
   return {
     id,
@@ -178,6 +176,7 @@ function scalar(
     displayValue,
     grouped: false,
     rows: [],
+    sourceUrls,
     contentHash: contentHashFor(canonical),
   };
 }
@@ -189,6 +188,7 @@ function group(
   displayValue: string | null,
   rows: DatapointRow[],
   canonical: unknown,
+  sourceUrls: SourceLink[] = [],
 ): Datapoint {
   // Normalize absent (undefined) optional arrays to [] so "absent" and
   // "empty" hash identically — both mean "no rows to verify".
@@ -199,8 +199,98 @@ function group(
     displayValue,
     grouped: true,
     rows,
+    sourceUrls,
     contentHash: contentHashFor(canonical ?? []),
   };
+}
+
+/**
+ * Best-effort keyword map: which cited sources topically back a section.
+ * This is an APPROXIMATE seed so every checkbox has a candidate source to
+ * open immediately. It is not authoritative — the audit console lets a
+ * reviewer confirm the actual source per datapoint, which overrides this.
+ */
+const SECTION_SOURCE_KEYWORDS: Record<DatapointSection, string[]> = {
+  "el-population": [
+    "nces",
+    "204.20",
+    "ellfacts",
+    "enrollment",
+    "englishlearner",
+    "el-facts",
+    "cefelf",
+    "fingertip",
+    "demograph",
+  ],
+  "bilingual-credential": ["bilingual", "dual language", "dual-language", "dlbe", "heritage language", "two-way"],
+  "eld-credential": [
+    "esl",
+    "esol",
+    "tesol",
+    "enl",
+    "english as a second",
+    "english as a new",
+    "english language development",
+    "/eld",
+    "-eld",
+    "english-learner-authorization",
+  ],
+  "sei-mandate": ["sei", "sheltered", "structured english", "retell"],
+  "professional-standards": [
+    "standard",
+    "professional teaching",
+    "code of ethics",
+    "educator standards",
+    "intasc",
+    "teaching profession",
+    "teaching-profession",
+  ],
+  "seal-of-biliteracy": ["biliteracy", "seal-of", "sealofbiliteracy"],
+  "elp-assessment": [
+    "elpac",
+    "access for ells",
+    "access-for-ells",
+    "wida",
+    "elpa21",
+    "azella",
+    "telpas",
+    "elpt",
+    "las links",
+    "las-links",
+    "english language proficiency",
+    "elp-assessment",
+    "oelas",
+    "proficiency assessment",
+  ],
+  provenance: [],
+};
+
+/**
+ * Cited sources that topically match a section, by keyword on url+label.
+ * Falls back to the full source list when nothing matches, so a reviewer
+ * always has documents to open (and to attribute the correct one from).
+ */
+function matchSources(sources: SourceLink[], section: DatapointSection): SourceLink[] {
+  const kws = SECTION_SOURCE_KEYWORDS[section];
+  if (kws.length === 0) return sources;
+  const hits = sources.filter((s) => {
+    const hay = `${s.url} ${s.label}`.toLowerCase();
+    return kws.some((kw) => hay.includes(kw));
+  });
+  return hits.length > 0 ? hits : sources;
+}
+
+/** Deduplicate source links by URL, preserving first-seen label/order. */
+function uniqueSources(links: SourceLink[]): SourceLink[] {
+  const seen = new Set<string>();
+  const out: SourceLink[] = [];
+  for (const l of links) {
+    if (l.url && !seen.has(l.url)) {
+      seen.add(l.url);
+      out.push(l);
+    }
+  }
+  return out;
 }
 
 /** Fixed ordered id set — the constant audit denominator. */
@@ -246,6 +336,7 @@ function credentialReqDatapoints(
   noun: string,
   section: DatapointSection,
   cred: CredentialLike,
+  src: SourceLink[],
 ): Datapoint[] {
   const r = cred.requirements;
   return [
@@ -255,6 +346,7 @@ function credentialReqDatapoints(
       section,
       formatRequirement(r?.program),
       r?.program,
+      src,
     ),
     scalar(
       `${prefix}.requirements.coursework`,
@@ -262,6 +354,7 @@ function credentialReqDatapoints(
       section,
       formatRequirement(r?.coursework),
       r?.coursework,
+      src,
     ),
     scalar(
       `${prefix}.requirements.practicum`,
@@ -269,6 +362,7 @@ function credentialReqDatapoints(
       section,
       formatRequirement(r?.practicum),
       r?.practicum,
+      src,
     ),
     scalar(
       `${prefix}.requirements.test`,
@@ -276,6 +370,7 @@ function credentialReqDatapoints(
       section,
       formatRequirement(r?.test),
       r?.test,
+      src,
     ),
     scalar(
       `${prefix}.requirements.languageProficiency`,
@@ -283,6 +378,7 @@ function credentialReqDatapoints(
       section,
       formatRequirement(r?.languageProficiency),
       r?.languageProficiency,
+      src,
     ),
   ];
 }
@@ -301,6 +397,24 @@ export function datapointsFor(state: StateData): Datapoint[] {
   const elPercentHistory = state.elPercentHistory ?? [];
   const sources = state.sources;
 
+  const allSources: SourceLink[] = sources.map((s) => ({ label: s.label, url: s.url }));
+
+  // Field-specific sources the schema carries directly.
+  const sealSource: SourceLink[] = seal.sourceUrl
+    ? [{ label: "State Seal of Biliteracy source", url: seal.sourceUrl }]
+    : matchSources(allSources, "seal-of-biliteracy");
+  const elpSource: SourceLink[] = elp.sourceUrl
+    ? [{ label: "ELP assessment source", url: elp.sourceUrl }]
+    : matchSources(allSources, "elp-assessment");
+
+  // Heuristic seed for fields the schema does not source per-field. The
+  // audit console lets a reviewer confirm the actual source, overriding this.
+  const popSrc = matchSources(allSources, "el-population");
+  const bilSrc = matchSources(allSources, "bilingual-credential");
+  const eldSrc = matchSources(allSources, "eld-credential");
+  const seiSrc = matchSources(allSources, "sei-mandate");
+  const stdSrc = matchSources(allSources, "professional-standards");
+
   return [
     scalar(
       "elPercent",
@@ -308,6 +422,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "el-population",
       `${state.elPercent.toFixed(1)}%`,
       state.elPercent,
+      popSrc,
     ),
     scalar(
       "elPercentAsOf",
@@ -315,6 +430,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "el-population",
       state.elPercentAsOf,
       state.elPercentAsOf,
+      popSrc,
     ),
 
     scalar(
@@ -323,6 +439,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "bilingual-credential",
       formatBool(b.offered),
       b.offered,
+      bilSrc,
     ),
     scalar(
       "credentials.bilingual.standalone",
@@ -330,6 +447,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "bilingual-credential",
       formatBool(b.standalone),
       b.standalone,
+      bilSrc,
     ),
     scalar(
       "credentials.bilingual.addOn",
@@ -337,8 +455,9 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "bilingual-credential",
       formatBool(b.addOn),
       b.addOn,
+      bilSrc,
     ),
-    ...credentialReqDatapoints("credentials.bilingual", "Bilingual education", "bilingual-credential", b),
+    ...credentialReqDatapoints("credentials.bilingual", "Bilingual education", "bilingual-credential", b, bilSrc),
 
     scalar(
       "credentials.eld.offered",
@@ -346,6 +465,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "eld-credential",
       formatBool(e.offered),
       e.offered,
+      eldSrc,
     ),
     scalar(
       "credentials.eld.standalone",
@@ -353,6 +473,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "eld-credential",
       formatBool(e.standalone),
       e.standalone,
+      eldSrc,
     ),
     scalar(
       "credentials.eld.addOn",
@@ -360,8 +481,9 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "eld-credential",
       formatBool(e.addOn),
       e.addOn,
+      eldSrc,
     ),
-    ...credentialReqDatapoints("credentials.eld", "English language development", "eld-credential", e),
+    ...credentialReqDatapoints("credentials.eld", "English language development", "eld-credential", e, eldSrc),
 
     scalar(
       "credentials.sei.mandatedForAllTeachers",
@@ -369,6 +491,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "sei-mandate",
       formatBool(state.credentials.sei.mandatedForAllTeachers),
       state.credentials.sei.mandatedForAllTeachers,
+      seiSrc,
     ),
 
     scalar(
@@ -377,6 +500,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "professional-standards",
       formatBool(psm.diverse),
       psm.diverse,
+      stdSrc,
     ),
     scalar(
       "professionalStandardsMentions.cultural",
@@ -384,6 +508,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "professional-standards",
       formatBool(psm.cultural),
       psm.cultural,
+      stdSrc,
     ),
     scalar(
       "professionalStandardsMentions.linguistic",
@@ -391,6 +516,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "professional-standards",
       formatBool(psm.linguistic),
       psm.linguistic,
+      stdSrc,
     ),
     scalar(
       "professionalStandardsMentions.el",
@@ -398,6 +524,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "professional-standards",
       formatBool(psm.el),
       psm.el,
+      stdSrc,
     ),
 
     scalar(
@@ -406,6 +533,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "seal-of-biliteracy",
       formatBool(seal.adopted),
       seal.adopted,
+      sealSource,
     ),
     scalar(
       "sealOfBiliteracy.year",
@@ -413,6 +541,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "seal-of-biliteracy",
       seal.year !== null ? String(seal.year) : "Not applicable",
       seal.year,
+      sealSource,
     ),
     scalar(
       "sealOfBiliteracy.sourceUrl",
@@ -420,6 +549,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "seal-of-biliteracy",
       seal.sourceUrl,
       seal.sourceUrl,
+      sealSource,
     ),
 
     scalar(
@@ -428,6 +558,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "elp-assessment",
       elp.name,
       elp.name,
+      elpSource,
     ),
     scalar(
       "elpAssessment.consortium",
@@ -435,6 +566,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "elp-assessment",
       elp.consortium ?? "State-specific assessment",
       elp.consortium,
+      elpSource,
     ),
     scalar(
       "elpAssessment.sourceUrl",
@@ -442,6 +574,7 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "elp-assessment",
       elp.sourceUrl ?? "No citation recorded",
       elp.sourceUrl,
+      elpSource,
     ),
 
     group(
@@ -449,8 +582,9 @@ export function datapointsFor(state: StateData): Datapoint[] {
       "Licensure history timeline",
       "provenance",
       history.length > 0 ? `${history.length} event${history.length === 1 ? "" : "s"}` : "No events recorded",
-      history.map((ev) => ({ label: ev.date, value: ev.title })),
+      history.map((ev) => ({ label: ev.date, value: ev.title, url: ev.sourceUrls[0] })),
       state.history,
+      uniqueSources(history.flatMap((ev) => ev.sourceUrls.map((url) => ({ label: ev.title, url })))),
     ),
     group(
       "elPercentHistory",
@@ -462,16 +596,19 @@ export function datapointsFor(state: StateData): Datapoint[] {
       elPercentHistory.map((obs) => ({
         label: obs.date.slice(0, 4),
         value: `${obs.percent.toFixed(1)}% — ${obs.source.label}`,
+        url: obs.source.url,
       })),
       state.elPercentHistory,
+      uniqueSources(elPercentHistory.map((obs) => ({ label: obs.source.label, url: obs.source.url }))),
     ),
     group(
       "sources",
       "Source citations",
       "provenance",
       `${sources.length} citation${sources.length === 1 ? "" : "s"}`,
-      sources.map((src) => ({ label: src.label, value: src.url })),
+      sources.map((src) => ({ label: src.label, value: src.url, url: src.url })),
       sources,
+      sources.map((src) => ({ label: src.label, url: src.url })),
     ),
   ];
 }

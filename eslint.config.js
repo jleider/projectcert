@@ -12,11 +12,15 @@ export default [
       "dist/**",
       "node_modules/**",
       ".astro/**",
+      ".wrangler/**",
       ".claude/**",
       "public/**",
       "playwright-report/**",
       "test-results/**",
       "src/env.d.ts",
+      // Standalone Playwright e2e harness for the gated console — run via
+      // `node` (needs wrangler + a browser), not part of the lint/type gate.
+      "tests/e2e/**/*.mjs",
     ],
   },
   js.configs.recommended,
@@ -85,13 +89,12 @@ export default [
 
   {
     rules: {
-      // We rely on Astro's content-collection types; explicit `any` shows
-      // up only deliberately at JSON-LD boundaries.
-      "@typescript-eslint/no-explicit-any": "warn",
-      // Unused vars are noisy during refactors; keep as warnings.
-      "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
-      // Inline scripts in .astro pages legitimately use `var` patterns.
-      "no-empty": ["warn", { allowEmptyCatch: true }],
+      // Warnings are errors. Every rule below is blocking (also enforced
+      // by `--max-warnings 0`). `any` is permitted only with an explicit
+      // inline eslint-disable at the rare JSON-LD boundary that needs it.
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
+      "no-empty": ["error", { allowEmptyCatch: true }],
     },
   },
   {
@@ -99,15 +102,6 @@ export default [
     rules: {
       // Scripts log progress to stderr/stdout intentionally.
       "no-console": "off",
-    },
-  },
-  {
-    files: ["tests/**/*.ts"],
-    rules: {
-      // Tests parse dynamic JSON response bodies and assert on their
-      // shape; reading them as `any` is the pragmatic, conventional
-      // choice and keeps the assertions legible.
-      "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {

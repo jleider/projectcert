@@ -1,13 +1,14 @@
 /**
  * /api/suggestions — reviewer-proposed corrections.
  *
- *   GET  ?usps=CA&status=open   suggestions for one state
- *   GET  ?status=open           all open suggestions (overview report)
- *   POST {usps,datapoint_id,body}   file a suggestion
+ *   GET   ?usps=CA&status=open   suggestions for one state
+ *   GET   ?status=open           all open suggestions (overview report)
+ *   POST  {usps,datapoint_id,body}   file a suggestion
+ *   PATCH {id,status}                resolve/reopen a suggestion
  *
- * Suggestions are append-only and NEVER auto-applied to the catalog —
- * a maintainer reviews them and edits the state JSON through the normal
- * curated workflow.
+ * Suggestions are NEVER auto-applied to the catalog — a maintainer reviews
+ * them, edits the state JSON through the normal curated workflow, and then
+ * marks the suggestion resolved here.
  */
 
 import { jsonResponse, normalizeUsps, isDatapointId } from "../../src/lib/audit-shared";
@@ -20,6 +21,8 @@ interface SuggestionRow {
   submitted_by: string;
   submitted_at: string;
   status: string;
+  resolved_by: string | null;
+  resolved_at: string | null;
 }
 
 const MAX_BODY = 4000;
@@ -43,8 +46,8 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
   const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
 
   const { results } = await env.DB.prepare(
-    `SELECT id, usps, datapoint_id, body, submitted_by, submitted_at, status
-       FROM suggestions ${where} ORDER BY submitted_at DESC`,
+    `SELECT id, usps, datapoint_id, body, submitted_by, submitted_at, status, resolved_by, resolved_at
+       FROM suggestions ${where} ORDER BY submitted_at ASC, id ASC`,
   )
     .bind(...binds)
     .all<SuggestionRow>();
@@ -85,5 +88,36 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
     submitted_by: data.userEmail,
     submitted_at: submittedAt,
     status: "open",
+  });
+};
+
+export const onRequestPatch: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
+  const body = (await request.json().catch(() => null)) as { id?: number; status?: string } | null;
+  const id = typeof body?.id === "number" ? body.id : null;
+  const status = body?.status;
+  if (id === null || (status !== "open" && status !== "resolved")) {
+    return jsonResponse({ error: "id and status ('open'|'resolved') are required." }, 400);
+  }
+
+  const now = new Date().toISOString();
+  const result =
+    status === "resolved"
+      ? await env.DB.prepare(
+          `UPDATE suggestions SET status = 'resolved', resolved_by = ?2, resolved_at = ?3 WHERE id = ?1`,
+        )
+          .bind(id, data.userEmail, now)
+          .run()
+      : await env.DB.prepare(
+          `UPDATE suggestions SET status = 'open', resolved_by = NULL, resolved_at = NULL WHERE id = ?1`,
+        )
+          .bind(id)
+          .run();
+
+  if (result.meta.changes === 0) return jsonResponse({ error: "No suggestion with that id." }, 404);
+  return jsonResponse({
+    id,
+    status,
+    resolved_by: status === "resolved" ? data.userEmail : null,
+    resolved_at: status === "resolved" ? now : null,
   });
 };

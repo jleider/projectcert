@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://portal.ct.gov/-/media/sde/board/boardmaterials040126/the_condition_of_education_in_connecticut_2024_25.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/ct/2026-05-10/audit-report.md` and
-`sources/ct/2026-05-10/sea-el-research.md`.
+`sources/CT/2026-05-10/audit-report.md` and
+`sources/CT/2026-05-10/sea-el-research.md`.

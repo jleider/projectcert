@@ -9,6 +9,9 @@ out/
 .turbo/
 .astro/
 
+# Cloudflare Wrangler local state / build cache (Pages Functions + local D1)
+.wrangler/
+
 # Env
 .env
 .env.local

@@ -223,11 +223,11 @@ they affect citation quality:
 - **Audit reports cleanup** — VA's audit-report proposed two rows
   with dates marked "approximate" (1992 ESL baseline, 2014 WIDA
   alignment). Both were rejected and not added; the audit-report
-  text in `sources/va/2026-05-10/audit-report.md` still proposes
+  text in `sources/VA/2026-05-10/audit-report.md` still proposes
   them. Optional: prune.
 - **CA folder casing** — the CA worker agent wrote to
   `sources/CA/2026-05-10/` (uppercase). The orchestrator copy is at
-  `sources/ca/2026-05-10/` (lowercase, project convention). The
+  `sources/CA/2026-05-10/` (lowercase, project convention). The
   uppercase folder still exists in the worktree branch. Optional:
   drop the worktree.
 

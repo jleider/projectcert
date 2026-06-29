@@ -31,3 +31,55 @@ const DATAPOINT_ID_SET = new Set(DATAPOINT_IDS);
 export function isDatapointId(id: unknown): id is string {
   return typeof id === "string" && DATAPOINT_ID_SET.has(id);
 }
+
+/**
+ * Normalize a reviewer-typed source URL, or return null if it isn't a
+ * fully-formed web URL. Prepends `https://` when the scheme is omitted (so
+ * `www.example.com` works), then requires an http(s) URL whose host is a real
+ * dotted domain with an alphabetic TLD — so a bare word like `dsfsda`
+ * (which `new URL` would otherwise accept as `https://dsfsda`) is rejected.
+ * Shared by the client (immediate feedback) and the server (authoritative).
+ */
+export function normalizeSourceUrl(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const s = raw.trim();
+  if (s.length === 0) return null;
+  const withScheme = /^https?:\/\//i.test(s) ? s : `https://${s}`;
+  let u: URL;
+  try {
+    u = new URL(withScheme);
+  } catch {
+    return null;
+  }
+  if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+  // Require a dotted domain ending in an alphabetic TLD (≥2 chars).
+  if (!/\.[a-z]{2,}$/i.test(u.hostname)) return null;
+  return u.toString();
+}
+
+const ENTITIES: Record<string, string> = {
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&quot;": '"',
+  "&#39;": "'",
+  "&apos;": "'",
+  "&nbsp;": " ",
+};
+
+/**
+ * Extract a human title from fetched HTML — prefer `og:title`, fall back to
+ * `<title>`. Returns null if neither is present. Pure (regex-based, no DOM)
+ * so it runs in the Workers runtime and is unit-testable.
+ */
+export function extractTitle(html: string): string | null {
+  const og = html.match(/<meta[^>]+(?:property|name)=["']og:title["'][^>]*\bcontent=["']([^"']+)["']/i);
+  const raw = og?.[1] ?? html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1];
+  if (!raw) return null;
+  const text = raw
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&[a-z]+;|&#39;/gi, (m) => ENTITIES[m.toLowerCase()] ?? m)
+    .replace(/\s+/g, " ")
+    .trim();
+  return text.length > 0 ? text : null;
+}

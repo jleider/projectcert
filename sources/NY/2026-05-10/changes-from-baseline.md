@@ -14,7 +14,7 @@ Appended fall-2023 ELL observation to `elPercentHistory[]` and bumped
   under the term Multilingual Learner (MLL). Denominator is K-12
   public-school enrollment (259,829 ELLs of 2,418,513 students).
 
-See `sources/ny/2026-05-10/sea-el-research.md` for the full agent
+See `sources/NY/2026-05-10/sea-el-research.md` for the full agent
 write-up.
 
 No other fields changed.

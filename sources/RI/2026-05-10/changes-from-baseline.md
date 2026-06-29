@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://ride.ri.gov/sites/g/files/xkgbur806/files/2024-03/Encl5a_MLL.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/ri/2026-05-10/audit-report.md` and
-`sources/ri/2026-05-10/sea-el-research.md`.
+`sources/RI/2026-05-10/audit-report.md` and
+`sources/RI/2026-05-10/sea-el-research.md`.

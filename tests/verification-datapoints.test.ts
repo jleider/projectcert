@@ -20,57 +20,22 @@ const rich = {
       offered: true,
       standalone: true,
       addOn: true,
-      requirements: {
-        program: true,
-        coursework: false,
-        practicum: true,
-        test: true,
-        languageProficiency: true,
-      },
+      requirements: { program: true, coursework: false, practicum: true, test: true, languageProficiency: true },
     },
     eld: {
       offered: true,
       standalone: false,
       addOn: true,
-      requirements: {
-        program: false,
-        coursework: true,
-        practicum: null,
-        test: true,
-        languageProficiency: false,
-      },
+      requirements: { program: false, coursework: true, practicum: null, test: true, languageProficiency: false },
     },
     sei: { mandatedForAllTeachers: true },
   },
-  professionalStandardsMentions: {
-    diverse: true,
-    cultural: true,
-    linguistic: true,
-    el: true,
-  },
-  sealOfBiliteracy: {
-    adopted: true,
-    year: 2011,
-    sourceUrl: "https://example.org/seal",
-  },
-  elpAssessment: {
-    name: "ELPAC",
-    consortium: null,
-    sourceUrl: "https://example.org/elpac",
-  },
+  professionalStandardsMentions: { diverse: true, cultural: true, linguistic: true, el: true },
+  sealOfBiliteracy: { adopted: true, year: 2011, sourceUrl: "https://example.org/seal" },
+  elpAssessment: { name: "ELPAC", consortium: null, sourceUrl: "https://example.org/elpac" },
   sources: [
-    {
-      label: "CTC leaflet",
-      url: "https://example.org/a",
-      retrievedAt: "2026-05-10",
-      retrievedBy: "projectcert-2026",
-    },
-    {
-      label: "CDE page",
-      url: "https://example.org/b",
-      retrievedAt: "2026-05-10",
-      retrievedBy: "projectcert-2026",
-    },
+    { label: "CTC leaflet", url: "https://example.org/a", retrievedAt: "2026-05-10", retrievedBy: "projectcert-2026" },
+    { label: "CDE page", url: "https://example.org/b", retrievedAt: "2026-05-10", retrievedBy: "projectcert-2026" },
   ],
   history: [
     {
@@ -84,11 +49,7 @@ const rich = {
     {
       date: "2019-10-01",
       percent: 19.3,
-      source: {
-        label: "NCES 204.20",
-        url: "https://example.org/n",
-        publisher: "nces",
-      },
+      source: { label: "NCES 204.20", url: "https://example.org/n", publisher: "nces" },
     },
   ],
 };
@@ -103,30 +64,10 @@ const sparse = {
     eld: { offered: false, standalone: false, addOn: false },
     sei: { mandatedForAllTeachers: false },
   },
-  professionalStandardsMentions: {
-    diverse: false,
-    cultural: false,
-    linguistic: false,
-    el: false,
-  },
-  sealOfBiliteracy: {
-    adopted: false,
-    year: null,
-    sourceUrl: "https://example.org/seal",
-  },
-  elpAssessment: {
-    name: "WIDA ACCESS",
-    consortium: "WIDA" as const,
-    sourceUrl: null,
-  },
-  sources: [
-    {
-      label: "WY DoE",
-      url: "https://example.org/wy",
-      retrievedAt: "2019-11-01",
-      retrievedBy: "leider-2021",
-    },
-  ],
+  professionalStandardsMentions: { diverse: false, cultural: false, linguistic: false, el: false },
+  sealOfBiliteracy: { adopted: false, year: null, sourceUrl: "https://example.org/seal" },
+  elpAssessment: { name: "WIDA ACCESS", consortium: "WIDA" as const, sourceUrl: null },
+  sources: [{ label: "WY DoE", url: "https://example.org/wy", retrievedAt: "2019-11-01", retrievedBy: "leider-2021" }],
   // history and elPercentHistory intentionally absent
 };
 
@@ -164,14 +105,61 @@ describe("datapointsFor", () => {
       expect(by[id]!.grouped).toBe(true);
     }
     expect(by["sources"]!.rows).toHaveLength(2);
-    expect(by["history"]!.rows[0]).toEqual({
-      label: "1976-01-01",
-      value: "AB 1329",
-    });
+    expect(by["history"]!.rows[0]).toEqual({ label: "1976-01-01", value: "AB 1329", url: "https://example.org/h1" });
     expect(by["elPercentHistory"]!.rows[0]).toEqual({
       label: "2019",
       value: "19.3% — NCES 204.20",
+      url: "https://example.org/n",
     });
+  });
+
+  it("exposes field-specific source links where the schema carries them", () => {
+    const by = Object.fromEntries(datapointsFor(rich).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    // Seal + ELP fields point at their own source URL.
+    expect(by["sealOfBiliteracy.adopted"]!.sourceUrls).toEqual([
+      { label: "State Seal of Biliteracy source", url: "https://example.org/seal" },
+    ]);
+    expect(by["elpAssessment.name"]!.sourceUrls).toEqual([
+      { label: "ELP assessment source", url: "https://example.org/elpac" },
+    ]);
+    // Grouped items carry deduped source links.
+    expect(by["sources"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/a", "https://example.org/b"]);
+    expect(by["history"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/h1"]);
+    // Every datapoint has at least one candidate source (the rich fixture's
+    // generic labels match no section keyword, so catch-all fields fall back
+    // to the full cited-source list — a reviewer confirms the real one).
+    for (const d of datapointsFor(rich)) expect(d.sourceUrls.length).toBeGreaterThan(0);
+    expect(by["credentials.bilingual.standalone"]!.sourceUrls.map((s) => s.url)).toEqual([
+      "https://example.org/a",
+      "https://example.org/b",
+    ]);
+  });
+
+  it("narrows catch-all datapoints to topically-matching sources when labels are distinctive", () => {
+    const topical = {
+      ...rich,
+      sources: [
+        {
+          label: "CTC Bilingual Authorization leaflet",
+          url: "https://ctc.example/bilingual",
+          retrievedAt: "2026-05-10",
+          retrievedBy: "projectcert-2026",
+        },
+        {
+          label: "NCES Digest Table 204.20",
+          url: "https://nces.ed.gov/d23/204.20",
+          retrievedAt: "2026-05-10",
+          retrievedBy: "projectcert-2026",
+        },
+      ],
+    };
+    const by = Object.fromEntries(datapointsFor(topical).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    // bilingual fields match the "bilingual" source, not the NCES one.
+    expect(by["credentials.bilingual.offered"]!.sourceUrls.map((s) => s.url)).toEqual([
+      "https://ctc.example/bilingual",
+    ]);
+    // population fields match the NCES source.
+    expect(by["elPercent"]!.sourceUrls.map((s) => s.url)).toEqual(["https://nces.ed.gov/d23/204.20"]);
   });
 
   it("treats absent and empty optional arrays identically (hash + display)", () => {

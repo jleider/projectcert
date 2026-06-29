@@ -14,5 +14,5 @@ Sources cited from this pass:
   <https://ospi.k12.wa.us/sites/default/files/2026-01/tbip-legislative-report-2024-25.pdf>
 
 Full worker write-up and supporting research for this pass:
-`sources/wa/2026-05-10/audit-report.md` and
-`sources/wa/2026-05-10/sea-el-research.md`.
+`sources/WA/2026-05-10/audit-report.md` and
+`sources/WA/2026-05-10/sea-el-research.md`.

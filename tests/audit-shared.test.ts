@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { jsonResponse, normalizeUsps, isDatapointId } from "../src/lib/audit-shared";
+import { jsonResponse, normalizeUsps, isDatapointId, normalizeSourceUrl, extractTitle } from "../src/lib/audit-shared";
 import { DATAPOINT_IDS } from "../src/lib/verification-datapoints";
 
 describe("normalizeUsps", () => {
@@ -25,6 +25,45 @@ describe("isDatapointId", () => {
     expect(isDatapointId("")).toBe(false);
     expect(isDatapointId(42)).toBe(false);
     expect(isDatapointId(null)).toBe(false);
+  });
+});
+
+describe("normalizeSourceUrl", () => {
+  it("keeps full http(s) URLs and adds a trailing slash on bare origins", () => {
+    expect(normalizeSourceUrl("https://azed.gov/x")).toBe("https://azed.gov/x");
+    expect(normalizeSourceUrl("http://example.org")).toBe("http://example.org/");
+  });
+  it("prepends https:// for scheme-less dotted domains", () => {
+    expect(normalizeSourceUrl("www.example.com")).toBe("https://www.example.com/");
+    expect(normalizeSourceUrl("example.gov")).toBe("https://example.gov/");
+  });
+  it("rejects a bare word that is not a real domain", () => {
+    // The reported bug: "dsfsda" → "https://dsfsda" parses but is not a URL.
+    expect(normalizeSourceUrl("dsfsda")).toBeNull();
+    expect(normalizeSourceUrl("https://dsfsda")).toBeNull(); // single-label host
+  });
+  it("rejects non-http schemes, malformed input, numeric TLDs, and empties", () => {
+    expect(normalizeSourceUrl("ftp://x.com")).toBeNull();
+    expect(normalizeSourceUrl("javascript:alert(1)")).toBeNull();
+    expect(normalizeSourceUrl("not a url")).toBeNull();
+    expect(normalizeSourceUrl("192.168.1.1")).toBeNull(); // numeric TLD
+    expect(normalizeSourceUrl("")).toBeNull();
+    expect(normalizeSourceUrl(null)).toBeNull();
+  });
+});
+
+describe("extractTitle", () => {
+  it("prefers og:title, falls back to <title>, decodes entities, collapses whitespace", () => {
+    expect(extractTitle("<title>ELPAC — CDE</title>")).toBe("ELPAC — CDE");
+    expect(extractTitle('<meta property="og:title" content="Bilingual Authorization">\n<title>fallback</title>')).toBe(
+      "Bilingual Authorization",
+    );
+    expect(extractTitle("<title>A &amp; B &#39;C&#39;</title>")).toBe("A & B 'C'");
+    expect(extractTitle("<title>\n  Spaced   Out\n</title>")).toBe("Spaced Out");
+  });
+  it("returns null when there is no title", () => {
+    expect(extractTitle("<html><body>no title here</body></html>")).toBeNull();
+    expect(extractTitle("<title>   </title>")).toBeNull();
   });
 });
 
