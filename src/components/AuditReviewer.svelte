@@ -42,6 +42,23 @@
   // datapoint_id -> reviewer-added source URLs (with fetched titles).
   let added: Record<string, { url: string; title: string }[]> = {};
   let newUrl: Record<string, string> = {};
+  // datapoint_id -> inline error shown next to the add-source-URL input.
+  let sourceError: Record<string, string> = {};
+
+  /** Normalize a typed source URL: trim, and prepend https:// when the user
+   *  omits a scheme (so "www.example.com" works). Returns null if it still
+   *  isn't a valid http(s) URL. */
+  function normalizeUrl(raw: string): string | null {
+    const s = raw.trim();
+    if (!s) return null;
+    const withScheme = /^https?:\/\//i.test(s) ? s : `https://${s}`;
+    try {
+      const u = new URL(withScheme);
+      return u.protocol === "http:" || u.protocol === "https:" ? u.toString() : null;
+    } catch {
+      return null;
+    }
+  }
 
   // url -> human label, from the state's cited sources, field-specific
   // descriptor sources, and reviewer-added sources, so a selected URL renders
@@ -238,11 +255,17 @@
   }
 
   /** Add a reviewer-typed source URL: the server fetches its title, stores it
-   *  as a candidate, and it becomes the current (unconfirmed) source. */
+   *  as a candidate, and it becomes the current (unconfirmed) source. Errors
+   *  surface inline next to the input, not in the page-top banner. */
   async function addSourceUrl(d: Datapoint) {
-    const url = (newUrl[d.id] ?? "").trim();
     const key = `src:${d.id}`;
-    if (offline || busy[key] || url.length === 0) return;
+    if (offline || busy[key]) return;
+    const url = normalizeUrl(newUrl[d.id] ?? "");
+    if (!url) {
+      sourceError = { ...sourceError, [d.id]: "Enter a valid URL, e.g. https://example.gov/page" };
+      return;
+    }
+    sourceError = { ...sourceError, [d.id]: "" };
     busy = { ...busy, [key]: true };
     try {
       const res = await fetch(`/api/added-sources`, {
@@ -250,7 +273,11 @@
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ usps, datapoint_id: d.id, url }),
       });
-      if (!res.ok) throw new Error("add");
+      if (!res.ok) {
+        const err = (await res.json().catch(() => null)) as { error?: string } | null;
+        sourceError = { ...sourceError, [d.id]: err?.error ?? "Could not add this source URL — please check it and retry." };
+        return;
+      }
       const row = (await res.json()) as { url: string; title: string };
       added = {
         ...added,
@@ -259,7 +286,7 @@
       attributions = { ...attributions, [d.id]: row.url }; // current (unconfirmed) source
       newUrl = { ...newUrl, [d.id]: "" };
     } catch {
-      actionError = "Could not add the source URL — check it and retry.";
+      sourceError = { ...sourceError, [d.id]: "Could not reach the review service — please retry." };
     } finally {
       busy = { ...busy, [key]: false };
     }
@@ -433,6 +460,8 @@
                               placeholder="Add a source URL not listed above…"
                               bind:value={newUrl[d.id]}
                               disabled={busy[`src:${d.id}`]}
+                              on:input={() => sourceError[d.id] && (sourceError = { ...sourceError, [d.id]: "" })}
+                              on:keydown={(e) => e.key === "Enter" && addSourceUrl(d)}
                             />
                             <button
                               type="button"
@@ -443,6 +472,9 @@
                               {busy[`src:${d.id}`] ? "Fetching…" : "Add URL"}
                             </button>
                           </div>
+                          {#if sourceError[d.id]}
+                            <p class="mt-1 text-xs text-ink">⚠ {sourceError[d.id]}</p>
+                          {/if}
                         {/if}
                       {/if}
                     </div>

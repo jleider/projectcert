@@ -69,8 +69,11 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
   const datapointId = body?.datapoint_id;
   const url = typeof body?.url === "string" ? body.url.trim() : "";
 
-  if (!usps || !isDatapointId(datapointId) || !isHttpUrl(url)) {
-    return jsonResponse({ error: "usps, datapoint_id, and a valid http(s) url are required." }, 400);
+  if (!usps || !isDatapointId(datapointId)) {
+    return jsonResponse({ error: "A valid state and datapoint are required." }, 400);
+  }
+  if (!isHttpUrl(url)) {
+    return jsonResponse({ error: "That doesn't look like a valid URL — include https:// (e.g. https://example.gov/page)." }, 400);
   }
 
   const title = await fetchTitle(url);

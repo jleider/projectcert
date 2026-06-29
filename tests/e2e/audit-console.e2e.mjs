@@ -127,16 +127,26 @@ try {
   await sleep(1200);
   assert((await li.getByText("Likely source (unconfirmed):").count()) > 0, "reverts to 'Likely source (unconfirmed)' when unchecked");
 
-  step("4. Adding a new source URL fetches its title and makes it the current source");
-  await page.locator('input[type="url"]').first().fill("https://example.com/");
-  await page.getByRole("button", { name: /Add URL|Fetching/ }).first().click();
+  step("4. Add-source-URL: validates, normalizes bare domains, fetches title");
+  const urlInput = page.locator('input[type="url"]').first();
+  const addBtn = page.getByRole("button", { name: /Add URL|Fetching/ }).first();
+  // 4a: invalid input shows an inline error and does not change the source
+  await urlInput.fill("not a url");
+  await addBtn.click();
+  await sleep(800); // may round-trip to the server (browser URL parsing is lenient)
+  assert((await li.getByText(/valid URL|valid http/i).count()) > 0, "invalid URL shows a user-facing inline error (not just a console 400)");
+  // 4b: a bare domain (no scheme) is normalized to https:// and its title fetched
+  await urlInput.fill("www.example.com");
+  await addBtn.click();
   await sleep(5000); // server-side fetch + title parse
   const addedHref = await li.locator("ul.list-disc a").first().getAttribute("href");
-  assert(addedHref === "https://example.com/", `added URL is now the shown source (href=${addedHref})`);
-  const addedText = (await li.locator("ul.list-disc a").first().innerText()).trim();
-  assert(/example/i.test(addedText), `shown label reflects the fetched title/host ("${addedText}")`);
+  assert(addedHref === "https://www.example.com/", `bare domain normalized + selected as source (href=${addedHref})`);
+  assert(/example/i.test((await li.locator("ul.list-disc a").first().innerText()).trim()), "shown label reflects the fetched title/host");
 
-  assert(apiErrors.length === 0, `no 4xx/5xx API responses (${apiErrors.join(", ") || "none"})`);
+  // The invalid-URL submission in step 4a intentionally returns 400; any
+  // other 4xx/5xx is a real problem.
+  const unexpected = apiErrors.filter((e) => !(e.startsWith("400") && e.includes("/api/added-sources")));
+  assert(unexpected.length === 0, `no unexpected 4xx/5xx API responses (${unexpected.join(", ") || "none"})`);
 
   await browser.close();
   console.log("\n✅ audit-console e2e PASSED");
