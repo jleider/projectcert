@@ -55,7 +55,12 @@ function credCell(c: {
         full per-state record and source list.
       </p>
 
-      <div class="mt-4 overflow-x-auto rounded border border-ink-subtle/20">
+      <div
+        class="mt-4 overflow-x-auto rounded border border-ink-subtle/20"
+        tabindex="0"
+        role="region"
+        aria-labelledby="data-table-heading"
+      >
         <table class="w-full text-sm">
           <caption class="sr-only">
             U.S. state EL teacher certification data: % classified ELs,
@@ -152,7 +157,11 @@ function credCell(c: {
   </section>
 
   <style>
-    [data-col][data-active="true"] {
+    /* Tint only the body cells of the active column. Keeping the tint
+     * off the header lets the accent-colored header text sit on plain
+     * --surface-raised, where it clears AA (the 8% accent tint dragged
+     * it to 4.19:1). */
+    td[data-col][data-active="true"] {
       background-color: color-mix(in srgb, var(--accent) 8%, transparent);
     }
     th[data-col][data-active="true"] {

@@ -170,7 +170,9 @@
   }
 
   function handleKey(e: KeyboardEvent, datum: StateDatum | undefined) {
-    if (datum && (e.key === "Enter" || e.key === " ")) {
+    // Enter activates the <a> natively (fires the click handler); only
+    // Space needs handling here, to keep the prior button-style parity.
+    if (datum && e.key === " ") {
       e.preventDefault();
       handleClick(datum);
     }
@@ -190,9 +192,13 @@
 </script>
 
 <figure class="relative w-full" bind:clientWidth={containerWidth}>
+  <!-- role="group" (not "img"): the map's state cells are interactive
+       links, so it is a labelled group of controls, not a single static
+       graphic. role="img" would forbid the focusable <a> descendants
+       (axe nested-interactive). -->
   <svg
     viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
-    role="img"
+    role="group"
     aria-label={`U.S. choropleth — ${layer === "elPercent" ? "percent classified English Learners by state" : layer}`}
     class="w-full h-auto"
   >
@@ -268,27 +274,32 @@
       {@const datum = usps ? stateById.get(usps) : undefined}
       {@const d = pathFn(feat as never) ?? ""}
       {#if datum}
+        <!-- The <a> is the single interactive/focusable element: it
+             carries the href, label, and all pointer/keyboard handlers.
+             The <path> is presentational (aria-hidden) so there is no
+             nested interactive control. SVG <a> activates on Enter
+             natively; handleKey adds Space for parity with the prior
+             button affordance. -->
         <a
           href={`${linkBase}${stateUrl(datum.usps)}`}
           target={linkTarget}
           rel={linkRel}
+          tabindex="0"
           aria-label={`${datum.name}: ${describe(datum, layer)}`}
           on:click|preventDefault={() => handleClick(datum)}
+          on:mousemove={(e) => handleMove(e, datum)}
+          on:mouseleave={handleLeave}
+          on:focus={() => handleFocus(datum)}
+          on:blur={handleBlur}
+          on:keydown={(e) => handleKey(e, datum)}
+          style="cursor: pointer; outline-offset: 2px;"
         >
           <path
             {d}
             fill={fillFor(datum, layer)}
             stroke="var(--map-border)"
             stroke-width="1"
-            tabindex="0"
-            role="button"
-            aria-label={`${datum.name}: ${describe(datum, layer)}`}
-            on:mousemove={(e) => handleMove(e, datum)}
-            on:mouseleave={handleLeave}
-            on:focus={() => handleFocus(datum)}
-            on:blur={handleBlur}
-            on:keydown={(e) => handleKey(e, datum)}
-            style="cursor: pointer; outline-offset: 2px;"
+            aria-hidden="true"
           />
         </a>
       {:else}
@@ -311,12 +322,21 @@
         stroke-width="0.75"
         aria-hidden="true"
       />
+      <!-- Same single-interactive pattern as the state paths: the <a>
+           owns focus, label, and handlers; the <rect> is presentational. -->
       <a
         href={`${linkBase}${stateUrl("dc")}`}
         target={linkTarget}
         rel={linkRel}
+        tabindex="0"
         aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}
         on:click|preventDefault={() => handleClick(dcDatum)}
+        on:mousemove={(e) => handleMove(e, dcDatum)}
+        on:mouseleave={handleLeave}
+        on:focus={() => handleFocus(dcDatum)}
+        on:blur={handleBlur}
+        on:keydown={(e) => handleKey(e, dcDatum)}
+        style="cursor: pointer; outline-offset: 2px;"
       >
         <rect
           x={DC_CALLOUT_X - DC_CALLOUT_SIZE / 2}
@@ -327,15 +347,7 @@
           fill={fillFor(dcDatum, layer)}
           stroke="var(--map-border)"
           stroke-width="1"
-          tabindex="0"
-          role="button"
-          aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}
-          on:mousemove={(e) => handleMove(e, dcDatum)}
-          on:mouseleave={handleLeave}
-          on:focus={() => handleFocus(dcDatum)}
-          on:blur={handleBlur}
-          on:keydown={(e) => handleKey(e, dcDatum)}
-          style="cursor: pointer; outline-offset: 2px;"
+          aria-hidden="true"
         />
       </a>
       <text
