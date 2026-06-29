@@ -174,8 +174,22 @@ describe("/api/added-sources", () => {
     }
   });
 
-  it("rejects a non-http(s) url", async () => {
-    expect((await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "ftp://x/y" } }))).status).toBe(400);
+  it("rejects inputs that are not real web addresses", async () => {
+    for (const url of ["ftp://x.com", "dsfsda", "https://dsfsda", "not a url", "192.168.1.1", ""]) {
+      const res = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url } }));
+      expect(res.status, `${JSON.stringify(url)} should be rejected`).toBe(400);
+    }
+  });
+
+  it("normalizes a scheme-less bare domain server-side", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response("<title>ADE</title>", { status: 200 })));
+    try {
+      const res = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "www.azed.gov" } }));
+      expect(res.status).toBe(200);
+      expect((await res.json()).url).toBe("https://www.azed.gov/");
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });
 

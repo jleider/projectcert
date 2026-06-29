@@ -32,15 +32,29 @@ export function isDatapointId(id: unknown): id is string {
   return typeof id === "string" && DATAPOINT_ID_SET.has(id);
 }
 
-/** True for a well-formed http(s) URL. */
-export function isHttpUrl(value: unknown): value is string {
-  if (typeof value !== "string") return false;
+/**
+ * Normalize a reviewer-typed source URL, or return null if it isn't a
+ * fully-formed web URL. Prepends `https://` when the scheme is omitted (so
+ * `www.example.com` works), then requires an http(s) URL whose host is a real
+ * dotted domain with an alphabetic TLD — so a bare word like `dsfsda`
+ * (which `new URL` would otherwise accept as `https://dsfsda`) is rejected.
+ * Shared by the client (immediate feedback) and the server (authoritative).
+ */
+export function normalizeSourceUrl(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const s = raw.trim();
+  if (s.length === 0) return null;
+  const withScheme = /^https?:\/\//i.test(s) ? s : `https://${s}`;
+  let u: URL;
   try {
-    const u = new URL(value);
-    return u.protocol === "http:" || u.protocol === "https:";
+    u = new URL(withScheme);
   } catch {
-    return false;
+    return null;
   }
+  if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+  // Require a dotted domain ending in an alphabetic TLD (≥2 chars).
+  if (!/\.[a-z]{2,}$/i.test(u.hostname)) return null;
+  return u.toString();
 }
 
 const ENTITIES: Record<string, string> = {

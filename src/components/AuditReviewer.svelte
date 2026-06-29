@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { SECTION_LABELS, type Datapoint, type DatapointSection } from "@/lib/verification-datapoints";
+  import { normalizeSourceUrl } from "@/lib/audit-shared";
 
   export let usps: string;
   export let stateName: string;
@@ -44,21 +45,6 @@
   let newUrl: Record<string, string> = {};
   // datapoint_id -> inline error shown next to the add-source-URL input.
   let sourceError: Record<string, string> = {};
-
-  /** Normalize a typed source URL: trim, and prepend https:// when the user
-   *  omits a scheme (so "www.example.com" works). Returns null if it still
-   *  isn't a valid http(s) URL. */
-  function normalizeUrl(raw: string): string | null {
-    const s = raw.trim();
-    if (!s) return null;
-    const withScheme = /^https?:\/\//i.test(s) ? s : `https://${s}`;
-    try {
-      const u = new URL(withScheme);
-      return u.protocol === "http:" || u.protocol === "https:" ? u.toString() : null;
-    } catch {
-      return null;
-    }
-  }
 
   // url -> human label, from the state's cited sources, field-specific
   // descriptor sources, and reviewer-added sources, so a selected URL renders
@@ -260,9 +246,9 @@
   async function addSourceUrl(d: Datapoint) {
     const key = `src:${d.id}`;
     if (offline || busy[key]) return;
-    const url = normalizeUrl(newUrl[d.id] ?? "");
+    const url = normalizeSourceUrl(newUrl[d.id] ?? "");
     if (!url) {
-      sourceError = { ...sourceError, [d.id]: "Enter a valid URL, e.g. https://example.gov/page" };
+      sourceError = { ...sourceError, [d.id]: "Enter a full web address, e.g. https://example.gov/page" };
       return;
     }
     sourceError = { ...sourceError, [d.id]: "" };

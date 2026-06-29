@@ -130,11 +130,11 @@ try {
   step("4. Add-source-URL: validates, normalizes bare domains, fetches title");
   const urlInput = page.locator('input[type="url"]').first();
   const addBtn = page.getByRole("button", { name: /Add URL|Fetching/ }).first();
-  // 4a: invalid input shows an inline error and does not change the source
-  await urlInput.fill("not a url");
+  // 4a: a bare word (not a real domain) is rejected with an inline error
+  await urlInput.fill("dsfsda");
   await addBtn.click();
-  await sleep(800); // may round-trip to the server (browser URL parsing is lenient)
-  assert((await li.getByText(/valid URL|valid http/i).count()) > 0, "invalid URL shows a user-facing inline error (not just a console 400)");
+  await sleep(400);
+  assert((await li.getByText(/full web address|valid/i).count()) > 0, "a bare word like 'dsfsda' is rejected with an inline error");
   // 4b: a bare domain (no scheme) is normalized to https:// and its title fetched
   await urlInput.fill("www.example.com");
   await addBtn.click();

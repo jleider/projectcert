@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { jsonResponse, normalizeUsps, isDatapointId, isHttpUrl, extractTitle } from "../src/lib/audit-shared";
+import { jsonResponse, normalizeUsps, isDatapointId, normalizeSourceUrl, extractTitle } from "../src/lib/audit-shared";
 import { DATAPOINT_IDS } from "../src/lib/verification-datapoints";
 
 describe("normalizeUsps", () => {
@@ -28,15 +28,27 @@ describe("isDatapointId", () => {
   });
 });
 
-describe("isHttpUrl", () => {
-  it("accepts http(s) URLs and rejects everything else", () => {
-    expect(isHttpUrl("https://azed.gov/x")).toBe(true);
-    expect(isHttpUrl("http://example.org")).toBe(true);
-    expect(isHttpUrl("ftp://x")).toBe(false);
-    expect(isHttpUrl("javascript:alert(1)")).toBe(false);
-    expect(isHttpUrl("not a url")).toBe(false);
-    expect(isHttpUrl("")).toBe(false);
-    expect(isHttpUrl(null)).toBe(false);
+describe("normalizeSourceUrl", () => {
+  it("keeps full http(s) URLs and adds a trailing slash on bare origins", () => {
+    expect(normalizeSourceUrl("https://azed.gov/x")).toBe("https://azed.gov/x");
+    expect(normalizeSourceUrl("http://example.org")).toBe("http://example.org/");
+  });
+  it("prepends https:// for scheme-less dotted domains", () => {
+    expect(normalizeSourceUrl("www.example.com")).toBe("https://www.example.com/");
+    expect(normalizeSourceUrl("example.gov")).toBe("https://example.gov/");
+  });
+  it("rejects a bare word that is not a real domain", () => {
+    // The reported bug: "dsfsda" → "https://dsfsda" parses but is not a URL.
+    expect(normalizeSourceUrl("dsfsda")).toBeNull();
+    expect(normalizeSourceUrl("https://dsfsda")).toBeNull(); // single-label host
+  });
+  it("rejects non-http schemes, malformed input, numeric TLDs, and empties", () => {
+    expect(normalizeSourceUrl("ftp://x.com")).toBeNull();
+    expect(normalizeSourceUrl("javascript:alert(1)")).toBeNull();
+    expect(normalizeSourceUrl("not a url")).toBeNull();
+    expect(normalizeSourceUrl("192.168.1.1")).toBeNull(); // numeric TLD
+    expect(normalizeSourceUrl("")).toBeNull();
+    expect(normalizeSourceUrl(null)).toBeNull();
   });
 });
 

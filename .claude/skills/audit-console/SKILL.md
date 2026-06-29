@@ -71,7 +71,11 @@ A reviewer can also **type a source URL not in the list**: `POST
 /api/added-sources` fetches the page title server-side (`extractTitle` over
 og:title / `<title>`, hostname fallback when bot-blocked), stores it in
 `added_sources`, and selects it as the current (unconfirmed) source. Added
-URLs become candidates in the picker with their fetched title.
+URLs become candidates in the picker with their fetched title. Input is run
+through `normalizeSourceUrl` (shared by client and server): it prepends
+`https://` when the scheme is omitted (so `www.example.gov` works) but rejects
+anything that isn't a real dotted domain (e.g. `dsfsda`), surfacing an inline
+error at the input — not just a console 400.
 
 **Suggestions** are filed per datapoint, ordered oldest→newest, and resolved
 in the console (`PATCH /api/suggestions {id, status}` → `resolved`, stamping
