@@ -30,8 +30,9 @@ All use `AuditLayout.astro` (`noindex,nofollow`). Routes live in
   `verifications.ts`, `suggestions.ts`, `overview.ts`, `broken-links.ts`,
   `link-reviews.ts`, and `_middleware.ts` (auth).
 - **D1** (`schema/d1/0001_init.sql`): tables `verifications`, `suggestions`,
-  `broken_links`, `link_reviews`. Binding `DB`, configured in the dashboard
-  (authoritative for Pages) and mirrored in `wrangler.toml` for local dev.
+  `broken_links`, `link_reviews`, `datapoint_sources`. Binding `DB`, configured
+  in the dashboard (authoritative for Pages) and mirrored in `wrangler.toml`
+  for local dev.
 
 `_middleware.ts` does **mandatory** verification of the signed
 `Cf-Access-Jwt-Assertion` JWT against the team JWKS + `aud` (the email header
@@ -47,6 +48,17 @@ reviewer checks: `datapointsFor(state)` returns a **fixed 32-entry skeleton**
 academic-register `label`, a `section`, a formatted `displayValue`, and a
 `contentHash` for drift detection. `history`/`elPercentHistory`/`sources` are
 single `grouped` items.
+
+**Per-datapoint sources.** Each `Datapoint` also carries `sourceUrls` — the
+source(s) a reviewer opens to verify it. The schema has no per-field
+provenance (only a flat per-state `sources[]`), so `datapointsFor` SEEDS this
+heuristically: Seal/ELP use their own `sourceUrl`; grouped items use their
+rows' sources; the rest are matched by keyword (`SECTION_SOURCE_KEYWORDS`)
+against the cited sources, falling back to the full list. The seed is
+approximate. A reviewer confirms the real source(s) in the console, stored in
+the `datapoint_sources` D1 table (via `functions/api/datapoint-sources.ts`)
+and rendered as the confirmed source, overriding the seed. Do not treat the
+heuristic as provenance — it is a starting point for human attribution.
 
 Keep this module **Svelte-safe and Workers-safe**: no `astro:content`, no Node
 APIs, a local structural `StateData` type (not an import from the content

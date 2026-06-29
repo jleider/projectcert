@@ -35,6 +35,34 @@
   let busy: Record<string, boolean> = {};
   let draft: Record<string, string> = {};
   let showSuggest: Record<string, boolean> = {};
+  // datapoint_id -> confirmed source URLs (reviewer attributions).
+  let attributions: Record<string, string[]> = {};
+  let showSources: Record<string, boolean> = {};
+
+  // url -> human label, from the state's cited sources and any field-specific
+  // descriptor sources, so confirmed URLs render with a readable label.
+  $: urlLabel = (() => {
+    const m = new Map<string, string>();
+    for (const s of citedSources) m.set(s.url, s.label);
+    for (const d of datapoints) for (const s of d.sourceUrls) if (!m.has(s.url)) m.set(s.url, s.label);
+    return m;
+  })();
+
+  /** Candidate sources to offer for a datapoint: its heuristic matches first,
+   *  then the rest of the state's cited sources. */
+  function candidateSources(d: Datapoint): { label: string; url: string }[] {
+    const seen = new Set(d.sourceUrls.map((s) => s.url));
+    const rest = citedSources.filter((s) => !seen.has(s.url));
+    return [...d.sourceUrls, ...rest];
+  }
+
+  /** Sources shown as "the source(s) to verify": confirmed if any, else the
+   *  heuristic seed. */
+  function shownSources(d: Datapoint): { label: string; url: string }[] {
+    const confirmed = attributions[d.id] ?? [];
+    if (confirmed.length > 0) return confirmed.map((url) => ({ url, label: urlLabel.get(url) ?? url }));
+    return d.sourceUrls;
+  }
 
   function isStale(d: Datapoint): boolean {
     const v = verifications[d.id];
@@ -75,20 +103,25 @@
 
   onMount(async () => {
     try {
-      const [vRes, bRes, sRes] = await Promise.all([
+      const [vRes, bRes, sRes, dsRes] = await Promise.all([
         fetch(`/api/verifications?usps=${usps}`),
         fetch(`/api/broken-links?usps=${usps}`),
         fetch(`/api/suggestions?usps=${usps}&status=open`),
+        fetch(`/api/datapoint-sources?usps=${usps}`),
       ]);
-      if (!vRes.ok || !bRes.ok || !sRes.ok) throw new Error("api");
+      if (!vRes.ok || !bRes.ok || !sRes.ok || !dsRes.ok) throw new Error("api");
 
       const v = (await vRes.json()) as { verifications: VerificationRow[] };
       const b = (await bRes.json()) as { brokenLinks: BrokenRow[] };
       const s = (await sRes.json()) as { suggestions: SuggestionRow[] };
+      const ds = (await dsRes.json()) as { sources: { datapoint_id: string; url: string }[] };
 
       verifications = Object.fromEntries(v.verifications.map((r) => [r.datapoint_id, r]));
       broken = groupBy(b.brokenLinks, (r) => r.datapoint_id);
       suggestions = groupBy(s.suggestions, (r) => r.datapoint_id);
+      const attr: Record<string, string[]> = {};
+      for (const r of ds.sources) (attr[r.datapoint_id] ??= []).push(r.url);
+      attributions = attr;
     } catch {
       offline = true;
     } finally {
@@ -133,6 +166,33 @@
       offline = true;
     } finally {
       busy = { ...busy, [d.id]: false };
+    }
+  }
+
+  function isConfirmedSource(d: Datapoint, url: string): boolean {
+    return (attributions[d.id] ?? []).includes(url);
+  }
+
+  async function toggleSource(d: Datapoint, url: string) {
+    if (offline) return;
+    const key = `src:${d.id}`;
+    if (busy[key]) return;
+    busy = { ...busy, [key]: true };
+    const confirmed = isConfirmedSource(d, url);
+    try {
+      const res = await fetch(`/api/datapoint-sources`, {
+        method: confirmed ? "DELETE" : "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ usps, datapoint_id: d.id, url }),
+      });
+      if (!res.ok) throw new Error("source");
+      const current = attributions[d.id] ?? [];
+      const next = confirmed ? current.filter((u) => u !== url) : [...current, url];
+      attributions = { ...attributions, [d.id]: next };
+    } catch {
+      offline = true;
+    } finally {
+      busy = { ...busy, [key]: false };
     }
   }
 
@@ -227,18 +287,46 @@
                   {/if}
 
                   {#if !d.grouped}
-                    {#if d.sourceUrls.length > 0}
-                      <div class="mt-1 text-xs">
-                        <span class="text-ink-subtle">Source{d.sourceUrls.length > 1 ? "s" : ""} to verify:</span>
+                    {@const confirmedCount = attributions[d.id]?.length ?? 0}
+                    <div class="mt-1 text-xs">
+                      {#if shownSources(d).length > 0}
+                        <span class="text-ink-subtle">{confirmedCount > 0 ? `Confirmed source${confirmedCount > 1 ? "s" : ""}:` : "Likely source (unconfirmed):"}</span>
                         <ul class="mt-0.5 list-disc pl-5">
-                          {#each d.sourceUrls as src}
+                          {#each shownSources(d) as src}
                             <li><a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a></li>
                           {/each}
                         </ul>
-                      </div>
-                    {:else}
-                      <div class="mt-1 text-xs text-ink-subtle">Verify against the cited sources above.</div>
-                    {/if}
+                      {:else}
+                        <span class="text-ink-subtle">No candidate source — choose one below.</span>
+                      {/if}
+                      {#if !offline}
+                        <button
+                          type="button"
+                          class="mt-1 text-accent hover:underline"
+                          on:click={() => (showSources = { ...showSources, [d.id]: !showSources[d.id] })}
+                        >
+                          {showSources[d.id] ? "Hide sources" : "Set source"}
+                        </button>
+                        {#if showSources[d.id]}
+                          <p class="mt-1 text-ink-subtle">Check the cited source(s) this fact actually came from:</p>
+                          <ul class="mt-1 space-y-1">
+                            {#each candidateSources(d) as src}
+                              <li class="flex items-start gap-2">
+                                <input
+                                  type="checkbox"
+                                  class="mt-0.5 shrink-0"
+                                  checked={isConfirmedSource(d, src.url)}
+                                  disabled={busy[`src:${d.id}`]}
+                                  aria-label={`Confirm source for ${d.label}: ${src.label}`}
+                                  on:change={() => toggleSource(d, src.url)}
+                                />
+                                <a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a>
+                              </li>
+                            {/each}
+                          </ul>
+                        {/if}
+                      {/if}
+                    </div>
                   {/if}
 
                   {#if d.grouped && d.rows.length > 0}

@@ -103,16 +103,26 @@ describe("datapointsFor", () => {
     // Grouped items carry deduped source links.
     expect(by["sources"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/a", "https://example.org/b"]);
     expect(by["history"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/h1"]);
-    // Fields the schema does not source individually have none (verified
-    // against the state's cited-source list instead).
-    expect(by["credentials.bilingual.standalone"]!.sourceUrls).toEqual([]);
-    expect(by["professionalStandardsMentions.el"]!.sourceUrls).toEqual([]);
-    expect(by["elPercent"]!.sourceUrls).toEqual([]);
+    // Every datapoint has at least one candidate source (the rich fixture's
+    // generic labels match no section keyword, so catch-all fields fall back
+    // to the full cited-source list — a reviewer confirms the real one).
+    for (const d of datapointsFor(rich)) expect(d.sourceUrls.length).toBeGreaterThan(0);
+    expect(by["credentials.bilingual.standalone"]!.sourceUrls.map((s) => s.url)).toEqual(["https://example.org/a", "https://example.org/b"]);
   });
 
-  it("omits the ELP source link when the state has no ELP source URL", () => {
-    const by = Object.fromEntries(datapointsFor(sparse).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
-    expect(by["elpAssessment.name"]!.sourceUrls).toEqual([]); // sparse fixture: elpAssessment.sourceUrl is null
+  it("narrows catch-all datapoints to topically-matching sources when labels are distinctive", () => {
+    const topical = {
+      ...rich,
+      sources: [
+        { label: "CTC Bilingual Authorization leaflet", url: "https://ctc.example/bilingual", retrievedAt: "2026-05-10", retrievedBy: "projectcert-2026" },
+        { label: "NCES Digest Table 204.20", url: "https://nces.ed.gov/d23/204.20", retrievedAt: "2026-05-10", retrievedBy: "projectcert-2026" },
+      ],
+    };
+    const by = Object.fromEntries(datapointsFor(topical).map((d) => [d.id, d] as const)) as Record<string, Datapoint>;
+    // bilingual fields match the "bilingual" source, not the NCES one.
+    expect(by["credentials.bilingual.offered"]!.sourceUrls.map((s) => s.url)).toEqual(["https://ctc.example/bilingual"]);
+    // population fields match the NCES source.
+    expect(by["elPercent"]!.sourceUrls.map((s) => s.url)).toEqual(["https://nces.ed.gov/d23/204.20"]);
   });
 
   it("treats absent and empty optional arrays identically (hash + display)", () => {

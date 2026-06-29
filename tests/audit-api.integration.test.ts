@@ -16,6 +16,7 @@ import { onRequestGet as sugGet, onRequestPost as sugPost } from "../functions/a
 import { onRequestGet as ovGet } from "../functions/api/overview";
 import { onRequestGet as brkGet } from "../functions/api/broken-links";
 import { onRequestGet as lrGet, onRequestPost as lrPost } from "../functions/api/link-reviews";
+import { onRequestGet as dsGet, onRequestPost as dsPost, onRequestDelete as dsDel } from "../functions/api/datapoint-sources";
 import { onRequest as middleware } from "../functions/api/_middleware";
 
 const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
@@ -180,6 +181,27 @@ describe("/api/link-reviews", () => {
   it("404s for an unknown URL and 400s for a bad decision", async () => {
     expect((await lrPost(ctx({ method: "POST", body: { url: "https://nope", decision: "accepted" } }))).status).toBe(404);
     expect((await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "maybe" } }))).status).toBe(400);
+  });
+});
+
+describe("/api/datapoint-sources", () => {
+  it("confirms, lists, and un-confirms a source for a datapoint", async () => {
+    const post = await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "credentials.bilingual.standalone", url: "https://x/bil" } }));
+    expect(post.status).toBe(200);
+
+    let list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    expect(list.sources).toHaveLength(1);
+    expect(list.sources[0]).toMatchObject({ datapoint_id: "credentials.bilingual.standalone", url: "https://x/bil", set_by: "reviewer@example.org" });
+
+    const del = await dsDel(ctx({ method: "DELETE", body: { usps: "CA", datapoint_id: "credentials.bilingual.standalone", url: "https://x/bil" } }));
+    expect(del.status).toBe(200);
+    list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    expect(list.sources).toHaveLength(0);
+  });
+
+  it("rejects an unknown datapoint id and a missing usps", async () => {
+    expect((await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "nope", url: "https://x" } }))).status).toBe(400);
+    expect((await dsGet(ctx({ url: "https://x.org/api" }))).status).toBe(400);
   });
 });
 

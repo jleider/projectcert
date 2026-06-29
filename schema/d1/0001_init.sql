@@ -64,3 +64,17 @@ CREATE TABLE IF NOT EXISTS link_reviews (
   note            TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_link_reviews_decision ON link_reviews (decision);
+
+-- Reviewer-confirmed source(s) for each datapoint. The descriptor seeds a
+-- heuristic candidate source per datapoint; a reviewer confirms which cited
+-- source the fact actually came from here, overriding the seed. A datapoint
+-- may have more than one confirmed source.
+CREATE TABLE IF NOT EXISTS datapoint_sources (
+  usps         TEXT NOT NULL,
+  datapoint_id TEXT NOT NULL,
+  url          TEXT NOT NULL,
+  set_by       TEXT NOT NULL,
+  set_at       TEXT NOT NULL,
+  PRIMARY KEY (usps, datapoint_id, url)
+);
+CREATE INDEX IF NOT EXISTS idx_datapoint_sources_usps ON datapoint_sources (usps);

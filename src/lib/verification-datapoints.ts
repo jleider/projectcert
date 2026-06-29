@@ -186,6 +186,38 @@ function group(
   return { id, label, section, displayValue, grouped: true, rows, sourceUrls, contentHash: contentHashFor(canonical ?? []) };
 }
 
+/**
+ * Best-effort keyword map: which cited sources topically back a section.
+ * This is an APPROXIMATE seed so every checkbox has a candidate source to
+ * open immediately. It is not authoritative — the audit console lets a
+ * reviewer confirm the actual source per datapoint, which overrides this.
+ */
+const SECTION_SOURCE_KEYWORDS: Record<DatapointSection, string[]> = {
+  "el-population": ["nces", "204.20", "ellfacts", "enrollment", "englishlearner", "el-facts", "cefelf", "fingertip", "demograph"],
+  "bilingual-credential": ["bilingual", "dual language", "dual-language", "dlbe", "heritage language", "two-way"],
+  "eld-credential": ["esl", "esol", "tesol", "enl", "english as a second", "english as a new", "english language development", "/eld", "-eld", "english-learner-authorization"],
+  "sei-mandate": ["sei", "sheltered", "structured english", "retell"],
+  "professional-standards": ["standard", "professional teaching", "code of ethics", "educator standards", "intasc", "teaching profession", "teaching-profession"],
+  "seal-of-biliteracy": ["biliteracy", "seal-of", "sealofbiliteracy"],
+  "elp-assessment": ["elpac", "access for ells", "access-for-ells", "wida", "elpa21", "azella", "telpas", "elpt", "las links", "las-links", "english language proficiency", "elp-assessment", "oelas", "proficiency assessment"],
+  provenance: [],
+};
+
+/**
+ * Cited sources that topically match a section, by keyword on url+label.
+ * Falls back to the full source list when nothing matches, so a reviewer
+ * always has documents to open (and to attribute the correct one from).
+ */
+function matchSources(sources: SourceLink[], section: DatapointSection): SourceLink[] {
+  const kws = SECTION_SOURCE_KEYWORDS[section];
+  if (kws.length === 0) return sources;
+  const hits = sources.filter((s) => {
+    const hay = `${s.url} ${s.label}`.toLowerCase();
+    return kws.some((kw) => hay.includes(kw));
+  });
+  return hits.length > 0 ? hits : sources;
+}
+
 /** Deduplicate source links by URL, preserving first-seen label/order. */
 function uniqueSources(links: SourceLink[]): SourceLink[] {
   const seen = new Set<string>();
@@ -242,14 +274,15 @@ function credentialReqDatapoints(
   noun: string,
   section: DatapointSection,
   cred: CredentialLike,
+  src: SourceLink[],
 ): Datapoint[] {
   const r = cred.requirements;
   return [
-    scalar(`${prefix}.requirements.program`, `${noun} credential requires completion of an approved preparation program`, section, formatRequirement(r?.program), r?.program),
-    scalar(`${prefix}.requirements.coursework`, `${noun} credential requires specific coursework`, section, formatRequirement(r?.coursework), r?.coursework),
-    scalar(`${prefix}.requirements.practicum`, `${noun} credential requires a supervised practicum`, section, formatRequirement(r?.practicum), r?.practicum),
-    scalar(`${prefix}.requirements.test`, `${noun} credential requires a content or subject-matter examination`, section, formatRequirement(r?.test), r?.test),
-    scalar(`${prefix}.requirements.languageProficiency`, `${noun} credential requires demonstrated proficiency in a language other than English`, section, formatRequirement(r?.languageProficiency), r?.languageProficiency),
+    scalar(`${prefix}.requirements.program`, `${noun} credential requires completion of an approved preparation program`, section, formatRequirement(r?.program), r?.program, src),
+    scalar(`${prefix}.requirements.coursework`, `${noun} credential requires specific coursework`, section, formatRequirement(r?.coursework), r?.coursework, src),
+    scalar(`${prefix}.requirements.practicum`, `${noun} credential requires a supervised practicum`, section, formatRequirement(r?.practicum), r?.practicum, src),
+    scalar(`${prefix}.requirements.test`, `${noun} credential requires a content or subject-matter examination`, section, formatRequirement(r?.test), r?.test, src),
+    scalar(`${prefix}.requirements.languageProficiency`, `${noun} credential requires demonstrated proficiency in a language other than English`, section, formatRequirement(r?.languageProficiency), r?.languageProficiency, src),
   ];
 }
 
@@ -267,34 +300,44 @@ export function datapointsFor(state: StateData): Datapoint[] {
   const elPercentHistory = state.elPercentHistory ?? [];
   const sources = state.sources;
 
-  // Field-specific sources the schema does carry.
+  const allSources: SourceLink[] = sources.map((s) => ({ label: s.label, url: s.url }));
+
+  // Field-specific sources the schema carries directly.
   const sealSource: SourceLink[] = seal.sourceUrl
     ? [{ label: "State Seal of Biliteracy source", url: seal.sourceUrl }]
-    : [];
+    : matchSources(allSources, "seal-of-biliteracy");
   const elpSource: SourceLink[] = elp.sourceUrl
     ? [{ label: "ELP assessment source", url: elp.sourceUrl }]
-    : [];
+    : matchSources(allSources, "elp-assessment");
+
+  // Heuristic seed for fields the schema does not source per-field. The
+  // audit console lets a reviewer confirm the actual source, overriding this.
+  const popSrc = matchSources(allSources, "el-population");
+  const bilSrc = matchSources(allSources, "bilingual-credential");
+  const eldSrc = matchSources(allSources, "eld-credential");
+  const seiSrc = matchSources(allSources, "sei-mandate");
+  const stdSrc = matchSources(allSources, "professional-standards");
 
   return [
-    scalar("elPercent", "Share of public-school students classified as English Learners", "el-population", `${state.elPercent.toFixed(1)}%`, state.elPercent),
-    scalar("elPercentAsOf", "As-of date for the classified English-Learner share", "el-population", state.elPercentAsOf, state.elPercentAsOf),
+    scalar("elPercent", "Share of public-school students classified as English Learners", "el-population", `${state.elPercent.toFixed(1)}%`, state.elPercent, popSrc),
+    scalar("elPercentAsOf", "As-of date for the classified English-Learner share", "el-population", state.elPercentAsOf, state.elPercentAsOf, popSrc),
 
-    scalar("credentials.bilingual.offered", "Bilingual education credential is offered", "bilingual-credential", formatBool(b.offered), b.offered),
-    scalar("credentials.bilingual.standalone", "Bilingual education available as a standalone certification", "bilingual-credential", formatBool(b.standalone), b.standalone),
-    scalar("credentials.bilingual.addOn", "Bilingual education available as an add-on endorsement", "bilingual-credential", formatBool(b.addOn), b.addOn),
-    ...credentialReqDatapoints("credentials.bilingual", "Bilingual education", "bilingual-credential", b),
+    scalar("credentials.bilingual.offered", "Bilingual education credential is offered", "bilingual-credential", formatBool(b.offered), b.offered, bilSrc),
+    scalar("credentials.bilingual.standalone", "Bilingual education available as a standalone certification", "bilingual-credential", formatBool(b.standalone), b.standalone, bilSrc),
+    scalar("credentials.bilingual.addOn", "Bilingual education available as an add-on endorsement", "bilingual-credential", formatBool(b.addOn), b.addOn, bilSrc),
+    ...credentialReqDatapoints("credentials.bilingual", "Bilingual education", "bilingual-credential", b, bilSrc),
 
-    scalar("credentials.eld.offered", "English language development credential is offered", "eld-credential", formatBool(e.offered), e.offered),
-    scalar("credentials.eld.standalone", "English language development available as a standalone certification", "eld-credential", formatBool(e.standalone), e.standalone),
-    scalar("credentials.eld.addOn", "English language development available as an add-on endorsement", "eld-credential", formatBool(e.addOn), e.addOn),
-    ...credentialReqDatapoints("credentials.eld", "English language development", "eld-credential", e),
+    scalar("credentials.eld.offered", "English language development credential is offered", "eld-credential", formatBool(e.offered), e.offered, eldSrc),
+    scalar("credentials.eld.standalone", "English language development available as a standalone certification", "eld-credential", formatBool(e.standalone), e.standalone, eldSrc),
+    scalar("credentials.eld.addOn", "English language development available as an add-on endorsement", "eld-credential", formatBool(e.addOn), e.addOn, eldSrc),
+    ...credentialReqDatapoints("credentials.eld", "English language development", "eld-credential", e, eldSrc),
 
-    scalar("credentials.sei.mandatedForAllTeachers", "Sheltered English instruction training is mandated for all teachers", "sei-mandate", formatBool(state.credentials.sei.mandatedForAllTeachers), state.credentials.sei.mandatedForAllTeachers),
+    scalar("credentials.sei.mandatedForAllTeachers", "Sheltered English instruction training is mandated for all teachers", "sei-mandate", formatBool(state.credentials.sei.mandatedForAllTeachers), state.credentials.sei.mandatedForAllTeachers, seiSrc),
 
-    scalar("professionalStandardsMentions.diverse", "Professional teaching standards reference diverse learners", "professional-standards", formatBool(psm.diverse), psm.diverse),
-    scalar("professionalStandardsMentions.cultural", "Professional teaching standards reference cultural competency", "professional-standards", formatBool(psm.cultural), psm.cultural),
-    scalar("professionalStandardsMentions.linguistic", "Professional teaching standards reference linguistic diversity", "professional-standards", formatBool(psm.linguistic), psm.linguistic),
-    scalar("professionalStandardsMentions.el", "Professional teaching standards explicitly reference English Learners", "professional-standards", formatBool(psm.el), psm.el),
+    scalar("professionalStandardsMentions.diverse", "Professional teaching standards reference diverse learners", "professional-standards", formatBool(psm.diverse), psm.diverse, stdSrc),
+    scalar("professionalStandardsMentions.cultural", "Professional teaching standards reference cultural competency", "professional-standards", formatBool(psm.cultural), psm.cultural, stdSrc),
+    scalar("professionalStandardsMentions.linguistic", "Professional teaching standards reference linguistic diversity", "professional-standards", formatBool(psm.linguistic), psm.linguistic, stdSrc),
+    scalar("professionalStandardsMentions.el", "Professional teaching standards explicitly reference English Learners", "professional-standards", formatBool(psm.el), psm.el, stdSrc),
 
     scalar("sealOfBiliteracy.adopted", "State Seal of Biliteracy has been adopted", "seal-of-biliteracy", formatBool(seal.adopted), seal.adopted, sealSource),
     scalar("sealOfBiliteracy.year", "Year the State Seal of Biliteracy was adopted", "seal-of-biliteracy", seal.year !== null ? String(seal.year) : "Not applicable", seal.year, sealSource),

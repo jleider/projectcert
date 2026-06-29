@@ -421,6 +421,14 @@ Load-bearing rules:
   plus a builder line; the id is the D1 key, so renaming orphans rows
   (the snapshot test fails loud). Labels are user-facing
   academic-register prose, never schema identifiers.
+- **Per-datapoint sources are seeded, then human-confirmed.** Each
+  datapoint carries `sourceUrls` so a reviewer can open the source a fact
+  came from. The schema has no per-field provenance, so the descriptor
+  seeds these heuristically (`SECTION_SOURCE_KEYWORDS` matched against the
+  state's flat `sources[]`, with Seal/ELP/grouped using their own URLs);
+  the seed is approximate. A reviewer confirms the real source(s) in the
+  console — stored in the `datapoint_sources` table — which overrides the
+  seed. Never treat the heuristic as provenance.
 - **The link checker has a status-aware human-review loop.** Anything
   the checker cannot confirm — a bot-block (401/403/405/429), a
   connection reset / TLS failure, or a 5xx — classifies as `needs-review`

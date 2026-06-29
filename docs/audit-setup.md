@@ -121,6 +121,13 @@ reviewer; it must never be set in production. The local D1 lives under
 `.wrangler/state` and is independent of the remote database — local
 checkmarks/suggestions stay local.
 
+**Schema changes.** While the audit feature is pre-release the schema
+lives in a single migration (`schema/d1/0001_init.sql`); editing it does
+not re-run against an already-migrated local DB, so after a schema change
+reset local state: `rm -rf .wrangler && npm run d1:migrate:local`. Once
+the D1 database is live in production, further schema changes must be
+**new** migration files (`0002_*.sql`, …), never edits to `0001`.
+
 To populate the `/audit/links` queue locally, run a sweep into the local
 D1:
 
