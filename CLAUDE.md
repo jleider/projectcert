@@ -774,7 +774,7 @@ mirror→canonical map, and the bulk remediation-script pattern.
 
 ## Skills
 
-Five project skills under `.claude/skills/`:
+Six project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -792,6 +792,12 @@ Five project skills under `.claude/skills/`:
   descriptor, and the link-review/whitelist flow. Triggered when editing
   `functions/`, `src/lib/verification-datapoints.ts`, the audit pages,
   `schema/d1/`, or the audit sync scripts/workflows.
+- **`quality-gate`** — how the formatting / lint / typecheck / dead-code
+  / test / a11y / CI gate is wired, plus its conventions and footguns.
+  Triggered when editing `eslint.config.js`, `.prettierrc.json`,
+  `knip.json`, any `tsconfig*.json`, the CI workflow, the build-check
+  scripts, or `tests/e2e/`; when adding a test/page/map-layer; or when a
+  gate step fails or needs tuning.
 
 ## Source paper
 
