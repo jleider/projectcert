@@ -128,6 +128,29 @@ The `MapExplorer` component is the reference implementation; the
 `/embed/map/` page is the exception, since the iframe `src` is the
 canonical state and embed contexts shouldn't mutate the host URL.
 
+### Svelte reactivity: a value read inside a function isn't tracked
+
+Svelte (legacy `$:` and template expressions) tracks the identifiers it
+sees **syntactically** in the statement, not the variables a *called
+function* reads internally. So `$: n = items.filter(isCurrent).length`
+or `{#each shownFor(d) as x}` will **not** re-run when the state that
+`isCurrent` / `shownFor` reads (a `verifications` / `attributions` map,
+etc.) is reassigned — the label updates but the list silently goes
+stale. This bit the audit islands three times (progress-bar count, the
+shown source, the candidate list) and is invisible to unit tests.
+
+Two rules:
+
+- **Make the reactive state appear in the expression** — inline the
+  predicate, or pass the state in as an argument so Svelte sees it:
+  `$: n = items.filter((d) => map[d.id] === d.hash).length`, or
+  `{#each shownFor(d, attributions) as x}`.
+- **Reassign maps, never mutate** (`map = { ...map, [k]: v }`) so the
+  dependency actually fires.
+
+`npm run e2e:audit` exists partly to catch this class of regression in
+the audit console, since `astro check` and Vitest will not.
+
 ### State seals
 
 Per-state seal SVGs live at `public/seals/<usps>.svg` with sibling
