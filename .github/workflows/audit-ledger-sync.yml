@@ -59,7 +59,7 @@ jobs:
         run: npx tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
 
       - name: Open PR if anything changed
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/audit-store-sync
           base: main
