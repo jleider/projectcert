@@ -22,8 +22,7 @@ function bilingualClause(state: State): string {
 function eldClause(state: State): string {
   const e = state.credentials.eld;
   if (!e.offered) return "does not offer an ELD/ESL credential";
-  if (e.standalone && e.addOn)
-    return "ELD/ESL is available both as a standalone license and as an add-on endorsement";
+  if (e.standalone && e.addOn) return "ELD/ESL is available both as a standalone license and as an add-on endorsement";
   if (e.standalone) return "ELD/ESL is a standalone teaching license";
   return "ELD/ESL is an add-on endorsement";
 }

@@ -34,7 +34,11 @@ export const LEGENDS: Record<Layer, LegendEntry[]> = {
   bilingual: [
     { key: "none", color: "var(--bilingual-0)", label: "Not offered" },
     { key: "addOn", color: "var(--bilingual-2)", label: "Add-on only" },
-    { key: "standalone", color: "var(--bilingual-3)", label: "Standalone offered" },
+    {
+      key: "standalone",
+      color: "var(--bilingual-3)",
+      label: "Standalone offered",
+    },
   ],
   eld: [
     { key: "none", color: "var(--eld-0)", label: "Not offered" },
@@ -52,7 +56,11 @@ export const LEGENDS: Record<Layer, LegendEntry[]> = {
   elpAssessment: [
     { key: "wida", color: "var(--elp-3)", label: "WIDA · ACCESS for ELLs" },
     { key: "elpa21", color: "var(--elp-2)", label: "ELPA21 consortium" },
-    { key: "state", color: "var(--elp-0)", label: "State-specific (AZELLA, ELPAC, TELPAS, etc.)" },
+    {
+      key: "state",
+      color: "var(--elp-0)",
+      label: "State-specific (AZELLA, ELPAC, TELPAS, etc.)",
+    },
   ],
 };
 

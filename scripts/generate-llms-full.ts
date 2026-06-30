@@ -26,8 +26,18 @@ interface State {
   elPercent: number;
   elPercentAsOf: string;
   credentials: {
-    bilingual: { offered: boolean; standalone: boolean; addOn: boolean; notes?: string };
-    eld: { offered: boolean; standalone: boolean; addOn: boolean; notes?: string };
+    bilingual: {
+      offered: boolean;
+      standalone: boolean;
+      addOn: boolean;
+      notes?: string;
+    };
+    eld: {
+      offered: boolean;
+      standalone: boolean;
+      addOn: boolean;
+      notes?: string;
+    };
     sei: { mandatedForAllTeachers: boolean; notes?: string };
   };
   sealOfBiliteracy: { adopted: boolean | null; year: number | null };
@@ -35,7 +45,11 @@ interface State {
   lastVerified: string;
   verificationStatus: "baseline-2019" | "in-progress" | "verified-2026";
   history?: Array<{ date: string; title: string; description: string }>;
-  elPercentHistory?: Array<{ date: string; percent: number; source: { label: string; url: string } }>;
+  elPercentHistory?: Array<{
+    date: string;
+    percent: number;
+    source: { label: string; url: string };
+  }>;
 }
 
 function bilingualClause(s: State): string {
@@ -50,8 +64,7 @@ function bilingualClause(s: State): string {
 function eldClause(s: State): string {
   const e = s.credentials.eld;
   if (!e.offered) return "does not offer an ELD/ESL credential";
-  if (e.standalone && e.addOn)
-    return "ELD/ESL is available both as a standalone license and as an add-on endorsement";
+  if (e.standalone && e.addOn) return "ELD/ESL is available both as a standalone license and as an add-on endorsement";
   if (e.standalone) return "ELD/ESL is a standalone teaching license";
   return "ELD/ESL is an add-on endorsement";
 }
@@ -72,9 +85,7 @@ function elpClause(s: State): string {
 function sealClause(s: State): string {
   const seal = s.sealOfBiliteracy;
   if (seal.adopted === true)
-    return seal.year
-      ? `Seal of Biliteracy adopted in ${seal.year}.`
-      : "Seal of Biliteracy adopted.";
+    return seal.year ? `Seal of Biliteracy adopted in ${seal.year}.` : "Seal of Biliteracy adopted.";
   if (seal.adopted === false) return "Seal of Biliteracy not adopted.";
   return "Seal of Biliteracy adoption status unverified.";
 }
@@ -141,14 +152,18 @@ function renderState(s: State): string {
   return lines.join("\n");
 }
 
-const files = readdirSync(STATES_DIR).filter((f) => f.endsWith(".json")).sort();
-const states: State[] = files.map((f) =>
-  JSON.parse(readFileSync(join(STATES_DIR, f), "utf8")),
-);
+const files = readdirSync(STATES_DIR)
+  .filter((f) => f.endsWith(".json"))
+  .sort();
+const states: State[] = files.map((f) => JSON.parse(readFileSync(join(STATES_DIR, f), "utf8")));
 states.sort((a, b) => a.name.localeCompare(b.name));
 
 const verifiedCount = states.filter((s) => s.verificationStatus === "verified-2026").length;
-const today = new Date().toISOString().slice(0, 10);
+// Derive the snapshot date from the data, not the build clock, so the
+// generated file is deterministic — rebuilding only changes it when the
+// underlying records change. It is the most recent per-state
+// verification date.
+const snapshotDate = states.map((s) => s.lastVerified).reduce((a, b) => (a > b ? a : b));
 
 const header = `# projectcert — full state data (LLM-readable snapshot)
 
@@ -158,7 +173,7 @@ const header = `# projectcert — full state data (LLM-readable snapshot)
 > records — what you read here matches what users see on the live
 > per-state pages.
 
-Snapshot generated: ${today}
+Snapshot generated: ${snapshotDate}
 States verified against current SEA sources: ${verifiedCount} / ${states.length}
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279

@@ -50,6 +50,9 @@
   // descriptor sources, and reviewer-added sources, so a selected URL renders
   // with a readable label.
   $: urlLabel = (() => {
+    // Local, non-reactive lookup built and returned in one pass — not
+    // reactive state, so a plain Map is correct here.
+    // eslint-disable-next-line svelte/prefer-svelte-reactivity
     const m = new Map<string, string>();
     for (const s of citedSources) m.set(s.url, s.label);
     for (const d of datapoints) for (const s of d.sourceUrls) if (!m.has(s.url)) m.set(s.url, s.label);
@@ -60,14 +63,15 @@
   /** Candidate sources to offer for a datapoint: its heuristic matches and any
    *  reviewer-added URLs first, then the rest of the state's cited sources.
    *  `add` is passed in so Svelte tracks `added` as a template dependency. */
-  function candidateSources(d: Datapoint, add: Record<string, { url: string; title: string }[]>): { label: string; url: string }[] {
+  function candidateSources(
+    d: Datapoint,
+    add: Record<string, { url: string; title: string }[]>,
+  ): { label: string; url: string }[] {
     const out: { label: string; url: string }[] = [];
+    // Local dedup set, not reactive state — a plain Set is correct.
+    // eslint-disable-next-line svelte/prefer-svelte-reactivity
     const seen = new Set<string>();
-    const all = [
-      ...d.sourceUrls,
-      ...(add[d.id] ?? []).map((a) => ({ label: a.title, url: a.url })),
-      ...citedSources,
-    ];
+    const all = [...d.sourceUrls, ...(add[d.id] ?? []).map((a) => ({ label: a.title, url: a.url })), ...citedSources];
     for (const s of all) {
       if (!seen.has(s.url)) {
         seen.add(s.url);
@@ -97,9 +101,6 @@
   }
   function isBroken(d: Datapoint): boolean {
     return (broken[d.id]?.length ?? 0) > 0;
-  }
-  function isCurrent(d: Datapoint): boolean {
-    return Boolean(verifications[d.id]) && !isStale(d) && !isBroken(d);
   }
 
   // Inline the predicate (rather than calling isCurrent) so Svelte sees
@@ -261,7 +262,10 @@
       });
       if (!res.ok) {
         const err = (await res.json().catch(() => null)) as { error?: string } | null;
-        sourceError = { ...sourceError, [d.id]: err?.error ?? "Could not add this source URL — please check it and retry." };
+        sourceError = {
+          ...sourceError,
+          [d.id]: err?.error ?? "Could not add this source URL — please check it and retry.",
+        };
         return;
       }
       const row = (await res.json()) as { url: string; title: string };
@@ -322,15 +326,21 @@
   {:else}
     {#if offline}
       <p class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
-        The review service is unavailable, so confirmations cannot be saved. The
-        datapoints below are shown read-only.
+        The review service is unavailable, so confirmations cannot be saved. The datapoints below are shown read-only.
       </p>
     {/if}
 
     {#if actionError}
-      <div class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
+      <div
+        class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink"
+      >
         <span>{actionError}</span>
-        <button type="button" class="shrink-0 text-ink-subtle hover:text-accent" aria-label="Dismiss" on:click={() => (actionError = "")}>×</button>
+        <button
+          type="button"
+          class="shrink-0 text-ink-subtle hover:text-accent"
+          aria-label="Dismiss"
+          on:click={() => (actionError = "")}>×</button
+        >
       </div>
     {/if}
 
@@ -339,7 +349,13 @@
         <span class="font-semibold text-ink">{stateName} review progress</span>
         <span class="text-ink-muted tabular-nums">{verifiedCount} / {datapoints.length} ({pct}%)</span>
       </div>
-      <div class="mt-2 h-2 rounded bg-surface overflow-hidden" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
+      <div
+        class="mt-2 h-2 rounded bg-surface overflow-hidden"
+        role="progressbar"
+        aria-valuenow={pct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <div class="h-full bg-accent" style={`width: ${pct}%`}></div>
       </div>
     </div>
@@ -350,21 +366,25 @@
           Cited sources for {stateName} ({citedSources.length})
         </summary>
         <p class="mt-1 text-xs text-ink-subtle">
-          Open these to verify the credential, standards, sheltered-instruction,
-          and population claims below — the catalog does not record a separate
-          source for each of those fields.
+          Open these to verify the credential, standards, sheltered-instruction, and population claims below — the
+          catalog does not record a separate source for each of those fields.
         </p>
         <ol class="mt-2 list-decimal space-y-1 pl-5 text-sm">
-          {#each citedSources as src}
+          {#each citedSources as src (src.url)}
             <li>
-              <a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a>
+              <a
+                class="text-accent hover:underline break-words"
+                href={src.url}
+                target="_blank"
+                rel="noopener noreferrer">{src.label} ↗</a
+              >
             </li>
           {/each}
         </ol>
       </details>
     {/if}
 
-    {#each sections as group}
+    {#each sections as group (group.label)}
       <section>
         <h2 class="text-lg font-semibold text-ink border-b border-ink-subtle/20 pb-1">{group.label}</h2>
         <ul class="mt-3 space-y-3">
@@ -398,10 +418,19 @@
                     {@const isConfirmed = checkedNow}
                     <div class="mt-1 text-xs">
                       {#if shownSources(d, attributions).length > 0}
-                        <span class="text-ink-subtle">{isConfirmed ? "Confirmed source:" : "Likely source (unconfirmed):"}</span>
+                        <span class="text-ink-subtle"
+                          >{isConfirmed ? "Confirmed source:" : "Likely source (unconfirmed):"}</span
+                        >
                         <ul class="mt-0.5 list-disc pl-5">
-                          {#each shownSources(d, attributions) as src}
-                            <li><a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a></li>
+                          {#each shownSources(d, attributions) as src (src.url)}
+                            <li>
+                              <a
+                                class="text-accent hover:underline break-words"
+                                href={src.url}
+                                target="_blank"
+                                rel="noopener noreferrer">{src.label} ↗</a
+                              >
+                            </li>
                           {/each}
                         </ul>
                       {:else}
@@ -418,7 +447,7 @@
                         {#if showSources[d.id]}
                           <p class="mt-1 text-ink-subtle">Select the one cited source this fact came from:</p>
                           <ul class="mt-1 space-y-1">
-                            {#each candidateSources(d, added) as src}
+                            {#each candidateSources(d, added) as src (src.url)}
                               <li class="flex items-start gap-2">
                                 <input
                                   type="radio"
@@ -430,12 +459,22 @@
                                   aria-label={`Confirm source for ${d.label}: ${src.label}`}
                                   on:change={() => setSource(d, src.url)}
                                 />
-                                <a class="text-accent hover:underline break-words" href={src.url} target="_blank" rel="noopener noreferrer">{src.label} ↗</a>
+                                <a
+                                  class="text-accent hover:underline break-words"
+                                  href={src.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer">{src.label} ↗</a
+                                >
                               </li>
                             {/each}
                           </ul>
                           {#if attributions[d.id]}
-                            <button type="button" class="mt-1 text-ink-subtle hover:text-accent" disabled={busy[`src:${d.id}`]} on:click={() => clearSource(d)}>
+                            <button
+                              type="button"
+                              class="mt-1 text-ink-subtle hover:text-accent"
+                              disabled={busy[`src:${d.id}`]}
+                              on:click={() => clearSource(d)}
+                            >
                               Clear selection
                             </button>
                           {/if}
@@ -452,7 +491,7 @@
                             <button
                               type="button"
                               class="rounded border border-accent bg-accent px-2.5 py-1 text-xs font-medium text-white hover:bg-accent-hover disabled:opacity-50"
-                              disabled={busy[`src:${d.id}`] || (newUrl[d.id] ?? '').trim().length === 0}
+                              disabled={busy[`src:${d.id}`] || (newUrl[d.id] ?? "").trim().length === 0}
                               on:click={() => addSourceUrl(d)}
                             >
                               {busy[`src:${d.id}`] ? "Fetching…" : "Add URL"}
@@ -469,12 +508,17 @@
                   {#if d.grouped && d.rows.length > 0}
                     <table class="mt-2 w-full text-xs border-collapse">
                       <tbody>
-                        {#each d.rows as row}
+                        {#each d.rows as row (row.label)}
                           <tr class="border-t border-ink-subtle/10">
                             <td class="py-1 pr-3 text-ink-subtle align-top whitespace-nowrap">{row.label}</td>
                             <td class="py-1 text-ink-muted break-words">
                               {#if row.url}
-                                <a class="text-accent hover:underline break-words" href={row.url} target="_blank" rel="noopener noreferrer">{row.value || row.url} ↗</a>
+                                <a
+                                  class="text-accent hover:underline break-words"
+                                  href={row.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer">{row.value || row.url} ↗</a
+                                >
                               {:else}
                                 {row.value}
                               {/if}
@@ -499,7 +543,7 @@
                     <div class="mt-1 text-xs text-ink">
                       ⚠ A cited source is unreachable — re-verify against current sources:
                       <ul class="mt-1 list-disc pl-5 text-ink-muted">
-                        {#each broken[d.id] ?? [] as link}
+                        {#each broken[d.id] ?? [] as link (link.url)}
                           <li class="break-all">{link.url} ({link.status ?? link.classification})</li>
                         {/each}
                       </ul>
@@ -510,14 +554,20 @@
                     <div class="mt-2 rounded bg-surface-raised p-2 text-xs">
                       <div class="font-semibold text-ink">Open suggestions</div>
                       <ul class="mt-1 space-y-1.5">
-                        {#each suggestions[d.id] ?? [] as sug}
+                        {#each suggestions[d.id] ?? [] as sug (sug.id)}
                           <li class="flex items-start justify-between gap-2">
                             <div class="min-w-0">
                               <div class="text-ink-muted">{sug.body}</div>
-                              <div class="text-ink-subtle">{sug.submitted_by} · {sug.submitted_at.replace("T", " ").slice(0, 16)} UTC</div>
+                              <div class="text-ink-subtle">
+                                {sug.submitted_by} · {sug.submitted_at.replace("T", " ").slice(0, 16)} UTC
+                              </div>
                             </div>
                             {#if !offline}
-                              <button type="button" class="shrink-0 text-ink-subtle hover:text-accent" on:click={() => resolveSuggestion(d, sug.id)}>Resolve</button>
+                              <button
+                                type="button"
+                                class="shrink-0 text-ink-subtle hover:text-accent"
+                                on:click={() => resolveSuggestion(d, sug.id)}>Resolve</button
+                              >
                             {/if}
                           </li>
                         {/each}
@@ -532,13 +582,12 @@
                           class="w-full rounded border border-ink-subtle/30 bg-surface p-2 text-sm text-ink"
                           rows="2"
                           placeholder="Describe the correction and cite a source…"
-                          bind:value={draft[d.id]}
-                        ></textarea>
+                          bind:value={draft[d.id]}></textarea>
                         <div class="mt-1 flex gap-2">
                           <button
                             type="button"
                             class="rounded border border-accent bg-accent px-2.5 py-1 text-xs font-medium text-white hover:bg-accent-hover disabled:opacity-50"
-                            disabled={busy[d.id] || (draft[d.id] ?? '').trim().length === 0}
+                            disabled={busy[d.id] || (draft[d.id] ?? "").trim().length === 0}
                             on:click={() => submitSuggestion(d)}
                           >
                             Submit suggestion

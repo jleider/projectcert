@@ -81,7 +81,13 @@ const brokenSet = new Set(brokenRows.map((r) => `${r.usps}:${r.datapoint_id}`));
 
 const ledger: Record<string, LedgerEntry> = {};
 function entryFor(usps: string): LedgerEntry {
-  return (ledger[usps] ??= { verified: [], verifiedAt: {}, count: 0, total: DATAPOINT_COUNT, stale: [] });
+  return (ledger[usps] ??= {
+    verified: [],
+    verifiedAt: {},
+    count: 0,
+    total: DATAPOINT_COUNT,
+    stale: [],
+  });
 }
 
 for (const row of verifications) {

@@ -11,7 +11,13 @@
  * URL server-side and parses the title (og:title or <title>).
  */
 
-import { jsonResponse, normalizeUsps, isDatapointId, normalizeSourceUrl, extractTitle } from "../../src/lib/audit-shared";
+import {
+  jsonResponse,
+  normalizeUsps,
+  isDatapointId,
+  normalizeSourceUrl,
+  extractTitle,
+} from "../../src/lib/audit-shared";
 
 interface AddedRow {
   datapoint_id: string;
@@ -62,9 +68,11 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
 };
 
 export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { usps?: string; datapoint_id?: string; url?: string }
-    | null;
+  const body = (await request.json().catch(() => null)) as {
+    usps?: string;
+    datapoint_id?: string;
+    url?: string;
+  } | null;
   const usps = normalizeUsps(body?.usps);
   const datapointId = body?.datapoint_id;
   const url = normalizeSourceUrl(body?.url);
@@ -73,7 +81,10 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
     return jsonResponse({ error: "A valid state and datapoint are required." }, 400);
   }
   if (!url) {
-    return jsonResponse({ error: "That doesn't look like a valid URL — use a full web address (e.g. https://example.gov/page)." }, 400);
+    return jsonResponse(
+      { error: "That doesn't look like a valid URL — use a full web address (e.g. https://example.gov/page)." },
+      400,
+    );
   }
 
   const title = await fetchTitle(url);

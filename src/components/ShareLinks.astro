@@ -42,20 +42,44 @@ const links: Array<{ name: string; href: string; svg: string }> = [
 
 const inlineBtnClass =
   "inline-flex items-center gap-1.5 rounded border border-ink-subtle/20 bg-surface px-3 py-1.5 text-sm text-ink hover:border-accent hover:text-accent";
-const footerBtnClass =
-  "inline-flex items-center gap-1 text-sm text-ink-muted hover:text-accent";
+const footerBtnClass = "inline-flex items-center gap-1 text-sm text-ink-muted hover:text-accent";
 ---
 
-{variant === "inline" && (
-  <aside class={`mt-8 rounded border border-ink-subtle/20 bg-surface-raised p-4 ${className}`}>
-    <h2 class="text-base font-semibold text-ink">Share this page</h2>
-    <p class="mt-1 text-sm text-ink-muted">
-      Help researchers, teacher educators, and policymakers find this catalog.
-    </p>
-    <ul class="mt-3 flex flex-wrap gap-2">
+{
+  variant === "inline" && (
+    <aside class={`mt-8 rounded border border-ink-subtle/20 bg-surface-raised p-4 ${className}`}>
+      <h2 class="text-base font-semibold text-ink">Share this page</h2>
+      <p class="mt-1 text-sm text-ink-muted">
+        Help researchers, teacher educators, and policymakers find this catalog.
+      </p>
+      <ul class="mt-3 flex flex-wrap gap-2">
+        {links.map((l) => (
+          <li>
+            <ExternalLink href={l.href} class={inlineBtnClass} hideIcon={true}>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                fill="currentColor"
+                set:html={l.svg}
+              />
+              {l.name}
+            </ExternalLink>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}
+
+{
+  variant === "footer" && (
+    <ul class={`flex flex-wrap gap-3 ${className}`}>
       {links.map((l) => (
         <li>
-          <ExternalLink href={l.href} class={inlineBtnClass} hideIcon={true}>
+          <ExternalLink href={l.href} class={footerBtnClass} hideIcon={true}>
             <svg
               aria-hidden="true"
               focusable="false"
@@ -65,31 +89,10 @@ const footerBtnClass =
               fill="currentColor"
               set:html={l.svg}
             />
-            {l.name}
+            <span>{l.name}</span>
           </ExternalLink>
         </li>
       ))}
     </ul>
-  </aside>
-)}
-
-{variant === "footer" && (
-  <ul class={`flex flex-wrap gap-3 ${className}`}>
-    {links.map((l) => (
-      <li>
-        <ExternalLink href={l.href} class={footerBtnClass} hideIcon={true}>
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            viewBox="0 0 24 24"
-            width="14"
-            height="14"
-            fill="currentColor"
-            set:html={l.svg}
-          />
-          <span>{l.name}</span>
-        </ExternalLink>
-      </li>
-    ))}
-  </ul>
-)}
+  )
+}

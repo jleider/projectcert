@@ -41,9 +41,7 @@ const errors: string[] = [];
 const files = readdirSync(STATES_DIR).filter((f) => f.endsWith(".json"));
 
 if (files.length !== EXPECTED_COUNT) {
-  errors.push(
-    `Expected ${EXPECTED_COUNT} state files (50 states + DC), found ${files.length}.`,
-  );
+  errors.push(`Expected ${EXPECTED_COUNT} state files (50 states + DC), found ${files.length}.`);
 }
 
 const seenUsps = new Map<string, string>();
@@ -109,15 +107,13 @@ for (const f of files) {
       // the source to skip the per-state-snapshot rule if a
       // top-level topic dir exists for its retrievedAt date. This
       // is permissive but keeps us honest on per-SEA documents.
-      const isCrossState = ["nces", "wida", "elp-assessments", "seal-of-biliteracy"].some(
-        (topic) => {
-          try {
-            return statSync(join(SOURCES_DIR, topic, src.retrievedAt)).isDirectory();
-          } catch {
-            return false;
-          }
-        },
-      );
+      const isCrossState = ["nces", "wida", "elp-assessments", "seal-of-biliteracy"].some((topic) => {
+        try {
+          return statSync(join(SOURCES_DIR, topic, src.retrievedAt)).isDirectory();
+        } catch {
+          return false;
+        }
+      });
       if (!isCrossState) {
         errors.push(
           `${usps}: projectcert-2026 source "${src.url}" claims retrievedAt=${src.retrievedAt} but no snapshot at sources/${usps}/${src.retrievedAt}/`,

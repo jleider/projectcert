@@ -33,9 +33,11 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
 };
 
 export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { usps?: string; datapoint_id?: string; url?: string }
-    | null;
+  const body = (await request.json().catch(() => null)) as {
+    usps?: string;
+    datapoint_id?: string;
+    url?: string;
+  } | null;
   const usps = normalizeUsps(body?.usps);
   const datapointId = body?.datapoint_id;
   const url = typeof body?.url === "string" ? body.url.trim() : "";
@@ -58,9 +60,7 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
 };
 
 export const onRequestDelete: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { usps?: string; datapoint_id?: string }
-    | null;
+  const body = (await request.json().catch(() => null)) as { usps?: string; datapoint_id?: string } | null;
   const usps = normalizeUsps(body?.usps);
   const datapointId = body?.datapoint_id;
 

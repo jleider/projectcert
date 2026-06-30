@@ -54,8 +54,7 @@ export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (cont
     return jsonResponse({ error: "Audit API is not configured for authentication." }, 500);
   }
 
-  const token =
-    request.headers.get("Cf-Access-Jwt-Assertion") ?? readCookie(request, "CF_Authorization");
+  const token = request.headers.get("Cf-Access-Jwt-Assertion") ?? readCookie(request, "CF_Authorization");
   if (!token) return jsonResponse({ error: "Unauthorized" }, 401);
 
   try {

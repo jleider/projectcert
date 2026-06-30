@@ -37,7 +37,9 @@ if (!inputPath || !outPath) {
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as { results: CheckerResult[] };
+const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+  results: CheckerResult[];
+};
 const seenAt = argValue("--seen-at") ?? new Date().toISOString();
 
 const pending = (report.results ?? []).filter((r) => r.classification === "needs-review");

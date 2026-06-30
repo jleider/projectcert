@@ -50,9 +50,11 @@ function safeParseCitations(raw: string): string[] {
 }
 
 export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { url?: string; decision?: string; note?: string }
-    | null;
+  const body = (await request.json().catch(() => null)) as {
+    url?: string;
+    decision?: string;
+    note?: string;
+  } | null;
   const url = typeof body?.url === "string" ? body.url : null;
   const decision = body?.decision;
   const note = typeof body?.note === "string" ? body.note : null;
@@ -80,5 +82,10 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
   if (result.meta.changes === 0) {
     return jsonResponse({ error: "No review row for that URL." }, 404);
   }
-  return jsonResponse({ url, decision, reviewed_by: decision === "accepted" ? data.userEmail : null, reviewed_at: decision === "accepted" ? now : null });
+  return jsonResponse({
+    url,
+    decision,
+    reviewed_by: decision === "accepted" ? data.userEmail : null,
+    reviewed_at: decision === "accepted" ? now : null,
+  });
 };

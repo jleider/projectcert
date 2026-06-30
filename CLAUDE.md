@@ -32,16 +32,27 @@ be re-verified against current SEA sources before public launch.
 ## Commands
 
 - `npm run dev` — Astro dev server.
-- `npm run build` — runs `check-state-integrity` + `generate-llms-full`
-  before `astro build`.
-- `npm run validate` — `astro check` (svelte/Zod) + contrast check +
-  state-integrity check (51 records, USPS uniqueness, provenance trail).
-- `npm run lint` — ESLint over `.ts`/`.astro`/`.js`. Svelte is excluded;
-  type errors there are caught by `astro check` (svelte-check).
+- `npm run build` — `check-state-integrity` + `generate-llms-full` →
+  `astro check` → `astro build` → `check-built-pages` (route + anchor
+  presence) → `check-discovery-surfaces` (sitemap completeness + `/audit`
+  exclusion).
+- `npm run validate` — `astro check` (svelte/Zod) + contrast check
+  (light + dark text) + state-integrity check (51 records, USPS
+  uniqueness, provenance trail).
+- `npm run lint` — ESLint over `.ts`/`.astro`/`.js`/`.svelte`, with
+  type-aware rules on `.ts` (tests excluded). Runs `--max-warnings 0`,
+  so a "warn"-level rule must be fixed or deliberately tuned, never left.
+- `npm run format` / `npm run check:format` — Prettier write / check.
+  Code only: state-data JSON, prose `*.md`, generated data, `public/`,
+  and `sources/` are deliberately ignored (see `.prettierignore`).
+- `npm run check:deadcode` — knip (dead files + dependency drift).
 - `npm run typecheck` — `tsc --noEmit` under strict mode +
-  `noUncheckedIndexedAccess`.
+  `noUncheckedIndexedAccess` (root project + `functions/`).
 - `npm run test` — Vitest (schema + helper unit tests).
-- `npm run test:e2e` — Playwright + axe.
+- `npm run test:e2e` — Playwright + axe-core a11y; asserts zero WCAG 2.1
+  A/AA violations against the built site (no rules disabled).
+- `npm run verify` — full local gate: check:format → lint → typecheck →
+  validate → test → build.
 
 ## Conventions and DRY rules
 
@@ -242,9 +253,29 @@ host page automatically.
     `sources/<USPS>/<retrievedAt>/` directory (cross-state shared
     sources under `sources/{nces,wida,elp-assessments,seal-of-biliteracy}/`
     are the documented exception).
-- **CI** (`.github/workflows/ci.yml`): on push + PR, runs lint →
-  typecheck → validate → test → build → offline link check.
-  Concurrency cancels in-flight runs on the same ref.
+- **CI** (`.github/workflows/ci.yml`): on push + PR **to `main`**, runs
+  format → `npm audit` (advisory) → lint → typecheck → dead-code →
+  validate → test → build, then an e2e-a11y job and an offline link
+  check. Concurrency cancels in-flight runs on the same ref. The trigger
+  is `main`-only, so a PR targeting a feature branch (not `main`) shows
+  no checks until the chain reaches `main` — broaden the `branches`
+  filter if you want CI on a feature-to-feature PR.
+- **Tooling footgun — `eslint.config.js` is excluded from `tsconfig`.**
+  `astro check` runs with `checkJs`, so it type-checks the flat config
+  and flags the `@deprecated` JSDoc on typescript-eslint's `config()`
+  helper as `ts(6387)`, which fails `astro check --minimumFailingSeverity
+  hint`. The file is excluded in `tsconfig.json` (ESLint lints it every
+  run regardless; it never ships). Keep type-aware ESLint scoped to
+  `**/*.ts` with `tests/**` excluded — the fixtures lean on `any`
+  (`no-explicit-any` is off for `tests/**`).
+- **Type-checking tests.** Six of the seven test files are checked by
+  the root `tsc --noEmit`. The seventh,
+  `tests/audit-api.integration.test.ts`, imports Workers-typed
+  `functions/api/*`, which cannot coexist with the root DOM/Node program
+  — so it has its own `tsconfig.tests.json` (Workers types + `@types/node`,
+  `skipLibCheck` absorbing the duplicate `fetch`/`Request` globals).
+  `npm run typecheck` runs all three projects: root, `functions/`, and
+  `tsconfig.tests.json`.
 - **Weekly external link sweep**
   (`.github/workflows/external-link-check.yml`): non-blocking,
   uploads a markdown report. Don't fail PRs on external SEA links —
@@ -481,8 +512,10 @@ TypeScript / test footguns (each cost real time once):
 - **A test that imports `functions/api/*` must be excluded from the root
   `tsconfig`** (see `tests/audit-api.integration.test.ts`). Importing
   Workers-typed modules into the root DOM/Node program pulls them in via
-  import resolution — past `exclude` — and fails the typecheck. Such
-  tests still run under Vitest and are linted.
+  import resolution — past `exclude` — and fails the typecheck. Such a
+  test is instead type-checked by its own `tsconfig.tests.json` (Workers
+  types + `@types/node`), wired into `npm run typecheck`; it still runs
+  under Vitest and is linted.
 - **Integration tests use Node's built-in `node:sqlite`** as a
   D1-compatible shim over the real `schema/d1/0001_init.sql` (no new
   dependency). `node:sqlite` binds `?1..?N` positionally, matching D1.
@@ -641,6 +674,26 @@ State fills do not render text on top (the DC callout label sits
 *below* its rect on the white surface), so contrast budgets only
 need to consider fill-vs-fill adjacency, not text-on-fill.
 
+### Map interactivity is one focusable element per cell
+
+Each interactive map cell (every state path and the DC callout) is a
+single SVG `<a>` that owns the href, `aria-label`, and every pointer /
+keyboard handler; the `<path>`/`<rect>` inside is presentational
+(`aria-hidden="true"`, no `tabindex`/`role`). Do **not** reintroduce the
+old pattern of an `<a>` wrapping a `<path tabindex="0" role="button">` —
+two nested focusable controls trips axe's `nested-interactive` and
+double-fires navigation. The `<svg>` carries `role="group"` (a labelled
+group of controls), never `role="img"`: `img` declares a single static
+graphic and forbids the focusable `<a>` descendants. Enter activates the
+link natively (fires the click handler); the keydown handler adds only
+Space. The e2e a11y suite (`tests/e2e/a11y.spec.ts`) guards this.
+
+Links inside running prose must not rely on color alone (axe
+`link-in-text-block`): a zero-specificity `:where(p, li, dd) a[href]`
+rule in `tokens.css` underlines them at rest, with `nav`/`footer` opted
+back out. Keep new in-text links covered by that rule rather than
+restyling per-component.
+
 ### Dark theme
 
 The site supports `prefers-color-scheme: dark` via token overrides in
@@ -777,7 +830,7 @@ mirror→canonical map, and the bulk remediation-script pattern.
 
 ## Skills
 
-Five project skills under `.claude/skills/`:
+Six project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -795,6 +848,12 @@ Five project skills under `.claude/skills/`:
   descriptor, and the link-review/whitelist flow. Triggered when editing
   `functions/`, `src/lib/verification-datapoints.ts`, the audit pages,
   `schema/d1/`, or the audit sync scripts/workflows.
+- **`quality-gate`** — how the formatting / lint / typecheck / dead-code
+  / test / a11y / CI gate is wired, plus its conventions and footguns.
+  Triggered when editing `eslint.config.js`, `.prettierrc.json`,
+  `knip.json`, any `tsconfig*.json`, the CI workflow, the build-check
+  scripts, or `tests/e2e/`; when adding a test/page/map-layer; or when a
+  gate step fails or needs tuning.
 
 ## Source paper
 

@@ -29,15 +29,11 @@ export default defineConfig({
         // itself, which Astro normally silences and we cannot fix — are
         // ignored rather than escalated.
         onwarn(warning) {
-          const refs = [
-            warning.id,
-            warning.loc?.file,
-            ...(Array.isArray(warning.ids) ? warning.ids : []),
-          ].filter((r): r is string => typeof r === "string");
+          const refs = [warning.id, warning.loc?.file, ...(Array.isArray(warning.ids) ? warning.ids : [])].filter(
+            (r): r is string => typeof r === "string",
+          );
           const onlyThirdParty =
-            refs.length > 0
-              ? refs.every((r) => r.includes("node_modules"))
-              : warning.message.includes("node_modules");
+            refs.length > 0 ? refs.every((r) => r.includes("node_modules")) : warning.message.includes("node_modules");
           if (onlyThirdParty) return;
           throw new Error(
             `Build warning treated as error${warning.code ? ` [${warning.code}]` : ""}: ${warning.message}`,

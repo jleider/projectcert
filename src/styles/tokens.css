@@ -236,14 +236,9 @@
  */
 :root {
   --font-sans:
-    "IBM Plex Sans Variable", "IBM Plex Sans", ui-sans-serif,
-    system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif:
-    "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
-  --font-mono:
-    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
-    monospace;
+    "IBM Plex Sans Variable", "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 html {
@@ -270,6 +265,20 @@ samp {
 
 body {
   line-height: 1.55;
+}
+
+/* Links inside running prose must be distinguishable without relying on
+ * color (WCAG 1.4.1 / axe `link-in-text-block`). Accent links in muted
+ * or subtle text fall below the 3:1 link-vs-text threshold, so underline
+ * them at rest. Scoped to text-block contexts (paragraphs, list items,
+ * definitions) and zero-specificity via :where(), so any explicit
+ * `no-underline` utility still wins. Navigation and footer links are
+ * opted back out — they are standalone, not embedded in running text. */
+:where(p, li, dd) a[href] {
+  text-decoration: underline;
+}
+:where(nav, footer) a[href] {
+  text-decoration: none;
 }
 
 /* Focus styles — visible everywhere, never removed */

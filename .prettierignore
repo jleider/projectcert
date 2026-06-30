@@ -1,0 +1,23 @@
+# Build output and deps
+dist/
+node_modules/
+.astro/
+
+# Static assets and generated discovery surfaces (hand/script-managed)
+public/
+src/data/*.json
+
+# Canonical state data (CC BY 4.0) — owned by the Zod schema and the
+# integrity checks, not by Prettier. Reformatting here only adds churn
+# and conflicts with in-flight per-state verification work.
+src/content/states/
+
+# Lockfiles and machine-generated
+package-lock.json
+
+# Source snapshots / audit trail (preserve verbatim)
+sources/
+
+# Prose-managed instructions and docs (CLAUDE.md, skills, README, docs).
+# Their wrapping and structure are intentional; keep Prettier out.
+*.md

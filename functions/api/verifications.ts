@@ -33,9 +33,11 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
 };
 
 export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { usps?: string; datapoint_id?: string; content_hash?: string }
-    | null;
+  const body = (await request.json().catch(() => null)) as {
+    usps?: string;
+    datapoint_id?: string;
+    content_hash?: string;
+  } | null;
   const usps = normalizeUsps(body?.usps);
   const datapointId = body?.datapoint_id;
   const contentHash = body?.content_hash;
@@ -66,9 +68,10 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
 };
 
 export const onRequestDelete: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env }) => {
-  const body = (await request.json().catch(() => null)) as
-    | { usps?: string; datapoint_id?: string }
-    | null;
+  const body = (await request.json().catch(() => null)) as {
+    usps?: string;
+    datapoint_id?: string;
+  } | null;
   const usps = normalizeUsps(body?.usps);
   const datapointId = body?.datapoint_id;
 
@@ -76,9 +79,7 @@ export const onRequestDelete: PagesFunction<AuditEnv, string, AuditData> = async
     return jsonResponse({ error: "usps and datapoint_id are required." }, 400);
   }
 
-  await env.DB.prepare(`DELETE FROM verifications WHERE usps = ?1 AND datapoint_id = ?2`)
-    .bind(usps, datapointId)
-    .run();
+  await env.DB.prepare(`DELETE FROM verifications WHERE usps = ?1 AND datapoint_id = ?2`).bind(usps, datapointId).run();
 
   return jsonResponse({ ok: true });
 };

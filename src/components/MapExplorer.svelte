@@ -83,7 +83,7 @@
 <fieldset class="border border-ink-subtle/20 rounded p-3">
   <legend class="text-sm font-semibold text-ink px-2">Layer</legend>
   <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-    {#each LAYERS as opt}
+    {#each LAYERS as opt (opt.value)}
       <label class="flex items-center gap-2">
         <input type="radio" name="layer" value={opt.value} bind:group={layer} />
         {opt.label}
@@ -92,12 +92,8 @@
   </div>
 </fieldset>
 
-<div
-  class="mt-3 flex flex-wrap gap-x-4 gap-y-2 items-center text-sm"
-  role="group"
-  aria-label="Map legend"
->
-  {#each legendEntries as entry}
+<div class="mt-3 flex flex-wrap gap-x-4 gap-y-2 items-center text-sm" role="group" aria-label="Map legend">
+  {#each legendEntries as entry (entry.label)}
     <div class="flex items-center gap-2">
       <span
         class="inline-block w-5 h-5 border border-ink-subtle/40"
@@ -115,13 +111,13 @@
 
 {#if showVintageCaption && vintageRange}
   <p class="mt-3 text-xs text-ink-muted">
-    Each state's value reflects the most recent year for which a
-    citation could be verified. Figures dated fall {vintageRange.minY}{vintageRange.maxY !== vintageRange.minY ? ` to fall ${vintageRange.maxY}` : ""}
-    ({vintageRange.count} of {states.length} jurisdictions) come from the state's own education
-    agency rather than NCES, whose most recent Digest of Education
-    Statistics edition publishes per-state figures only through
-    fall&nbsp;2021. State-agency methodology may differ from NCES;
-    each state's classified-EL-share page records the difference.
+    Each state's value reflects the most recent year for which a citation could be verified. Figures dated fall {vintageRange.minY}{vintageRange.maxY !==
+    vintageRange.minY
+      ? ` to fall ${vintageRange.maxY}`
+      : ""}
+    ({vintageRange.count} of {states.length} jurisdictions) come from the state's own education agency rather than NCES, whose
+    most recent Digest of Education Statistics edition publishes per-state figures only through fall&nbsp;2021. State-agency
+    methodology may differ from NCES; each state's classified-EL-share page records the difference.
   </p>
 {/if}
 
@@ -129,19 +125,12 @@
   <p class="mt-3 text-xs text-ink-subtle flex flex-wrap items-center justify-between gap-2">
     <span>
       Source:
-      <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline">
-        projectcert.org
-      </a>
+      <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline"> projectcert.org </a>
       · Data:
-      <a
-        href="https://doi.org/10.14507/epaa.29.5279"
-        target="_blank"
-        rel="noopener"
-        class="text-accent hover:underline"
-      >Leider, Colombo &amp; Nerlino (2021)</a>
+      <a href="https://doi.org/10.14507/epaa.29.5279" target="_blank" rel="noopener" class="text-accent hover:underline"
+        >Leider, Colombo &amp; Nerlino (2021)</a
+      >
     </span>
-    <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline">
-      Open full atlas →
-    </a>
+    <a href={backUrl} target="_blank" rel="noopener" class="text-accent hover:underline"> Open full atlas → </a>
   </p>
 {/if}

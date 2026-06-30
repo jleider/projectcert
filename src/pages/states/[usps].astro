@@ -99,10 +99,9 @@ const stateJsonLd = [
     <div class="mt-3 flex flex-wrap gap-3 items-center">
       <VerificationBadge status={s.verificationStatus} lastVerified={s.lastVerified} />
       <VerificationLedgerBadges usps={s.usps} />
-      <a
-        href={sameAnchor(ANCHORS.citeThisPage)}
-        class="text-xs text-accent hover:underline focus-visible:underline"
-      >Cite this page &darr;</a>
+      <a href={sameAnchor(ANCHORS.citeThisPage)} class="text-xs text-accent hover:underline focus-visible:underline"
+        >Cite this page &darr;</a
+      >
     </div>
 
     <p class="mt-5 text-base text-ink-muted max-w-3xl font-serif">{lead}</p>
@@ -117,13 +116,23 @@ const stateJsonLd = [
         <div class="text-sm text-ink-muted">
           classified ELs ({s.elPercentAsOf})
         </div>
-        {s.elPercentHistory && s.elPercentHistory.length > 1 && (
-          <div class="mt-1 text-sm text-accent">view trend &rarr;</div>
-        )}
+        {
+          s.elPercentHistory && s.elPercentHistory.length > 1 && (
+            <div class="mt-1 text-sm text-accent">view trend &rarr;</div>
+          )
+        }
       </a>
       <div class="rounded border border-ink-subtle/20 p-4">
         <div class="text-2xl font-bold text-ink">
-          {[s.credentials.bilingual.offered ? "Bil" : null, s.credentials.eld.offered ? "ELD" : null, s.credentials.sei.mandatedForAllTeachers ? "SEI" : null].filter(Boolean).join(" + ") || "ELD only"}
+          {
+            [
+              s.credentials.bilingual.offered ? "Bil" : null,
+              s.credentials.eld.offered ? "ELD" : null,
+              s.credentials.sei.mandatedForAllTeachers ? "SEI" : null,
+            ]
+              .filter(Boolean)
+              .join(" + ") || "ELD only"
+          }
         </div>
         <div class="text-sm text-ink-muted">credential types offered</div>
       </div>
@@ -137,22 +146,17 @@ const stateJsonLd = [
         credential={s.credentials.bilingual}
         showLanguage={true}
       />
-      <CredentialPanel
-        title={localNames?.eld ?? "English Language Development (ELD)"}
-        credential={s.credentials.eld}
-      />
+      <CredentialPanel title={localNames?.eld ?? "English Language Development (ELD)"} credential={s.credentials.eld} />
     </div>
 
     <section class="mt-6 rounded border border-ink-subtle/20 p-4" aria-labelledby="sei-heading">
-      <h3 id="sei-heading" class="text-base font-semibold text-ink">{localNames?.sei ?? "Sheltered English Instruction (SEI)"}</h3>
+      <h3 id="sei-heading" class="text-base font-semibold text-ink">
+        {localNames?.sei ?? "Sheltered English Instruction (SEI)"}
+      </h3>
       <p class="mt-2 text-sm text-ink-muted">
-        {s.credentials.sei.mandatedForAllTeachers
-          ? "Mandated for all teachers."
-          : "Not mandated for all teachers."}
+        {s.credentials.sei.mandatedForAllTeachers ? "Mandated for all teachers." : "Not mandated for all teachers."}
       </p>
-      {s.credentials.sei.notes && (
-        <p class="mt-2 text-sm text-ink-muted italic">{s.credentials.sei.notes}</p>
-      )}
+      {s.credentials.sei.notes && <p class="mt-2 text-sm text-ink-muted italic">{s.credentials.sei.notes}</p>}
     </section>
 
     <h2 class="mt-10 text-xl font-semibold text-ink">State policy signals</h2>
@@ -164,16 +168,23 @@ const stateJsonLd = [
           Recognition for graduating students proficient in English plus another language.
         </p>
         <p class="mt-2 text-sm">
-          {s.sealOfBiliteracy.adopted ? (
-            <span class="text-accent">
-              <strong>Adopted</strong>{s.sealOfBiliteracy.year && <> in {s.sealOfBiliteracy.year}</>}.
-            </span>
-          ) : (
-            <span class="text-ink-subtle"><strong>Not adopted.</strong></span>
-          )}
+          {
+            s.sealOfBiliteracy.adopted ? (
+              <span class="text-accent">
+                <strong>Adopted</strong>
+                {s.sealOfBiliteracy.year && <> in {s.sealOfBiliteracy.year}</>}.
+              </span>
+            ) : (
+              <span class="text-ink-subtle">
+                <strong>Not adopted.</strong>
+              </span>
+            )
+          }
         </p>
         <p class="mt-2 text-xs text-ink-subtle">
-            Source: <ExternalLink href={s.sealOfBiliteracy.sourceUrl} class="text-accent hover:underline">sealofbiliteracy.org</ExternalLink>
+          Source: <ExternalLink href={s.sealOfBiliteracy.sourceUrl} class="text-accent hover:underline"
+            >sealofbiliteracy.org</ExternalLink
+          >
         </p>
       </section>
 
@@ -190,17 +201,20 @@ const stateJsonLd = [
           {s.elpAssessment.consortium === "ELPA21" && <> · ELPA21 consortium member.</>}
           {s.elpAssessment.consortium === null && <> · State-specific assessment.</>}
         </p>
-        {s.elpAssessment.sourceUrl && (
-          <p class="mt-2 text-xs text-ink-subtle">
-            Source: <ExternalLink href={s.elpAssessment.sourceUrl} class="text-accent hover:underline">{new URL(s.elpAssessment.sourceUrl).hostname}</ExternalLink>
-          </p>
-        )}
+        {
+          s.elpAssessment.sourceUrl && (
+            <p class="mt-2 text-xs text-ink-subtle">
+              Source:{" "}
+              <ExternalLink href={s.elpAssessment.sourceUrl} class="text-accent hover:underline">
+                {new URL(s.elpAssessment.sourceUrl).hostname}
+              </ExternalLink>
+            </p>
+          )
+        }
       </section>
     </div>
 
-    {s.history && s.history.length > 0 && (
-      <HistoryTimeline events={s.history} />
-    )}
+    {s.history && s.history.length > 0 && <HistoryTimeline events={s.history} />}
 
     <SourceList sources={s.sources} />
 
@@ -211,20 +225,13 @@ const stateJsonLd = [
       bibKey={`projectcert_${s.usps.toLowerCase()}_${s.lastVerified.slice(0, 4)}`}
     />
 
-    <ReportIssue
-      variant="inline"
-      state={s.usps}
-      pageType="state"
-      verificationStatus={s.verificationStatus}
-    />
+    <ReportIssue variant="inline" state={s.usps} pageType="state" verificationStatus={s.verificationStatus} />
 
-    <ShareLinks
-      url={stateUrl}
-      text={`${s.name} EL teacher certification — projectcert`}
-    />
+    <ShareLinks url={stateUrl} text={`${s.name} EL teacher certification — projectcert`} />
 
     <p class="mt-8 text-sm text-ink-subtle">
-      See the <a class="text-accent hover:underline" href={ROUTES.methodology}>methodology</a> for how these data were collected, or the <a class="text-accent hover:underline" href={ROUTES.glossary}>glossary</a> for term definitions.
+      See the <a class="text-accent hover:underline" href={ROUTES.methodology}>methodology</a> for how these data were collected,
+      or the <a class="text-accent hover:underline" href={ROUTES.glossary}>glossary</a> for term definitions.
     </p>
   </article>
 </BaseLayout>

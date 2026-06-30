@@ -60,10 +60,9 @@ const entries = rows
   .slice()
   .sort((a, b) => a.url.localeCompare(b.url))
   .reduce<Record<string, WhitelistEntry>>((acc, r) => {
-    const status =
-      r.accepted_status === null || r.accepted_status === "" ? null : Number(r.accepted_status);
+    const status = r.accepted_status === null || r.accepted_status === "" ? null : Number(r.accepted_status);
     const entry: WhitelistEntry = {
-      status: Number.isNaN(status as number) ? null : status,
+      status: Number.isNaN(status) ? null : status,
       acceptedBy: r.reviewed_by,
       acceptedAt: r.reviewed_at ? r.reviewed_at.slice(0, 10) : null,
     };

@@ -11,13 +11,25 @@ import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { onRequestGet as verGet, onRequestPost as verPost, onRequestDelete as verDel } from "../functions/api/verifications";
-import { onRequestGet as sugGet, onRequestPost as sugPost, onRequestPatch as sugPatch } from "../functions/api/suggestions";
+import {
+  onRequestGet as verGet,
+  onRequestPost as verPost,
+  onRequestDelete as verDel,
+} from "../functions/api/verifications";
+import {
+  onRequestGet as sugGet,
+  onRequestPost as sugPost,
+  onRequestPatch as sugPatch,
+} from "../functions/api/suggestions";
 import { onRequestGet as asGet, onRequestPost as asPost } from "../functions/api/added-sources";
 import { onRequestGet as ovGet } from "../functions/api/overview";
 import { onRequestGet as brkGet } from "../functions/api/broken-links";
 import { onRequestGet as lrGet, onRequestPost as lrPost } from "../functions/api/link-reviews";
-import { onRequestGet as dsGet, onRequestPost as dsPost, onRequestDelete as dsDel } from "../functions/api/datapoint-sources";
+import {
+  onRequestGet as dsGet,
+  onRequestPost as dsPost,
+  onRequestDelete as dsDel,
+} from "../functions/api/datapoint-sources";
 import { onRequest as middleware } from "../functions/api/_middleware";
 
 const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
@@ -26,7 +38,10 @@ const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
 // (?1..?N) parameters positionally, matching D1's API.
 class Stmt {
   private args: unknown[] = [];
-  constructor(private db: DatabaseSync, private sql: string) {}
+  constructor(
+    private db: DatabaseSync,
+    private sql: string,
+  ) {}
   bind(...args: unknown[]) {
     this.args = args.map((a) => (a === undefined ? null : a));
     return this;
@@ -66,7 +81,14 @@ interface CtxOpts {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ctx(opts: CtxOpts): any {
-  const { url = "https://x.org/api", method = "GET", body, env = { DB }, data = { userEmail: "reviewer@example.org" }, next } = opts;
+  const {
+    url = "https://x.org/api",
+    method = "GET",
+    body,
+    env = { DB },
+    data = { userEmail: "reviewer@example.org" },
+    next,
+  } = opts;
   const init: RequestInit = { method };
   if (body !== undefined) {
     init.body = JSON.stringify(body);
@@ -75,67 +97,95 @@ function ctx(opts: CtxOpts): any {
   return { request: new Request(url, init), env, data, next, params: {} };
 }
 
+// Handlers return generic JSON Responses; tests assert on dynamic
+// shapes, so parsed bodies are read as `any`. Routing every `.json()`
+// through this one helper keeps that the sole `any` boundary.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function readJson(res: Response): Promise<any> {
+  return res.json();
+}
+
 describe("/api/verifications", () => {
   it("upserts, lists, overwrites (single-check), and deletes", async () => {
-    const post = await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "elPercent", content_hash: "h1" } }));
+    const post = await verPost(
+      ctx({ method: "POST", body: { usps: "CA", datapoint_id: "elPercent", content_hash: "h1" } }),
+    );
     expect(post.status).toBe(200);
 
-    let list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    let list = await readJson(await verGet(ctx({ url: "https://x.org/api?usps=CA" })));
     expect(list.verifications).toHaveLength(1);
-    expect(list.verifications[0]).toMatchObject({ datapoint_id: "elPercent", verified_by: "reviewer@example.org", content_hash: "h1" });
+    expect(list.verifications[0]).toMatchObject({
+      datapoint_id: "elPercent",
+      verified_by: "reviewer@example.org",
+      content_hash: "h1",
+    });
 
     // Single check suffices: a second reviewer/hash overwrites the one row.
-    await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "elPercent", content_hash: "h2" }, data: { userEmail: "other@example.org" } }));
-    list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    await verPost(
+      ctx({
+        method: "POST",
+        body: { usps: "CA", datapoint_id: "elPercent", content_hash: "h2" },
+        data: { userEmail: "other@example.org" },
+      }),
+    );
+    list = await readJson(await verGet(ctx({ url: "https://x.org/api?usps=CA" })));
     expect(list.verifications).toHaveLength(1);
     expect(list.verifications[0]).toMatchObject({ verified_by: "other@example.org", content_hash: "h2" });
 
     const del = await verDel(ctx({ method: "DELETE", body: { usps: "CA", datapoint_id: "elPercent" } }));
     expect(del.status).toBe(200);
-    list = await (await verGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    list = await readJson(await verGet(ctx({ url: "https://x.org/api?usps=CA" })));
     expect(list.verifications).toHaveLength(0);
   });
 
   it("rejects an unknown datapoint id and a missing usps", async () => {
-    expect((await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "bogus", content_hash: "h" } }))).status).toBe(400);
+    expect(
+      (await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "bogus", content_hash: "h" } }))).status,
+    ).toBe(400);
     expect((await verGet(ctx({ url: "https://x.org/api" }))).status).toBe(400);
   });
 });
 
 describe("/api/suggestions", () => {
   it("stores a suggestion and lists it by state and site-wide", async () => {
-    const post = await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "Source 2 link is outdated." } }));
+    const post = await sugPost(
+      ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "Source 2 link is outdated." } }),
+    );
     expect(post.status).toBe(200);
 
-    const byState = await (await sugGet(ctx({ url: "https://x.org/api?usps=TX&status=open" }))).json();
+    const byState = await readJson(await sugGet(ctx({ url: "https://x.org/api?usps=TX&status=open" })));
     expect(byState.suggestions).toHaveLength(1);
     expect(byState.suggestions[0]).toMatchObject({ usps: "TX", datapoint_id: "sources", status: "open" });
 
-    const siteWide = await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json();
+    const siteWide = await readJson(await sugGet(ctx({ url: "https://x.org/api?status=open" })));
     expect(siteWide.suggestions).toHaveLength(1);
   });
 
   it("rejects an empty body", async () => {
-    expect((await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "   " } }))).status).toBe(400);
+    expect(
+      (await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "   " } }))).status,
+    ).toBe(400);
   });
 
   it("resolves and reopens a suggestion", async () => {
-    const created = await (await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "fix it" } }))).json();
+    const created = await readJson(
+      await sugPost(ctx({ method: "POST", body: { usps: "TX", datapoint_id: "sources", body: "fix it" } })),
+    );
     const resolve = await sugPatch(ctx({ method: "PATCH", body: { id: created.id, status: "resolved" } }));
     expect(resolve.status).toBe(200);
-    expect((await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json()).suggestions).toHaveLength(0);
-    const resolved = (await (await sugGet(ctx({ url: "https://x.org/api?status=resolved" }))).json()).suggestions;
+    expect((await readJson(await sugGet(ctx({ url: "https://x.org/api?status=open" })))).suggestions).toHaveLength(0);
+    const resolved = (await readJson(await sugGet(ctx({ url: "https://x.org/api?status=resolved" })))).suggestions;
     expect(resolved).toHaveLength(1);
     expect(resolved[0]).toMatchObject({ status: "resolved", resolved_by: "reviewer@example.org" });
     // reopen
     await sugPatch(ctx({ method: "PATCH", body: { id: created.id, status: "open" } }));
-    expect((await (await sugGet(ctx({ url: "https://x.org/api?status=open" }))).json()).suggestions).toHaveLength(1);
+    expect((await readJson(await sugGet(ctx({ url: "https://x.org/api?status=open" })))).suggestions).toHaveLength(1);
   });
 
   it("orders open suggestions oldest → newest", async () => {
     await sugPost(ctx({ method: "POST", body: { usps: "NV", datapoint_id: "sources", body: "first" } }));
     await sugPost(ctx({ method: "POST", body: { usps: "NV", datapoint_id: "sources", body: "second" } }));
-    const list = (await (await sugGet(ctx({ url: "https://x.org/api?usps=NV&status=open" }))).json()).suggestions;
+    const list = (await readJson(await sugGet(ctx({ url: "https://x.org/api?usps=NV&status=open" })))).suggestions;
     expect(list.map((s: { body: string }) => s.body)).toEqual(["first", "second"]);
   });
 
@@ -147,17 +197,35 @@ describe("/api/suggestions", () => {
 
 describe("/api/added-sources", () => {
   it("fetches the title server-side, stores the source, and selects it", async () => {
-    vi.stubGlobal("fetch", vi.fn(async () => new Response("<title>AZ Bilingual Endorsement — ADE</title>", { status: 200 })));
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response("<title>AZ Bilingual Endorsement — ADE</title>", { status: 200 })),
+    );
     try {
-      const post = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x" } }));
+      const post = await asPost(
+        ctx({
+          method: "POST",
+          body: { usps: "AZ", datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x" },
+        }),
+      );
       expect(post.status).toBe(200);
-      expect(await post.json()).toMatchObject({ url: "https://www.azed.gov/x", title: "AZ Bilingual Endorsement — ADE" });
+      expect(await post.json()).toMatchObject({
+        url: "https://www.azed.gov/x",
+        title: "AZ Bilingual Endorsement — ADE",
+      });
 
-      const added = (await (await asGet(ctx({ url: "https://x.org/api?usps=AZ" }))).json()).sources;
-      expect(added).toEqual([expect.objectContaining({ datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x", title: "AZ Bilingual Endorsement — ADE", added_by: "reviewer@example.org" })]);
+      const added = (await readJson(await asGet(ctx({ url: "https://x.org/api?usps=AZ" })))).sources;
+      expect(added).toEqual([
+        expect.objectContaining({
+          datapoint_id: "credentials.bilingual.standalone",
+          url: "https://www.azed.gov/x",
+          title: "AZ Bilingual Endorsement — ADE",
+          added_by: "reviewer@example.org",
+        }),
+      ]);
 
       // It also becomes the datapoint's selected (unconfirmed) source.
-      const sel = (await (await dsGet(ctx({ url: "https://x.org/api?usps=AZ" }))).json()).sources;
+      const sel = (await readJson(await dsGet(ctx({ url: "https://x.org/api?usps=AZ" })))).sources;
       expect(sel[0]).toMatchObject({ datapoint_id: "credentials.bilingual.standalone", url: "https://www.azed.gov/x" });
     } finally {
       vi.unstubAllGlobals();
@@ -165,10 +233,15 @@ describe("/api/added-sources", () => {
   });
 
   it("falls back to the hostname when the page can't be fetched", async () => {
-    vi.stubGlobal("fetch", vi.fn(async () => new Response("blocked", { status: 403 })));
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response("blocked", { status: 403 })),
+    );
     try {
-      const post = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "https://blocked.example/p" } }));
-      expect((await post.json()).title).toBe("blocked.example");
+      const post = await asPost(
+        ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "https://blocked.example/p" } }),
+      );
+      expect((await readJson(post)).title).toBe("blocked.example");
     } finally {
       vi.unstubAllGlobals();
     }
@@ -182,11 +255,16 @@ describe("/api/added-sources", () => {
   });
 
   it("normalizes a scheme-less bare domain server-side", async () => {
-    vi.stubGlobal("fetch", vi.fn(async () => new Response("<title>ADE</title>", { status: 200 })));
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => new Response("<title>ADE</title>", { status: 200 })),
+    );
     try {
-      const res = await asPost(ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "www.azed.gov" } }));
+      const res = await asPost(
+        ctx({ method: "POST", body: { usps: "AZ", datapoint_id: "elPercent", url: "www.azed.gov" } }),
+      );
       expect(res.status).toBe(200);
-      expect((await res.json()).url).toBe("https://www.azed.gov/");
+      expect((await readJson(res)).url).toBe("https://www.azed.gov/");
     } finally {
       vi.unstubAllGlobals();
     }
@@ -201,7 +279,7 @@ describe("/api/overview", () => {
       `INSERT INTO broken_links (usps, datapoint_id, url, citation, classification, detected_at) VALUES ('CA','sources','https://x','CA / sources[0]','client-error','2026-06-16')`,
     ).run();
 
-    const ov = await (await ovGet(ctx({}))).json();
+    const ov = await readJson(await ovGet(ctx({})));
     expect(ov.totalDatapoints).toBe(32);
     const ca = ov.perState.find((r: { usps: string }) => r.usps === "CA");
     // elPercent + sources verified, but sources has a broken link, so it
@@ -215,11 +293,11 @@ describe("/api/broken-links", () => {
     db.prepare(
       `INSERT INTO broken_links (usps, datapoint_id, url, citation, status, classification, detected_at) VALUES ('NV','history','https://x','NV / history[0].sourceUrls[0]','404','client-error','2026-06-16')`,
     ).run();
-    const byState = await (await brkGet(ctx({ url: "https://x.org/api?usps=NV" }))).json();
+    const byState = await readJson(await brkGet(ctx({ url: "https://x.org/api?usps=NV" })));
     expect(byState.brokenLinks).toHaveLength(1);
     expect(byState.brokenLinks[0]).toMatchObject({ usps: "NV", datapoint_id: "history", status: "404" });
 
-    const all = await (await brkGet(ctx({}))).json();
+    const all = await readJson(await brkGet(ctx({})));
     expect(all.brokenLinks).toHaveLength(1);
   });
 });
@@ -232,55 +310,74 @@ describe("/api/link-reviews", () => {
   });
 
   it("lists rows with parsed citations", async () => {
-    const list = await (await lrGet(ctx({}))).json();
+    const list = await readJson(await lrGet(ctx({})));
     expect(list.reviews).toHaveLength(1);
     expect(list.reviews[0].citations).toEqual(["AZ / sources[0]"]);
     expect(list.reviews[0].decision).toBe("pending");
   });
 
   it("accepts and reverts a URL", async () => {
-    const accept = await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "accepted", note: "live in browser" } }));
+    const accept = await lrPost(
+      ctx({ method: "POST", body: { url: "https://azed.gov", decision: "accepted", note: "live in browser" } }),
+    );
     expect(accept.status).toBe(200);
-    let row = db.prepare(`SELECT decision, reviewed_by, note, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`).get() as Record<string, unknown>;
+    let row = db
+      .prepare(`SELECT decision, reviewed_by, note, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`)
+      .get() as Record<string, unknown>;
     // accepted_status snapshots the observed status ('403') so a later
     // sweep can re-flag if the response code changes.
-    expect(row).toMatchObject({ decision: "accepted", reviewed_by: "reviewer@example.org", note: "live in browser", accepted_status: "403" });
+    expect(row).toMatchObject({
+      decision: "accepted",
+      reviewed_by: "reviewer@example.org",
+      note: "live in browser",
+      accepted_status: "403",
+    });
 
     const revert = await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "pending" } }));
     expect(revert.status).toBe(200);
-    row = db.prepare(`SELECT decision, reviewed_by, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`).get() as Record<string, unknown>;
+    row = db
+      .prepare(`SELECT decision, reviewed_by, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`)
+      .get() as Record<string, unknown>;
     expect(row).toMatchObject({ decision: "pending", reviewed_by: null, accepted_status: null });
   });
 
   it("404s for an unknown URL and 400s for a bad decision", async () => {
-    expect((await lrPost(ctx({ method: "POST", body: { url: "https://nope", decision: "accepted" } }))).status).toBe(404);
-    expect((await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "maybe" } }))).status).toBe(400);
+    expect((await lrPost(ctx({ method: "POST", body: { url: "https://nope", decision: "accepted" } }))).status).toBe(
+      404,
+    );
+    expect((await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "maybe" } }))).status).toBe(
+      400,
+    );
   });
 });
 
 describe("/api/datapoint-sources", () => {
   it("sets, replaces (single source of truth), lists, and clears a datapoint's source", async () => {
     const dp = "credentials.bilingual.standalone";
-    expect((await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: dp, url: "https://x/bil-1" } }))).status).toBe(200);
+    expect(
+      (await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: dp, url: "https://x/bil-1" } }))).status,
+    ).toBe(200);
 
-    let list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    let list = await readJson(await dsGet(ctx({ url: "https://x.org/api?usps=CA" })));
     expect(list.sources).toHaveLength(1);
     expect(list.sources[0]).toMatchObject({ datapoint_id: dp, url: "https://x/bil-1", set_by: "reviewer@example.org" });
 
     // Selecting a different source replaces the first — exactly one row remains.
     await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: dp, url: "https://x/bil-2" } }));
-    list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    list = await readJson(await dsGet(ctx({ url: "https://x.org/api?usps=CA" })));
     expect(list.sources).toHaveLength(1);
     expect(list.sources[0].url).toBe("https://x/bil-2");
 
     // Clear by datapoint (no url needed).
     expect((await dsDel(ctx({ method: "DELETE", body: { usps: "CA", datapoint_id: dp } }))).status).toBe(200);
-    list = await (await dsGet(ctx({ url: "https://x.org/api?usps=CA" }))).json();
+    list = await readJson(await dsGet(ctx({ url: "https://x.org/api?usps=CA" })));
     expect(list.sources).toHaveLength(0);
   });
 
   it("rejects an unknown datapoint id and a missing usps", async () => {
-    expect((await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "nope", url: "https://x" } }))).status).toBe(400);
+    expect(
+      (await dsPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "nope", url: "https://x" } }))).status,
+    ).toBe(400);
     expect((await dsGet(ctx({ url: "https://x.org/api" }))).status).toBe(400);
   });
 });

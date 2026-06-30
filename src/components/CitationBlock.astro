@@ -33,10 +33,17 @@ const { title, dateModified, url, bibKey, doi } = Astro.props;
 
 const year = dateModified.slice(0, 4);
 
-function isoToParts(iso: string): { monthLong: string; day: number; year: number } {
+function isoToParts(iso: string): {
+  monthLong: string;
+  day: number;
+  year: number;
+} {
   const [y, m, d] = iso.split("-").map(Number) as [number, number, number];
   const date = new Date(Date.UTC(y, m - 1, d));
-  const monthLong = date.toLocaleDateString("en-US", { month: "long", timeZone: "UTC" });
+  const monthLong = date.toLocaleDateString("en-US", {
+    month: "long",
+    timeZone: "UTC",
+  });
   return { monthLong, day: d, year: y };
 }
 
@@ -81,7 +88,6 @@ const bibtexSeed = `@article{leider2021decentralization,
   year    = {2021},
   doi     = {10.14507/epaa.29.5279}
 }`;
-
 ---
 
 <section
@@ -89,12 +95,18 @@ const bibtexSeed = `@article{leider2021decentralization,
   class="mt-10 scroll-mt-20 rounded border border-ink-subtle/20 bg-surface-raised p-4"
   aria-labelledby="cite-heading"
 >
-  <h2 id="cite-heading" class="text-base font-semibold text-ink">
-    Cite this page
-  </h2>
+  <h2 id="cite-heading" class="text-base font-semibold text-ink">Cite this page</h2>
   <p class="mt-1 text-xs text-ink-subtle">
-    Site content is published under <a class="text-accent hover:underline" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
-    <strong class="font-semibold text-ink">When citing a fact from this page, please cite both projectcert <em>and</em> the original Leider et&nbsp;al. (2021) paper</strong> the dataset extends.
+    Site content is published under <a
+      class="text-accent hover:underline"
+      href="https://creativecommons.org/licenses/by/4.0/"
+      target="_blank"
+      rel="noopener noreferrer">CC BY 4.0</a
+    >.
+    <strong class="font-semibold text-ink"
+      >When citing a fact from this page, please cite both projectcert <em>and</em> the original Leider et&nbsp;al. (2021)
+      paper</strong
+    > the dataset extends.
   </p>
 
   <dl class="mt-4 space-y-5 text-sm">
@@ -108,8 +120,16 @@ const bibtexSeed = `@article{leider2021decentralization,
     <div>
       <dt class="text-xs font-mono uppercase tracking-wide text-ink-subtle">BibTeX</dt>
       <dd class="mt-1 text-ink space-y-2">
-        <pre class="overflow-x-auto whitespace-pre rounded bg-surface p-3 text-xs leading-relaxed">{bibtexSelf}</pre>
-        <pre class="overflow-x-auto whitespace-pre rounded bg-surface p-3 text-xs leading-relaxed">{bibtexSeed}</pre>
+        <pre
+          tabindex="0"
+          role="region"
+          aria-label="BibTeX citation for this catalog page (scrollable)"
+          class="overflow-x-auto whitespace-pre rounded bg-surface p-3 text-xs leading-relaxed">{bibtexSelf}</pre>
+        <pre
+          tabindex="0"
+          role="region"
+          aria-label="BibTeX citation for the seed paper (scrollable)"
+          class="overflow-x-auto whitespace-pre rounded bg-surface p-3 text-xs leading-relaxed">{bibtexSeed}</pre>
       </dd>
     </div>
   </dl>

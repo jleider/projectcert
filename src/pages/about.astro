@@ -5,85 +5,89 @@ import StateLink from "@/components/StateLink.astro";
 import { ROUTES, ANCHORS } from "@/lib/routes";
 ---
 
-<BaseLayout
-  title="About"
-  description="About projectcert — mission, approach, and how to contribute."
->
+<BaseLayout title="About" description="About projectcert — mission, approach, and how to contribute.">
   <article class="max-w-3xl mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-ink">About</h1>
 
     <p class="mt-4 text-lg text-ink-muted">
-      projectcert is an atlas of teacher certification requirements for
-      instructing classified English Learner (EL) students across the
-      fifty U.S. states and the District of Columbia.
+      projectcert is an atlas of teacher certification requirements for instructing classified English Learner (EL)
+      students across the fifty U.S. states and the District of Columbia.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Background</h2>
     <p class="mt-2 text-ink-muted">
-      Under <em>Lau v. Nichols</em>, 414 U.S. 563 (1974), and
-      subsequent federal civil-rights regulations, students classified
-      as English Learners are entitled to meaningful access to the
-      curriculum. Realization of that entitlement turns substantially
-      on the preparation of the teacher of record. State education
-      agencies (SEAs) set the credentialing requirements for teachers
-      of ELs; those requirements vary considerably. This catalog
-      documents the resulting variation.
+      Under <em>Lau v. Nichols</em>, 414 U.S. 563 (1974), and subsequent federal civil-rights regulations, students
+      classified as English Learners are entitled to meaningful access to the curriculum. Realization of that
+      entitlement turns substantially on the preparation of the teacher of record. State education agencies (SEAs) set
+      the credentialing requirements for teachers of ELs; those requirements vary considerably. This catalog documents
+      the resulting variation.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Contents</h2>
     <ul class="mt-2 list-disc pl-6 text-ink-muted space-y-1">
-      <li>An <a class="text-accent hover:underline" href={ROUTES.map}>interactive map</a> presenting six encoded variables.</li>
-      <li>Cross-state reports on <a class="text-accent hover:underline" href={ROUTES.credentials.bilingual}>bilingual</a>, <a class="text-accent hover:underline" href={ROUTES.credentials.eld}>ELD</a>, and <a class="text-accent hover:underline" href={ROUTES.credentials.sei}>SEI</a> credentials.</li>
-      <li>A <a class="text-accent hover:underline" href={ROUTES.compare}>side-by-side state comparison</a> tool.</li>
-      <li>An individual record for each of the 51 jurisdictions (e.g., <StateLink usps="MA">Massachusetts</StateLink>).</li>
+      <li>
+        An <a class="text-accent hover:underline" href={ROUTES.map}>interactive map</a> presenting six encoded variables.
+      </li>
+      <li>
+        Cross-state reports on <a class="text-accent hover:underline" href={ROUTES.credentials.bilingual}>bilingual</a>, <a
+          class="text-accent hover:underline"
+          href={ROUTES.credentials.eld}>ELD</a
+        >, and <a class="text-accent hover:underline" href={ROUTES.credentials.sei}>SEI</a> credentials.
+      </li>
+      <li>
+        A <a class="text-accent hover:underline" href={ROUTES.compare}>side-by-side state comparison</a> tool.
+      </li>
+      <li>
+        An individual record for each of the 51 jurisdictions (e.g., <StateLink usps="MA">Massachusetts</StateLink>).
+      </li>
     </ul>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Source paper</h2>
     <p class="mt-2 text-ink-muted">
-      Leider, C. M., Colombo, M. W., &amp; Nerlino, E. (2021).
-      Decentralization, teacher quality, and the education of English
-      learners: Do state education agencies effectively prepare teachers
-      of ELs? <em>Education Policy Analysis Archives, 29</em>(100).
-      <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">https://doi.org/10.14507/epaa.29.5279</ExternalLink>
+      Leider, C. M., Colombo, M. W., &amp; Nerlino, E. (2021). Decentralization, teacher quality, and the education of
+      English learners: Do state education agencies effectively prepare teachers of ELs? <em
+        >Education Policy Analysis Archives, 29</em
+      >(100).
+      <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279"
+        >https://doi.org/10.14507/epaa.29.5279</ExternalLink
+      >
     </p>
 
     <h2 id={ANCHORS.howToCite} class="mt-8 text-xl font-semibold text-ink">How to cite / attribution</h2>
     <p class="mt-2 text-ink-muted">
-      Use of data, figures, or findings from this catalog in research,
-      reporting, policy work, presentations, or other publications
-      requires citation of <strong>both</strong> the underlying source
-      paper and this site. The paper is the original scholarly work
-      that seeded the catalog; citing only the site would obscure the
-      authors whose research established the dataset.
+      Use of data, figures, or findings from this catalog in research, reporting, policy work, presentations, or other
+      publications requires citation of <strong>both</strong> the underlying source paper and this site. The paper is the
+      original scholarly work that seeded the catalog; citing only the site would obscure the authors whose research established
+      the dataset.
     </p>
     <h3 class="mt-4 text-base font-semibold text-ink">Source paper (required)</h3>
     <p class="mt-1 text-ink-muted">
-      Leider, C. M., Colombo, M. W., &amp; Nerlino, E. (2021).
-      Decentralization, teacher quality, and the education of English
-      learners: Do state education agencies effectively prepare teachers
-      of ELs? <em>Education Policy Analysis Archives, 29</em>(100).
-      <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279">https://doi.org/10.14507/epaa.29.5279</ExternalLink>
+      Leider, C. M., Colombo, M. W., &amp; Nerlino, E. (2021). Decentralization, teacher quality, and the education of
+      English learners: Do state education agencies effectively prepare teachers of ELs? <em
+        >Education Policy Analysis Archives, 29</em
+      >(100).
+      <ExternalLink class="text-accent hover:underline" href="https://doi.org/10.14507/epaa.29.5279"
+        >https://doi.org/10.14507/epaa.29.5279</ExternalLink
+      >
     </p>
     <h3 class="mt-4 text-base font-semibold text-ink">This site</h3>
     <p class="mt-1 text-ink-muted">
-      projectcert. <em>An atlas of U.S. state teacher certification
-      requirements for instructing classified English Learner students.</em>
+      projectcert. <em
+        >An atlas of U.S. state teacher certification requirements for instructing classified English Learner students.</em
+      >
       Retrieved {new Date().toISOString().slice(0, 10)} from
       <a class="text-accent hover:underline" href={ROUTES.home}>this website</a>.
     </p>
     <p class="mt-2 text-sm text-ink-muted">
-      Each state page also lists the underlying SEA documents that
-      ground every fact, alongside their retrieval dates. Quotations
-      of specific requirements should cite the SEA source directly in
-      addition to the entries above.
+      Each state page also lists the underlying SEA documents that ground every fact, alongside their retrieval dates.
+      Quotations of specific requirements should cite the SEA source directly in addition to the entries above.
     </p>
 
     <h2 class="mt-8 text-xl font-semibold text-ink">Contributing</h2>
     <p class="mt-2 text-ink-muted">
-      The state records are maintained in a public project repository.
-      Proposed updates — new SEA documents, changed credentialing
-      requirements, corrections — should be submitted as an issue or
-      pull request with the source URL and retrieval date.
+      The state records are maintained in a public project repository. Proposed updates — new SEA documents, changed
+      credentialing requirements, corrections — should be submitted as an issue or pull request with the source URL and
+      retrieval date.
     </p>
   </article>
 </BaseLayout>

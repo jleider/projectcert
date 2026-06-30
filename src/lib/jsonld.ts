@@ -32,8 +32,5 @@ export function breadcrumbList(items: BreadcrumbItem[]): Record<string, unknown>
 
 /** Convenience: prepend the standard "Home" item. */
 export function breadcrumbWithHome(rest: BreadcrumbItem[]): Record<string, unknown> {
-  return breadcrumbList([
-    { name: "Home", url: absoluteRoute(SITE_URL, ROUTES.home) },
-    ...rest,
-  ]);
+  return breadcrumbList([{ name: "Home", url: absoluteRoute(SITE_URL, ROUTES.home) }, ...rest]);
 }

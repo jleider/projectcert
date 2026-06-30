@@ -109,9 +109,16 @@
     {/if}
 
     {#if actionError}
-      <div class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
+      <div
+        class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink"
+      >
         <span>{actionError}</span>
-        <button type="button" class="shrink-0 text-ink-subtle hover:text-accent" aria-label="Dismiss" on:click={() => (actionError = "")}>×</button>
+        <button
+          type="button"
+          class="shrink-0 text-ink-subtle hover:text-accent"
+          aria-label="Dismiss"
+          on:click={() => (actionError = "")}>×</button
+        >
       </div>
     {/if}
 
@@ -120,7 +127,13 @@
         <span class="font-semibold text-ink">Overall progress</span>
         <span class="text-ink-muted tabular-nums">{totalVerified} / {totalPossible} ({overallPct}%)</span>
       </div>
-      <div class="mt-2 h-2 rounded bg-surface overflow-hidden" role="progressbar" aria-valuenow={overallPct} aria-valuemin={0} aria-valuemax={100}>
+      <div
+        class="mt-2 h-2 rounded bg-surface overflow-hidden"
+        role="progressbar"
+        aria-valuenow={overallPct}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <div class="h-full bg-accent" style={`width: ${overallPct}%`}></div>
       </div>
     </div>
@@ -179,7 +192,9 @@
                     <span class="text-ink-subtle"> · {sug.datapoint_id}</span>
                   </div>
                   <div class="mt-1 text-ink-muted">{sug.body}</div>
-                  <div class="mt-1 text-xs text-ink-subtle">{sug.submitted_by} · {sug.submitted_at.replace("T", " ").slice(0, 16)} UTC</div>
+                  <div class="mt-1 text-xs text-ink-subtle">
+                    {sug.submitted_by} · {sug.submitted_at.replace("T", " ").slice(0, 16)} UTC
+                  </div>
                 </div>
                 <button
                   type="button"
@@ -201,9 +216,8 @@
         Datapoints needing re-verification ({brokenLinks.length})
       </h2>
       <p class="mt-1 text-sm text-ink-muted">
-        Cited sources the weekly link sweep found unreachable. The dependent
-        confirmation no longer counts until the source recovers or a reviewer
-        re-verifies.
+        Cited sources the weekly link sweep found unreachable. The dependent confirmation no longer counts until the
+        source recovers or a reviewer re-verifies.
       </p>
       {#if brokenLinks.length === 0}
         <p class="mt-2 text-sm text-ink-muted">No unreachable cited sources.</p>

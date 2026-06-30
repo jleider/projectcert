@@ -6,7 +6,7 @@
 > records — what you read here matches what users see on the live
 > per-state pages.
 
-Snapshot generated: 2026-06-29
+Snapshot generated: 2026-05-10
 States verified against current SEA sources: 51 / 51
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279

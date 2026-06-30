@@ -54,10 +54,7 @@ const WHITELIST_PATH = resolve(__dirname, "../src/data/link-whitelist.json");
  */
 function loadWhitelist(): Map<string, number | null> {
   try {
-    const parsed = JSON.parse(readFileSync(WHITELIST_PATH, "utf8")) as Record<
-      string,
-      { status?: number | null }
-    >;
+    const parsed = JSON.parse(readFileSync(WHITELIST_PATH, "utf8")) as Record<string, { status?: number | null }>;
     const m = new Map<string, number | null>();
     for (const [url, entry] of Object.entries(parsed)) m.set(url, entry?.status ?? null);
     return m;
@@ -71,11 +68,7 @@ const TIMEOUT_MS = 20_000;
 const CONCURRENCY = 8;
 const RETRY_COUNT = 1;
 // Hosts that reject HEAD; skip straight to GET.
-const GET_ONLY_HOSTS = new Set<string>([
-  "nces.ed.gov",
-  "supreme.justia.com",
-  "law.justia.com",
-]);
+const GET_ONLY_HOSTS = new Set<string>(["nces.ed.gov", "supreme.justia.com", "law.justia.com"]);
 
 interface CitedUrl {
   url: string;
@@ -140,7 +133,12 @@ for (const c of cited) {
 async function fetchOne(
   url: string,
   method: "HEAD" | "GET",
-): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
+): Promise<{
+  status: number | null;
+  finalUrl?: string;
+  redirected?: boolean;
+  message?: string;
+}> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
@@ -154,14 +152,17 @@ async function fetchOne(
         // Cloudflare-protected pages that reject the previous string.
         "User-Agent":
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-        "Accept":
-          "text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf;q=0.9,*/*;q=0.8",
+        Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,application/pdf;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
       },
     });
     // `res.url` is the final URL after following redirects; `res.redirected`
     // is true when at least one 3xx hop was followed.
-    return { status: res.status, finalUrl: res.url, redirected: res.redirected };
+    return {
+      status: res.status,
+      finalUrl: res.url,
+      redirected: res.redirected,
+    };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     return { status: null, message };
@@ -170,9 +171,12 @@ async function fetchOne(
   }
 }
 
-async function checkWithRetry(
-  url: string,
-): Promise<{ status: number | null; finalUrl?: string; redirected?: boolean; message?: string }> {
+async function checkWithRetry(url: string): Promise<{
+  status: number | null;
+  finalUrl?: string;
+  redirected?: boolean;
+  message?: string;
+}> {
   let host: string;
   try {
     host = new URL(url).host;
@@ -193,11 +197,7 @@ async function checkWithRetry(
   return last;
 }
 
-async function runWithConcurrency<T, R>(
-  items: T[],
-  limit: number,
-  worker: (item: T) => Promise<R>,
-): Promise<R[]> {
+async function runWithConcurrency<T, R>(items: T[], limit: number, worker: (item: T) => Promise<R>): Promise<R[]> {
   const out: R[] = new Array(items.length);
   let next = 0;
   const runners = Array.from({ length: Math.min(limit, items.length) }, async () => {
@@ -293,7 +293,7 @@ if (asJson) {
   if (broken.length > 0) {
     process.stdout.write(`## Broken (${broken.length})\n\n`);
     for (const r of broken) {
-      const status = r.status === null ? r.message ?? "no response" : String(r.status);
+      const status = r.status === null ? (r.message ?? "no response") : String(r.status);
       process.stdout.write(`- **${status}** — ${r.url}\n`);
       for (const c of r.citations) {
         process.stdout.write(`    - ${c}\n`);

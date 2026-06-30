@@ -36,11 +36,7 @@ const simplify = _simplify as (t: Topology, minWeight: number) => Topology;
 const quantize = _quantize as (t: Topology, n: number) => Topology;
 import { STATES } from "../src/data/states-meta";
 
-import type {
-  Topology,
-  GeometryCollection,
-  GeometryObject,
-} from "topojson-specification";
+import type { Topology, GeometryCollection, GeometryObject } from "topojson-specification";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PATH = resolve(__dirname, "../public/data/us-states-10m.json");
@@ -73,7 +69,7 @@ function trimTerritories(t: Topology): Topology {
   return {
     ...t,
     objects: {
-      states: { ...states, geometries: filtered } as GeometryCollection,
+      states: { ...states, geometries: filtered },
     },
   };
 }

@@ -24,7 +24,8 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
   <section class="max-w-6xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">Map</h1>
     <p class="mt-2 text-ink-muted max-w-3xl">
-      Switching the encoded variable surfaces distinct distributions across the same fifty-one jurisdictions. Each layer is documented separately on its corresponding credential or policy page.
+      Switching the encoded variable surfaces distinct distributions across the same fifty-one jurisdictions. Each layer
+      is documented separately on its corresponding credential or policy page.
     </p>
 
     <div class="mt-6">
@@ -45,12 +46,16 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
         Every variable encoded above in tabular form. State names link to the full per-state record and source list.
       </p>
 
-      <div class="mt-4 overflow-x-auto rounded border border-ink-subtle/20">
+      <div
+        class="mt-4 overflow-x-auto rounded border border-ink-subtle/20"
+        tabindex="0"
+        role="region"
+        aria-labelledby="data-table-heading"
+      >
         <table class="w-full text-sm">
           <caption class="sr-only">
-            U.S. state EL teacher certification data: % classified ELs,
-            bilingual credential, ELD credential, SEI mandate, Seal of
-            Biliteracy, and ELP assessment used.
+            U.S. state EL teacher certification data: % classified ELs, bilingual credential, ELD credential, SEI
+            mandate, Seal of Biliteracy, and ELP assessment used.
           </caption>
           <thead class="bg-surface-raised text-ink text-left">
             <tr>
@@ -64,30 +69,40 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
             </tr>
           </thead>
           <tbody>
-            {tableRows.map((s) => (
-              <tr class="border-t border-ink-subtle/20 align-top">
-                <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap text-left">
-                  <StateLink usps={s.usps}>{s.name}</StateLink>
-                </th>
-                <td class="px-3 py-2 text-right tabular-nums" data-col="elPercent">{s.elPercent.toFixed(1)}%</td>
-                <td class="px-3 py-2" data-col="bilingual">{credCell(s.bilingual)}</td>
-                <td class="px-3 py-2" data-col="eld">{credCell(s.eld)}</td>
-                <td class="px-3 py-2" data-col="sei">{s.seiMandated ? "Mandated" : "—"}</td>
-                <td class="px-3 py-2 whitespace-nowrap" data-col="sealOfBiliteracy">
-                  {s.sealOfBiliteracy.adopted === true
-                    ? (s.sealOfBiliteracy.year ? `Adopted (${s.sealOfBiliteracy.year})` : "Adopted")
-                    : s.sealOfBiliteracy.adopted === false
-                      ? "Not adopted"
-                      : "—"}
-                </td>
-                <td class="px-3 py-2 whitespace-nowrap" data-col="elpAssessment">
-                  {s.elpAssessment.name}
-                  {s.elpAssessment.consortium && (
-                    <span class="text-ink-subtle"> · {s.elpAssessment.consortium}</span>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {
+              tableRows.map((s) => (
+                <tr class="border-t border-ink-subtle/20 align-top">
+                  <th scope="row" class="px-3 py-2 font-medium text-ink whitespace-nowrap text-left">
+                    <StateLink usps={s.usps}>{s.name}</StateLink>
+                  </th>
+                  <td class="px-3 py-2 text-right tabular-nums" data-col="elPercent">
+                    {s.elPercent.toFixed(1)}%
+                  </td>
+                  <td class="px-3 py-2" data-col="bilingual">
+                    {credCell(s.bilingual)}
+                  </td>
+                  <td class="px-3 py-2" data-col="eld">
+                    {credCell(s.eld)}
+                  </td>
+                  <td class="px-3 py-2" data-col="sei">
+                    {s.seiMandated ? "Mandated" : "—"}
+                  </td>
+                  <td class="px-3 py-2 whitespace-nowrap" data-col="sealOfBiliteracy">
+                    {s.sealOfBiliteracy.adopted === true
+                      ? s.sealOfBiliteracy.year
+                        ? `Adopted (${s.sealOfBiliteracy.year})`
+                        : "Adopted"
+                      : s.sealOfBiliteracy.adopted === false
+                        ? "Not adopted"
+                        : "—"}
+                  </td>
+                  <td class="px-3 py-2 whitespace-nowrap" data-col="elpAssessment">
+                    {s.elpAssessment.name}
+                    {s.elpAssessment.consortium && <span class="text-ink-subtle"> · {s.elpAssessment.consortium}</span>}
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
@@ -95,7 +110,11 @@ function credCell(c: { offered: boolean; standalone: boolean; addOn: boolean }):
   </section>
 
   <style>
-    [data-col][data-active="true"] {
+    /* Tint only the body cells of the active column. Keeping the tint
+     * off the header lets the accent-colored header text sit on plain
+     * --surface-raised, where it clears AA (the 8% accent tint dragged
+     * it to 4.19:1). */
+    td[data-col][data-active="true"] {
       background-color: color-mix(in srgb, var(--accent) 8%, transparent);
     }
     th[data-col][data-active="true"] {

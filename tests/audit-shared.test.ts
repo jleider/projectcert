@@ -55,7 +55,9 @@ describe("normalizeSourceUrl", () => {
 describe("extractTitle", () => {
   it("prefers og:title, falls back to <title>, decodes entities, collapses whitespace", () => {
     expect(extractTitle("<title>ELPAC — CDE</title>")).toBe("ELPAC — CDE");
-    expect(extractTitle('<meta property="og:title" content="Bilingual Authorization">\n<title>fallback</title>')).toBe("Bilingual Authorization");
+    expect(extractTitle('<meta property="og:title" content="Bilingual Authorization">\n<title>fallback</title>')).toBe(
+      "Bilingual Authorization",
+    );
     expect(extractTitle("<title>A &amp; B &#39;C&#39;</title>")).toBe("A & B 'C'");
     expect(extractTitle("<title>\n  Spaced   Out\n</title>")).toBe("Spaced Out");
   });

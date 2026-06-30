@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # npm dependencies. Minor/patch bumps are grouped into a single PR to
+  # cut noise; major bumps open individually so each can be reviewed
+  # against the build gate (lint -> typecheck -> dead-code -> validate ->
+  # test -> build -> e2e -> link-check).
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  # GitHub Actions versions pinned in .github/workflows/*.yml.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        update-types:
+          - minor
+          - patch

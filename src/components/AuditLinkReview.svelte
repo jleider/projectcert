@@ -45,10 +45,18 @@
         body: JSON.stringify({ url: row.url, decision }),
       });
       if (!res.ok) throw new Error("post");
-      const updated = (await res.json()) as { reviewed_by: string | null; reviewed_at: string | null };
+      const updated = (await res.json()) as {
+        reviewed_by: string | null;
+        reviewed_at: string | null;
+      };
       reviews = reviews.map((r) =>
         r.url === row.url
-          ? { ...r, decision, reviewed_by: updated.reviewed_by, reviewed_at: updated.reviewed_at }
+          ? {
+              ...r,
+              decision,
+              reviewed_by: updated.reviewed_by,
+              reviewed_at: updated.reviewed_at,
+            }
           : r,
       );
     } catch {
@@ -70,7 +78,9 @@
     {/if}
 
     <section>
-      <h2 class="text-lg font-semibold text-ink">Awaiting review ({pending.length})</h2>
+      <h2 class="text-lg font-semibold text-ink">
+        Awaiting review ({pending.length})
+      </h2>
       {#if pending.length === 0}
         <p class="mt-2 text-sm text-ink-muted">No bot-blocked URLs are awaiting review.</p>
       {:else}
@@ -79,11 +89,18 @@
             <li class="rounded border border-ink-subtle/20 p-3">
               <div class="flex items-start justify-between gap-3">
                 <div class="min-w-0">
-                  <a class="text-accent hover:underline break-all" href={row.url} target="_blank" rel="noopener noreferrer">{row.url}</a>
-                  <div class="mt-1 text-xs text-ink-subtle">Status {row.status ?? row.classification} · first seen {row.first_seen.slice(0, 10)}</div>
+                  <a
+                    class="text-accent hover:underline break-all"
+                    href={row.url}
+                    target="_blank"
+                    rel="noopener noreferrer">{row.url}</a
+                  >
+                  <div class="mt-1 text-xs text-ink-subtle">
+                    Status {row.status ?? row.classification} · first seen {row.first_seen.slice(0, 10)}
+                  </div>
                   {#if row.citations.length > 0}
                     <ul class="mt-1 text-xs text-ink-muted">
-                      {#each row.citations as c}
+                      {#each row.citations as c (c)}
                         <li>{c}</li>
                       {/each}
                     </ul>
@@ -105,10 +122,10 @@
     </section>
 
     <section>
-      <h2 class="text-lg font-semibold text-ink">Accepted ({accepted.length})</h2>
-      <p class="mt-1 text-sm text-ink-muted">
-        Whitelisted on the next nightly sync. The checker treats these as live.
-      </p>
+      <h2 class="text-lg font-semibold text-ink">
+        Accepted ({accepted.length})
+      </h2>
+      <p class="mt-1 text-sm text-ink-muted">Whitelisted on the next nightly sync. The checker treats these as live.</p>
       {#if accepted.length === 0}
         <p class="mt-2 text-sm text-ink-muted">No accepted URLs yet.</p>
       {:else}
@@ -117,9 +134,16 @@
             <li class="rounded border border-ink-subtle/20 p-3 text-sm">
               <div class="flex items-start justify-between gap-3">
                 <div class="min-w-0">
-                  <a class="text-accent hover:underline break-all" href={row.url} target="_blank" rel="noopener noreferrer">{row.url}</a>
+                  <a
+                    class="text-accent hover:underline break-all"
+                    href={row.url}
+                    target="_blank"
+                    rel="noopener noreferrer">{row.url}</a
+                  >
                   {#if row.reviewed_by}
-                    <div class="mt-1 text-xs text-ink-subtle">Accepted by {row.reviewed_by}{row.reviewed_at ? ` on ${row.reviewed_at.slice(0, 10)}` : ""}</div>
+                    <div class="mt-1 text-xs text-ink-subtle">
+                      Accepted by {row.reviewed_by}{row.reviewed_at ? ` on ${row.reviewed_at.slice(0, 10)}` : ""}
+                    </div>
                   {/if}
                 </div>
                 <button

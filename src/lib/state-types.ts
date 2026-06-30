@@ -9,14 +9,7 @@ export const CREDENTIAL_TYPES = ["bilingual", "eld", "sei"] as const;
 export type CredentialType = (typeof CREDENTIAL_TYPES)[number];
 
 /** Map layer keys — every encoded variable on the choropleth. */
-export const LAYERS = [
-  "elPercent",
-  "bilingual",
-  "eld",
-  "sei",
-  "sealOfBiliteracy",
-  "elpAssessment",
-] as const;
+export const LAYERS = ["elPercent", "bilingual", "eld", "sei", "sealOfBiliteracy", "elpAssessment"] as const;
 export type Layer = (typeof LAYERS)[number];
 
 export interface ChoroplethDatum {
@@ -31,8 +24,16 @@ export interface ChoroplethDatum {
   bilingual: { offered: boolean; standalone: boolean; addOn: boolean };
   eld: { offered: boolean; standalone: boolean; addOn: boolean };
   seiMandated: boolean;
-  sealOfBiliteracy: { adopted: boolean; year: number | null; sourceUrl: string };
-  elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null; sourceUrl: string | null };
+  sealOfBiliteracy: {
+    adopted: boolean;
+    year: number | null;
+    sourceUrl: string;
+  };
+  elpAssessment: {
+    name: string;
+    consortium: "WIDA" | "ELPA21" | null;
+    sourceUrl: string | null;
+  };
 }
 
 import type { LinkUrl } from "./routes";

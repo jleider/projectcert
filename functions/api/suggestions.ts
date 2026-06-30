@@ -56,9 +56,11 @@ export const onRequestGet: PagesFunction<AuditEnv, string, AuditData> = async ({
 };
 
 export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async ({ request, env, data }) => {
-  const json = (await request.json().catch(() => null)) as
-    | { usps?: string; datapoint_id?: string; body?: string }
-    | null;
+  const json = (await request.json().catch(() => null)) as {
+    usps?: string;
+    datapoint_id?: string;
+    body?: string;
+  } | null;
   const usps = normalizeUsps(json?.usps);
   const datapointId = json?.datapoint_id;
   const text = typeof json?.body === "string" ? json.body.trim() : "";
@@ -112,5 +114,10 @@ export const onRequestPatch: PagesFunction<AuditEnv, string, AuditData> = async 
           .run();
 
   if (result.meta.changes === 0) return jsonResponse({ error: "No suggestion with that id." }, 404);
-  return jsonResponse({ id, status, resolved_by: status === "resolved" ? data.userEmail : null, resolved_at: status === "resolved" ? now : null });
+  return jsonResponse({
+    id,
+    status,
+    resolved_by: status === "resolved" ? data.userEmail : null,
+    resolved_at: status === "resolved" ? now : null,
+  });
 };

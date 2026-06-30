@@ -1,0 +1,9 @@
+{
+  "//": "Type-checks the integration test that imports functions/api/* (Workers-typed) alongside node:sqlite. It cannot live in the root program (Workers types vs the DOM/Node program collide), so it gets its own: Workers types for the function handlers + @types/node for node:fs / node:sqlite. skipLibCheck (inherited) absorbs the duplicate fetch/Request globals between the two type sets. Wired into `npm run typecheck`.",
+  "extends": "./functions/tsconfig.json",
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types", "@types/node"]
+  },
+  "include": ["functions/**/*.ts", "tests/audit-api.integration.test.ts"],
+  "exclude": []
+}

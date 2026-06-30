@@ -3,8 +3,18 @@
     usps: string;
     name: string;
     elPercent: number;
-    bilingual: { offered: boolean; standalone: boolean; addOn: boolean; requirements: Record<string, boolean | null> | undefined };
-    eld: { offered: boolean; standalone: boolean; addOn: boolean; requirements: Record<string, boolean | null> | undefined };
+    bilingual: {
+      offered: boolean;
+      standalone: boolean;
+      addOn: boolean;
+      requirements: Record<string, boolean | null> | undefined;
+    };
+    eld: {
+      offered: boolean;
+      standalone: boolean;
+      addOn: boolean;
+      requirements: Record<string, boolean | null> | undefined;
+    };
     seiMandated: boolean;
   }
 
@@ -20,23 +30,45 @@
     }
   }
 
-  $: chosen = selected
-    .map((u) => states.find((s) => s.usps === u))
-    .filter((s): s is CompareState => Boolean(s));
-
-  type Cell = { value: boolean | null | undefined; label: string };
+  $: chosen = selected.map((u) => states.find((s) => s.usps === u)).filter((s): s is CompareState => Boolean(s));
 
   /** Symbol + accessible description for a tri-state requirement flag. */
-  function cellFor(value: boolean | null | undefined, rowLabel: string): { symbol: string; tooltip: string; aria: string } {
-    if (value === true) return { symbol: "✓", tooltip: `Required — ${rowLabel}`, aria: `Required: ${rowLabel}` };
-    if (value === false) return { symbol: "—", tooltip: `Not required — ${rowLabel}`, aria: `Not required: ${rowLabel}` };
-    return { symbol: "?", tooltip: `Unknown — public sources do not specify whether this is required for ${rowLabel.toLowerCase()}`, aria: `Unknown: ${rowLabel}` };
+  function cellFor(
+    value: boolean | null | undefined,
+    rowLabel: string,
+  ): { symbol: string; tooltip: string; aria: string } {
+    if (value === true)
+      return {
+        symbol: "✓",
+        tooltip: `Required — ${rowLabel}`,
+        aria: `Required: ${rowLabel}`,
+      };
+    if (value === false)
+      return {
+        symbol: "—",
+        tooltip: `Not required — ${rowLabel}`,
+        aria: `Not required: ${rowLabel}`,
+      };
+    return {
+      symbol: "?",
+      tooltip: `Unknown — public sources do not specify whether this is required for ${rowLabel.toLowerCase()}`,
+      aria: `Unknown: ${rowLabel}`,
+    };
   }
 
   /** Symbol + accessible description for a plain yes/no boolean. */
   function boolCellFor(value: boolean, rowLabel: string): { symbol: string; tooltip: string; aria: string } {
-    if (value) return { symbol: "✓", tooltip: `Yes — ${rowLabel}`, aria: `Yes: ${rowLabel}` };
-    return { symbol: "—", tooltip: `No — ${rowLabel}`, aria: `No: ${rowLabel}` };
+    if (value)
+      return {
+        symbol: "✓",
+        tooltip: `Yes — ${rowLabel}`,
+        aria: `Yes: ${rowLabel}`,
+      };
+    return {
+      symbol: "—",
+      tooltip: `No — ${rowLabel}`,
+      aria: `No: ${rowLabel}`,
+    };
   }
 
   interface SectionRow {
@@ -159,8 +191,7 @@
       rows: [
         {
           label: "Mandated for all teachers",
-          explain:
-            "State requires SEI training of every classroom teacher, not only those with an EL specialty.",
+          explain: "State requires SEI training of every classroom teacher, not only those with an EL specialty.",
           get: (s) => s.seiMandated,
           kind: "bool",
         },
@@ -173,19 +204,19 @@
   <fieldset class="rounded border border-ink-subtle/20 p-3">
     <legend class="text-sm font-semibold text-ink px-2">Pick 2–4 states</legend>
     <div class="flex flex-wrap gap-2 text-sm" role="group">
-      {#each states as s}
+      {#each states as s (s.usps)}
         {@const isSelected = selected.includes(s.usps)}
         {@const isDisabled = !isSelected && selected.length >= 4}
         <button
           type="button"
           class="px-2.5 py-1 rounded border font-medium transition-colors
                  {isSelected
-                   ? 'bg-accent text-white border-accent hover:bg-accent-hover hover:border-accent-hover'
-                   : isDisabled
-                     ? 'bg-surface text-ink-subtle border-ink-subtle/30 opacity-50 cursor-not-allowed'
-                     : 'bg-surface text-ink-muted border-ink-subtle/40 hover:border-accent hover:text-accent hover:bg-surface-raised'}"
+            ? 'bg-accent text-white border-accent hover:bg-accent-hover hover:border-accent-hover'
+            : isDisabled
+              ? 'bg-surface text-ink-subtle border-ink-subtle/30 opacity-50 cursor-not-allowed'
+              : 'bg-surface text-ink-muted border-ink-subtle/40 hover:border-accent hover:text-accent hover:bg-surface-raised'}"
           aria-pressed={isSelected}
-          aria-label={`${s.name}${isSelected ? ' (selected)' : ''}`}
+          aria-label={`${s.name}${isSelected ? " (selected)" : ""}`}
           title={s.name}
           on:click={() => toggle(s.usps)}
           disabled={isDisabled}
@@ -197,13 +228,15 @@
         </button>
       {/each}
     </div>
-    <p class="mt-2 text-xs text-ink-subtle">{selected.length} selected (max 4)</p>
+    <p class="mt-2 text-xs text-ink-subtle">
+      {selected.length} selected (max 4)
+    </p>
   </fieldset>
 
   {#if chosen.length >= 2}
     <p class="text-sm text-ink-subtle">
-      Hover any row label or cell for an explanation. ✓ = required / yes,
-      — = not required / no, ? = unknown from public sources.
+      Hover any row label or cell for an explanation. ✓ = required / yes, — = not required / no, ? = unknown from public
+      sources.
     </p>
 
     <div class="overflow-x-auto">
@@ -211,7 +244,7 @@
         <thead class="text-left bg-surface-raised">
           <tr>
             <th scope="col" class="px-3 py-2 font-semibold text-ink min-w-[18rem]">Requirement</th>
-            {#each chosen as s}
+            {#each chosen as s (s.usps)}
               <th scope="col" class="px-3 py-2 font-semibold text-ink">
                 <a class="text-accent hover:underline" href={`/states/${s.usps.toLowerCase()}/`}>{s.name}</a>
               </th>
@@ -227,14 +260,14 @@
             >
               % classified ELs
             </th>
-            {#each chosen as s}
+            {#each chosen as s (s.usps)}
               <td class="px-3 py-2" title={`${s.name}: ${s.elPercent.toFixed(1)}% classified ELs`}>
                 {s.elPercent.toFixed(1)}%
               </td>
             {/each}
           </tr>
 
-          {#each SECTIONS as section}
+          {#each SECTIONS as section (section.title)}
             <tr class="border-t border-ink-subtle/20">
               <th
                 scope="colgroup"
@@ -245,7 +278,7 @@
                 {section.title}
               </th>
             </tr>
-            {#each section.rows as row}
+            {#each section.rows as row (row.label)}
               <tr class="border-t border-ink-subtle/20 hover:bg-surface-raised/40">
                 <th
                   scope="row"
@@ -254,7 +287,7 @@
                 >
                   {row.label}
                 </th>
-                {#each chosen as s}
+                {#each chosen as s (s.usps)}
                   {@const v = row.get(s)}
                   {@const cell = row.kind === "tri" ? cellFor(v, row.label) : boolCellFor(Boolean(v), row.label)}
                   <td class="px-3 py-2">

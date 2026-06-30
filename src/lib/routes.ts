@@ -41,11 +41,7 @@ export const ANCHORS = {
   main: "main",
 } as const;
 
-type LeafValues<T> = T extends string
-  ? T
-  : T extends Record<string, unknown>
-    ? LeafValues<T[keyof T]>
-    : never;
+type LeafValues<T> = T extends string ? T : T extends Record<string, unknown> ? LeafValues<T[keyof T]> : never;
 
 /** String-literal union of every route declared in ROUTES. */
 export type Route = LeafValues<typeof ROUTES>;

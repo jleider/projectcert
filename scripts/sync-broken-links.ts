@@ -43,8 +43,10 @@ if (!inputPath || !outPath) {
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as { results: CheckerResult[] };
-const detectedAt = (argValue("--detected-at") ?? new Date().toISOString());
+const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+  results: CheckerResult[];
+};
+const detectedAt = argValue("--detected-at") ?? new Date().toISOString();
 
 interface BrokenRow {
   usps: string;
@@ -86,9 +88,7 @@ if (current.length === 0) {
   lines.push("DELETE FROM broken_links;");
 } else {
   const tuples = current.map((r) => `(${q(r.usps)}, ${q(r.datapointId)}, ${q(r.url)})`).join(", ");
-  lines.push(
-    `DELETE FROM broken_links WHERE (usps, datapoint_id, url) NOT IN (VALUES ${tuples});`,
-  );
+  lines.push(`DELETE FROM broken_links WHERE (usps, datapoint_id, url) NOT IN (VALUES ${tuples});`);
   for (const r of current) {
     const status = r.status === "" ? "NULL" : q(r.status);
     lines.push(

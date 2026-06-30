@@ -125,7 +125,10 @@ try {
   assert((await li.getByText("Confirmed source:").count()) > 0, "labeled 'Confirmed source' while checked");
   await page.getByRole("checkbox").first().uncheck();
   await sleep(1200);
-  assert((await li.getByText("Likely source (unconfirmed):").count()) > 0, "reverts to 'Likely source (unconfirmed)' when unchecked");
+  assert(
+    (await li.getByText("Likely source (unconfirmed):").count()) > 0,
+    "reverts to 'Likely source (unconfirmed)' when unchecked",
+  );
 
   step("4. Add-source-URL: validates, normalizes bare domains, fetches title");
   const urlInput = page.locator('input[type="url"]').first();
@@ -134,14 +137,20 @@ try {
   await urlInput.fill("dsfsda");
   await addBtn.click();
   await sleep(400);
-  assert((await li.getByText(/full web address|valid/i).count()) > 0, "a bare word like 'dsfsda' is rejected with an inline error");
+  assert(
+    (await li.getByText(/full web address|valid/i).count()) > 0,
+    "a bare word like 'dsfsda' is rejected with an inline error",
+  );
   // 4b: a bare domain (no scheme) is normalized to https:// and its title fetched
   await urlInput.fill("www.example.com");
   await addBtn.click();
   await sleep(5000); // server-side fetch + title parse
   const addedHref = await li.locator("ul.list-disc a").first().getAttribute("href");
   assert(addedHref === "https://www.example.com/", `bare domain normalized + selected as source (href=${addedHref})`);
-  assert(/example/i.test((await li.locator("ul.list-disc a").first().innerText()).trim()), "shown label reflects the fetched title/host");
+  assert(
+    /example/i.test((await li.locator("ul.list-disc a").first().innerText()).trim()),
+    "shown label reflects the fetched title/host",
+  );
 
   // The invalid-URL submission in step 4a intentionally returns 400; any
   // other 4xx/5xx is a real problem.
