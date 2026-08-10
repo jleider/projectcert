@@ -830,7 +830,7 @@ mirror→canonical map, and the bulk remediation-script pattern.
 
 ## Skills
 
-Six project skills under `.claude/skills/`:
+Seven project skills under `.claude/skills/`:
 
 - **`el-cert-schema`** — canonical schema reference. Triggered when
   editing files under `src/content/states/`.
@@ -854,6 +854,11 @@ Six project skills under `.claude/skills/`:
   `knip.json`, any `tsconfig*.json`, the CI workflow, the build-check
   scripts, or `tests/e2e/`; when adding a test/page/map-layer; or when a
   gate step fails or needs tuning.
+- **`dry`** — the shared homes under `src/lib/`, `src/data/`, and
+  `src/config/` to search before writing a helper, the server-only vs
+  Svelte-safe boundary, and the deduplication techniques and
+  anti-patterns that apply here. Triggered by "deduplicate", "refactor
+  for reuse", "reduce duplication", or invoked as `/dry` to scan.
 
 ## Source paper
 
