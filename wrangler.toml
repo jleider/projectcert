@@ -24,8 +24,10 @@ compatibility_date = "2026-01-01"
 # belong in version control, not the dashboard.
 #
 # Set these two together. The middleware treats Access as configured only
-# when both are non-empty, so a half-filled block silently falls back to
-# the shared-login path instead of failing loudly.
+# when both are non-empty, and there is no second credential path to fall
+# back to — a half-filled block fails closed, answering 500 to every
+# request for /audit and /api until it is completed. If you are debugging
+# that 500, the cause is one of these two values, not a missing login.
 [vars]
 ACCESS_TEAM_DOMAIN = "green-base-15b0.cloudflareaccess.com"
 ACCESS_AUD = "5f914ac595b623af56702cebf96379ad598f149caf065d73739fe0ac6a19f326"
