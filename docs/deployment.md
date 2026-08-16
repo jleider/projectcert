@@ -36,14 +36,26 @@ cloudflare` and a `cf-ray` on each response:
 | `/`, `/states/ut/`, `/map/` | **200**, correct `<link rel="canonical">` |
 | Always Use HTTPS | `http://projectcert.org/` → **301** → `https://` |
 | `www` → apex redirect rule | `https://www.projectcert.org/` → **301** → `https://projectcert.org/` |
-| HSTS | **Not enabled.** No `Strict-Transport-Security` header on a genuine 200. |
+| HSTS | Enabled — `max-age=15552000; includeSubDomains; preload`, confirmed on the apex and on a state page |
 | Web Analytics | **Not injecting.** Zero occurrences of `cloudflareinsights.com` in the served HTML. |
 | SSL Full (strict) | Not externally observable — governs the Cloudflare-to-origin leg only |
 
-The last two were previously recorded as "unverifiable"; both became
-testable the moment the apex served a real 200, and both turned out not
-to be in force despite having been set in the dashboard. Re-check them
-there.
+Both HSTS and Web Analytics were previously recorded as "unverifiable",
+and both became testable the moment the apex served a real 200 — at
+which point each turned out not to be in force despite having been set
+in the dashboard. HSTS has since been enabled and confirmed. Web
+Analytics has not: the dashboard's automatic setup injects the beacon
+through the zone's HTML rewriter, which is not reaching responses served
+by Pages here. The deterministic alternative is the manual snippet in
+`BaseLayout.astro`, carrying the site token — a public value that ships
+in the page source of every site using Web Analytics.
+
+**Note on the HSTS directives.** `preload` is present but inert until the
+domain is submitted at `hstspreload.org`, and submission requires
+`max-age` ≥ 31536000 (this zone is at 15552000, 180 days). Leave it that
+way unless preloading is genuinely wanted: the preload list takes months
+to exit, and `includeSubDomains` binds every future subdomain to HTTPS
+along with it.
 
 ### Authentication — Cloudflare Access, per reviewer
 
@@ -376,14 +388,15 @@ preview. What remains:
       ```
       Set **both** in one commit. The middleware treats Access as
       configured only when both are non-empty, so a half-filled block
-      silently falls back to the shared-login path.
-- [ ] **Do not use the dashboard `AUDIT_USER` / `AUDIT_PASSWORD`
-      path.** It cannot work while `wrangler.toml` is the source of
-      truth, and a shared password is exactly what per-reviewer
-      attribution rules out. Delete any such Pages secrets once Access
-      is live so nobody mistakes them for a working configuration.
-      `docs/audit-setup.md` is canonical on the auth options and their
-      trade-offs.
+      leaves the console refusing every request.
+- [x] ~~Delete the shared `AUDIT_USER` / `AUDIT_PASSWORD` Pages
+      secrets.~~ Done. **Access is the only authentication path**; the
+      shared-login code has been removed outright rather than left
+      configurable, because leaving it in place meant one redeployment
+      of those secrets could silently restore a shared identity with
+      nothing in the data to show it. If you find such secrets in the
+      dashboard, they are stale — delete them; nothing reads them.
+      `docs/audit-setup.md` is canonical on the console's auth.
 - [ ] Confirm `DEV_REVIEWER_EMAIL` is **not** set on the production
       environment. It bypasses the Access JWT check entirely.
 
@@ -425,13 +438,13 @@ different failures:**
 
 | Code | Meaning |
 | --- | --- |
-| **401** | Credentials absent or wrong. The gate is working. |
-| **500** | *No credential path is configured at all* — neither `AUDIT_USER`/`AUDIT_PASSWORD` nor the Access vars reached the Functions. This is a deployment mistake, not an auth failure. |
+| **302** to `…cloudflareaccess.com` | Cloudflare Access is fronting the request. Expected for any unauthenticated visitor. |
+| **401** | Access is configured, but the request carried no valid assertion. The gate is working. |
+| **500** | *Access is not configured* — `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` did not reach the Functions. Check `[vars]` in `wrangler.toml`, remembering that a value set only in the dashboard never arrives. A deployment mistake, not an auth failure. |
 | **200** on a fresh browser | The gate is not in force. **CI fails the deploy that produced it** — investigate `functions/`. |
 
-A first deploy that returns 500 rather than a password prompt means the
-Pages environment variables did not land; the deploy still succeeds, with
-a `::warning::`.
+A deploy that returns 500 means the two Access settings did not land; the
+deploy still succeeds, with a `::warning::`.
 
 **A green first deploy is not proof the gate was exercised.** The
 verification step treats any non-2xx as a pass, and until the apex has a
@@ -534,15 +547,15 @@ DOI, Wayback snapshots, and outreach.
   which point the Pages custom domain provisions on its own. Delete
   only those — keep `MX`, `TXT` (SPF/DKIM/verification), and anything
   else the domain genuinely uses, or mail breaks silently.
-- **`wrangler pages secret put` targets production only.** As of
-  wrangler 4.105.0 the command takes no `--environment` / `--env` flag —
-  it prints `(production)` and writes there. Preview-environment
-  variables have to be set in the dashboard or via the REST API. This
-  is not a security gap, because the console fails closed: a preview
-  deployment without credentials returns 500, never a readable page.
-  Treat it as the desired default rather than something to fix — see
-  Phase 3. `docs/audit-setup.md` is the canonical statement of that
-  policy; keep the two documents in agreement.
+- **`wrangler pages secret put` targets production only**, and for this
+  project is a dead end regardless. As of wrangler 4.105.0 the command
+  takes no `--environment` / `--env` flag — it prints `(production)` and
+  writes there. More to the point, a Pages secret is dashboard state, so
+  while `wrangler.toml` is the source of truth it never reaches the
+  runtime at all. The console authenticates through Access only, whose
+  two settings live in `[vars]`. If a future binding genuinely needs a
+  secret value, it needs a Secrets Store binding declared in
+  `wrangler.toml` — not this command.
 - **Never name an individual `_astro/` chunk in a cache rule, CSP,
   preload hint, or a `public/_headers` entry.** Those filenames are
   content-hashed and the chunk *set* is not stable across toolchain
