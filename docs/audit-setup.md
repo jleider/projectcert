@@ -175,9 +175,38 @@ To have the weekly sweep email its cited-source report, also add:
 
 - `LINK_REPORT_RECIPIENTS` — comma-separated addresses.
 - `SMTP_SERVER`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`.
+- `SMTP_FROM` — optional; only needed when the username is not itself a
+  sender address (see below).
 
 The send step stays inert until the recipients and `SMTP_SERVER` are both
 set; the report uploads as a run artifact either way.
+
+### Sending through a Google account
+
+One report a week to a handful of reviewers sits far inside Gmail's
+free sending limits, so a personal or Workspace account is sufficient —
+no transactional provider required:
+
+- `SMTP_SERVER` — `smtp.gmail.com`
+- `SMTP_PORT` — `587`
+- `SMTP_USERNAME` — the full Google address
+- `SMTP_PASSWORD` — a **16-character App Password**, not the account
+  password
+
+App Passwords live under Google Account → Security → 2-Step Verification
+→ App passwords, and the entry only appears once 2-Step Verification is
+on. Google removed "less secure app access", so an App Password is the
+supported path rather than a workaround, and it can be revoked on its own
+without touching the account password.
+
+Leave `SMTP_FROM` unset for Gmail: the username *is* the sender address,
+and Google rewrites `From` to the authenticated account anyway. Set it
+only for relay providers (Brevo, Mailjet, Resend, SMTP2GO), where the
+username is an API key or account id and using it as a sender produces an
+invalid `From`. Those providers also want the sending domain verified by
+DNS, which is straightforward here because `projectcert.org` is already
+on Cloudflare — that route is worth taking if the report should come from
+the project rather than from a person.
 
 **The recipient list is a secret, not a variable, and must stay one.**
 This repository is public, so its Actions logs are world-readable, and a

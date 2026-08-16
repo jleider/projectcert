@@ -122,7 +122,12 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          from: projectcert link audit <${{ secrets.SMTP_USERNAME }}>
+          # Gmail authenticates with the address itself, so the username is
+          # the right sender there. Most relay providers (Brevo, Mailjet,
+          # Resend) authenticate with an API key or account id instead, and
+          # using it as the sender address produces an invalid From. Set
+          # SMTP_FROM for those; leave it unset for Gmail.
+          from: projectcert link audit <${{ secrets.SMTP_FROM || secrets.SMTP_USERNAME }}>
           to: ${{ secrets.LINK_REPORT_RECIPIENTS }}
           subject: "projectcert cited-source link audit — ${{ github.run_started_at }}"
           body: file://link-report.md
