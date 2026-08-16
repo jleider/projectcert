@@ -55,16 +55,32 @@ Copy the returned `database_id` into `wrangler.toml` (the
 npx wrangler d1 migrations apply projectcert-audit --remote
 ```
 
-## 2. Bind D1 to the Pages project (dashboard — authoritative)
+## 2. Bindings: `wrangler.toml` is authoritative, not the dashboard
 
-In the Cloudflare dashboard: **Workers & Pages → projectcert →
-Settings → Functions → D1 database bindings**, add binding
-`DB` → `projectcert-audit`. The dashboard binding is authoritative for
-Pages (it wins over `wrangler.toml`, whose binding is for local dev).
+**This is the reverse of what this document said until 2026-08-16, and the
+error cost a debugging session — read it before setting anything in the
+dashboard.**
 
-The credential vars for production functions are set in the same place
-(**Settings → Environment variables**) — which ones depends on the
-authentication path chosen in step 3.
+Cloudflare's Pages Functions documentation states: *"When used in your
+Pages Functions projects, your Wrangler file is the source of truth. You
+will be able to see, but not edit, the same fields when you log into the
+Cloudflare dashboard."* Because this repo has a `wrangler.toml` declaring
+`[[d1_databases]]`, the deployment receives what that file declares — and
+**anything configured only in the dashboard is displayed but not applied
+at runtime.**
+
+The failure mode is deliberately confusing: the API and dashboard keep
+reporting a dashboard-set variable, both on the project and on the
+individual deployment record, while the Function never receives it. The
+first production deploy demonstrated it cleanly — `DB`, declared in
+`wrangler.toml`, worked; `AUDIT_USER` / `AUDIT_PASSWORD`, set only in the
+dashboard, did not exist at runtime, and `/audit/` answered its
+fail-closed 500 on every hostname. Three rounds of checking the dashboard
+config confirmed the values were "set" the entire time.
+
+So: **declare bindings in `wrangler.toml`.** The `DB` binding is already
+there. Verifying a value in the dashboard proves nothing about what the
+Function can see; the only proof is the Function's own behaviour.
 
 Do **not** set `DEV_REVIEWER_EMAIL` in production — it bypasses
 authentication entirely and is for local development only.
@@ -82,7 +98,21 @@ a property of the deployment, not of the dashboard: before this middleware
 existed the console's HTML was a plain static asset, and any Access
 misconfiguration would have published it.
 
-### Option A — shared username and password (simplest)
+**Cloudflare Access (Option B) is the recommended path, and step 2 is why.**
+Its two settings, `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD`, are non-secret
+identifiers, so they can be declared in `[vars]` in `wrangler.toml` — the
+file that actually reaches the runtime. A shared password cannot: it must
+not be committed, and a dashboard-only secret is not applied while
+`wrangler.toml` is the source of truth.
+
+The stronger reason is specific to this console. Every checkmark and
+suggestion records **who** confirmed it (`verified_by`, `submitted_by`, and
+`reviewed_by` in D1), and the whole point of the tool is attributable human
+verification. A shared login collapses every reviewer into one identity and
+degrades the ledger it exists to produce. Use it only as a stopgap for a
+single reviewer.
+
+### Option A — shared username and password (stopgap, single reviewer)
 
 Set two Pages environment variables (**Settings → Environment variables**):
 
@@ -90,25 +120,29 @@ Set two Pages environment variables (**Settings → Environment variables**):
   attribution on every checkmark and suggestion.
 - `AUDIT_PASSWORD`.
 
-**These are per-environment, and `wrangler` only writes production.**
-`wrangler pages secret put` has no `--environment` flag (verified on
-wrangler 4.105.0), so a value set that way exists on production alone.
-Preview deployments therefore have no credentials and their console
-answers **500** — the fail-closed path, so a preview URL is safe to hand
-around, but console review on a preview branch does not work.
+**Setting these in the dashboard does not work while `wrangler.toml` is
+the source of truth (step 2).** They will be reported as set, on both the
+project and the deployment, and the Function will not receive them —
+observed on deployments `e9802b05` and `617d9833`, both answering the
+fail-closed 500 with the credentials showing as present throughout. To use
+this option the value has to reach the runtime some other way: a Secrets
+Store binding declared in `wrangler.toml`, or `[vars]` for the username
+with the password still bound rather than committed. Never put the
+password in `[vars]` — the file is in git.
 
-Leaving preview unset is the recommended default: it keeps the shared
-password off every preview deployment of every branch. Set the two values
-under **Settings → Environment variables → Preview** in the dashboard only
-when a console change genuinely needs preview review, and treat that as
-widening the credential's exposure.
+Two further limits, if the option is used anyway. `wrangler pages secret
+put` has no `--environment` flag (verified on wrangler 4.105.0), so it
+writes production alone; preview deployments have no credentials and their
+console answers 500 — safe to hand around, non-functional for review.
+Leaving preview unset is the right default regardless, since mirroring
+puts the shared password on every preview deployment of every branch.
 
 The browser prompts for them on first request to `/audit/` and replays them
 on the same-origin `/api/*` calls the islands make. This is a single shared
 login: every reviewer signs in as the same identity, so per-person
 attribution is lost. Prefer Access when more than one person reviews.
 
-### Option B — Cloudflare Access (per-reviewer identity)
+### Option B — Cloudflare Access (recommended)
 
 **Zero Trust → Access → Applications → Add → Self-hosted.**
 
@@ -117,9 +151,20 @@ attribution is lost. Prefer Access when more than one person reviews.
 - Policy: **Allow**, include rule **Emails** (the reviewer allowlist),
   or **Emails ending in** a domain.
 - Identity provider: Google / One-time PIN.
-- After creating it, copy the **Application Audience (AUD) tag** into
-  the `ACCESS_AUD` env var, and the **team domain** into
-  `ACCESS_TEAM_DOMAIN`.
+- After creating it, copy the **Application Audience (AUD) tag** and the
+  **team domain** into `wrangler.toml`:
+
+```toml
+[vars]
+ACCESS_TEAM_DOMAIN = "yourteam.cloudflareaccess.com"
+ACCESS_AUD = "<the AUD tag>"
+```
+
+Both are non-secret identifiers — the AUD tag names the application and is
+useless without a signed assertion from that team's identity provider — so
+committing them is fine, and `wrangler.toml` is the only place that
+reliably reaches the runtime (step 2). Setting them in the dashboard
+instead reproduces the same silent failure as the shared password.
 
 The functions verify the signed `Cf-Access-Jwt-Assertion` JWT against
 `https://<ACCESS_TEAM_DOMAIN>/cdn-cgi/access/certs` with that AUD. This
