@@ -14,6 +14,15 @@ export default defineConfig({
     // out of the sitemap so crawlers never see it.
     sitemap({ filter: (page) => !page.includes("/audit/") }),
   ],
+  // Astro 7 changed the `compressHTML` default from `true` to `'jsx'`, which
+  // drops whitespace-only text nodes the way React does. That is safe for
+  // JSX-authored markup but not for these HTML templates: it fused rendered
+  // prose ("51 verified against…" -> "51verified against…"), ran sentences
+  // together, and — worst — joined the trailing URL of the APA citation block
+  // into the next author's name, corrupting a block readers copy and paste.
+  // Pinning to `true` keeps Astro 6 whitespace behavior; revisit only by
+  // auditing rendered text, not by reading the templates.
+  compressHTML: true,
   build: {
     format: "directory",
   },

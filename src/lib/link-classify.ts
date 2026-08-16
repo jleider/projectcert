@@ -6,14 +6,7 @@
  */
 
 export type LinkClassification =
-  | "ok"
-  | "redirect"
-  | "soft-ok"
-  | "accepted"
-  | "needs-review"
-  | "client-error"
-  | "server-error"
-  | "network-error";
+  "ok" | "redirect" | "soft-ok" | "accepted" | "needs-review" | "client-error" | "server-error" | "network-error";
 
 // Statuses treated as "the page exists but the host rejected the bot".
 // 401/403/429 are common from anti-bot SEAs; 405 means the method was
