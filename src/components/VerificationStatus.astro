@@ -1,0 +1,58 @@
+---
+/**
+ * The verification badges at the top of a state page.
+ *
+ * Replaces the earlier pair of components (a curated-status badge and a
+ * separate ledger badge), which could describe the same record in two ways
+ * that read as contradictory — "Verified against current sources" beside
+ * "1 of 32 datapoints reviewed". Both now resolve through
+ * `verificationDisplay`, so the source check and the reviewer sign-off are
+ * always described together and consistently.
+ */
+import type { State } from "@/content.config";
+import { verificationDisplay } from "@/lib/verification-display";
+
+interface Props {
+  state: State;
+}
+
+const { state } = Astro.props;
+const view = verificationDisplay({
+  usps: state.usps,
+  verificationStatus: state.verificationStatus,
+  lastVerified: state.lastVerified,
+});
+
+const primaryClass =
+  view.stage === "fully-verified"
+    ? "bg-accent/10 text-accent border-accent/40"
+    : view.stage === "baseline"
+      ? "bg-surface-warn text-ink border-ink-subtle/30"
+      : "bg-bin-1/20 text-ink border-ink-subtle/30";
+---
+
+<div class="flex flex-wrap gap-2 items-center" data-stage={view.stage}>
+  <span
+    class={`inline-flex items-center gap-2 rounded border px-2 py-1 text-xs font-medium ${primaryClass}`}
+    title={view.detail}
+  >
+    <span aria-hidden="true">●</span>
+    {view.label}
+  </span>
+
+  {
+    view.reviewLabel && (
+      <span
+        class="inline-flex items-center gap-1 rounded-full border border-ink-subtle/30 px-2.5 py-0.5 text-xs text-ink-muted"
+        title={
+          view.progress.lastConfirmed
+            ? `Each displayed detail is verified separately by an authorized reviewer against the cited source. Most recent verification ${view.progress.lastConfirmed}.`
+            : `Each displayed detail is verified separately by an authorized reviewer against the cited source. None verified for this state yet.`
+        }
+      >
+        {view.reviewLabel}
+        {view.progress.lastConfirmed && <span class="text-ink-subtle"> · {view.progress.lastConfirmed}</span>}
+      </span>
+    )
+  }
+</div>
