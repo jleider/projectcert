@@ -8,9 +8,17 @@ description: How the formatting / lint / typecheck / dead-code / test / a11y / C
 `npm run verify` is the full local gate and mirrors CI:
 **check:format → lint → typecheck → validate → test → build**. CI
 (`.github/workflows/ci.yml`) adds an advisory `npm audit`, a `knip`
-dead-code step, and separate **e2e-a11y** and offline **link-check**
-jobs. CI triggers on push/PR **to `main` only** — a PR targeting a
-feature branch shows no checks until the chain reaches `main`.
+dead-code step, and a separate **e2e-a11y** job. CI triggers on push/PR
+**to `main` only** — a PR targeting a feature branch shows no checks
+until the chain reaches `main`.
+
+**Build-output gates belong in-repo, not in a marketplace action.** The
+internal link check used to be a lychee CI job; lychee 0.24 changed how
+`--base` and `--root-dir` compose, every root-relative link started
+resolving as `<dist>/<dist>/states/ut`, and `main` went red on an
+upstream release with no repo change behind it. It is now
+`scripts/check-internal-links.ts`, run inside `npm run build` — so it is
+deterministic, reproducible locally, and covered by its own unit tests.
 
 ## Prettier — code only
 
@@ -77,7 +85,17 @@ imports must be declared (`@types/geojson`, `@types/topojson-specification`).
 
 - **`check-built-pages.ts`** — every `ALL_ROUTES` route + per-state page
   produced an `index.html`, and every `ANCHORS` value resolves to an
-  `id="…"` in some built page (the offline link check skips `#fragment`s).
+  `id="…"` in some built page. This covers declared anchors even when no
+  page happens to link to one; `check-internal-links.ts` covers the
+  authored links themselves.
+- **`check-internal-links.ts`** (`check:internal-links`) — every internal
+  `href`/`src` in `dist/**/*.html` resolves to a real file (directory,
+  extensionless, and relative forms all served the way a static host
+  serves them), and every `#fragment` resolves to a matching `id=` in the
+  page it targets. External URLs are out of scope — they belong to the
+  weekly `external-link-check.yml` sweep. Unit-tested in
+  `tests/internal-links.test.ts`, including the root-relative-resolution
+  case that the lychee upgrade broke.
 - **`check-discovery-surfaces.ts`** (`check:discovery`) — every non-gated
   route + per-state page is in the sitemap, and `/audit/*` is absent from
   the sitemap and `llms-full.txt` (the gated-page invariant). Missing

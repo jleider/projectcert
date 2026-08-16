@@ -47,6 +47,14 @@ jobs:
       - name: Unit tests
         run: npm test
 
+      # Also runs the post-build guards, including the offline
+      # internal-link check (`scripts/check-internal-links.ts`). That was
+      # a separate lychee job until lychee 0.24 changed how `--base` and
+      # `--root-dir` compose: every root-relative link began resolving as
+      # <dist>/<dist>/states/ut, so the gate went red on an upstream
+      # release rather than on any repo change. The in-repo checker is
+      # deterministic and runs locally under `npm run verify`. External
+      # links stay in the weekly external-link-check.yml sweep.
       - name: Build site
         run: npm run build
 
@@ -83,39 +91,70 @@ jobs:
       - name: Run a11y e2e
         run: npm run test:e2e
 
-  link-check:
-    name: Internal link check
+  deploy:
+    name: Deploy to Cloudflare Pages
     runs-on: ubuntu-latest
-    needs: build-and-test
+    needs: [build-and-test, e2e]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     timeout-minutes: 10
+    environment:
+      name: production
+      url: https://projectcert.org
     steps:
+      # Checkout supplies functions/ and wrangler.toml — `pages deploy`
+      # compiles the top-level functions/ directory from the working
+      # tree, NOT from the uploaded dist/ artifact. Without this the
+      # site deploys with no Functions and /audit/* loses its middleware.
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
 
       - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
 
-      - name: Lychee link check (internal only)
-        uses: lycheeverse/lychee-action@v2
+      # No positional directory argument: `pages_build_output_dir` in
+      # wrangler.toml is authoritative and takes precedence over it.
+      - name: Publish
+        uses: cloudflare/wrangler-action@v3
         with:
-          # Internal-only by default — external SEA links live and die
-          # on their own schedule and would make this gate flaky. Run
-          # the external sweep on a schedule, not per-PR.
-          # Exclude fragment-only links (#main, #how-to-cite, etc.):
-          # lychee 0.23+ resolves them against --base and reports them
-          # as missing files, but they are in-page anchors that the
-          # browser handles client-side. We don't validate anchor
-          # targets here — the page-level check is the build itself.
-          args: |
-            --offline
-            --no-progress
-            --root-dir ${{ github.workspace }}/dist
-            --base ${{ github.workspace }}/dist
-            --exclude '%23'
-            ./dist/**/*.html
-          fail: true
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy --project-name=projectcert --branch=main
+
+      # The one deploy failure that looks like success: if functions/ did
+      # not ship, /audit/ is served as a plain static asset and answers 200
+      # to anyone. A green deploy is not evidence the gate is in force, so
+      # assert it. Any non-2xx is fine here — 401 is the shared login, 302
+      # is Access redirecting to its login, 404 means nothing is published.
+      # Only a readable console fails.
+      - name: Verify the review console is not publicly readable
+        run: |
+          # Retry only transient edge/propagation failures. A 500 from our own
+          # middleware ("unconfigured") is stable and must not be retried.
+          # No bare `cmd && break` here: under `bash -e` an AND-list whose
+          # left side is false fails the step.
+          for attempt in 1 2 3 4 5; do
+            status=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 https://projectcert.org/audit/ || echo 000)
+            case "$status" in
+              000|502|503|504)
+                if [ "$attempt" -lt 5 ]; then sleep 10; fi
+                ;;
+              *)
+                break
+                ;;
+            esac
+          done
+          case "$status" in
+            2*)
+              echo "::error::/audit/ returned HTTP $status — the review console is publicly readable."
+              echo "The Pages Functions in functions/ most likely did not deploy, so the middleware is absent."
+              exit 1
+              ;;
+            500)
+              echo "::warning::/audit/ returned 500 — no credential path is configured."
+              echo "Set AUDIT_USER and AUDIT_PASSWORD (or the Access vars) as Pages environment variables."
+              ;;
+            *)
+              echo "Review console is not publicly readable (HTTP $status)."
+              ;;
+          esac

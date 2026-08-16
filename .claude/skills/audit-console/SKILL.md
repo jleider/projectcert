@@ -24,8 +24,16 @@ All use `AuditLayout.astro` (`noindex,nofollow`). Routes live in
 
 ## Backend (all Cloudflare, free tier)
 
-- **Cloudflare Access** gates `/audit/*` and `/api/*` by email allowlist
-  (dashboard config — see `docs/audit-setup.md`).
+- **Authentication is enforced in code and fails closed.** Two middlewares —
+  `functions/audit/_middleware.ts` (console pages) and
+  `functions/api/_middleware.ts` (API) — both resolve through
+  `authenticateAuditRequest` in `src/lib/audit-auth.ts`. It accepts a shared
+  `AUDIT_USER`/`AUDIT_PASSWORD` Basic login **or** a verified Cloudflare
+  Access JWT, and refuses every request when neither is configured. Wrong or
+  missing credentials are `unauthorized` (pages issue a Basic challenge so
+  the browser prompts; the API answers JSON 401); *nothing configured* is
+  `unconfigured` and answers 500, so a broken deployment is loud rather than
+  mistaken for a routine failed login.
 - **Pages Functions** in top-level `functions/api/*` provide the API:
   `verifications.ts`, `suggestions.ts` (GET/POST/**PATCH** to resolve),
   `overview.ts`, `broken-links.ts`, `link-reviews.ts`, `datapoint-sources.ts`,
@@ -37,10 +45,23 @@ All use `AuditLayout.astro` (`noindex,nofollow`). Routes live in
   in the dashboard (authoritative for Pages) and mirrored in `wrangler.toml`
   for local dev.
 
-`_middleware.ts` does **mandatory** verification of the signed
-`Cf-Access-Jwt-Assertion` JWT against the team JWKS + `aud` (the email header
-alone is NOT trusted — Functions are also reachable on `*.pages.dev`, outside
-Access). A `DEV_REVIEWER_EMAIL` var bypasses this for local dev only.
+Access verification is **mandatory** on the signed `Cf-Access-Jwt-Assertion`
+against the team JWKS + `aud` (the email header alone is NOT trusted —
+Functions are also reachable on `*.pages.dev`, outside Access). A
+`DEV_REVIEWER_EMAIL` var bypasses authentication for local dev only.
+
+Two things not to undo:
+
+- **The pages middleware lives at `functions/audit/`, not `functions/`.** A
+  root middleware runs for *every* request, putting a Function invocation in
+  front of an otherwise fully static public site.
+- **The console must stay uncrawlable in four layers**: the 401 itself,
+  `X-Robots-Tag: noindex, nofollow, noarchive` on every gated response (via
+  `withGatedHeaders`), the `noindex` meta tag in `AuditLayout.astro`, and
+  `Disallow: /audit/` in **every** `public/robots.txt` group — a crawler
+  matching a named `User-agent` obeys that group alone and ignores
+  `User-agent: *`. `check-discovery-surfaces.ts` fails the build if any group
+  omits it (`src/lib/robots.ts` + `tests/robots.test.ts`).
 
 ## Data model: the datapoint descriptor
 
@@ -167,10 +188,17 @@ read-only (they degrade gracefully on `/api` fetch failure).
 ## Tests
 
 `tests/verification-datapoints.test.ts`, `tests/audit-shared.test.ts`,
+`tests/audit-auth.test.ts`, `tests/robots.test.ts`,
 `tests/link-classify.test.ts` (unit); `tests/audit-api.integration.test.ts`
-(handlers vs real SQLite), `tests/audit-sync.integration.test.ts` (scripts as
-subprocesses + generated SQL executed against SQLite). All run under
-`npm run verify`.
+(handlers *and both middlewares* vs real SQLite),
+`tests/audit-sync.integration.test.ts` (scripts as subprocesses + generated
+SQL executed against SQLite). All run under `npm run verify`.
+
+The auth tests pin the invariants that are expensive to rediscover: an
+unconfigured deployment refuses rather than serves, a forged
+`Cf-Access-Authenticated-User-Email` never authenticates, empty configured
+credentials never match an empty-credential request, and every gated
+response carries the noindex header.
 
 **End-to-end (browser):** `npm run e2e:audit`
 (`tests/e2e/audit-console.e2e.mjs`) — a standalone script that resets +

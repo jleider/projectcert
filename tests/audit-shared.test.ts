@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { jsonResponse, normalizeUsps, isDatapointId, normalizeSourceUrl, extractTitle } from "../src/lib/audit-shared";
+import {
+  jsonResponse,
+  normalizeUsps,
+  isDatapointId,
+  normalizeSourceUrl,
+  extractTitle,
+  linkStatusLabel,
+} from "../src/lib/audit-shared";
 import { DATAPOINT_IDS } from "../src/lib/verification-datapoints";
 
 describe("normalizeUsps", () => {
@@ -76,5 +83,19 @@ describe("jsonResponse", () => {
   });
   it("defaults to status 200", () => {
     expect(jsonResponse({}).status).toBe(200);
+  });
+});
+
+describe("linkStatusLabel", () => {
+  it("formats an observed HTTP status", () => {
+    expect(linkStatusLabel(403)).toBe("HTTP 403");
+    expect(linkStatusLabel(503)).toBe("HTTP 503");
+  });
+
+  it("describes a request that never completed", () => {
+    // Never leak the raw classification enum ("needs-review") into copy a
+    // reviewer reads — that was the bug this helper replaced.
+    expect(linkStatusLabel(null)).toBe("No response from host");
+    expect(linkStatusLabel(undefined)).toBe("No response from host");
   });
 });

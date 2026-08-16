@@ -24,41 +24,63 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Every step below is gated on the Cloudflare credentials being
+      # present. Until the D1 database is provisioned (docs/audit-setup.md
+      # steps 1-4) the secrets are unset and `wrangler d1 execute --remote`
+      # exits 1, which failed this workflow on every nightly run. A
+      # job-level `if` cannot read `secrets`/`env`, so the guard is
+      # per-step — the same pattern external-link-check.yml already uses.
+      - name: Report missing credentials
+        if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
+        run: |
+          echo "::notice::CLOUDFLARE_API_TOKEN is unset — skipping the D1 export. See docs/audit-setup.md step 4."
+
       - uses: actions/setup-node@v4
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         with:
           node-version: 24
           cache: npm
 
       - run: npm ci
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
 
-      - name: Export verifications from D1
+      # All three exports in one step so they share the error handling.
+      # `wrangler --json` writes its diagnostics to stdout as well as its
+      # results, so `> file` swallowed them: a failed run showed nothing but
+      # "Process completed with exit code 1", and the actual cause (an
+      # invalid database_id, API code 7400) was sitting unread in the output
+      # file. Capture both streams and print them on failure.
+      - name: Export audit store from D1
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         run: |
-          npx wrangler d1 execute projectcert-audit --remote --json \
-            --command "SELECT usps, datapoint_id, verified_by, verified_at, content_hash FROM verifications" \
-            > /tmp/verifications.json
+          d1_export() {
+            out=$1
+            sql=$2
+            if ! npx wrangler d1 execute projectcert-audit --remote --json \
+                 --command "$sql" > "$out" 2> "$out.err"; then
+              echo "::error::D1 export failed: $sql"
+              cat "$out.err" || true
+              cat "$out" || true
+              exit 1
+            fi
+          }
+          d1_export /tmp/verifications.json \
+            "SELECT usps, datapoint_id, verified_by, verified_at, content_hash FROM verifications"
+          d1_export /tmp/broken.json \
+            "SELECT usps, datapoint_id FROM broken_links"
+          d1_export /tmp/accepted-links.json \
+            "SELECT url, accepted_status, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'"
 
-      - name: Export broken links from D1
-        run: |
-          npx wrangler d1 execute projectcert-audit --remote --json \
-            --command "SELECT usps, datapoint_id FROM broken_links" \
-            > /tmp/broken.json
-
-      - name: Build ledger
+      - name: Build ledger and link whitelist
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         run: |
           npx tsx scripts/build-verification-ledger.ts \
             --verifications /tmp/verifications.json \
             --broken /tmp/broken.json
-
-      - name: Export accepted link reviews from D1
-        run: |
-          npx wrangler d1 execute projectcert-audit --remote --json \
-            --command "SELECT url, accepted_status, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'" \
-            > /tmp/accepted-links.json
-
-      - name: Build link whitelist
-        run: npx tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
+          npx tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
 
       - name: Open PR if anything changed
+        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         uses: peter-evans/create-pull-request@v6
         with:
           branch: chore/audit-store-sync

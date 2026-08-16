@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { SECTION_LABELS, type Datapoint, type DatapointSection } from "@/lib/verification-datapoints";
-  import { normalizeSourceUrl } from "@/lib/audit-shared";
+  import { linkStatusLabel, normalizeSourceUrl } from "@/lib/audit-shared";
 
   export let usps: string;
   export let stateName: string;
@@ -544,7 +544,7 @@
                       ⚠ A cited source is unreachable — re-verify against current sources:
                       <ul class="mt-1 list-disc pl-5 text-ink-muted">
                         {#each broken[d.id] ?? [] as link (link.url)}
-                          <li class="break-all">{link.url} ({link.status ?? link.classification})</li>
+                          <li class="break-all">{link.url} ({linkStatusLabel(link.status)})</li>
                         {/each}
                       </ul>
                     </div>

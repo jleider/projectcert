@@ -83,3 +83,16 @@ export function extractTitle(html: string): string | null {
     .trim();
   return text.length > 0 ? text : null;
 }
+
+/**
+ * Reviewer-facing label for an observed link status.
+ *
+ * A null status means the request never completed — a connection reset or a
+ * TLS failure. The three audit islands each used to fall back to the row's
+ * `classification`, which printed the raw `needs-review` / `broken` enum into
+ * copy a reviewer reads (CLAUDE.md: no schema identifiers in user-facing
+ * text). Keep this the single formatter for the value.
+ */
+export function linkStatusLabel(status: number | null | undefined): string {
+  return status === null || status === undefined ? "No response from host" : `HTTP ${status}`;
+}

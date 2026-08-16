@@ -31,6 +31,7 @@ import {
   onRequestDelete as dsDel,
 } from "../functions/api/datapoint-sources";
 import { onRequest as middleware } from "../functions/api/_middleware";
+import { onRequest as pageMiddleware } from "../functions/audit/_middleware";
 
 const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
 
@@ -77,6 +78,7 @@ interface CtxOpts {
   env?: Record<string, unknown>;
   data?: Record<string, unknown>;
   next?: () => Promise<Response>;
+  headers?: Record<string, string>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -88,11 +90,14 @@ function ctx(opts: CtxOpts): any {
     env = { DB },
     data = { userEmail: "reviewer@example.org" },
     next,
+    headers,
   } = opts;
   const init: RequestInit = { method };
   if (body !== undefined) {
     init.body = JSON.stringify(body);
-    init.headers = { "content-type": "application/json" };
+    init.headers = { "content-type": "application/json", ...headers };
+  } else if (headers) {
+    init.headers = headers;
   }
   return { request: new Request(url, init), env, data, next, params: {} };
 }
@@ -414,5 +419,94 @@ describe("/api/_middleware auth", () => {
       }),
     );
     expect(res.status).toBe(401);
+  });
+});
+
+describe("/audit/* page middleware", () => {
+  const BASIC = `Basic ${btoa("reviewer@example.org:s3cret")}`;
+  const LOGIN = { AUDIT_USER: "reviewer@example.org", AUDIT_PASSWORD: "s3cret" };
+  const page = () => new Response("<html>console</html>", { headers: { "Content-Type": "text/html" } });
+
+  it("refuses to render the console when no credentials are configured", async () => {
+    // Fail closed. Before this middleware existed the console HTML was a
+    // plain static asset and this request returned the page to anyone.
+    let nextCalled = false;
+    const res = await pageMiddleware(
+      ctx({
+        url: "https://x.org/audit/ak",
+        env: { DB },
+        next: async () => {
+          nextCalled = true;
+          return page();
+        },
+      }),
+    );
+    expect(res.status).toBe(500);
+    expect(nextCalled).toBe(false);
+  });
+
+  it("challenges for a username and password when one is configured", async () => {
+    let nextCalled = false;
+    const res = await pageMiddleware(
+      ctx({
+        url: "https://x.org/audit/ak",
+        env: { DB, ...LOGIN },
+        next: async () => {
+          nextCalled = true;
+          return page();
+        },
+      }),
+    );
+    expect(res.status).toBe(401);
+    expect(res.headers.get("WWW-Authenticate")).toContain("Basic realm=");
+    expect(nextCalled).toBe(false);
+  });
+
+  it("rejects a wrong password", async () => {
+    const res = await pageMiddleware(
+      ctx({
+        url: "https://x.org/audit/ak",
+        env: { DB, ...LOGIN },
+        headers: { Authorization: `Basic ${btoa("reviewer@example.org:wrong")}` },
+        next: async () => page(),
+      }),
+    );
+    expect(res.status).toBe(401);
+  });
+
+  it("serves the console to a correct login, marked non-indexable", async () => {
+    const data: Record<string, unknown> = {};
+    const res = await pageMiddleware(
+      ctx({
+        url: "https://x.org/audit/ak",
+        env: { DB, ...LOGIN },
+        headers: { Authorization: BASIC },
+        data,
+        next: async () => page(),
+      }),
+    );
+    expect(res.status).toBe(200);
+    expect(await res.text()).toContain("console");
+    expect(res.headers.get("X-Robots-Tag")).toBe("noindex, nofollow, noarchive");
+    expect(res.headers.get("Cache-Control")).toBe("private, no-store");
+    expect(data.userEmail).toBe("reviewer@example.org");
+  });
+});
+
+describe("/api/* accepts the shared login", () => {
+  it("authenticates an API call with the same credentials as the pages", async () => {
+    // The browser replays Basic credentials on same-origin API calls, so the
+    // islands keep working once a reviewer has signed in to /audit/*.
+    const data: Record<string, unknown> = {};
+    const res = await middleware(
+      ctx({
+        env: { DB, AUDIT_USER: "reviewer@example.org", AUDIT_PASSWORD: "s3cret" },
+        headers: { Authorization: `Basic ${btoa("reviewer@example.org:s3cret")}` },
+        data,
+        next: async () => new Response("ok"),
+      }),
+    );
+    expect(await res.text()).toBe("ok");
+    expect(data.userEmail).toBe("reviewer@example.org");
   });
 });

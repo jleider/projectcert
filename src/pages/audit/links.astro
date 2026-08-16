@@ -11,11 +11,14 @@ import { ROUTES } from "@/lib/routes";
     <span class="text-ink">Link review</span>
   </nav>
 
-  <h1 class="mt-2 text-2xl font-bold text-ink">Bot-blocked link review</h1>
+  <h1 class="mt-2 text-2xl font-bold text-ink">Unconfirmed cited links</h1>
   <p class="mt-2 text-sm text-ink-muted max-w-3xl">
-    The weekly link sweep flags cited URLs that reject automated requests (HTTP 401, 403, 405, or 429). These are not
-    necessarily broken — many State Education Agency sites block bots while serving the page normally in a browser. Open
-    each URL; if it loads, accept it. Accepted URLs are added to the checker's whitelist and stop being flagged.
+    The weekly sweep flags every cited URL the checker could not confirm: hosts that reject automated requests (HTTP
+    401, 403, 405, or 429), connections that reset or fail TLS negotiation, and server errors (HTTP 5xx). None of these
+    establishes that a page is gone — many State Education Agency sites block automated clients while serving the page
+    normally in a browser. Open each URL; if it loads, accept it. An accepted URL is recorded at the status it was
+    accepted for and re-appears here if that status later changes. A URL that is definitively gone (HTTP 404 or 410) is
+    treated as broken instead, and routed to datapoint re-verification.
   </p>
 
   <AuditLinkReview client:load />

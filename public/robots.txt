@@ -1,28 +1,47 @@
+# The gated review console is disallowed in EVERY group below, not only in
+# the wildcard one. A crawler that matches a named User-agent group obeys
+# that group ALONE and ignores `User-agent: *` entirely, so a single
+# `Disallow: /audit/` under the wildcard would still leave every named
+# crawler here free to request it. Keep the directive on each group.
+#
+# robots.txt is a request, not an access control. The console is also behind
+# a username/password gate (functions/audit/_middleware.ts), is served with
+# `X-Robots-Tag: noindex, nofollow, noarchive`, carries a noindex meta tag
+# via AuditLayout.astro, and is excluded from the sitemap and llms.txt.
+
 User-agent: *
 Allow: /
+Disallow: /audit/
 
 # Explicit allowlist for AI/LLM crawlers — defaults already permit
 # them, but explicit signals reduce the chance of an unintended block.
 User-agent: GPTBot
 Allow: /
+Disallow: /audit/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /audit/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /audit/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /audit/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /audit/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /audit/
 
 User-agent: CCBot
 Allow: /
+Disallow: /audit/
 
 Sitemap: https://projectcert.org/sitemap.xml
 Sitemap: https://projectcert.org/sitemap-index.xml
