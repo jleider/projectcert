@@ -75,6 +75,29 @@ describe("sync-broken-links.ts", () => {
     // Still-broken row kept its original detected_at (ON CONFLICT DO NOTHING).
     expect(rows.find((r) => r.datapoint_id === "sources")!.detected_at).toBe("2026-01-01");
   });
+
+  // The weekly workflow captured `npm run check:links -- --json > links.json`,
+  // which prefixes npm's own banner lines to the JSON. Both sync scripts
+  // used a bare JSON.parse and threw on it, under continue-on-error — so the
+  // sweep was green and the audit store never received a single row.
+  it("parses a report file carrying the npm banner", () => {
+    for (const script of ["scripts/sync-broken-links.ts", "scripts/sync-link-reviews.ts"]) {
+      const dir = tmp();
+      const input = join(dir, "links.json");
+      const out = join(dir, "out.sql");
+      writeFileSync(
+        input,
+        "\n> projectcert@0.1.0 check:links\n> tsx scripts/check-external-links.ts --json\n" +
+          JSON.stringify({
+            results: [
+              { url: "https://dead", citations: ["CA / sources[2]"], status: 404, classification: "client-error" },
+            ],
+          }),
+      );
+      expect(() => run(script, ["--input", input, "--out", out])).not.toThrow();
+      expect(readFileSync(out, "utf8").length).toBeGreaterThan(0);
+    }
+  });
 });
 
 describe("sync-link-reviews.ts", () => {
@@ -234,6 +257,110 @@ describe("build-verification-ledger.ts", () => {
     const ledger = JSON.parse(readFileSync(out, "utf8"));
     expect(ledger.CA.verified).toEqual([]);
     expect(ledger.CA.stale).toEqual(["sources"]);
+  });
+
+  /** Build a one-checkmark verifications export for a fact datapoint whose
+   *  hash is currently correct, so only the source check can lapse it. */
+  function oneVerified(dir: string, datapointId: string): string {
+    const ca = JSON.parse(readFileSync("src/content/states/ca.json", "utf8"));
+    const hash = datapointsFor(ca).find((d) => d.id === datapointId)!.contentHash;
+    const path = join(dir, "v.json");
+    writeFileSync(
+      path,
+      JSON.stringify([
+        {
+          results: [
+            {
+              usps: "CA",
+              datapoint_id: datapointId,
+              verified_by: "a@b.org",
+              verified_at: "2026-06-15T00:00:00Z",
+              content_hash: hash,
+            },
+          ],
+        },
+      ]),
+    );
+    return path;
+  }
+  function sourcesExport(dir: string, url: string): string {
+    const path = join(dir, "s.json");
+    writeFileSync(path, JSON.stringify([{ results: [{ usps: "CA", datapoint_id: "elPercent", url }] }]));
+    return path;
+  }
+
+  // A source-URL rewrite is invisible to the content hash of every datapoint
+  // that carries a fact rather than a citation. Without this check, a
+  // relocated URL leaves the confirmation standing on a citation the record
+  // no longer makes.
+  it("lapses a checkmark whose confirmed source is no longer cited, despite a matching hash", () => {
+    const dir = tmp();
+    const out = join(dir, "ledger.json");
+    run("scripts/build-verification-ledger.ts", [
+      "--verifications",
+      oneVerified(dir, "elPercent"),
+      "--sources",
+      sourcesExport(dir, "https://moved.example/gone"),
+      "--out",
+      out,
+    ]);
+
+    const ledger = JSON.parse(readFileSync(out, "utf8"));
+    expect(ledger.CA.verified).toEqual([]);
+    expect(ledger.CA.stale).toEqual(["elPercent"]);
+    expect(ledger.CA.count).toBe(0);
+  });
+
+  it("keeps a checkmark whose confirmed source is still cited", () => {
+    const dir = tmp();
+    const ca = JSON.parse(readFileSync("src/content/states/ca.json", "utf8"));
+    const out = join(dir, "ledger.json");
+    run("scripts/build-verification-ledger.ts", [
+      "--verifications",
+      oneVerified(dir, "elPercent"),
+      "--sources",
+      sourcesExport(dir, ca.sources[0].url),
+      "--out",
+      out,
+    ]);
+
+    const ledger = JSON.parse(readFileSync(out, "utf8"));
+    expect(ledger.CA.verified).toEqual(["elPercent"]);
+    expect(ledger.CA.stale).toEqual([]);
+  });
+
+  it("does not lapse a reviewer-added source, which the record never cites", () => {
+    const dir = tmp();
+    const url = "https://reviewer.example/typed-in";
+    const added = join(dir, "a.json");
+    writeFileSync(added, JSON.stringify([{ results: [{ usps: "CA", datapoint_id: "elPercent", url }] }]));
+    const out = join(dir, "ledger.json");
+    run("scripts/build-verification-ledger.ts", [
+      "--verifications",
+      oneVerified(dir, "elPercent"),
+      "--sources",
+      sourcesExport(dir, url),
+      "--added",
+      added,
+      "--out",
+      out,
+    ]);
+
+    const ledger = JSON.parse(readFileSync(out, "utf8"));
+    expect(ledger.CA.verified).toEqual(["elPercent"]);
+    expect(ledger.CA.stale).toEqual([]);
+  });
+
+  it("falls back to hash-only checking when --sources is omitted", () => {
+    // The nightly workflow passes --sources, but the flag stays optional so
+    // running the script by hand does not lapse every confirmation at once
+    // for want of an export.
+    const dir = tmp();
+    const out = join(dir, "ledger.json");
+    run("scripts/build-verification-ledger.ts", ["--verifications", oneVerified(dir, "elPercent"), "--out", out]);
+
+    const ledger = JSON.parse(readFileSync(out, "utf8"));
+    expect(ledger.CA.verified).toEqual(["elPercent"]);
   });
 });
 

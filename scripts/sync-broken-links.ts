@@ -17,6 +17,7 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { parseCheckerReport } from "../src/lib/audit-shared";
 import { datapointIdForCitation } from "../src/lib/verification-datapoints";
 
 function argValue(flag: string): string | null {
@@ -43,7 +44,7 @@ if (!inputPath || !outPath) {
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+const report = parseCheckerReport(readFileSync(inputPath, "utf8")) as {
   results: CheckerResult[];
 };
 const detectedAt = argValue("--detected-at") ?? new Date().toISOString();

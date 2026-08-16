@@ -12,6 +12,10 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # The `secrets` context is NOT readable from a step-level `if` — only
+      # `env` and `vars` are. Mapping the mail secret here is what lets the
+      # send step guard on it, the same trick the Cloudflare guard uses.
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
     steps:
       - uses: actions/checkout@v7
 
@@ -47,18 +51,69 @@ jobs:
           path: lychee-report.md
           retention-days: 30
 
+      # The cited-source audit. This is a different, stricter surface than
+      # the lychee sweep above: lychee walks every link in the built HTML
+      # and accepts 403/429 outright, while this walks the URLs the state
+      # records cite and classifies a bot-block as needing human review.
+      #
+      # `--silent` is load-bearing. Without it npm prints its own two
+      # "> projectcert@0.1.0 check:links" lines to stdout ahead of the JSON,
+      # so the captured file is not valid JSON and every downstream parse
+      # threw — under `continue-on-error`, silently.
+      - name: Cited-source link audit
+        run: |
+          npm run --silent check:links > link-report.md || true
+          npm run --silent check:links -- --json > /tmp/links.json || true
+
+      - name: Upload cited-source report
+        uses: actions/upload-artifact@v7
+        with:
+          name: cited-source-link-report
+          path: link-report.md
+          retention-days: 90
+
+      - name: Report missing credentials
+        if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
+        run: |
+          echo "::warning::CLOUDFLARE_API_TOKEN is unset — the audit store was NOT updated this run. See docs/audit-setup.md step 4."
+
       # Feed broken cited URLs back into the audit store so the affected
       # datapoints are flagged "needs re-verification". Non-blocking: a
-      # failure here must not fail the sweep (SEA links drift on their
-      # own schedule). Skipped automatically if the secrets are unset.
+      # failure here must not fail the sweep (SEA links drift on their own
+      # schedule). A parse failure is a bug rather than drift, so
+      # `parseCheckerReport` throws loudly and the annotation below makes
+      # the skip visible instead of green-and-empty.
       - name: Sync broken links into the audit store
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         continue-on-error: true
         run: |
-          npm run check:links -- --json > /tmp/links.json || true
           # Genuine breakage → datapoint re-verification.
           npx tsx scripts/sync-broken-links.ts --input /tmp/links.json --out /tmp/broken.sql
           npx wrangler d1 execute projectcert-audit --remote --file /tmp/broken.sql
           # Bot-blocked URLs → human review queue in the /audit/links console.
           npx tsx scripts/sync-link-reviews.ts --input /tmp/links.json --out /tmp/link-reviews.sql
           npx wrangler d1 execute projectcert-audit --remote --file /tmp/link-reviews.sql
+
+      # Email the report to the reviewer list. Inert until both the SMTP
+      # secrets and the recipient list are configured, so the sweep keeps
+      # working unchanged in the meantime — set LINK_REPORT_RECIPIENTS (a
+      # repository variable, comma-separated) to turn it on.
+      - name: Email the report
+        if: ${{ vars.LINK_REPORT_RECIPIENTS != '' && env.SMTP_SERVER != '' }}
+        continue-on-error: true
+        uses: dawidd6/action-send-mail@v6
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          from: projectcert link audit <${{ secrets.SMTP_USERNAME }}>
+          to: ${{ vars.LINK_REPORT_RECIPIENTS }}
+          subject: "projectcert cited-source link audit — ${{ github.run_started_at }}"
+          body: file://link-report.md
+          attachments: link-report.md
+
+      - name: Report missing mail configuration
+        if: ${{ vars.LINK_REPORT_RECIPIENTS == '' || env.SMTP_SERVER == '' }}
+        run: |
+          echo "::notice::No report email sent — set the LINK_REPORT_RECIPIENTS variable and the SMTP_* secrets to enable it. The report is attached to this run as an artifact regardless."

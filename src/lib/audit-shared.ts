@@ -33,6 +33,30 @@ export function isDatapointId(id: unknown): id is string {
 }
 
 /**
+ * Parse the link checker's `--json` report, tolerating a leading npm
+ * banner.
+ *
+ * `npm run check:links -- --json > links.json` writes npm's own two
+ * "> projectcert@0.1.0 check:links" lines to stdout ahead of the JSON, so
+ * the file a workflow captures is not valid JSON. A bare `JSON.parse` threw
+ * on it, and because the sync step runs under `continue-on-error` the weekly
+ * sweep reported success while writing nothing to D1 — broken links never
+ * reached the audit store. The workflow now uses `npm run --silent`; this
+ * stays as the belt to that braces, because the failure mode was silent and
+ * cost a year of sweeps.
+ *
+ * Throws with the offending prefix when there is no JSON object at all —
+ * loudly, so a real breakage is never mistaken for link drift.
+ */
+export function parseCheckerReport(raw: string): { results: unknown[] } {
+  const start = raw.indexOf("{");
+  if (start < 0) {
+    throw new Error(`No JSON object in checker report (got: ${JSON.stringify(raw.slice(0, 120))})`);
+  }
+  return JSON.parse(raw.slice(start)) as { results: unknown[] };
+}
+
+/**
  * Normalize a reviewer-typed source URL, or return null if it isn't a
  * fully-formed web URL. Prepends `https://` when the scheme is omitted (so
  * `www.example.com` works), then requires an http(s) URL whose host is a real

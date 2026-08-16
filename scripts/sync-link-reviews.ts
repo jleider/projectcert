@@ -17,6 +17,7 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { parseCheckerReport } from "../src/lib/audit-shared";
 
 function argValue(flag: string): string | null {
   const i = process.argv.indexOf(flag);
@@ -37,7 +38,7 @@ if (!inputPath || !outPath) {
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+const report = parseCheckerReport(readFileSync(inputPath, "utf8")) as {
   results: CheckerResult[];
 };
 const seenAt = argValue("--seen-at") ?? new Date().toISOString();

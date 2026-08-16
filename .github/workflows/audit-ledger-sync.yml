@@ -70,13 +70,24 @@ jobs:
             "SELECT usps, datapoint_id FROM broken_links"
           d1_export /tmp/accepted-links.json \
             "SELECT url, accepted_status, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'"
+          # The confirmed source per datapoint, and the reviewer-supplied URLs
+          # that are legitimately not among the record's own citations. A
+          # checkmark whose confirmed source is no longer cited has lapsed;
+          # no content hash can see that, because rewriting a source URL
+          # leaves the fact it backs unchanged.
+          d1_export /tmp/datapoint-sources.json \
+            "SELECT usps, datapoint_id, url FROM datapoint_sources"
+          d1_export /tmp/added-sources.json \
+            "SELECT usps, datapoint_id, url FROM added_sources"
 
       - name: Build ledger and link whitelist
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         run: |
           npx tsx scripts/build-verification-ledger.ts \
             --verifications /tmp/verifications.json \
-            --broken /tmp/broken.json
+            --broken /tmp/broken.json \
+            --sources /tmp/datapoint-sources.json \
+            --added /tmp/added-sources.json
           npx tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
 
       - name: Open PR if anything changed
