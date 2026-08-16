@@ -230,7 +230,7 @@ jobs:
               # error — the status alone does not identify the source.
               if grep -q "not configured for authentication" /tmp/audit-body.txt; then
                 echo "::warning::the console middleware reports no credential path configured."
-                echo "AUDIT_USER/AUDIT_PASSWORD (or the Access vars) are not reaching the Functions."
+                echo "ACCESS_TEAM_DOMAIN/ACCESS_AUD are not reaching the Functions — check [vars] in wrangler.toml."
               else
                 echo "::error::HTTP 500 that did not come from the console middleware:"
                 head -c 500 /tmp/audit-body.txt

@@ -3,15 +3,15 @@
 The gated review console lets authorized reviewers confirm each
 displayed datapoint per state, propose corrections, and track progress.
 The static site is unchanged; the tool is backed by Cloudflare Pages
-Functions and a D1 database, behind either a shared username/password or
-Cloudflare Access. This document covers the one-time infrastructure setup —
-the parts that live in the Cloudflare dashboard rather than the repo.
+Functions and a D1 database, behind Cloudflare Access. This document covers
+the one-time infrastructure setup — the parts that live in the Cloudflare
+dashboard rather than the repo.
 
 ## Architecture
 
 ```
                      ┌─ functions/audit/_middleware.ts  ── gates ──▶  /audit/*  (console pages)
-authentication ──────┤     shared login OR Access JWT
+authentication ──────┤     Cloudflare Access JWT (only path)
 (fails closed)       └─ functions/api/_middleware.ts    ── gates ──▶  /api/*    (read/write)
                                                         │
 Static Astro site (dist/)                               ▼
@@ -85,73 +85,39 @@ Function can see; the only proof is the Function's own behaviour.
 Do **not** set `DEV_REVIEWER_EMAIL` in production — it bypasses
 authentication entirely and is for local development only.
 
-## 3. Choose an authentication path
+## 3. Authentication
 
-The console accepts either credential path, resolved by
-`src/lib/audit-auth.ts` and enforced by two middlewares —
-`functions/audit/_middleware.ts` over the pages and
+Authentication is resolved by `src/lib/audit-auth.ts` and enforced by two
+middlewares — `functions/audit/_middleware.ts` over the pages and
 `functions/api/_middleware.ts` over the API.
 
-**Both fail closed.** With neither path configured, `/audit/*` returns 500
-and `/api/*` returns 500; the console is never served to the public. This is
+**Both fail closed.** With Access unconfigured, `/audit/*` and `/api/*` both
+return 500; the console is never served to the public. This is
 a property of the deployment, not of the dashboard: before this middleware
 existed the console's HTML was a plain static asset, and any Access
 misconfiguration would have published it.
 
-**The two paths are mutually exclusive, by design.** When Access is
-configured the shared login is not accepted at all — not merely ranked
-lower. Until 2026-08-16 basic was tried first, so a request carrying an
-`Authorization: Basic` header authenticated as the shared user even with
-Access active, writing one identity into `verified_by` for every reviewer
-and leaving nothing in the data to show it had happened. Rows written by
-the shared login are now prefixed `shared:` for the same reason: a
-credential several people hold must not be recorded as if it were a person.
+**Cloudflare Access is the only credential path.** There was a shared
+`AUDIT_USER` / `AUDIT_PASSWORD` login; it was removed on 2026-08-16 and
+should not be reintroduced.
 
-**Cloudflare Access (Option B) is the recommended path, and step 2 is why.**
-Its two settings, `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD`, are non-secret
-identifiers, so they can be declared in `[vars]` in `wrangler.toml` — the
-file that actually reaches the runtime. A shared password cannot: it must
-not be committed, and a dashboard-only secret is not applied while
-`wrangler.toml` is the source of truth.
+The reason is the ledger. Every checkmark, suggestion and link decision
+records **who** made it (`verified_by`, `submitted_by`, `reviewed_by` in
+D1), and the catalog's claim is attributable human verification against
+current sources. One credential held by several people cannot answer "who
+confirmed this" — the trail would show that a review happened while being
+unable to say who performed it, which is unrecoverable after the fact. A
+shared password also cannot be revoked for one person, and cannot be
+configured safely here in any case: it must not be committed, and a
+dashboard-only secret does not reach a Pages Function while `wrangler.toml`
+is the source of truth (step 2).
 
-The stronger reason is specific to this console. Every checkmark and
-suggestion records **who** confirmed it (`verified_by`, `submitted_by`, and
-`reviewed_by` in D1), and the whole point of the tool is attributable human
-verification. A shared login collapses every reviewer into one identity and
-degrades the ledger it exists to produce. Use it only as a stopgap for a
-single reviewer.
+Access solves all of it. Each reviewer signs in as themselves, the verified
+assertion carries their own address, and that address is what lands in the
+ledger. Its two settings are non-secret identifiers, so they live in
+`[vars]` in `wrangler.toml`, the file the runtime actually reads.
 
-### Option A — shared username and password (stopgap, single reviewer)
-
-Set two Pages environment variables (**Settings → Environment variables**):
-
-- `AUDIT_USER` — use a reviewer's email address, since it is recorded as the
-  attribution on every checkmark and suggestion.
-- `AUDIT_PASSWORD`.
-
-**Setting these in the dashboard does not work while `wrangler.toml` is
-the source of truth (step 2).** They will be reported as set, on both the
-project and the deployment, and the Function will not receive them —
-observed on deployments `e9802b05` and `617d9833`, both answering the
-fail-closed 500 with the credentials showing as present throughout. To use
-this option the value has to reach the runtime some other way: a Secrets
-Store binding declared in `wrangler.toml`, or `[vars]` for the username
-with the password still bound rather than committed. Never put the
-password in `[vars]` — the file is in git.
-
-Two further limits, if the option is used anyway. `wrangler pages secret
-put` has no `--environment` flag (verified on wrangler 4.105.0), so it
-writes production alone; preview deployments have no credentials and their
-console answers 500 — safe to hand around, non-functional for review.
-Leaving preview unset is the right default regardless, since mirroring
-puts the shared password on every preview deployment of every branch.
-
-The browser prompts for them on first request to `/audit/` and replays them
-on the same-origin `/api/*` calls the islands make. This is a single shared
-login: every reviewer signs in as the same identity, so per-person
-attribution is lost. Prefer Access when more than one person reviews.
-
-### Option B — Cloudflare Access (recommended)
+### Configuring Access
 
 **Zero Trust → Access → Applications → Add → Self-hosted.**
 
@@ -181,12 +147,19 @@ is the real auth boundary — the email header alone is not trusted.
 
 ### Protect preview deployments
 
-Pages Functions are also served on `*.pages.dev`, which is not behind
-the Access app on `projectcert.org`. Both middlewares already reject
-un-gated requests there — the JWT is verified rather than the identity
-header trusted, and with only Access configured a request arriving off-app
-is refused outright. As defense in depth, also either enable Access on
-preview URLs or restrict/disable the `*.pages.dev` route.
+Pages Functions are also served on `*.pages.dev`, which is not automatically
+behind the Access app on `projectcert.org`. The middlewares already reject
+un-gated requests there — the JWT is verified rather than the identity header
+trusted, so a request arriving off-app is refused outright. As defense in
+depth, put Access over `*.projectcert.pages.dev` as well.
+
+Note what that does to the deploy gate in `ci.yml`: with Access in front of
+the deployment, an unauthenticated probe is answered by Access before our
+middleware runs, so the gate reports which layer refused rather than
+implying the middleware was exercised. The middleware itself is covered by
+`tests/audit-api.integration.test.ts` and `npm run e2e:audit`, and its
+presence in a deployment by the Functions-bundle assertion in the Publish
+step.
 
 ## 4. GitHub Actions secrets
 

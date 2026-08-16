@@ -423,11 +423,10 @@ describe("/api/_middleware auth", () => {
 });
 
 describe("/audit/* page middleware", () => {
-  const BASIC = `Basic ${btoa("reviewer@example.org:s3cret")}`;
-  const LOGIN = { AUDIT_USER: "reviewer@example.org", AUDIT_PASSWORD: "s3cret" };
+  const ACCESS = { ACCESS_TEAM_DOMAIN: "green-base.cloudflareaccess.com", ACCESS_AUD: "aud123" };
   const page = () => new Response("<html>console</html>", { headers: { "Content-Type": "text/html" } });
 
-  it("refuses to render the console when no credentials are configured", async () => {
+  it("refuses to render the console when Access is not configured", async () => {
     // Fail closed. Before this middleware existed the console HTML was a
     // plain static asset and this request returned the page to anyone.
     let nextCalled = false;
@@ -445,12 +444,12 @@ describe("/audit/* page middleware", () => {
     expect(nextCalled).toBe(false);
   });
 
-  it("challenges for a username and password when one is configured", async () => {
+  it("refuses an unauthenticated request when Access is configured", async () => {
     let nextCalled = false;
     const res = await pageMiddleware(
       ctx({
         url: "https://x.org/audit/ak",
-        env: { DB, ...LOGIN },
+        env: { DB, ...ACCESS },
         next: async () => {
           nextCalled = true;
           return page();
@@ -458,29 +457,32 @@ describe("/audit/* page middleware", () => {
       }),
     );
     expect(res.status).toBe(401);
-    expect(res.headers.get("WWW-Authenticate")).toContain("Basic realm=");
     expect(nextCalled).toBe(false);
   });
 
-  it("rejects a wrong password", async () => {
+  it("refuses a password, since the shared login was removed", async () => {
+    // Every row the console writes records who made it. A credential
+    // several people hold cannot answer that, so no Authorization header
+    // authenticates any more.
     const res = await pageMiddleware(
       ctx({
         url: "https://x.org/audit/ak",
-        env: { DB, ...LOGIN },
-        headers: { Authorization: `Basic ${btoa("reviewer@example.org:wrong")}` },
+        env: { DB, ...ACCESS },
+        headers: { Authorization: `Basic ${btoa("reviewer@example.org:s3cret")}` },
         next: async () => page(),
       }),
     );
     expect(res.status).toBe(401);
   });
 
-  it("serves the console to a correct login, marked non-indexable", async () => {
+  it("serves the console to an authenticated reviewer, marked non-indexable", async () => {
+    // DEV_REVIEWER_EMAIL stands in for a verified Access assertion, which
+    // cannot be minted in a unit test without the team's signing key.
     const data: Record<string, unknown> = {};
     const res = await pageMiddleware(
       ctx({
         url: "https://x.org/audit/ak",
-        env: { DB, ...LOGIN },
-        headers: { Authorization: BASIC },
+        env: { DB, DEV_REVIEWER_EMAIL: "reviewer@example.org" },
         data,
         next: async () => page(),
       }),
@@ -489,26 +491,24 @@ describe("/audit/* page middleware", () => {
     expect(await res.text()).toContain("console");
     expect(res.headers.get("X-Robots-Tag")).toBe("noindex, nofollow, noarchive");
     expect(res.headers.get("Cache-Control")).toBe("private, no-store");
-    // Recorded as a shared credential, not as a person — the ledger's
-    // verified_by must not imply an individual reviewed this.
-    expect(data.userEmail).toBe("shared:reviewer@example.org");
+    expect(data.userEmail).toBe("reviewer@example.org");
   });
 });
 
-describe("/api/* accepts the shared login", () => {
-  it("authenticates an API call with the same credentials as the pages", async () => {
-    // The browser replays Basic credentials on same-origin API calls, so the
-    // islands keep working once a reviewer has signed in to /audit/*.
-    const data: Record<string, unknown> = {};
+describe("/api/* rejects a password", () => {
+  it("does not authenticate an API call with Basic credentials", async () => {
+    let nextCalled = false;
     const res = await middleware(
       ctx({
-        env: { DB, AUDIT_USER: "reviewer@example.org", AUDIT_PASSWORD: "s3cret" },
+        env: { DB, ACCESS_TEAM_DOMAIN: "green-base.cloudflareaccess.com", ACCESS_AUD: "aud123" },
         headers: { Authorization: `Basic ${btoa("reviewer@example.org:s3cret")}` },
-        data,
-        next: async () => new Response("ok"),
+        next: async () => {
+          nextCalled = true;
+          return new Response("ok");
+        },
       }),
     );
-    expect(await res.text()).toBe("ok");
-    expect(data.userEmail).toBe("shared:reviewer@example.org");
+    expect(res.status).toBe(401);
+    expect(nextCalled).toBe(false);
   });
 });

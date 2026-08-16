@@ -27,13 +27,16 @@ All use `AuditLayout.astro` (`noindex,nofollow`). Routes live in
 - **Authentication is enforced in code and fails closed.** Two middlewares —
   `functions/audit/_middleware.ts` (console pages) and
   `functions/api/_middleware.ts` (API) — both resolve through
-  `authenticateAuditRequest` in `src/lib/audit-auth.ts`. It accepts a shared
-  `AUDIT_USER`/`AUDIT_PASSWORD` Basic login **or** a verified Cloudflare
-  Access JWT, and refuses every request when neither is configured. Wrong or
-  missing credentials are `unauthorized` (pages issue a Basic challenge so
-  the browser prompts; the API answers JSON 401); *nothing configured* is
-  `unconfigured` and answers 500, so a broken deployment is loud rather than
-  mistaken for a routine failed login.
+  `authenticateAuditRequest` in `src/lib/audit-auth.ts`. **Cloudflare Access
+  is the only credential path** — a verified `Cf-Access-Jwt-Assertion`, whose
+  email becomes the reviewer identity written to `verified_by`. A shared
+  `AUDIT_USER`/`AUDIT_PASSWORD` login existed until 2026-08-16 and was
+  removed: the ledger's whole claim is attributable review, and one
+  credential held by several people cannot say who confirmed a datapoint.
+  Do not reintroduce it. Missing or unverifiable assertions are
+  `unauthorized` (401); *Access unconfigured* is `unconfigured` and answers
+  500, so a broken deployment is loud rather than mistaken for a routine
+  failed login.
 - **Pages Functions** in top-level `functions/api/*` provide the API:
   `verifications.ts`, `suggestions.ts` (GET/POST/**PATCH** to resolve),
   `overview.ts`, `broken-links.ts`, `link-reviews.ts`, `datapoint-sources.ts`,
