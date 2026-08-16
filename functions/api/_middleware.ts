@@ -1,26 +1,22 @@
 /**
  * Mandatory authentication for every /api/* route.
  *
- * Two credential paths are accepted, both resolved by
- * `authenticateAuditRequest` in `src/lib/audit-auth.ts` — the same gate the
- * console pages use, so the two cannot drift apart:
- *
- *  - the shared `AUDIT_USER` / `AUDIT_PASSWORD` login, which the browser
- *    replays on same-origin API calls once a reviewer has signed in to
- *    `/audit/*`; and
- *  - a signed Cloudflare Access assertion.
+ * Resolved by `authenticateAuditRequest` in `src/lib/audit-auth.ts` — the
+ * same gate the console pages use, so the two cannot drift apart. A signed
+ * Cloudflare Access assertion is the only credential.
  *
  * The `Cf-Access-Authenticated-User-Email` header is never trusted on its
  * own: these Functions are also reachable on the `*.pages.dev` deployment
- * domain, which is not behind the Access application, so a direct request
- * there could forge an identity. Only the verified JWT counts.
+ * domain, which may not be behind the Access application, so a direct
+ * request there could forge an identity. Only the verified JWT counts, and
+ * the email it carries is what lands in `submitted_by` / `reviewed_by`.
  *
- * Local dev (`wrangler pages dev`) runs neither, so an explicit
- * `DEV_REVIEWER_EMAIL` var bypasses both. It must never be set in production.
+ * Local dev (`wrangler pages dev`) has no Access, so an explicit
+ * `DEV_REVIEWER_EMAIL` var stands in. It must never be set in production.
  *
- * Unlike the pages, an unauthenticated API call gets a JSON 401 rather than a
- * Basic challenge — a `fetch()` from the island should surface an error, not
- * trigger the browser's credential dialog.
+ * An unauthenticated API call gets a JSON 401 — a `fetch()` from the island
+ * should surface an error rather than a redirect the browser cannot follow
+ * cross-origin.
  */
 
 import { authenticateAuditRequest } from "../../src/lib/audit-auth";

@@ -1,28 +1,26 @@
 /**
- * Username/password gate over the review console pages (`/audit/*`).
+ * Authentication gate over the review console pages (`/audit/*`).
  *
  * The console's HTML is a static asset, so without this middleware Pages
  * serves it to anyone who knows the URL — the API would still reject
  * unauthenticated writes, but the pages, the state list, and every seeded
- * source URL would be public. Protection used to depend entirely on a
- * Cloudflare Access application configured in the dashboard; this makes it a
- * property of the deployment instead.
+ * source URL would be public. Protection is a property of the deployment
+ * rather than of dashboard configuration.
  *
  * Scoped to `functions/audit/` on purpose. A root `functions/_middleware.ts`
  * would put a Function invocation in front of every public page request on
  * an otherwise fully static site.
  *
- * Fails closed: with neither `AUDIT_USER`/`AUDIT_PASSWORD` nor the Access
- * vars configured, every request is refused.
+ * Cloudflare Access normally intercepts at the edge and redirects to its
+ * login before a request reaches this code. Reaching here unauthenticated
+ * means the request arrived off-app — for example on a `*.pages.dev` host
+ * outside the Access application — which is exactly what should be refused.
+ *
+ * Fails closed: with no Access application configured, every request is
+ * refused rather than served.
  */
 
-import {
-  authenticateAuditRequest,
-  basicAuthChallenge,
-  basicAuthConfigured,
-  NOINDEX_HEADER,
-  withGatedHeaders,
-} from "../../src/lib/audit-auth";
+import { authenticateAuditRequest, NOINDEX_HEADER, withGatedHeaders } from "../../src/lib/audit-auth";
 
 /** Refusal that never renders the console, and is never indexable. */
 function refuse(body: string, status: number): Response {
@@ -41,14 +39,9 @@ export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (cont
 
   const auth = await authenticateAuditRequest(request, env);
   if (!auth.ok) {
-    if (auth.reason === "unconfigured") {
-      return refuse("The review console is not configured for authentication.", 500);
-    }
-    // Prompt for the shared login when there is one. With only Access
-    // configured, Access itself intercepts before the request reaches a
-    // Function — reaching here means the request came in off-app (e.g. via
-    // *.pages.dev), which is exactly what should be refused outright.
-    return basicAuthConfigured(env) ? basicAuthChallenge() : refuse("Unauthorized", 401);
+    return auth.reason === "unconfigured"
+      ? refuse("The review console is not configured for authentication.", 500)
+      : refuse("Unauthorized", 401);
   }
 
   data.userEmail = auth.email;

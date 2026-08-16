@@ -511,8 +511,11 @@ Load-bearing rules:
   `functions/audit/_middleware.ts` protects the console *pages*;
   `functions/api/_middleware.ts` protects the API. Both resolve through
   `authenticateAuditRequest` in `src/lib/audit-auth.ts`, which accepts a
-  shared `AUDIT_USER`/`AUDIT_PASSWORD` login or a verified Cloudflare
-  Access JWT, and refuses everything when neither is configured. The
+  verified Cloudflare Access JWT and nothing else, and refuses everything
+  when Access is unconfigured. A shared `AUDIT_USER`/`AUDIT_PASSWORD` login
+  existed and was removed deliberately: every row records *who* made it, and
+  one credential held by several people cannot answer that. Do not
+  reintroduce it. The
   pages middleware is scoped to `functions/audit/` deliberately — a root
   `functions/_middleware.ts` would put a Function invocation in front of
   every request to the otherwise static public site. Do not "simplify"

@@ -3,15 +3,15 @@
 The gated review console lets authorized reviewers confirm each
 displayed datapoint per state, propose corrections, and track progress.
 The static site is unchanged; the tool is backed by Cloudflare Pages
-Functions and a D1 database, behind either a shared username/password or
-Cloudflare Access. This document covers the one-time infrastructure setup —
-the parts that live in the Cloudflare dashboard rather than the repo.
+Functions and a D1 database, behind Cloudflare Access. This document covers
+the one-time infrastructure setup — the parts that live in the Cloudflare
+dashboard rather than the repo.
 
 ## Architecture
 
 ```
                      ┌─ functions/audit/_middleware.ts  ── gates ──▶  /audit/*  (console pages)
-authentication ──────┤     shared login OR Access JWT
+authentication ──────┤     Cloudflare Access JWT (only path)
 (fails closed)       └─ functions/api/_middleware.ts    ── gates ──▶  /api/*    (read/write)
                                                         │
 Static Astro site (dist/)                               ▼
@@ -55,60 +55,69 @@ Copy the returned `database_id` into `wrangler.toml` (the
 npx wrangler d1 migrations apply projectcert-audit --remote
 ```
 
-## 2. Bind D1 to the Pages project (dashboard — authoritative)
+## 2. Bindings: `wrangler.toml` is authoritative, not the dashboard
 
-In the Cloudflare dashboard: **Workers & Pages → projectcert →
-Settings → Functions → D1 database bindings**, add binding
-`DB` → `projectcert-audit`. The dashboard binding is authoritative for
-Pages (it wins over `wrangler.toml`, whose binding is for local dev).
+**This is the reverse of what this document said until 2026-08-16, and the
+error cost a debugging session — read it before setting anything in the
+dashboard.**
 
-The credential vars for production functions are set in the same place
-(**Settings → Environment variables**) — which ones depends on the
-authentication path chosen in step 3.
+Cloudflare's Pages Functions documentation states: *"When used in your
+Pages Functions projects, your Wrangler file is the source of truth. You
+will be able to see, but not edit, the same fields when you log into the
+Cloudflare dashboard."* Because this repo has a `wrangler.toml` declaring
+`[[d1_databases]]`, the deployment receives what that file declares — and
+**anything configured only in the dashboard is displayed but not applied
+at runtime.**
+
+The failure mode is deliberately confusing: the API and dashboard keep
+reporting a dashboard-set variable, both on the project and on the
+individual deployment record, while the Function never receives it. The
+first production deploy demonstrated it cleanly — `DB`, declared in
+`wrangler.toml`, worked; `AUDIT_USER` / `AUDIT_PASSWORD`, set only in the
+dashboard, did not exist at runtime, and `/audit/` answered its
+fail-closed 500 on every hostname. Three rounds of checking the dashboard
+config confirmed the values were "set" the entire time.
+
+So: **declare bindings in `wrangler.toml`.** The `DB` binding is already
+there. Verifying a value in the dashboard proves nothing about what the
+Function can see; the only proof is the Function's own behaviour.
 
 Do **not** set `DEV_REVIEWER_EMAIL` in production — it bypasses
 authentication entirely and is for local development only.
 
-## 3. Choose an authentication path
+## 3. Authentication
 
-The console accepts either credential path, resolved by
-`src/lib/audit-auth.ts` and enforced by two middlewares —
-`functions/audit/_middleware.ts` over the pages and
+Authentication is resolved by `src/lib/audit-auth.ts` and enforced by two
+middlewares — `functions/audit/_middleware.ts` over the pages and
 `functions/api/_middleware.ts` over the API.
 
-**Both fail closed.** With neither path configured, `/audit/*` returns 500
-and `/api/*` returns 500; the console is never served to the public. This is
+**Both fail closed.** With Access unconfigured, `/audit/*` and `/api/*` both
+return 500; the console is never served to the public. This is
 a property of the deployment, not of the dashboard: before this middleware
 existed the console's HTML was a plain static asset, and any Access
 misconfiguration would have published it.
 
-### Option A — shared username and password (simplest)
+**Cloudflare Access is the only credential path.** There was a shared
+`AUDIT_USER` / `AUDIT_PASSWORD` login; it was removed on 2026-08-16 and
+should not be reintroduced.
 
-Set two Pages environment variables (**Settings → Environment variables**):
+The reason is the ledger. Every checkmark, suggestion and link decision
+records **who** made it (`verified_by`, `submitted_by`, `reviewed_by` in
+D1), and the catalog's claim is attributable human verification against
+current sources. One credential held by several people cannot answer "who
+confirmed this" — the trail would show that a review happened while being
+unable to say who performed it, which is unrecoverable after the fact. A
+shared password also cannot be revoked for one person, and cannot be
+configured safely here in any case: it must not be committed, and a
+dashboard-only secret does not reach a Pages Function while `wrangler.toml`
+is the source of truth (step 2).
 
-- `AUDIT_USER` — use a reviewer's email address, since it is recorded as the
-  attribution on every checkmark and suggestion.
-- `AUDIT_PASSWORD`.
+Access solves all of it. Each reviewer signs in as themselves, the verified
+assertion carries their own address, and that address is what lands in the
+ledger. Its two settings are non-secret identifiers, so they live in
+`[vars]` in `wrangler.toml`, the file the runtime actually reads.
 
-**These are per-environment, and `wrangler` only writes production.**
-`wrangler pages secret put` has no `--environment` flag (verified on
-wrangler 4.105.0), so a value set that way exists on production alone.
-Preview deployments therefore have no credentials and their console
-answers **500** — the fail-closed path, so a preview URL is safe to hand
-around, but console review on a preview branch does not work.
-
-Leaving preview unset is the recommended default: it keeps the shared
-password off every preview deployment of every branch. Set the two values
-under **Settings → Environment variables → Preview** in the dashboard only
-when a console change genuinely needs preview review, and treat that as
-widening the credential's exposure.
-
-The browser prompts for them on first request to `/audit/` and replays them
-on the same-origin `/api/*` calls the islands make. This is a single shared
-login: every reviewer signs in as the same identity, so per-person
-attribution is lost. Prefer Access when more than one person reviews.
-
-### Option B — Cloudflare Access (per-reviewer identity)
+### Configuring Access
 
 **Zero Trust → Access → Applications → Add → Self-hosted.**
 
@@ -117,9 +126,20 @@ attribution is lost. Prefer Access when more than one person reviews.
 - Policy: **Allow**, include rule **Emails** (the reviewer allowlist),
   or **Emails ending in** a domain.
 - Identity provider: Google / One-time PIN.
-- After creating it, copy the **Application Audience (AUD) tag** into
-  the `ACCESS_AUD` env var, and the **team domain** into
-  `ACCESS_TEAM_DOMAIN`.
+- After creating it, copy the **Application Audience (AUD) tag** and the
+  **team domain** into `wrangler.toml`:
+
+```toml
+[vars]
+ACCESS_TEAM_DOMAIN = "yourteam.cloudflareaccess.com"
+ACCESS_AUD = "<the AUD tag>"
+```
+
+Both are non-secret identifiers — the AUD tag names the application and is
+useless without a signed assertion from that team's identity provider — so
+committing them is fine, and `wrangler.toml` is the only place that
+reliably reaches the runtime (step 2). Setting them in the dashboard
+instead reproduces the same silent failure as the shared password.
 
 The functions verify the signed `Cf-Access-Jwt-Assertion` JWT against
 `https://<ACCESS_TEAM_DOMAIN>/cdn-cgi/access/certs` with that AUD. This
@@ -127,12 +147,19 @@ is the real auth boundary — the email header alone is not trusted.
 
 ### Protect preview deployments
 
-Pages Functions are also served on `*.pages.dev`, which is not behind
-the Access app on `projectcert.org`. Both middlewares already reject
-un-gated requests there — the JWT is verified rather than the identity
-header trusted, and with only Access configured a request arriving off-app
-is refused outright. As defense in depth, also either enable Access on
-preview URLs or restrict/disable the `*.pages.dev` route.
+Pages Functions are also served on `*.pages.dev`, which is not automatically
+behind the Access app on `projectcert.org`. The middlewares already reject
+un-gated requests there — the JWT is verified rather than the identity header
+trusted, so a request arriving off-app is refused outright. As defense in
+depth, put Access over `*.projectcert.pages.dev` as well.
+
+Note what that does to the deploy gate in `ci.yml`: with Access in front of
+the deployment, an unauthenticated probe is answered by Access before our
+middleware runs, so the gate reports which layer refused rather than
+implying the middleware was exercised. The middleware itself is covered by
+`tests/audit-api.integration.test.ts` and `npm run e2e:audit`, and its
+presence in a deployment by the Functions-bundle assertion in the Publish
+step.
 
 ## 4. GitHub Actions secrets
 
