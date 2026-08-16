@@ -23,6 +23,7 @@ secret; the credentials that *are* secret are called out in Phase 3.
 | D1 schema | `0001_init.sql` applied; six application tables present |
 | D1 binding | `DB`, bound on both production and preview |
 | Access application | Team `green-base-15b0.cloudflareaccess.com`, gating `projectcert.org` `/audit` and `/api` |
+| Access (`pages.dev`) | Second application over `projectcert.pages.dev` and `*.projectcert.pages.dev` — the whole host, so the public reaches the site only via `projectcert.org` |
 | Access settings | `ACCESS_TEAM_DOMAIN` + `ACCESS_AUD`, declared in `wrangler.toml` `[vars]` |
 
 **The public site is live.** Verified at the Cloudflare edge with
@@ -303,19 +304,21 @@ Do these before touching the Cloudflare dashboard.
       proxy (orange cloud) is required — a grey-cloud record bypasses
       Cloudflare and the Pages domain never validates.
 - [ ] Push to `main` and confirm the deploy job publishes.
-- [ ] **Gate the `pages.dev` host with its own Access application.**
-      `projectcert.pages.dev` serves the entire public site, and so does
-      every per-deployment URL (`<hash>.projectcert.pages.dev`) — both
-      verified returning 200. They sit outside the Access application
-      scoped to the `projectcert.org` hostname, which is why `/audit/`
-      there hit the middleware directly rather than an Access redirect.
-      Add a self-hosted application covering **both** the bare host and
-      the `*` subdomain; one entry does not span both, and the
-      per-deployment URLs are permanent and individually reachable.
-      *Shortcut:* the Pages project's **Settings → Enable access policy**
-      creates the preview-deployment application for you — afterwards,
-      check whether it also covers the bare `projectcert.pages.dev` and
-      add the missing one.
+- [x] ~~**Gate the `pages.dev` host with its own Access application.**~~
+      Done. `projectcert.pages.dev` served the entire public site, as did
+      every per-deployment URL (`<hash>.projectcert.pages.dev`); both sat
+      outside the application scoped to the `projectcert.org` hostname,
+      which is why `/audit/` there reached the middleware directly rather
+      than an Access redirect. A second self-hosted application now
+      covers the bare host **and** the `*` subdomain — cover both, since
+      one entry does not span them and per-deployment URLs are permanent
+      and individually reachable. Verified: `/`, `/states/ut/`, and
+      `/audit/` on `projectcert.pages.dev`, plus two distinct
+      per-deployment hosts, all **302** to the Access login, while every
+      public route on `projectcert.org` still returns **200**.
+      *Shortcut for next time:* the Pages project's **Settings → Enable
+      access policy** creates the preview-deployment application, after
+      which you still check whether the bare host is covered.
 
       **A redirect is not possible, and the reason is worth recording so
       nobody re-litigates it.** Bulk Redirects and Redirect Rules act
