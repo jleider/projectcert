@@ -90,6 +90,19 @@ Set two Pages environment variables (**Settings → Environment variables**):
   attribution on every checkmark and suggestion.
 - `AUDIT_PASSWORD`.
 
+**These are per-environment, and `wrangler` only writes production.**
+`wrangler pages secret put` has no `--environment` flag (verified on
+wrangler 4.105.0), so a value set that way exists on production alone.
+Preview deployments therefore have no credentials and their console
+answers **500** — the fail-closed path, so a preview URL is safe to hand
+around, but console review on a preview branch does not work.
+
+Leaving preview unset is the recommended default: it keeps the shared
+password off every preview deployment of every branch. Set the two values
+under **Settings → Environment variables → Preview** in the dashboard only
+when a console change genuinely needs preview review, and treat that as
+widening the credential's exposure.
+
 The browser prompts for them on first request to `/audit/` and replays them
 on the same-origin `/api/*` calls the islands make. This is a single shared
 login: every reviewer signs in as the same identity, so per-person
@@ -171,12 +184,17 @@ reviewer; it must never be set in production. The local D1 lives under
 `.wrangler/state` and is independent of the remote database — local
 checkmarks/suggestions stay local.
 
-**Schema changes.** While the audit feature is pre-release the schema
-lives in a single migration (`schema/d1/0001_init.sql`); editing it does
-not re-run against an already-migrated local DB, so after a schema change
-reset local state: `rm -rf .wrangler && npm run d1:migrate:local`. Once
-the D1 database is live in production, further schema changes must be
-**new** migration files (`0002_*.sql`, …), never edits to `0001`.
+**Schema changes — `0001_init.sql` is frozen.** The remote
+`projectcert-audit` database has been created and migrated, so migrations
+are now append-only: every further change is a **new** file
+(`0002_*.sql`, …), never an edit to `0001`. Editing `0001` would diverge
+the local and remote schemas silently, since an applied migration does not
+re-run.
+
+Locally, an edited migration also does not re-run against an
+already-migrated database, so reset local state after any schema change:
+`rm -rf .wrangler && npm run d1:migrate:local`. Apply to the remote with
+`npm run d1:migrate:remote`.
 
 To populate the `/audit/links` queue locally, run a sweep into the local
 D1:
