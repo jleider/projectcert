@@ -11,6 +11,10 @@
  *  2. The gated /audit/* console is noindex,nofollow and MUST be absent
  *     from the sitemap AND from llms-full.txt (the documented exception).
  *     Regression guard on the `sitemap()` filter in astro.config.ts.
+ *     robots.txt must disallow it in EVERY User-agent group — a crawler
+ *     matching a named group ignores `User-agent: *` entirely, so a
+ *     disallow only under the wildcard would not bind the named AI
+ *     crawlers the file lists.
  *  3. public/llms.txt is hand-curated, not 1:1 with routes, so missing
  *     non-gated routes there are a WARNING (drift nudge), not a failure.
  *
@@ -23,12 +27,14 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ALL_ROUTES } from "../src/lib/routes";
 import { SITE_URL } from "../src/config/site";
+import { agentsAllowedToCrawl } from "../src/lib/robots";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const SITEMAP = resolve(ROOT, "dist/sitemap-0.xml");
 const LLMS = resolve(ROOT, "public/llms.txt");
 const LLMS_FULL = resolve(ROOT, "public/llms-full.txt");
+const ROBOTS = resolve(ROOT, "public/robots.txt");
 const STATES_DIR = resolve(ROOT, "src/content/states");
 
 const isGated = (route: string): boolean => route.startsWith("/audit");
@@ -74,6 +80,13 @@ for (const url of sitemapUrls) {
 }
 if (/\/audit\b/.test(llmsFull)) {
   errors.push("gated /audit reference present in llms-full.txt (must be excluded)");
+}
+
+// Every robots.txt group must disallow the console, not just the wildcard —
+// a named crawler obeys its own group alone.
+const robots = readFileSync(ROBOTS, "utf8");
+for (const agent of agentsAllowedToCrawl(robots, "/audit/")) {
+  errors.push(`robots.txt group "User-agent: ${agent}" does not disallow /audit/`);
 }
 
 if (errors.length > 0) fail(errors);

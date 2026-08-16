@@ -507,6 +507,27 @@ The public site stays static; the console is a separate layer.
 
 Load-bearing rules:
 
+- **Both surfaces are gated in code, and the gate fails closed.**
+  `functions/audit/_middleware.ts` protects the console *pages*;
+  `functions/api/_middleware.ts` protects the API. Both resolve through
+  `authenticateAuditRequest` in `src/lib/audit-auth.ts`, which accepts a
+  shared `AUDIT_USER`/`AUDIT_PASSWORD` login or a verified Cloudflare
+  Access JWT, and refuses everything when neither is configured. The
+  pages middleware is scoped to `functions/audit/` deliberately — a root
+  `functions/_middleware.ts` would put a Function invocation in front of
+  every request to the otherwise static public site. Do not "simplify"
+  the two middlewares into one at the root, and do not make an
+  unconfigured deployment permissive: until this landed, the console's
+  HTML was a plain static asset that any Access misconfiguration would
+  have published.
+- **The console must stay uncrawlable, in four independent layers.**
+  Authentication (a crawler gets 401), `X-Robots-Tag: noindex, nofollow,
+  noarchive` on every gated response, the `noindex` meta tag in
+  `AuditLayout.astro`, and `Disallow: /audit/` in `public/robots.txt`.
+  The robots footgun: a crawler matching a named `User-agent` group obeys
+  that group *alone* and ignores `User-agent: *`, so the disallow is
+  repeated in every group and `check-discovery-surfaces` fails the build
+  if a group omits it.
 - **The checkbox ledger is separate from `verificationStatus`.** A
   reviewer confirming all datapoints does **not** promote a state to
   `verified-2026` — that requires the archived-snapshot audit trail the
