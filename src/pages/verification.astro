@@ -30,7 +30,7 @@ const possibleDetails = withView.reduce((n, x) => n + x.view.progress.total, 0);
 
 <BaseLayout
   title="How this data is verified"
-  description="The two checks behind every state record: a source check against current state education agency documents, and detail-by-detail confirmation by an authorized reviewer."
+  description="The two checks behind every state record: a source check against current state education agency documents, and detail-by-detail verification by an authorized reviewer."
 >
   <article class="max-w-4xl mx-auto px-4 py-8">
     <h1 class="text-2xl font-bold text-ink">How this data is verified</h1>
@@ -50,19 +50,19 @@ const possibleDetails = withView.reduce((n, x) => n + x.view.progress.total, 0);
         </p>
       </div>
       <div class="rounded border border-ink-subtle/20 p-4 bg-surface-raised">
-        <h2 class="text-base font-semibold text-ink">2. Reviewer confirmation</h2>
+        <h2 class="text-base font-semibold text-ink">2. Verification by an authorized reviewer</h2>
         <p class="mt-2 text-sm text-ink-muted">
-          A second person — an authorized reviewer, signing in under their own identity — then confirms each of the
-          {totalDetails} displayed details separately against the source cited for it. Each confirmation records who made
+          A second person — an authorized reviewer, signing in under their own identity — then verifies each of the
+          {totalDetails} displayed details separately against the source cited for it. Each verification records who made
           it and when. This is independent of the source check, and is the slower of the two.
         </p>
       </div>
     </section>
 
     <p class="mt-4 text-sm text-ink-muted max-w-3xl">
-      A confirmation stops counting if the underlying value later changes, or if a cited source becomes unreachable, so
+      A verification stops counting if the underlying value later changes, or if a cited source becomes unreachable, so
       the figures below describe the record as it stands rather than as it once stood. Across the catalog,
-      {confirmedDetails} of {possibleDetails} details are currently confirmed.
+      {confirmedDetails} of {possibleDetails} details are currently verified by an authorized reviewer.
     </p>
 
     <ul class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
@@ -72,7 +72,7 @@ const possibleDetails = withView.reduce((n, x) => n + x.view.progress.total, 0);
       </li>
       <li class="rounded border border-ink-subtle/30 bg-bin-1/20 p-3">
         <div class="text-2xl font-bold text-ink">{groups["sources-checked"].length}</div>
-        <div class="text-ink-muted">sources checked, reviewer confirmation ongoing</div>
+        <div class="text-ink-muted">sources checked, reviewer verification ongoing</div>
       </li>
       <li class="rounded border border-bin-2/40 bg-bin-1/20 p-3">
         <div class="text-2xl font-bold text-ink">{groups["check-in-progress"].length}</div>
@@ -90,13 +90,13 @@ const possibleDetails = withView.reduce((n, x) => n + x.view.progress.total, 0);
           {
             stage: "fully-verified",
             heading: "Fully verified",
-            blurb: "Sources checked, and every displayed detail confirmed by a reviewer.",
+            blurb: "Sources checked, and every displayed detail verified by an authorized reviewer.",
           },
           {
             stage: "sources-checked",
-            heading: "Sources checked, reviewer confirmation ongoing",
+            heading: "Sources checked, verification by an authorized reviewer ongoing",
             blurb:
-              "The agency's current documents have been read and the record re-coded from them. Detail-by-detail confirmation by a reviewer is still under way.",
+              "The agency's current documents have been read and the record re-coded from them. Detail-by-detail verification by an authorized reviewer is still under way.",
           },
           {
             stage: "check-in-progress",

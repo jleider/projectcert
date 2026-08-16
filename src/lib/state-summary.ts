@@ -9,6 +9,7 @@
  */
 
 import type { State } from "@/content.config";
+import { reviewProgress } from "@/lib/verification-display";
 
 function bilingualClause(state: State): string {
   const b = state.credentials.bilingual;
@@ -38,13 +39,8 @@ function elPopulationClause(state: State): string {
   return `As of ${year}, ${state.elPercent.toFixed(1)}% of public-school students are classified English Learners`;
 }
 
-function verificationClause(state: State): string {
+function sourceCheckClause(state: State): string {
   switch (state.verificationStatus) {
-    // Deliberately describes the source check only, and not the reviewer
-    // confirmation count. This sentence is the citable lead and feeds the
-    // meta description and JSON-LD; the confirmed count changes whenever the
-    // ledger syncs, and a citable sentence that churns nightly is worse than
-    // one that is stable. The badges carry the live figure.
     case "verified-2026":
       return `Checked against current SEA sources on ${state.lastVerified}.`;
     case "in-progress":
@@ -52,6 +48,27 @@ function verificationClause(state: State): string {
     case "baseline-2019":
       return `Coding from the 2019 Leider et al. baseline; not yet checked against current SEA sources.`;
   }
+}
+
+/**
+ * Whether a second person has confirmed the record, in the same words the
+ * page badges use — "verified by an authorized reviewer".
+ *
+ * States the *outcome*, never the running count. This sentence is the
+ * citable lead and feeds the meta description and JSON-LD, and the confirmed
+ * count moves every time the ledger syncs; a sentence a researcher quotes
+ * should not churn nightly. As a completed/not-completed statement it
+ * changes only when a state actually crosses the threshold, which is a real
+ * event worth re-citing. The badges carry the live figure.
+ */
+function reviewerClause(state: State): string {
+  return reviewProgress(state.usps).complete
+    ? `Verified by an authorized reviewer.`
+    : `Not yet verified by an authorized reviewer.`;
+}
+
+function verificationClause(state: State): string {
+  return `${sourceCheckClause(state)} ${reviewerClause(state)}`;
 }
 
 /** Multi-sentence summary suitable for an on-page lead paragraph. */

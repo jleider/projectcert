@@ -46,8 +46,8 @@ const primaryClass =
         class="inline-flex items-center gap-1 rounded-full border border-ink-subtle/30 px-2.5 py-0.5 text-xs text-ink-muted"
         title={
           view.progress.lastConfirmed
-            ? `Each displayed detail is confirmed separately by an authorized reviewer against the cited source. Most recent confirmation ${view.progress.lastConfirmed}.`
-            : `Each displayed detail is confirmed separately by an authorized reviewer against the cited source. None confirmed for this state yet.`
+            ? `Each displayed detail is verified separately by an authorized reviewer against the cited source. Most recent verification ${view.progress.lastConfirmed}.`
+            : `Each displayed detail is verified separately by an authorized reviewer against the cited source. None verified for this state yet.`
         }
       >
         {view.reviewLabel}

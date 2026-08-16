@@ -7,13 +7,13 @@
  *  1. **The source check.** A maintainer re-reads the state education
  *     agency's current public documents, records what changed, and archives
  *     the snapshot. This is the curated `verificationStatus` on the record.
- *  2. **Reviewer confirmation.** An authorized reviewer opens the console and
- *     confirms each displayed detail against the cited source, one at a time.
- *     This is the ledger the nightly export writes.
+ *  2. **Verification by an authorized reviewer.** An authorized reviewer opens
+ *     the console and verifies each displayed detail against the cited source,
+ *     one at a time. This is the ledger the nightly export writes.
  *
  * A state is described as *fully verified* only when both are complete. Until
  * then the page says what is actually true: the sources were checked on a
- * given date, and N of the details have been confirmed by a reviewer. The
+ * given date, and N of the details have been verified by an authorized reviewer. The
  * strong word is reserved for the strong claim.
  *
  * Every surface that mentions verification — the per-state badge, the
@@ -35,18 +35,18 @@ interface LedgerEntry {
 
 const ledger = ledgerData as Record<string, LedgerEntry>;
 
-/** Details a reviewer is asked to confirm, when a state has no ledger entry yet. */
+/** Details an authorized reviewer is asked to verify, when a state has no ledger entry yet. */
 const DEFAULT_TOTAL = DATAPOINT_IDS.length;
 
 /** Reviewer sign-off progress for one state. */
 export interface ReviewProgress {
-  /** Details confirmed by a reviewer and still matching the published value. */
+  /** Details verified by an authorized reviewer and still matching the published value. */
   confirmed: number;
-  /** Details a reviewer is asked to confirm. Constant across states. */
+  /** Details an authorized reviewer is asked to verify. Constant across states. */
   total: number;
-  /** Date of the most recent confirmation, `YYYY-MM-DD`, or null if none. */
+  /** Date of the most recent verification, `YYYY-MM-DD`, or null if none. */
   lastConfirmed: string | null;
-  /** True when every detail has been confirmed. */
+  /** True when every detail has been verified by an authorized reviewer. */
   complete: boolean;
 }
 
@@ -76,9 +76,9 @@ export function monthYear(isoDate: string): string {
 
 /** The structural state of a record, before it is turned into wording. */
 export type VerificationStage =
-  /** Sources checked and every detail confirmed by a reviewer. */
+  /** Sources checked and every detail verified by an authorized reviewer. */
   | "fully-verified"
-  /** Sources checked; reviewer confirmation incomplete. */
+  /** Sources checked; verification by an authorized reviewer incomplete. */
   | "sources-checked"
   /** A source check is underway. */
   | "check-in-progress"
@@ -112,16 +112,16 @@ export function verificationDisplay(state: StateLike): VerificationDisplay {
 
   const reviewLabel =
     progress.confirmed === 0
-      ? `Not yet confirmed by a reviewer · 0 of ${progress.total} details`
-      : `Reviewer-confirmed: ${progress.confirmed} of ${progress.total} details`;
+      ? `Not yet verified by an authorized reviewer · 0 of ${progress.total} details`
+      : `Verified by an authorized reviewer · ${progress.confirmed} of ${progress.total} details`;
 
   if (state.verificationStatus === "verified-2026" && progress.complete) {
     return {
       stage: "fully-verified",
-      label: `Fully verified — all ${progress.total} details confirmed by a reviewer`,
+      label: `Fully verified — all ${progress.total} details verified by an authorized reviewer`,
       detail:
         `Checked against the state education agency's current public sources on ${state.lastVerified}, ` +
-        `and every one of the ${progress.total} displayed details has since been confirmed against those sources by an authorized reviewer.`,
+        `and every one of the ${progress.total} displayed details has since been verified against those sources by an authorized reviewer.`,
       reviewLabel: null,
       progress,
     };
@@ -133,7 +133,7 @@ export function verificationDisplay(state: StateLike): VerificationDisplay {
       label: `Checked against official state sources · ${checked}`,
       detail:
         `Checked against the state education agency's current public sources on ${state.lastVerified}. ` +
-        `Reviewer confirmation of the individual displayed details is ongoing.`,
+        `Verification of the individual displayed details by an authorized reviewer is ongoing.`,
       reviewLabel,
       progress,
     };
