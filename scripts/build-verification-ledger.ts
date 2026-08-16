@@ -3,7 +3,7 @@
  * audit store. Run by the nightly sync workflow:
  *
  *   wrangler d1 execute projectcert-audit --remote --json \
- *     --command "SELECT usps, datapoint_id, verified_by, verified_at, content_hash FROM verifications" \
+ *     --command "SELECT usps, datapoint_id, verified_at, content_hash FROM verifications" \
  *     > /tmp/verifications.json
  *   wrangler d1 execute projectcert-audit --remote --json \
  *     --command "SELECT usps, datapoint_id FROM broken_links" \
@@ -48,7 +48,6 @@ function readRows<T>(path: string | null): T[] {
 interface VerificationRow {
   usps: string;
   datapoint_id: string;
-  verified_by: string;
   verified_at: string;
   content_hash: string;
 }

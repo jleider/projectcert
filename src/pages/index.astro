@@ -7,7 +7,7 @@ import StateLink from "@/components/StateLink.astro";
 import StateSeal from "@/components/StateSeal.astro";
 import { getChoroplethData, getAllStates, absoluteStateUrl, type Layer } from "@/lib/state-data";
 import { ROUTES, ANCHORS, sameAnchor, absoluteRoute } from "@/lib/routes";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, ZENODO_DOI } from "@/config/site";
 
 const data = await getChoroplethData();
 const states = await getAllStates();
@@ -70,6 +70,7 @@ const homeJsonLd = {
     title: "projectcert: a 51-state atlas of EL teacher certification",
     publicationDate: latestVerified,
     publicUrl: absoluteRoute(SITE_URL, ROUTES.home),
+    doi: ZENODO_DOI || undefined,
   }}
 >
   <section class="max-w-6xl mx-auto px-4 py-10">
@@ -196,6 +197,7 @@ const homeJsonLd = {
       dateModified={latestVerified}
       url={`${SITE_URL}/`}
       bibKey={`projectcert_${latestVerified.slice(0, 4)}`}
+      doi={ZENODO_DOI || undefined}
     />
   </section>
 </BaseLayout>

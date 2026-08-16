@@ -65,11 +65,11 @@ jobs:
             fi
           }
           d1_export /tmp/verifications.json \
-            "SELECT usps, datapoint_id, verified_by, verified_at, content_hash FROM verifications"
+            "SELECT usps, datapoint_id, verified_at, content_hash FROM verifications"
           d1_export /tmp/broken.json \
             "SELECT usps, datapoint_id FROM broken_links"
           d1_export /tmp/accepted-links.json \
-            "SELECT url, accepted_status, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'"
+            "SELECT url, accepted_status, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'"
 
       - name: Build ledger and link whitelist
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}

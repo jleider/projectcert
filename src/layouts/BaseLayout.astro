@@ -12,7 +12,7 @@ import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { FEEDBACK_FORM } from "@/config/feedback";
-import { SITE_URL, SITE_NAME, WEB_ANALYTICS_TOKEN } from "@/config/site";
+import { SITE_URL, SITE_NAME, WEB_ANALYTICS_TOKEN, ZENODO_DOI } from "@/config/site";
 import { ROUTES, ANCHORS, sameAnchor, withAnchor } from "@/lib/routes";
 
 /**
@@ -80,6 +80,7 @@ const siteJsonLd = [
     inLanguage: "en-US",
     publisher: { "@id": `${SITE_URL}/#organization` },
     license: "https://creativecommons.org/licenses/by/4.0/",
+    ...(ZENODO_DOI && { identifier: `https://doi.org/${ZENODO_DOI}` }),
   },
 ];
 ---

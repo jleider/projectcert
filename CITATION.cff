@@ -1,0 +1,54 @@
+# Drives GitHub's "Cite this repository" button, and is read by Zenodo when
+# it mints a DOI for a release.
+#
+# Two distinct works are involved and should not be conflated. This file
+# describes the *catalog* — the data and the site. The seed paper it derives
+# from is a separate publication by other authors, recorded under
+# `references` so that anyone citing the catalog is pointed at it too.
+#
+# Once Zenodo has minted the concept DOI, add it under `identifiers` below
+# and set the same value in `ZENODO_DOI` in `src/config/site.ts`, which is
+# what the site's own citation blocks read.
+cff-version: 1.2.0
+title: "projectcert: an atlas of English Learner teacher certification across the 51 state education agencies"
+message: "If you use this catalog, please cite both it and the seed paper listed under references."
+type: dataset
+abstract: >-
+  A catalog of how each U.S. state and the District of Columbia licenses
+  teachers to instruct classified English Learner students: bilingual
+  education and English Language Development credentials, Sheltered English
+  Instruction mandates, Seal of Biliteracy adoption, English language
+  proficiency assessments, and the classified English Learner share of public
+  school enrollment. Every fact-bearing field traces to a dated, retrievable
+  source document.
+authors:
+  - name: projectcert
+repository-code: "https://github.com/jleider/projectcert"
+url: "https://projectcert.org"
+license: CC-BY-4.0
+keywords:
+  - English Learner
+  - teacher certification
+  - bilingual education
+  - education policy
+  - state education agency
+references:
+  - type: article
+    title: "Decentralization, teacher quality, and the education of English learners: Do state education agencies effectively prepare teachers of ELs?"
+    # Initials, matching how the paper is cited throughout this repository
+    # and in CitationBlock.astro. Do not expand these to full given names
+    # without checking the paper itself — LAUNCH-TODO.md carries a set of
+    # expansions that do not reconcile with these initials, so at least one
+    # of the two is wrong.
+    authors:
+      - family-names: Leider
+        given-names: C. M.
+      - family-names: Colombo
+        given-names: M. W.
+      - family-names: Nerlino
+        given-names: E.
+    journal: Education Policy Analysis Archives
+    volume: 29
+    issue: 100
+    year: 2021
+    doi: 10.14507/epaa.29.5279

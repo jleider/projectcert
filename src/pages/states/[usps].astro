@@ -12,7 +12,7 @@ import CitationBlock from "@/components/CitationBlock.astro";
 import VerificationStatus from "@/components/VerificationStatus.astro";
 import { STATE_LOCAL_NAMES } from "@/data/terminology";
 import { leadParagraph, metaDescription, pageTitle } from "@/lib/state-summary";
-import { SITE_URL } from "@/config/site";
+import { SITE_URL, ZENODO_DOI } from "@/config/site";
 import { breadcrumbWithHome } from "@/lib/jsonld";
 import { ROUTES, ANCHORS, sameAnchor } from "@/lib/routes";
 import { absoluteStateUrl, elPercentHistoryUrl } from "@/lib/state-data";
@@ -82,6 +82,7 @@ const stateJsonLd = [
     title: `${s.name} EL teacher certification`,
     publicationDate: s.lastVerified,
     publicUrl: stateUrl,
+    doi: ZENODO_DOI || undefined,
   }}
 >
   <article class="max-w-4xl mx-auto px-4 py-8">
@@ -221,6 +222,7 @@ const stateJsonLd = [
       dateModified={s.lastVerified}
       url={stateUrl}
       bibKey={`projectcert_${s.usps.toLowerCase()}_${s.lastVerified.slice(0, 4)}`}
+      doi={ZENODO_DOI || undefined}
     />
 
     <ReportIssue variant="inline" state={s.usps} pageType="state" verificationStatus={s.verificationStatus} />
