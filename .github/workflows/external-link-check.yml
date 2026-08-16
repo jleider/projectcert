@@ -111,7 +111,12 @@ jobs:
       - name: Email the report
         if: ${{ env.LINK_REPORT_RECIPIENTS != '' && env.SMTP_SERVER != '' }}
         continue-on-error: true
-        uses: dawidd6/action-send-mail@v6
+        # Pinned to a commit SHA rather than a moving tag, unlike the other
+        # actions here. This is the one step handed credentials — the SMTP
+        # password and the reviewer list — so a retagged upstream release
+        # would be a mail-account compromise rather than a broken build.
+        # v18; re-pin deliberately when upgrading.
+        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59
         with:
           server_address: ${{ secrets.SMTP_SERVER }}
           server_port: ${{ secrets.SMTP_PORT }}
@@ -121,6 +126,9 @@ jobs:
           to: ${{ secrets.LINK_REPORT_RECIPIENTS }}
           subject: "projectcert cited-source link audit — ${{ github.run_started_at }}"
           body: file://link-report.md
+          # The report is markdown; render it so the tables and per-URL
+          # lists arrive readable rather than as raw pipes and asterisks.
+          convert_markdown: true
           attachments: link-report.md
 
       - name: Report missing mail configuration
