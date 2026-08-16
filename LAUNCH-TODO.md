@@ -1,19 +1,32 @@
 # Launch checklist — projectcert
 
-Things to do once a domain is registered and the site is ready to go
-public. Roughly ordered: domain/host first, then SEO/analytics, then
-outreach. The outreach section (#1, #2, #8) is the part that actually
-makes LLMs and search engines cite the site — everything else is table
-stakes.
+**The site is live at <https://projectcert.org>.** Hosting, DNS, TLS,
+analytics, the gated reviewer console, and the privacy policy are all
+deployed and verified against the running site. What remains is
+discoverability and outreach, not launch mechanics — §1 through §4 are
+now largely history, and the live work is in §3 (Search Console), §5
+(the DOI), and §7 through §10.
 
-Items marked **(blocking)** should be done before any public link is
-shared. Items marked **(post-launch)** can happen in the first week or
-two after going live.
+Roughly ordered: domain/host first, then SEO/analytics, then outreach.
+The outreach sections (§7, §8) are what actually make search engines and
+LLMs cite the site; everything before them is table stakes.
 
-**Data status**: 51/51 jurisdictions now `verified-2026`. The
-pre-launch banner auto-hides when verified == total, so it no longer
-renders. (See §12 for the wrap-up items that follow from full
-verification.)
+Items marked **(blocking)** were blocking on the first public link being
+shared. Items marked **(post-launch)** can happen at any point now.
+
+**Data status.** Two separate signals, and they currently disagree —
+which is by design, not an error:
+
+- **Source check**: 51/51 jurisdictions are `verified-2026`, meaning
+  each record was re-checked against current agency documents with an
+  archived audit trail.
+- **Reviewer confirmation**: 1 of 1,632 datapoints (32 per state × 51)
+  has been confirmed in the review console.
+
+`/verification/` reports these separately rather than collapsing them.
+The gap is the argument for not yet cutting the Zenodo release in §5: a
+DOI is permanent, and `v1.0.0` on a catalog with one confirmed datapoint
+would claim more than the ledger supports.
 
 ---
 
@@ -32,22 +45,42 @@ verification.)
       would mean rewriting its runtime, database, and auth layer. Full
       rationale, cost breakdown, and step-by-step runbook:
       **`docs/deployment.md`**.
-- [ ] Wire up GitHub → host deploy on push to `main`. Deploy from
-      **GitHub Actions gated on CI**, not Cloudflare's Git integration —
-      the latter builds independently and would publish a commit that
-      failed the e2e-a11y or dead-code gate. Job snippet in
-      `docs/deployment.md`.
-- [ ] Set DNS records. Registration stays at GoDaddy; only the
-      nameservers move to Cloudflare (required — Access only protects
-      hostnames proxied through Cloudflare). Enable DNSSEC.
-- [ ] Force HTTPS, enable HSTS, set SSL/TLS to Full (strict)
-- [ ] Redirect `www` → apex. Everything (`robots.txt`, both sitemaps,
-      `SITE_URL`) assumes the apex is canonical.
-- [ ] Gate `*.projectcert.pages.dev` behind Access — it serves `/api/*`
-      outside the app scoped to `projectcert.org/audit`, and it is a
-      crawlable duplicate of the public site
-- [ ] Test that all the routes that were in `dist/` after `npm run build`
-      actually load on the live domain — especially `/states/<usps>/`
+- [x] ~~Wire up GitHub → host deploy on push to `main`.~~ Done. The
+      `deploy` job in `ci.yml` runs `needs: [build-and-test, e2e]` and
+      only on a push to `main`, so a pull request never deploys.
+      Cloudflare's Git integration was deliberately not used: it builds
+      independently of CI and would publish a commit that failed the
+      gate. The job deploys with the repo's own wrangler rather than
+      `wrangler-action`, and asserts afterwards that `/audit/` is not
+      publicly readable.
+- [x] ~~Set DNS records.~~ Done. Registration stays at GoDaddy;
+      nameservers moved to Cloudflare (`louis`/`melinda.ns.cloudflare.com`),
+      which Access requires. Apex and `www` are proxied `CNAME`s to
+      `projectcert.pages.dev`. Note the API-attached custom domain does
+      *not* create the DNS record — only the dashboard flow does both;
+      see the footgun in `docs/deployment.md`.
+- [x] ~~Force HTTPS, enable HSTS, set SSL/TLS to Full (strict)~~ Done.
+      `http://projectcert.org/` returns 301, and the apex serves
+      `Strict-Transport-Security: max-age=15552000; includeSubDomains;
+      preload`. The `preload` directive is inert until the domain is
+      submitted at hstspreload.org, which requires `max-age` ≥ 31536000
+      — leave it that way unless preloading is genuinely wanted, since
+      the list takes months to exit.
+- [x] ~~Redirect `www` → apex.~~ Done via a Cloudflare Redirect Rule;
+      `https://www.projectcert.org/` returns 301 to the apex, which
+      `robots.txt`, both sitemaps, and `SITE_URL` all assume is
+      canonical.
+- [x] ~~Gate `*.projectcert.pages.dev` behind Access~~ Done. A second
+      Access application covers the bare host **and** the `*` subdomain
+      — both are needed, since one entry does not span them and
+      per-deployment URLs are permanent and individually reachable. The
+      whole host now redirects to the Access login, so the public reaches
+      the site only through `projectcert.org`. A redirect was not
+      possible: Bulk Redirects act only on domains in your own account
+      and `pages.dev` is Cloudflare's, and Pages `_redirects` documents
+      domain-level redirects as unsupported.
+- [x] ~~Test that all the routes that were in `dist/` after `npm run build`
+      actually load on the live domain~~ Spot-checked live — especially `/states/<usps>/`
       paths (currently ~115 pages: 51 state pages + 51 per-state
       `/el-percent-history/` sub-pages + topical/landing routes).
       The build now runs
@@ -70,18 +103,20 @@ verification.)
 
 These are referenced from `BaseLayout.astro` and currently 404:
 
-- [ ] `public/og-default.png` — 1200×630 social-share card. Even a plain
-      title card with "projectcert: an atlas of EL teacher certification
-      across the 51 SEAs" beats a blank thumbnail when the URL is shared
-      in Slack/Bluesky/iMessage. Note: `BaseLayout.astro` references
-      `/og-default.png` in the OG meta tag, so without this file every
-      social-share card 404s.
+- [x] ~~`public/og-default.png` — 1200×630 social-share card.~~ Done and
+      live. Generated by `scripts/generate-og-card.ts`, which reads the
+      wordmark and checkmark path data out of `public/logo.svg` so the
+      card cannot drift from the site header and depends on no installed
+      fonts. Verified by following the declared `og:image` URL rather
+      than only checking the file exists, since the original bug was a
+      tag pointing at a 404.
 - [x] ~~`public/favicon.svg` — site icon~~ Done — ships a 4-square
       bin-palette logo with a checkmark glyph
 
 Optional but worth it:
 
-- [ ] `public/apple-touch-icon.png` (180×180)
+- [ ] `public/apple-touch-icon.png` (180×180). Genuinely optional:
+      nothing references it, so it 404s for nobody.
 - [ ] Per-state OG images (deferred from tier 3 of the SEO work — the
       `<meta property="og:image">` tag is already wired to accept a
       per-page override via the `image` prop on `BaseLayout`)
@@ -96,11 +131,22 @@ Optional but worth it:
       audience and an env-gated measurement ID to keep preview deploys
       out of the data, and Plausible/Fathom cost ~$9/mo for reporting
       this site does not need.
-- [ ] Enable it on the zone (Phase 2 of `docs/deployment.md`)
-- [ ] **Still required**: publish a privacy policy at `/privacy/`.
-      Cookieless removes the consent banner, not the policy — Cloudflare
-      still processes IP addresses, user agents, and page views, which
-      are personal data under GDPR. See §11.
+- [x] ~~Enable it on the zone~~ Done, but **not** through the
+      dashboard's automatic setup, which injects the beacon via the
+      zone's HTML rewriter and does not reach responses served by Pages
+      — the site emitted no beacon at all that way. The snippet is
+      declared in `BaseLayout.astro` with the token in
+      `src/config/site.ts`. Because the three layouts are independent,
+      it covers public pages only: reviewers are not measured and the
+      iframe embed does not report from a third party's page.
+- [x] ~~Publish a privacy policy at `/privacy/`.~~ Done and live.
+      Cookieless removed the consent banner, not the policy. Every claim
+      on the page was checked against the running deployment rather than
+      assumed — no `Set-Cookie` on any public page, no browser storage
+      anywhere in `src/`, one third-party script — and a note in the page
+      frontmatter asks for that re-verification before the copy is
+      amended. Contact goes to the issue tracker rather than a published
+      address. Linked from the footer of every page. See §11.
 - [ ] Accept the reporting ceiling: pageviews, top pages, top referrers,
       country, and browser/OS only. No custom events, no UTM campaign
       reporting, no funnels. If per-state citation tracking or referral
@@ -146,8 +192,16 @@ it.
       operated, the academic standard)
 - [ ] Create an **ORCID** if you don't have one — Zenodo wants it for
       authorship attribution. Free at <https://orcid.org/>
-- [ ] Connect Zenodo to the GitHub repo via the GitHub integration
-- [ ] Cut a `v1.0.0` GitHub release; Zenodo auto-mints a DOI for it
+- [x] ~~Connect Zenodo to the GitHub repo via the GitHub integration~~ Done
+- [ ] Cut a `v1.0.0` GitHub release; Zenodo auto-mints a DOI for it.
+      **Deliberately deferred** until reviewer confirmation covers more
+      than 1 of 1,632 datapoints — a DOI is permanent, and the version
+      number would claim more than the ledger supports. The wiring is
+      already merged and inert: setting `ZENODO_DOI` in
+      `src/config/site.ts` lights up the citation blocks, the Scholar
+      `citation_doi` tag, and the site JSON-LD identifier at once. Use
+      the **concept** DOI, not a version DOI, so the citation survives
+      later releases.
 - [ ] Add the resulting DOI to:
       - The `<meta name="citation_doi">` tag in `BaseLayout.astro`
       - The site-level `WebSite` JSON-LD as `identifier`
@@ -214,8 +268,12 @@ SEO tweaks. Plan for the first 4–6 weeks post-launch.
 
 **Direct outreach:**
 
-- [ ] Email Carrie Leider, Mary-Wisniewski Colombo, and Erika Nerlino
-      (the seed-paper authors). They have the most reason to care and
+- [ ] Email the seed-paper authors. **Check their names first**: this
+      file previously gave them as "Carrie Leider, Mary-Wisniewski
+      Colombo, Erika Nerlino", which does not reconcile with the
+      "Leider, C. M., Colombo, M. W., & Nerlino, E." used in every
+      citation on the site and in `CITATION.cff`. One of the two is
+      wrong; the paper itself is the arbiter. They have the most reason to care and
       potentially link from their faculty pages
 - [ ] Email contacts at **NCELA** (National Clearinghouse for English
       Language Acquisition), **Migration Policy Institute**, and
@@ -285,9 +343,13 @@ SEO tweaks. Plan for the first 4–6 weeks post-launch.
       <https://web.archive.org/save/> manually or the
       `wayback-machine-saver` CLI. This protects the audit trail if
       the site ever goes down
-- [ ] Add a `CITATION.cff` file at the repo root for GitHub's "Cite
-      this repository" button. Trivially generated from the Zenodo
-      metadata
+- [x] ~~Add a `CITATION.cff` file at the repo root for GitHub's "Cite
+      this repository" button.~~ Done. Zenodo also reads it at release
+      time (precedence: `.zenodo.json` → `CITATION.cff` → `LICENSE` →
+      GitHub defaults), so without it the DOI record's authors would be
+      derived from contributor statistics rather than matching the
+      citation the site tells people to copy. Add the DOI under
+      `identifiers` once minted.
 - [ ] Set up a Google News alert for "English Learner certification"
       and "bilingual endorsement" to catch policy churn that should
       trigger a state re-verification
@@ -298,12 +360,12 @@ SEO tweaks. Plan for the first 4–6 weeks post-launch.
       root: MIT for the site code, CC BY 4.0 for the catalog data
       under `src/content/states/` and `sources/`. README has a
       "License" section that mirrors the same split.
-- [ ] Publish a `/privacy/` page covering: what Cloudflare Web Analytics
-      collects (IP address, user agent, and page views — hashed for
-      visitor-uniqueness and discarded, no cookies and no persistent
-      browser identifier), retention policy, contact email. Required by
-      GDPR Art. 13–14 and CalOPPA. No cookie consent banner is needed,
-      because nothing is stored on the visitor's device
+- [x] ~~Publish a `/privacy/` page.~~ Done — see §3. Covers what
+      Cloudflare Web Analytics collects, the reviewer console (where
+      personal data genuinely persists, since a reviewer's address is
+      recorded against each datapoint they confirm), retention, and
+      contact. No cookie consent banner is needed, because nothing is
+      stored on the visitor's device
 - [ ] Publish a `/terms/` page that links to the `LICENSE` file
       (MIT for code, CC BY 4.0 for data — already documented there)
       and adds a short "no warranty / link-rot disclaimer" note
