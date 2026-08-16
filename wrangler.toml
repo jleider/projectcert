@@ -4,14 +4,31 @@
 # dist/. The top-level functions/ directory is compiled into Pages
 # Functions and served on the same origin to back the gated /audit/ tool.
 #
-# IMPORTANT: the production D1 binding is configured in the Pages
-# dashboard, which is authoritative (dashboard bindings win over
-# wrangler.toml for Pages). This block exists mainly so `wrangler pages
-# dev` can emulate the binding locally. See docs/audit-setup.md.
+# IMPORTANT: this file is the source of truth for the deployed
+# configuration. Cloudflare documents the Wrangler file as authoritative
+# for a Pages Functions project — dashboard fields are visible but not
+# editable there, and anything set *only* in the dashboard never reaches
+# the runtime even though the API keeps reporting it as set. Declare
+# bindings and non-secret vars here. A genuine secret needs a Secrets
+# Store binding declared in this file; it cannot be supplied through the
+# dashboard. See docs/audit-setup.md.
 
 name = "projectcert"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-01-01"
+
+# Cloudflare Access gates /audit and /api, giving each reviewer their own
+# identity so verifications.verified_by records a person rather than a
+# shared login. Both values are non-secret identifiers — the audience tag
+# appears in the query string of every unauthenticated redirect — so they
+# belong in version control, not the dashboard.
+#
+# Set these two together. The middleware treats Access as configured only
+# when both are non-empty, so a half-filled block silently falls back to
+# the shared-login path instead of failing loudly.
+[vars]
+ACCESS_TEAM_DOMAIN = "green-base-15b0.cloudflareaccess.com"
+ACCESS_AUD = "5f914ac595b623af56702cebf96379ad598f149caf065d73739fe0ac6a19f326"
 
 [[d1_databases]]
 binding = "DB"

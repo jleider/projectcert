@@ -22,7 +22,8 @@ secret; the credentials that *are* secret are called out in Phase 3.
 | D1 database | `projectcert-audit`, region ENAM, id `26b74e93-f12d-4390-a665-908fd8ad61f1` |
 | D1 schema | `0001_init.sql` applied; six application tables present |
 | D1 binding | `DB`, bound on both production and preview |
-| Audit credentials | **None reaching the runtime** — see "Authentication" below |
+| Access application | Team `green-base-15b0.cloudflareaccess.com`, gating `projectcert.org` `/audit` and `/api` |
+| Access settings | `ACCESS_TEAM_DOMAIN` + `ACCESS_AUD`, declared in `wrangler.toml` `[vars]` |
 
 **The public site is live.** Verified at the Cloudflare edge with
 `curl --resolve` against `172.67.153.93`, confirming `server:
@@ -43,19 +44,27 @@ testable the moment the apex served a real 200, and both turned out not
 to be in force despite having been set in the dashboard. Re-check them
 there.
 
-### Authentication — the console is locked, not exposed
+### Authentication — Cloudflare Access, per reviewer
 
-`/audit/` and `/api/*` answer **500** with *"not configured for
-authentication."* That is the fail-closed path working as designed: no
-credential path reaches the runtime, so the console serves nothing
-rather than everything.
+The Access application is live and verified at the edge: `/audit/`,
+`/audit/<usps>`, `/audit/links`, and `/api/overview` all **302** to
+`green-base-15b0.cloudflareaccess.com`, while `/`, `/states/<usps>/`,
+`/map/`, `/about/`, `/credentials/…`, `/embed/map/`, `/llms.txt`, and
+`/sitemap.xml` all stay **200**. The gate is scoped to exactly the two
+path prefixes it should be.
 
-The cause is not a missing setting. It is that **`wrangler.toml` is the
-source of truth for a Pages Functions project, so the dashboard-set
-`AUDIT_USER` / `AUDIT_PASSWORD` never reach the runtime** — see the
-footgun below, and `docs/audit-setup.md`, which is canonical for the
-console's auth. The chosen fix is Cloudflare Access, whose two settings
-are non-secret and can therefore live in `[vars]` in `wrangler.toml`.
+Access replaced a shared username and password for one reason:
+`verifications.verified_by` records *who* signed off on *which*
+datapoint, and a shared login collapses every reviewer into one name.
+Per-reviewer identity is a property of the shared path being absent, not
+of Access being available.
+
+Before Access, the console answered **500** — the fail-closed path
+working as designed. The cause was not a missing setting but that
+**`wrangler.toml` is the source of truth for a Pages Functions project,
+so the dashboard-set `AUDIT_USER` / `AUDIT_PASSWORD` never reached the
+runtime**. See the footgun below, and `docs/audit-setup.md`, which is
+canonical for the console's auth.
 
 Two problems were solved to get here, and both are worth knowing:
 
