@@ -9,7 +9,7 @@
   import { SITE_URL } from "@/config/site";
   import type { Layer, ChoroplethDatum } from "@/lib/state-types";
   import { stateUrl } from "@/lib/state-types";
-  import { legendColor, NO_DATA_COLOR } from "@/lib/legends";
+  import { legendColor, LAYER_LABELS, NO_DATA_COLOR } from "@/lib/legends";
 
   type StateDatum = ChoroplethDatum;
 
@@ -136,8 +136,24 @@
     focused = null;
   }
 
-  function handleClick(datum: StateDatum | undefined) {
-    if (!datum) return;
+  /**
+   * True for a click the browser already handles better than this code can:
+   * Cmd/Ctrl-click (background tab), Shift-click (new window), Alt-click
+   * (download), and any non-primary button. Calling preventDefault on those
+   * would replace the reader's requested new tab with a same-tab navigation
+   * that loses the map state they wanted to keep open.
+   */
+  function isModifiedClick(e: MouseEvent): boolean {
+    return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
+  }
+
+  function handleClick(e: MouseEvent, datum: StateDatum | undefined) {
+    if (!datum || isModifiedClick(e)) return;
+    e.preventDefault();
+    activate(datum);
+  }
+
+  function activate(datum: StateDatum) {
     const path = stateUrl(datum.usps);
     // When embedded in an iframe, break out to a new tab on
     // projectcert.org so the click doesn't navigate the host page or
@@ -155,7 +171,7 @@
     // Space needs handling here, to keep the prior button-style parity.
     if (datum && e.key === " ") {
       e.preventDefault();
-      handleClick(datum);
+      activate(datum);
     }
   }
 
@@ -180,7 +196,7 @@
   <svg
     viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
     role="group"
-    aria-label={`U.S. choropleth — ${layer === "elPercent" ? "percent classified English Learners by state" : layer}`}
+    aria-label={`U.S. choropleth by state — ${layer === "elPercent" ? "percent classified English Learners" : LAYER_LABELS[layer]}`}
     class="w-full h-auto"
   >
     <defs>
@@ -221,7 +237,7 @@
           rel={linkRel}
           tabindex="0"
           aria-label={`${datum.name}: ${describe(datum, layer)}`}
-          on:click|preventDefault={() => handleClick(datum)}
+          on:click={(e) => handleClick(e, datum)}
           on:mousemove={(e) => handleMove(e, datum)}
           on:mouseleave={handleLeave}
           on:focus={() => handleFocus(datum)}
@@ -254,7 +270,7 @@
         rel={linkRel}
         tabindex="0"
         aria-label={`District of Columbia: ${describe(dcDatum, layer)}`}
-        on:click|preventDefault={() => handleClick(dcDatum)}
+        on:click={(e) => handleClick(e, dcDatum)}
         on:mousemove={(e) => handleMove(e, dcDatum)}
         on:mouseleave={handleLeave}
         on:focus={() => handleFocus(dcDatum)}

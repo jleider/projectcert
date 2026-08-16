@@ -2,7 +2,7 @@
   import Choropleth from "./Choropleth.svelte";
   import { SITE_URL } from "@/config/site";
   import { LAYERS as LAYER_KEYS, type Layer, type ChoroplethDatum } from "@/lib/state-types";
-  import { LEGENDS } from "@/lib/legends";
+  import { LEGENDS, LAYER_LABELS } from "@/lib/legends";
 
   export let states: ChoroplethDatum[];
   /** Optional initial layer override. Used by /embed/map/?layer=...
@@ -49,14 +49,10 @@
     }
   }
 
-  const LAYERS: { value: Layer; label: string }[] = [
-    { value: "elPercent", label: "% classified ELs" },
-    { value: "bilingual", label: "Bilingual credential" },
-    { value: "eld", label: "ELD credential" },
-    { value: "sei", label: "SEI mandate" },
-    { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
-    { value: "elpAssessment", label: "ELP assessment" },
-  ];
+  const LAYERS: { value: Layer; label: string }[] = LAYER_KEYS.map((value) => ({
+    value,
+    label: LAYER_LABELS[value],
+  }));
 
   $: legendEntries = LEGENDS[layer];
 
