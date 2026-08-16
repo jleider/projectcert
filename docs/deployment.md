@@ -303,16 +303,39 @@ Do these before touching the Cloudflare dashboard.
       proxy (orange cloud) is required — a grey-cloud record bypasses
       Cloudflare and the Pages domain never validates.
 - [ ] Push to `main` and confirm the deploy job publishes.
-- [ ] **Gate `*.projectcert.pages.dev`.** The preview domain serves the
-      whole site, including `/api/*`, outside any Access app scoped to
-      `projectcert.org/audit`. Put an Access policy over the preview
-      subdomain. Two mitigations already exist and are worth knowing so
-      the risk is not overstated: the console's own middleware fails
-      closed on every host (see Phase 3), and every public page emits
-      `<link rel="canonical">` back to the apex
-      (`BaseLayout.astro:94`, built from `SITE_URL`), which consolidates
-      the duplicate for search engines. The Access policy closes what
-      remains. **Owned by the /audit workstream**, not this runbook.
+- [ ] **Gate the `pages.dev` host with its own Access application.**
+      `projectcert.pages.dev` serves the entire public site, and so does
+      every per-deployment URL (`<hash>.projectcert.pages.dev`) — both
+      verified returning 200. They sit outside the Access application
+      scoped to the `projectcert.org` hostname, which is why `/audit/`
+      there hit the middleware directly rather than an Access redirect.
+      Add a self-hosted application covering **both** the bare host and
+      the `*` subdomain; one entry does not span both, and the
+      per-deployment URLs are permanent and individually reachable.
+      *Shortcut:* the Pages project's **Settings → Enable access policy**
+      creates the preview-deployment application for you — afterwards,
+      check whether it also covers the bare `projectcert.pages.dev` and
+      add the missing one.
+
+      **A redirect is not possible, and the reason is worth recording so
+      nobody re-litigates it.** Bulk Redirects and Redirect Rules act
+      only on *"domains in your account"*; `pages.dev` is Cloudflare's
+      zone, so traffic there never traverses a zone where your rules
+      apply. Pages `_redirects` documents domain-level redirects as
+      explicitly unsupported — sources must be relative paths. The only
+      redirect mechanism is a root `functions/_middleware.ts`, which was
+      rejected: it puts a Function in front of every request on an
+      otherwise static site, and it introduces a failure mode where a
+      Functions outage takes down HTML pages rather than only `/audit/`.
+      (`_routes.json` excluding `/_astro/*`, `/seals/*`, `/data/*` would
+      have held the cost to roughly one invocation per page view, but
+      the new failure mode was the deciding objection, not the cost.)
+
+      One mitigation already exists and keeps this from being urgent:
+      every public page emits `<link rel="canonical">` back to the apex
+      (`BaseLayout.astro:94`, built from `SITE_URL`), verified present in
+      the HTML served from `pages.dev`, so search engines consolidate to
+      `projectcert.org` and the duplicate does not rank.
 - [ ] Enable **Cloudflare Web Analytics** for the zone. It is free and
       cookieless, so no consent banner is required — but it still
       processes IP addresses, so the `/privacy/` page in
