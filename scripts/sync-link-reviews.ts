@@ -63,12 +63,28 @@ if (pending.length === 0) {
     // previously-accepted URL whose status changed — in both cases the row
     // must end up 'pending' with the acceptance cleared (re-flag). first_seen
     // is preserved; status/classification/last_seen are refreshed.
+    //
+    // A URL a reviewer marked 'dead' is the exception, and the WHERE clause
+    // below is what protects it. A dead URL goes on failing every sweep by
+    // definition, so without the guard each sweep would reset the verdict
+    // to pending and the same person would be asked the same question every
+    // week until someone fixed the citation. Its status and citations are
+    // still refreshed — only the decision and its attribution are held.
     lines.push(
       `INSERT INTO link_reviews (url, status, classification, citations, first_seen, last_seen, decision) ` +
         `VALUES (${q(r.url)}, ${status}, ${q(r.classification)}, ${citations}, ${q(seenAt)}, ${q(seenAt)}, 'pending') ` +
         `ON CONFLICT(url) DO UPDATE SET status = excluded.status, classification = excluded.classification, ` +
         `citations = excluded.citations, last_seen = excluded.last_seen, ` +
-        `decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, accepted_status = NULL;`,
+        `decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, accepted_status = NULL ` +
+        `WHERE link_reviews.decision <> 'dead';`,
+    );
+    // The guard above skips the whole update for a dead row, so refresh the
+    // observation separately — a maintainer fixing the citation wants to see
+    // where it is cited now, not where it was when it was first marked.
+    lines.push(
+      `UPDATE link_reviews SET status = ${status}, classification = ${q(r.classification)}, ` +
+        `citations = ${citations}, last_seen = ${q(seenAt)} ` +
+        `WHERE url = ${q(r.url)} AND decision = 'dead';`,
     );
   }
 }

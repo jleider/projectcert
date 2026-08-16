@@ -59,33 +59,46 @@ export const onRequestPost: PagesFunction<AuditEnv, string, AuditData> = async (
   const decision = body?.decision;
   const note = typeof body?.note === "string" ? body.note : null;
 
-  if (!url || (decision !== "accepted" && decision !== "pending")) {
-    return jsonResponse({ error: "url and decision ('accepted'|'pending') are required." }, 400);
+  if (!url || (decision !== "accepted" && decision !== "dead" && decision !== "pending")) {
+    return jsonResponse({ error: "url and decision ('accepted'|'dead'|'pending') are required." }, 400);
   }
 
   const now = new Date().toISOString();
-  const result =
-    decision === "accepted"
-      ? await env.DB.prepare(
-          // Snapshot the current observed status as the accepted status, so
-          // a later sweep can re-flag the URL if its response code changes.
-          `UPDATE link_reviews SET decision = 'accepted', reviewed_by = ?2, reviewed_at = ?3, note = ?4, accepted_status = status WHERE url = ?1`,
-        )
-          .bind(url, data.userEmail, now, note)
-          .run()
-      : await env.DB.prepare(
-          `UPDATE link_reviews SET decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, note = NULL, accepted_status = NULL WHERE url = ?1`,
-        )
-          .bind(url)
-          .run();
+  let result: D1Result;
+  if (decision === "accepted") {
+    result = await env.DB.prepare(
+      // Snapshot the current observed status as the accepted status, so
+      // a later sweep can re-flag the URL if its response code changes.
+      `UPDATE link_reviews SET decision = 'accepted', reviewed_by = ?2, reviewed_at = ?3, note = ?4, accepted_status = status WHERE url = ?1`,
+    )
+      .bind(url, data.userEmail, now, note)
+      .run();
+  } else if (decision === "dead") {
+    // accepted_status stays NULL. That column exists so a sweep can notice
+    // an accepted URL's response changing; there is nothing to watch for
+    // here, because a dead URL is expected to keep failing until its
+    // citation is replaced. What the row records is who established that.
+    result = await env.DB.prepare(
+      `UPDATE link_reviews SET decision = 'dead', reviewed_by = ?2, reviewed_at = ?3, note = ?4, accepted_status = NULL WHERE url = ?1`,
+    )
+      .bind(url, data.userEmail, now, note)
+      .run();
+  } else {
+    result = await env.DB.prepare(
+      `UPDATE link_reviews SET decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, note = NULL, accepted_status = NULL WHERE url = ?1`,
+    )
+      .bind(url)
+      .run();
+  }
 
   if (result.meta.changes === 0) {
     return jsonResponse({ error: "No review row for that URL." }, 404);
   }
+  const reviewed = decision === "accepted" || decision === "dead";
   return jsonResponse({
     url,
     decision,
-    reviewed_by: decision === "accepted" ? data.userEmail : null,
-    reviewed_at: decision === "accepted" ? now : null,
+    reviewed_by: reviewed ? data.userEmail : null,
+    reviewed_at: reviewed ? now : null,
   });
 };

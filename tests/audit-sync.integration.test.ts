@@ -7,14 +7,19 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
 import { datapointsFor } from "../src/lib/verification-datapoints";
 
-const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
+// All migrations in order — see the note in audit-api.integration.test.ts.
+const SCHEMA = readdirSync("schema/d1")
+  .filter((f) => f.endsWith(".sql"))
+  .sort()
+  .map((f) => readFileSync(join("schema/d1", f), "utf8"))
+  .join("\n");
 const tsx = "node_modules/.bin/tsx";
 
 function tmp(): string {
@@ -544,5 +549,75 @@ describe("build-reviewer-report.ts", () => {
     });
     expect(md).toContain("Arizona");
     expect(md).toContain("Texas");
+  });
+});
+
+describe("sync-link-reviews.ts — a reported-gone URL", () => {
+  /** A dead URL keeps failing every sweep, so it reappears in the
+   *  needs-review set forever. Without a guard, each sweep would reset the
+   *  verdict and ask the same reviewer the same question every week. */
+  function sweepOver(deadUrl: string) {
+    const dir = tmp();
+    const input = join(dir, "links.json");
+    const out = join(dir, "lr.sql");
+    writeFileSync(
+      input,
+      JSON.stringify({
+        results: [
+          {
+            url: deadUrl,
+            citations: ["AZ / sources[0]", "AZ / sources[4]"],
+            status: 404,
+            classification: "needs-review",
+          },
+        ],
+      }),
+    );
+    run("scripts/sync-link-reviews.ts", ["--input", input, "--out", out, "--seen-at", "2026-07-01T00:00:00.000Z"]);
+
+    const db = freshDb();
+    db.prepare(
+      `INSERT INTO link_reviews (url,status,classification,citations,first_seen,last_seen,decision,reviewed_by,reviewed_at)
+       VALUES ('${deadUrl}','403','needs-review','[]','2026-01-01','2026-01-01','dead','jane@x.org','2026-02-02')`,
+    ).run();
+    db.exec(readFileSync(out, "utf8"));
+    return db.prepare(`SELECT * FROM link_reviews WHERE url = '${deadUrl}'`).get() as Record<string, unknown>;
+  }
+
+  it("survives the weekly sweep with its verdict and attribution intact", () => {
+    const row = sweepOver("https://gone.example");
+    expect(row.decision).toBe("dead");
+    expect(row.reviewed_by).toBe("jane@x.org");
+    expect(row.reviewed_at).toBe("2026-02-02");
+  });
+
+  it("still has its observation refreshed, so the citation list stays current", () => {
+    // Whoever replaces the citation needs to know where it is cited now,
+    // not where it was when someone first opened it.
+    const row = sweepOver("https://gone.example");
+    expect(row.status).toBe("404");
+    expect(row.last_seen).toBe("2026-07-01T00:00:00.000Z");
+    expect(JSON.parse(String(row.citations))).toEqual(["AZ / sources[0]", "AZ / sources[4]"]);
+    expect(row.first_seen).toBe("2026-01-01");
+  });
+
+  it("is not deleted as a stale pending row when it stops being reported", () => {
+    // Once the citation is fixed the URL leaves the catalog entirely. The
+    // DELETE only targets pending rows, so the record of what was found
+    // survives rather than vanishing silently.
+    const dir = tmp();
+    const input = join(dir, "links.json");
+    const out = join(dir, "lr.sql");
+    writeFileSync(input, JSON.stringify({ results: [] }));
+    run("scripts/sync-link-reviews.ts", ["--input", input, "--out", out]);
+
+    const db = freshDb();
+    db.prepare(
+      `INSERT INTO link_reviews (url,classification,citations,first_seen,last_seen,decision,reviewed_by)
+       VALUES ('https://gone.example','needs-review','[]','2026-01-01','2026-01-01','dead','jane@x.org')`,
+    ).run();
+    db.exec(readFileSync(out, "utf8"));
+    const row = db.prepare(`SELECT decision FROM link_reviews WHERE url = 'https://gone.example'`).get();
+    expect(row).toMatchObject({ decision: "dead" });
   });
 });
