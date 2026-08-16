@@ -150,6 +150,19 @@ jobs:
           # deployment this run produced, rather than a domain that may not
           # point at Pages yet.
           npx wrangler pages deploy --project-name=projectcert --branch=main 2>&1 | tee /tmp/deploy.log
+
+          # Deployment-time proof that functions/ actually shipped. This is
+          # the failure the HTTP check below is named for — no Functions
+          # means /audit/* is served as static HTML with no middleware — and
+          # it is the one signal that survives Cloudflare Access being put
+          # in front of the deployment, since Access answers before our code
+          # runs and would make the HTTP check pass regardless.
+          if ! grep -q "Uploading Functions bundle" /tmp/deploy.log; then
+            echo "::error::wrangler uploaded no Functions bundle — functions/ did not ship."
+            echo "The console middleware would be absent from this deployment."
+            exit 1
+          fi
+
           url=$(grep -oE 'https://[a-z0-9.-]+\.pages\.dev' /tmp/deploy.log | tail -1)
           if [ -z "$url" ]; then
             echo "::error::could not determine the deployment URL from wrangler output"
@@ -176,8 +189,9 @@ jobs:
           # is false fails the step.
           url="$DEPLOY_URL/audit/"
           for attempt in 1 2 3 4 5; do
-            body=$(curl -s --max-time 30 -o /tmp/audit-body.txt -w '%{http_code}' "$url" || echo 000)
-            case "$body" in
+            read -r status location <<<"$(curl -s --max-time 30 -o /tmp/audit-body.txt \
+              -w '%{http_code} %{redirect_url}' "$url" || echo '000 ')"
+            case "$status" in
               000|502|503|504)
                 if [ "$attempt" -lt 5 ]; then sleep 10; fi
                 ;;
@@ -186,8 +200,7 @@ jobs:
                 ;;
             esac
           done
-          status=$body
-          echo "GET $url -> HTTP $status"
+          echo "GET $url -> HTTP $status ${location:-}"
           case "$status" in
             2*)
               echo "::error::the review console is publicly readable (HTTP $status)."
@@ -195,7 +208,22 @@ jobs:
               exit 1
               ;;
             401|403)
-              echo "Gate in force: the console requires credentials."
+              echo "Gate in force: the console middleware requires credentials."
+              ;;
+            3*)
+              # Cloudflare Access answers at the edge, before our Function
+              # runs. The invariant still holds — the console is not publicly
+              # readable — but say plainly which layer enforced it, so a pass
+              # here is never mistaken for evidence that the middleware works.
+              case "$location" in
+                *cloudflareaccess.com*)
+                  echo "Gate in force: Cloudflare Access redirected to its login."
+                  echo "::notice::Satisfied by Access, not by functions/audit/_middleware.ts — that code was not reached, so this run does not exercise it. The middleware is covered by tests/audit-api.integration.test.ts and npm run e2e:audit, and its presence in the deployment by the Functions-bundle assertion above."
+                  ;;
+                *)
+                  echo "Console redirects to ${location:-an unknown target} (HTTP $status); not publicly readable."
+                  ;;
+              esac
               ;;
             500)
               # Distinguish our fail-closed refusal from an unrelated origin
