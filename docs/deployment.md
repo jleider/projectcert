@@ -37,18 +37,24 @@ cloudflare` and a `cf-ray` on each response:
 | Always Use HTTPS | `http://projectcert.org/` → **301** → `https://` |
 | `www` → apex redirect rule | `https://www.projectcert.org/` → **301** → `https://projectcert.org/` |
 | HSTS | Enabled — `max-age=15552000; includeSubDomains; preload`, confirmed on the apex and on a state page |
-| Web Analytics | **Not injecting.** Zero occurrences of `cloudflareinsights.com` in the served HTML. |
+| Web Analytics | Beacon declared in `BaseLayout.astro`, token in `src/config/site.ts` — public pages only |
 | SSL Full (strict) | Not externally observable — governs the Cloudflare-to-origin leg only |
 
 Both HSTS and Web Analytics were previously recorded as "unverifiable",
 and both became testable the moment the apex served a real 200 — at
 which point each turned out not to be in force despite having been set
-in the dashboard. HSTS has since been enabled and confirmed. Web
-Analytics has not: the dashboard's automatic setup injects the beacon
-through the zone's HTML rewriter, which is not reaching responses served
-by Pages here. The deterministic alternative is the manual snippet in
-`BaseLayout.astro`, carrying the site token — a public value that ships
-in the page source of every site using Web Analytics.
+in the dashboard. Both have since been resolved. HSTS was enabled and
+confirmed. Web Analytics was not fixable in the dashboard at all: its
+"automatic setup" injects the beacon through the zone's HTML rewriter,
+which does not reach responses served by Pages, so the site emitted no
+beacon despite the feature being enabled. The snippet is therefore
+declared explicitly in `BaseLayout.astro` with the site token in
+`src/config/site.ts` — a public value that ships in the page source of
+every site using Web Analytics. Because the three layouts are
+independent, that covers public pages only: the gated console
+(`AuditLayout`) and the iframe embed (`EmbedLayout`) carry no beacon, so
+reviewers are not measured and the embed does not report from a third
+party's page.
 
 **Note on the HSTS directives.** `preload` is present but inert until the
 domain is submitted at `hstspreload.org`, and submission requires
