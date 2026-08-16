@@ -17,39 +17,67 @@ secret; the credentials that *are* secret are called out in Phase 3.
 | Zone | `projectcert.org` — **active**, id `c939fa16692f13000305f3891192db20` |
 | Nameservers | `louis.ns.cloudflare.com`, `melinda.ns.cloudflare.com` — moved and propagated |
 | Pages project | `projectcert`, production branch `main`, direct-upload |
-| Preview origin | `https://projectcert.pages.dev` (no deployment yet — answers 522) |
-| Custom domains | `projectcert.org` and `www.projectcert.org` attached, **stuck `initializing`** — see below |
+| Preview origin | `https://projectcert.pages.dev` |
+| Custom domains | `projectcert.org` and `www.projectcert.org`, both serving |
 | D1 database | `projectcert-audit`, region ENAM, id `26b74e93-f12d-4390-a665-908fd8ad61f1` |
 | D1 schema | `0001_init.sql` applied; six application tables present |
 | D1 binding | `DB`, bound on both production and preview |
-| Audit secrets | `AUDIT_USER`, `AUDIT_PASSWORD` set (production only) |
+| Access application | Team `green-base-15b0.cloudflareaccess.com`, gating `projectcert.org` `/audit` and `/api` |
+| Access (`pages.dev`) | Second application over `projectcert.pages.dev` and `*.projectcert.pages.dev` — the whole host, so the public reaches the site only via `projectcert.org` |
+| Access settings | `ACCESS_TEAM_DOMAIN` + `ACCESS_AUD`, declared in `wrangler.toml` `[vars]` |
 
-**Verified working at the Cloudflare edge** (tested with
+**The public site is live.** Verified at the Cloudflare edge with
 `curl --resolve` against `172.67.153.93`, confirming `server:
-cloudflare` and a `cf-ray` on each response):
+cloudflare` and a `cf-ray` on each response:
 
 | Check | Result |
 | --- | --- |
 | Apex + `www` DNS | Proxied, resolving to Cloudflare anycast |
+| `/`, `/states/ut/`, `/map/` | **200**, correct `<link rel="canonical">` |
 | Always Use HTTPS | `http://projectcert.org/` → **301** → `https://` |
 | `www` → apex redirect rule | `https://www.projectcert.org/` → **301** → `https://projectcert.org/` |
+| HSTS | Enabled — `max-age=15552000; includeSubDomains; preload`, confirmed on the apex and on a state page |
+| Web Analytics | **Not injecting.** Zero occurrences of `cloudflareinsights.com` in the served HTML. |
+| SSL Full (strict) | Not externally observable — governs the Cloudflare-to-origin leg only |
 
-**Not yet verifiable — all three need a deployment to exist:**
+Both HSTS and Web Analytics were previously recorded as "unverifiable",
+and both became testable the moment the apex served a real 200 — at
+which point each turned out not to be in force despite having been set
+in the dashboard. HSTS has since been enabled and confirmed. Web
+Analytics has not: the dashboard's automatic setup injects the beacon
+through the zone's HTML rewriter, which is not reaching responses served
+by Pages here. The deterministic alternative is the manual snippet in
+`BaseLayout.astro`, carrying the site token — a public value that ships
+in the page source of every site using Web Analytics.
 
-- **HSTS.** Absent from the current apex response, but that response is
-  a Cloudflare-generated 522 error page, and Cloudflare does not
-  reliably attach HSTS to its own error pages. Re-check for
-  `Strict-Transport-Security` on a real 200 before concluding anything.
-- **Web Analytics.** The beacon is injected into HTML responses; there
-  is no HTML being served yet.
-- **SSL Full (strict).** Not externally observable — it governs the
-  Cloudflare-to-origin leg only.
+**Note on the HSTS directives.** `preload` is present but inert until the
+domain is submitted at `hstspreload.org`, and submission requires
+`max-age` ≥ 31536000 (this zone is at 15552000, 180 days). Leave it that
+way unless preloading is genuinely wanted: the preload list takes months
+to exit, and `includeSubDomains` binds every future subdomain to HTTPS
+along with it.
 
-**The apex returns 522, which is the expected state.** Cloudflare is
-reachable and correctly configured; it has no origin to forward to
-because the Pages project has never been deployed. The custom domains
-likewise remain `status=pending` — HTTP validation needs a working
-origin. Both resolve themselves on the first deploy.
+### Authentication — Cloudflare Access, per reviewer
+
+The Access application is live and verified at the edge: `/audit/`,
+`/audit/<usps>`, `/audit/links`, and `/api/overview` all **302** to
+`green-base-15b0.cloudflareaccess.com`, while `/`, `/states/<usps>/`,
+`/map/`, `/about/`, `/credentials/…`, `/embed/map/`, `/llms.txt`, and
+`/sitemap.xml` all stay **200**. The gate is scoped to exactly the two
+path prefixes it should be.
+
+Access replaced a shared username and password for one reason:
+`verifications.verified_by` records *who* signed off on *which*
+datapoint, and a shared login collapses every reviewer into one name.
+Per-reviewer identity is a property of the shared path being absent, not
+of Access being available.
+
+Before Access, the console answered **500** — the fail-closed path
+working as designed. The cause was not a missing setting but that
+**`wrangler.toml` is the source of truth for a Pages Functions project,
+so the dashboard-set `AUDIT_USER` / `AUDIT_PASSWORD` never reached the
+runtime**. See the footgun below, and `docs/audit-setup.md`, which is
+canonical for the console's auth.
 
 Two problems were solved to get here, and both are worth knowing:
 
@@ -288,16 +316,41 @@ Do these before touching the Cloudflare dashboard.
       proxy (orange cloud) is required — a grey-cloud record bypasses
       Cloudflare and the Pages domain never validates.
 - [ ] Push to `main` and confirm the deploy job publishes.
-- [ ] **Gate `*.projectcert.pages.dev`.** The preview domain serves the
-      whole site, including `/api/*`, outside any Access app scoped to
-      `projectcert.org/audit`. Put an Access policy over the preview
-      subdomain. Two mitigations already exist and are worth knowing so
-      the risk is not overstated: the console's own middleware fails
-      closed on every host (see Phase 3), and every public page emits
-      `<link rel="canonical">` back to the apex
-      (`BaseLayout.astro:94`, built from `SITE_URL`), which consolidates
-      the duplicate for search engines. The Access policy closes what
-      remains. **Owned by the /audit workstream**, not this runbook.
+- [x] ~~**Gate the `pages.dev` host with its own Access application.**~~
+      Done. `projectcert.pages.dev` served the entire public site, as did
+      every per-deployment URL (`<hash>.projectcert.pages.dev`); both sat
+      outside the application scoped to the `projectcert.org` hostname,
+      which is why `/audit/` there reached the middleware directly rather
+      than an Access redirect. A second self-hosted application now
+      covers the bare host **and** the `*` subdomain — cover both, since
+      one entry does not span them and per-deployment URLs are permanent
+      and individually reachable. Verified: `/`, `/states/ut/`, and
+      `/audit/` on `projectcert.pages.dev`, plus two distinct
+      per-deployment hosts, all **302** to the Access login, while every
+      public route on `projectcert.org` still returns **200**.
+      *Shortcut for next time:* the Pages project's **Settings → Enable
+      access policy** creates the preview-deployment application, after
+      which you still check whether the bare host is covered.
+
+      **A redirect is not possible, and the reason is worth recording so
+      nobody re-litigates it.** Bulk Redirects and Redirect Rules act
+      only on *"domains in your account"*; `pages.dev` is Cloudflare's
+      zone, so traffic there never traverses a zone where your rules
+      apply. Pages `_redirects` documents domain-level redirects as
+      explicitly unsupported — sources must be relative paths. The only
+      redirect mechanism is a root `functions/_middleware.ts`, which was
+      rejected: it puts a Function in front of every request on an
+      otherwise static site, and it introduces a failure mode where a
+      Functions outage takes down HTML pages rather than only `/audit/`.
+      (`_routes.json` excluding `/_astro/*`, `/seals/*`, `/data/*` would
+      have held the cost to roughly one invocation per page view, but
+      the new failure mode was the deciding objection, not the cost.)
+
+      One mitigation already exists and keeps this from being urgent:
+      every public page emits `<link rel="canonical">` back to the apex
+      (`BaseLayout.astro:94`, built from `SITE_URL`), verified present in
+      the HTML served from `pages.dev`, so search engines consolidate to
+      `projectcert.org` and the duplicate does not rank.
 - [ ] Enable **Cloudflare Web Analytics** for the zone. It is free and
       cookieless, so no consent banner is required — but it still
       processes IP addresses, so the `/privacy/` page in
@@ -318,31 +371,32 @@ preview. What remains:
 
 - [x] ~~Replace `database_id` in `wrangler.toml`~~ — now
       `26b74e93-f12d-4390-a665-908fd8ad61f1`.
-- [ ] Set `AUDIT_USER` and `AUDIT_PASSWORD` as Pages **secrets**, not
-      plain environment variables:
-      ```sh
-      npx wrangler pages secret put AUDIT_USER --project-name=projectcert
-      npx wrangler pages secret put AUDIT_PASSWORD --project-name=projectcert
+- [ ] **Create the Cloudflare Access application** (Zero Trust → Access
+      → Applications → Add → Self-hosted), covering `projectcert.org`
+      paths `/audit` and `/api`, with an **Allow** policy listing each
+      reviewer's email individually. Per-reviewer identity is the point:
+      `verifications.verified_by` records who signed off on which
+      datapoint, so a shared login would collapse the audit trail to a
+      single name. The free Zero Trust tier covers 50 users.
+- [ ] **Declare its two settings in `wrangler.toml` under `[vars]`**,
+      not in the dashboard — they are non-secret identifiers, and the
+      file is what actually reaches the runtime:
+      ```toml
+      [vars]
+      ACCESS_TEAM_DOMAIN = "<team>.cloudflareaccess.com"
+      ACCESS_AUD = "<application audience tag>"
       ```
-      Each prompts for the value, so the credential never appears in
-      shell history or a transcript. **Until these exist the console
-      returns 500, not 401** — `functions/audit/_middleware.ts` fails
-      closed by design. That is correct on a fresh deploy, not a
-      misconfiguration; do not "fix" it by removing the middleware.
-- [ ] **Leave the preview environment unset.** `wrangler pages secret
-      put` writes to production only (see the footgun below), so preview
-      has no credentials and its console returns 500. That is the
-      preferred default, not a gap to close: mirroring the values under
-      *Settings → Environment variables → Preview* would put the shared
-      reviewer password on every preview deployment of every branch, a
-      wider exposure surface than production alone, while the current
-      behavior is already the fail-closed path — a preview URL is safe
-      to hand around. Set them only when a console change genuinely
-      needs review on a preview deployment, and treat doing so as
-      deliberately widening the credential's exposure.
-- [ ] Configure Cloudflare Access (`ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`)
-      per `docs/audit-setup.md` step 3, if moving beyond shared
-      credentials to per-reviewer identity.
+      Set **both** in one commit. The middleware treats Access as
+      configured only when both are non-empty, so a half-filled block
+      leaves the console refusing every request.
+- [x] ~~Delete the shared `AUDIT_USER` / `AUDIT_PASSWORD` Pages
+      secrets.~~ Done. **Access is the only authentication path**; the
+      shared-login code has been removed outright rather than left
+      configurable, because leaving it in place meant one redeployment
+      of those secrets could silently restore a shared identity with
+      nothing in the data to show it. If you find such secrets in the
+      dashboard, they are stale — delete them; nothing reads them.
+      `docs/audit-setup.md` is canonical on the console's auth.
 - [ ] Confirm `DEV_REVIEWER_EMAIL` is **not** set on the production
       environment. It bypasses the Access JWT check entirely.
 
@@ -364,19 +418,33 @@ Then, specific to GitHub:
       data when unauthenticated.
 - [ ] Repeat both checks against `*.projectcert.pages.dev`. The
       middleware is host-agnostic, so a 200 there is a real finding.
+- [ ] **Confirm a valid reviewer can actually get in.** A 401 proves
+      the middleware is present; it does not prove the configured
+      identity provider is one the middleware accepts. If those got out
+      of step, the console would be uniformly locked and would look,
+      from outside, exactly like a working gate. Sign in as a real
+      allowlisted reviewer and confirm the console renders.
+- [ ] **Confirm attribution is per-person.** After one reviewer checks
+      one datapoint, read the row back and confirm `verified_by` is that
+      reviewer's own email — not a shared name, and not a `shared:`
+      prefixed identity:
+      ```sh
+      npx wrangler d1 execute projectcert-audit --remote \
+        --command "SELECT usps, datapoint_id, verified_by, verified_at FROM verifications LIMIT 5"
+      ```
 
 **Read the console's status codes precisely — they distinguish two
 different failures:**
 
 | Code | Meaning |
 | --- | --- |
-| **401** | Credentials absent or wrong. The gate is working. |
-| **500** | *No credential path is configured at all* — neither `AUDIT_USER`/`AUDIT_PASSWORD` nor the Access vars reached the Functions. This is a deployment mistake, not an auth failure. |
+| **302** to `…cloudflareaccess.com` | Cloudflare Access is fronting the request. Expected for any unauthenticated visitor. |
+| **401** | Access is configured, but the request carried no valid assertion. The gate is working. |
+| **500** | *Access is not configured* — `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` did not reach the Functions. Check `[vars]` in `wrangler.toml`, remembering that a value set only in the dashboard never arrives. A deployment mistake, not an auth failure. |
 | **200** on a fresh browser | The gate is not in force. **CI fails the deploy that produced it** — investigate `functions/`. |
 
-A first deploy that returns 500 rather than a password prompt means the
-Pages environment variables did not land; the deploy still succeeds, with
-a `::warning::`.
+A deploy that returns 500 means the two Access settings did not land; the
+deploy still succeeds, with a `::warning::`.
 
 **A green first deploy is not proof the gate was exercised.** The
 verification step treats any non-2xx as a pass, and until the apex has a
@@ -409,9 +477,27 @@ DOI, Wayback snapshots, and outreach.
   A deploy job that downloads only the `dist` artifact without checking
   the repo out will publish the static site with no Functions attached,
   and `/audit/*` will render read-only with every `/api/*` call 404ing.
-- **Dashboard bindings beat `wrangler.toml` for Pages.** The `DB`
-  binding must exist in the Pages dashboard; the `wrangler.toml` block
-  exists for `wrangler pages dev` locally.
+- **`wrangler.toml` beats the dashboard for Pages — the reverse of what
+  this document used to claim.** Cloudflare: *"When used in your Pages
+  Functions projects, your Wrangler file is the source of truth. You
+  will be able to see, but not edit, the same fields when you log into
+  the Cloudflare dashboard."* Because this repo ships a `wrangler.toml`
+  declaring bindings, **anything set only in the dashboard does not
+  reach the runtime**, and the API will still cheerfully report it as
+  set — on the project *and* on the individual deployment record. That
+  combination is what makes this expensive to diagnose: every
+  configuration check passes while the running code sees nothing.
+  Observed here as `DB` (declared in the file) working while
+  `AUDIT_USER` / `AUDIT_PASSWORD` (dashboard only) did not exist at
+  runtime across two separate deployments. Declare bindings and
+  non-secret vars in `wrangler.toml`; a genuine secret needs a Secrets
+  Store binding declared there, or an auth method whose settings are not
+  secret. `docs/audit-setup.md` is canonical for the console's auth.
+- **`ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` must be set together.** The
+  middleware treats Access as configured only when **both** are
+  non-empty, so a half-filled `[vars]` block silently leaves the console
+  on the shared-login path instead of failing loudly. Set both in one
+  commit.
 - **D1 migrations are append-only once production exists.** While the
   console was pre-release, `schema/d1/0001_init.sql` could be edited and
   the local DB reset. After the first `--remote` apply, every schema
@@ -430,6 +516,27 @@ DOI, Wayback snapshots, and outreach.
   both. Symptom: the domain sits at `pending` indefinitely while the
   authoritative nameservers return nothing for the hostname. Either use
   the dashboard flow, or add the `CNAME` yourself after the API call.
+- **`dig` and `curl` can disagree on the same machine, and both be
+  right.** `dig` queries a resolver directly; `curl` goes through the
+  system resolver, which may still hold a stale address. During this
+  cutover `dig` correctly reported Cloudflare while `curl` was still
+  connecting to GoDaddy's cached IP — which read, convincingly, as "DNS
+  was never cut over" for a site that was in fact live. Never diagnose
+  DNS from `curl` alone: `curl -w '%{remote_ip}'` prints the address it
+  actually connected to, and `curl --resolve host:443:<ip>` pins it.
+- **`main` cannot run any `--remote` D1 command while `wrangler.toml`
+  holds a placeholder id.** Wrangler resolves `database_id` from the
+  config file even when the database *name* is given on the command
+  line, so `wrangler d1 execute projectcert-audit --remote` fails with
+  `Invalid property: databaseId` — an error that precedes
+  authentication, and therefore proves nothing about the API token.
+  This is the same class of hazard as deploying against a placeholder,
+  and it bit the nightly ledger sync once.
+- **Re-run the ledger sync after any change to the D1 config**
+  (`gh workflow run audit-ledger-sync.yml --ref main`). It is read-only,
+  opens no PR while the ledger files are empty, and is the cheapest way
+  to prove the API token's D1 scopes before a production deploy depends
+  on them.
 - **A 200 on the apex is not evidence the site is live.** Cloudflare's
   zone-creation scan copies whatever the previous DNS host was serving,
   so a freshly moved domain can answer 200 from the *old* registrar's
@@ -440,15 +547,15 @@ DOI, Wayback snapshots, and outreach.
   which point the Pages custom domain provisions on its own. Delete
   only those — keep `MX`, `TXT` (SPF/DKIM/verification), and anything
   else the domain genuinely uses, or mail breaks silently.
-- **`wrangler pages secret put` targets production only.** As of
-  wrangler 4.105.0 the command takes no `--environment` / `--env` flag —
-  it prints `(production)` and writes there. Preview-environment
-  variables have to be set in the dashboard or via the REST API. This
-  is not a security gap, because the console fails closed: a preview
-  deployment without credentials returns 500, never a readable page.
-  Treat it as the desired default rather than something to fix — see
-  Phase 3. `docs/audit-setup.md` is the canonical statement of that
-  policy; keep the two documents in agreement.
+- **`wrangler pages secret put` targets production only**, and for this
+  project is a dead end regardless. As of wrangler 4.105.0 the command
+  takes no `--environment` / `--env` flag — it prints `(production)` and
+  writes there. More to the point, a Pages secret is dashboard state, so
+  while `wrangler.toml` is the source of truth it never reaches the
+  runtime at all. The console authenticates through Access only, whose
+  two settings live in `[vars]`. If a future binding genuinely needs a
+  secret value, it needs a Secrets Store binding declared in
+  `wrangler.toml` — not this command.
 - **Never name an individual `_astro/` chunk in a cache rule, CSP,
   preload hint, or a `public/_headers` entry.** Those filenames are
   content-hashed and the chunk *set* is not stable across toolchain
