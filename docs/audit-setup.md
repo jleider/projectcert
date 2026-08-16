@@ -144,6 +144,23 @@ secrets:
 
 Both sync workflows skip gracefully when the secrets are absent.
 
+**The nightly sync also needs Actions permitted to open pull requests, and
+currently is not.** `repos/:owner/:repo/actions/permissions/workflow`
+reports `can_approve_pull_request_reviews: false`, which is the API face of
+**Settings → Actions → General → Allow GitHub Actions to create and approve
+pull requests**. With it off, `peter-evans/create-pull-request` fails with
+"GitHub Actions is not permitted to create or approve pull requests".
+
+This is latent rather than active: while the D1 tables are empty the export
+rewrites `{}` over `{}`, produces no diff, and the action opens nothing. It
+starts failing the first time a reviewer actually confirms a datapoint —
+that is, exactly when the console begins to be used. Either enable the
+setting before then, or give the workflow a token that can open a PR.
+
+Enabling it also lets Actions *approve* pull requests, which is the reason
+the setting is off by default; if that matters, require a human review in
+branch protection rather than leaving the sync broken.
+
 ## Keeping the console out of search results
 
 Four independent layers, none of which is sufficient alone:
