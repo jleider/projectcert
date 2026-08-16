@@ -40,12 +40,17 @@ function elPopulationClause(state: State): string {
 
 function verificationClause(state: State): string {
   switch (state.verificationStatus) {
+    // Deliberately describes the source check only, and not the reviewer
+    // confirmation count. This sentence is the citable lead and feeds the
+    // meta description and JSON-LD; the confirmed count changes whenever the
+    // ledger syncs, and a citable sentence that churns nightly is worse than
+    // one that is stable. The badges carry the live figure.
     case "verified-2026":
-      return `Re-verified against current SEA sources on ${state.lastVerified}.`;
+      return `Checked against current SEA sources on ${state.lastVerified}.`;
     case "in-progress":
-      return `Re-verification against current SEA sources is in progress.`;
+      return `A check against current SEA sources is in progress.`;
     case "baseline-2019":
-      return `Coding from the 2019 Leider et al. baseline; not yet re-verified against current SEA sources.`;
+      return `Coding from the 2019 Leider et al. baseline; not yet checked against current SEA sources.`;
   }
 }
 
