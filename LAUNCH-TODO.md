@@ -26,14 +26,26 @@ verification.)
       `public/robots.txt`, and per-state schema all reference
       `projectcert.org` literally. One find-and-replace will catch
       most of it; grep for `projectcert.org` to confirm.
-- [ ] Pick a host. Either is fine for a static Astro site:
-      - **Cloudflare Pages** — free, fast CDN, generous bandwidth, native
-        Turnstile if you ever want to swap the Google Form for a custom
-        contact form
-      - **Netlify** — slightly nicer DX, built-in form handling
-- [ ] Wire up GitHub → host auto-deploy on push to `main`
-- [ ] Set DNS records. Enable DNSSEC if your registrar offers it.
-- [ ] Force HTTPS, enable HSTS at the host level
+- [x] ~~Pick a host.~~ **Cloudflare Pages.** Netlify is no longer a real
+      option — the `/audit/` console depends on Pages Functions
+      (file-based routing), D1, and Cloudflare Access, so moving hosts
+      would mean rewriting its runtime, database, and auth layer. Full
+      rationale, cost breakdown, and step-by-step runbook:
+      **`docs/deployment.md`**.
+- [ ] Wire up GitHub → host deploy on push to `main`. Deploy from
+      **GitHub Actions gated on CI**, not Cloudflare's Git integration —
+      the latter builds independently and would publish a commit that
+      failed the e2e-a11y or dead-code gate. Job snippet in
+      `docs/deployment.md`.
+- [ ] Set DNS records. Registration stays at GoDaddy; only the
+      nameservers move to Cloudflare (required — Access only protects
+      hostnames proxied through Cloudflare). Enable DNSSEC.
+- [ ] Force HTTPS, enable HSTS, set SSL/TLS to Full (strict)
+- [ ] Redirect `www` → apex. Everything (`robots.txt`, both sitemaps,
+      `SITE_URL`) assumes the apex is canonical.
+- [ ] Gate `*.projectcert.pages.dev` behind Access — it serves `/api/*`
+      outside the app scoped to `projectcert.org/audit`, and it is a
+      crawlable duplicate of the public site
 - [ ] Test that all the routes that were in `dist/` after `npm run build`
       actually load on the live domain — especially `/states/<usps>/`
       paths (currently ~115 pages: 51 state pages + 51 per-state
@@ -46,8 +58,13 @@ verification.)
       default; the host falls back to its generic page)~~
       Done — `src/pages/404.astro` ships with a Levenshtein-based
       "Did you mean…" suggestion list against the 51 USPS codes
-- [ ] Buy a 2-year domain registration up front so you don't lose it
-      to a missed renewal email
+- [ ] Protect the registration against a missed renewal. `projectcert.org`
+      is at GoDaddy, created 2026-05-08, **expiring 2027-05-08** — a
+      single point of failure for the whole site. Turn on auto-renew and
+      confirm the card on file is current. Extending to a multi-year
+      registration, or transferring to Cloudflare Registrar (`.org` at
+      cost, ~$8.50/yr, renewals at the same price), both remain open
+      later; the ICANN transfer lock expired around 2026-07-07.
 
 ## 2. Brand assets the site already references but doesn't ship (blocking)
 
@@ -69,19 +86,26 @@ Optional but worth it:
       `<meta property="og:image">` tag is already wired to accept a
       per-page override via the `image` prop on `BaseLayout`)
 
-## 3. Google Analytics + Search Console (blocking-ish)
+## 3. Analytics + Search Console (blocking-ish)
 
-- [ ] Create a GA4 property and copy the measurement ID
-- [ ] Add the GA4 snippet to `BaseLayout.astro` head, ideally
-      gated behind a `PUBLIC_GA_MEASUREMENT_ID` env var so dev/preview
-      deploys don't pollute the data
-- [ ] **Required if using GA**: publish a privacy policy at `/privacy/`.
-      GA, GDPR, and CalOPPA all require it. If you're targeting an
-      academic audience that's largely European, also add a cookie
-      consent banner — `klaro` or `cookieconsent` are free and small
-- [ ] Consider **Plausible** or **Fathom** instead of GA: lightweight,
-      no cookie banner, EU-hosted, ~$9/mo. Cleaner fit for an academic
-      open-data site that doesn't need ad-targeting metrics
+- [x] ~~Pick an analytics stack.~~ **Cloudflare Web Analytics** — free,
+      cookieless, already in the stack, and enabled per-zone in the
+      dashboard rather than by adding a snippet to `BaseLayout.astro`.
+      GA4, Plausible, and Fathom were the alternatives; GA4 was declined
+      because it needs a consent banner for a largely European academic
+      audience and an env-gated measurement ID to keep preview deploys
+      out of the data, and Plausible/Fathom cost ~$9/mo for reporting
+      this site does not need.
+- [ ] Enable it on the zone (Phase 2 of `docs/deployment.md`)
+- [ ] **Still required**: publish a privacy policy at `/privacy/`.
+      Cookieless removes the consent banner, not the policy — Cloudflare
+      still processes IP addresses, user agents, and page views, which
+      are personal data under GDPR. See §11.
+- [ ] Accept the reporting ceiling: pageviews, top pages, top referrers,
+      country, and browser/OS only. No custom events, no UTM campaign
+      reporting, no funnels. If per-state citation tracking or referral
+      attribution later matters, revisit — that is the trigger to move,
+      not launch-day completeness.
 - [ ] Verify ownership in **Google Search Console** (DNS TXT record or
       meta tag method)
 - [ ] Verify ownership in **Bing Webmaster Tools** (Bing feeds Copilot;
@@ -274,9 +298,12 @@ SEO tweaks. Plan for the first 4–6 weeks post-launch.
       root: MIT for the site code, CC BY 4.0 for the catalog data
       under `src/content/states/` and `sources/`. README has a
       "License" section that mirrors the same split.
-- [ ] Publish a `/privacy/` page covering: what GA collects, retention
-      policy, contact email, opt-out instructions. Required by GA's
-      ToS, GDPR Art. 13–14, CalOPPA
+- [ ] Publish a `/privacy/` page covering: what Cloudflare Web Analytics
+      collects (IP address, user agent, and page views — hashed for
+      visitor-uniqueness and discarded, no cookies and no persistent
+      browser identifier), retention policy, contact email. Required by
+      GDPR Art. 13–14 and CalOPPA. No cookie consent banner is needed,
+      because nothing is stored on the visitor's device
 - [ ] Publish a `/terms/` page that links to the `LICENSE` file
       (MIT for code, CC BY 4.0 for data — already documented there)
       and adds a short "no warranty / link-rot disclaimer" note

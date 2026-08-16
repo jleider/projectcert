@@ -16,6 +16,5 @@ compatibility_date = "2026-01-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "projectcert-audit"
-# Filled in from the dashboard after the database is created:
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "26b74e93-f12d-4390-a665-908fd8ad61f1"
 migrations_dir = "schema/d1"
