@@ -5,6 +5,64 @@ review console's Cloudflare-side setup (D1, Access, bindings) lives in
 `docs/audit-setup.md`; this document covers the host, the domain, and the
 deploy pipeline, and points at that one where they overlap.
 
+## Provisioned state
+
+What exists on the Cloudflare side today. None of these values are
+secret; the credentials that *are* secret are called out in Phase 3.
+
+| Thing | Value |
+| --- | --- |
+| Account | `justin@leiders.org` |
+| Account ID | `52a127530f00f6b9b8e68532f811aedc` |
+| Zone | `projectcert.org` — **active**, id `c939fa16692f13000305f3891192db20` |
+| Nameservers | `louis.ns.cloudflare.com`, `melinda.ns.cloudflare.com` — moved and propagated |
+| Pages project | `projectcert`, production branch `main`, direct-upload |
+| Preview origin | `https://projectcert.pages.dev` (no deployment yet — answers 522) |
+| Custom domains | `projectcert.org` and `www.projectcert.org` attached, **stuck `initializing`** — see below |
+| D1 database | `projectcert-audit`, region ENAM, id `26b74e93-f12d-4390-a665-908fd8ad61f1` |
+| D1 schema | `0001_init.sql` applied; six application tables present |
+| D1 binding | `DB`, bound on both production and preview |
+| Audit secrets | `AUDIT_USER`, `AUDIT_PASSWORD` set (production only) |
+
+**Verified working at the Cloudflare edge** (tested with
+`curl --resolve` against `172.67.153.93`, confirming `server:
+cloudflare` and a `cf-ray` on each response):
+
+| Check | Result |
+| --- | --- |
+| Apex + `www` DNS | Proxied, resolving to Cloudflare anycast |
+| Always Use HTTPS | `http://projectcert.org/` → **301** → `https://` |
+| `www` → apex redirect rule | `https://www.projectcert.org/` → **301** → `https://projectcert.org/` |
+
+**Not yet verifiable — all three need a deployment to exist:**
+
+- **HSTS.** Absent from the current apex response, but that response is
+  a Cloudflare-generated 522 error page, and Cloudflare does not
+  reliably attach HSTS to its own error pages. Re-check for
+  `Strict-Transport-Security` on a real 200 before concluding anything.
+- **Web Analytics.** The beacon is injected into HTML responses; there
+  is no HTML being served yet.
+- **SSL Full (strict).** Not externally observable — it governs the
+  Cloudflare-to-origin leg only.
+
+**The apex returns 522, which is the expected state.** Cloudflare is
+reachable and correctly configured; it has no origin to forward to
+because the Pages project has never been deployed. The custom domains
+likewise remain `status=pending` — HTTP validation needs a working
+origin. Both resolve themselves on the first deploy.
+
+Two problems were solved to get here, and both are worth knowing:
+
+1. The zone-creation scan copied GoDaddy's parking `A` records
+   (`76.223.105.230` / `13.248.243.5`), which shadowed the Pages custom
+   domain and made the apex answer 200 from the parking page.
+2. Attaching a custom domain **through the REST API registers it with
+   the project but does not create the DNS record.** Only the dashboard
+   flow does both. Verified: after a detach/re-attach cycle the apex had
+   no `A`, `AAAA`, or `CNAME` on the authoritative nameservers 60
+   seconds later, while both domains sat at `status=pending`,
+   `method=http` — waiting for DNS that nothing was going to create.
+
 ## Decision record — why Cloudflare Pages
 
 `LAUNCH-TODO.md` originally listed Cloudflare Pages and Netlify as
@@ -191,9 +249,17 @@ Do these before touching the Cloudflare dashboard.
 
 ## Phase 1 — DNS
 
-- [ ] Add `projectcert.org` as a zone in Cloudflare (Free plan).
-- [ ] Replace `ns41/ns42.domaincontrol.com` at GoDaddy with the two
-      Cloudflare nameservers. Propagation is typically under an hour.
+- [x] ~~Add `projectcert.org` as a zone in Cloudflare (Free plan).~~
+      Done; status `pending` until the nameservers move.
+- [ ] At GoDaddy, replace `ns41.domaincontrol.com` /
+      `ns42.domaincontrol.com` with **`louis.ns.cloudflare.com`** and
+      **`melinda.ns.cloudflare.com`**. GoDaddy → *My Products* →
+      `projectcert.org` → *DNS* → *Nameservers* → *Change* → *I'll use
+      my own nameservers*. Propagation is typically under an hour;
+      Cloudflare flips the zone to `active` on its own once it sees
+      them. **This is the visible cutover** — the GoDaddy parking page
+      stops resolving at this point, so expect the domain to serve
+      nothing until the first deploy.
 - [ ] Enable **DNSSEC** in Cloudflare, then add the matching DS record at
       GoDaddy.
 - [ ] SSL/TLS mode **Full (strict)**; enable **Always Use HTTPS** and
@@ -203,10 +269,24 @@ Do these before touching the Cloudflare dashboard.
 
 ## Phase 2 — static site live
 
-- [ ] Create the Pages project named `projectcert` (direct upload, not
-      Git-connected). Add `CLOUDFLARE_API_TOKEN` and
-      `CLOUDFLARE_ACCOUNT_ID` as repo secrets.
-- [ ] Attach `projectcert.org` as a custom domain.
+- [x] ~~Create the Pages project named `projectcert`~~ — done, direct
+      upload, production branch `main`.
+- [ ] Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as repo
+      secrets. Token scopes: **Account → Cloudflare Pages → Edit** and
+      **Account → D1 → Edit** (one token serves the deploy job and both
+      sync workflows).
+- [x] ~~Attach `projectcert.org` and `www.projectcert.org` as custom
+      domains~~ — registered with the project, `status=pending` until
+      the DNS records below exist.
+- [ ] Add the two `CNAME` records the API attach does not create
+      (*DNS → Records → Add record*), both **Proxied**:
+      | Type | Name | Target |
+      | --- | --- | --- |
+      | `CNAME` | `@` | `projectcert.pages.dev` |
+      | `CNAME` | `www` | `projectcert.pages.dev` |
+      An apex `CNAME` is legal here because Cloudflare flattens it. The
+      proxy (orange cloud) is required — a grey-cloud record bypasses
+      Cloudflare and the Pages domain never validates.
 - [ ] Push to `main` and confirm the deploy job publishes.
 - [ ] **Gate `*.projectcert.pages.dev`.** The preview domain serves the
       whole site, including `/api/*`, outside any Access app scoped to
@@ -232,16 +312,37 @@ Do these before touching the Cloudflare dashboard.
 
 ## Phase 3 — audit console
 
-Follow `docs/audit-setup.md` steps 1–4 in order. Three items are
-load-bearing and easy to skip:
+`docs/audit-setup.md` steps 1–2 are done — the database exists, the
+schema is applied, and the `DB` binding is set on both production and
+preview. What remains:
 
-- [ ] Replace `database_id = "REPLACE_WITH_D1_DATABASE_ID"` in
-      `wrangler.toml` with the id returned by `wrangler d1 create`.
-- [ ] Set `AUDIT_USER` and `AUDIT_PASSWORD` as Pages environment
-      variables. **The console 401s on every request until these (or the
-      Access vars) exist** — `functions/audit/_middleware.ts` fails
-      closed by design. That is correct behavior on a fresh deploy, not
-      a misconfiguration; do not "fix" it by removing the middleware.
+- [x] ~~Replace `database_id` in `wrangler.toml`~~ — now
+      `26b74e93-f12d-4390-a665-908fd8ad61f1`.
+- [ ] Set `AUDIT_USER` and `AUDIT_PASSWORD` as Pages **secrets**, not
+      plain environment variables:
+      ```sh
+      npx wrangler pages secret put AUDIT_USER --project-name=projectcert
+      npx wrangler pages secret put AUDIT_PASSWORD --project-name=projectcert
+      ```
+      Each prompts for the value, so the credential never appears in
+      shell history or a transcript. **Until these exist the console
+      returns 500, not 401** — `functions/audit/_middleware.ts` fails
+      closed by design. That is correct on a fresh deploy, not a
+      misconfiguration; do not "fix" it by removing the middleware.
+- [ ] **Leave the preview environment unset.** `wrangler pages secret
+      put` writes to production only (see the footgun below), so preview
+      has no credentials and its console returns 500. That is the
+      preferred default, not a gap to close: mirroring the values under
+      *Settings → Environment variables → Preview* would put the shared
+      reviewer password on every preview deployment of every branch, a
+      wider exposure surface than production alone, while the current
+      behavior is already the fail-closed path — a preview URL is safe
+      to hand around. Set them only when a console change genuinely
+      needs review on a preview deployment, and treat doing so as
+      deliberately widening the credential's exposure.
+- [ ] Configure Cloudflare Access (`ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`)
+      per `docs/audit-setup.md` step 3, if moving beyond shared
+      credentials to per-reviewer identity.
 - [ ] Confirm `DEV_REVIEWER_EMAIL` is **not** set on the production
       environment. It bypasses the Access JWT check entirely.
 
@@ -276,6 +377,14 @@ different failures:**
 A first deploy that returns 500 rather than a password prompt means the
 Pages environment variables did not land; the deploy still succeeds, with
 a `::warning::`.
+
+**A green first deploy is not proof the gate was exercised.** The
+verification step treats any non-2xx as a pass, and until the apex has a
+working origin it sees the 522 described above — which passes without
+asserting anything. The first meaningful assertion happens on the first
+deploy *after* the domain actually serves. Do not read run #1 as
+evidence the console is protected; check `/audit/` by hand once the
+apex answers.
 
 A 200 can no longer reach a human: the `deploy` job's final step,
 **"Verify the review console is not publicly readable,"** curls
@@ -313,6 +422,33 @@ DOI, Wayback snapshots, and outreach.
 - **Never point the domain at a build predating the Astro 7 upgrade.**
   Releases ≤ 7.0.9 carry three high-severity XSS advisories. The
   ordering in "Launch ordering" above exists for this reason.
+- **Attaching a Pages custom domain via the REST API does not create
+  the DNS record.** The `POST .../pages/projects/<p>/domains` call
+  registers the hostname with the project and moves it to
+  `status=pending`, `method=http` — then waits for DNS that it will
+  never create. Only the dashboard's *Set up a custom domain* flow does
+  both. Symptom: the domain sits at `pending` indefinitely while the
+  authoritative nameservers return nothing for the hostname. Either use
+  the dashboard flow, or add the `CNAME` yourself after the API call.
+- **A 200 on the apex is not evidence the site is live.** Cloudflare's
+  zone-creation scan copies whatever the previous DNS host was serving,
+  so a freshly moved domain can answer 200 from the *old* registrar's
+  parking page while the Pages project has never been deployed. Check
+  for a `cf-ray` response header: no `cf-ray` means the request never
+  reached Cloudflare, whatever the status code says. The fix is to
+  delete the imported apex `A`/`AAAA` records and the `www` record, at
+  which point the Pages custom domain provisions on its own. Delete
+  only those — keep `MX`, `TXT` (SPF/DKIM/verification), and anything
+  else the domain genuinely uses, or mail breaks silently.
+- **`wrangler pages secret put` targets production only.** As of
+  wrangler 4.105.0 the command takes no `--environment` / `--env` flag —
+  it prints `(production)` and writes there. Preview-environment
+  variables have to be set in the dashboard or via the REST API. This
+  is not a security gap, because the console fails closed: a preview
+  deployment without credentials returns 500, never a readable page.
+  Treat it as the desired default rather than something to fix — see
+  Phase 3. `docs/audit-setup.md` is the canonical statement of that
+  policy; keep the two documents in agreement.
 - **Never name an individual `_astro/` chunk in a cache rule, CSP,
   preload hint, or a `public/_headers` entry.** Those filenames are
   content-hashed and the chunk *set* is not stable across toolchain
@@ -321,8 +457,13 @@ DOI, Wayback snapshots, and outreach.
   which is also exactly where long-lived immutable cache headers are
   correct, since the hash is the cache key. Expect a full asset-cache
   turnover on the first deploy after any such upgrade; that is normal.
-- **`astro preview` auto-daemonizes under an AI agent** (Astro 7 calls
-  `am-i-vibing`), so a local smoke check that shells out to it forks and
-  returns immediately. Set `ASTRO_PREVIEW_BACKGROUND=1` to force
-  foreground. Phase 4's checks all `curl` the live domain instead, so
-  this only bites locally.
+- **Astro 7's long-running CLI server commands auto-daemonize under an
+  AI agent.** Astro calls `am-i-vibing`; when it detects an agent
+  driving the terminal, **both `astro dev` and `astro preview`** fork
+  and return immediately (`Dev server running at … (pid NNNNN) / Stop:
+  astro dev stop`) rather than holding the foreground. Any instruction
+  that says "run the server and watch it" is wrong under an
+  agent-driven terminal. Use `astro dev status` / `astro dev stop` to
+  manage the daemon, or `ASTRO_PREVIEW_BACKGROUND=1` to force preview
+  into the foreground. Phase 4's checks all `curl` the live domain
+  instead, so this only bites locally.
