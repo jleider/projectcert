@@ -56,13 +56,13 @@
     },
     {
       "label": "GaPSC Rule 505-2-.166 — ESOL Endorsement Certification (eff. 2026-01-01)",
-      "url": "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
+      "url": "https://www.gapsc.com/Rules/Current/Certification/505-2-.166.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "GaPSC Rule 505-2-.14 — Endorsements (general)",
-      "url": "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.14.pdf",
+      "url": "https://www.gapsc.com/Rules/Current/Certification/505-2-.14.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -80,7 +80,7 @@
     },
     {
       "label": "GaPSC Certificate Field Codes (revised January 2026)",
-      "url": "https://www.gapsc.com/Certification/Documents/Certificate%20Field%20Codes.pdf",
+      "url": "https://www.gapsc.com/Commission/policies_guidelines/Downloads/Certificate_Field_codes.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -135,8 +135,8 @@
       "title": "GaPSC Rule 505-2-.166 (ESOL Endorsement) effective",
       "description": "Revised ESOL Endorsement Certification rule takes effect, restating the approved-program-plus-test pathway to the ESOL endorsement (field code 825) on a primary teaching certificate. The standalone ESOL field (885) remains in the P-12 Fields list per GaPSC's January 2026 Certificate Field Codes sheet.",
       "sourceUrls": [
-        "https://www.gapsc.com/Rules/Current/EducatorPreparation/505-2-.166.pdf",
-        "https://www.gapsc.com/Certification/Documents/Certificate%20Field%20Codes.pdf"
+        "https://www.gapsc.com/Rules/Current/Certification/505-2-.166.pdf",
+        "https://www.gapsc.com/Commission/policies_guidelines/Downloads/Certificate_Field_codes.pdf"
       ]
     }
   ],

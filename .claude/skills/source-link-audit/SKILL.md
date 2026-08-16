@@ -55,6 +55,15 @@ publisher:
   publisher URL.
 - **`justia` / `oyez`** for federal cases and codified statutes — endorsed
   by the provenance rules; keep.
+- **`rules.mt.gov/gateway/ruleno.asp?RN=<rule>`** (Administrative Rules of
+  Montana). The Secretary of State moved ARM onto a single-page app that
+  returns the same 894-byte shell — HTTP 200 — for *every* path, including
+  nonsense ones, and rewrites the gateway permalink to
+  `rules.mt.gov/search?query=<rule>`. The redirect target is a client-side
+  search view, not a citable rule page, and a 200 there proves nothing.
+  Keep the gateway permalink: it is publisher-owned, stable, and what
+  search engines index. Same shape as the Idaho `adminrules` → Azure blob
+  case above — cite the front door, not the backend.
 
 ## The link checker — `npm run check:links`
 
@@ -109,6 +118,15 @@ never accept to mask a genuine 404 — a moved page needs its URL fixed
   whether a fetch tool could render the body.
 - Anti-bot 403 on a correct page ≠ a 404 on a moved page. A 403 usually
   means "exists, blocked"; a 404 means "gone, find the new URL".
+- **A non-2xx answer to HEAD proves nothing.** SEA hosts mishandle HEAD in
+  more ways than the honest 405: `doe.virginia.gov` answers 404 to HEAD and
+  200 to GET on the same live page, and `wyomingptsb.com` answers 500. The
+  checker now re-confirms every non-2xx HEAD with a real GET, so its report
+  is trustworthy — but when verifying by hand, use `curl -sS -o /dev/null
+  -w '%{http_code}'` (a GET), never `curl -I`. Also note `opi.mt.gov` and
+  `doe.virginia.gov` 403 curl outright while serving Node's `fetch` fine,
+  so a curl 403 is not evidence either; re-probe with `fetch` before
+  concluding anything about those hosts.
 
 ## Fixing at scale — the remediation-script pattern
 

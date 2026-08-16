@@ -49,7 +49,7 @@
   "elpAssessment": {
     "name": "TELPAS",
     "consortium": null,
-    "sourceUrl": "https://tea.texas.gov/assessment-and-accountability/telpas"
+    "sourceUrl": "https://tea.texas.gov/assessment-and-accountability/telpas-resources"
   },
   "sources": [
     {
@@ -66,25 +66,25 @@
     },
     {
       "label": "19 TAC §89.1201 — Policy (State Plan for Educating Emergent Bilingual Students)",
-      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "19 TAC §89.1205 — Required Bilingual Education and English as a Second Language Programs",
-      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "19 TAC §89.1210 — Program Content and Design",
-      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "19 TAC Chapter 233 — Categories of Classroom Teaching Certificates (May 2024 update); §§233.6 Bilingual Education Supplemental, 233.7 ESL Supplemental, 233.2(f)-(g), 233.8(a)",
-      "url": "https://tea.texas.gov/laws-and-rules/sbec-rules-tac/sbec-tac-currently-effect/ch233-4.pdf",
+      "url": "https://tea.texas.gov/laws-and-rules/sbec-rules-tac/sbec-tac-currently-effect/ch233.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -145,7 +145,7 @@
       "title": "TAC Ch. 89 Subch. BB amended (HB 3 implementation, 86th Leg.)",
       "description": "The Texas Education Agency amended 19 TAC Chapter 89 Subchapter BB (45 TexReg 2415) to implement HB 3 (86th Legislature, 2019), restructuring program-model definitions and emergent-bilingual accountability — the largest structural update to the bilingual/ESL program rules since the 1996 TAC recodification.",
       "sourceUrls": [
-        "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb-2.pdf"
+        "https://tea.texas.gov/laws-and-rules/commissioner-rules-tac/coe-tac-currently-effect/ch089bb.pdf"
       ]
     },
     {
