@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 13 * * 1" # Mondays 13:00 UTC
   workflow_dispatch:
+    inputs:
+      test_recipient:
+        description: "Send the report to this address alone (for testing). Leave empty to use the reviewer list."
+        required: false
+        type: string
 
 jobs:
   external-links:
@@ -108,8 +113,12 @@ jobs:
       # Every value here is a secret, including the recipients: this repo is
       # public, so its Actions logs are too, and a `with:` block prints the
       # values it is given. Secrets are masked; a variable would not be.
+      # A manual run may name a single test_recipient, which replaces the
+      # reviewer list for that run. Testing a mail change by dispatching the
+      # real workflow would otherwise send to every reviewer, so the safe
+      # option has to exist or the unsafe one gets used.
       - name: Email the report
-        if: ${{ env.LINK_REPORT_RECIPIENTS != '' && env.SMTP_SERVER != '' }}
+        if: ${{ (inputs.test_recipient != '' || env.LINK_REPORT_RECIPIENTS != '') && env.SMTP_SERVER != '' }}
         continue-on-error: true
         # Pinned to a commit SHA rather than a moving tag, unlike the other
         # actions here. This is the one step handed credentials — the SMTP
@@ -128,8 +137,8 @@ jobs:
           # using it as the sender address produces an invalid From. Set
           # SMTP_FROM for those; leave it unset for Gmail.
           from: projectcert link audit <${{ secrets.SMTP_FROM || secrets.SMTP_USERNAME }}>
-          to: ${{ secrets.LINK_REPORT_RECIPIENTS }}
-          subject: "projectcert cited-source link audit — ${{ github.run_started_at }}"
+          to: ${{ inputs.test_recipient || secrets.LINK_REPORT_RECIPIENTS }}
+          subject: "${{ inputs.test_recipient != '' && '[test] ' || '' }}projectcert cited-source link audit — ${{ github.run_started_at }}"
           body: file://link-report.md
           # The report is markdown; render it so the tables and per-URL
           # lists arrive readable rather than as raw pipes and asterisks.
@@ -137,6 +146,6 @@ jobs:
           attachments: link-report.md
 
       - name: Report missing mail configuration
-        if: ${{ env.LINK_REPORT_RECIPIENTS == '' || env.SMTP_SERVER == '' }}
+        if: ${{ (inputs.test_recipient == '' && env.LINK_REPORT_RECIPIENTS == '') || env.SMTP_SERVER == '' }}
         run: |
           echo "::notice::No report email sent — set the LINK_REPORT_RECIPIENTS and SMTP_* secrets to enable it. The report is attached to this run as an artifact regardless."
