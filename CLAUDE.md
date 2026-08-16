@@ -276,6 +276,48 @@ host page automatically.
   `skipLibCheck` absorbing the duplicate `fetch`/`Request` globals).
   `npm run typecheck` runs all three projects: root, `functions/`, and
   `tsconfig.tests.json`.
+- **Stay on TypeScript 6 — do not bump to 7.** TypeScript 7 is the
+  native Go compiler and ships **no programmatic JS API**. Both
+  typescript-eslint and `astro check` require that API, so `typescript@7`
+  hard-fails lint, `validate`, and `build`:
+  `"typescript-eslint does not support TS 7.0."` and `"The TypeScript
+  module loaded (found 7.0.2) does not expose the programmatic API that
+  astro check relies on."` This is not a wait-for-a-patch problem —
+  typescript-eslint throws on **any** TS major >= 7, blocked upstream on
+  ESLint lacking async parser support (typescript-eslint#10940), and
+  `astro check` tracks it separately (withastro/roadmap#1321). A
+  side-by-side install does work (alias `typescript` to
+  `@typescript/typescript6` for the API, `@typescript/native` to
+  `typescript@7` for the `tsc` binary) and was tried on this repo, but it
+  was deliberately reverted: it buys a faster compiler on a codebase
+  where typecheck already runs in seconds, at the cost of two type
+  engines that can disagree — `tsc --noEmit` checking with 7.x while
+  `astro check` and type-aware ESLint check with 6.x. Revisit when both
+  tools support 7 natively and one TypeScript suffices.
+- **`compressHTML: true` in `astro.config.ts` is load-bearing — do not
+  delete it.** Astro 7 changed the default to `'jsx'`, which drops
+  whitespace-only text nodes the way React does. On these HTML templates
+  that fused rendered prose ("51 verified against 2026 sources" became
+  "51verified against 2026 sources"), ran sentences together, and joined
+  the trailing URL of the **APA citation block** into the next author's
+  name — corrupting a block readers are told to copy and paste. The pin
+  restores Astro 6 behavior. If you ever reconsider it, verify by
+  diffing *rendered text* of the built pages against the previous build,
+  not by reading the templates; the templates look fine either way.
+- **`astro preview` auto-daemonizes under an AI coding agent.** Astro 7
+  calls `am-i-vibing`, and when it detects an agent driving the terminal
+  (Claude Code sets `CLAUDECODE`) it forks the server into the
+  background and the foreground process exits at once. Playwright starts
+  the preview via `webServer` and treats its child exiting as failure,
+  so `npm run test:e2e` aborts with "Process from config.webServer
+  exited early" having run **zero** tests — a green-looking terminal
+  that tested nothing. `playwright.config.ts` sets
+  `ASTRO_PREVIEW_BACKGROUND` to opt out of the detection and keep the
+  process in the foreground; the name reads backwards ("the background
+  decision is explicit", not "run in the background"). CI never trips
+  this. If a future tool shells out to `astro preview` and appears to
+  exit instantly, this is why; `astro preview status` / `stop` manage a
+  stray daemon.
 - **Weekly external link sweep**
   (`.github/workflows/external-link-check.yml`): non-blocking,
   uploads a markdown report. Don't fail PRs on external SEA links —
