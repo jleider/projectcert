@@ -3,15 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import { SITE_URL } from "@/config/site";
 import { ROUTES, ANCHORS, withAnchor } from "@/lib/routes";
+import { LAYERS as LAYER_KEYS } from "@/lib/state-types";
+import { LAYER_LABELS } from "@/lib/legends";
 
-const layers = [
-  { value: "elPercent", label: "% classified ELs" },
-  { value: "bilingual", label: "Bilingual credential" },
-  { value: "eld", label: "ELD credential" },
-  { value: "sei", label: "SEI mandate" },
-  { value: "sealOfBiliteracy", label: "Seal of Biliteracy" },
-  { value: "elpAssessment", label: "ELP assessment" },
-];
+// Documented `?layer=` values. Derived from the layer list so a new layer
+// appears here, in the map's picker, and in its accessible name together.
+const layers = LAYER_KEYS.map((value) => ({ value, label: LAYER_LABELS[value] }));
 
 const basicSnippet = `<iframe
   src="${SITE_URL}/embed/map/"

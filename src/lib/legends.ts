@@ -64,6 +64,23 @@ export const LEGENDS: Record<Layer, LegendEntry[]> = {
   ],
 };
 
+/**
+ * Reader-facing name of each encoded variable, in display order.
+ *
+ * The single source for the layer picker, the embed-integration table, and
+ * the map's accessible name. Layer *keys* are schema identifiers and must
+ * never reach a reader (CLAUDE.md) — interpolating one into an ARIA label
+ * announced "U.S. choropleth — sealOfBiliteracy" until this existed.
+ */
+export const LAYER_LABELS: Record<Layer, string> = {
+  elPercent: "% classified ELs",
+  bilingual: "Bilingual credential",
+  eld: "ELD credential",
+  sei: "SEI mandate",
+  sealOfBiliteracy: "Seal of Biliteracy",
+  elpAssessment: "ELP assessment",
+};
+
 /** Neutral fill for states with no datum for the active layer. */
 export const NO_DATA_COLOR = "var(--bin-na)";
 

@@ -14,6 +14,10 @@ const pages: Array<{ name: string; path: string }> = [
   { name: "home", path: "/" },
   { name: "map", path: "/map/" },
   { name: "state detail (CA)", path: "/states/ca/" },
+  // The EL-percent history page is the other hand-written SVG on the site
+  // (ElPercentChart.astro, with its own focusable data points), and it is
+  // a distinct page type, so it gets its own row.
+  { name: "state el-percent history (CA)", path: "/states/ca/el-percent-history/" },
   { name: "credentials/bilingual", path: "/credentials/bilingual/" },
   { name: "about", path: "/about/" },
 ];

@@ -47,6 +47,46 @@ describe("breadcrumbList", () => {
     };
     expect(b.itemListElement[0]!.item).toBe("https://example.com/path/");
   });
+
+  it("refuses a trail that repeats a URL", () => {
+    // The real bug: a category crumb pointed at a sibling leaf, so the
+    // credential pages advertised Home > Credentials(→bilingual) > ELD and
+    // the bilingual page's positions 2 and 3 were the same page. Numbering
+    // stayed correct throughout, which is why it survived for months.
+    expect(() =>
+      breadcrumbList([
+        { name: "Credentials", url: u("https://projectcert.org/credentials/bilingual/") },
+        { name: "Bilingual", url: u("https://projectcert.org/credentials/bilingual/") },
+      ]),
+    ).toThrow(/repeats/);
+  });
+
+  it("refuses a root-relative crumb that resolves onto an absolute one", () => {
+    // "States" → "/" resolves to the same URL breadcrumbWithHome already
+    // emitted for Home; the duplicate is only visible after resolution.
+    expect(() => breadcrumbWithHome([{ name: "States", url: "/" }])).toThrow(/repeats/);
+  });
+
+  it("refuses a category crumb pointing at a sibling of the page below it", () => {
+    // The larger half of the original bug, and the half a duplicate check
+    // cannot see: /credentials/bilingual/ and /credentials/eld/ are distinct
+    // URLs, so the trail looked well-formed while advertising one credential
+    // report as the parent of another.
+    expect(() =>
+      breadcrumbWithHome([
+        { name: "Credentials", url: "/credentials/bilingual/" },
+        { name: "ELD", url: "/credentials/eld/" },
+      ]),
+    ).toThrow(/not a containment path/);
+  });
+
+  it("accepts a genuine parent → child trail", () => {
+    const b = breadcrumbWithHome([
+      { name: "California", url: u("https://projectcert.org/states/ca/") },
+      { name: "Classified-EL share over time", url: u("https://projectcert.org/states/ca/el-percent-history/") },
+    ]) as { itemListElement: Array<{ position: number }> };
+    expect(b.itemListElement).toHaveLength(3);
+  });
 });
 
 describe("breadcrumbWithHome", () => {

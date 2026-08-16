@@ -501,9 +501,11 @@ DOI, Wayback snapshots, and outreach.
   secret. `docs/audit-setup.md` is canonical for the console's auth.
 - **`ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` must be set together.** The
   middleware treats Access as configured only when **both** are
-  non-empty, so a half-filled `[vars]` block silently leaves the console
-  on the shared-login path instead of failing loudly. Set both in one
-  commit.
+  non-empty, and there is no second credential path to fall back to, so a
+  half-filled `[vars]` block fails closed: every request to `/audit` and
+  `/api` answers 500 until it is completed. Set both in one commit. (The
+  shared login that once served as that fallback is gone — see the
+  removal note above; do not reintroduce one.)
 - **D1 migrations are append-only once production exists.** While the
   console was pre-release, `schema/d1/0001_init.sql` could be edited and
   the local DB reset. After the first `--remote` apply, every schema

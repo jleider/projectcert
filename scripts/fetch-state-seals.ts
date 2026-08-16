@@ -1,7 +1,21 @@
 /**
  * Fetch official state seals from Wikimedia Commons into
- * `public/seals/<usps>.svg`. Run once locally, then commit. Re-run
- * to refresh.
+ * `public/seals/<usps>.svg`. Run once locally, then commit.
+ *
+ *   tsx scripts/fetch-state-seals.ts                  # fill in what is missing
+ *   tsx scripts/fetch-state-seals.ts --force          # re-download all 51
+ *   tsx scripts/fetch-state-seals.ts --only CT,MD     # re-download two
+ *
+ * A bare run only fills gaps: with all 51 seals committed it downloads
+ * nothing, which is the right default but is NOT a refresh. Refreshing
+ * needs `--force` (optionally narrowed with `--only`), because the
+ * gap-filling skip used to be unconditional and a maintainer following
+ * the documented "re-run to refresh" got a silent no-op and kept shipping
+ * the stale artwork.
+ *
+ * `--force` overwrites local edits. A few seals (CT most visibly) are
+ * portrait by official design and have had their `viewBox` padded to a
+ * square by hand — see CLAUDE.md. Re-pad those after a forced refresh.
  *
  * Wikimedia Commons hosts public-domain SVGs of every state seal +
  * DC; the URLs below are the file pages, which we resolve to the
@@ -13,7 +27,7 @@
  * page URL it came from for attribution.
  */
 
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -124,15 +138,31 @@ async function downloadOne(usps: string, commonsTitle: string): Promise<void> {
   console.log(`✓ ${usps} (${commonsTitle})`);
 }
 
-import { existsSync } from "node:fs";
+const force = process.argv.includes("--force");
+const onlyArg = process.argv[process.argv.indexOf("--only") + 1];
+const only =
+  process.argv.includes("--only") && onlyArg
+    ? new Set(
+        onlyArg
+          .split(",")
+          .map((s) => s.trim().toUpperCase())
+          .filter(Boolean),
+      )
+    : null;
 
-const entries = Object.entries(SEALS);
+const unknown = only ? [...only].filter((usps) => !(usps in SEALS)) : [];
+if (unknown.length > 0) {
+  console.error(`Unknown USPS code(s) in --only: ${unknown.join(", ")}`);
+  process.exit(2);
+}
+
+const entries = Object.entries(SEALS).filter(([usps]) => !only || only.has(usps));
 let ok = 0;
 let skip = 0;
 let fail = 0;
 for (const [usps, title] of entries) {
   const target = resolve(OUT_DIR, `${usps.toLowerCase()}.svg`);
-  if (existsSync(target)) {
+  if (!force && existsSync(target)) {
     skip++;
     continue;
   }
@@ -158,3 +188,6 @@ for (const [usps, title] of entries) {
   await new Promise((r) => setTimeout(r, 800));
 }
 console.log(`\nDone: ${ok} ok, ${skip} skipped (already downloaded), ${fail} failed.`);
+if (skip === entries.length && entries.length > 0) {
+  console.log("Nothing was downloaded. Pass --force to re-download seals that already exist.");
+}

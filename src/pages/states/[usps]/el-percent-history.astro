@@ -45,8 +45,9 @@ const title = `${s.name}: classified-EL share over time | projectcert`;
 const description = `Annual share of public-school students classified as English Learners in ${s.name}, ${history[0]?.date.slice(0, 4) ?? ""}–${history[history.length - 1]?.date.slice(0, 4) ?? ""}.`;
 
 const jsonLd = [
+  // No `/states/` index page exists; the home page is the state list, so a
+  // separate "States" crumb would resolve to the same URL as Home.
   breadcrumbWithHome([
-    { name: "States", url: ROUTES.home },
     { name: s.name, url: stateAbs },
     { name: "Classified-EL share over time", url: pageAbs },
   ]),

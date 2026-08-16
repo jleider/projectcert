@@ -3,10 +3,15 @@
  * snapshot of every state's record as plain markdown, suitable for LLM
  * retrieval / RAG ingestion.
  *
- * The output mirrors the per-state page summaries derived from the
- * same `lib/state-summary.ts` helpers used by the site, so what an LLM
- * scrapes here is identical to what a human reader sees on the page —
- * no divergence between the prose layer and the AI-facing layer.
+ * The lead sentence comes from `leadParagraph` in `lib/state-summary.ts`
+ * — the same call `/states/<usps>/` makes — so what an LLM scrapes here is
+ * byte-identical to what a human reader sees on the page. This file used
+ * to re-implement those clauses instead of importing them, and the copies
+ * drifted: the site reserved the word "verified" for records an authorized
+ * reviewer had signed off, while this dump kept asserting "Re-verified
+ * against current SEA sources" for every record and omitted the reviewer
+ * sentence entirely. Add prose here only when the site has no counterpart
+ * for it (`elpClause` / `sealClause` below); otherwise import it.
  *
  * Run as part of the build (see package.json prebuild hook). Idempotent.
  */
@@ -15,16 +20,19 @@ import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SITE_URL } from "../src/config/site";
+import { leadParagraph, type StateSummaryData } from "../src/lib/state-summary";
+import { absoluteElPercentHistoryUrl, absoluteStateUrl } from "../src/lib/state-types";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATES_DIR = resolve(__dirname, "../src/content/states");
 const OUT_PATH = resolve(__dirname, "../public/llms-full.txt");
 
-interface State {
-  usps: string;
-  name: string;
-  elPercent: number;
-  elPercentAsOf: string;
+/**
+ * Extends the summary helpers' input with the fields only this dump
+ * renders (notes, history, the ELP/Seal detail lines), so one record
+ * satisfies both.
+ */
+interface State extends StateSummaryData {
   credentials: {
     bilingual: {
       offered: boolean;
@@ -42,37 +50,12 @@ interface State {
   };
   sealOfBiliteracy: { adopted: boolean | null; year: number | null };
   elpAssessment: { name: string; consortium: "WIDA" | "ELPA21" | null };
-  lastVerified: string;
-  verificationStatus: "baseline-2019" | "in-progress" | "verified-2026";
   history?: Array<{ date: string; title: string; description: string }>;
   elPercentHistory?: Array<{
     date: string;
     percent: number;
     source: { label: string; url: string };
   }>;
-}
-
-function bilingualClause(s: State): string {
-  const b = s.credentials.bilingual;
-  if (!b.offered) return "does not offer a bilingual education credential";
-  if (b.standalone && b.addOn)
-    return "offers Bilingual Education both as a standalone certification and as an add-on endorsement";
-  if (b.standalone) return "offers a standalone Bilingual Education certification";
-  return "offers Bilingual Education as an add-on endorsement";
-}
-
-function eldClause(s: State): string {
-  const e = s.credentials.eld;
-  if (!e.offered) return "does not offer an ELD/ESL credential";
-  if (e.standalone && e.addOn) return "ELD/ESL is available both as a standalone license and as an add-on endorsement";
-  if (e.standalone) return "ELD/ESL is a standalone teaching license";
-  return "ELD/ESL is an add-on endorsement";
-}
-
-function seiClause(s: State): string {
-  return s.credentials.sei.mandatedForAllTeachers
-    ? "SEI training is mandated for all teachers"
-    : "SEI training is not mandated for all teachers";
 }
 
 function elpClause(s: State): string {
@@ -90,31 +73,17 @@ function sealClause(s: State): string {
   return "Seal of Biliteracy adoption status unverified.";
 }
 
-function verificationClause(s: State): string {
-  switch (s.verificationStatus) {
-    case "verified-2026":
-      return `Re-verified against current SEA sources on ${s.lastVerified}.`;
-    case "in-progress":
-      return `Re-verification against current SEA sources is in progress.`;
-    case "baseline-2019":
-      return `Coding from the 2019 Leider et al. baseline; not yet re-verified against current SEA sources.`;
-  }
-}
-
 function renderState(s: State): string {
   const lines: string[] = [];
   lines.push(`## ${s.name} (${s.usps})`);
   lines.push("");
-  const stateUrl = `${SITE_URL}/states/${s.usps.toLowerCase()}/`;
-  lines.push(`URL: ${stateUrl}`);
+  lines.push(`URL: ${absoluteStateUrl(SITE_URL, s.usps)}`);
   if (s.elPercentHistory && s.elPercentHistory.length > 0) {
-    lines.push(`EL-percent history page: ${stateUrl}el-percent-history/`);
+    lines.push(`EL-percent history page: ${absoluteElPercentHistoryUrl(SITE_URL, s.usps)}`);
   }
   lines.push(`Last verified: ${s.lastVerified} (${s.verificationStatus})`);
   lines.push("");
-  lines.push(
-    `${s.name} ${bilingualClause(s)}; ${eldClause(s)}. ${seiClause(s)}. As of ${s.elPercentAsOf.slice(0, 4)}, ${s.elPercent.toFixed(1)}% of public-school students are classified English Learners (NCES). ${verificationClause(s)}`,
-  );
+  lines.push(leadParagraph(s));
   lines.push("");
   lines.push(`- ${elpClause(s)}`);
   lines.push(`- ${sealClause(s)}`);
@@ -158,7 +127,10 @@ const files = readdirSync(STATES_DIR)
 const states: State[] = files.map((f) => JSON.parse(readFileSync(join(STATES_DIR, f), "utf8")));
 states.sort((a, b) => a.name.localeCompare(b.name));
 
-const verifiedCount = states.filter((s) => s.verificationStatus === "verified-2026").length;
+// Counts the source check, not reviewer sign-off — the site reserves the
+// word "verified" for records an authorized reviewer has confirmed, and
+// this header must not claim more than the per-state sentences below do.
+const sourcesCheckedCount = states.filter((s) => s.verificationStatus === "verified-2026").length;
 // Derive the snapshot date from the data, not the build clock, so the
 // generated file is deterministic — rebuilding only changes it when the
 // underlying records change. It is the most recent per-state
@@ -174,7 +146,7 @@ const header = `# projectcert — full state data (LLM-readable snapshot)
 > per-state pages.
 
 Snapshot generated: ${snapshotDate}
-States verified against current SEA sources: ${verifiedCount} / ${states.length}
+States checked against current SEA sources: ${sourcesCheckedCount} / ${states.length}
 License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 Seed data: Leider, Colombo & Nerlino (2021), EPAA 29(100) — https://doi.org/10.14507/epaa.29.5279
 Canonical site: ${SITE_URL}/
@@ -205,4 +177,4 @@ include the \`lastVerified\` date as the as-of date for the claim.
 const body = states.map(renderState).join("\n");
 
 writeFileSync(OUT_PATH, header + body);
-console.log(`Wrote ${OUT_PATH} (${states.length} states, verified ${verifiedCount}/${states.length}).`);
+console.log(`Wrote ${OUT_PATH} (${states.length} states, sources checked ${sourcesCheckedCount}/${states.length}).`);

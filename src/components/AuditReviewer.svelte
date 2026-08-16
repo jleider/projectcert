@@ -100,12 +100,19 @@
     return d.sourceUrls.slice(0, 1);
   }
 
-  function isStale(d: Datapoint): boolean {
-    const v = verifications[d.id];
+  /** Confirmed, but against a value that has since changed. `vers` is passed
+   *  in (not read from the closure) so every expression calling this names
+   *  `verifications` syntactically — Svelte tracks the identifiers it sees in
+   *  a statement, never the state a called function reads internally, so a
+   *  bare `isStale(d)` would compute once and then go stale itself. */
+  function isStale(d: Datapoint, vers: Record<string, VerificationRow>): boolean {
+    const v = vers[d.id];
     return Boolean(v) && v!.content_hash !== d.contentHash;
   }
-  function isBroken(d: Datapoint): boolean {
-    return (broken[d.id]?.length ?? 0) > 0;
+  /** A cited source for this datapoint is unreachable. `brk` is passed in for
+   *  the same dependency-tracking reason as above. */
+  function isBroken(d: Datapoint, brk: Record<string, BrokenRow[]>): boolean {
+    return (brk[d.id]?.length ?? 0) > 0;
   }
 
   /** The reviewer's confirmed source is no longer offered as a candidate —
@@ -124,17 +131,16 @@
     return confirmedSourceLapsed(attr[d.id], candidates);
   }
 
-  // Inline the predicate (rather than calling isCurrent) so Svelte sees
-  // `verifications`, `broken`, `attributions` and `added` as dependencies
-  // of this reactive statement — a bare isCurrent() call hides those reads
-  // inside a function, so the count would never recompute when a checkbox
-  // toggles. `isLapsed` is called with its state passed in for the same
-  // reason: the identifiers appear here, so the read is visible.
+  // Every predicate takes its state as an argument, so `verifications`,
+  // `broken`, `attributions` and `added` all appear as identifiers in this
+  // statement and Svelte tracks them. Calling a predicate that reads them
+  // from the closure instead would hide the read inside a function, and the
+  // count would never recompute when a checkbox toggles.
   $: verifiedCount = datapoints.filter(
     (d) =>
       Boolean(verifications[d.id]) &&
-      verifications[d.id]!.content_hash === d.contentHash &&
-      (broken[d.id]?.length ?? 0) === 0 &&
+      !isStale(d, verifications) &&
+      !isBroken(d, broken) &&
       !isLapsed(d, attributions, added),
   ).length;
   $: pct = datapoints.length > 0 ? Math.round((verifiedCount / datapoints.length) * 100) : 0;
@@ -414,8 +420,8 @@
         <ul class="mt-3 space-y-3">
           {#each group.items as d (d.id)}
             {@const checkedNow = Boolean(verifications[d.id])}
-            {@const stale = isStale(d)}
-            {@const brk = isBroken(d)}
+            {@const stale = isStale(d, verifications)}
+            {@const brk = isBroken(d, broken)}
             {@const lapsed = checkedNow && isLapsed(d, attributions, added)}
             <li class="rounded border border-ink-subtle/20 p-3">
               <div class="flex items-start gap-3">

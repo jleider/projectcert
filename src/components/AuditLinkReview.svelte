@@ -21,7 +21,8 @@
   type Decision = "pending" | "accepted" | "dead";
 
   let loading = true;
-  let offline = false;
+  let offline = false; // set only when the initial load fails (read-only mode)
+  let actionError = ""; // a single failed write — surfaced inline, stays interactive
   let reviews: ReviewRow[] = [];
   let busy: Record<string, boolean> = {};
 
@@ -45,6 +46,7 @@
   async function setDecision(row: ReviewRow, decision: Decision) {
     if (offline || busy[row.url]) return;
     busy = { ...busy, [row.url]: true };
+    actionError = "";
     try {
       const res = await fetch(`/api/link-reviews`, {
         method: "POST",
@@ -67,7 +69,13 @@
           : r,
       );
     } catch {
-      offline = true;
+      // One dropped write is not the service going away: the queue loaded
+      // fine and every other row is still actionable. Flipping `offline`
+      // here would disable every Accept and Revert button until a reload.
+      actionError =
+        decision === "accepted"
+          ? "Could not accept this URL — check your connection and retry."
+          : "Could not revert this URL — check your connection and retry.";
     } finally {
       busy = { ...busy, [row.url]: false };
     }
@@ -82,6 +90,20 @@
       <p class="rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink">
         The review service is unavailable, so decisions cannot be saved.
       </p>
+    {/if}
+
+    {#if actionError}
+      <div
+        class="flex items-start justify-between gap-3 rounded border border-ink-subtle/30 bg-surface-warn p-3 text-sm text-ink"
+      >
+        <span>{actionError}</span>
+        <button
+          type="button"
+          class="shrink-0 text-ink-subtle hover:text-accent"
+          aria-label="Dismiss"
+          on:click={() => (actionError = "")}>×</button
+        >
+      </div>
     {/if}
 
     <section>

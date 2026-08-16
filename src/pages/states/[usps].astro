@@ -65,10 +65,9 @@ const stateJsonLd = [
       "EL teacher certification",
     ],
   },
-  breadcrumbWithHome([
-    { name: "States", url: ROUTES.home },
-    { name: s.name, url: stateUrl },
-  ]),
+  // No `/states/` index page exists; the home page is the state list, so a
+  // separate "States" crumb would resolve to the same URL as Home.
+  breadcrumbWithHome([{ name: s.name, url: stateUrl }]),
 ];
 ---
 
@@ -141,11 +140,16 @@ const stateJsonLd = [
 
     <div class="mt-4 grid md:grid-cols-2 gap-4">
       <CredentialPanel
+        headingId="bilingual-heading"
         title={localNames?.bilingual ?? "Bilingual education"}
         credential={s.credentials.bilingual}
         showLanguage={true}
       />
-      <CredentialPanel title={localNames?.eld ?? "English Language Development (ELD)"} credential={s.credentials.eld} />
+      <CredentialPanel
+        headingId="eld-heading"
+        title={localNames?.eld ?? "English Language Development (ELD)"}
+        credential={s.credentials.eld}
+      />
     </div>
 
     <section class="mt-6 rounded border border-ink-subtle/20 p-4" aria-labelledby="sei-heading">
@@ -182,7 +186,7 @@ const stateJsonLd = [
         </p>
         <p class="mt-2 text-xs text-ink-subtle">
           Source: <ExternalLink href={s.sealOfBiliteracy.sourceUrl} class="text-accent hover:underline"
-            >sealofbiliteracy.org</ExternalLink
+            >{new URL(s.sealOfBiliteracy.sourceUrl).hostname}</ExternalLink
           >
         </p>
       </section>

@@ -94,9 +94,16 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
 
 <figure class="mt-6" aria-describedby={captionId}>
   <div class="relative rounded border border-ink-subtle/20 bg-surface p-4" data-el-chart>
+    {
+      /* role="group" (not "img"): the chart's data points are focusable
+        controls, so this is a labelled group of controls rather than a
+        single static graphic. role="img" declares one indivisible image
+        and makes its descendants presentational, which contradicts the
+        32 announced buttons inside it. Same rule as Choropleth.svelte. */
+    }
     <svg
       viewBox={`0 0 ${VB_W} ${VB_H}`}
-      role="img"
+      role="group"
       aria-label={`Line chart: classified-EL share of public-school enrollment in ${stateName}, ${yMin}–${yMax}.`}
       class="block w-full h-auto"
     >
@@ -197,7 +204,11 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
 
         {
           /* Hit targets — larger transparent circles for easier hover/focus.
-            Rendered last so they sit on top and capture pointer events. */
+            Rendered last so they sit on top and capture pointer events.
+            role="button" is honest only because the script binds Enter and
+            Space as well as focus: a focusable element announced as a
+            button that does nothing on activation strands keyboard and
+            screen-reader users who press the key the role promised. */
         }
         {
           data.map((d) => {
@@ -377,6 +388,15 @@ const captionId = `el-chart-caption-${stateName.replace(/\s+/g, "-").toLowerCase
       hit.addEventListener("mouseleave", hide);
       hit.addEventListener("focus", () => show(hit));
       hit.addEventListener("blur", hide);
+      // Enter / Space re-show the reading for the focused point. Focus
+      // already reveals it, but a control announced as a button must
+      // respond to the keys that activate a button.
+      hit.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          show(hit);
+        }
+      });
     });
 
     // Esc dismisses the tooltip when focus is on a hit target.
