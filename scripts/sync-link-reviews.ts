@@ -47,7 +47,9 @@ const pending = (report.results ?? []).filter((r) => r.classification === "needs
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`;
 
-const lines: string[] = ["BEGIN TRANSACTION;"];
+// No BEGIN TRANSACTION / COMMIT — D1 rejects explicit SQL transactions and
+// fails the entire file. See the note in sync-broken-links.ts.
+const lines: string[] = [];
 
 if (pending.length === 0) {
   lines.push("DELETE FROM link_reviews WHERE decision = 'pending';");
@@ -70,7 +72,5 @@ if (pending.length === 0) {
     );
   }
 }
-lines.push("COMMIT;");
-
 writeFileSync(outPath, lines.join("\n") + "\n");
 console.log(`Wrote ${outPath}: ${pending.length} pending bot-blocked URLs.`);

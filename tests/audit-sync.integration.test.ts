@@ -76,6 +76,32 @@ describe("sync-broken-links.ts", () => {
     expect(rows.find((r) => r.datapoint_id === "sources")!.detected_at).toBe("2026-01-01");
   });
 
+  // D1 rejects explicit SQL transactions outright and fails the whole file,
+  // so a BEGIN/COMMIT wrapper meant none of the statements ran. Every other
+  // test here executes this SQL against node:sqlite, which accepts
+  // transactions happily — the generated SQL therefore looked correct in
+  // tests while never once reaching production. Assert on the text, because
+  // the local engine cannot reproduce the remote's objection.
+  it("emits no explicit transaction statements, which D1 refuses", () => {
+    for (const script of ["scripts/sync-broken-links.ts", "scripts/sync-link-reviews.ts"]) {
+      for (const results of [
+        [],
+        [{ url: "https://dead", citations: ["CA / sources[2]"], status: 404, classification: "client-error" }],
+        [{ url: "https://blocked", citations: ["CA / sources[3]"], status: 403, classification: "needs-review" }],
+      ]) {
+        const dir = tmp();
+        const input = join(dir, "links.json");
+        const out = join(dir, "out.sql");
+        writeFileSync(input, JSON.stringify({ results }));
+        run(script, ["--input", input, "--out", out]);
+        const sql = readFileSync(out, "utf8");
+        expect(sql).not.toMatch(/\bBEGIN\s+TRANSACTION\b/i);
+        expect(sql).not.toMatch(/\bCOMMIT\b/i);
+        expect(sql).not.toMatch(/\bSAVEPOINT\b/i);
+      }
+    }
+  });
+
   // The weekly workflow captured `npm run check:links -- --json > links.json`,
   // which prefixes npm's own banner lines to the JSON. Both sync scripts
   // used a bare JSON.parse and threw on it, under continue-on-error — so the

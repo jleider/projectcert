@@ -75,6 +75,9 @@ jobs:
         run: |
           npm run --silent check:links > link-report.md || true
           npm run --silent check:links -- --json > /tmp/links.json || true
+          # `github.run_started_at` renders empty on a dispatched run, which
+          # left the subject ending in a bare dash. Stamp the date here.
+          echo "REPORT_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
 
       - name: Upload cited-source report
         uses: actions/upload-artifact@v7
@@ -138,7 +141,7 @@ jobs:
           # SMTP_FROM for those; leave it unset for Gmail.
           from: projectcert link audit <${{ secrets.SMTP_FROM || secrets.SMTP_USERNAME }}>
           to: ${{ inputs.test_recipient || secrets.LINK_REPORT_RECIPIENTS }}
-          subject: "${{ inputs.test_recipient != '' && '[test] ' || '' }}projectcert cited-source link audit — ${{ github.run_started_at }}"
+          subject: "${{ inputs.test_recipient != '' && '[test] ' || '' }}projectcert cited-source link audit — ${{ env.REPORT_DATE }}"
           body: file://link-report.md
           # The report is markdown; render it so the tables and per-URL
           # lists arrive readable rather than as raw pipes and asterisks.
