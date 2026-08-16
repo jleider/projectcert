@@ -105,22 +105,55 @@ export default [
     },
   },
   {
-    // Prevent bare-string internal hrefs on <a>. Every internal route
-    // must come from ROUTES / ANCHORS / stateUrl in @/lib/routes (and
-    // @/lib/state-types) so a renamed page surfaces as a typecheck
-    // failure rather than a silent broken link.
+    // Every internal route must come from ROUTES / ANCHORS in @/lib/routes
+    // or the per-state helpers in @/lib/state-types, so a renamed page
+    // surfaces as a typecheck failure rather than a silent broken link.
     //
-    // Permitted: external URLs (`https://`, `mailto:`, `tel:`),
-    // template literals, and JSX expressions resolving to a Route /
-    // LinkUrl. Forbidden: literal "/foo/" or "#anchor" strings.
-    files: ["**/*.astro", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    // All three selectors live in ONE config object on purpose: flat config
+    // REPLACES a rule's options rather than merging them, so a second block
+    // setting `no-restricted-syntax` for an overlapping glob silently
+    // disables the selectors declared in the first.
+    //
+    // Exempted: @/lib/state-types.ts is where the per-state path helpers are
+    // defined, and the build-check scripts assert against built output paths
+    // rather than linking to them.
+    files: ["**/*.astro", "**/*.svelte", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    ignores: ["src/lib/state-types.ts", "scripts/**", "tests/**"],
     rules: {
       "no-restricted-syntax": [
         "error",
         {
+          // Astro/JSX markup. Permitted: external URLs (`https://`,
+          // `mailto:`, `tel:`) and expressions resolving to a Route /
+          // LinkUrl. Forbidden: literal "/foo/" or "#anchor" strings.
           selector: "JSXOpeningElement[name.name='a'] > JSXAttribute[name.name='href'] > Literal[value=/^[/#]/u]",
           message:
             "Bare-string href on <a>. Use href={ROUTES.x} or href={sameAnchor(ANCHORS.x)} from @/lib/routes; per-state URLs come from stateUrl(usps).",
+        },
+        {
+          // The same rule for Svelte islands, whose markup parses to
+          // SvelteElement/SvelteAttribute rather than JSX — so the selector
+          // above never saw them, and every hand-built href inside an island
+          // went unguarded.
+          //
+          // `/` rather than a literal `/`: esquery ends an attribute
+          // regex at the first unescaped slash, even inside a character
+          // class, so `/^[/#]/u` compiles but matches nothing.
+          selector:
+            "SvelteElement[name.name='a'] > SvelteStartTag > SvelteAttribute[key.name='href'] > SvelteLiteral[value=/^[\\u002F#]/u]",
+          message:
+            "Bare-string href on <a>. Use href={ROUTES.x} from @/lib/routes; per-state URLs come from stateUrl(usps) in @/lib/state-types.",
+        },
+        {
+          // The other half of the same bug: a template literal assembling an
+          // internal path. The two selectors above only see string literals,
+          // so `` `/states/${usps}/` `` slipped past them in every file type
+          // — which is how Compare.svelte came to hand-build one in defiance
+          // of CLAUDE.md.
+          selector:
+            "TemplateLiteral > TemplateElement:first-child[value.raw=/^\\u002F(states|audit|credentials)\\u002F/u]",
+          message:
+            "Hand-built internal path. Use stateUrl / elPercentHistoryUrl / auditStateUrl from @/lib/state-types, or ROUTES from @/lib/routes — never concatenate the path, and never cast the result `as LinkUrl`.",
         },
       ],
     },

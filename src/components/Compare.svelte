@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { stateUrl } from "@/lib/state-types";
+
   interface CompareState {
     usps: string;
     name: string;
@@ -246,7 +248,7 @@
             <th scope="col" class="px-3 py-2 font-semibold text-ink min-w-[18rem]">Requirement</th>
             {#each chosen as s (s.usps)}
               <th scope="col" class="px-3 py-2 font-semibold text-ink">
-                <a class="text-accent hover:underline" href={`/states/${s.usps.toLowerCase()}/`}>{s.name}</a>
+                <a class="text-accent hover:underline" href={stateUrl(s.usps)}>{s.name}</a>
               </th>
             {/each}
           </tr>
