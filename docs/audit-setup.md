@@ -171,6 +171,28 @@ secrets:
 
 Both sync workflows skip gracefully when the secrets are absent.
 
+To have the weekly sweep email its cited-source report, also add:
+
+- `LINK_REPORT_RECIPIENTS` — comma-separated addresses.
+- `SMTP_SERVER`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`.
+
+The send step stays inert until the recipients and `SMTP_SERVER` are both
+set; the report uploads as a run artifact either way.
+
+**The recipient list is a secret, not a variable, and must stay one.**
+This repository is public, so its Actions logs are world-readable, and a
+step's `with:` block prints the values it receives — a variable would put
+every reviewer's address in a public log on a weekly schedule. Secret
+values are masked as `***` and cannot be read back out of the settings UI.
+The same reasoning applies to any future recipient list: personal data
+belongs in secrets even when it is not a credential.
+
+A step-level `if` cannot read the `secrets` context, so both guarded
+secrets are mapped into the job's `env` block and the guards test `env.*`.
+That indirection is why the mapping exists; do not "simplify" it back to
+`secrets.*` in the `if`, which silently evaluates to empty and disables
+the step.
+
 **The nightly sync also needs Actions permitted to open pull requests.**
 `peter-evans/create-pull-request` fails with "GitHub Actions is not
 permitted to create or approve pull requests" unless **Settings → Actions →
