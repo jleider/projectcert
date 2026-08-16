@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { linkStatusLabel } from "@/lib/audit-shared";
 
   interface ReviewRow {
     url: string;
@@ -96,7 +97,7 @@
                     rel="noopener noreferrer">{row.url}</a
                   >
                   <div class="mt-1 text-xs text-ink-subtle">
-                    Status {row.status ?? row.classification} · first seen {row.first_seen.slice(0, 10)}
+                    {linkStatusLabel(row.status)} · first seen {row.first_seen.slice(0, 10)}
                   </div>
                   {#if row.citations.length > 0}
                     <ul class="mt-1 text-xs text-ink-muted">

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { linkStatusLabel } from "@/lib/audit-shared";
 
   interface StateRef {
     usps: string;
@@ -230,7 +231,7 @@
                 <span class="text-ink-subtle"> · {link.datapoint_id}</span>
               </div>
               <div class="mt-1 break-all text-ink-muted">{link.url}</div>
-              <div class="mt-1 text-xs text-ink-subtle">{link.status ?? link.classification}</div>
+              <div class="mt-1 text-xs text-ink-subtle">{linkStatusLabel(link.status)}</div>
             </li>
           {/each}
         </ul>
