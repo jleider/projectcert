@@ -7,7 +7,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
@@ -27,6 +27,15 @@ function tmp(): string {
 }
 function run(script: string, args: string[]) {
   return execFileSync(tsx, [script, ...args], { encoding: "utf8" });
+}
+/** Run a script expected to exit non-zero; returns its stderr. */
+function runFailing(script: string, args: string[]): string {
+  try {
+    execFileSync(tsx, [script, ...args], { encoding: "utf8", stdio: "pipe" });
+  } catch (err) {
+    return String((err as { stderr?: string }).stderr ?? "");
+  }
+  throw new Error(`${script} was expected to exit non-zero`);
 }
 function freshDb(): DatabaseSync {
   const db = new DatabaseSync(":memory:");
@@ -213,6 +222,59 @@ describe("sync-link-reviews.ts", () => {
         first_seen: "2026-01-01",
       },
     ]);
+  });
+
+  it("refuses to write SQL when a degraded sweep regresses most of the accepted set", () => {
+    // A runner that loses DNS reports every URL as a network error, which
+    // differs from the status each was accepted at, so every accepted URL
+    // classifies as needs-review at once. Applying that reconcile would
+    // clear every reviewer decision in the table and the next nightly sync
+    // would publish an empty whitelist. The run must abort instead.
+    const dir = tmp();
+    const input = join(dir, "links.json");
+    const whitelist = join(dir, "whitelist.json");
+    const out = join(dir, "lr.sql");
+    const urls = ["https://a.gov", "https://b.gov", "https://c.gov", "https://d.gov"];
+
+    writeFileSync(whitelist, JSON.stringify(Object.fromEntries(urls.map((url) => [url, { status: 403 }]))));
+    writeFileSync(
+      input,
+      JSON.stringify({
+        results: urls.map((url) => ({ url, citations: [], status: null, classification: "needs-review" })),
+      }),
+    );
+
+    const stderr = runFailing("scripts/sync-link-reviews.ts", [
+      "--input",
+      input,
+      "--out",
+      out,
+      "--whitelist",
+      whitelist,
+    ]);
+    expect(stderr).toMatch(/Refusing to reconcile/);
+    expect(existsSync(out)).toBe(false);
+  });
+
+  it("still reconciles when only part of the accepted set regresses", () => {
+    // One or two URLs changing status is ordinary link rot, and re-flagging
+    // those is the whole point of the sweep — the guard must not swallow it.
+    const dir = tmp();
+    const input = join(dir, "links.json");
+    const whitelist = join(dir, "whitelist.json");
+    const out = join(dir, "lr.sql");
+    const urls = ["https://a.gov", "https://b.gov", "https://c.gov", "https://d.gov"];
+
+    writeFileSync(whitelist, JSON.stringify(Object.fromEntries(urls.map((url) => [url, { status: 403 }]))));
+    writeFileSync(
+      input,
+      JSON.stringify({
+        results: [{ url: "https://a.gov", citations: [], status: 500, classification: "needs-review" }],
+      }),
+    );
+
+    run("scripts/sync-link-reviews.ts", ["--input", input, "--out", out, "--whitelist", whitelist]);
+    expect(readFileSync(out, "utf8")).toMatch(/INSERT INTO link_reviews/);
   });
 });
 

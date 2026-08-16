@@ -14,10 +14,40 @@
  * appear here — the upsert resets it to `pending` (re-flag), clearing the
  * stale acceptance. Pending rows no longer in the needs-review set
  * (recovered to 2xx, or now a definitive 4xx-gone) are removed.
+ *
+ * That re-flag is correct per URL and catastrophic in bulk. A degraded
+ * sweep — the runner loses DNS, a proxy intercepts everything, a whole
+ * network path fails — makes every request return a status that differs
+ * from the one it was accepted at, so every accepted URL classifies as
+ * `needs-review` at once and the upsert clears every reviewer decision in
+ * the table. The next nightly sync then publishes an empty whitelist, and
+ * the acceptances (which is to say, the human review work) are gone.
+ * `--max-regression` guards that: when an implausible share of the
+ * accepted set regresses in a single sweep, this exits non-zero without
+ * writing SQL, so the reconcile is skipped rather than applied. The weekly
+ * workflow runs the step under `continue-on-error`, so a skip is a no-op
+ * and the following sweep reconciles normally once the network recovers.
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { parseCheckerReport } from "../src/lib/audit-shared";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const WHITELIST_PATH = resolve(__dirname, "../src/data/link-whitelist.json");
+
+/**
+ * Share of the accepted set that may regress to needs-review in one sweep
+ * before the reconcile is treated as degraded rather than real. Genuine
+ * regressions arrive a URL or two at a time; a host-wide change large
+ * enough to trip this is worth a human looking before every acceptance is
+ * discarded.
+ */
+const DEFAULT_MAX_REGRESSION = 0.5;
+
+/** Below this many accepted URLs, a ratio is noise — check nothing. */
+const MIN_ACCEPTED_FOR_CHECK = 4;
 
 function argValue(flag: string): string | null {
   const i = process.argv.indexOf(flag);
@@ -44,6 +74,34 @@ const report = parseCheckerReport(readFileSync(inputPath, "utf8")) as {
 const seenAt = argValue("--seen-at") ?? new Date().toISOString();
 
 const pending = (report.results ?? []).filter((r) => r.classification === "needs-review");
+
+/** URLs a reviewer has accepted, as published by the nightly sync. */
+function loadAcceptedUrls(): Set<string> {
+  const path = argValue("--whitelist") ?? WHITELIST_PATH;
+  try {
+    return new Set(Object.keys(JSON.parse(readFileSync(path, "utf8")) as Record<string, unknown>));
+  } catch {
+    return new Set();
+  }
+}
+
+const acceptedUrls = loadAcceptedUrls();
+if (acceptedUrls.size >= MIN_ACCEPTED_FOR_CHECK) {
+  const maxRegression = Number(argValue("--max-regression") ?? DEFAULT_MAX_REGRESSION);
+  const regressed = pending.filter((r) => acceptedUrls.has(r.url)).length;
+  const ratio = regressed / acceptedUrls.size;
+  if (ratio > maxRegression) {
+    console.error(
+      `Refusing to reconcile: ${regressed} of ${acceptedUrls.size} accepted URLs ` +
+        `(${Math.round(ratio * 100)}%) regressed to needs-review in one sweep, above the ` +
+        `${Math.round(maxRegression * 100)}% ceiling. This is the shape of a degraded run ` +
+        `(no DNS, an intercepting proxy, a dead network path), not of real link rot. ` +
+        `No SQL was written, so every reviewer acceptance is preserved. Re-run the sweep; ` +
+        `pass --max-regression 1 to apply it anyway once the regressions are confirmed real.`,
+    );
+    process.exit(1);
+  }
+}
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`;
 
