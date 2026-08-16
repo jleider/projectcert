@@ -144,22 +144,28 @@ secrets:
 
 Both sync workflows skip gracefully when the secrets are absent.
 
-**The nightly sync also needs Actions permitted to open pull requests, and
-currently is not.** `repos/:owner/:repo/actions/permissions/workflow`
-reports `can_approve_pull_request_reviews: false`, which is the API face of
-**Settings → Actions → General → Allow GitHub Actions to create and approve
-pull requests**. With it off, `peter-evans/create-pull-request` fails with
-"GitHub Actions is not permitted to create or approve pull requests".
+**The nightly sync also needs Actions permitted to open pull requests.**
+`peter-evans/create-pull-request` fails with "GitHub Actions is not
+permitted to create or approve pull requests" unless **Settings → Actions →
+General → Allow GitHub Actions to create and approve pull requests** is on.
+This was off and has been enabled (2026-08-16); confirm with:
 
-This is latent rather than active: while the D1 tables are empty the export
-rewrites `{}` over `{}`, produces no diff, and the action opens nothing. It
-starts failing the first time a reviewer actually confirms a datapoint —
-that is, exactly when the console begins to be used. Either enable the
-setting before then, or give the workflow a token that can open a PR.
+```sh
+gh api repos/jleider/projectcert/actions/permissions/workflow
+# → {"default_workflow_permissions":"read","can_approve_pull_request_reviews":true}
+```
 
-Enabling it also lets Actions *approve* pull requests, which is the reason
-the setting is off by default; if that matters, require a human review in
-branch protection rather than leaving the sync broken.
+`default_workflow_permissions` stays `read` deliberately — the sync
+workflow requests `contents: write` and `pull-requests: write` in its own
+`permissions:` block, so it is unaffected, while every other workflow keeps
+a read-only token by default.
+
+Note that the same switch also lets Actions *approve* pull requests, which
+is why it is off by default. The mitigation is branch protection requiring
+a human review, not leaving the switch off — with it off the sync fails
+silently in the future rather than now: while the D1 tables are empty the
+export rewrites `{}` over `{}`, produces no diff, and opens nothing, so the
+failure would first appear the day a reviewer confirms a datapoint.
 
 ## Keeping the console out of search results
 
