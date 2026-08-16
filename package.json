@@ -6,7 +6,7 @@
   "description": "Atlas of U.S. state EL teacher certification requirements",
   "scripts": {
     "dev": "astro dev",
-    "build": "tsx scripts/check-state-integrity.ts && tsx scripts/generate-llms-full.ts && astro check --minimumFailingSeverity hint && astro build && cp dist/sitemap-index.xml dist/sitemap.xml && tsx scripts/check-built-pages.ts && tsx scripts/check-discovery-surfaces.ts",
+    "build": "tsx scripts/check-state-integrity.ts && tsx scripts/generate-llms-full.ts && astro check --minimumFailingSeverity hint && astro build && cp dist/sitemap-index.xml dist/sitemap.xml && tsx scripts/check-built-pages.ts && tsx scripts/check-discovery-surfaces.ts && tsx scripts/check-internal-links.ts",
     "generate:llms": "tsx scripts/generate-llms-full.ts",
     "preview": "astro preview",
     "astro": "astro",
@@ -16,6 +16,7 @@
     "check:links": "tsx scripts/check-external-links.ts",
     "check:deadcode": "knip",
     "check:discovery": "tsx scripts/check-discovery-surfaces.ts",
+    "check:internal-links": "tsx scripts/check-internal-links.ts",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "check:format": "prettier --check .",

@@ -35,7 +35,8 @@ be re-verified against current SEA sources before public launch.
 - `npm run build` — `check-state-integrity` + `generate-llms-full` →
   `astro check` → `astro build` → `check-built-pages` (route + anchor
   presence) → `check-discovery-surfaces` (sitemap completeness + `/audit`
-  exclusion).
+  exclusion) → `check-internal-links` (every internal `href`/`src` and
+  `#fragment` in `dist/` resolves).
 - `npm run validate` — `astro check` (svelte/Zod) + contrast check
   (light + dark text) + state-integrity check (51 records, USPS
   uniqueness, provenance trail).
@@ -255,8 +256,12 @@ host page automatically.
     are the documented exception).
 - **CI** (`.github/workflows/ci.yml`): on push + PR **to `main`**, runs
   format → `npm audit` (advisory) → lint → typecheck → dead-code →
-  validate → test → build, then an e2e-a11y job and an offline link
-  check. Concurrency cancels in-flight runs on the same ref. The trigger
+  validate → test → build, then an e2e-a11y job. The internal link check
+  is part of `build`, not a separate job — it was a lychee action until
+  lychee 0.24 changed how `--base` and `--root-dir` compose and turned
+  the gate red on an upstream release rather than a repo change. Keep
+  build-output gates in-repo so they run under `npm run verify` too.
+  Concurrency cancels in-flight runs on the same ref. The trigger
   is `main`-only, so a PR targeting a feature branch (not `main`) shows
   no checks until the chain reaches `main` — broaden the `branches`
   filter if you want CI on a feature-to-feature PR.

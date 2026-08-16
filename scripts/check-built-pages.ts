@@ -6,10 +6,10 @@
  * pointing at the omission.
  *
  * Also validates anchor targets: every value in `ANCHORS` must resolve
- * to a matching `id="<value>"` in at least one built page. The offline
- * link check excludes `#fragment` links (lychee `--exclude '%23'`), so
- * without this a `sameAnchor(ANCHORS.x)` pointing at a renamed or absent
- * anchor would be a silent broken in-page link.
+ * to a matching `id="<value>"` in at least one built page. This catches a
+ * declared anchor that no page defines even when nothing links to it yet;
+ * `check-internal-links.ts` covers the complementary case, an authored
+ * `#fragment` whose target id has been renamed away.
  *
  * Runs after `astro build` (wired into npm `build`). Fails the build
  * with a non-zero exit if any expected page or anchor is missing.
