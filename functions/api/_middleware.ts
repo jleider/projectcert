@@ -17,9 +17,16 @@
  * An unauthenticated API call gets a JSON 401 — a `fetch()` from the island
  * should surface an error rather than a redirect the browser cannot follow
  * cross-origin.
+ *
+ * Every response leaves through `withGatedHeaders`, the same wrapper the
+ * pages middleware uses. The API is the surface that actually returns
+ * reviewer identities and their timestamps, so `Cache-Control: private,
+ * no-store` matters more here than on the console HTML, and the noindex
+ * header has to hold for the refusals too — a 401 body is small, but its
+ * URL is still a gated endpoint.
  */
 
-import { authenticateAuditRequest } from "../../src/lib/audit-auth";
+import { authenticateAuditRequest, withGatedHeaders } from "../../src/lib/audit-auth";
 import { jsonResponse } from "../../src/lib/audit-shared";
 
 export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (context) => {
@@ -27,11 +34,13 @@ export const onRequest: PagesFunction<AuditEnv, string, AuditData> = async (cont
 
   const auth = await authenticateAuditRequest(request, env);
   if (!auth.ok) {
-    return auth.reason === "unconfigured"
-      ? jsonResponse({ error: "Audit API is not configured for authentication." }, 500)
-      : jsonResponse({ error: "Unauthorized" }, 401);
+    return withGatedHeaders(
+      auth.reason === "unconfigured"
+        ? jsonResponse({ error: "Audit API is not configured for authentication." }, 500)
+        : jsonResponse({ error: "Unauthorized" }, 401),
+    );
   }
 
   data.userEmail = auth.email;
-  return next();
+  return withGatedHeaders(await next());
 };

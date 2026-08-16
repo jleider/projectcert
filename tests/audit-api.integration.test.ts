@@ -33,6 +33,11 @@ import {
 } from "../functions/api/datapoint-sources";
 import { onRequest as middleware } from "../functions/api/_middleware";
 import { onRequest as pageMiddleware } from "../functions/audit/_middleware";
+import { NOINDEX_HEADER } from "../src/lib/audit-auth";
+import { jsonResponse } from "../src/lib/audit-shared";
+
+/** A downstream handler's response, as any /api/* route would return it. */
+const jsonOk = () => jsonResponse({ ok: true });
 
 // Every migration in order, not just the initial one. Pinning 0001 meant
 // the tests ran against a schema production had already moved past: a
@@ -286,9 +291,10 @@ describe("/api/added-sources", () => {
 });
 
 describe("/api/overview", () => {
-  it("aggregates verified and broken counts per state", async () => {
-    await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "elPercent", content_hash: "h" } }));
-    await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "sources", content_hash: "h" } }));
+  it("returns confirmations with their stored hashes, minus broken-linked ones", async () => {
+    await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "elPercent", content_hash: "h1" } }));
+    await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "elPercentAsOf", content_hash: "h2" } }));
+    await verPost(ctx({ method: "POST", body: { usps: "CA", datapoint_id: "sources", content_hash: "h3" } }));
     db.prepare(
       `INSERT INTO broken_links (usps, datapoint_id, url, citation, classification, detected_at) VALUES ('CA','sources','https://x','CA / sources[0]','client-error','2026-06-16')`,
     ).run();
@@ -296,9 +302,15 @@ describe("/api/overview", () => {
     const ov = await readJson(await ovGet(ctx({})));
     expect(ov.totalDatapoints).toBe(32);
     const ca = ov.perState.find((r: { usps: string }) => r.usps === "CA");
-    // elPercent + sources verified, but sources has a broken link, so it
-    // is excluded from the count → 1 verified, 1 broken.
-    expect(ca).toMatchObject({ verifiedCount: 1, brokenCount: 1 });
+    // `sources` is confirmed but its cited source is unreachable, so it is
+    // dropped here; the other two survive with the hash they were confirmed
+    // against. The dashboard needs those hashes, not a count: it drops the
+    // ones whose value has since changed, which this Function cannot see.
+    expect(ca).toEqual({
+      usps: "CA",
+      brokenCount: 1,
+      confirmed: { elPercent: "h1", elPercentAsOf: "h2" },
+    });
   });
 });
 
@@ -468,6 +480,32 @@ describe("/api/_middleware auth", () => {
       }),
     );
     expect(res.status).toBe(401);
+  });
+
+  it("stamps the gated headers on every response, refusals included", async () => {
+    // The API is what actually returns reviewer emails and timestamps, so
+    // `private, no-store` matters more here than on the console HTML. Both
+    // gates route through withGatedHeaders; this one used to return next()
+    // raw, so every /api/* response — including the 401 and 500 — went out
+    // with neither header.
+    const responses = [
+      await middleware(ctx({ env: { DB, DEV_REVIEWER_EMAIL: "dev@example.org" }, next: async () => jsonOk() })),
+      await middleware(ctx({ env: { DB }, next: async () => jsonOk() })),
+      await middleware(
+        ctx({
+          env: { DB, ACCESS_TEAM_DOMAIN: "team.cloudflareaccess.com", ACCESS_AUD: "aud123" },
+          next: async () => jsonOk(),
+        }),
+      ),
+    ];
+    expect(responses.map((r) => r.status)).toEqual([200, 500, 401]);
+    for (const res of responses) {
+      expect(res.headers.get("X-Robots-Tag")).toBe(NOINDEX_HEADER);
+      expect(res.headers.get("Cache-Control")).toBe("private, no-store");
+    }
+    // The wrapper must not disturb the body or its content type.
+    expect(await responses[0]!.json()).toEqual({ ok: true });
+    expect(responses[0]!.headers.get("content-type")).toMatch(/application\/json/);
   });
 });
 

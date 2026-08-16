@@ -6,11 +6,14 @@
     usps: string;
     name: string;
     auditUrl: string;
+    /** Current content hash per datapoint id, built from the live JSON. */
+    hashes: Record<string, string>;
   }
   interface OverviewRow {
     usps: string;
-    verifiedCount: number;
     brokenCount: number;
+    /** Stored hash per confirmed datapoint, source-reachable ones only. */
+    confirmed: Record<string, string>;
   }
   interface SuggestionRow {
     id: number;
@@ -57,22 +60,40 @@
     }
   }
 
+  /**
+   * A confirmation counts only while the value it was made against is
+   * unchanged. `counts` is passed in rather than read from the closure so
+   * Svelte tracks it as a dependency of the reactive statements below.
+   */
+  function tally(s: StateRef, byUsps: Record<string, OverviewRow>): { verified: number; stale: number } {
+    const confirmed = byUsps[s.usps]?.confirmed ?? {};
+    let verified = 0;
+    let stale = 0;
+    for (const [id, hash] of Object.entries(confirmed)) {
+      // A confirmation for an id the descriptor no longer emits is
+      // ignored outright, matching build-verification-ledger.ts.
+      if (s.hashes[id] === undefined) continue;
+      if (s.hashes[id] === hash) verified++;
+      else stale++;
+    }
+    return { verified, stale };
+  }
+
   $: rows = states
     .map((s) => {
-      const c = counts[s.usps];
-      const verified = c?.verifiedCount ?? 0;
-      const brokenCount = c?.brokenCount ?? 0;
+      const { verified, stale } = tally(s, counts);
       return {
         ...s,
         verified,
-        brokenCount,
+        stale,
+        brokenCount: counts[s.usps]?.brokenCount ?? 0,
         pct: totalDatapoints > 0 ? Math.round((verified / totalDatapoints) * 100) : 0,
       };
     })
     .sort((a, b) => a.pct - b.pct || a.name.localeCompare(b.name));
 
   $: totalPossible = states.length * totalDatapoints;
-  $: totalVerified = states.reduce((sum, s) => sum + (counts[s.usps]?.verifiedCount ?? 0), 0);
+  $: totalVerified = rows.reduce((sum, r) => sum + r.verified, 0);
   $: overallPct = totalPossible > 0 ? Math.round((totalVerified / totalPossible) * 100) : 0;
   $: unreviewed = rows.filter((r) => r.verified < totalDatapoints);
   $: nameByUsps = Object.fromEntries(states.map((s) => [s.usps, s.name]));
@@ -160,8 +181,15 @@
                   {r.verified} / {totalDatapoints} ({r.pct}%)
                 </td>
                 <td class="px-3 py-2 text-right tabular-nums">
-                  {#if r.brokenCount > 0}
-                    <span class="text-ink">{r.brokenCount} broken</span>
+                  {#if r.brokenCount > 0 || r.stale > 0}
+                    <span class="text-ink">
+                      {[
+                        r.stale > 0 ? `${r.stale} changed` : null,
+                        r.brokenCount > 0 ? `${r.brokenCount} unreachable` : null,
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
                   {:else}
                     <span class="text-ink-subtle">—</span>
                   {/if}

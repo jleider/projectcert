@@ -3,12 +3,18 @@ import AuditLayout from "@/layouts/AuditLayout.astro";
 import AuditOverview from "@/components/AuditOverview.svelte";
 import { getAllStates } from "@/lib/state-data";
 import { auditStateUrl } from "@/lib/state-types";
-import { DATAPOINT_COUNT } from "@/lib/verification-datapoints";
+import { DATAPOINT_COUNT, datapointsFor } from "@/lib/verification-datapoints";
 
+// Current content hash per datapoint, built here rather than in
+// `/api/overview`: the Function has the confirmations but not the state
+// JSON, so it cannot tell a confirmation still matching its value from
+// one whose value has since changed. Shipping the hashes lets the island
+// apply the same rule the per-state checklist and the public ledger do.
 const states = (await getAllStates()).map((s) => ({
   usps: s.usps,
   name: s.name,
   auditUrl: auditStateUrl(s.usps),
+  hashes: Object.fromEntries(datapointsFor(s).map((d) => [d.id, d.contentHash])),
 }));
 ---
 
