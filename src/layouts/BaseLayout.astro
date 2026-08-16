@@ -12,7 +12,7 @@ import ExternalLink from "@/components/ExternalLink.astro";
 import ReportIssue from "@/components/ReportIssue.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import { FEEDBACK_FORM } from "@/config/feedback";
-import { SITE_URL, SITE_NAME } from "@/config/site";
+import { SITE_URL, SITE_NAME, WEB_ANALYTICS_TOKEN } from "@/config/site";
 import { ROUTES, ANCHORS, sameAnchor, withAnchor } from "@/lib/routes";
 
 /**
@@ -132,6 +132,26 @@ const siteJsonLd = [
 
     <JsonLd data={siteJsonLd} />
     {jsonLd && <JsonLd data={jsonLd} />}
+
+    {
+      /* Cloudflare Web Analytics — cookieless, so no consent banner is
+        required, though the privacy policy still applies because IP
+        addresses are processed. Only public pages carry it: the gated
+        console uses AuditLayout and the iframe embed uses EmbedLayout,
+        so reviewers are not measured and the embed does not beacon from
+        a third party's page. `is:inline` keeps Astro from bundling a
+        script that must load from Cloudflare's own origin. */
+    }
+    {
+      WEB_ANALYTICS_TOKEN && (
+        <script
+          is:inline
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: WEB_ANALYTICS_TOKEN })}
+        />
+      )
+    }
   </head>
   <body class="min-h-screen flex flex-col">
     <a href={sameAnchor(ANCHORS.main)} class="skip-link">Skip to main content</a>
