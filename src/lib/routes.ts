@@ -22,6 +22,7 @@ export const ROUTES = {
   methodology: "/methodology/",
   glossary: "/glossary/",
   verification: "/verification/",
+  privacy: "/privacy/",
   audit: "/audit/",
   auditLinks: "/audit/links/",
   embed: "/embed/",

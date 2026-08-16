@@ -52,6 +52,9 @@ The seed data is:
   with state-local aliases (CLDE, ELAD, TESL, ENL, etc.)
 - [Verification status](https://projectcert.org/verification/): which
   states have been re-verified against current SEA sources
+- [Privacy](https://projectcert.org/privacy/): what the site collects
+  (cookieless aggregate analytics only), what it does not, and how
+  reviewer identities are recorded against verified data points
 
 ## Per-credential reports
 
