@@ -9,6 +9,8 @@ import {
   parseBasicAuth,
   readAccessToken,
   verifyBasicAuth,
+  sharedIdentity,
+  isSharedIdentity,
   withGatedHeaders,
   type AuditAuthEnv,
 } from "../src/lib/audit-auth";
@@ -101,13 +103,38 @@ describe("authenticateAuditRequest", () => {
     ).resolves.toEqual({ ok: false, reason: "unconfigured" });
   });
 
-  it("accepts the shared login", async () => {
+  it("accepts the shared login, and marks it as shared", async () => {
+    // The ledger records who reviewed what. A shared credential is not a
+    // person, so it must not be recorded as if it were one.
     await expect(
       authenticateAuditRequest(
         req({ Authorization: basicHeader("reviewer@example.org", "correct horse") }),
         CONFIGURED,
       ),
-    ).resolves.toEqual({ ok: true, email: "reviewer@example.org" });
+    ).resolves.toEqual({ ok: true, email: "shared:reviewer@example.org" });
+  });
+
+  it("refuses the shared login outright when Access is configured", async () => {
+    // Regression guard on an auth downgrade: while both paths were
+    // accepted and basic was tried first, any request carrying an
+    // Authorization header bypassed per-reviewer identity and wrote the
+    // shared username into verified_by, with nothing in the data to show
+    // it. Access being configured must make basic unusable, not merely
+    // second in line.
+    const both: AuditAuthEnv = {
+      ...CONFIGURED,
+      ACCESS_TEAM_DOMAIN: "team.cloudflareaccess.com",
+      ACCESS_AUD: "aud123",
+    };
+    await expect(
+      authenticateAuditRequest(req({ Authorization: basicHeader("reviewer@example.org", "correct horse") }), both),
+    ).resolves.toEqual({ ok: false, reason: "unauthorized" });
+  });
+
+  it("marks a shared identity distinguishably", () => {
+    expect(sharedIdentity("a@b.org")).toBe("shared:a@b.org");
+    expect(isSharedIdentity("shared:a@b.org")).toBe(true);
+    expect(isSharedIdentity("a@b.org")).toBe(false);
   });
 
   it("reports wrong credentials as unauthorized, not unconfigured", async () => {

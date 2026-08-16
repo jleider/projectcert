@@ -3,11 +3,15 @@
  *
  * Two credential paths reach the same place:
  *
- *  - **HTTP Basic** (`AUDIT_USER` / `AUDIT_PASSWORD`) — a shared reviewer
- *    login. This is what makes the console usable behind a plain
- *    username/password prompt, with no Cloudflare Access application.
  *  - **Cloudflare Access JWT** — the signed `Cf-Access-Jwt-Assertion`,
- *    verified against the team JWKS and the application AUD.
+ *    verified against the team JWKS and the application AUD. This is the
+ *    preferred path: it identifies the individual reviewer, which is what
+ *    the ledger records.
+ *  - **HTTP Basic** (`AUDIT_USER` / `AUDIT_PASSWORD`) — a shared login, for
+ *    a single reviewer with no Access application. Accepted **only when
+ *    Access is not configured**, so it can never downgrade per-reviewer
+ *    identity, and rows it writes are prefixed `shared:` so the trail shows
+ *    what signed them.
  *
  * Both middlewares (`functions/audit/` for the pages, `functions/api/` for
  * the API) route through `authenticateAuditRequest` here, so the two gates
@@ -111,6 +115,28 @@ export function verifyBasicAuth(header: string | null | undefined, env: AuditAut
   const userOk = constantTimeEquals(creds.user, env.AUDIT_USER!);
   const passOk = constantTimeEquals(creds.password, env.AUDIT_PASSWORD!);
   return userOk && passOk ? creds.user : null;
+}
+
+/**
+ * Prefix marking a row as written by the shared login rather than a person.
+ *
+ * The ledger's purpose is attributable review: `verified_by`,
+ * `submitted_by`, `reviewed_by` are meant to name a reviewer. A shared
+ * login cannot, so it must not look like one — an un-prefixed username in
+ * `verified_by` is indistinguishable from an individual's, and a reader
+ * auditing the trail later has no way to tell that a row was signed by a
+ * credential several people hold.
+ */
+export const SHARED_IDENTITY_PREFIX = "shared:";
+
+/** Tag an identity as coming from the shared credential. */
+export function sharedIdentity(user: string): string {
+  return `${SHARED_IDENTITY_PREFIX}${user}`;
+}
+
+/** True if a recorded identity was written by the shared login. */
+export function isSharedIdentity(identity: string): boolean {
+  return identity.startsWith(SHARED_IDENTITY_PREFIX);
 }
 
 /** 401 that makes the browser show a username/password prompt. */
@@ -217,16 +243,23 @@ export async function authenticateAuditRequest(request: Request, env: AuditAuthE
   const hasAccess = accessConfigured(env);
   if (!hasBasic && !hasAccess) return { ok: false, reason: "unconfigured" };
 
-  const basicUser = verifyBasicAuth(request.headers.get("Authorization"), env);
-  if (basicUser !== null) return { ok: true, email: basicUser };
-
+  // Access wins outright — the shared login is not merely lower priority,
+  // it is not accepted at all while Access is configured. Trying basic
+  // first (the original order) meant any request carrying an
+  // `Authorization: Basic` header bypassed per-reviewer identity and wrote
+  // the shared username into `verified_by`, silently collapsing the audit
+  // trail with nothing in the data to show it had happened.
   if (hasAccess) {
     const token = readAccessToken(request);
     if (token) {
       const email = await verifyAccessJwt(token, env);
       if (email !== null) return { ok: true, email };
     }
+    return { ok: false, reason: "unauthorized" };
   }
+
+  const basicUser = verifyBasicAuth(request.headers.get("Authorization"), env);
+  if (basicUser !== null) return { ok: true, email: sharedIdentity(basicUser) };
 
   return { ok: false, reason: "unauthorized" };
 }

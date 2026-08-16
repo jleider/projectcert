@@ -98,6 +98,15 @@ a property of the deployment, not of the dashboard: before this middleware
 existed the console's HTML was a plain static asset, and any Access
 misconfiguration would have published it.
 
+**The two paths are mutually exclusive, by design.** When Access is
+configured the shared login is not accepted at all — not merely ranked
+lower. Until 2026-08-16 basic was tried first, so a request carrying an
+`Authorization: Basic` header authenticated as the shared user even with
+Access active, writing one identity into `verified_by` for every reviewer
+and leaving nothing in the data to show it had happened. Rows written by
+the shared login are now prefixed `shared:` for the same reason: a
+credential several people hold must not be recorded as if it were a person.
+
 **Cloudflare Access (Option B) is the recommended path, and step 2 is why.**
 Its two settings, `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD`, are non-secret
 identifiers, so they can be declared in `[vars]` in `wrangler.toml` — the

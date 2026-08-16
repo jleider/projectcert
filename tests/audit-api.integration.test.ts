@@ -489,7 +489,9 @@ describe("/audit/* page middleware", () => {
     expect(await res.text()).toContain("console");
     expect(res.headers.get("X-Robots-Tag")).toBe("noindex, nofollow, noarchive");
     expect(res.headers.get("Cache-Control")).toBe("private, no-store");
-    expect(data.userEmail).toBe("reviewer@example.org");
+    // Recorded as a shared credential, not as a person — the ledger's
+    // verified_by must not imply an individual reviewed this.
+    expect(data.userEmail).toBe("shared:reviewer@example.org");
   });
 });
 
@@ -507,6 +509,6 @@ describe("/api/* accepts the shared login", () => {
       }),
     );
     expect(await res.text()).toBe("ok");
-    expect(data.userEmail).toBe("reviewer@example.org");
+    expect(data.userEmail).toBe("shared:reviewer@example.org");
   });
 });
