@@ -26,6 +26,20 @@ export const SITE_NAME = "projectcert";
  */
 export const WEB_ANALYTICS_TOKEN: string = "3d9f1bb2d43748fe9ad4b2b0861c56df";
 
+/**
+ * Concept DOI minted by Zenodo for the catalog itself, distinct from the
+ * seed paper's DOI (10.14507/epaa.29.5279), which is cited separately.
+ *
+ * Use the *concept* DOI, not a version DOI: it always resolves to the
+ * latest release, so a citation printed today stays correct after the next
+ * re-verification pass. Zenodo shows both on the release record.
+ *
+ * Empty omits every DOI-bearing surface — the citation blocks, the Scholar
+ * `citation_doi` tag, and the site JSON-LD identifier — rather than
+ * printing a half-formed reference.
+ */
+export const ZENODO_DOI: string = "";
+
 /** Public repository. Linked wherever the site refers to its own source. */
 export const REPO_URL = "https://github.com/jleider/projectcert";
 
