@@ -3,7 +3,7 @@
  * `link_reviews` rows. Run by the nightly sync workflow:
  *
  *   wrangler d1 execute projectcert-audit --remote --json \
- *     --command "SELECT url, accepted_status, reviewed_by, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'" \
+ *     --command "SELECT url, accepted_status, reviewed_at, note FROM link_reviews WHERE decision = 'accepted'" \
  *     > /tmp/accepted-links.json
  *   tsx scripts/build-link-whitelist.ts --accepted /tmp/accepted-links.json
  *
@@ -41,17 +41,23 @@ function readRows<T>(path: string | null): T[] {
 interface AcceptedRow {
   url: string;
   accepted_status: string | null;
-  reviewed_by: string | null;
   reviewed_at: string | null;
   note: string | null;
 }
 
 const rows = readRows<AcceptedRow>(argValue("--accepted"));
 
+/**
+ * Deliberately carries no reviewer identity. This file is committed to a
+ * public repository, so an address written here would be world-readable and
+ * preserved in git history permanently. Who accepted a link stays in the D1
+ * `link_reviews` table, which is behind Access. The checker only ever reads
+ * `status` (see `loadWhitelist` in check-external-links.ts); the rest is
+ * context for a human reading the file.
+ */
 interface WhitelistEntry {
   /** HTTP status the URL was accepted at; null = a network-error acceptance. */
   status: number | null;
-  acceptedBy: string | null;
   acceptedAt: string | null;
   note?: string;
 }
@@ -63,7 +69,6 @@ const entries = rows
     const status = r.accepted_status === null || r.accepted_status === "" ? null : Number(r.accepted_status);
     const entry: WhitelistEntry = {
       status: Number.isNaN(status) ? null : status,
-      acceptedBy: r.reviewed_by,
       acceptedAt: r.reviewed_at ? r.reviewed_at.slice(0, 10) : null,
     };
     if (r.note) entry.note = r.note;

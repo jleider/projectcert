@@ -277,19 +277,24 @@ describe("build-link-whitelist.ts", () => {
     const wl = JSON.parse(readFileSync(out, "utf8"));
     expect(wl["https://azed.gov"]).toEqual({
       status: 403,
-      acceptedBy: "jane@x.org",
       acceptedAt: "2026-06-16",
       note: "WAF blocks bots",
     });
     expect(wl["https://justia.com"]).toEqual({
       status: 403,
-      acceptedBy: "jane@x.org",
       acceptedAt: "2026-06-16",
     });
+    // The whitelist is committed to a public repository, so no reviewer
+    // address may appear in it. `toEqual` above already fails on an extra
+    // key, but assert it directly so the intent survives a future rewrite.
+    for (const entry of Object.values(wl) as Record<string, unknown>[]) {
+      expect(entry).not.toHaveProperty("acceptedBy");
+      expect(JSON.stringify(entry)).not.toContain("@");
+    }
+
     // network-error acceptance records null status
     expect(wl["https://reset.gov"]).toEqual({
       status: null,
-      acceptedBy: "jane@x.org",
       acceptedAt: "2026-06-16",
       note: "TLS reset to bots",
     });
