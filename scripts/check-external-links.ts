@@ -186,8 +186,12 @@ async function checkWithRetry(url: string): Promise<{
   const initialMethod: "HEAD" | "GET" = GET_ONLY_HOSTS.has(host) ? "GET" : "HEAD";
 
   let last = await fetchOne(url, initialMethod);
-  // Some hosts reject HEAD; fall back to GET on 405/501.
-  if (initialMethod === "HEAD" && (last.status === 405 || last.status === 501)) {
+  // A HEAD is only trustworthy when it succeeds. Hosts mishandle HEAD in
+  // several ways — 405/501 (honest refusal), 404 (VDOE serves the page on
+  // GET), 500 (Wyoming PTSB) — so confirm any non-2xx with a real GET
+  // before believing it. Without this, five live pages were reported as
+  // broken or un-confirmable in the August 2026 sweep.
+  if (initialMethod === "HEAD" && last.status !== null && (last.status < 200 || last.status >= 300)) {
     last = await fetchOne(url, "GET");
   }
   for (let i = 0; i < RETRY_COUNT && last.status === null; i++) {

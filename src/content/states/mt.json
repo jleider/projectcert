@@ -42,7 +42,7 @@
   "elpAssessment": {
     "name": "ACCESS for ELLs",
     "consortium": "WIDA",
-    "sourceUrl": "https://opi.mt.gov/Families-Students/Family-Student-Support/English-Learners"
+    "sourceUrl": "https://opi.mt.gov/Leadership/Assessment-Accountability/MontCAS/Required-Assessments/WIDA-ACCESS-FAQ"
   },
   "sources": [
     {
@@ -65,7 +65,7 @@
     },
     {
       "label": "OPI Endorsement Codes (FY2026, revised 08/18/25)",
-      "url": "https://opi.mt.gov/Portals/182/Page%20Files/School%20Accreditation/FY2026%20Endorsement%20Codes.pdf",
+      "url": "https://opifiles.mt.gov/Portals/182/Page%20Files/School%20Accreditation/Standards%20of%20Accreditation/FY2026%20Endorsement%20Codes.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -82,14 +82,14 @@
       "retrievedBy": "projectcert-2026"
     },
     {
-      "label": "OPI English Learners landing page",
-      "url": "https://opi.mt.gov/Families-Students/Family-Student-Support/English-Learners",
+      "label": "OPI Montana Comprehensive Assessment System — WIDA ACCESS frequently asked questions (English language proficiency assessment). Replaces the retired OPI English Learners landing page.",
+      "url": "https://opi.mt.gov/Leadership/Assessment-Accountability/MontCAS/Required-Assessments/WIDA-ACCESS-FAQ",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
     {
       "label": "OPI English Learner Guidance for School Districts",
-      "url": "https://opi.mt.gov/Portals/182/Page%20Files/English%20Language%20Learners/Docs/EnglishLearnerGuidanceForSchoolDistricts.pdf",
+      "url": "https://opi.mt.gov/Portals/182/Page%20Files/Statewide%20Testing/ELP%20Page/EL%20Guidance/EnglishLearnerGuidanceforSchoolDistricts.pdf",
       "retrievedAt": "2026-05-08",
       "retrievedBy": "projectcert-2026"
     },
@@ -114,7 +114,7 @@
       "title": "Indian Education for All Act enacted (HB 528, 1999)",
       "description": "The Montana Legislature enacted the Indian Education for All Act (HB 528, codified at MCA 20-1-501), implementing Article X § 1(2) of the Montana Constitution which commits the State to recognize \"the distinct and unique cultural heritage of the American Indians\" and to preserve their cultural integrity in its educational goals. IEFA requires every public school to teach about Montana's twelve federally-recognized tribes — and, after 2005 funding (HB 528 of 2005), the State funds districts on a per-pupil basis to support implementation. While not an EL credential per se, IEFA is the legal source of Montana's tribal-language and Native-American-Studies teacher pipelines and shapes how OPI frames cultural-competence elements of the educator-preparation standards (ARM 10.58.501).",
       "sourceUrls": [
-        "https://opi.mt.gov/Educators/Teaching-Learning/Indian-Education-for-All"
+        "https://opi.mt.gov/Educators/Teaching-Learning/Indian-Education-for-All/"
       ]
     },
     {
