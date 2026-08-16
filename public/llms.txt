@@ -87,9 +87,10 @@ Digest of Education Statistics 2023, Table 204.20 (fall 2011–2021).
 
 All site content licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Snapshots
-of source documents (PDFs, HTML pages) are stored in the project's
-GitHub repository under `sources/<usps>/<YYYY-MM-DD>/`. Every fact
-on a state page is traceable to a `sources[]` entry with a `url`,
+of source documents (PDFs, HTML pages) are stored in the
+[project repository](https://github.com/jleider/projectcert) under
+`sources/<usps>/<YYYY-MM-DD>/`. Every fact on a state page is
+traceable to a `sources[]` entry with a `url`,
 `retrievedAt` date, and `retrievedBy` tag.
 
 ## What this site is not
