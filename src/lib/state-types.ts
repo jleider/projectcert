@@ -63,3 +63,10 @@ export function absoluteElPercentHistoryUrl(siteUrl: string, usps: string): Link
 export function auditStateUrl(usps: string): LinkUrl {
   return `/audit/${usps.toLowerCase()}/` as LinkUrl;
 }
+
+/** Absolute per-state audit URL. Needed wherever the link leaves the site
+ *  and a root-relative path cannot resolve — the emailed review report in
+ *  particular, whose reader is in a mail client rather than on the site. */
+export function absoluteAuditStateUrl(siteUrl: string, usps: string): LinkUrl {
+  return `${siteUrl}${auditStateUrl(usps)}` as LinkUrl;
+}

@@ -453,3 +453,96 @@ describe("build-link-whitelist.ts", () => {
     });
   });
 });
+
+describe("build-reviewer-report.ts", () => {
+  /** One bot-blocked source in Arizona, one dead source in Texas. */
+  const MIXED = {
+    results: [
+      { url: "https://azed.gov/a", citations: ["AZ / sources[2]"], status: 403, classification: "needs-review" },
+      {
+        url: "https://tea.texas.gov/gone",
+        citations: ["TX / sources[1]"],
+        status: 404,
+        classification: "client-error",
+      },
+      { url: "https://fine.example", citations: ["CA / sources[0]"], status: 200, classification: "ok" },
+    ],
+  };
+
+  function build(payload: unknown): string {
+    const dir = tmp();
+    const input = join(dir, "links.json");
+    const out = join(dir, "report.md");
+    writeFileSync(input, JSON.stringify(payload));
+    run("scripts/build-reviewer-report.ts", ["--input", input, "--out", out, "--date", "2026-08-16"]);
+    return readFileSync(out, "utf8");
+  }
+
+  it("links into the review console, never at the source itself", () => {
+    const md = build(MIXED);
+    // The console is where a decision can be recorded; the raw source is a
+    // dead end for a reviewer reading their mail.
+    expect(md).toContain("https://projectcert.org/audit/links/");
+    expect(md).toContain("https://projectcert.org/audit/az/");
+    expect(md).toContain("https://projectcert.org/audit/tx/");
+    expect(md).not.toContain("https://azed.gov/a");
+    expect(md).not.toContain("https://tea.texas.gov/gone");
+  });
+
+  it("names states in full rather than by code", () => {
+    const md = build(MIXED);
+    expect(md).toContain("Arizona");
+    expect(md).toContain("Texas");
+  });
+
+  // CLAUDE.md: no schema identifiers, enum values or status codes in copy a
+  // reader outside this repository will see. The reviewers are doctoral
+  // students verifying agency sources, not maintainers of the checker.
+  it("uses no jargon, enum values, status codes or citation paths", () => {
+    const md = build(MIXED);
+    for (const leak of [
+      "needs-review",
+      "client-error",
+      "classification",
+      "sources[",
+      "403",
+      "404",
+      "HTTP",
+      "USPS",
+      "JSON",
+    ]) {
+      expect(md).not.toContain(leak);
+    }
+  });
+
+  it("separates 'could not be checked' from 'no longer available'", () => {
+    const md = build(MIXED);
+    // The two demand different work — confirm one, replace the other — so
+    // collapsing them would send reviewers hunting for a replacement page
+    // for a source that was fine all along.
+    expect(md).toMatch(/could not be checked automatically/i);
+    expect(md).toMatch(/no longer available/i);
+  });
+
+  it("says so plainly when there is nothing to review", () => {
+    const md = build({ results: [{ url: "https://ok", citations: ["CA / sources[0]"], classification: "ok" }] });
+    expect(md).toMatch(/nothing needs review/i);
+    expect(md).not.toMatch(/could not be checked/i);
+  });
+
+  it("counts a source cited by several states once per state", () => {
+    // Shared sources (NCES, WIDA) are cited across states; each reviewer
+    // needs to see it in their own list.
+    const md = build({
+      results: [
+        {
+          url: "https://nces.ed.gov/shared",
+          citations: ["AZ / sources[9]", "TX / sources[9]"],
+          classification: "needs-review",
+        },
+      ],
+    });
+    expect(md).toContain("Arizona");
+    expect(md).toContain("Texas");
+  });
+});

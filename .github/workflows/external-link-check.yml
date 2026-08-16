@@ -79,11 +79,22 @@ jobs:
           # left the subject ending in a bare dash. Stamp the date here.
           echo "REPORT_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
 
+      # The emailed report is a separate document from the checker's own
+      # output above. That one is for whoever maintains the checker; this
+      # one is for the reviewers, and says how much is waiting and where to
+      # click rather than listing URLs and status codes.
+      - name: Build the reviewer report
+        run: |
+          npx tsx scripts/build-reviewer-report.ts \
+            --input /tmp/links.json --out reviewer-report.md --date "$REPORT_DATE"
+
       - name: Upload cited-source report
         uses: actions/upload-artifact@v7
         with:
           name: cited-source-link-report
-          path: link-report.md
+          path: |
+            link-report.md
+            reviewer-report.md
           retention-days: 90
 
       - name: Report missing credentials
@@ -139,14 +150,23 @@ jobs:
           # Resend) authenticate with an API key or account id instead, and
           # using it as the sender address produces an invalid From. Set
           # SMTP_FROM for those; leave it unset for Gmail.
-          from: projectcert link audit <${{ secrets.SMTP_FROM || secrets.SMTP_USERNAME }}>
+          from: projectcert source review <${{ secrets.SMTP_FROM || secrets.SMTP_USERNAME }}>
           to: ${{ inputs.test_recipient || secrets.LINK_REPORT_RECIPIENTS }}
-          subject: "${{ inputs.test_recipient != '' && '[test] ' || '' }}projectcert cited-source link audit — ${{ env.REPORT_DATE }}"
-          body: file://link-report.md
-          # The report is markdown; render it so the tables and per-URL
-          # lists arrive readable rather than as raw pipes and asterisks.
+          subject: "${{ inputs.test_recipient != '' && '[test] ' || '' }}projectcert source review — ${{ env.REPORT_DATE }}"
+          # `convert_markdown` applies to `html_body` alone — the action
+          # renders that field and passes `body` through untouched. Setting
+          # only `body` therefore delivered raw markdown, asterisks and all.
+          # Both are set deliberately: `html_body` is what reviewers see,
+          # `body` is the plain-text alternative for clients that refuse
+          # HTML, and a mail with no text part is itself a spam signal.
+          html_body: file://reviewer-report.md
+          body: file://reviewer-report.md
           convert_markdown: true
-          attachments: link-report.md
+          # No attachment. The technical report stays a run artifact for
+          # whoever maintains the checker; attaching it here would hand a
+          # reviewer a second, contradictory document listing raw URLs and
+          # invite them to work from it instead of the console, where their
+          # decisions can actually be recorded.
 
       - name: Report missing mail configuration
         if: ${{ (inputs.test_recipient == '' && env.LINK_REPORT_RECIPIENTS == '') || env.SMTP_SERVER == '' }}
