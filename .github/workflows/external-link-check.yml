@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 13 * * 1" # Mondays 13:00 UTC
   workflow_dispatch:
+    inputs:
+      test_recipient:
+        description: "Send the report to this address alone (for testing). Leave empty to use the reviewer list."
+        required: false
+        type: string
 
 jobs:
   external-links:
@@ -12,6 +17,16 @@ jobs:
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # The `secrets` context is NOT readable from a step-level `if` — only
+      # `env` and `vars` are. Mapping the mail secrets here is what lets the
+      # send step guard on them, the same trick the Cloudflare guard uses.
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      # The recipient list is a secret rather than a variable because it is
+      # personal data and this repository is public: Actions logs on a public
+      # repo are world-readable, and a variable interpolated into a step's
+      # `with:` block is printed in the clear. Secret values are masked as
+      # *** in logs and cannot be read back out of the settings UI.
+      LINK_REPORT_RECIPIENTS: ${{ secrets.LINK_REPORT_RECIPIENTS }}
     steps:
       - uses: actions/checkout@v7
 
@@ -47,18 +62,113 @@ jobs:
           path: lychee-report.md
           retention-days: 30
 
+      # The cited-source audit. This is a different, stricter surface than
+      # the lychee sweep above: lychee walks every link in the built HTML
+      # and accepts 403/429 outright, while this walks the URLs the state
+      # records cite and classifies a bot-block as needing human review.
+      #
+      # `--silent` is load-bearing. Without it npm prints its own two
+      # "> projectcert@0.1.0 check:links" lines to stdout ahead of the JSON,
+      # so the captured file is not valid JSON and every downstream parse
+      # threw — under `continue-on-error`, silently.
+      - name: Cited-source link audit
+        run: |
+          npm run --silent check:links > link-report.md || true
+          npm run --silent check:links -- --json > /tmp/links.json || true
+          # `github.run_started_at` renders empty on a dispatched run, which
+          # left the subject ending in a bare dash. Stamp the date here.
+          echo "REPORT_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
+
+      # The emailed report is a separate document from the checker's own
+      # output above. That one is for whoever maintains the checker; this
+      # one is for the reviewers, and says how much is waiting and where to
+      # click rather than listing URLs and status codes.
+      - name: Build the reviewer report
+        run: |
+          npx tsx scripts/build-reviewer-report.ts \
+            --input /tmp/links.json --out reviewer-report.md --date "$REPORT_DATE"
+
+      - name: Upload cited-source report
+        uses: actions/upload-artifact@v7
+        with:
+          name: cited-source-link-report
+          path: |
+            link-report.md
+            reviewer-report.md
+          retention-days: 90
+
+      - name: Report missing credentials
+        if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
+        run: |
+          echo "::warning::CLOUDFLARE_API_TOKEN is unset — the audit store was NOT updated this run. See docs/audit-setup.md step 4."
+
       # Feed broken cited URLs back into the audit store so the affected
       # datapoints are flagged "needs re-verification". Non-blocking: a
-      # failure here must not fail the sweep (SEA links drift on their
-      # own schedule). Skipped automatically if the secrets are unset.
+      # failure here must not fail the sweep (SEA links drift on their own
+      # schedule). A parse failure is a bug rather than drift, so
+      # `parseCheckerReport` throws loudly and the annotation below makes
+      # the skip visible instead of green-and-empty.
       - name: Sync broken links into the audit store
         if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         continue-on-error: true
         run: |
-          npm run check:links -- --json > /tmp/links.json || true
           # Genuine breakage → datapoint re-verification.
           npx tsx scripts/sync-broken-links.ts --input /tmp/links.json --out /tmp/broken.sql
           npx wrangler d1 execute projectcert-audit --remote --file /tmp/broken.sql
           # Bot-blocked URLs → human review queue in the /audit/links console.
           npx tsx scripts/sync-link-reviews.ts --input /tmp/links.json --out /tmp/link-reviews.sql
           npx wrangler d1 execute projectcert-audit --remote --file /tmp/link-reviews.sql
+
+      # Email the report to the reviewer list. Inert until both the SMTP
+      # secrets and the recipient list are configured, so the sweep keeps
+      # working unchanged in the meantime — set the LINK_REPORT_RECIPIENTS
+      # secret (comma-separated) to turn it on.
+      #
+      # Every value here is a secret, including the recipients: this repo is
+      # public, so its Actions logs are too, and a `with:` block prints the
+      # values it is given. Secrets are masked; a variable would not be.
+      # A manual run may name a single test_recipient, which replaces the
+      # reviewer list for that run. Testing a mail change by dispatching the
+      # real workflow would otherwise send to every reviewer, so the safe
+      # option has to exist or the unsafe one gets used.
+      - name: Email the report
+        if: ${{ (inputs.test_recipient != '' || env.LINK_REPORT_RECIPIENTS != '') && env.SMTP_SERVER != '' }}
+        continue-on-error: true
+        # Pinned to a commit SHA rather than a moving tag, unlike the other
+        # actions here. This is the one step handed credentials — the SMTP
+        # password and the reviewer list — so a retagged upstream release
+        # would be a mail-account compromise rather than a broken build.
+        # v18; re-pin deliberately when upgrading.
+        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          # Gmail authenticates with the address itself, so the username is
+          # the right sender there. Most relay providers (Brevo, Mailjet,
+          # Resend) authenticate with an API key or account id instead, and
+          # using it as the sender address produces an invalid From. Set
+          # SMTP_FROM for those; leave it unset for Gmail.
+          from: projectcert source review <${{ secrets.SMTP_FROM || secrets.SMTP_USERNAME }}>
+          to: ${{ inputs.test_recipient || secrets.LINK_REPORT_RECIPIENTS }}
+          subject: "${{ inputs.test_recipient != '' && '[test] ' || '' }}projectcert source review — ${{ env.REPORT_DATE }}"
+          # `convert_markdown` applies to `html_body` alone — the action
+          # renders that field and passes `body` through untouched. Setting
+          # only `body` therefore delivered raw markdown, asterisks and all.
+          # Both are set deliberately: `html_body` is what reviewers see,
+          # `body` is the plain-text alternative for clients that refuse
+          # HTML, and a mail with no text part is itself a spam signal.
+          html_body: file://reviewer-report.md
+          body: file://reviewer-report.md
+          convert_markdown: true
+          # No attachment. The technical report stays a run artifact for
+          # whoever maintains the checker; attaching it here would hand a
+          # reviewer a second, contradictory document listing raw URLs and
+          # invite them to work from it instead of the console, where their
+          # decisions can actually be recorded.
+
+      - name: Report missing mail configuration
+        if: ${{ (inputs.test_recipient == '' && env.LINK_REPORT_RECIPIENTS == '') || env.SMTP_SERVER == '' }}
+        run: |
+          echo "::notice::No report email sent — set the LINK_REPORT_RECIPIENTS and SMTP_* secrets to enable it. The report is attached to this run as an artifact regardless."

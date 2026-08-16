@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  citedUrls,
+  confirmedSourceLapsed,
   datapointsFor,
   datapointIdForCitation,
   contentHashFor,
@@ -228,5 +230,94 @@ describe("datapointIdForCitation", () => {
       expect(id).not.toBeNull();
       expect(ids.has(id!)).toBe(true);
     }
+  });
+});
+
+describe("citedUrls", () => {
+  it("collects every provenance-bearing URL, not just sources[]", () => {
+    const urls = citedUrls(rich);
+    expect([...urls].sort()).toEqual([
+      "https://example.org/a",
+      "https://example.org/b",
+      "https://example.org/elpac",
+      "https://example.org/h1",
+      "https://example.org/n",
+      "https://example.org/seal",
+    ]);
+  });
+
+  it("handles absent optional arrays and a null ELP source URL", () => {
+    const urls = citedUrls(sparse);
+    expect([...urls].sort()).toEqual(["https://example.org/seal", "https://example.org/wy"]);
+    expect(urls.has("null")).toBe(false);
+  });
+
+  it("covers every field the link checker walks", () => {
+    // If the checker fetches a field this omits, a live citation would look
+    // orphaned and lapse a good confirmation. Each URL below is unique to
+    // one field, so a dropped field shows up as a missing entry.
+    for (const url of [
+      "https://example.org/a", // sources[]
+      "https://example.org/h1", // history[].sourceUrls[]
+      "https://example.org/n", // elPercentHistory[].source.url
+      "https://example.org/seal", // sealOfBiliteracy.sourceUrl
+      "https://example.org/elpac", // elpAssessment.sourceUrl
+    ]) {
+      expect(citedUrls(rich).has(url)).toBe(true);
+    }
+  });
+});
+
+describe("confirmedSourceLapsed", () => {
+  const cited = citedUrls(rich);
+
+  it("does not lapse while the confirmed source is still cited", () => {
+    expect(confirmedSourceLapsed("https://example.org/a", cited)).toBe(false);
+  });
+
+  it("lapses once the confirmed URL is rewritten to a new location", () => {
+    // The exact shape of this audit: a relocated SEA page. The reviewer
+    // confirmed the old URL; the record now cites the new one.
+    const rewritten = citedUrls({
+      ...rich,
+      sources: [{ ...rich.sources[0]!, url: "https://example.org/a-moved" }, rich.sources[1]!],
+    });
+    expect(confirmedSourceLapsed("https://example.org/a", rewritten)).toBe(true);
+    expect(confirmedSourceLapsed("https://example.org/a-moved", rewritten)).toBe(false);
+  });
+
+  it("lapses when the confirmed source's row is dropped entirely", () => {
+    const dropped = citedUrls({ ...rich, sources: [rich.sources[1]!] });
+    expect(confirmedSourceLapsed("https://example.org/a", dropped)).toBe(true);
+  });
+
+  it("never lapses a reviewer-supplied URL, which is cited nowhere by design", () => {
+    expect(confirmedSourceLapsed("https://reviewer.example/added", cited)).toBe(true);
+    expect(confirmedSourceLapsed("https://reviewer.example/added", cited, ["https://reviewer.example/added"])).toBe(
+      false,
+    );
+  });
+
+  it("treats no confirmed source as nothing to lapse", () => {
+    expect(confirmedSourceLapsed(undefined, cited)).toBe(false);
+  });
+
+  it("is independent of the content hash — a URL rewrite leaves the fact untouched", () => {
+    // The whole reason this check has to exist: rewriting a source URL does
+    // not move the hash of the datapoints that carry the *facts*, so those
+    // checkmarks survive drift detection and only this catches them.
+    const rewritten = {
+      ...rich,
+      sources: [{ ...rich.sources[0]!, url: "https://example.org/a-moved" }, rich.sources[1]!],
+    };
+    const before = new Map(datapointsFor(rich).map((d) => [d.id, d.contentHash]));
+    const after = datapointsFor(rewritten);
+    const unmoved = after.filter((d) => before.get(d.id) === d.contentHash);
+    // The bilingual/eld/sei/standards facts are all unchanged...
+    expect(unmoved.map((d) => d.id)).toContain("credentials.bilingual.offered");
+    // ...while the provenance datapoint that hashes the citations does move.
+    expect(unmoved.map((d) => d.id)).not.toContain("sources");
+    // And the lapse check catches the confirmation the hash cannot.
+    expect(confirmedSourceLapsed("https://example.org/a", citedUrls(rewritten))).toBe(true);
   });
 });

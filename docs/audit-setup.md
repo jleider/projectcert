@@ -171,6 +171,65 @@ secrets:
 
 Both sync workflows skip gracefully when the secrets are absent.
 
+To have the weekly sweep email its cited-source report, also add:
+
+- `LINK_REPORT_RECIPIENTS` — comma-separated addresses.
+- `SMTP_SERVER`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`.
+- `SMTP_FROM` — optional; only needed when the username is not itself a
+  sender address (see below).
+
+The send step stays inert until the recipients and `SMTP_SERVER` are both
+set; the report uploads as a run artifact either way.
+
+### Sending through Resend
+
+The report goes out through Resend, so it comes from the project rather
+than from a person. One send a week to a handful of reviewers is a
+rounding error against the free tier (3,000 per month, 100 per day, one
+domain), and every tier includes the SMTP relay.
+
+- `SMTP_SERVER` — `smtp.resend.com`
+- `SMTP_PORT` — `587`
+- `SMTP_USERNAME` — the literal lower-case word `resend`
+- `SMTP_PASSWORD` — a Resend API key (`re_…`)
+- `SMTP_FROM` — `link-audit@projectcert.org`
+
+The username catches people out: it is the same fixed string for every
+account, not an address and not the API key. The key goes in the password
+field. Ports 25, 587 and 2587 negotiate STARTTLS; 465 and 2465 are TLS
+from the first byte.
+
+**`projectcert.org` must be verified in Resend before anything sends.**
+Add the domain in the Resend dashboard, then add the DKIM and SPF records
+it issues to Cloudflare DNS. Until that completes, sends from the domain
+are rejected outright — the free tier's one-domain limit means this is
+the domain to spend it on. `SMTP_FROM` must stay on a verified domain;
+pointing it at an unverified address fails at send time rather than at
+configuration time, so it will look like a broken workflow rather than a
+missing DNS record.
+
+An alternative worth knowing if Resend is ever dropped: Gmail works too,
+with `smtp.gmail.com`, the full Google address as the username, and a
+16-character **App Password** in place of the account password. App
+Passwords require 2-Step Verification to be enabled — passkeys alone do
+not qualify, and the option stays hidden until 2SV is on. In that setup
+leave `SMTP_FROM` unset, since the Google username is itself the sender
+address.
+
+**The recipient list is a secret, not a variable, and must stay one.**
+This repository is public, so its Actions logs are world-readable, and a
+step's `with:` block prints the values it receives — a variable would put
+every reviewer's address in a public log on a weekly schedule. Secret
+values are masked as `***` and cannot be read back out of the settings UI.
+The same reasoning applies to any future recipient list: personal data
+belongs in secrets even when it is not a credential.
+
+A step-level `if` cannot read the `secrets` context, so both guarded
+secrets are mapped into the job's `env` block and the guards test `env.*`.
+That indirection is why the mapping exists; do not "simplify" it back to
+`secrets.*` in the `if`, which silently evaluates to empty and disables
+the step.
+
 **The nightly sync also needs Actions permitted to open pull requests.**
 `peter-evans/create-pull-request` fails with "GitHub Actions is not
 permitted to create or approve pull requests" unless **Settings → Actions →

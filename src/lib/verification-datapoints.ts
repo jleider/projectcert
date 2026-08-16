@@ -644,3 +644,47 @@ export function datapointIdForCitation(citation: string): string | null {
   if (path === "elpAssessment.sourceUrl") return "elpAssessment.sourceUrl";
   return null;
 }
+
+/**
+ * Every URL the record currently cites, across all provenance-bearing
+ * fields — the same set `scripts/check-external-links.ts` walks.
+ *
+ * This is the authority for whether a reviewer's confirmed source still
+ * exists. Keep the two walks in step: a field the checker fetches but this
+ * omits would make a live citation look orphaned.
+ */
+export function citedUrls(state: StateData): ReadonlySet<string> {
+  const urls = new Set<string>();
+  for (const s of state.sources) urls.add(s.url);
+  for (const ev of state.history ?? []) for (const u of ev.sourceUrls) urls.add(u);
+  for (const obs of state.elPercentHistory ?? []) urls.add(obs.source.url);
+  urls.add(state.sealOfBiliteracy.sourceUrl);
+  if (state.elpAssessment.sourceUrl) urls.add(state.elpAssessment.sourceUrl);
+  return urls;
+}
+
+/**
+ * Whether a reviewer's confirmed source for a datapoint has lapsed — the
+ * URL they attested to is no longer cited anywhere in the record.
+ *
+ * This is a *separate* invalidation axis from content-hash drift, and it
+ * catches what drift cannot. Rewriting a cited URL leaves the fact itself
+ * untouched, so the datapoint's hash is unchanged and its checkmark
+ * survives — but the reviewer's answer to "which source backs this?" now
+ * names a URL the catalog no longer carries. Confirming a fact and
+ * confirming its provenance are two different attestations; the second one
+ * has to lapse here, or a relocated URL leaves a confirmation standing on
+ * a citation the record no longer makes.
+ *
+ * `addedUrls` are the reviewer-supplied URLs for this datapoint (the
+ * `added_sources` table). Those sit deliberately outside the record's own
+ * citations, so they never count as orphaned.
+ */
+export function confirmedSourceLapsed(
+  confirmedUrl: string | undefined,
+  cited: ReadonlySet<string>,
+  addedUrls: readonly string[] = [],
+): boolean {
+  if (!confirmedUrl) return false;
+  return !cited.has(confirmedUrl) && !addedUrls.includes(confirmedUrl);
+}

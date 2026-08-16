@@ -1,6 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { SECTION_LABELS, type Datapoint, type DatapointSection } from "@/lib/verification-datapoints";
+  import {
+    confirmedSourceLapsed,
+    SECTION_LABELS,
+    type Datapoint,
+    type DatapointSection,
+  } from "@/lib/verification-datapoints";
   import { linkStatusLabel, normalizeSourceUrl } from "@/lib/audit-shared";
 
   export let usps: string;
@@ -103,15 +108,34 @@
     return (broken[d.id]?.length ?? 0) > 0;
   }
 
+  /** The reviewer's confirmed source is no longer offered as a candidate —
+   *  the URL they picked has been rewritten or dropped from the record, so
+   *  their answer to "which source backs this?" names a citation the
+   *  catalog no longer makes. Invisible to the content hash, which only
+   *  covers the value, not its provenance. `attr` and `add` are passed in
+   *  (never read from the closure) so Svelte tracks them as dependencies
+   *  of the template expression and the count. */
+  function isLapsed(
+    d: Datapoint,
+    attr: Record<string, string>,
+    add: Record<string, { url: string; title: string }[]>,
+  ): boolean {
+    const candidates = new Set(candidateSources(d, add).map((s) => s.url));
+    return confirmedSourceLapsed(attr[d.id], candidates);
+  }
+
   // Inline the predicate (rather than calling isCurrent) so Svelte sees
-  // `verifications` and `broken` as dependencies of this reactive
-  // statement — a bare isCurrent() call hides those reads inside a
-  // function, so the count would never recompute when a checkbox toggles.
+  // `verifications`, `broken`, `attributions` and `added` as dependencies
+  // of this reactive statement — a bare isCurrent() call hides those reads
+  // inside a function, so the count would never recompute when a checkbox
+  // toggles. `isLapsed` is called with its state passed in for the same
+  // reason: the identifiers appear here, so the read is visible.
   $: verifiedCount = datapoints.filter(
     (d) =>
       Boolean(verifications[d.id]) &&
       verifications[d.id]!.content_hash === d.contentHash &&
-      (broken[d.id]?.length ?? 0) === 0,
+      (broken[d.id]?.length ?? 0) === 0 &&
+      !isLapsed(d, attributions, added),
   ).length;
   $: pct = datapoints.length > 0 ? Math.round((verifiedCount / datapoints.length) * 100) : 0;
 
@@ -392,6 +416,7 @@
             {@const checkedNow = Boolean(verifications[d.id])}
             {@const stale = isStale(d)}
             {@const brk = isBroken(d)}
+            {@const lapsed = checkedNow && isLapsed(d, attributions, added)}
             <li class="rounded border border-ink-subtle/20 p-3">
               <div class="flex items-start gap-3">
                 <input
@@ -414,12 +439,20 @@
                     <!-- The source is "confirmed" exactly while the datapoint's
                          own checkbox is checked (verifying endorses the shown
                          source); unchecking reverts it to unconfirmed. The radio
-                         only controls WHICH source is shown, not this label. -->
-                    {@const isConfirmed = checkedNow}
+                         only controls WHICH source is shown, not this label.
+                         A lapsed source is the exception: the checkbox is still
+                         checked, but the URL it endorsed has left the record, so
+                         calling it "Confirmed" would contradict the warning
+                         below and point the reviewer at a citation that is gone. -->
+                    {@const isConfirmed = checkedNow && !lapsed}
                     <div class="mt-1 text-xs">
                       {#if shownSources(d, attributions).length > 0}
                         <span class="text-ink-subtle"
-                          >{isConfirmed ? "Confirmed source:" : "Likely source (unconfirmed):"}</span
+                          >{lapsed
+                            ? "Source no longer cited:"
+                            : isConfirmed
+                              ? "Confirmed source:"
+                              : "Likely source (unconfirmed):"}</span
                         >
                         <ul class="mt-0.5 list-disc pl-5">
                           {#each shownSources(d, attributions) as src (src.url)}
@@ -529,14 +562,40 @@
                     </table>
                   {/if}
 
-                  {#if checkedNow && !stale && !brk}
+                  {#if checkedNow && !stale && !brk && !lapsed}
                     <div class="mt-1 text-xs text-accent">
                       Reviewed by {verifications[d.id]!.verified_by} on {verifications[d.id]!.verified_at.slice(0, 10)}
                     </div>
                   {/if}
+                  <!-- An item that stops counting must say who confirmed it and
+                       why it no longer holds. Without this the earlier review
+                       vanishes from the page and the item reads as though it
+                       had never been looked at, which invites a reviewer to
+                       redo work rather than check the one thing that moved. -->
+                  {#if checkedNow && (stale || brk || lapsed)}
+                    <div class="mt-1 text-xs text-ink-muted">
+                      Confirmed by {verifications[d.id]!.verified_by} on {verifications[d.id]!.verified_at.slice(
+                        0,
+                        10,
+                      )}, and no longer counted for the reason below.
+                    </div>
+                  {/if}
                   {#if stale}
                     <div class="mt-1 text-xs text-ink">
-                      ⚠ The value changed since this was last confirmed — please re-review.
+                      ⚠ The recorded value changed after that confirmation, so the reviewer above confirmed something
+                      other than what is shown now. Please check the current value and re-confirm.
+                    </div>
+                  {/if}
+                  {#if lapsed}
+                    <div class="mt-1 text-xs text-ink">
+                      ⚠ The source confirmed for this item is no longer cited by this record — it was relocated or
+                      removed when the citation was corrected. The value itself has not changed and does not need
+                      re-checking. Please confirm which of the current sources backs it.
+                      <!-- Grouped datapoints do not render the source list above,
+                           so name the departed URL here or it appears nowhere. -->
+                      {#if d.grouped}
+                        <span class="mt-1 block break-all text-ink-muted">{attributions[d.id]}</span>
+                      {/if}
                     </div>
                   {/if}
                   {#if brk}

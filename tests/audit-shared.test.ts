@@ -6,6 +6,7 @@ import {
   normalizeSourceUrl,
   extractTitle,
   linkStatusLabel,
+  parseCheckerReport,
 } from "../src/lib/audit-shared";
 import { DATAPOINT_IDS } from "../src/lib/verification-datapoints";
 
@@ -97,5 +98,29 @@ describe("linkStatusLabel", () => {
     // reviewer reads — that was the bug this helper replaced.
     expect(linkStatusLabel(null)).toBe("No response from host");
     expect(linkStatusLabel(undefined)).toBe("No response from host");
+  });
+});
+
+describe("parseCheckerReport", () => {
+  const report = JSON.stringify({ buckets: { ok: 1 }, results: [{ url: "https://a", classification: "ok" }] });
+
+  it("parses a clean report", () => {
+    expect(parseCheckerReport(report).results).toHaveLength(1);
+  });
+
+  // The exact bytes `npm run check:links -- --json > links.json` produced.
+  // A bare JSON.parse threw on this, and because the weekly sweep's sync
+  // step runs under continue-on-error the failure was swallowed: every run
+  // reported success while writing nothing to the audit store.
+  it("tolerates the npm banner that silently broke the weekly D1 sync", () => {
+    const withBanner = `\n> projectcert@0.1.0 check:links\n> tsx scripts/check-external-links.ts --json\n${report}`;
+    expect(() => JSON.parse(withBanner)).toThrow();
+    expect(parseCheckerReport(withBanner).results).toHaveLength(1);
+  });
+
+  it("throws loudly, with the offending prefix, when there is no JSON at all", () => {
+    // A real breakage must not be mistaken for link drift and shrugged off.
+    expect(() => parseCheckerReport("npm ERR! missing script: check:links")).toThrow(/No JSON object/);
+    expect(() => parseCheckerReport("")).toThrow(/No JSON object/);
   });
 });

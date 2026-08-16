@@ -17,6 +17,7 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { parseCheckerReport } from "../src/lib/audit-shared";
 import { datapointIdForCitation } from "../src/lib/verification-datapoints";
 
 function argValue(flag: string): string | null {
@@ -43,7 +44,7 @@ if (!inputPath || !outPath) {
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+const report = parseCheckerReport(readFileSync(inputPath, "utf8")) as {
   results: CheckerResult[];
 };
 const detectedAt = argValue("--detected-at") ?? new Date().toISOString();
@@ -81,7 +82,15 @@ for (const result of report.results ?? []) {
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`;
 
-const lines: string[] = ["BEGIN TRANSACTION;"];
+// No BEGIN TRANSACTION / COMMIT. D1 rejects explicit SQL transactions
+// outright — "please use the state.storage.transaction() ... APIs instead
+// of the SQL BEGIN TRANSACTION or SAVEPOINT statements" — and fails the
+// whole file, so wrapping these statements meant none of them ran. It
+// looked correct locally because node:sqlite (which the integration tests
+// execute this SQL against) accepts transactions happily. `wrangler d1
+// execute --file` already applies the file as a single atomic batch, so
+// the wrapper bought nothing even where it was accepted.
+const lines: string[] = [];
 const current = [...rows.values()];
 
 if (current.length === 0) {
@@ -98,7 +107,5 @@ if (current.length === 0) {
     );
   }
 }
-lines.push("COMMIT;");
-
 writeFileSync(outPath, lines.join("\n") + "\n");
 console.log(`Wrote ${outPath}: ${current.length} broken-link datapoint rows.`);

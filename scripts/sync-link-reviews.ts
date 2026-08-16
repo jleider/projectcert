@@ -17,6 +17,7 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { parseCheckerReport } from "../src/lib/audit-shared";
 
 function argValue(flag: string): string | null {
   const i = process.argv.indexOf(flag);
@@ -37,7 +38,7 @@ if (!inputPath || !outPath) {
   process.exit(2);
 }
 
-const report = JSON.parse(readFileSync(inputPath, "utf8")) as {
+const report = parseCheckerReport(readFileSync(inputPath, "utf8")) as {
   results: CheckerResult[];
 };
 const seenAt = argValue("--seen-at") ?? new Date().toISOString();
@@ -46,7 +47,9 @@ const pending = (report.results ?? []).filter((r) => r.classification === "needs
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`;
 
-const lines: string[] = ["BEGIN TRANSACTION;"];
+// No BEGIN TRANSACTION / COMMIT — D1 rejects explicit SQL transactions and
+// fails the entire file. See the note in sync-broken-links.ts.
+const lines: string[] = [];
 
 if (pending.length === 0) {
   lines.push("DELETE FROM link_reviews WHERE decision = 'pending';");
@@ -60,16 +63,30 @@ if (pending.length === 0) {
     // previously-accepted URL whose status changed — in both cases the row
     // must end up 'pending' with the acceptance cleared (re-flag). first_seen
     // is preserved; status/classification/last_seen are refreshed.
+    //
+    // A URL a reviewer marked 'dead' is the exception, and the WHERE clause
+    // below is what protects it. A dead URL goes on failing every sweep by
+    // definition, so without the guard each sweep would reset the verdict
+    // to pending and the same person would be asked the same question every
+    // week until someone fixed the citation. Its status and citations are
+    // still refreshed — only the decision and its attribution are held.
     lines.push(
       `INSERT INTO link_reviews (url, status, classification, citations, first_seen, last_seen, decision) ` +
         `VALUES (${q(r.url)}, ${status}, ${q(r.classification)}, ${citations}, ${q(seenAt)}, ${q(seenAt)}, 'pending') ` +
         `ON CONFLICT(url) DO UPDATE SET status = excluded.status, classification = excluded.classification, ` +
         `citations = excluded.citations, last_seen = excluded.last_seen, ` +
-        `decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, accepted_status = NULL;`,
+        `decision = 'pending', reviewed_by = NULL, reviewed_at = NULL, accepted_status = NULL ` +
+        `WHERE link_reviews.decision <> 'dead';`,
+    );
+    // The guard above skips the whole update for a dead row, so refresh the
+    // observation separately — a maintainer fixing the citation wants to see
+    // where it is cited now, not where it was when it was first marked.
+    lines.push(
+      `UPDATE link_reviews SET status = ${status}, classification = ${q(r.classification)}, ` +
+        `citations = ${citations}, last_seen = ${q(seenAt)} ` +
+        `WHERE url = ${q(r.url)} AND decision = 'dead';`,
     );
   }
 }
-lines.push("COMMIT;");
-
 writeFileSync(outPath, lines.join("\n") + "\n");
 console.log(`Wrote ${outPath}: ${pending.length} pending bot-blocked URLs.`);

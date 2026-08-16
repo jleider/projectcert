@@ -2,12 +2,13 @@
  * Integration test for the /api/* Pages Functions.
  *
  * Runs the real handler code against a real SQLite database (Node's
- * built-in `node:sqlite`) created from the actual `schema/d1/0001_init.sql`,
- * via a minimal D1-compatible shim. This exercises the handlers, the
- * shared validation helpers, and the SQL itself end-to-end.
+ * built-in `node:sqlite`) created from the actual migrations in
+ * `schema/d1/`, via a minimal D1-compatible shim. This exercises the
+ * handlers, the shared validation helpers, and the SQL itself end-to-end.
  */
 
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -33,7 +34,15 @@ import {
 import { onRequest as middleware } from "../functions/api/_middleware";
 import { onRequest as pageMiddleware } from "../functions/audit/_middleware";
 
-const SCHEMA = readFileSync("schema/d1/0001_init.sql", "utf8");
+// Every migration in order, not just the initial one. Pinning 0001 meant
+// the tests ran against a schema production had already moved past: a
+// constraint introduced by a later migration would be missing here, so a
+// write the real database rejects would pass in tests, or the reverse.
+const SCHEMA = readdirSync("schema/d1")
+  .filter((f) => f.endsWith(".sql"))
+  .sort()
+  .map((f) => readFileSync(join("schema/d1", f), "utf8"))
+  .join("\n");
 
 // Minimal D1Database shim over node:sqlite. node:sqlite binds numbered
 // (?1..?N) parameters positionally, matching D1's API.
@@ -353,6 +362,46 @@ describe("/api/link-reviews", () => {
     expect((await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "maybe" } }))).status).toBe(
       400,
     );
+  });
+
+  it("records a page found gone, attributed and without an accepted status", async () => {
+    const res = await lrPost(
+      ctx({ method: "POST", body: { url: "https://azed.gov", decision: "dead", note: "404 in browser" } }),
+    );
+    expect(res.status).toBe(200);
+    const row = db
+      .prepare(`SELECT decision, reviewed_by, note, accepted_status FROM link_reviews WHERE url = 'https://azed.gov'`)
+      .get() as Record<string, unknown>;
+    // accepted_status stays null: it exists so a sweep can notice an
+    // accepted URL's response changing, and a dead URL is expected to keep
+    // failing. Leaving the observed status here would later read as an
+    // acceptance at 403.
+    expect(row).toMatchObject({
+      decision: "dead",
+      reviewed_by: "reviewer@example.org",
+      note: "404 in browser",
+      accepted_status: null,
+    });
+  });
+
+  it("keeps a dead URL out of the accepted set the whitelist is built from", async () => {
+    await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "dead" } }));
+    // The nightly export selects decision = 'accepted'. A dead URL reaching
+    // the whitelist would tell the checker a broken link is fine, which is
+    // the exact failure this decision exists to prevent.
+    const accepted = db.prepare(`SELECT url FROM link_reviews WHERE decision = 'accepted'`).all();
+    expect(accepted).toEqual([]);
+  });
+
+  it("can be reverted to pending when the page comes back", async () => {
+    await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "dead" } }));
+    expect((await lrPost(ctx({ method: "POST", body: { url: "https://azed.gov", decision: "pending" } }))).status).toBe(
+      200,
+    );
+    const row = db
+      .prepare(`SELECT decision, reviewed_by FROM link_reviews WHERE url = 'https://azed.gov'`)
+      .get() as Record<string, unknown>;
+    expect(row).toMatchObject({ decision: "pending", reviewed_by: null });
   });
 });
 
