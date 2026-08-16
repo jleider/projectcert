@@ -18,11 +18,23 @@ export const SITE_NAME = "projectcert";
  * rewriter — that does not reach responses served by Pages, so the
  * automatic route produced no beacon at all on this site.
  *
- * An empty string disables the beacon, so local and preview builds emit
- * nothing without needing a conditional anywhere else.
+ * Annotated `string` deliberately. Without it TypeScript infers a literal
+ * type, and `astro check` — which the build runs at
+ * `--minimumFailingSeverity hint` — flags the guard in BaseLayout as a
+ * condition whose result is already known. An empty string disables the
+ * beacon, so local and preview builds emit nothing.
  */
-// Annotated `string` deliberately. Without it TypeScript infers a literal
-// type, and `astro check` — which the build runs at
-// `--minimumFailingSeverity hint` — flags the guard in BaseLayout as a
-// condition whose result is already known.
 export const WEB_ANALYTICS_TOKEN: string = "3d9f1bb2d43748fe9ad4b2b0861c56df";
+
+/** Public repository. Linked wherever the site refers to its own source. */
+export const REPO_URL = "https://github.com/jleider/projectcert";
+
+/**
+ * Where privacy enquiries go, linked from `/privacy/`.
+ *
+ * The issue tracker rather than an address: no mailbox is published on a
+ * page crawlers are invited to read, and it needs no separate form to
+ * maintain. An empty string omits the contact section rather than
+ * rendering a dead link.
+ */
+export const PRIVACY_CONTACT_URL: string = `${REPO_URL}/issues`;

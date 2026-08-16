@@ -1,6 +1,11 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "entry": ["functions/**/*.ts", "scripts/fetch-state-seals.ts", "scripts/optimize-map-topology.ts"],
+  "entry": [
+    "functions/**/*.ts",
+    "scripts/fetch-state-seals.ts",
+    "scripts/optimize-map-topology.ts",
+    "scripts/generate-og-card.ts"
+  ],
   "project": ["src/**/*.{ts,astro,svelte}", "scripts/**/*.ts", "functions/**/*.ts", "tests/**/*.ts"],
   "ignore": ["tests/astro-content-stub.ts"],
   "ignoreDependencies": ["us-atlas"],

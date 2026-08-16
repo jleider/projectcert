@@ -1,0 +1,147 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
+import { PRIVACY_CONTACT_URL, REPO_URL, SITE_NAME, SITE_URL } from "@/config/site";
+import { breadcrumbWithHome } from "@/lib/jsonld";
+import { ROUTES } from "@/lib/routes";
+
+/**
+ * The statements below are checked against the deployment, not aspirational:
+ * the site sets no cookies (no `Set-Cookie` header is emitted on any public
+ * page), uses no `localStorage`, `sessionStorage`, or `document.cookie`, and
+ * loads exactly one third-party script — the Cloudflare Web Analytics beacon
+ * declared in `BaseLayout.astro`. Re-verify before amending this page.
+ */
+const EFFECTIVE_DATE = "2026-08-16";
+
+const jsonLd = breadcrumbWithHome([{ name: "Privacy", url: ROUTES.privacy }]);
+---
+
+<BaseLayout
+  title="Privacy"
+  description="What projectcert collects, why, and for how long. The catalog uses cookieless analytics, sets no cookies, and requires no account to read any public page."
+  jsonLd={jsonLd}
+>
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold text-ink">Privacy</h1>
+    <p class="mt-2 text-sm text-ink-subtle">Effective {EFFECTIVE_DATE}</p>
+
+    <p class="mt-4 font-serif text-ink-muted">
+      {SITE_NAME} is a public research catalog. Reading any page of it requires no account, no sign-in, and no personal information.
+      The site sets no cookies, stores nothing in the browser, and does not track visitors between sites or build advertising
+      profiles.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">What is collected</h2>
+    <p class="mt-2 text-ink-muted">
+      Two categories of data arise from ordinary use of the site, both processed by Cloudflare, which serves the
+      catalog.
+    </p>
+
+    <h3 class="mt-6 text-base font-semibold text-ink">Aggregate usage measurement</h3>
+    <p class="mt-2 text-ink-muted">
+      Public pages load Cloudflare Web Analytics. It records page views, referring pages, approximate country, and
+      browser and operating-system family. It sets no cookie and assigns no persistent browser identifier: visitor
+      uniqueness is derived from the IP address, user-agent string, and other request headers, which are hashed and then
+      discarded rather than stored. Because nothing is written to or read from the visitor's device, no consent banner
+      is required under the ePrivacy Directive. The measurement is nevertheless described here because IP addresses and
+      user-agent strings are personal data under the General Data Protection Regulation.
+    </p>
+    <p class="mt-2 text-ink-muted">
+      The analytics beacon is loaded on public pages only. The reviewer console and the embeddable map carry no
+      analytics, so a site embedding the map does not report its visitors to this catalog.
+    </p>
+
+    <h3 class="mt-6 text-base font-semibold text-ink">Network and security logs</h3>
+    <p class="mt-2 text-ink-muted">
+      Cloudflare processes request metadata — IP address, timestamp, requested path, user agent — in the course of
+      delivering the site and protecting it from abuse. This processing is inherent to serving a website over the public
+      internet and is performed by Cloudflare as a processor under its own retention schedule.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">The reviewer console</h2>
+    <p class="mt-2 text-ink-muted">
+      A separate, access-controlled area of the site allows authorized reviewers to confirm individual data points
+      against source documents. It is not public and is excluded from search indexing. Authentication is handled by
+      Cloudflare Access against an explicit list of permitted email addresses.
+    </p>
+    <p class="mt-2 text-ink-muted">
+      A reviewer's email address is recorded alongside each confirmation that reviewer makes, together with the date and
+      a fingerprint of the value as it stood at that moment. That record is deliberate: a catalog that reports data as
+      verified must be able to say who verified it and against what. Reviewer identities are not published; the public
+      pages report only how many data points have been confirmed.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">What is not done</h2>
+    <ul class="mt-2 list-disc pl-5 space-y-1 text-ink-muted">
+      <li>No cookies are set, and no data is stored in the browser.</li>
+      <li>No advertising, no advertising networks, and no cross-site tracking.</li>
+      <li>No personal data is sold, rented, or shared for marketing.</li>
+      <li>No accounts, newsletters, or mailing lists exist for the public site.</li>
+      <li>No third-party scripts load other than the analytics beacon described above.</li>
+    </ul>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">Processors and transfers</h2>
+    <p class="mt-2 text-ink-muted">
+      Cloudflare, Inc. hosts the site, serves it through its global network, and provides the analytics and access
+      control described above. Its handling of personal data is governed by its own privacy commitments, which are
+      published at <ExternalLink href="https://www.cloudflare.com/privacypolicy/"
+        >cloudflare.com/privacypolicy</ExternalLink
+      >. No other processor receives data from this site.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">Links to state education agency sources</h2>
+    <p class="mt-2 text-ink-muted">
+      Every fact in the catalog cites a source document, most of which are hosted by state education agencies or
+      legislatures. Following such a link leaves this site, and the destination's own privacy practices apply. This
+      catalog receives no information about which external links a visitor follows.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">Retention</h2>
+    <p class="mt-2 text-ink-muted">
+      No visitor-level records are retained by this catalog. Analytics data exists only in aggregate form within
+      Cloudflare's dashboard, and the identifiers used to compute it are discarded at the point of collection. Reviewer
+      confirmations persist for as long as the catalog reports the corresponding data as verified, because the
+      provenance claim depends on them.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">Legal basis and rights</h2>
+    <p class="mt-2 text-ink-muted">
+      Where the General Data Protection Regulation applies, the processing described above rests on legitimate interests
+      under Article 6(1)(f): operating and securing a public research resource and understanding its aggregate use. Data
+      subjects hold the rights set out in Articles 15 to 21, including access, rectification, erasure, and objection. In
+      practice, because no visitor-level records are retained, there is generally no individual record to retrieve or
+      delete.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">Children</h2>
+    <p class="mt-2 text-ink-muted">
+      The catalog documents teacher certification policy and is intended for researchers, policymakers, teacher
+      educators, and journalists. It is not directed at children and collects no information from them knowingly.
+    </p>
+
+    <h2 class="mt-8 text-lg font-semibold text-ink">Changes</h2>
+    <p class="mt-2 text-ink-muted">
+      Material changes to this policy will be reflected in the effective date above. Because the site is published from
+      a public repository, the full revision history of this page is preserved in the
+      <ExternalLink href={REPO_URL}>project source</ExternalLink>.
+    </p>
+
+    {
+      PRIVACY_CONTACT_URL && (
+        <>
+          <h2 class="mt-8 text-lg font-semibold text-ink">Contact</h2>
+          <p class="mt-2 text-ink-muted">
+            Enquiries about this policy, and requests relating to the rights described above, may be raised on the{" "}
+            <ExternalLink href={PRIVACY_CONTACT_URL}>project issue tracker</ExternalLink>.
+          </p>
+        </>
+      )
+    }
+
+    <p class="mt-10 text-sm text-ink-subtle">
+      This policy covers <a class="text-accent hover:underline" href={ROUTES.home}>{SITE_URL}</a> and every page served from
+      it.
+    </p>
+  </article>
+</BaseLayout>
