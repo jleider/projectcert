@@ -1,1 +1,84 @@
-{}
+{
+  "AK": {
+    "verified": [
+      "credentials.bilingual.addOn",
+      "credentials.bilingual.offered",
+      "credentials.bilingual.requirements.coursework",
+      "credentials.bilingual.requirements.languageProficiency",
+      "credentials.bilingual.requirements.practicum",
+      "credentials.bilingual.requirements.program",
+      "credentials.bilingual.requirements.test",
+      "credentials.bilingual.standalone",
+      "credentials.eld.addOn",
+      "credentials.eld.offered",
+      "credentials.eld.requirements.coursework",
+      "credentials.eld.requirements.practicum",
+      "credentials.eld.requirements.program",
+      "credentials.eld.requirements.test",
+      "credentials.eld.standalone",
+      "credentials.sei.mandatedForAllTeachers",
+      "elPercent",
+      "elPercentAsOf",
+      "elPercentHistory",
+      "elpAssessment.consortium",
+      "elpAssessment.name",
+      "elpAssessment.sourceUrl",
+      "history",
+      "professionalStandardsMentions.cultural",
+      "professionalStandardsMentions.diverse",
+      "professionalStandardsMentions.el",
+      "professionalStandardsMentions.linguistic",
+      "sealOfBiliteracy.adopted",
+      "sealOfBiliteracy.sourceUrl",
+      "sealOfBiliteracy.year",
+      "sources"
+    ],
+    "verifiedAt": {
+      "elPercent": "2026-08-19T04:25:27.822Z",
+      "elPercentAsOf": "2026-08-19T04:25:41.301Z",
+      "credentials.bilingual.offered": "2026-08-19T04:26:07.101Z",
+      "credentials.bilingual.standalone": "2026-08-19T04:26:29.420Z",
+      "credentials.bilingual.addOn": "2026-08-19T04:26:49.956Z",
+      "credentials.bilingual.requirements.program": "2026-08-19T04:27:45.675Z",
+      "credentials.bilingual.requirements.coursework": "2026-08-19T04:28:08.840Z",
+      "credentials.bilingual.requirements.practicum": "2026-08-19T04:29:17.772Z",
+      "credentials.bilingual.requirements.test": "2026-08-19T04:30:30.255Z",
+      "credentials.bilingual.requirements.languageProficiency": "2026-08-19T04:38:49.650Z",
+      "credentials.eld.offered": "2026-08-19T04:45:37.486Z",
+      "credentials.eld.standalone": "2026-08-19T04:45:47.560Z",
+      "credentials.eld.addOn": "2026-08-19T04:45:52.026Z",
+      "credentials.eld.requirements.program": "2026-08-19T04:45:57.390Z",
+      "credentials.eld.requirements.coursework": "2026-08-19T04:46:06.445Z",
+      "elpAssessment.name": "2026-08-19T04:47:29.348Z",
+      "elpAssessment.consortium": "2026-08-19T04:47:31.398Z",
+      "elpAssessment.sourceUrl": "2026-08-19T04:47:34.059Z",
+      "sealOfBiliteracy.year": "2026-08-19T04:48:01.107Z",
+      "sealOfBiliteracy.adopted": "2026-08-19T04:48:02.353Z",
+      "sealOfBiliteracy.sourceUrl": "2026-08-19T04:48:13.928Z",
+      "credentials.eld.requirements.practicum": "2026-08-19T04:51:00.283Z",
+      "credentials.eld.requirements.test": "2026-08-19T04:51:06.296Z",
+      "credentials.sei.mandatedForAllTeachers": "2026-08-19T04:52:50.430Z",
+      "sources": "2026-08-19T04:53:45.343Z",
+      "elPercentHistory": "2026-08-19T04:54:20.587Z",
+      "history": "2026-08-19T04:57:26.337Z",
+      "professionalStandardsMentions.diverse": "2026-08-19T04:57:36.585Z",
+      "professionalStandardsMentions.cultural": "2026-08-19T04:57:40.416Z",
+      "professionalStandardsMentions.linguistic": "2026-08-19T04:57:41.465Z",
+      "professionalStandardsMentions.el": "2026-08-19T04:57:43.240Z"
+    },
+    "count": 31,
+    "total": 32,
+    "stale": []
+  },
+  "AL": {
+    "verified": [
+      "elPercent"
+    ],
+    "verifiedAt": {
+      "elPercent": "2026-08-16T18:45:12.750Z"
+    },
+    "count": 1,
+    "total": 32,
+    "stale": []
+  }
+}
