@@ -37,11 +37,11 @@
     "@fontsource-variable/ibm-plex-sans": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/ibm-plex-serif": "^5.3.0",
-    "astro": "^7.2.2",
+    "astro": "^7.2.4",
     "autoprefixer": "^10.5.4",
     "d3-geo": "^3.1.1",
     "postcss": "^8.5.26",
-    "svelte": "^5.56.9",
+    "svelte": "^5.56.10",
     "tailwindcss": "^3.4.19",
     "topojson-client": "^3.1.0",
     "typescript": "^6.0.3",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
-    "@cloudflare/workers-types": "^5.20260816.1",
+    "@cloudflare/workers-types": "^5.20260822.1",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.62.1",
     "@types/d3-geo": "^3.1.1",
@@ -59,11 +59,11 @@
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-simplify": "^3.0.3",
     "@types/topojson-specification": "^1.0.5",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^3.1.0",
     "eslint-plugin-svelte": "^3.23.0",
-    "jose": "^6.2.9",
+    "jose": "^6.2.10",
     "knip": "^6.32.2",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
@@ -73,7 +73,7 @@
     "topojson-simplify": "^3.0.3",
     "tsx": "^4.23.12",
     "typescript-eslint": "^8.67.0",
-    "vitest": "^4.1.10",
-    "wrangler": "^4.123.0"
+    "vitest": "^4.1.11",
+    "wrangler": "^4.125.0"
   }
 }
