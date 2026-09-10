@@ -73,7 +73,7 @@
     "topojson-simplify": "^3.0.3",
     "tsx": "^4.23.12",
     "typescript-eslint": "^8.67.0",
-    "vitest": "^4.1.10",
+    "vitest": "^4.1.11",
     "wrangler": "^4.123.0"
   }
 }
