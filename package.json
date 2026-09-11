@@ -68,12 +68,12 @@
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^4.1.1",
-    "sharp": "^0.35.3",
+    "sharp": "^0.35.4",
     "svelte-eslint-parser": "^1.8.1",
     "topojson-simplify": "^3.0.3",
     "tsx": "^4.23.12",
     "typescript-eslint": "^8.67.0",
     "vitest": "^4.1.10",
-    "wrangler": "^4.123.0"
+    "wrangler": "^4.131.0"
   }
 }
