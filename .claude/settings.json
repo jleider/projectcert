@@ -1,5 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_SHELL": "bash"
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -7,6 +10,15 @@
           {
             "type": "command",
             "command": "jq -Rs '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":.}}' < .claude/session-start-reminder.txt"
+          }
+        ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "v=$(bash -c 'echo \"${BASH_VERSINFO[0]}\"' 2>/dev/null); [ \"${v:-0}\" -ge 4 ] 2>/dev/null || printf '%s\\n' '{\"systemMessage\":\"Claude Code runs its Bash tool in the first bash on PATH (CLAUDE_CODE_SHELL=bash), which is missing or older than 4. Run `brew install bash` and restart Claude Code.\",\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"The first bash on PATH is missing or older than 4, so Bash tool commands run in bash 3.2 or the login shell. Tell the user to run `brew install bash` and restart Claude Code.\"}}'"
           }
         ]
       }
